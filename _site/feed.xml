@@ -7,211 +7,92 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>Announcing Version 2.0</title>
-        <description>&lt;p&gt;In an effort to make Pixyll easier to customize and more aesthetically pleasing, we’ve release version &lt;code class=&quot;highlighter-rouge&quot;&gt;2.0&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Pixyll now features:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Line anchors in code blocks and new syntax highlighting&lt;/li&gt;
-  &lt;li&gt;A customizable variables file&lt;/li&gt;
-  &lt;li&gt;Modular, and lighter weight CSS&lt;/li&gt;
-  &lt;li&gt;No more &lt;code class=&quot;highlighter-rouge&quot;&gt;max-width&lt;/code&gt; media queries&lt;/li&gt;
-&lt;/ul&gt;
+        <title>Making the Grade by Prof. Kurt Wiesenfeld</title>
+        <description>&lt;p&gt;(Ref: http://users.ece.gatech.edu/~mleach/myturn/makingthegrade.html)&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;IT WAS A ROOKIE ERROR. AFTER 10 YEARS I SHOULD HAVE&lt;/small&gt; known better, but I went to my office the day after final grades were posted. There was a tentative knock on the door. &quot;Professor Wiesenfeld? I took your Physics 2121 class? I flunked it? I was wonder if there's anything I can do to improve my grade?&quot; I thought, &quot;Why are you asking me? Isn't it too late to worry about it? Do you dislike making declarative statements&quot;&lt;br /&gt;
+&lt;img src=&quot;/assets/b.gif&quot; alt=&quot;&quot; /&gt;After the student gave his tale of woe and left, the phone rang. &quot;I got a D in your class. Is there any way you can change it to 'Incomplete'?&quot; Then the e-mail assault began: &quot;I'm shy about coming in to talk to you, but I'm not shy about asking for a better grade. Anyway, it's worth a try.&quot; The next day I had three phone messages from students asking &lt;i&gt;me&lt;/i&gt; to call &lt;i&gt;them&lt;/i&gt;. I didn't.&lt;br /&gt;
+&lt;img src=&quot;/assets/b.gif&quot; alt=&quot;&quot; /&gt;Time was, when you received a grade, that was it. You might groan and moan, but you accepted it as the outcome of your efforts or lack thereof (and, yes, sometimes a tough grader). In the last few years, however, some students have developed a disgruntled-consumer approach. If they don’t like their grade, they go to the &quot;return&quot; counter to trade it in for something better.&lt;br /&gt;
+&lt;img src=&quot;/assets/b.gif&quot; alt=&quot;&quot; /&gt;What alarms me is their indifference towards grades as an indication of personal effort and performance. Many, when pressed about why they think they deserve a better grade, admit they don’t deserve one, but would like one anyway. Having been raised on gold stars for effort and smiley faces for self-esteem, they’ve learned that they can get by without hard work and real talent if they can talk the professor into giving them a break. This attitude is beyond cynicism. There's a weird innocence to the assumption that one expects (even deserves) a better grade simply by begging for it. With that outlook, I guess I shouldn’t be as flabbergasted as I was that 12 students asked me to change their grades &lt;i&gt;after&lt;/i&gt; final grades were posted.&lt;br /&gt;
+&lt;img src=&quot;/assets/b.gif&quot; alt=&quot;&quot; /&gt;That’s 10 percent of my class who let three months of midterms, quizzes, and lab reports slide until long past remedy. My graduate student calls it hyperrational thinking: if effort and intelligence don't matter, why should deadlines? What matters is getting a better grade through an undeserved bonus, the academic equivalent of a freebie T shirt or toaster giveaway. Rewards are disconnected from the quality of one’s work. An act and its consequences are unrelated, random events.&lt;br /&gt;
+&lt;img src=&quot;/assets/b.gif&quot; alt=&quot;&quot; /&gt;Their arguments for wheedling better grades often ignore academic performance. Perhaps they feel it’s not relevant. &quot;If my grade isn’t raised to a D I’ll lose my scholarship.&quot; &quot;If you don’t give me a C, I’ll flunk out.&quot; One sincerely overwrought student pleaded, &quot;If I don’t pass, my life is over.&quot; This is tough stuff to deal with. Apparently, I’m responsible for someone’s losing a scholarship, flunking out or deciding whether life has meaning. Perhaps these students see me as a commodities broker with something they want - a grade. Though intrinsically worthless, grades, if properly manipulated, can be traded for what has value: a degree, which means a job, which means money. The one thing college actually offers - a chance to learn - is considered irrelevant, even less than worthless, because of the long hours and hard work required.&lt;br /&gt;
+&lt;img src=&quot;/assets/b.gif&quot; alt=&quot;&quot; /&gt;In a society saturated with surface values, love of knowledge for its own sake does sound eccentric. The benefits of fame and wealth are more obvious. So is it right to blame students for reflecting the superficial values saturating our society?&lt;br /&gt;
+&lt;img src=&quot;/assets/b.gif&quot; alt=&quot;&quot; /&gt;Yes, of course it's right. These guys had better take themselves seriously now, because our country will be forced to take them seriously later, when the stakes are much higher. They must recognize that their attitude is not only self-destructive, but socially destructive. The erosion of quality control – giving appropriate grades for actual accomplishments – is a major concern in my department. One colleague noted that a physics major could obtain a degree without ever answering a written exam question completely. How? By pulling in enough partial credit and extra credit. And by getting breaks on grades.&lt;br /&gt;
+&lt;img src=&quot;/assets/b.gif&quot; alt=&quot;&quot; /&gt;But what happens once she or he graduates and gets a job? That's when the misfortunes of eroding academic standards multiply. We lament that schoolchildren get &quot;kicked upstairs&quot; until they graduate from high school despite being illiterate and mathematically inept, but we seem unconcerned with college graduates whose less blatant deficiencies are far more harmful if their accreditation exceeds their qualifications.&lt;br /&gt;
+&lt;img src=&quot;/assets/b.gif&quot; alt=&quot;&quot; /&gt;Most of my students are science and engineering majors. If they're good at getting partial credit but not at getting the answer right, then the new bridge breaks or the new drug doesn't work. One finds examples here in Atlanta. Last year a light tower in the Olympic Stadium collapsed, killing a worker. It collapsed because an engineer miscalculated how much weight it could hold. A new 12-story dormitory could develop dangerous cracks due to a foundation that's uneven by more than six inches. The error resulted from incorrect data being fed into a computer. I drive past that dorm daily on my way to work, wondering if a foundation crushed under kilotons of weight is repairable, or if this structure will have to be demolished. Two 10,000-pound steel beams at the new natatorium collapsed in March, crashing into the student athletic complex. (Should we give partial credit since no one was hurt?) Those are real-world consequences of errors and lack of expertise.&lt;br /&gt;
+&lt;img src=&quot;/assets/b.gif&quot; alt=&quot;&quot; /&gt;But the lesson is lost on the grade-grousing 10 percent. Say that you won't (not can't but &lt;b&gt;won't&lt;/b&gt;) change the grade they deserve to what they want, and they're frequently bewildered or angry. They don't think it's fair that they're judged according to their performance, not their desires or “potential.” They don't think it's fair that they should jeopardize their scholarships or be in danger of flunking out simply because they could not or did not do their work. But it's more than fair; its necessary to help preserve a minimum standard of quality that our society needs to maintain safety and integrity. I don't know if the 13&lt;sup&gt;&lt;small&gt;th&lt;/small&gt;&lt;/sup&gt;-hour students will learn that lesson, but I've learned mine. From now on, after final grades are posted, I'll lie low until the next quarter starts.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/b.gif&quot; alt=&quot;&quot; /&gt;&lt;small&gt;WIESENFELD&lt;/small&gt;, &lt;i&gt;a physicist, teaches at Georgia Tech in Atlanta.&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;From &lt;small&gt;NEWSWEEK JUNE 17, 1996&lt;/small&gt;&lt;/p&gt;
 </description>
-        <pubDate>Sat, 11 Jul 2015 00:00:00 +0530</pubDate>
-        <link>http://localhost:4000/jekyll/pixyll/2015/07/11/announcing-pixyll-version-2/</link>
-        <guid isPermaLink="true">http://localhost:4000/jekyll/pixyll/2015/07/11/announcing-pixyll-version-2/</guid>
+        <pubDate>Mon, 08 Dec 2014 00:26:33 +0530</pubDate>
+        <link>http://localhost:4000/topmenu/2014/12/08/making-the-grade/</link>
+        <guid isPermaLink="true">http://localhost:4000/topmenu/2014/12/08/making-the-grade/</guid>
       </item>
     
       <item>
-        <title>Hello, Pixyll</title>
-        <description>&lt;p&gt;Hello.&lt;/p&gt;
-
-&lt;p&gt;Pixyll is a simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff. It’s mobile &lt;em&gt;first&lt;/em&gt;, fluidly responsive, and delightfully lightweight.&lt;/p&gt;
-
-&lt;p&gt;It’s pretty minimal, but leverages large type and drastic contrast to make a statement, on all devices.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;
-    Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.
-  &lt;/p&gt;
-  &lt;footer&gt;&lt;cite title=&quot;Antoine de Saint-Exupéry&quot;&gt;Antoine de Saint-Exupéry&lt;/cite&gt;&lt;/footer&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;where-is-it&quot;&gt;Where is it?&lt;/h2&gt;
-
-&lt;p&gt;Checkout the &lt;a href=&quot;https://github.com/johnotander/pixyll&quot;&gt;Github repository&lt;/a&gt; to download it, request a feature, or report a bug.&lt;/p&gt;
-
-&lt;p&gt;It’s free, and open source (&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;MIT&lt;/a&gt;).&lt;/p&gt;
-</description>
-        <pubDate>Wed, 11 Jun 2014 15:31:19 +0000</pubDate>
-        <link>http://localhost:4000/jekyll/pixyll/2014/06/11/welcome-to-pixyll/</link>
-        <guid isPermaLink="true">http://localhost:4000/jekyll/pixyll/2014/06/11/welcome-to-pixyll/</guid>
-      </item>
-    
-      <item>
-        <title>Pixyll in Action</title>
-        <description>&lt;p&gt;There is a significant amount of subtle, yet precisely calibrated, styling to ensure
-that your content is emphasized while still looking aesthetically pleasing.&lt;/p&gt;
-
-&lt;p&gt;All links are easy to &lt;a href=&quot;#&quot;&gt;locate and discern&lt;/a&gt;, yet don’t detract from the &lt;a href=&quot;#&quot;&gt;harmony
-of a paragraph&lt;/a&gt;. The &lt;em&gt;same&lt;/em&gt; goes for italics and &lt;strong&gt;bold&lt;/strong&gt; elements. Even the the strikeout
-works if &lt;del&gt;for some reason you need to update your post&lt;/del&gt;. For consistency’s sake,
-&lt;ins&gt;The same goes for insertions&lt;/ins&gt;, of course.&lt;/p&gt;
-
-&lt;h3 id=&quot;code-with-syntax-highlighting&quot;&gt;Code, with syntax highlighting&lt;/h3&gt;
-
-&lt;p&gt;Here’s an example of some ruby code with line anchors.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# The most awesome of classes&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Awesome&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
-  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;EvenMoreAwesome&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;validates_presence_of&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:something&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;email_format: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;favorite_number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'created awesomeness'&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;email_format&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=~&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/\S+@\S+\.\S+/&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Here’s some CSS:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nc&quot;&gt;.foobar&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;/* Named colors rule */&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;tomato&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Here’s some JavaScript:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isPresent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'is-present'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;doStuff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;things&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isPresent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;things&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;doOtherStuff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;things&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Here’s some HTML:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;m0 p0 bg-blue white&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h3&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;h1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Hello, world!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h3&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h1 id=&quot;headings&quot;&gt;Headings!&lt;/h1&gt;
-
-&lt;p&gt;They’re responsive, and well-proportioned (in &lt;code class=&quot;highlighter-rouge&quot;&gt;padding&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;line-height&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;margin&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;font-size&lt;/code&gt;).
-They also heavily rely on the awesome utility, &lt;a href=&quot;http://www.basscss.com/&quot;&gt;BASSCSS&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h5 id=&quot;they-draw-the-perfect-amount-of-attention&quot;&gt;They draw the perfect amount of attention&lt;/h5&gt;
-
-&lt;p&gt;This allows your content to have the proper informational and contextual hierarchy. Yay.&lt;/p&gt;
-
-&lt;h3 id=&quot;there-are-lists-too&quot;&gt;There are lists, too&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Apples&lt;/li&gt;
-  &lt;li&gt;Oranges&lt;/li&gt;
-  &lt;li&gt;Potatoes&lt;/li&gt;
-  &lt;li&gt;Milk&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Mow the lawn&lt;/li&gt;
-  &lt;li&gt;Feed the dog&lt;/li&gt;
-  &lt;li&gt;Dance&lt;/li&gt;
+        <title>Principles of Mediocrity</title>
+        <description>&lt;ol&gt;
+&lt;li&gt;Apathy&lt;/li&gt;
+&lt;li&gt;Lethargy&lt;/li&gt;
+&lt;li&gt;Fear&lt;/li&gt;
+&lt;li&gt;Entanglement&lt;/li&gt;
+&lt;li&gt;Polyfocus&lt;/li&gt;
+&lt;li&gt;Frigidity&lt;/li&gt;
+&lt;li&gt;Consensus&lt;/li&gt;
+&lt;li&gt;Neophobia&lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;h3 id=&quot;images-look-great-too&quot;&gt;Images look great, too&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/1424573/3378137/abac6d7c-fbe6-11e3-8e09-55745b6a8176.png&quot; alt=&quot;desk&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/1424573/3378137/abac6d7c-fbe6-11e3-8e09-55745b6a8176.png&quot; alt=&quot;desk&quot; /&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;there-are-also-pretty-colors&quot;&gt;There are also pretty colors&lt;/h3&gt;
-
-&lt;p&gt;Also the result of &lt;a href=&quot;http://www.basscss.com/&quot;&gt;BASSCSS&lt;/a&gt;, you can &lt;span class=&quot;bg-dark-gray white&quot;&gt;highlight&lt;/span&gt; certain components
-of a &lt;span class=&quot;red&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;mid-gray&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;green&quot;&gt;CSS&lt;/span&gt; &lt;span class=&quot;orange&quot;&gt;classes&lt;/span&gt;.&lt;/p&gt;
-
-&lt;p&gt;I don’t recommend using blue, though. It looks like a &lt;span class=&quot;blue&quot;&gt;link&lt;/span&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;footnotes&quot;&gt;Footnotes!&lt;/h3&gt;
-
-&lt;p&gt;Markdown footnotes are supported, and they look great! Simply put e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;[^1]&lt;/code&gt; where you want the footnote to appear,&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; and then add
-the reference at the end of your markdown.&lt;/p&gt;
-
-&lt;h3 id=&quot;stylish-blockquotes-included&quot;&gt;Stylish blockquotes included&lt;/h3&gt;
-
-&lt;p&gt;You can use the markdown quote syntax, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt; for simple quotes.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis porta mauris.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;However, you need to inject html if you’d like a citation footer. I will be working on a way to
-hopefully sidestep this inconvenience.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;
-    Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.
-  &lt;/p&gt;
-  &lt;footer&gt;&lt;cite title=&quot;Antoine de Saint-Exupéry&quot;&gt;Antoine de Saint-Exupéry&lt;/cite&gt;&lt;/footer&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;theres-more-being-added-all-the-time&quot;&gt;There’s more being added all the time&lt;/h3&gt;
-
-&lt;p&gt;Checkout the &lt;a href=&quot;https://github.com/johnotander/pixyll&quot;&gt;Github repository&lt;/a&gt; to request,
-or add, features.&lt;/p&gt;
-
-&lt;p&gt;Happy writing.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;footnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;Important information that may distract from the main text can go in footnotes.&amp;nbsp;&lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
+</description>
+        <pubDate>Mon, 08 Dec 2014 00:09:46 +0530</pubDate>
+        <link>http://localhost:4000/topmenu/2014/12/08/principles-of-mediocrity/</link>
+        <guid isPermaLink="true">http://localhost:4000/topmenu/2014/12/08/principles-of-mediocrity/</guid>
+      </item>
+    
+      <item>
+        <title>Quotable Quotes</title>
+        <description>&lt;p&gt;I won things;&lt;br /&gt;
+They don’t own me.&lt;br /&gt;
+They don’t define me.&lt;/p&gt;
+&lt;p&gt;Disasters are not accidents; They are failure points of the system.&lt;/p&gt;
+&lt;p&gt;Amorality is a double-edged sword. It drives a person either towards divinity or towards craziness.&lt;/p&gt;
+&lt;p&gt;Poverty dehumanizes everyone involved with it. Moral poverty is the worst kind of poverty.&lt;/p&gt;
+&lt;p&gt;Creativity is dependent on passion, not on cost.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 08 Dec 2014 00:01:43 +0530</pubDate>
+        <link>http://localhost:4000/topmenu/2014/12/08/quotes/</link>
+        <guid isPermaLink="true">http://localhost:4000/topmenu/2014/12/08/quotes/</guid>
+      </item>
+    
+      <item>
+        <title>Giant Steps by Margaret Perkin</title>
+        <description>&lt;div class=&quot;entry fix&quot;&gt;
+&lt;p&gt;Once upon a time, in a land far away, there lived an enormous giant. He was at least ten feet tall, with a mop of red hair and a beard, and in his hand he carried a mighty axe.&lt;/p&gt;
+&lt;p&gt;Every year, on the same day, at the same time, the giant would walk down from the mountains which were his home, to stand outside the castle walls, terrorizing the inhabitants.&lt;/p&gt;
+&lt;p&gt;‘Come, send me your bravest man, I will fight him,’ the giant would shout, towering over the wall and waving his axe menacingly. ‘Send me someone to fight, or I will knock down your castle walls and kill everyone with my axe.&lt;/p&gt;
+&lt;p&gt;And every year, the gate in the castle wall would open slowly and fearfully, and one poor, valiant soul would walk out to face the foe and certain death.&lt;/p&gt;
+&lt;p&gt;‘Is this the best you can do?’ the giant would laugh mockingly. The poor wretch would stand, mesmerized by the enormity of the giant and the task in hand. Not one person had even managed to draw his sword, before the giant would crush them with his mighty fist, and chop them into tiny pieces with his axe.&lt;/p&gt;
+&lt;p&gt;But then one day, a young prince arrived in the town. ‘Why does everyone here look so frightened and sad?’ he asked a fellow traveler.&lt;/p&gt;
+&lt;p&gt;‘You haven’t seen the giant yet,’ replied the traveler.&lt;/p&gt;
+&lt;p&gt;‘What giant?’ asked the young prince, intrigued.&lt;/p&gt;
+&lt;p&gt;The traveler told the tale.&lt;/p&gt;
+&lt;p&gt;“Every year, on this very day, the giant arrives and challenges our bravest to a duel. And every year, he slays them exactly where they stand. They don’t even move or draw their swords. It’s as though the giant hypnotizes them.’&lt;/p&gt;
+&lt;p&gt;‘We’ll see about that,’ said the young prince.&lt;/p&gt;
+&lt;p&gt;When the giant arrived late that day, the prince was waiting for him.&lt;/p&gt;
+&lt;p&gt;‘Come, send me your bravest man, and I will fight him,’ the giant shouted.&lt;/p&gt;
+&lt;p&gt;‘I am here,’ said the young prince, throwing open the gate, and striding out towards him.&lt;/p&gt;
+&lt;p&gt;For a moment, they stood and faced each other. Although the giant was still a long way away from him, the prince was instantly stuck by the sheer size and shocking appearance of his opponent.&lt;/p&gt;
+&lt;p&gt;But, summoning up all his courage, he started to walk towards the giant, brandishing his sword, and never taking eyes off that dreadful face with the red hair and red beard.&lt;/p&gt;
+&lt;p&gt;Suddenly, he realized that as he was walking, the giant – rather than appearing larger – actually began to shrink before his very eyes. He stopped and stared. The giant was only five feet tall.&lt;/p&gt;
+&lt;p&gt;He walked much closed to the giant, then stopped and stared. Now the giant was only two feet tall. He continued walking until he was face to face with the giant, and each step the prince took, he saw the giant shrink. By now the giant was so small, that he looked up at the young prince. He was only 12 inches tall.&lt;/p&gt;
+&lt;p&gt;The young prince took his sword, and plunged it into the giant’s heart.&lt;/p&gt;
+&lt;p&gt;As the giant lay dying on the ground, the young prince bent down and whispered to him, “Who are you?”&lt;/p&gt;
+&lt;p&gt;With his dying breath, the giant replied, ‘My name is Fear.’&lt;/p&gt;
+&lt;p&gt;MORAL&lt;/p&gt;
+&lt;p&gt;When you take action – the fear disappears!&lt;/p&gt;
+&lt;p&gt;From Pg 120-121, Tales for Trainers, Margaret Parkin, Kogan Page, 2000.&lt;/p&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Tue, 10 Jun 2014 12:31:19 +0000</pubDate>
-        <link>http://localhost:4000/jekyll/pixyll/2014/06/10/see-pixyll-in-action/</link>
-        <guid isPermaLink="true">http://localhost:4000/jekyll/pixyll/2014/06/10/see-pixyll-in-action/</guid>
-      </item>
-    
-      <item>
-        <title>So, What is Jekyll?</title>
-        <description>&lt;p&gt;Jekyll is a tool for transforming your plain text into static websites and 
-blogs. It is simple, static, and blog-aware. Jekyll uses the 
-&lt;a href=&quot;http://docs.shopify.com/themes/liquid-basics&quot;&gt;Liquid&lt;/a&gt; templating
-language and has builtin &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt;
-and &lt;a href=&quot;http://en.wikipedia.org/wiki/Textile_(markup_language)&quot;&gt;Textile&lt;/a&gt; support.&lt;/p&gt;
-
-&lt;p&gt;It also ties in nicely to &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Learn more about Jekyll on their &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;website&lt;/a&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 09 Jun 2014 12:32:18 +0000</pubDate>
-        <link>http://localhost:4000/jekyll/pixyll/2014/06/09/so-what-is-jekyll/</link>
-        <guid isPermaLink="true">http://localhost:4000/jekyll/pixyll/2014/06/09/so-what-is-jekyll/</guid>
-      </item>
-    
-      <item>
-        <title>Pixyll has Pagination</title>
-        <description>&lt;p&gt;This is an empty post to illustrate the pagination component with Pixyll.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 08 Jun 2014 11:21:29 +0000</pubDate>
-        <link>http://localhost:4000/jekyll/pixyll/2014/06/08/pixyll-has-pagination/</link>
-        <guid isPermaLink="true">http://localhost:4000/jekyll/pixyll/2014/06/08/pixyll-has-pagination/</guid>
+        <pubDate>Sun, 07 Dec 2014 23:51:57 +0530</pubDate>
+        <link>http://localhost:4000/topmenu/2014/12/07/giant-steps/</link>
+        <guid isPermaLink="true">http://localhost:4000/topmenu/2014/12/07/giant-steps/</guid>
       </item>
     
   </channel>
