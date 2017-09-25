@@ -122,6 +122,9 @@ permalink:    pretty
 paginate:     4
 sass:
   style: compressed
+include: ['_pages']
+kramdown:
+  input: GFM
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
