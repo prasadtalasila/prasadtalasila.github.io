@@ -1,10 +1,10 @@
 # Site settings
-title:       Pixyll
-email:       your_email@example.com
-author:      John Otander
-description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
+title:       Home of Prasad Talasila
+email:       tsrkp@goa.bits-pilani.ac.in
+author:      Prasad Talasila
+description: "Home page of Prasad Talasila"
 baseurl:     ""
-url:         "http://pixyll.com"
+url:         "http://prasad2.talasila.in"
 date_format: "%b %-d, %Y"
 header_pages:
  - about.md
@@ -51,7 +51,7 @@ facebook_appid:
 facebook_comments_number: 10
 
 # Social icons
-github_username:
+github_username: prasadtalasila
 reddit_username:
 bitbucket_username:
 stackoverflow_id:
@@ -103,7 +103,7 @@ text:
   index:
     coming_soon: 'Coming soon...'
   contact:
-    email:    'Email Address'
+    email:    'tsrkp@goa.bits-pilani.ac.in'
     content:  'What would you like to say?'
     subject:  'New submission!'
     submit:   'Say Hello'
