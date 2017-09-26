@@ -1,8 +1,10 @@
 ---
 layout: post
 title: Personal Blog
-permalink: /blog/
-tags: blog
+permalink: /writings/blog/
+tags: articles
+redirect_from:
+  - /blog
 ---
 
 Nothing interesting for now.

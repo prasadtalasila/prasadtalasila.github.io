@@ -18,7 +18,8 @@ Articles, presentations, manuals, art work produced by me.
 
 ### Articles ###  
 [Principles of Mediocrity]({{ site.baseurl }}/writings/mediocrity) (2012)  
-[Ramblings on Education]({{ site.baseurl }}/writings/education) (2011)
+[Ramblings on Education]({{ site.baseurl }}/writings/education) (2011)    
+For more articles, please see [blog]({{ site.baseurl }}/writings/blog/) page.
 
 ### Articles by Others ###  
 [Making the Grade]({{ site.baseurl }}/writings/makingthegrade) (2012)  

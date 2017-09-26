@@ -10,9 +10,9 @@ header_pages:
  - pages/about.md
  - pages/research.md
  - pages/publications.md
- - pages/writings.md
+ - pages/software.md
  - pages/courses.md
- - posts/blog.md
+ - pages/writings.md
  - pages/contact.html
 
 # Google services
