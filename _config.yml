@@ -7,8 +7,13 @@ baseurl:     ""
 url:         "http://prasad2.talasila.in"
 date_format: "%b %-d, %Y"
 header_pages:
- - about.md
- - contact.html
+ - pages/about.md
+ - pages/research.md
+ - pages/publications.md
+ - pages/writings.md
+ - pages/courses.md
+ - posts/blog.md
+ - pages/contact.html
 
 # Google services
 google_verification:
@@ -101,7 +106,7 @@ text:
     minute_read:    'minute read'
     related_posts:  'Related Posts'
   index:
-    coming_soon: 'Coming soon...'
+    - pages/about/
   contact:
     email:    'tsrkp@goa.bits-pilani.ac.in'
     content:  'What would you like to say?'
@@ -122,9 +127,11 @@ permalink:    pretty
 paginate:     4
 sass:
   style: compressed
-include: ['_pages']
+include: ['pages']
 kramdown:
   input: GFM
+gems:
+  - jekyll-redirect-from
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
