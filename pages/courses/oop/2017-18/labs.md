@@ -54,7 +54,7 @@ No.</td>
 </tr>
 <tr>
 <td style="font-size: medium;">4</td>
-<td style="font-size: medium;"> 19.09.2017</td>
+<td style="font-size: medium;"> 26.09.2017</td>
 <td style="font-size: medium; width: 250px;">Inheritance and Polymorphism</td>
 <td style="font-size: medium; text-align: center;"> <a href="https://www.dropbox.com/s/fz3cb4qh1ndbvux/Lab4_Prelab.pdf?dl=1">PDF</a></td>
 <td style="font-size: medium; text-align: center;">zip</td>
@@ -62,7 +62,7 @@ No.</td>
 </tr>
 <tr style="background-color: #ebebf5;">
 <td style="font-size: medium;">5</td>
-<td style="font-size: medium;"> 26.09.2017</td>
+<td style="font-size: medium;"> 03.10.2017</td>
 <td style="font-size: medium;">Multiple Inheritance and Abstraction</td>
 <td style="font-size: medium; text-align: center;"> <a href="https://www.dropbox.com/s/usz0cb2v1vcitj3/Lab5_Prelab.pdf?dl=1">PDF</a></td>
 <td style="font-size: medium; text-align: center;"> zip</td>

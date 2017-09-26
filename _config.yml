@@ -130,9 +130,8 @@ sass:
 include: ['pages']
 kramdown:
   input: GFM
-gems:
-  - jekyll-redirect-from
 plugins:
+  - jekyll-redirect-from
   - jekyll-paginate
   - jekyll-sitemap
 # https://github.com/jekyll/jekyll/issues/2938
