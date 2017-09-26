@@ -19,3 +19,7 @@ Articles, presentations, manuals, art work produced by me.
 ### Articles ###  
 [Principles of Mediocrity]({{ site.baseurl }}/writings/mediocrity) (2012)  
 [Ramblings on Education]({{ site.baseurl }}/writings/education) (2011)
+
+### Articles by Others ###  
+[Making the Grade]({{ site.baseurl }}/writings/makingthegrade) (2012)  
+[Giant Steps]({{ site.baseurl }}/writings/giantsteps) (2011)
