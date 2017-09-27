@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Lecture Schedule of Internetworking Technologies, 2014-15
+title: Announcements of Internetworking Technologies, 2014-15
 permalink: /courses/inet-201415/announcements
 tags: inet,announcements
 ---

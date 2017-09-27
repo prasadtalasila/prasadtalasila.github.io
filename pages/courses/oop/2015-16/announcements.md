@@ -12,7 +12,7 @@ tags: oop,announcements
 <li>Greenfoot schedule for the coming week:<br />
 Online submission on 23.08.2015<br />
 Evaluation on 25.08.2015</li>
-<li>Lab seating arrangement and pre-lab for the first lab are available on <a href="https://prasadtalasila.wordpress.com/oop/oop-201516-labs/">Labs</a> page.</li>
+<li>Lab seating arrangement and pre-lab for the first lab are available on <a href="{{ site.baseurl }}/courses/oop-201516/labs">Labs</a> page.</li>
 </ol>
 <p style="font-size:1.5em;color:blue;">16.08.2015</p>
 <ol>
