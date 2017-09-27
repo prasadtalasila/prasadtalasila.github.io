@@ -4,7 +4,7 @@ email:       tsrkp@goa.bits-pilani.ac.in
 author:      Prasad Talasila
 description: "Home page of Prasad Talasila"
 baseurl:     ""
-url:         "http://prasad2.talasila.in"
+url:         "http://prasad.talasila.in"
 date_format: "%b %-d, %Y"
 header_pages:
  - pages/about.md

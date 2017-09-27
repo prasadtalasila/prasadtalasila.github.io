@@ -57,7 +57,7 @@ No.</td>
 <td style="font-size: medium;"> 26.09.2017</td>
 <td style="font-size: medium; width: 250px;">Inheritance and Polymorphism</td>
 <td style="font-size: medium; text-align: center;"> <a href="https://www.dropbox.com/s/fz3cb4qh1ndbvux/Lab4_Prelab.pdf?dl=1">PDF</a></td>
-<td style="font-size: medium; text-align: center;">zip</td>
+<td style="font-size: medium; text-align: center;"> <a href="https://www.dropbox.com/s/3ok2vg4aop4jql8/Lab-4_statement.zip?dl=1">zip</a></td>
 <td style="font-size: medium;"></td>
 </tr>
 <tr style="background-color: #ebebf5;">
