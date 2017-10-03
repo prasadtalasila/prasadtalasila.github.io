@@ -65,7 +65,7 @@ No.</td>
 <td style="font-size: medium;"> 03.10.2017</td>
 <td style="font-size: medium;">Multiple Inheritance and Abstraction</td>
 <td style="font-size: medium; text-align: center;"> <a href="https://www.dropbox.com/s/usz0cb2v1vcitj3/Lab5_Prelab.pdf?dl=1">PDF</a></td>
-<td style="font-size: medium; text-align: center;"> zip</td>
+<td style="font-size: medium; text-align: center;"><a href="https://www.dropbox.com/s/fvhc88hn7chg2mz/Lab-5_statement.zip?dl=1">zip</a></td>
 <td style="font-size: medium;"></td>
 </tr>
 <tr>
