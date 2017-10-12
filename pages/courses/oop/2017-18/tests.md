@@ -10,6 +10,6 @@ tags: oop,tests
 
 | Test Date | Question Paper  | Solutions | Statistics |
 |-------- |:----------:|:----------:|:----------:|
-| &nbsp; | Mid Term | solutions | Max = , Min = , Average = , Median =   |
+| 12-Oct-2017 | [Mid Term](https://www.dropbox.com/s/lldp14y5nia4yhr/midsem.pdf?dl=1) | [solutions](https://www.dropbox.com/s/qvz58ab9ae2pz9f/midsem_sol.pdf?dl=1) | Max = , Min = , Average = , Median =   |
 | &nbsp; | Compre | solutions | Max = , Min = , Average = , Median =   |
 | &nbsp; | Course |  | Max = , Min = , Average = , Median =   |
