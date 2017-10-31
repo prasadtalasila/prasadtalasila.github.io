@@ -70,17 +70,17 @@ No.</td>
 </tr>
 <tr>
 <td style="font-size: medium;">6</td>
-<td style="font-size: medium;"></td>
+<td style="font-size: medium;">31.10.2017</td>
 <td style="font-size: medium; width: 250px;">Generics and Inner Classes</td>
 <td style="font-size: medium; text-align: center;"><a href="https://www.dropbox.com/s/if9daa5nevjrdhs/Lab6_Prelab.pdf?dl=1">PDF</a></td>
-<td style="font-size: medium; text-align: center;">zip</td>
+<td style="font-size: medium; text-align: center;"><a href="https://www.dropbox.com/s/c3qmqw5t8fihhrn/Lab-6_statement.zip?dl=1">zip</a></td>
 <td style="font-size: medium;"></td>
 </tr>
 <tr style="background-color: #ebebf5;">
 <td style="font-size: medium;">7</td>
-<td style="font-size: medium;"></td>
+<td style="font-size: medium;">04.11.2017</td>
 <td style="font-size: medium;">Threads</td>
-<td style="font-size: medium; text-align: center;">PDF</td>
+<td style="font-size: medium; text-align: center;"><a href="https://www.dropbox.com/s/9kadi0cwac5zdpi/Lab7_Prelab.pdf?dl=1">PDF</a></td>
 <td style="font-size: medium; text-align: center;"> zip</td>
 <td style="font-size: medium;"></td>
 </tr>
