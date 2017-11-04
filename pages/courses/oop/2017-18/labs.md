@@ -81,7 +81,7 @@ No.</td>
 <td style="font-size: medium;">04.11.2017</td>
 <td style="font-size: medium;">Threads</td>
 <td style="font-size: medium; text-align: center;"><a href="https://www.dropbox.com/s/9kadi0cwac5zdpi/Lab7_Prelab.pdf?dl=1">PDF</a></td>
-<td style="font-size: medium; text-align: center;"> zip</td>
+<td style="font-size: medium; text-align: center;"><a href="https://www.dropbox.com/s/rv9u598askzjuz8/Lab7_statement.zip?dl=1">zip</a></td>
 <td style="font-size: medium;"></td>
 </tr>
 <tr>
