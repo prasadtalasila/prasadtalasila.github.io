@@ -86,26 +86,10 @@ No.</td>
 </tr>
 <tr>
 <td style="font-size: medium;">8</td>
-<td style="font-size: medium;"></td>
-<td style="font-size: medium; width: 250px;">Exceptions and Assertions with Cassandra DB</td>
-<td style="font-size: medium; text-align: center;"> PDF</td>
+<td style="font-size: medium;">14.11.2017</td>
+<td style="font-size: medium; width: 250px;">Object Oriented Design Principles</td>
+<td style="font-size: medium; text-align: center;"><a href="https://www.dropbox.com/s/cw86fwxv3is2rle/Lab8_Prelab.pdf?dl=1"> PDF</a></td>
 <td style="font-size: medium; text-align: center;"> zip</td>
-<td style="font-size: medium;"></td>
-</tr>
-<tr style="background-color: #ebebf5;">
-<td style="font-size: medium;">9</td>
-<td style="font-size: medium;"></td>
-<td style="font-size: medium;">Object Oriented Design Principles</td>
-<td style="font-size: medium; text-align: center;"> PDF</td>
-<td style="font-size: medium; text-align: center;"> zip</td>
-<td style="font-size: medium;"></td>
-</tr>
-<tr>
-<td style="font-size: medium;"> 10</td>
-<td style="font-size: medium;"></td>
-<td style="font-size: medium; width: 250px;">Servlets</td>
-<td style="font-size: medium; text-align: center;">PDF</td>
-<td style="font-size: medium; text-align: center;">zip</td>
 <td style="font-size: medium;"></td>
 </tr>
 </tbody>
