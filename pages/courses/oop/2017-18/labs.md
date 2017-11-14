@@ -89,7 +89,7 @@ No.</td>
 <td style="font-size: medium;">14.11.2017</td>
 <td style="font-size: medium; width: 250px;">Object Oriented Design Principles</td>
 <td style="font-size: medium; text-align: center;"><a href="https://www.dropbox.com/s/cw86fwxv3is2rle/Lab8_Prelab.pdf?dl=1"> PDF</a></td>
-<td style="font-size: medium; text-align: center;"> zip</td>
+<td style="font-size: medium; text-align: center;"><a href="https://www.dropbox.com/s/asofvn1qszoz60n/Lab8_Statement.zip?dl=1"> zip</a></td>
 <td style="font-size: medium;"></td>
 </tr>
 </tbody>
