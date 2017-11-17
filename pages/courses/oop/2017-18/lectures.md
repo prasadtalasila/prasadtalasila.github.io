@@ -1,4 +1,4 @@
----
+--
 layout: page
 title: Lecture Schedule of Object Oriented Programming, 2017-18
 permalink: /courses/oop-201718/lectures
@@ -89,7 +89,7 @@ Activities
 <td style="font-size:medium;">18-20</td>
 <td style="font-size:medium;width:250px;"> Testing</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/h5y7a9aspd4yx6e/14_testing.zip?dl=1"> zip</a></td>
-<td style="font-size:medium;"> Brian W. Kernighan on <a href="https://www.cs.princeton.edu/~bwk/testing.html" target="_blank" rel="noopener noreferrer">Testing</a></td>
+<td style="font-size:medium;"> Brian W. Kernighan on <a href="https://www.cs.princeton.edu/~bwk/testing.html" target="_blank" rel="noopener noreferrer">Testing</a>, <a href="http://junit.sourceforge.net/doc/testinfected/testing.htm">Test Infected</a></td>
 <td style="font-size:medium;"><a href="https://www.youtube.com/watch?v=cGuTmOUdFbo">XP 20 Years Later</a> by Kent Beck</td>
 </tr>
 <tr style="background-color:#ebebf5;">
