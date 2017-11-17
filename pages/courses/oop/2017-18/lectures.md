@@ -1,4 +1,4 @@
---
+---
 layout: page
 title: Lecture Schedule of Object Oriented Programming, 2017-18
 permalink: /courses/oop-201718/lectures
