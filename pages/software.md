@@ -3,6 +3,8 @@ layout: page
 title: Software
 permalink: /research/software
 tags: research,software
+redirect_from:
+  - /software
 ---
 
 In interest of reproducible research, all implementations of our research work has been made available as open source software.
