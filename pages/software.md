@@ -25,7 +25,7 @@ Observe online social network structure using IRC chat logs, mailing lists etc. 
 | Software Name | Source Code | Releases  | Documentation |
 |-------- |:----------:|:----------:|:----------:|
 | IRCLogParser | [GitHub](https://github.com/prasadtalasila/IRCLogParser) | [IRCLogParser v1.0.1](https://github.com/prasadtalasila/IRCLogParser/releases/tag/v1.0.1) | [website](http://prasadtalasila.github.io/IRCLogParser/), [wiki](https://github.com/prasadtalasila/IRCLogParser/wiki) |
-| MailingListParser | [GitHub](https://github.com/prasadtalasila/MailingListParser) | none yet |  [website](http://prasadtalasila.github.io/MailingListParser/), [wiki](https://github.com/prasadtalasila/MailingListParser/wiki) |
+| MailingListParser | [GitHub](https://github.com/prasadtalasila/MailingListParser) | [MailingListParser v0.1](https://github.com/prasadtalasila/MailingListParser/releases/tag/v0.1) |  [website](http://prasadtalasila.github.io/MailingListParser/), [wiki](https://github.com/prasadtalasila/MailingListParser/wiki) |
 | |
 
 
