@@ -163,28 +163,14 @@ Read <a href="https://www.dropbox.com/s/x3ug35i3ot6xyth/Brock_Exceptions.pdf?dl=
 Solid Principles - <a href="https://www.youtube.com/watch?v=TMuno5RZNeE&index=76&list=PLcr1-V2ySv4Tf_xSLj2MbQZr78fUVQAua" target="_blank" rel="noopener noreferrer">Robert C. Martin</a>, <a href="https://www.youtube.com/watch?v=v-2yFMzxqwU" target="_blank" rel="noopener noreferrer">Sandi Metz</a></td>
 </tr>
 <tr>
-<td style="font-size:medium;">38</td>
-<td style="font-size:medium;width:250px;">Persistence With CassandraDB</td>
-<td style="font-size:medium;text-align:center;"> <a href="https://www.dropbox.com/s/qwxqu4bek92xfyy/Cassandra.zip?dl=1">zip</a></td>
-<td style="font-size:medium;">ObjectDB - <a href="http://www2.mta.ac.il/~kirsh/download/MTA%20NoSQL%20Seminar/Lectures/ObjectDB.pdf">PDF</a>, <a href="http://www.objectdb.com/tutorial">tutorial</a></td>
-<td style="font-size:medium;"><a href="https://www.youtube.com/watch?v=ASiU89Gl0F0">NoSQL Distilled to an hour</a> by Martin Fowler
-
-<a href="https://www.youtube.com/watch?v=tg6eIht-00M">Cassandra Data Modeling</a></td>
+<td style="font-size:medium;">38-39</td>
+<td style="font-size:medium;width:250px;">Introduction to DevOps</td>
+<td style="font-size:medium;text-align:center;"> Class Notes </td>
+<td style="font-size:medium;"></td>
+<td style="font-size:medium;"></td>
 </tr>
 <tr style="background-color:#ebebf5;">
-<td style="font-size:medium;">39-40</td>
-<td style="font-size:medium;width:250px;">MVC Architecture + Servlets</td>
-<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/wtbq75575hlj3zu/servlets.pdf?dl=1">pdf</a></td>
-<td style="font-size:medium;"></td>
-<td style="font-size:medium;"> <a href="https://www.youtube.com/watch?v=p0O1VVqRSK0">Expecting Professionalism in S/W Dev</a>
-
-<a href="https://www.martinfowler.com/microservices/" target="_blank" rel="noopener noreferrer">Microservices</a> - Martin Fowler</td>
-</tr>
-<tr>
-<td style="text-align:center;font-size:1.4em;color:#556b2f;background-color:#ffa07a;font-weight:bold;" colspan="5">Self-Study (Assessed)</td>
-</tr>
-<tr>
-<td style="font-size:medium;">1</td>
+<td style="font-size:medium;">40</td>
 <td style="font-size:medium;width:250px;">Object Model</td>
 <td style="font-size:medium;text-align:center;">Object Model chapter-OOAD</td>
 <td style="font-size:medium;"> Alan Kay - <a href="http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en">OOP</a>, <a href="http://lists.squeakfoundation.org/pipermail/squeak-dev/1998-October/017019.html">Message Passing</a>;
@@ -194,39 +180,35 @@ wikipedia article on <a href="https://en.wikipedia.org/wiki/Object-oriented_pro
 <a href="http://www.dreamsongs.com/CLOS.html" target="_blank" rel="noopener noreferrer">Common Lisp Object System</a>, <a href="http://mop.lisp.se/contents.html">Meta Object Protocol</a></td>
 </tr>
 <tr>
-<td style="font-size:medium;">2</td>
+<td style="text-align:center;font-size:1.4em;color:#556b2f;background-color:#ffa07a;font-weight:bold;" colspan="5">Self-Study (Assessed)</td>
+</tr>
+<tr>
+<td style="font-size:medium;">1</td>
 <td style="font-size:medium;width:250px;">Packages and Classpath</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/yttnx8jlaal5srb/Packages_CLASSPATH.pdf?dl=1">PDF</a></td>
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"></td>
 </tr>
 <tr style="background-color:#ebebf5;">
-<td style="font-size:medium;">3</td>
+<td style="font-size:medium;">2</td>
 <td style="font-size:medium;width:250px;">Cloning Objects</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/yttn90ztcvv1ijj/Clone.pdf?dl=1">PDF</a></td>
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"></td>
 </tr>
 <tr>
-<td style="font-size:medium;">4</td>
+<td style="font-size:medium;">3</td>
 <td style="font-size:medium;width:250px;"> Taxi Company case study</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/8k034x12emw7wpc/taxi-company-case-study.zip?dl=1">zip</a></td>
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"></td>
 </tr>
 <tr style="background-color:#ebebf5;">
-<td style="font-size:medium;">5</td>
+<td style="font-size:medium;">4</td>
 <td style="font-size:medium;width:250px;">Designing Applications</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/1u3np1r9u9zho99/34_designing_applications.pdf?dl=1"> zip</a></td>
 <td style="font-size:medium;">Read <a href="http://vu.bits-pilani.ac.in/Ooad/Lesson11/topic1.htm" target="_blank" rel="noopener noreferrer">Modeling through CRC Cards</a> and <a href="http://vu.bits-pilani.ac.in/Ooad/Lesson11/Classroom/Barframe.htm" target="_blank" rel="noopener noreferrer">PPT</a> of <a href="http://vu.bits-pilani.ac.in/Ooad/Coursestead.htm" target="_blank" rel="noopener noreferrer">OOAD, BITS</a> course</td>
 <td style="font-size:medium;"><a href="https://www.youtube.com/watch?v=zFO1cRr5-qY">Pair Programming a Facebook Messenger Bot</a> - Mattias Petter Johansson</td>
-</tr>
-<tr>
-<td style="font-size:medium;">6</td>
-<td style="font-size:medium;width:250px;">Design Patterns</td>
-<td style="font-size:medium;text-align:center;"></td>
-<td style="font-size:medium;"></td>
-<td style="font-size:medium;"><a href="http://wiki.c2.com/?SoftwareDesignPatternsIndex">Pattern Index</a></td>
 </tr>
 <tr>
 <td style="text-align:center;font-size:1.4em;color:#556b2f;background-color:#ffa07a;font-weight:bold;" colspan="5">Optional Topics (Not-assessed)</td>
@@ -237,13 +219,6 @@ wikipedia article on <a href="https://en.wikipedia.org/wiki/Object-oriented_pro
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/po2cuwkrrcit638/building_GUI.zip?dl=1">zip</a></td>
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"> <a href="https://www.youtube.com/watch?v=N-Qgz6qHhcg" target="_blank" rel="noopener noreferrer">Java FX</a> by Oracle</td>
-</tr>
-<tr style="background-color:#ebebf5;">
-<td style="font-size:medium;">2</td>
-<td style="font-size:medium;width:250px;">UML Diagrams - State and Activity Diagrams</td>
-<td style="font-size:medium;text-align:center;"></td>
-<td style="font-size:medium;"></td>
-<td style="font-size:medium;"></td>
 </tr>
 </tbody>
 </table>
