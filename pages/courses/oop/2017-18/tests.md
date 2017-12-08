@@ -11,5 +11,5 @@ tags: oop,tests
 | Test Date | Question Paper  | Solutions | Statistics |
 |-------- |:----------:|:----------:|:----------:|
 | 12-Oct-2017 | [Mid Term](https://www.dropbox.com/s/lldp14y5nia4yhr/midsem.pdf?dl=1) | [solutions](https://www.dropbox.com/s/qvz58ab9ae2pz9f/midsem_sol.pdf?dl=1) | Max = 49 / 75, Min = 0 / 75, Average = 28.53 / 75, Median = 29 / 75 |
-| &nbsp; | Compre | solutions | Max = , Min = , Average = , Median =   |
+| &nbsp; | [Compre](https://www.dropbox.com/s/rczwdnacp3rsq2u/compre.pdf?dl=1) | [solutions](https://www.dropbox.com/s/778fjsudow8afj1/compre_sol.pdf?dl=1) | Max = , Min = , Average = , Median =   |
 | &nbsp; | Course |  | Max = , Min = , Average = , Median =   |
