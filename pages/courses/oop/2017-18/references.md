@@ -65,6 +65,8 @@ Extensions - [PMD](https://pmd.github.io/), [Jeliot](http://cs.joensuu.fi/jeliot
 1. SOLID Principles - [Uncle Bob](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod), [review article](http://www.codemag.com/article/1001061)
 2. [Design Patterns](http://www.newthinktank.com/videos/design-patterns-tutorial/) (in Java) by Derek Banas
 3. Design Patterns in Java by Ilkka Seppälä [GitHub](https://github.com/iluwatar/java-design-patterns), [Exhaustive List](http://iluwatar.github.io/java-design-patterns/), [Pattern Class Diagrams](http://iluwatar.github.io/java-design-patterns/patterns/)
+4. [Architecture of Open Source Software](https://github.com/aosabook)
+
 
 ### Role Models ###
 
