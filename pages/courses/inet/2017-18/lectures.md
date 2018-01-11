@@ -58,8 +58,16 @@ No.</td>
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"></td>
 </tr>
+<tr style="background-color:#ebebf5;">
+<td style="font-size:medium;">7-8</td>
+<td style="font-size:medium;">Future Internet Architectures - IoT</td>
+<td style="font-size:medium;text-align:center;"></td>
+<td style="font-size:medium;text-align:center;"></td>
+<td style="font-size:medium;"></td>
+<td style="font-size:medium;"></td>
+</tr>
 <tr>
-<td style="font-size:medium;">7</td>
+<td style="font-size:medium;">9</td>
 <td style="font-size:medium;">Names, Addresses and Routes</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/57fh663tm4lzmyh/L6_Names_Addresses_Routes.pdf?dl=1"><span style="color:#0000ff;"><span style="color:#0000ff;">PDF</span></span></a></td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/sh/9v71z0dqehbspka/AAAbQNLL-xXV0oopy243syDwa?dl=1"><span style="color:#0000ff;"><span style="color:#0000ff;">Link</span></span></a></td>
@@ -67,7 +75,7 @@ No.</td>
 <td style="font-size:medium;"></td>
 </tr>
 <tr style="background-color:#ebebf5;">
-<td style="font-size:medium;">8-9</td>
+<td style="font-size:medium;">Self-Study</td>
 <td style="font-size:medium;">Future Internet Architectures - NDN</td>
 <td style="font-size:medium;text-align:center;"><span style="color:#0000ff;"><a href="https://www.dropbox.com/s/fj6e4f6309qvl9c/L7_NDN.pdf?dl=1"><span style="color:#0000ff;">PDF</span></a></span></td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/sh/awyzsrd45soeg0p/AABHCvhP8OqJaEz8a9tF32F3a?dl=1"><span style="color:#0000ff;"><span style="color:#0000ff;">Link</span></span></a></td>
