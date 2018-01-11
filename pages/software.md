@@ -15,7 +15,7 @@ We also provide a client software named autolabcli which helps users interact wi
 
 | Software Name | Source Code | Releases  | Documentation |
 |-------- |:----------:|:----------:|:----------:|
-| AutolabJS | [GitHub](https://github.com/AutolabJS/AutolabJS) | [AutolabJS v0.2.1](https://github.com/AutolabJS/AutolabJS/releases/tag/autolab-v0.2.1) | [wiki](https://github.com/AutolabJS/AutolabJS/wiki/v0.2.1-beta), [website](https://autolabjs.github.io/docs) |
+| AutolabJS | [GitHub](https://github.com/AutolabJS/AutolabJS) | [AutolabJS v0.3.0](https://github.com/AutolabJS/AutolabJS/releases/tag/autolab-v0.3.0) | [wiki](https://github.com/AutolabJS/AutolabJS/wiki/v0.3.0), [website](https://autolabjs.github.io/docs) |
 | autolabcli | [GitHub](https://github.com/AutolabJS/autolabcli) | [autolabcli v0.1.1](https://www.npmjs.com/package/@autolabjs/autolabcli) |  [wiki](https://github.com/AutolabJS/autolabcli/wiki/Assignment-Submission-using-autolab-CLI), [website](https://autolabjs.github.io/docs/autolabcli/) |
 | |
 
@@ -24,8 +24,8 @@ Observe online social network structure using IRC chat logs, mailing lists etc. 
 
 | Software Name | Source Code | Releases  | Documentation |
 |-------- |:----------:|:----------:|:----------:|
-| IRCLogParser | [GitHub](https://github.com/prasadtalasila/IRCLogParser) | [IRCLogParser v1.0.1](https://github.com/prasadtalasila/IRCLogParser/releases/tag/v1.0.1) | [website](http://prasadtalasila.github.io/IRCLogParser/), [wiki](https://github.com/prasadtalasila/IRCLogParser/wiki) |
-| MailingListParser | [GitHub](https://github.com/prasadtalasila/MailingListParser) | [MailingListParser v0.1](https://github.com/prasadtalasila/MailingListParser/releases/tag/v0.1) |  [website](http://prasadtalasila.github.io/MailingListParser/), [wiki](https://github.com/prasadtalasila/MailingListParser/wiki) |
+| IRCLogParser | [GitHub](https://github.com/prasadtalasila/IRCLogParser) | [IRCLogParser v1.1.1](https://github.com/prasadtalasila/IRCLogParser/releases/tag/v1.1.1) | [website](http://prasadtalasila.github.io/IRCLogParser/), [wiki](https://github.com/prasadtalasila/IRCLogParser/wiki) |
+| MLCAT | [GitHub](https://github.com/DeveloperCAP/MLCAT) | [MLCAT v0.1.2](https://github.com/DeveloperCAP/MLCAT/releases/tag/v0.1.2) |  [website](http://developercap.github.io/MLCAT/), [wiki](https://github.com/DeveloperCAP/MLCAT/wiki) |
 | |
 
 
@@ -42,5 +42,5 @@ Provide search service for travelers using multi-modal transport service. Here, 
 
 | Software Name | Source Code | Releases  | Documentation |
 |-------- |:----------:|:----------:|:----------:|
-| Transport Scheduler | [GitHub](https://github.com/prasadtalasila/TransportScheduler) | [Transport Scheduler v0.1](https://github.com/prasadtalasila/TransportScheduler/releases/tag/v0.1) | [website](http://prasadtalasila.github.io/TransportScheduler), [wiki](https://github.com/prasadtalasila/TransportScheduler/wiki) |
+| Transport Scheduler | [GitHub](https://github.com/prasadtalasila/TransportScheduler) | [Transport Scheduler v0.1.0](https://github.com/prasadtalasila/TransportScheduler/releases/tag/v0.1.0) | [website](http://prasadtalasila.github.io/TransportScheduler), [wiki](https://github.com/prasadtalasila/TransportScheduler/wiki) |
 | |
