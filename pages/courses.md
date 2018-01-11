@@ -6,7 +6,7 @@ tags: courses
 ---
 
 ### Internetworking Technologies ###
-([II-Semester, 2015-16]({{ site.baseurl }}/courses/inet-201516), [II-Semester, 2014-15]({{ site.baseurl }}/courses/inet-201415), [II-Semester, 2012-13,](https://piazza.com/bits-pilani.ac.in/spring2013/eac451/home)[I-Semester, 2012-13](https://piazza.com/bits-goa.ac.in/fall2012/eac451/home))
+([II-Semester, 2017-18]({{ site.baseurl }}/courses/inet-201718), [II-Semester, 2015-16]({{ site.baseurl }}/courses/inet-201516), [II-Semester, 2014-15]({{ site.baseurl }}/courses/inet-201415), [II-Semester, 2012-13,](https://piazza.com/bits-pilani.ac.in/spring2013/eac451/home)[I-Semester, 2012-13](https://piazza.com/bits-goa.ac.in/fall2012/eac451/home))
 
 ### Object Oriented Programming ###  
 ([I-Semester, 2017-18]({{ site.baseurl }}/courses/oop-201718), [I-Semester, 2016-17]({{ site.baseurl }}/courses/oop-201617), [I-Semester, 2015-16]({{ site.baseurl }}/courses/oop-201516), [I-Semester, 2014-15](https://piazza.com/bits-pilani.ac.in/fall2014/oop/home))
