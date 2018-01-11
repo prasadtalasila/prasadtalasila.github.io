@@ -139,7 +139,7 @@ No.</td>
 <td style="font-size:medium;"></td>
 </tr>
 <tr style="background-color:#ebebf5;">
-<td style="font-size:medium;" colspan="2">Self-Study</td>
+<td style="font-size:medium;">Self-Study</td>
 <td style="font-size:medium;"> Network Measurements</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/l00hhqq5uqcghg1/Taft-IntroInternetMeasurement-Oct2012.pdf?dl=1"><span style="color:#0000ff;">PDF</span></a></td>
 <td style="font-size:medium;text-align:center;"></td>
@@ -187,7 +187,7 @@ No.</td>
 <td style="font-size:medium;"></td>
 </tr>
 <tr style="background-color:#ebebf5;">
-<td style="font-size:medium;" colspan="2">Self-Study</td>
+<td style="font-size:medium;">Self-Study</td>
 <td style="font-size:medium;">HTTP Streaming</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/e42nrt8juur1dxa/Lecture%20Notes.txt?dl=1"><span style="color:#0000ff;">PDF</span></a></td>
 <td style="font-size:medium;text-align:center;"> <a href="https://www.dropbox.com/sh/rpnaih0qndd99ba/AAAYeWuilJpR4Q2fNe158cZYa?dl=1"><span style="color:#0000ff;">Link</span></a></td>
@@ -227,7 +227,7 @@ No.</td>
 <td style="font-size:medium;"></td>
 </tr>
 <tr>
-<td style="font-size:medium;" colspan="2">Self-Study</td>
+<td style="font-size:medium;">Self-Study</td>
 <td style="font-size:medium;">Routing in DTNs</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/r043q6z6mrdmtvi/L28_Routing_in_DTNs.pdf?dl=1"><span style="color:#0000ff;">PDF</span></a></td>
 <td style="font-size:medium;text-align:center;">  <a href="https://www.dropbox.com/sh/wyfgctyg19j5zem/AAC1k6O9gFFnTIgcb9m4AWUra?dl=1"><span style="color:#0000ff;">Link</span></a></td>
