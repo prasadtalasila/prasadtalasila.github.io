@@ -147,7 +147,7 @@ No.</td>
 <td style="font-size:medium;"></td>
 </tr>
 <tr>
-<td style="font-size:medium;" colspan="2">Self-Study</td>
+<td style="font-size:medium;">Self-Study</td>
 <td style="font-size:medium;"> Wireshark</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/8h96frr8z7uxm4w/L11_Sniffing_Tools.pdf?dl=1"><span style="color:#0000ff;">PDF</span></a></td>
 <td style="font-size:medium;text-align:center;"></td>
