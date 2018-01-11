@@ -6,7 +6,7 @@ tags: inet,course information
 ---
 
 
-**Course Handout**: <a href="https://www.dropbox.com/s/6kdlrnzb6lq055t/CSF413_handout.pdf?dl=1" target="_blank" rel="noopener">CS F413 handout</a>    
+**Course Handout**: <a href="https://www.dropbox.com/s/zdngg6vti6cdk8b/CSF413_handout.pdf?dl=1" target="_blank" rel="noopener">CS F413 handout</a>    
 **Instructor**: T.S.R.K. Prasad (I/C)    
 **Class Timings**: T Th S 9:00 AM - 9:50 AM    
 **Class Location**: A-602    
