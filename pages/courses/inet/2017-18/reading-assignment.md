@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Tests of Internetworking Technologies, 2017-18
+title: Reading Assignments of Internetworking Technologies, 2017-18
 permalink: /courses/inet-201718/reading-assignment
 tags: inet,tests
 ---
