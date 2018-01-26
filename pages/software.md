@@ -15,7 +15,7 @@ We also provide a client software named autolabcli which helps users interact wi
 
 | Software Name | Source Code | Releases  | Documentation |
 |-------- |:----------:|:----------:|:----------:|
-| AutolabJS | [GitHub](https://github.com/AutolabJS/AutolabJS) | [AutolabJS v0.3.0](https://github.com/AutolabJS/AutolabJS/releases/tag/autolab-v0.3.0) | [wiki](https://github.com/AutolabJS/AutolabJS/wiki/v0.3.0), [website](https://autolabjs.github.io/docs) |
+| AutolabJS | [GitHub](https://github.com/AutolabJS/AutolabJS) | [AutolabJS v0.3.0](https://github.com/AutolabJS/AutolabJS/releases/tag/autolab-v0.3.0) | [wiki](https://github.com/AutolabJS/AutolabJS/wiki/v0.3.0), [website](https://autolabjs.github.io) |
 | autolabcli | [GitHub](https://github.com/AutolabJS/autolabcli) | [autolabcli v0.1.1](https://www.npmjs.com/package/@autolabjs/autolabcli) |  [wiki](https://github.com/AutolabJS/autolabcli/wiki/Assignment-Submission-using-autolab-CLI), [website](https://autolabjs.github.io/docs/autolabcli/) |
 | |
 
@@ -34,7 +34,7 @@ We are interested in developing tools for sound network measurements. We are dev
 
 | Software Name | Source Code | Releases  | Documentation |
 |-------- |:----------:|:----------:|:----------:|
-| BITS Darshini | [GitHub](https://github.com/prasadtalasila/BITS-Darshini) | [BITS Darshini v2.1](https://github.com/prasadtalasila/BITS-Darshini/releases/tag/v2.1) |  [wiki](https://github.com/prasadtalasila/BITS-Darshini/wiki) |
+| BITS Darshini | [GitHub](https://github.com/prasadtalasila/BITS-Darshini) | [BITS Darshini v2.1](https://github.com/prasadtalasila/BITS-Darshini/releases/tag/v2.1) |  [website](http://prasad.talasila.in/BITS-Darshini/maven), [wiki](https://github.com/prasadtalasila/BITS-Darshini/wiki) |
 | |
 
 ## Transport Networks ##
