@@ -7,7 +7,7 @@ redirect_from:
   - /inet
 ---
 | [Course Info]({{ site.baseurl }}/courses/inet-201718/info) | [Lectures]({{ site.baseurl }}/courses/inet-201718/lectures) |
-| [Reading Assignment]({{ site.baseurl }}/courses/inet-201718/reading-assignment) | Project |
+| [Reading Assignment]({{ site.baseurl }}/courses/inet-201718/reading-assignment) | [Project](https://www.dropbox.com/s/ad98o9fpbdtve8x/project.pdf?dl=1) |
 | [Tests]({{ site.baseurl }}/courses/inet-201718/tests) | [Grades](http://photon.bits-goa.ac.in/lms/grade/report/user/index.php?id=1297) |
 | |
 
