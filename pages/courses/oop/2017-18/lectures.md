@@ -97,7 +97,7 @@ Activities
 <td style="font-size:medium;width:250px;">Improving Structure with Inheritance</td>
 <td style="font-size:medium;text-align:center;"> <a href="https://www.dropbox.com/s/8eklpalk8e1zy6l/16_improving_structure_with_inheritance.zip?dl=1">zip</a></td>
 <td style="font-size:medium;"><a href="https://www.dropbox.com/s/fnoav801px8zl6h/quarks-of-OOD.pdf?dl=1">Quarks of Object Oriented Development</a>, <a href="https://www.quora.com/Is-inheritance-bad-practice-in-OOP">Why Inheritance is Bad</a></td>
-<td style="font-size:medium;"></td>
+<td style="font-size:medium;"><a href="https://medium.com/@cscalfani/goodbye-object-oriented-programming-a59cda4c0e53">Goodbye OOP</a></td>
 </tr>
 <tr>
 <td style="font-size:medium;">22-23</td>
