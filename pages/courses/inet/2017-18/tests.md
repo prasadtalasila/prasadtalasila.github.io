@@ -10,4 +10,4 @@ tags: inet,tests
 | Test Date | Question Paper | Solutions |
 |-------- |:----------:|:----------:|
 | 08.03.2018 | [MidTerm Test](https://www.dropbox.com/s/76s4d8i86e8e4yo/mid_term.pdf?dl=1) | Solutions |
-| 07.05.2018 | Comprehensive Exam | Solutions |
+| 07.05.2018 | [Comprehensive Exam](https://www.dropbox.com/s/onurmwb6cg9khbj/compre.pdf?dl=1) | [Solutions](https://www.dropbox.com/s/bwi4hcl91iwd1pm/compre_sol.pdf?dl=1) |
