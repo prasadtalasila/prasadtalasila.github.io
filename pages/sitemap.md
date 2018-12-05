@@ -6,7 +6,7 @@ tags: sitemap
 ---
 
 * [About]({{ site.baseurl }}/about) A brief personal introduction.
-  * [Resume](https://www.dropbox.com/s/5jkpixz0kqahwgz/resume_aug_2017.pdf?dl=1) A very detailed, professional resume.
+  * [Resume](https://www.dropbox.com/s/8fzabuslctf3tnc/resume_brief_dec_2018.pdf?dl=1) A very detailed, professional resume, updated up to December 2018.
   * [Marathons]({{ site.baseurl }}/marathons) On my hobby of half-marathons.
 * [Research]({{ site.baseurl }}/research) A brief summary of my research
   * [Doctoral Proposal](https://www.dropbox.com/s/s4fb1ep5h8pmz4q/proposal.pdf?dl=1) My official doctoral proposal

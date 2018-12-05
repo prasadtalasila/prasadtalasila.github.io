@@ -15,8 +15,8 @@ We also provide a client software named autolabcli which helps users interact wi
 
 | Software Name | Source Code | Releases  | Documentation |
 |-------- |:----------:|:----------:|:----------:|
-| AutolabJS | [GitHub](https://github.com/AutolabJS/AutolabJS) | [AutolabJS v0.3.0](https://github.com/AutolabJS/AutolabJS/releases/tag/autolab-v0.3.0) | [wiki](https://github.com/AutolabJS/AutolabJS/wiki/v0.3.0), [website](https://autolabjs.github.io) |
-| autolabcli | [GitHub](https://github.com/AutolabJS/autolabcli) | [autolabcli v0.1.1](https://www.npmjs.com/package/@autolabjs/autolabcli) |  [wiki](https://github.com/AutolabJS/autolabcli/wiki/Assignment-Submission-using-autolab-CLI), [website](https://autolabjs.github.io/docs/autolabcli/) |
+| AutolabJS | [GitHub](https://github.com/AutolabJS/AutolabJS) | [AutolabJS v0.4.0](https://github.com/AutolabJS/AutolabJS/releases/tag/autolabjs-v0.4.0) | [wiki](https://github.com/AutolabJS/AutolabJS/wiki/v0.4.0), [website](https://autolabjs.github.io) |
+| autolabcli | [GitHub](https://github.com/AutolabJS/autolabcli) | [autolabcli v1.0.0](https://www.npmjs.com/package/@autolabjs/autolabcli) |  [wiki](https://github.com/AutolabJS/autolabcli/wiki/Assignment-Submission-using-autolab-CLI), [website](https://autolabjs.github.io/docs/autolabcli/) |
 | |
 
 ## Social Networks ##

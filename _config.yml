@@ -1,6 +1,6 @@
 # Site settings
 title:       Home of Prasad Talasila
-email:       tsrkp@goa.bits-pilani.ac.in
+email:       prasad.talasila@gmail.com
 author:      Prasad Talasila
 description: "Home page of Prasad Talasila"
 baseurl:     ""
@@ -108,7 +108,7 @@ text:
   index:
     - pages/about/
   contact:
-    email:    'tsrkp@goa.bits-pilani.ac.in'
+    email:    'prasad.talasila@gmail.com'
     content:  'What would you like to say?'
     subject:  'New submission!'
     submit:   'Say Hello'
@@ -116,7 +116,7 @@ text:
       sending:  'sending..'
       sent:     'Message sent!'
       error:    'Error!'
-  thanks: 'Thanks for contacting us. We will reply as soon as possible.'
+  thanks: 'Thanks for contacting me. I will reply as soon as possible.'
   og_locale: 'en_US'
 
 # Build settings
