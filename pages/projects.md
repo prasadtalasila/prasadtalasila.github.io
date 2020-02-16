@@ -17,21 +17,12 @@ Before I associate myself with a project, I usually look at the beautiful guidel
 >
 > Richard Feynman
 
+### A brief summary of the inactive projects ###
 
-### Note to Prospective Students ###
-I actively collaborate with Prof. [Neena Goveas](https://www.bits-pilani.ac.in/goa/neena/profile) of BITS, Goa. If you are a on-campus CS student of BITS, Goa and are interested in working on one of these projects, please send an e-mail to prasad DOT talasila AT gmail DOT com. Please clearly mention the project that you are interested in.
-
-We are actively seeking students interested in pursuing thesis either at __BITS, Goa or at [Aarhus University, Denmark](http://www.au.dk/en)__.
-
-### A brief summary of the ongoing projects ###
 **AutolabJS** An automated evaluation platform for programming labs. The software is capable of utilizing different testing strategies (unit, integration, functional tests and I/O tests are supported). GitHub repository containing relevant code is: [AutolabJS](https://github.com/AutolabJS/AutolabJS).
 
 **Transport Networks** Provide search service for travelers using multi-modal transport service. Here, multi-modal mean multiple means of transport, say, train, bus, flight, boat etc. In order to provide the multi-modal transport search service, the first step is to collect schedules of transport operators. The second step is to develop algorithms that would dynamically search the given schedules for a source-destination pair. The final step is to develop web application that would provide search service to interested travelers.  
 GitHub repositories containing relevant code are: [Transport Scheduler](https://github.com/prasadtalasila/TransportScheduler).
-
-
-
-### A brief summary of the inactive projects ###
 
 **Social Networks** Observe online social network structure using IRC chat logs, mailing lists etc. We wish to deduce communication patterns in these online platforms, and also explain the multiplex nature of online social networks. Determining multiplex network structure would provide baseline input to normative discussion on optimal structures of multiplex networks. GitHub repositories containing relevant code are: [IRCLogParser](https://github.com/prasadtalasila/IRCLogParser), [MailingListParser](https://github.com/prasadtalasila/MailingListParser), [NetworkSIMS](https://github.com/prasadtalasila/NetworkSIMS).
 
