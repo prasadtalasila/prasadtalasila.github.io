@@ -4,7 +4,7 @@ title: Research
 permalink: /research/
 tags: research
 ---
-My current research work is in the are of Cyber Physical Systems. I am part of [DIGIT center](https://digit.au.dk/) at Aarhus University. [HUBCAP](https://www.hubcap.eu/) and [DIGITbrain](https://digit.au.dk/research-projects/digitbrain/) are the two projects that I participate in.
+My current research work is in the area of Cyber Physical Systems. I am part of [DIGIT center](https://digit.au.dk/) at Aarhus University. [HUBCAP](https://www.hubcap.eu/) and [DIGITbrain](https://digit.au.dk/research-projects/digitbrain/) are the two projects that I participate in.
 
 During 2018-20, I worked in the area of storage compression in distributed Internet of Things (IoT) applications.
 
