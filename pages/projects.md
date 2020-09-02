@@ -5,9 +5,9 @@ permalink: /research/projects
 tags: research,projects
 ---
 
-This page shall contain a brief description of all ongoing student projects. If you are a student looking for undertaking a project with me, please familiarize yourself with the current projects listed on this page.
+I am not guiding any students at the moment.
 
-I also prepared a small presentation on doing projects [[Project Advice](https://www.dropbox.com/s/b1tea4bpsd0fekd/project_advice.pdf?dl=1)]. The presentation is a gentle summary of all the information present on this page.
+This page contains a brief description of all student projects undertaken during 2014-2018 period. I also prepared a small presentation on doing projects [[Project Advice - 2017](https://www.dropbox.com/s/b1tea4bpsd0fekd/project_advice.pdf?dl=1)]. The presentation is a gentle summary of all the information present on this page.
 
 Before I associate myself with a project, I usually look at the beautiful guideline given by Prof. Richard Feynman.
 

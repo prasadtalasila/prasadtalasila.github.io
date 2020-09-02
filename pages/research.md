@@ -4,8 +4,9 @@ title: Research
 permalink: /research/
 tags: research
 ---
+My current research work is in the are of Cyber Physical Systems. I am part of [DIGIT center](https://digit.au.dk/) at Aarhus University. [HUBCAP](https://www.hubcap.eu/) and [DIGITbrain](https://digit.au.dk/research-projects/digitbrain/) are the two projects that I participate in.
 
-My current research is in the area of storage compression in distributed Internet of Things (IoT) applications.
+During 2018-20, I worked in the area of storage compression in distributed Internet of Things (IoT) applications.
 
 My doctoral research is in the broad area of _Network Science._ My work is focused on structural transformations of multidimentional (multiplex) networks. In simple terms, I am interested in mathematical transformations of graphs with multiple edges between vertices. This research has applications in the domains of virtual networks, multi-modal transportation systems, and online social networks.
 
