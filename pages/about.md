@@ -13,7 +13,7 @@ Welcome to the home page of Prasad Talasila. I am working [Prof. Peter Gorm Lars
 
 Previously I worked with [Prof. Daniel Lucani](http://pure.au.dk/portal/en/persons/id(c4e78b1e-4dd6-460f-9c44-1a44771ce01a).html) as postdoctorate researcher in the Communications Group of Aarhus University (2018-2020). During 2012-18, I worked as Assistant Professor in the [Department of CS&IS](https://www.bits-pilani.ac.in/goa/ComputerScienceInformationsSystems/ComputerScienceandInformationSystems), BITS Pilani - KK Birla Goa Campus, India (2012-2018). The courses that I handled are available under [Courses]({{ site.baseurl }}/courses) section.
 
-A snapshot of my professional life is available in two versions of Resume, [brief](https://www.dropbox.com/s/yrvf0tn0qo10soo/resume-brief.pdf?dl=1) and [detailed](https://www.dropbox.com/s/ja6ncqwlg5uebh6/resume.pdf?dl=1). I also happen to enjoy half-marathons. More details on running experiences are available on [Marathons]({{ site.baseurl }}/marathons) page.
+A snapshot of my professional life is available in two versions of Resume, [brief](https://www.dropbox.com/s/l9t2t9j485ggqwm/resume_brief_sep_2020.pdf?dl=1) and [detailed](https://www.dropbox.com/s/nub9ou2hxr24jc4/resume_detailed_sep_2020.pdf?dl=1). I also happen to enjoy half-marathons. More details on running experiences are available on [Marathons]({{ site.baseurl }}/marathons) page.
 
 Some of my short articles, lecture notes and lab manuals are available for download. These materials are available in [Writings]({{ site.baseurl }}/writings) section.
 
