@@ -12,7 +12,7 @@ Articles, presentations, manuals, art work produced by me.
 [Electronic Devices and Digital Electronics Lab](https://www.dropbox.com/s/a2cirvf6h38qqdo/EDDE_v0.2_2007.pdf?dl=1) (May, 2007)
 
 ### Presentations ###  
-Ronbæk lectures - [presentation](https://docs.google.com/presentation/d/1a9VIu0RW8l4e9dvMNO_nFssa17XOhdePd6u-QWSz4-k/edit?usp=sharing), [feedback](https://forms.gle/tRq9DgnA2zwA6AWv6)    
+Ronbæk lectures - [presentation](https://docs.google.com/presentation/d/1YBegjvkDO166r_YUrh3h49vQPg71oQQI33KfLoXLKkY/edit?usp=sharing), [feedback](https://forms.gle/gYTRyRzvzPffP9MJ9)    
 [Project Advice](https://www.dropbox.com/s/b1tea4bpsd0fekd/project_advice.pdf?dl=1) (November, 2017)  
 [Presentation Skills](https://www.dropbox.com/s/ky8vqyynl16x5gk/Presentation-Skills.pdf?dl=1) (April, 2011)  
 [Introduction to Body Language](https://www.dropbox.com/s/51q01xbbixkwha3/nonverbal_intro_dec_2010.pdf?dl=1) (December, 2010)
