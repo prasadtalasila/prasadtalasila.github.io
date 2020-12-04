@@ -6,6 +6,9 @@ tags: research
 ---
 
 ### Publications ###
+1. Tomas Kulik, Hugo Daniel Macedo, **Prasad Talasila** and Peter Gorm Larsen, [Modelling the HUBCAP Sandbox Architecture In VDM - A Study In Security](https://www.dropbox.com/s/4a74rrqiqw3q9pk/sandbox_vdm.pdf?dl=1), 18th Overture Workshop, 7 December, 2020. (Accepted)
+1. **Prasad Talasila**, Armine Sanjari, Kristoffer Villadsen, Casper Thule, Peter Gorm Larsen and Hugo Daniel Macedo, [Introducing Test Driven Development and Upgrades to the INTO-CPS Application](https://www.dropbox.com/s/mshocrq27eywkys/testing_intocps.pdf?dl=1), 4th Workshop on Formal Co-Simulation of Cyber-Physical Systems, 18th International Conference on Software Engineering and Formal Methods, 14 September, 2020.
+1. Peter Gorm Larsen, ..., **Prasad Talasila**, [Enabling Combining Models and Tools in an Online MBSE Collaboration Platform](https://www.dropbox.com/s/fqlws4bakpzm9qt/MBSE_workshop.pdf?dl=1), Workshop on Model Based Space Systems and Software Engineering, 28-29 September, 2020.
 1. Lars Nielsen, Rasmus Vestergaard, Niloofar Yazdani, **Prasad Talasila**, Daniel E. Lucani, Marton Sipos, [Alexandria: A Proof-of-concept Implementation andEvaluation of Generalised Data Deduplication](https://www.dropbox.com/s/j7dbckwxgwwdxax/alexandria2019.pdf?dl=1), Globecom. IEEE Conference and Exhibition. 2019.
 1. **Prasad Talasila**, and Daniel Lucani. [Generalized Deduplication: Lossless Compression by Clustering Similar Data](https://www.dropbox.com/s/g3niy25gx3lupsk/gd2019.pdf?dl=1). Ieee International Conference on Cloud Networking. IEEE, 2019.
 1. Johannes Techel, Xiaobo Zhao, **Prasad Talasila**, Qi Zhang and Daniel E. Lucani, [Demonstration of Reliable IoT Distributed Storage using Network Codes](https://www.dropbox.com/s/uehbc9dkl4zan3r/techel2019.pdf?dl=1), IEEE Consumer Communications and Networking Conference (CCNC), 13 January, 2019.
