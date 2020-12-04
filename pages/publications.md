@@ -22,5 +22,6 @@ tags: research
 1. Dhruv Shekhawat, Sukanto Guha, **TSRK Prasad** , Neena Goveas and Bharat Deshpande, [Illustrative Analysis of Throughput Variations for](https://www.dropbox.com/s/spgcuk182ilm3d0/ndt.pdf?dl=1) [Indian Broadband Users](https://www.dropbox.com/s/spgcuk182ilm3d0/ndt.pdf?dl=1), 7th International Confernece on Communication Systems & Networks, 7 - 9 January, 2015. ([POSTER](https://www.dropbox.com/s/thmixmtq602rkg8/ndt_poster.pdf?dl=1))
 
 ### Manuscripts ###
+1. **Prasad Talasila** and Daniel Lucani, [Performance of Generalized Deduplication Under Different Input Conditions](https://www.dropbox.com/s/rugv5fzy64tfbwk/dedup2020.pdf?dl=1).
 1. **Prasad Talasila**, Neena Goveas, and Bharat M. Deshpande, [Cell Model for Multidimensional Networks](https://www.dropbox.com/s/09161wst1mgcoek/cell_model.pdf?dl=1)
 1. **Prasad Talasila**, Rohan Goel, Dhruv Shekhawat, Neena Goveas, and Bharat Deshpande, [Discovering Patterns in Activities of Online Chat Communities : A Case Study on Internet Relay Chat Channels](https://www.dropbox.com/s/1jjr7lg58n7jpxe/IRCLogParser.pdf?dl=1)
