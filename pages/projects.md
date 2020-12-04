@@ -5,7 +5,7 @@ permalink: /research/projects
 tags: research,projects
 ---
 
-I am not guiding any students at the moment.
+**I am not guiding any students at the moment.**
 
 This page contains a brief description of all student projects undertaken during 2014-2018 period. I also prepared a small presentation on doing projects [[Project Advice - 2017](https://www.dropbox.com/s/b1tea4bpsd0fekd/project_advice.pdf?dl=1)]. The presentation is a gentle summary of all the information present on this page.
 
