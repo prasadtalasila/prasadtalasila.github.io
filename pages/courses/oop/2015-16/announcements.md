@@ -18,7 +18,7 @@ Evaluation on 25.08.2015</li>
 <ol>
 <li>Project groups created on Piazza.</li>
 <li>Project mentors list released and is available on Projects page.</li>
-<li>Evaluation guidelines for Greenfoot game are made public through <a href="https://piazza.com/class/icq5dp3axy45d3?cid=38" target="_blank">piazza post</a>.</li>
+<li>Evaluation guidelines for Greenfoot game are made public through piazza post.</li>
 </ol>
 <p style="font-size:1.5em;color:blue;">12.08.2015</p>
 <ol>
