@@ -68,4 +68,3 @@ You can also visit his [Youtube Channel](https://www.youtube.com/user/derekbanas
 ### General References ###
 
 1. Grady Booch [On Computing](http://www.computer.org/web/computingnow/oncomputing) podcast
-2. Piazza usage tutorials @ [screenstepslive.com](http://trunkuserguide.screenstepslive.com/s/5891/m/18197/c/73909)

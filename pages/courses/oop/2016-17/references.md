@@ -91,6 +91,5 @@ Extensions - [PMD](https://pmd.github.io/), [Jeliot](http://cs.joensuu.fi/jeliot
 ### General References ###
 
 1. Grady Booch [On Computing](http://www.computer.org/web/computingnow/oncomputing) podcast
-2. Piazza usage tutorials @ [screenstepslive.com](http://trunkuserguide.screenstepslive.com/s/5891/m/18197/c/73909)
 3. [Classic articles](http://ronjeffries.com/categories/classics/), Ron Jeffries
 4. [Book list for software developers](https://medium.com/javascript-scene/the-software-developer-s-library-a-treasure-trove-of-books-for-people-who-love-code-f9bc92c7883b)

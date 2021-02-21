@@ -93,7 +93,6 @@ Extensions - [PMD](https://pmd.github.io/), [Jeliot](http://cs.joensuu.fi/jeliot
 ### General References ###
 
 1. Grady Booch [On Computing](http://www.computer.org/web/computingnow/oncomputing) podcast
-2. Piazza usage tutorials @ [screenstepslive.com](http://trunkuserguide.screenstepslive.com/s/5891/m/18197/c/73909)
 3. [Classic articles](http://ronjeffries.com/categories/classics/), Ron Jeffries
 4. [Book list for software developers](https://medium.com/javascript-scene/the-software-developer-s-library-a-treasure-trove-of-books-for-people-who-love-code-f9bc92c7883b)
 5. Copy and paste programming practice - [Coders View](https://blog.codinghorror.com/a-modest-proposal-for-the-copy-and-paste-school-of-code-reuse/), [Legal Perspective](https://www.quora.com/Intellectual-Property-Law-Is-it-legal-to-copy-small-code-snippets-from-open-source-software), [Balanced View](https://www.techrepublic.com/blog/software-engineer/how-copyright-and-licensing-issues-affect-programming-work/)
