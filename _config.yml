@@ -4,7 +4,7 @@ email:       prasad.talasila@gmail.com
 author:      Prasad Talasila
 description: "Home page of Prasad Talasila"
 baseurl:     ""
-url:         "http://prasad.talasila.in"
+url:         "https://prasadtalasila.github.io"
 date_format: "%b %-d, %Y"
 header_pages:
  - pages/about.md
