@@ -3,6 +3,9 @@ site_url: https://prasadtalasila.github.io
 site_description: Home page of Prasad Talasila
 site_author: Prasad Talasila
 
+docs_dir: pages
+site_dir: docs
+
 repo_url: https://github.com/prasadtalasila/prasadtalasila.github.io
 repo_name: prasadtalasila.github.io
 copyright: Copyright &copy; Prasad Talasila
