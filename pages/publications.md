@@ -6,10 +6,7 @@ hide:
 
 # Publications
 
-**Prasad Talasila**  
-Centre for Digital Twins, DIGIT, Department of ECE, Aarhus University, Denmark  
-<prasad.talasila@ece.au.dk>  
-[Google Scholar](https://scholar.google.com/citations?user=53B5RKoAAAAJ)
+Also see [Google Scholar](https://scholar.google.com/citations?user=53B5RKoAAAAJ)
 
 **Type tags:** `[J]` Journal &nbsp; `[BC]` Book Chapter &nbsp; `[C]` Conference &nbsp;
 `[W]` Workshop &nbsp; `[D]` Demo/Poster &nbsp; `[GP]` General Press
@@ -265,6 +262,24 @@ Centre for Digital Twins, DIGIT, Department of ECE, Aarhus University, Denmark
 ---
 
 ## 2018
+
+### Doctoral Thesis
+
+My doctoral research is in the broad area of *Network Science*. My work is focused on
+structural transformations of multidimensional (multiplex) networks — mathematical
+transformations of graphs with multiple edges between vertices. This research has
+applications in the domains of virtual networks, multi-modal transportation systems,
+and online social networks.
+
+Interested readers can go through the following published material related to my
+doctoral thesis:
+
+- [A conceptual summary of the thesis](https://www.dropbox.com/s/09161wst1mgcoek/cell_model.pdf?dl=1)
+- [Official synopsis](https://www.dropbox.com/s/yhnse2q0s2w7vfr/synopsis.pdf?dl=1)
+  and [thesis defence presentation](https://www.dropbox.com/s/lmppk1legd5yj4h/thesis_pres.pdf?dl=1)
+- [Complete doctorate thesis](https://www.dropbox.com/s/nzaaey4010ixlev/thesis.pdf?dl=1)
+
+### Papers
 
 1. **`[C]`**
    Prasad Talasila et al.

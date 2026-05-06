@@ -27,10 +27,10 @@ Aarhus, Denmark
 I architect, program, and maintain research software for digital twin development and deployment.
 
 - **[DTaaS](https://github.com/INTO-CPS-Association/DTaaS)** — Digital Twin as a Service platform for developing and operating digital twins.
+- **[Simulation Bridge](https://github.com/INTO-CPS-Association/simulation-bridge)** — Simulation middleware for distributed simulation of digital twins and IoT systems.
 - **[DIGITbrain](https://digitbrain.eu/)** — Architecture and Design for Manufacturing as a Service (MaaS) software.
-- **[Generalized Deduplication](https://pure.au.dk/portal/en/projects/scalelot--scalable-systems-for-massive-lot(914abe17-0d8f-4946-916a-d9a7785fbe7a).html)** — Better data deduplication using probability transformations.
+- **[Generalized Deduplication](https://github.com/prasadtalasila/generalized-deduplication)** — Better data deduplication using probability transformations.
 - **[AutolabJS](https://autolabjs.github.io)** — Auto evaluation tool for C/C++/Java/Python programming projects.
-- **[IRCLogParser](https://github.com/prasadtalasila/IRCLogParser)** — Analysis and visualization of Internet Relay Chat (IRC) channels.
 
 ---
 

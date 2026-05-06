@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://prasadtalasila.github.io/software.html">
       
       
-        <link rel="prev" href="publications.html">
+        <link rel="prev" href="projects.html">
       
       
         <link rel="next" href="courses.html">
@@ -54,6 +54,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="assets/stylesheets/course-tables.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -225,6 +227,25 @@
     
   
   Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="projects.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Projects
 
       </a>
     </li>
@@ -434,6 +455,33 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -512,6 +560,17 @@
     <span class="md-ellipsis">
       
         Simulation Bridge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plant-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plant Controller
       
     </span>
   </a>
@@ -702,6 +761,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#plant-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plant Controller
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#autolabjs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -765,7 +835,7 @@
 
 
 <h1 id="software">Software</h1>
-<p>In interest of reproducible research, all implementations of our research work
+<p>In the interest of reproducible research, all implementations of our research work
 have been made available as open source software.</p>
 <h2 id="digital-twin-as-a-service-dtaas">Digital Twin as a Service (DTaaS)</h2>
 <p>The DTaaS is a software platform to <strong>Build, Use and Share</strong> digital twins (DTs). DTaaS enables
@@ -793,7 +863,7 @@ including Small and Medium-sized Enterprises.</p>
 </tbody>
 </table>
 <h2 id="simulation-bridge">Simulation Bridge</h2>
-<p>Simulation Bridge is a Python-based distributed simulation middleware that routes requests between clients and simulation engines via RabbitMQ as a common messaging backbone. It supports multiple protocol adapters (REST, MQTT, RabbitMQ, and in-memory) and includes JWT-secured REST endpoints for streaming real-time results. Simulation agents for MATLAB and SIMUL8 fulfill simulations requests, supporting batch, streaming, and interactive modes.</p>
+<p>Simulation Bridge is a Python-based distributed simulation middleware that routes requests between clients and simulation engines via RabbitMQ as a common messaging backbone. It supports multiple protocol adapters (REST, MQTT, RabbitMQ, and in-memory) and includes JWT-secured REST endpoints for streaming real-time results. Simulation agents for MATLAB and SIMUL8 fulfill simulation requests, supporting batch, streaming, and interactive modes.</p>
 <table>
 <thead>
 <tr>
@@ -809,6 +879,26 @@ including Small and Medium-sized Enterprises.</p>
 <td style="text-align: center;"><a href="https://github.com/INTO-CPS-Association/simulation-bridge">GitHub</a></td>
 <td style="text-align: center;"><a href="https://github.com/INTO-CPS-Association/simulation-bridge/releases">Releases</a></td>
 <td style="text-align: center;"><a href="https://github.com/INTO-CPS-Association/simulation-bridge/blob/main/USERGUIDE.md">website</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="plant-controller">Plant Controller</h2>
+<p>Plant Controller is a Raspberry Pi-based edge controller for monitoring and managing plants. It reads soil moisture (Adafruit Seesaw), temperature and humidity (SHT45), and light spectrum (AS7341) sensors at configurable intervals, controls multiple water pumps on daily schedules, stores time-series sensor data in InfluxDB, and receives remote actuation commands via a STOMP message broker. A companion digital twin for the plant setup and the edge device is under development.</p>
+<table>
+<thead>
+<tr>
+<th>Software Name</th>
+<th style="text-align: center;">Source Code</th>
+<th style="text-align: center;">Releases</th>
+<th style="text-align: center;">Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plant-Controller</td>
+<td style="text-align: center;"><a href="https://github.com/into-cps-association/plant-controller">GitHub</a></td>
+<td style="text-align: center;"><a href="https://github.com/into-cps-association/plant-controller/releases">Releases</a></td>
+<td style="text-align: center;"><a href="https://github.com/into-cps-association/plant-controller#readme">README</a></td>
 </tr>
 </tbody>
 </table>
@@ -963,7 +1053,7 @@ to interested travelers.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="publications.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Publications">
+          <a href="projects.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Projects">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -973,7 +1063,7 @@ to interested travelers.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Publications
+                Projects
               </div>
             </div>
           </a>

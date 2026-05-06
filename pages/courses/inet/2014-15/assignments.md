@@ -6,9 +6,9 @@ hide:
 
 # Assignments of Internetworking Technologies, 2014-15
 
-<table style="border:1px solid blue;border-collapse:collapse;padding:10px;width:100%;font-size:medium;">
+<table style="border:1px solid teal;border-collapse:collapse;padding:10px;width:100%;font-size:medium;">
 <tbody>
-<tr style="height:50px;border:1px solid blue;text-align:center;background-color:navy;">
+<tr style="height:50px;border:1px solid teal;text-align:center;background-color:teal;">
 <td style="color:white;font-size:medium;font-weight:bold;">Assignment No.</td>
 <td style="color:white;font-size:medium;font-weight:bold;">Assignment Sheet</td>
 <td style="color:white;font-size:medium;font-weight:bold;">Due Date</td>
@@ -27,7 +27,7 @@ hide:
 <a href="https://www.dropbox.com/s/fkxivtr1crgi46w/sample_review.pdf?dl=1">Sample review</a>
 </td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">2</td>
 <td style="font-size:medium;"><a href="https://www.dropbox.com/s/lnqky888pnthxi8/asg2.pdf?dl=1">Problem Set</a>
 </td>
@@ -47,7 +47,7 @@ hide:
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"> <a href="https://www.dropbox.com/s/k7awoxp3ajyba7i/L18_SMP.pdf?dl=1">SMP</a>, <a href="https://www.dropbox.com/s/6mpbr2f6w30xu2s/kernel_module.pdf?dl=1">Kernel Module Example</a></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">4</td>
 <td style="font-size:medium;">Problem Set</td>
 <td style="font-size:medium;"> 20.04.2015, 8:00PM</td>

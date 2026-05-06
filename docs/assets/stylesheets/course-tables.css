@@ -1,0 +1,8 @@
+/* Course table link styling: teal links, orange on hover/focus */
+.md-content table a {
+  color: #009688;
+}
+.md-content table a:hover,
+.md-content table a:focus {
+  color: #ff6d00;
+}

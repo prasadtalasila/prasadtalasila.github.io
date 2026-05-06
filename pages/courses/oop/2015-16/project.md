@@ -10,9 +10,9 @@ hide:
 <a href="https://github.com/OOP-BPGC-201415" target="_blank">GitHub</a>, <a href="http://10.1.1.242/moodle/mod/folder/view.php?id=43383">Videos</a></p>
 <p><a href="https://github.com/Akamoha/OOP-Resources" target="_blank">Project Resources</a></p>
 <p><strong>Project Timeline</strong></p>
-<table style="border:2px solid blue;border-collapse:collapse;padding:10px;width:150%;font-size:medium;">
+<table style="border:2px solid teal;border-collapse:collapse;padding:10px;width:150%;font-size:medium;">
 <tbody>
-<tr style="height:50px;border:1px solid blue;text-align:center;background-color:navy;">
+<tr style="height:50px;border:1px solid teal;text-align:center;background-color:teal;">
 <td style="color:white;font-size:medium;font-weight:bold;">Date</td>
 <td style="color:white;font-size:medium;font-weight:bold;">Event Description</td>
 <td style="color:white;font-size:medium;font-weight:bold;">Student Activity</td>
@@ -22,7 +22,7 @@ hide:
 <td style="font-size:medium;">Project announcement</td>
 <td style="font-size:medium;width:250px;"><a href="projectlist.md">Project list</a> exploration, <a href="https://education.github.com/pack">GitHub student pack</a> activation,</td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;"> 10.08.2015</td>
 <td style="font-size:medium;"> Project selection</td>
 <td style="font-size:medium;"><a href="http://10.1.1.242/moodle/mod/choice/view.php?id=43972" target="_blank"> Selections Link</a>, <a href="https://www.dropbox.com/s/a96mttsmvmvo7f9/CS_F213_Project_Selection_10.08.2015.pdf?dl=1">List of Allocations</a></td>
@@ -32,7 +32,7 @@ hide:
 <td style="font-size:medium;">Project Groups and Mentors</td>
 <td style="font-size:medium;width:250px;"><a href="https://www.dropbox.com/s/2m5yzt90uoia7os/Group_allocations_12.08.2015.pdf?dl=1">Project Groups</a>, <a href="projectmentors.md">Mentors</a></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"></td>

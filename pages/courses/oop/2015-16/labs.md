@@ -7,9 +7,9 @@ hide:
 # Labs of Object Oriented Programming, 2015-16
 
 <p>Schedule          <a href="https://www.dropbox.com/s/eyu9vs6qjwo5t5x/Lab%20batches.pdf?dl=1">Seating Arrangement</a>          <a href="http://goo.gl/forms/7kl3ysYi0D" target="_blank">Recheck Request</a>    <a href="https://www.dropbox.com/s/w0vddcwbzhtsrgr/Labs_penalty_reasons_recheck_comments.xls?dl=1" target="_blank">Evaluator Comments</a></p>
-<table style="border:2px solid blue;border-collapse:collapse;padding:10px;width:150%;font-size:medium;">
+<table style="border:2px solid teal;border-collapse:collapse;padding:10px;width:150%;font-size:medium;">
 <tbody>
-<tr style="height:50px;border:1px solid blue;text-align:center;background-color:navy;">
+<tr style="height:50px;border:1px solid teal;text-align:center;background-color:teal;">
 <td style="color:white;font-size:medium;font-weight:bold;">Lab.<br />
 No.</td>
 <td style="color:white;font-size:medium;font-weight:bold;">Date</td>
@@ -28,7 +28,7 @@ No.</td>
 <td style="font-size:medium;"><a href="https://www.dropbox.com/s/tioqbfiqtyuba2h/Lab1_sol.rar?dl=1"> Solutions</a></td>
 <td style="font-size:medium;"> Pair programming - <a href="https://www.dropbox.com/s/ixu6b4lnhcf0j8k/PairProgramming.pdf?dl=1">article</a>, <a href="http://10.1.1.242/moodle/pluginfile.php/84538/mod_folder/content/0/pairprogramming_students.mov.rar?forcedownload=1">video</a>&nbsp;</td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;"> 2</td>
 <td style="font-size:medium;">31.08.2015</td>
 <td style="font-size:medium;">Class and Object diagrams, State machine diagrams</td>
@@ -43,7 +43,7 @@ No.</td>
 <td style="font-size:medium;width:250px;">UML practice lab</td>
 <td style="font-size:medium;text-align:center;" colspan="4">Practice any of the UML diagrams from the text books (non-evaluative)</td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">4</td>
 <td style="font-size:medium;">14.09.2015</td>
 <td style="font-size:medium;">Classes and Objects in Java</td>
@@ -61,7 +61,7 @@ No.</td>
 <td style="font-size:medium;"><a href="https://www.dropbox.com/s/acy2ij5ej1tuqa9/Lab-5_Sol.zip?dl=1">Solutions</a></td>
 <td style="font-size:medium;"> <a href="https://www.dropbox.com/s/0e4dg5gta7i8h1w/Lab-5_Test.zip?dl=1">Testing Script</a></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">6</td>
 <td style="font-size:medium;">05.10.2015</td>
 <td style="font-size:medium;">Interfaces and Arrays</td>
@@ -79,7 +79,7 @@ No.</td>
 <td style="font-size:medium;"><a href="https://www.dropbox.com/s/zrdx35vewvhy4mt/Lab7_sol.zip?dl=1">Solutions</a></td>
 <td style="font-size:medium;"><a href="https://www.dropbox.com/s/8ps1tcpshcv30u8/Lab7_download_for_students.zip?dl=1">Skeleton Code + Testing Script</a><a style="color:red;" href="https://www.dropbox.com/s/c3tscw4iqgaqn17/Driver.java?dl=1">Driver.java</a> (updated)</td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">8</td>
 <td style="font-size:medium;">18.10.2015</td>
 <td style="font-size:medium;">Exceptions</td>
@@ -97,7 +97,7 @@ No.</td>
 <td style="font-size:medium;"><a href="https://www.dropbox.com/s/17u0mwbxbfw0dc0/Lab9_Sol.zip?dl=1">Solutions</a></td>
 <td style="font-size:medium;"><a href="https://www.dropbox.com/s/31wu2r2xllpsw2j/Lab-9_download_for_students.zip?dl=1">Skeleton Code + Testing Script</a></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">10</td>
 <td style="font-size:medium;">02.11.2015</td>
 <td style="font-size:medium;">Generics and Inner Classes</td>

@@ -6,9 +6,9 @@ hide:
 
 # Lecture Schedule of Object Oriented Programming, 2015-16
 
-<table style="border:2px solid blue;border-collapse:collapse;padding:10px;width:150%;font-size:medium;">
+<table style="border:2px solid teal;border-collapse:collapse;padding:10px;width:150%;font-size:medium;">
 <tbody>
-<tr style="height:50px;border:1px solid blue;text-align:center;background-color:navy;">
+<tr style="height:50px;border:1px solid teal;text-align:center;background-color:teal;">
 <td style="color:white;font-size:medium;font-weight:bold;">Date</td>
 <td style="color:white;font-size:medium;font-weight:bold;">Lecture Topics</td>
 <td style="color:white;font-size:medium;font-weight:bold;">Presentation</td>
@@ -24,7 +24,7 @@ hide:
 <td style="font-size:medium;">Watch <a href="http://10.1.1.242/moodle/mod/folder/view.php?id=43379">Myth of Genius Programmer</a></td>
 <td style="font-size:medium;"></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">04.08.2015</td>
 <td style="font-size:medium;">Complexity</td>
 <td style="font-size:medium;text-align:center;"> Parts - <a href="https://www.dropbox.com/s/p2pi67klrdtf123/Structure_Origins.pdf?dl=1">1</a>, <a href="https://www.dropbox.com/s/ypxz94sywifb4a6/Attributes_Canonical_Forms.pdf?dl=1">2</a>, <a href="https://www.dropbox.com/s/2i6cofvn702shpp/Design.pdf?dl=1">3</a></td>
@@ -40,7 +40,7 @@ hide:
 <td style="font-size:medium;">  Watch <a href="http://10.1.1.242/moodle/mod/folder/view.php?id=43378">video lectures on the Object Model</a></td>
 <td style="font-size:medium;"> Chapters 1 - 6 of <a href="http://www.desy.de/gna/html/cc/Tutorial/tutorial.html" target="_blank">Introduction to OOP using C++</a></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">11.08.2015</td>
 <td style="font-size:medium;">Classes and Objects</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/7m7e0s1fkk42uj2/Ch3_Classes_and_Objects.pdf?dl=1" target="_blank">PDF</a></td>
@@ -56,7 +56,7 @@ hide:
 <td style="font-size:medium;">  Watch <a href="http://10.1.1.242/moodle/mod/folder/view.php?id=43378">video lectures on the Object Model</a></td>
 <td style="font-size:medium;">Read <a href="http://vu.bits-pilani.ac.in/Ooad/Lesson11/topic1.htm" target="_blank">Modeling through CRC Cards</a> and <a href="http://vu.bits-pilani.ac.in/Ooad/Lesson11/Classroom/Barframe.htm" target="_blank">PPT</a> of <a href="http://vu.bits-pilani.ac.in/Ooad/Coursestead.htm" target="_blank">OOAD, BITS</a> course</td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">18.08.2015</td>
 <td style="font-size:medium;">UML Diagrams - Introduction, Package Diagrams, Use cases, Activity Diagrams, Sequence and Communication Diagrams</td>
 <td style="font-size:medium;" colspan="3">Watch Derek Banas's UML videos on <a href="http://10.1.1.242/moodle/mod/folder/view.php?id=43378">Photon</a> or <a href="https://www.youtube.com/watch?v=OkC7HKtiZC0&amp;list=PLGLfVvz_LVvQ5G-LdJ8RLqe-ndo7QITYc" target="_blank">Youtube</a></td>
@@ -69,7 +69,7 @@ hide:
 <td style="font-size:medium;"></td>
 </tr>
 
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">03.09.2015, 08.09.2015</td>
 <td style="font-size:medium;width:250px;"> Software Development Process</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/0xko1avu4xaxuvd/SDP.pdf?dl=1">PDF</a></td>
@@ -86,7 +86,7 @@ hide:
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;"> 12.09.2015</td>
 <td style="font-size:medium;width:250px;"> Interfaces and Abstract Classes</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/80i6ks9ahyzon6j/2_Interfaces_Abstract_Classes.pdf?dl=1"> PDF</a></td>
@@ -104,7 +104,7 @@ hide:
 </tr>
 
 
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">26.09.2015, 29.09.2015</td>
 <td style="font-size:medium;width:250px;">VarArgs, Arrays and Comparable vs Comparator Interfaces</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/qaxkp9gex6pk5m9/Arrays.zip?dl=1">zip</a>,<br />
@@ -121,7 +121,7 @@ hide:
 <td style="font-size:medium;"> Read <a href="https://www.dropbox.com/s/ipz3xerl69w0y5d/Collaboration-bw-Objects.pdf?dl=1">Collaboration between Objects</a></td>
 <td style="font-size:medium;"></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;"> 03.10.2015</td>
 <td style="font-size:medium;width:250px;">Nisanth Chunduru's Presentation on Software Development</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/up6x5fu1qhekru3/Nisanth_Chunduru.pdf?dl=1">PDF</a><a href="https://www.dropbox.com/s/bwvc6p9rle8odkl/Nisanths_7learnings.txt?dl=1">Summary</a></td>
@@ -138,7 +138,7 @@ hide:
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"><a href="http://bigthink.com/experts/larrywall" target="_blank"> Larry Wall Interview</a></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">10.10.2015</td>
 <td style="font-size:medium;width:250px;">Ms. Rizwan Parveen's Discussion on Software Development</td>
 <td style="font-size:medium;text-align:center;"></td>
@@ -155,7 +155,7 @@ hide:
 <a href="https://www.dropbox.com/s/x3ug35i3ot6xyth/Brock_Exceptions.pdf?dl=1">Best Practices and Patterns</a></td>
 <td style="font-size:medium;"> On learning programming languages - <a href="https://www.youtube.com/watch?v=LR8fQiskYII" target="_blank">Larry Wall</a>, <a href="https://www.youtube.com/watch?v=NvWTnIoQZj4" target="_blank">Bjarne Stroustrup</a></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">17.10.2015, 20.10.2015, 24.10.2015</td>
 <td style="font-size:medium;width:250px;">Collections</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/yoyzkwb2hdrvwsu/Collections-I.pdf?dl=1">Part-I</a>, <a href="https://www.dropbox.com/s/x43oom2qz36sf7s/Collections-II.pdf?dl=1">Part-II</a></td>
@@ -172,7 +172,7 @@ hide:
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">03.11.2015, 05.11.2015</td>
 <td style="font-size:medium;width:250px;">Inner Classes</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/rjc0ffppz8x2xxc/innerClasses.zip?dl=1">PDF</a></td>
@@ -206,7 +206,7 @@ to<br />
 <td style="font-size:medium;">Watch first six videos of Joy of Code on <a href="http://10.1.1.242/moodle/mod/folder/view.php?id=43378">Photon</a> or <a href="https://www.youtube.com/playlist?list=PL280AD6FCCFCDDAC5">Youtube</a></td>
 <td style="font-size:medium;"> Install <a href="http://www.greenfoot.org/door">Greenfoot</a> on your laptop and come to class with laptop.</td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;"> 13.08.2015</td>
 <td style="font-size:medium;">Greenfoot Class-II</td>
 <td style="font-size:medium;text-align:center;"></td>
@@ -222,7 +222,7 @@ to<br />
 <td style="font-size:medium;">Watch videos#20-26 of Joy of Code on <a href="http://10.1.1.242/moodle/mod/folder/view.php?id=43378">Photon</a> or <a href="https://www.youtube.com/playlist?list=PL280AD6FCCFCDDAC5">Youtube</a></td>
 <td style="font-size:medium;"></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">22.08.2015</td>
 <td style="font-size:medium;">Greenfoot Class-IV</td>
 <td style="font-size:medium;text-align:center;"></td>

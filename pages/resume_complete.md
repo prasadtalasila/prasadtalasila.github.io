@@ -29,6 +29,7 @@ Aarhus, Denmark
 ## Work Experience
 
 ### Researcher
+
 **Digital Twins Research Group, DIGIT Centre, Aarhus University** — Aarhus, Denmark  
 *June 2020 – Present*
 
@@ -37,6 +38,7 @@ Aarhus, Denmark
 - Contribute to collaborative digital twin, simulation, and secure sharing projects including DIGITbrain, HUBCAP, Secure Collaboration on DTaaS, and SWiM.
 
 ### PostDoctorate Researcher
+
 **Agile Cloud Lab, Communications Group, Aarhus University** — Aarhus, Denmark  
 *June 2018 – May 2020*
 
@@ -45,6 +47,7 @@ Aarhus, Denmark
 - Built software prototypes and evaluation pipelines to demonstrate research results from the lab.
 
 ### Researcher & Assistant Professor
+
 **Department of CS & IS, BITS, Pilani – KK Birla Goa Campus** — Goa, India  
 *June 2012 – May 2018*
 
@@ -54,6 +57,7 @@ Aarhus, Denmark
 - Mentored undergraduate software projects and nine students who later became Google Summer of Code participants during 2015–2017.
 
 ### Assistant Professor
+
 **Departments of CS & IS and ECE, RVR & JC College of Engineering** — Guntur, India  
 *November 2005 – May 2012*
 
@@ -64,37 +68,53 @@ Aarhus, Denmark
 
 ## Research
 
-My current work focuses on digital twin platforms, cyber-physical systems, collaborative simulation, and research software engineering. [Google Scholar](https://scholar.google.com/citations?user=53B5RKoAAAAJ&hl=da&oi=ao)
+My current work focuses on digital twin platforms, cyber-physical systems, collaborative simulation, and research software engineering.
 
 ### Sustainable Water-based Cooling in Megacities (SWiM)
-*Researcher and Architect for Digital Twin Platform · Jan. 2026 – Dec. 2030*  [project](https://ece.au.dk/forskning/eksempler-paa-forsknings-og-udviklingsprojekter/bevillinger-paa-ece/sustainable-water-based-cooling-in-megacities-swim)
+
+**Role:** Researcher and Architect for Digital Twin Platform  
+**Period:** January 2026 – December 2030  
+**Link:** [project](https://ece.au.dk/forskning/eksempler-paa-forsknings-og-udviklingsprojekter/bevillinger-paa-ece/sustainable-water-based-cooling-in-megacities-swim)
 
 - Grundfos Foundation project with a total budget of 60 million DKK and four partners.
 - Develop digital twin platforms to support multi-paradigm modeling and simulation of district cooling systems.
 
-### CP-SENS: Cyber-Physical Sensing for Machinery and Structures
-*Project board member, Software Architect, and Developer · May 2023 – May 2027* [project](https://digit.au.dk/research-projects/cp-sens)
-
-- Danish Innovation Foundation project with a total budget of 19.3 million DKK and six project partners.
-- Architect for developing digital twins for structural health monitoring applications.
-
 ### Secure Collaboration on top of the Digital Twin as a Service Platform
-*Researcher and Developer  · Dec. 2025 – Dec. 2028*  [project](https://digit.au.dk/research-projects/secure4dtaas)
+
+**Role:** Researcher and Developer  
+**Period:** December 2025 – December 2028  
+**Link:** [project](https://digit.au.dk/research-projects/secure4dtaas)
 
 - Thomas B. Thriges Foundation project funded at 3 million DKK.
 - Co-developing mechanisms for secure collaboration and sharing of digital twin assets across organizational boundaries.
 
-### DIGITbrain
-*Software Architect and Designer · Jul. 2020 – Dec. 2023* [project](https://digitbrain.eu/)
+### CP-SENS: Cyber-Physical Sensing for Machinery and Structures
 
-- H2020 Innovation Action with an overall budget of 8 million EUR and 36 partners.
+**Role:** Project Board Member, Software Architect, and Developer  
+**Period:** May 2023 – May 2027  
+**Link:** [project](https://digit.au.dk/research-projects/cp-sens)
+
+- Danish Innovation Foundation project with a total budget of 19.3 million DKK and six project partners.
+- Architect for developing digital twins for structural health monitoring applications.
+
+### DIGITbrain
+
+**Role:** Architecture and Design Sub-group Member  
+**Period:** July 2020 – December 2023  
+**Link:** [project](https://digitbrain.eu/)
+
+- H2020 European Union Innovation Action with an overall budget of 8 million EUR and 36 partners.
 - Contributed to requirements analysis, architecture and design, and prototype demonstrations for manufacturing digital twins.
 
 ### HUBCAP
-*Reviewer of Software Architecture, and Requirements · Jan. 2020 – Dec. 2022* [project](https://www.hubcap.eu/)
 
-- H2020 Innovation Action with an overall budget of 8 million EUR and 17 partners.
-- Worked on architecture requirements, distributed sandbox prototyping, and review of project deliverables.
+**Role:** Architecture, Requirements, and Prototype Development  
+**Period:** January 2020 – December 2022  
+**Link:** [project](https://www.hubcap.eu/)
+
+- H2020 European Union Innovation Action with an overall budget of 8 million EUR and 17 partners.
+- Worked on architecture requirements, distributed sandbox prototyping, and review of project deliverables for cloud-based model-driven engineering support for cyber-physical systems.
+- Created case study demonstrations for the platform.
 
 ---
 
@@ -103,8 +123,12 @@ My current work focuses on digital twin platforms, cyber-physical systems, colla
 I architect, program and maintain research software and supporting repositories for digital twin development, experimentation, and deployment.
 
 - **[Digital Twin as a Service (DTaaS)](https://github.com/INTO-CPS-Association/DTaaS)** — [documentation](https://into-cps-association.github.io/DTaaS/development/index.html). Core platform for developing and operating digital twins.
-- **[Digital Twin Workflow for Structural Health Monitoring](https://github.com/INTO-CPS-Association/example-shm)** — Reference digital twin design for structural health monitoring. Used to monitor testing of wind turbine blades.
 - **[Simulation Bridge](https://github.com/INTO-CPS-Association/simulation-bridge)** — Simulation middleware for distributed simulation of digital twins and IoT systems.
+- **[Digital Twin Workflow for Structural Health Monitoring](https://github.com/INTO-CPS-Association/example-shm)** — Reference digital twin design for structural health monitoring. Used to monitor testing of wind turbine blades.
+- **[DIGITbrain](https://digitbrain.eu/)** — Architecture and Design for Manufacturing as a Service (MaaS) software.
+- **[Generalized Deduplication](https://github.com/prasadtalasila/generalized-deduplication)** — Better data deduplication using probability transformations.
+- **[AutolabJS](https://autolabjs.github.io)** — Auto evaluation tool for C/C++/Java/Python programming projects.
+- **[IRCLogParser](https://github.com/prasadtalasila/IRCLogParser)** — Analysis and visualization of Internet Relay Chat (IRC) channels.
 
 ---
 
@@ -188,13 +212,13 @@ I architect, program and maintain research software and supporting repositories 
 
 ### Recent Conference and Workshop Papers
 
-- Riccardo Sieve, Prasad Talasila, et al., *A Self-Adaptive Digital Twin Architecture to Automate Greenhouse Management*, ICCPS 2026 (accepted).
+- Riccardo Sieve, Prasad Talasila, et al., *A Self-Adaptive Digital Twin Architecture to Automate Greenhouse Management*, ICPS 2026 (accepted).
 - Milan Vathoopan, Prasad Talasila, et al., *Orchestrating Distributed Simulations for Circular Manufacturing-as-a-Service Ecosystems*, IEEE ICIT 2026.
 - Marco Picone, Samuele Burattini, et al., *A Multi-Simulation Bridge for IoT Digital Twins*, IEEE PerCom Workshops, 2026.
 - Mirgita Frasheri, Prasad Talasila, and Vanessa Scherma, *Towards Federated Digital Twin Platforms*, FSE workshop, 2026.
 - Pranjay Yelkotwar et al., *On-Demand Cardiac Digital Twins*, MODELS-C, 2025.
 - Prasad Talasila et al., *Structural Health Monitoring of Engineering Structures Using Digital Twins*, EVACES, 2025.
-- Marco Picone, Prasad Talasila, et al., *Exploring DevOps for Integrating Physical and Digital Twins in Cyber-Physical Systems*, ICCPS 2025.
+- Marco Picone, Prasad Talasila, et al., *Exploring DevOps for Integrating Physical and Digital Twins in Cyber-Physical Systems*, ICPS 2025.
 - Prasad Talasila et al., *Digital twin as a service (DTaaS): a platform for digital twin developers and users*, IEEE Smart World Congress, 2023.
 
 ---

@@ -6,9 +6,9 @@ hide:
 
 # Lecture Schedule of Object Oriented Programming, 2017-18
 
-<table style="border:2px solid blue;border-collapse:collapse;padding:10px;width:150%;font-size:medium;">
+<table style="border:2px solid teal;border-collapse:collapse;padding:10px;width:150%;font-size:medium;">
 <tbody>
-<tr style="height:50px;border:1px solid blue;text-align:center;background-color:navy;">
+<tr style="height:50px;border:1px solid teal;text-align:center;background-color:teal;">
 <td style="color:white;font-size:medium;font-weight:bold;">Lec. No.</td>
 <td style="color:white;font-size:medium;font-weight:bold;">Lecture Topics</td>
 <td style="color:white;font-size:medium;font-weight:bold;width:70px;">Lecture Materials</td>
@@ -24,7 +24,7 @@ Activities
 <td style="font-size:medium;"> Watch <a href="http://10.1.1.242/moodle/mod/folder/view.php?id=43379">Myth of Genius Programmer</a></td>
 <td style="font-size:medium;">On learning programming languages - <a href="https://www.youtube.com/watch?v=LR8fQiskYII" target="_blank" rel="noopener noreferrer">Larry Wall</a>, <a href="https://www.youtube.com/watch?v=NvWTnIoQZj4" target="_blank" rel="noopener noreferrer">Bjarne Stroustrup</a></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">2-3</td>
 <td style="font-size:medium;">Understanding Class Definitions</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/ei3hzuef4xfwhjr/2_understanding_class_definitions.zip?dl=1">zip</a></td>
@@ -38,7 +38,7 @@ Activities
 <td style="font-size:medium;"> <a href="https://www.youtube.com/watch?v=zN6eSf9I7Ck" target="_blank" rel="noopener noreferrer">Message Oriented Programming</a>, Brian Knapp</td>
 <td style="font-size:medium;"> <a href="https://www.youtube.com/watch?v=gTN6ioeqHDY" target="_blank" rel="noopener noreferrer">Hiring Good Programmers</a> by Jason Fried, 37Signals</td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">6-7</td>
 <td style="font-size:medium;">Grouping Objects</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/eifoykpqhk0ikvq/6_grouping_objects.zip?dl=1"> zip</a></td>
@@ -53,7 +53,7 @@ Activities
 <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-092-java-preparation-for-6-170-january-iap-2006/lecture-notes/lecture3.pdf" target="_blank" rel="noopener noreferrer"> Collections lecture @ MIT</a></td>
 <td style="font-size:medium;"> More thorough review - <a href="https://www.dropbox.com/s/yoyzkwb2hdrvwsu/Collections-I.pdf?dl=1">Part-I</a>, <a href="https://www.dropbox.com/s/x43oom2qz36sf7s/Collections-II.pdf?dl=1">Part-II</a></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">10</td>
 <td style="font-size:medium;">UML Diagrams - Class, Object and Interaction Diagrams</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/dvqi7lyy6ep3rf8/10_basic_UML.zip?dl=1">zip</a></td>
@@ -69,7 +69,7 @@ Activities
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"> <a href="https://www.youtube.com/watch?v=vqEg37e4Mkw">Workflows of Refactoring</a> - Martin Fowler</td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">12</td>
 <td style="font-size:medium;width:250px;"> Enumerated Types</td>
 <td style="font-size:medium;"></td>
@@ -79,7 +79,7 @@ Activities
 <td style="font-size:medium;">13-14</td>
 <td style="font-size:medium;width:250px;" colspan="4">Review class</td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">15-17</td>
 <td style="font-size:medium;width:250px;">Well-Behaved Objects</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/cuiqm6ldjmx347q/13_well_behaved_objects.zip?dl=1">zip</a></td>
@@ -93,7 +93,7 @@ Activities
 <td style="font-size:medium;"> Brian W. Kernighan on <a href="https://www.cs.princeton.edu/~bwk/testing.html" target="_blank" rel="noopener noreferrer">Testing</a>, <a href="http://junit.sourceforge.net/doc/testinfected/testing.htm">Test Infected</a></td>
 <td style="font-size:medium;"><a href="https://www.youtube.com/watch?v=cGuTmOUdFbo">XP 20 Years Later</a> by Kent Beck</td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">21</td>
 <td style="font-size:medium;width:250px;">Improving Structure with Inheritance</td>
 <td style="font-size:medium;text-align:center;"> <a href="https://www.dropbox.com/s/8eklpalk8e1zy6l/16_improving_structure_with_inheritance.zip?dl=1">zip</a></td>
@@ -107,7 +107,7 @@ Activities
 <td style="font-size:medium;"> Readings on Instanceof-<a href="https://www.artima.com/interfacedesign/PreferPoly.html" target="_blank" rel="noopener noreferrer">Bill Venners,</a> <a href="http://www.javapractices.com/topic/TopicAction.do?Id=31" target="_blank" rel="noopener noreferrer">John O'Hanley</a></td>
 <td style="font-size:medium;"> Chapters 1 - 6 of <a href="http://www.desy.de/gna/html/cc/Tutorial/tutorial.html" target="_blank" rel="noopener noreferrer">Introduction to OOP using C++</a></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">24-25</td>
 <td style="font-size:medium;width:250px;">Further Abstraction Techniques</td>
 <td style="font-size:medium;text-align:center;"> <a href="https://www.dropbox.com/s/bn5u3yapbdrxfhv/20_further_abstraction_techniques.zip?dl=1">zip</a></td>
@@ -125,7 +125,7 @@ Read <a href="https://www.dropbox.com/s/x3ug35i3ot6xyth/Brock_Exceptions.pdf?dl=
 <a href="http://tutorials.jenkov.com/java-nio/index.html" target="_blank" rel="noopener noreferrer">NIO Tutorial</a> by Jenkov,
 <a href="https://www.youtube.com/watch?v=yNRS1ssLPdQ" target="_blank" rel="noopener noreferrer">NIO2 Review</a></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">28</td>
 <td style="font-size:medium;width:250px;">Inner and Anonymous Classes</td>
 <td style="font-size:medium;text-align:center;"> <a href="https://www.dropbox.com/s/dyr7w5st4nc9d3k/26_nested_classes.zip?dl=1">zip</a></td>
@@ -139,7 +139,7 @@ Read <a href="https://www.dropbox.com/s/x3ug35i3ot6xyth/Brock_Exceptions.pdf?dl=
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"> <a href="http://www.osl.iu.edu/publications/prints/2003/comparing_generic_programming03.pdf" target="_blank" rel="noopener noreferrer">Generics in different languages</a></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">32-34</td>
 <td style="font-size:medium;width:250px;">Concurrency</td>
 <td style="font-size:medium;text-align:center;"> <a href="https://www.dropbox.com/s/snvu58svtsa2gf7/29_concurrency.zip?dl=1">zip</a></td>
@@ -155,7 +155,7 @@ Read <a href="https://www.dropbox.com/s/x3ug35i3ot6xyth/Brock_Exceptions.pdf?dl=
 <td style="font-size:medium;"><a href="https://www.youtube.com/watch?v=IDKJJDiK3Gw">XP in 21st Century</a> - Rachael Davis
 <a href="https://www.youtube.com/watch?v=7HecgbghFTk" target="_blank" rel="noopener noreferrer">Economics of the Software Design</a> - JB Rainsberger</td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">36-37</td>
 <td style="font-size:medium;width:250px;">Principles of Object-Oriented Development</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/lx4tgq82vt9xc74/principles_of_OOD.zip?dl=1">zip</a></td>
@@ -170,7 +170,7 @@ Solid Principles - <a href="https://www.youtube.com/watch?v=TMuno5RZNeE&index=76
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">40</td>
 <td style="font-size:medium;width:250px;">Object Model</td>
 <td style="font-size:medium;text-align:center;">Object Model chapter-OOAD</td>
@@ -190,7 +190,7 @@ wikipedia article on <a href="https://en.wikipedia.org/wiki/Object-oriented_pro
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">2</td>
 <td style="font-size:medium;width:250px;">Cloning Objects</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/yttn90ztcvv1ijj/Clone.pdf?dl=1">PDF</a></td>
@@ -204,7 +204,7 @@ wikipedia article on <a href="https://en.wikipedia.org/wiki/Object-oriented_pro
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">4</td>
 <td style="font-size:medium;width:250px;">Designing Applications</td>
 <td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/1u3np1r9u9zho99/34_designing_applications.pdf?dl=1"> zip</a></td>

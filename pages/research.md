@@ -39,7 +39,7 @@ assemble communication infrastructure, domain models, simulation tools, data pip
 and visualisation services — and do so repeatedly for each new system. This is especially
 burdensome for Small and Medium-sized Enterprises (SMEs), who represent the largest
 segment of the industrial base but typically lack the specialised expertise needed to
-build DTs from scratch. The **[Digital Twin as a Service (DTaaS)]()** platform has been
+build DTs from scratch. The **[Digital Twin as a Service (DTaaS)](https://github.com/into-cps-association/DTaaS)** platform has been
 developed to tackle this problem directly, treating re-usability of DT assets (data,
 models, functions, and tools) as the primary design principle.
 
@@ -117,7 +117,7 @@ studies involving engineering SMEs.
 Claims about platform capabilities are validated through a portfolio of case studies
 with engineering partners. Current studies include: structural health monitoring of
 bridges and offshore wind turbine foundations (CP-SENS); district cooling systems in
-Asian megacities (SWiM); runtime verification of autonomous mobile robots (DS-RT 2024);
+Asian megacities (SWiM); runtime verification of autonomous mobile robots;
 and on-demand cardiac DTs demonstrating DevOps workflows. Each case study contributes
 reusable assets to the shared DTaaS asset library, reinforcing the platform's value
 for subsequent users.
@@ -144,26 +144,3 @@ beyond the core research group.
 5. A body of peer-reviewed publications in journals and conferences (SIMULATION,
    IEEE CPS, ACM MODELS, Springer Engineering of Digital Twins) reporting validated
    results from the above artefacts and case studies.
-
-## Prior Research
-
-### Doctoral Research
-
-My doctoral research is in the broad area of *Network Science*. My work is focused on
-structural transformations of multidimensional (multiplex) networks — mathematical
-transformations of graphs with multiple edges between vertices. This research has
-applications in the domains of virtual networks, multi-modal transportation systems,
-and online social networks.
-
-Interested readers can go through the following published material related to my
-doctoral thesis:
-
-- [A conceptual summary of the thesis](https://www.dropbox.com/s/09161wst1mgcoek/cell_model.pdf?dl=1)
-- [Official synopsis](https://www.dropbox.com/s/yhnse2q0s2w7vfr/synopsis.pdf?dl=1)
-  and [thesis defence presentation](https://www.dropbox.com/s/lmppk1legd5yj4h/thesis_pres.pdf?dl=1)
-- [Complete doctorate thesis](https://www.dropbox.com/s/nzaaey4010ixlev/thesis.pdf?dl=1)
-
-### Storage Compression Research (2018–2020)
-
-During 2018–20, I worked in the area of storage compression in distributed Internet of
-Things (IoT) applications. Research results are available on the [Publications](publications.md) page.

@@ -7,9 +7,9 @@ hide:
 # Labs of Object Oriented Programming, 2017-18
 
 <a href="ftp://10.1.9.209/" target="_blank" rel="noopener">Software</a>
-<table style="border: 2px solid blue; border-collapse: collapse; padding: 10px; width: 150%; font-size: medium;">
+<table style="border: 2px solid teal; border-collapse: collapse; padding: 10px; width: 150%; font-size: medium;">
 <tbody>
-<tr style="height: 50px; border: 1px solid blue; text-align: center; background-color: navy;">
+<tr style="height: 50px; border: 1px solid teal; text-align: center; background-color: teal;">
 <td style="color: white; font-size: medium; font-weight: bold;">Lab.
 No.</td>
 <td style="color: white; font-size: medium; font-weight: bold;">Date</td>
@@ -29,7 +29,7 @@ No.</td>
 
 <a href="https://www.youtube.com/watch?v=fQ-x-T34z9w">@Atlassian</a></td>
 </tr>
-<tr style="background-color: #ebebf5;">
+<tr style="background-color: #e0f2f1;">
 <td style="font-size: medium;"> 1</td>
 <td style="font-size: medium;"> 22.08.2017</td>
 <td style="font-size: medium;">Classes and Objects</td>
@@ -45,7 +45,7 @@ No.</td>
 <td style="font-size: medium; text-align: center;"><a href="https://www.dropbox.com/s/hyhss9j36v6e84p/Lab-2_statement.zip?dl=1">zip</a></td>
 <td style="font-size: medium;"></td>
 </tr>
-<tr style="background-color: #ebebf5;">
+<tr style="background-color: #e0f2f1;">
 <td style="font-size: medium;">3</td>
 <td style="font-size: medium;"> 12.09.2017</td>
 <td style="font-size: medium;">Testing</td>
@@ -61,7 +61,7 @@ No.</td>
 <td style="font-size: medium; text-align: center;"> <a href="https://www.dropbox.com/s/3ok2vg4aop4jql8/Lab-4_statement.zip?dl=1">zip</a></td>
 <td style="font-size: medium;"></td>
 </tr>
-<tr style="background-color: #ebebf5;">
+<tr style="background-color: #e0f2f1;">
 <td style="font-size: medium;">5</td>
 <td style="font-size: medium;"> 03.10.2017</td>
 <td style="font-size: medium;">Multiple Inheritance and Abstraction</td>
@@ -77,7 +77,7 @@ No.</td>
 <td style="font-size: medium; text-align: center;"><a href="https://www.dropbox.com/s/c3qmqw5t8fihhrn/Lab-6_statement.zip?dl=1">zip</a></td>
 <td style="font-size: medium;"></td>
 </tr>
-<tr style="background-color: #ebebf5;">
+<tr style="background-color: #e0f2f1;">
 <td style="font-size: medium;">7</td>
 <td style="font-size: medium;">04.11.2017</td>
 <td style="font-size: medium;">Threads</td>

@@ -28,6 +28,7 @@ nav:
   - About: index.md
   - Research: research.md
   - Publications: publications.md
+  - Projects: projects.md
   - Software: software.md
   - Courses: courses.md
   - Writings: writings.md
@@ -55,3 +56,6 @@ markdown_extensions:
 plugins:
   - open-in-new-tab
   - search
+
+extra_css:
+  - assets/stylesheets/course-tables.css

@@ -7,9 +7,9 @@ hide:
 # Labs of Object Oriented Programming, 2016-17
 
 <a href="ftp://10.1.9.209/" target="_blank" rel="noopener">Software</a>
-<table style="border:2px solid blue;border-collapse:collapse;padding:10px;width:150%;font-size:medium;">
+<table style="border:2px solid teal;border-collapse:collapse;padding:10px;width:150%;font-size:medium;">
 <tbody>
-<tr style="height:50px;border:1px solid blue;text-align:center;background-color:navy;">
+<tr style="height:50px;border:1px solid teal;text-align:center;background-color:teal;">
 <td style="color:white;font-size:medium;font-weight:bold;">Lab.<br />
 No.</td>
 <td style="color:white;font-size:medium;font-weight:bold;">Date</td>
@@ -29,7 +29,7 @@ No.</td>
 <td style="font-size:medium;"> Pair programming - <a href="https://www.dropbox.com/s/ixu6b4lnhcf0j8k/PairProgramming.pdf?dl=1">article</a>, <a href="http://10.1.1.242/moodle/pluginfile.php/84538/mod_folder/content/0/pairprogramming_students.mov.rar?forcedownload=1">video</a>
 <a href="https://www.youtube.com/watch?v=fQ-x-T34z9w">@Atlassian</a></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;"> 1</td>
 <td style="font-size:medium;"> 09.08.2016</td>
 <td style="font-size:medium;">Classes and Objects</td>
@@ -47,7 +47,7 @@ No.</td>
 <td style="font-size:medium;"> <a href="https://autolab.bits-goa.ac.in/lab_author/lab2/" target="_blank">repo</a></td>
 <td style="font-size:medium;"></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">3</td>
 <td style="font-size:medium;"> 30.08.2016</td>
 <td style="font-size:medium;">Testing</td>
@@ -65,7 +65,7 @@ No.</td>
 <td style="font-size:medium;"> <a href="http://autolab.bits-goa.ac.in/lab_author/lab4" target="_blank">repo</a></td>
 <td style="font-size:medium;"></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">5</td>
 <td style="font-size:medium;"> 27.09.2016</td>
 <td style="font-size:medium;">Multiple Inheritance and Abstraction</td>
@@ -83,7 +83,7 @@ No.</td>
 <td style="font-size:medium;"><a href="https://autolab.bits-goa.ac.in/lab_author/lab4_repeat" target="_blank">repo</a></td>
 <td style="font-size:medium;"></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">6</td>
 <td style="font-size:medium;"> 16.10.2016</td>
 <td style="font-size:medium;width:250px;">Generics and Inner Classes</td>
@@ -101,7 +101,7 @@ No.</td>
 <td style="font-size:medium;"><a href="http://autolab.bits-goa.ac.in/lab_author/lab7" target="_blank">repo</a></td>
 <td style="font-size:medium;"></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;">8</td>
 <td style="font-size:medium;"> 08.11.2016</td>
 <td style="font-size:medium;width:250px;">Exceptions and Assertions with Cassandra DB</td>
@@ -119,7 +119,7 @@ No.</td>
 <td style="font-size:medium;"></td>
 <td style="font-size:medium;"></td>
 </tr>
-<tr style="background-color:#ebebf5;">
+<tr style="background-color:#e0f2f1;">
 <td style="font-size:medium;"> 10</td>
 <td style="font-size:medium;"> 22.11.2016</td>
 <td style="font-size:medium;width:250px;">Servlets</td>
