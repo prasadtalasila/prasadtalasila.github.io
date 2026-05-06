@@ -1,0 +1,988 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home page of Prasad Talasila">
+      
+      
+        <meta name="author" content="Prasad Talasila">
+      
+      
+        <link rel="canonical" href="https://prasadtalasila.github.io/courses/oop/2017-18/lectures.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Lecture Schedule of Object Oriented Programming, 2017-18 - Prasad Talasila</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lecture-schedule-of-object-oriented-programming-2017-18" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Prasad Talasila" class="md-header__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prasad Talasila
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lecture Schedule of Object Oriented Programming, 2017-18
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/prasadtalasila/prasadtalasila.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prasadtalasila.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../research.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Research
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../publications.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../software.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../courses.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Courses
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../writings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Writings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../links.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Links
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../marathons.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Marathons
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../contact.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Prasad Talasila" class="md-nav__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Prasad Talasila
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/prasadtalasila/prasadtalasila.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prasadtalasila.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../research.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../publications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../writings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../links.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marathons.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Marathons
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  
+  
+
+
+<h1 id="lecture-schedule-of-object-oriented-programming-2017-18">Lecture Schedule of Object Oriented Programming, 2017-18</h1>
+<table style="border:2px solid blue;border-collapse:collapse;padding:10px;width:150%;font-size:medium;">
+<tbody>
+<tr style="height:50px;border:1px solid blue;text-align:center;background-color:navy;">
+<td style="color:white;font-size:medium;font-weight:bold;">Lec. No.</td>
+<td style="color:white;font-size:medium;font-weight:bold;">Lecture Topics</td>
+<td style="color:white;font-size:medium;font-weight:bold;width:70px;">Lecture Materials</td>
+<td style="color:white;font-size:medium;font-weight:bold;">Readings</td>
+<td style="color:white;font-size:medium;font-weight:bold;">Optional
+Activities
+(no assessment)</td>
+</tr>
+<tr>
+<td style="font-size:medium;">1</td>
+<td style="font-size:medium;width:250px;">Objects and Classes</td>
+<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/dpk4v5sva80kf46/1_classes_and_objects.zip?dl=1"> zip</a></td>
+<td style="font-size:medium;"> Watch <a href="http://10.1.1.242/moodle/mod/folder/view.php?id=43379">Myth of Genius Programmer</a></td>
+<td style="font-size:medium;">On learning programming languages - <a href="https://www.youtube.com/watch?v=LR8fQiskYII" target="_blank" rel="noopener noreferrer">Larry Wall</a>, <a href="https://www.youtube.com/watch?v=NvWTnIoQZj4" target="_blank" rel="noopener noreferrer">Bjarne Stroustrup</a></td>
+</tr>
+<tr style="background-color:#ebebf5;">
+<td style="font-size:medium;">2-3</td>
+<td style="font-size:medium;">Understanding Class Definitions</td>
+<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/ei3hzuef4xfwhjr/2_understanding_class_definitions.zip?dl=1">zip</a></td>
+<td style="font-size:medium;text-align:left;"> Prof. Edgar Dijkstra - <a href="https://www.cs.utexas.edu/users/EWD/transcriptions/EWD06xx/EWD648.html" target="_blank" rel="noopener noreferrer">Why is Software So Expensive?</a></td>
+<td style="font-size:medium;">Smarts Don't Guarantee Success - <a href="http://bigthink.com/playlists/as-it-is-in-poker-so-it-is-in-life">Brandon Adams</a></td>
+</tr>
+<tr>
+<td style="font-size:medium;">4-5</td>
+<td style="font-size:medium;width:250px;">Object Interaction</td>
+<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/ixef4xmmdhmahj8/4_object_interaction.zip?dl=1">zip</a></td>
+<td style="font-size:medium;"> <a href="https://www.youtube.com/watch?v=zN6eSf9I7Ck" target="_blank" rel="noopener noreferrer">Message Oriented Programming</a>, Brian Knapp</td>
+<td style="font-size:medium;"> <a href="https://www.youtube.com/watch?v=gTN6ioeqHDY" target="_blank" rel="noopener noreferrer">Hiring Good Programmers</a> by Jason Fried, 37Signals</td>
+</tr>
+<tr style="background-color:#ebebf5;">
+<td style="font-size:medium;">6-7</td>
+<td style="font-size:medium;">Grouping Objects</td>
+<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/eifoykpqhk0ikvq/6_grouping_objects.zip?dl=1"> zip</a></td>
+<td style="font-size:medium;text-align:center;">Martin Fowler - <a href="https://www.martinfowler.com/articles/collection-pipeline/">Collection Pipelines</a>, <a href="https://www.martinfowler.com/articles/refactoring-pipelines.html">Refactoring loops to collection pipelines</a></td>
+<td style="font-size:medium;"> Interviews - <a href="http://bigthink.com/videos/big-think-interview-with-bjarne-stroustrup">Bjarne Stroustrup</a>, <a href="http://bigthink.com/experts/larrywall">Larry Wall</a></td>
+</tr>
+<tr>
+<td style="font-size:medium;">8-9</td>
+<td style="font-size:medium;width:250px;">More Sophisticated Behavior</td>
+<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/7aq27g3mx769a87/8_more_sophisticated_behavior.zip?dl=1">zip</a></td>
+<td style="font-size:medium;"> <a href="https://www.dropbox.com/s/ytuekdkwzekeorm/collections_code.zip?dl=1">Collections Code</a>
+<a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-092-java-preparation-for-6-170-january-iap-2006/lecture-notes/lecture3.pdf" target="_blank" rel="noopener noreferrer"> Collections lecture @ MIT</a></td>
+<td style="font-size:medium;"> More thorough review - <a href="https://www.dropbox.com/s/yoyzkwb2hdrvwsu/Collections-I.pdf?dl=1">Part-I</a>, <a href="https://www.dropbox.com/s/x43oom2qz36sf7s/Collections-II.pdf?dl=1">Part-II</a></td>
+</tr>
+<tr style="background-color:#ebebf5;">
+<td style="font-size:medium;">10</td>
+<td style="font-size:medium;">UML Diagrams - Class, Object and Interaction Diagrams</td>
+<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/dvqi7lyy6ep3rf8/10_basic_UML.zip?dl=1">zip</a></td>
+<td style="font-size:medium;">Read <a href="https://www.dropbox.com/s/ipz3xerl69w0y5d/Collaboration-bw-Objects.pdf?dl=1">Collaboration between Objects</a>, <a href="http://www.plantuml.com" target="_blank" rel="noopener noreferrer">PlantUML</a></td>
+<td style="font-size:medium;">Prof. Jennifer Widom - <a href="https://www.youtube.com/watch?v=OOpiaIcyz30">UML Data Modeling</a>, <a href="https://www.youtube.com/watch?v=_-jQSV9Ld7M">UML to Relations</a>
+
+<a href="https://www.youtube.com/watch?v=tR_rOJPiEXc">Data Modeling for MySQL</a></td>
+</tr>
+<tr>
+<td style="font-size:medium;">11</td>
+<td style="font-size:medium;width:250px;">Designing Classes</td>
+<td style="font-size:medium;text-align:center;" rowspan="2"> <a href="https://www.dropbox.com/s/kqjz2dwzqle6l0z/11_designing_classes.zip?dl=1">zip</a></td>
+<td style="font-size:medium;"></td>
+<td style="font-size:medium;"> <a href="https://www.youtube.com/watch?v=vqEg37e4Mkw">Workflows of Refactoring</a> - Martin Fowler</td>
+</tr>
+<tr style="background-color:#ebebf5;">
+<td style="font-size:medium;">12</td>
+<td style="font-size:medium;width:250px;"> Enumerated Types</td>
+<td style="font-size:medium;"></td>
+<td style="font-size:medium;"></td>
+</tr>
+<tr>
+<td style="font-size:medium;">13-14</td>
+<td style="font-size:medium;width:250px;" colspan="4">Review class</td>
+</tr>
+<tr style="background-color:#ebebf5;">
+<td style="font-size:medium;">15-17</td>
+<td style="font-size:medium;width:250px;">Well-Behaved Objects</td>
+<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/cuiqm6ldjmx347q/13_well_behaved_objects.zip?dl=1">zip</a></td>
+<td style="font-size:medium;"></td>
+<td style="font-size:medium;"><a href="https://www.youtube.com/watch?v=RyQnJUWcXFo" target="_blank" rel="noopener noreferrer">Test Driven Development</a> by JB Rainsberger</td>
+</tr>
+<tr>
+<td style="font-size:medium;">18-20</td>
+<td style="font-size:medium;width:250px;"> Testing</td>
+<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/h5y7a9aspd4yx6e/14_testing.zip?dl=1"> zip</a></td>
+<td style="font-size:medium;"> Brian W. Kernighan on <a href="https://www.cs.princeton.edu/~bwk/testing.html" target="_blank" rel="noopener noreferrer">Testing</a>, <a href="http://junit.sourceforge.net/doc/testinfected/testing.htm">Test Infected</a></td>
+<td style="font-size:medium;"><a href="https://www.youtube.com/watch?v=cGuTmOUdFbo">XP 20 Years Later</a> by Kent Beck</td>
+</tr>
+<tr style="background-color:#ebebf5;">
+<td style="font-size:medium;">21</td>
+<td style="font-size:medium;width:250px;">Improving Structure with Inheritance</td>
+<td style="font-size:medium;text-align:center;"> <a href="https://www.dropbox.com/s/8eklpalk8e1zy6l/16_improving_structure_with_inheritance.zip?dl=1">zip</a></td>
+<td style="font-size:medium;"><a href="https://www.dropbox.com/s/fnoav801px8zl6h/quarks-of-OOD.pdf?dl=1">Quarks of Object Oriented Development</a>, <a href="https://www.quora.com/Is-inheritance-bad-practice-in-OOP">Why Inheritance is Bad</a></td>
+<td style="font-size:medium;"><a href="https://medium.com/@cscalfani/goodbye-object-oriented-programming-a59cda4c0e53">Goodbye OOP</a></td>
+</tr>
+<tr>
+<td style="font-size:medium;">22-23</td>
+<td style="font-size:medium;width:250px;">More About Inheritance</td>
+<td style="font-size:medium;text-align:center;"> <a href="https://www.dropbox.com/s/jtlx567sl7miqwz/18_more_about_inheritance.zip?dl=1">zip</a></td>
+<td style="font-size:medium;"> Readings on Instanceof-<a href="https://www.artima.com/interfacedesign/PreferPoly.html" target="_blank" rel="noopener noreferrer">Bill Venners,</a> <a href="http://www.javapractices.com/topic/TopicAction.do?Id=31" target="_blank" rel="noopener noreferrer">John O'Hanley</a></td>
+<td style="font-size:medium;"> Chapters 1 - 6 of <a href="http://www.desy.de/gna/html/cc/Tutorial/tutorial.html" target="_blank" rel="noopener noreferrer">Introduction to OOP using C++</a></td>
+</tr>
+<tr style="background-color:#ebebf5;">
+<td style="font-size:medium;">24-25</td>
+<td style="font-size:medium;width:250px;">Further Abstraction Techniques</td>
+<td style="font-size:medium;text-align:center;"> <a href="https://www.dropbox.com/s/bn5u3yapbdrxfhv/20_further_abstraction_techniques.zip?dl=1">zip</a></td>
+<td style="font-size:medium;">Implementing <a href="http://www.javapractices.com/topic/TopicAction.do?Id=17" target="_blank" rel="noopener noreferrer">Equals</a></td>
+<td style="font-size:medium;"><a href="http://www.javaworld.com/article/2076841/core-java/designing-with-interfaces.html" target="_blank" rel="noopener noreferrer"> Designing with Interfaces, Bill Venners</a> (advanced material)</td>
+</tr>
+<tr>
+<td style="font-size:medium;"> 26-27</td>
+<td style="font-size:medium;width:250px;">Handling Errors</td>
+<td style="font-size:medium;text-align:center;"> <a href="https://www.dropbox.com/s/s76joi3mmj6rais/23_handling_errors.zip?dl=1">zip</a></td>
+<td style="font-size:medium;"><a href="https://www.dropbox.com/s/3mjhyjzk5xcrkf0/24_transition_from_BlueJ_to_Eclipse.zip?dl=1">Transitioning from BlueJ to Java</a>
+Read <a href="https://www.dropbox.com/s/x3ug35i3ot6xyth/Brock_Exceptions.pdf?dl=1">Exception-Handling</a>
+<a href="https://www.dropbox.com/s/x3ug35i3ot6xyth/Brock_Exceptions.pdf?dl=1">Best Practices and Patterns</a></td>
+<td style="font-size:medium;"><a href="https://blogs.oracle.com/slc/entry/javanio_vs_javaio" target="_blank" rel="noopener noreferrer">NIO and IO</a>,
+<a href="http://tutorials.jenkov.com/java-nio/index.html" target="_blank" rel="noopener noreferrer">NIO Tutorial</a> by Jenkov,
+<a href="https://www.youtube.com/watch?v=yNRS1ssLPdQ" target="_blank" rel="noopener noreferrer">NIO2 Review</a></td>
+</tr>
+<tr style="background-color:#ebebf5;">
+<td style="font-size:medium;">28</td>
+<td style="font-size:medium;width:250px;">Inner and Anonymous Classes</td>
+<td style="font-size:medium;text-align:center;"> <a href="https://www.dropbox.com/s/dyr7w5st4nc9d3k/26_nested_classes.zip?dl=1">zip</a></td>
+<td style="font-size:medium;"><a href="http://tutorials.jenkov.com/java/nested-classes.html" target="_blank" rel="noopener noreferrer"> Jenkov tutorial on Inner Classes</a></td>
+<td style="font-size:medium;"></td>
+</tr>
+<tr>
+<td style="font-size:medium;">29-31</td>
+<td style="font-size:medium;width:250px;">Generics</td>
+<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/kgzz8painumcknk/27_generics.zip?dl=1">zip</a></td>
+<td style="font-size:medium;"></td>
+<td style="font-size:medium;"> <a href="http://www.osl.iu.edu/publications/prints/2003/comparing_generic_programming03.pdf" target="_blank" rel="noopener noreferrer">Generics in different languages</a></td>
+</tr>
+<tr style="background-color:#ebebf5;">
+<td style="font-size:medium;">32-34</td>
+<td style="font-size:medium;width:250px;">Concurrency</td>
+<td style="font-size:medium;text-align:center;"> <a href="https://www.dropbox.com/s/snvu58svtsa2gf7/29_concurrency.zip?dl=1">zip</a></td>
+<td style="font-size:medium;">Joel Armstrong - <a href="https://www.youtube.com/watch?v=bo5WL5IQAd0" target="_blank" rel="noopener noreferrer">How we program multicores</a></td>
+<td style="font-size:medium;"> Carl Hewitt on <a href="https://www.youtube.com/watch?v=7erJ1DV_Tlo" target="_blank" rel="noopener noreferrer">Actor Model</a>, Joel Armstrong on <a href="https://www.youtube.com/watch?v=itKFrXghGuA" target="_blank" rel="noopener noreferrer">Computing: The first 100 Years</a></td>
+</tr>
+<tr>
+<td style="font-size:medium;">35</td>
+<td style="font-size:medium;width:250px;">Extreme Programming Overview</td>
+<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/981hzpiylp8ctbm/40_XP_Overview.zip?dl=1">zip</a></td>
+<td style="font-size:medium;"><a href="https://www.dropbox.com/s/bn5svla6kfep9yo/Construction_checklists.pdf?dl=1">Ch3: The End of the Master Builder</a>, Checklist Manifesto, Atul Gawande
+<a href="https://www.dropbox.com/s/mz9ay77yr8khpfj/project-checklist.pdf?dl=1">Checklist for Software Projects</a>, courtesy MIT6.170 Software Studio, Spring 2013</td>
+<td style="font-size:medium;"><a href="https://www.youtube.com/watch?v=IDKJJDiK3Gw">XP in 21st Century</a> - Rachael Davis
+<a href="https://www.youtube.com/watch?v=7HecgbghFTk" target="_blank" rel="noopener noreferrer">Economics of the Software Design</a> - JB Rainsberger</td>
+</tr>
+<tr style="background-color:#ebebf5;">
+<td style="font-size:medium;">36-37</td>
+<td style="font-size:medium;width:250px;">Principles of Object-Oriented Development</td>
+<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/lx4tgq82vt9xc74/principles_of_OOD.zip?dl=1">zip</a></td>
+<td style="font-size:medium;"><a href="https://www.youtube.com/watch?v=RdE-d_EhzmA">OOP is Dead! Long Live OODD</a></td>
+<td style="font-size:medium;"><a href="http://www.cs.virginia.edu/~evans/cs655/readings/smalltalk.html" target="_blank" rel="noopener noreferrer">Smalltalk design principles</a>,
+Solid Principles - <a href="https://www.youtube.com/watch?v=TMuno5RZNeE&index=76&list=PLcr1-V2ySv4Tf_xSLj2MbQZr78fUVQAua" target="_blank" rel="noopener noreferrer">Robert C. Martin</a>, <a href="https://www.youtube.com/watch?v=v-2yFMzxqwU" target="_blank" rel="noopener noreferrer">Sandi Metz</a></td>
+</tr>
+<tr>
+<td style="font-size:medium;">38-39</td>
+<td style="font-size:medium;width:250px;">Introduction to DevOps</td>
+<td style="font-size:medium;text-align:center;"> Class Notes </td>
+<td style="font-size:medium;"></td>
+<td style="font-size:medium;"></td>
+</tr>
+<tr style="background-color:#ebebf5;">
+<td style="font-size:medium;">40</td>
+<td style="font-size:medium;width:250px;">Object Model</td>
+<td style="font-size:medium;text-align:center;">Object Model chapter-OOAD</td>
+<td style="font-size:medium;"> Alan Kay - <a href="http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en">OOP</a>, <a href="http://lists.squeakfoundation.org/pipermail/squeak-dev/1998-October/017019.html">Message Passing</a>;
+<a href="https://en.wikipedia.org/wiki/Trait_(computer_programming)">Traits intro</a>,
+wikipedia article on <a href="https://en.wikipedia.org/wiki/Object-oriented_programming" target="_blank" rel="noopener noreferrer">OOP</a></td>
+<td style="font-size:medium;"><a href="http://scg.unibe.ch/archive/papers/Scha03aTraits.pdf">Traits paper</a>, Smalltalk - <a href="http://www.vpri.org/pdf/hc_smalltalk_history.pdf">History</a>, <a href="http://www.cs.virginia.edu/~evans/cs655/readings/smalltalk.html">Design Principles</a>
+<a href="http://www.dreamsongs.com/CLOS.html" target="_blank" rel="noopener noreferrer">Common Lisp Object System</a>, <a href="http://mop.lisp.se/contents.html">Meta Object Protocol</a></td>
+</tr>
+<tr>
+<td style="text-align:center;font-size:1.4em;color:#556b2f;background-color:#ffa07a;font-weight:bold;" colspan="5">Self-Study (Assessed)</td>
+</tr>
+<tr>
+<td style="font-size:medium;">1</td>
+<td style="font-size:medium;width:250px;">Packages and Classpath</td>
+<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/yttnx8jlaal5srb/Packages_CLASSPATH.pdf?dl=1">PDF</a></td>
+<td style="font-size:medium;"></td>
+<td style="font-size:medium;"></td>
+</tr>
+<tr style="background-color:#ebebf5;">
+<td style="font-size:medium;">2</td>
+<td style="font-size:medium;width:250px;">Cloning Objects</td>
+<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/yttn90ztcvv1ijj/Clone.pdf?dl=1">PDF</a></td>
+<td style="font-size:medium;"></td>
+<td style="font-size:medium;"></td>
+</tr>
+<tr>
+<td style="font-size:medium;">3</td>
+<td style="font-size:medium;width:250px;"> Taxi Company case study</td>
+<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/8k034x12emw7wpc/taxi-company-case-study.zip?dl=1">zip</a></td>
+<td style="font-size:medium;"></td>
+<td style="font-size:medium;"></td>
+</tr>
+<tr style="background-color:#ebebf5;">
+<td style="font-size:medium;">4</td>
+<td style="font-size:medium;width:250px;">Designing Applications</td>
+<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/1u3np1r9u9zho99/34_designing_applications.pdf?dl=1"> zip</a></td>
+<td style="font-size:medium;">Read <a href="http://vu.bits-pilani.ac.in/Ooad/Lesson11/topic1.htm" target="_blank" rel="noopener noreferrer">Modeling through CRC Cards</a> and <a href="http://vu.bits-pilani.ac.in/Ooad/Lesson11/Classroom/Barframe.htm" target="_blank" rel="noopener noreferrer">PPT</a> of <a href="http://vu.bits-pilani.ac.in/Ooad/Coursestead.htm" target="_blank" rel="noopener noreferrer">OOAD, BITS</a> course</td>
+<td style="font-size:medium;"><a href="https://www.youtube.com/watch?v=zFO1cRr5-qY">Pair Programming a Facebook Messenger Bot</a> - Mattias Petter Johansson</td>
+</tr>
+<tr>
+<td style="text-align:center;font-size:1.4em;color:#556b2f;background-color:#ffa07a;font-weight:bold;" colspan="5">Optional Topics (Not-assessed)</td>
+</tr>
+<tr>
+<td style="font-size:medium;">1</td>
+<td style="font-size:medium;width:250px;"> Building GUI</td>
+<td style="font-size:medium;text-align:center;"><a href="https://www.dropbox.com/s/po2cuwkrrcit638/building_GUI.zip?dl=1">zip</a></td>
+<td style="font-size:medium;"></td>
+<td style="font-size:medium;"> <a href="https://www.youtube.com/watch?v=N-Qgz6qHhcg" target="_blank" rel="noopener noreferrer">Java FX</a> by Oracle</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Prasad Talasila
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.tabs.sticky", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

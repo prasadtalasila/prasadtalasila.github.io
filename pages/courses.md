@@ -1,18 +1,24 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Courses
 
-### Internetworking Technologies
+## Internetworking Technologies
 
-II-Semester, 2017-18 | II-Semester, 2015-16 | II-Semester, 2014-15
+[II-Semester, 2017-18](courses/inet/2017-18/index.md) | [II-Semester, 2015-16](courses/inet/2015-16/index.md) | [II-Semester, 2014-15](courses/inet/2014-15/index.md)
 
-### Object Oriented Programming
+## Object Oriented Programming
 
-I-Semester, 2017-18 | I-Semester, 2016-17 | I-Semester, 2015-16
+[I-Semester, 2017-18](courses/oop/2017-18/index.md) | [I-Semester, 2016-17](courses/oop/2016-17/index.md) | [I-Semester, 2015-16](courses/oop/2015-16/index.md)
 
 Computer Networks ([II-Semester, 2010-11](http://courses.rvrjcce.ac.in/moodle/course/view.php?id=986))  
 [Advanced UNIX Programming](https://www.dropbox.com/s/289crghpjziklas/AUP_lectures.pdf?dl=1) (I-Semester, 2011-12)  
 [Code Snippets](https://www.dropbox.com/s/a6diug5youatxx2/Class_Exercises.tar.gz?dl=1)
 
-### Labs
+## Labs
 
 Computer Networks Lab (II-Semester, 2013-14)  
 Computer Architecture Lab (I-Semester, 2012-13)  

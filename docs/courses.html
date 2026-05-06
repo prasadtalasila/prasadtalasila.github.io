@@ -35,6 +35,9 @@
     
       <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -61,7 +64,12 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -82,12 +90,13 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="index.html" title="Prasad Talasila" class="md-header__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,8 +120,8 @@
       </div>
     </div>
     
+      
     
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -171,14 +180,8 @@
     
   </nav>
   
-</header>
     
-    <div class="md-container" data-md-component="container">
       
-      
-        
-          
-            
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
@@ -359,7 +362,13 @@
     </ul>
   </div>
 </nav>
-          
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
       
       <main class="md-main" data-md-component="main">
@@ -367,7 +376,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -380,8 +391,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="index.html" title="Prasad Talasila" class="md-nav__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="assets/logo.png" alt="logo">
 
     </a>
     Prasad Talasila
@@ -732,7 +742,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -797,6 +809,8 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+
 
 
   
@@ -804,14 +818,14 @@
 
 
 <h1 id="courses">Courses</h1>
-<h3 id="internetworking-technologies">Internetworking Technologies</h3>
-<p>II-Semester, 2017-18 | II-Semester, 2015-16 | II-Semester, 2014-15</p>
-<h3 id="object-oriented-programming">Object Oriented Programming</h3>
-<p>I-Semester, 2017-18 | I-Semester, 2016-17 | I-Semester, 2015-16</p>
+<h2 id="internetworking-technologies">Internetworking Technologies</h2>
+<p><a href="courses/inet/2017-18/index.html">II-Semester, 2017-18</a> | <a href="courses/inet/2015-16/index.html">II-Semester, 2015-16</a> | <a href="courses/inet/2014-15/index.html">II-Semester, 2014-15</a></p>
+<h2 id="object-oriented-programming">Object Oriented Programming</h2>
+<p><a href="courses/oop/2017-18/index.html">I-Semester, 2017-18</a> | <a href="courses/oop/2016-17/index.html">I-Semester, 2016-17</a> | <a href="courses/oop/2015-16/index.html">I-Semester, 2015-16</a></p>
 <p>Computer Networks (<a href="http://courses.rvrjcce.ac.in/moodle/course/view.php?id=986">II-Semester, 2010-11</a>)<br />
 <a href="https://www.dropbox.com/s/289crghpjziklas/AUP_lectures.pdf?dl=1">Advanced UNIX Programming</a> (I-Semester, 2011-12)<br />
 <a href="https://www.dropbox.com/s/a6diug5youatxx2/Class_Exercises.tar.gz?dl=1">Code Snippets</a></p>
-<h3 id="labs">Labs</h3>
+<h2 id="labs">Labs</h2>
 <p>Computer Networks Lab (II-Semester, 2013-14)<br />
 Computer Architecture Lab (I-Semester, 2012-13)<br />
 <a href="https://www.dropbox.com/s/bvhfk33i1awg5mk/UNIX_manual.pdf?dl=1">Advanced UNIX Programming Lab</a> (I-Semester, 2011-12)</p>
@@ -822,8 +836,13 @@ Computer Architecture Lab (I-Semester, 2012-13)<br />
 
 
 
+  
+  
 
 
+
+
+  
 
 
 
@@ -846,6 +865,8 @@ Computer Architecture Lab (I-Semester, 2012-13)<br />
         <footer class="md-footer">
   
     
+      
+        
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
@@ -910,11 +931,13 @@ Computer Architecture Lab (I-Semester, 2012-13)<br />
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
     
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.tracking", "navigation.footer", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.tabs.sticky", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.79ae519e.min.js"></script>

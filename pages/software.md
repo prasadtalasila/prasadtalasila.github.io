@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Software
 
 In interest of reproducible research, all implementations of our research work
@@ -5,7 +11,7 @@ have been made available as open source software.
 
 ## Digital Twin as a Service (DTaaS)
 
-A software platform to **Build, Use and Share** digital twins (DTs). DTaaS enables
+The DTaaS is a software platform to **Build, Use and Share** digital twins (DTs). DTaaS enables
 users to construct digital twins from reusable DT assets (data, models, functions,
 and tools), execute them on the platform, and share ready-to-use DTs with other users.
 The platform is designed to reduce the effort of building digital twins for
@@ -15,6 +21,14 @@ including Small and Medium-sized Enterprises.
 | Software Name | Source Code | Releases | Documentation |
 |-------- |:----------:|:----------:|:----------:|
 | DTaaS | [GitHub](https://github.com/into-cps-association/DTaaS) | [DTaaS v1.0](https://github.com/into-cps-association/DTaaS/releases) | [website](https://into-cps-association.github.io/DTaaS) |
+
+## Simulation Bridge
+
+Simulation Bridge is a Python-based distributed simulation middleware that routes requests between clients and simulation engines via RabbitMQ as a common messaging backbone. It supports multiple protocol adapters (REST, MQTT, RabbitMQ, and in-memory) and includes JWT-secured REST endpoints for streaming real-time results. Simulation agents for MATLAB and SIMUL8 fulfill simulations requests, supporting batch, streaming, and interactive modes.
+
+| Software Name | Source Code | Releases | Documentation |
+|-------- |:----------:|:----------:|:----------:|
+| Simulation-Bridge | [GitHub](https://github.com/INTO-CPS-Association/simulation-bridge) | [Releases](https://github.com/INTO-CPS-Association/simulation-bridge/releases) | [website](https://github.com/INTO-CPS-Association/simulation-bridge/blob/main/USERGUIDE.md) |
 
 ## AutolabJS
 

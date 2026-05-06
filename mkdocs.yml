@@ -13,11 +13,18 @@ copyright: Copyright &copy; Prasad Talasila
 theme:
   name: material
   locale: en
+  logo: assets/logo.png
+  palette:
+    primary: teal
+    accent: orange
   features:
-    - navigation.tabs
-    - navigation.tracking
     - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tabs.sticky
+    - navigation.tabs
     - navigation.top
+    - navigation.tracking
 
 nav:
   - About: index.md

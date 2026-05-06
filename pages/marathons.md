@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Marathons
 
 I have been running half-marathons sporadically since 2012. The whole running started

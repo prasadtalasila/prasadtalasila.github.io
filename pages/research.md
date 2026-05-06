@@ -1,12 +1,10 @@
-# Research
-
-## Research Manifesto: Engineering Trustworthy Digital Twin Platforms for Cyber-Physical Systems
-
-**Prasad Talasila**  
-Centre for Digital Twins, DIGIT, Department of ECE, Aarhus University, Denmark  
-<prasad.talasila@ece.au.dk>
-
 ---
+hide:
+  - navigation
+  - toc
+---
+
+# Engineering Scalable and Trustworthy Digital Twin Platforms for Cyber-Physical Systems
 
 ## Abstract
 
@@ -26,8 +24,6 @@ twins be built, operated, and shared efficiently and securely by a wide range of
 The outcomes are demonstrated through realistic case studies in structural health
 monitoring, district cooling, and autonomous systems, and released as open-source software.
 
----
-
 ## Motivation
 
 The widespread adoption of sensing, connectivity, and cloud computing has created the
@@ -43,7 +39,7 @@ assemble communication infrastructure, domain models, simulation tools, data pip
 and visualisation services — and do so repeatedly for each new system. This is especially
 burdensome for Small and Medium-sized Enterprises (SMEs), who represent the largest
 segment of the industrial base but typically lack the specialised expertise needed to
-build DTs from scratch. The **Digital Twin as a Service (DTaaS)** platform has been
+build DTs from scratch. The **[Digital Twin as a Service (DTaaS)]()** platform has been
 developed to tackle this problem directly, treating re-usability of DT assets (data,
 models, functions, and tools) as the primary design principle.
 
@@ -79,13 +75,9 @@ security guarantees covering confidentiality, integrity, and access control.
    real-world applications such as structural health monitoring, district cooling,
    and autonomous systems?
 
----
-
 ## Methodology
 
-The research combines platform engineering, formal modelling, and empirical evaluation in
-a *design science* tradition: problems are extracted from real projects, artefacts are
-built to address them, and the artefacts are evaluated in context.
+The research combines platform engineering, formal modelling, and empirical evaluation in a *design science* tradition: problems are extracted from real projects, artefacts are built to address them, and the artefacts are evaluated in context.
 
 **Platform and Architecture Research.**
 The DTaaS platform is the primary research vehicle. Its microservice architecture
@@ -135,8 +127,6 @@ All platform components are released as open-source software under the INTO-CPS
 Association, enabling independent validation, community contributions, and adoption
 beyond the core research group.
 
----
-
 ## Expected Outcomes
 
 1. A production-grade, open-source DTaaS platform supporting composable DTs with a
@@ -154,8 +144,6 @@ beyond the core research group.
 5. A body of peer-reviewed publications in journals and conferences (SIMULATION,
    IEEE CPS, ACM MODELS, Springer Engineering of Digital Twins) reporting validated
    results from the above artefacts and case studies.
-
----
 
 ## Prior Research
 
@@ -178,5 +166,4 @@ doctoral thesis:
 ### Storage Compression Research (2018–2020)
 
 During 2018–20, I worked in the area of storage compression in distributed Internet of
-Things (IoT) applications. Research results are available on the [Publications](publications.md)
-page.
+Things (IoT) applications. Research results are available on the [Publications](publications.md) page.

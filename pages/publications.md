@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Publications
 
 **Prasad Talasila**  
@@ -20,24 +26,24 @@ Centre for Digital Twins, DIGIT, Department of ECE, Aarhus University, Denmark
    Computer-Aided Civil and Infrastructure Engineering (Industrial Application).
    Accepted.
 
----
-
-## 2026
-
 1. **`[C]`**
    Riccardo Sieve, Prasad Talasila, Peter Gorm Larsen, and Einar Broch Johnsen.
    *A Self-Adaptive Digital Twin Architecture to Automate Greenhouse Management.*
    In Proc. 9th International Conference on Cyber Physical Systems (ICPS 2026),
    Perth, Australia, 11–14 May 2026. Accepted.
 
-2. **`[C]`**
+---
+
+## 2026
+
+1. **`[C]`**
    Milan Vathoopan, Prasad Talasila, Jalil Boudjadar, Chresten Larsen,
    Nicola Bicocchi, Marco Picone, and Marco Melloni.
    *Orchestrating Distributed Simulations for Circular Manufacturing-as-a-Service Ecosystems.*
    In Proc. IEEE International Conference on Industrial Technology (ICIT 2026),
    Monterrey, Mexico, 4–6 March 2026.
 
-3. **`[W]`**
+1. **`[W]`**
    Marco Picone, Samuele Burattini, Marco Melloni, Prasad Talasila,
    Davide Ziglioli, Matteo Martinelli, Nicola Bicocchi, and Peter Gorm Larsen.
    *A Multi-Simulation Bridge for IoT Digital Twins.*
@@ -45,7 +51,7 @@ Centre for Digital Twins, DIGIT, Department of ECE, Aarhus University, Denmark
    23rd IEEE International Conference on Pervasive Computing and Communications
    Workshops (PerCom 2026), Pisa, Italy, 16–20 March 2026.
 
-4. **`[W]`**
+1. **`[W]`**
    Mirgita Frasheri, Prasad Talasila, and Vanessa Scherma.
    *Towards Federated Digital Twin Platforms.*
    International Workshop on Autonomous System Quality Assurance and Prediction
