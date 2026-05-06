@@ -1,0 +1,51 @@
+site_name: Prasad Talasila
+site_url: https://prasadtalasila.github.io
+site_description: Home page of Prasad Talasila
+site_author: Prasad Talasila
+
+repo_url: https://github.com/prasadtalasila/prasadtalasila.github.io
+repo_name: prasadtalasila.github.io
+copyright: Copyright &copy; Prasad Talasila
+
+theme:
+  name: material
+  locale: en
+  features:
+    - navigation.tabs
+    - navigation.tracking
+    - navigation.footer
+    - navigation.top
+
+nav:
+  - About: index.md
+  - Research: research.md
+  - Publications: publications.md
+  - Software: software.md
+  - Courses: courses.md
+  - Writings: writings.md
+  - Links: links.md
+  - Marathons: marathons.md
+  - Contact: contact.md
+
+use_directory_urls: false
+
+markdown_extensions:
+  - attr_list
+  - tables
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      linenums: true
+      use_pygments: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - open-in-new-tab
+  - search
