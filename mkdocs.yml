@@ -6,8 +6,6 @@ site_author: Prasad Talasila
 docs_dir: pages
 site_dir: docs
 
-repo_url: https://github.com/prasadtalasila/prasadtalasila.github.io
-repo_name: prasadtalasila.github.io
 copyright: Copyright &copy; Prasad Talasila
 
 theme:
@@ -33,8 +31,6 @@ nav:
   - Software: software.md
   - Courses: courses.md
   - Writings: writings.md
-  - Links: links.md
-  - Marathons: marathons.md
   - Contact: contact.md
 
 use_directory_urls: false

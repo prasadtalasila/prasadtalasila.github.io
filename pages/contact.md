@@ -14,6 +14,7 @@ You can reach me via the following channels:
 **GitHub:** [prasadtalasila](https://github.com/prasadtalasila)
 
 **Affiliation:**  
-Centre for Digital Twins (DIGIT)  
+Centre for Digital Twins (DIGIT)
+Software Engineering and Computing Systems
 Department of Electrical and Computer Engineering  
 Aarhus University, Denmark

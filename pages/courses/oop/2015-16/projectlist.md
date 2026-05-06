@@ -6,40 +6,54 @@ hide:
 
 # Project List of Object Oriented Programming, 2015-16
 
-<p><strong>Electronic Stock Exchange</strong><br />
-http://www.quickfixj.org/<br />
-http://www.quickfixengine.org/<br />
-https://github.com/yccheok/jstock<br />
-https://github.com/philipperemy/Order-Book-Matching-Engine<br />
-https://github.com/ChrizC/StockExchange</p>
-<p><strong>ebay replica</strong><br />
-<a href="http://www.ebay.in/">http://www.ebay.in/</a></p>
-<p><strong>Recreate https://www.usebackpack.com/</strong></p>
-<p><strong>Local Whatsapp (XMPP + Google Protocol Buffers)<br />
-</strong>https://developers.google.com/protocol-buffers/docs/javatutorial</p>
-<p><strong>jStock webapp version</strong><br />
-http://jstock.org/</p>
-<p><strong>GnuCash replica</strong><br />
-<a href="http://www.gnucash.org/">http://www.gnucash.org/</a></p>
-<p><strong>diagram editor using jgraphx</strong><br />
-https://www.jgraph.com/<br />
-https://github.com/jgraph/jgraphx</p>
-<p><strong>xero-like tax webapp</strong><br />
-https://www.xero.com/<br />
-http://www.intuit.in/</p>
-<p><strong>Improving e-wallet program with BitcoinJ<br />
-</strong>the project must have money transfer capability, similar to NEFT<br />
-https://bitcoinj.github.io/</p>
-<p><strong>Game of life for BITSian<br />
-</strong>https://en.wikipedia.org/wiki/The_Game_of_Life</p>
-<p><strong>Group videochat webapp</strong><br />
-https://appear.in/<br />
-http://peerjs.com/<br />
-http://sipjs.com/<br />
-https://www.mozilla.org/en-US/firefox/hello/</p>
-<p><strong>Replicate www.finances101thegame.org</strong></p>
-<p><strong>Templerun / Subway surfer on Beaglebone</strong><br />
-(using accelerometer, gyroscope and touch screen)</p>
-<p><strong>Home automation using Beaglebone</strong><br />
-(create a model home with lots of sensors and connect them as IoT; can be done on Beaglebone or Raspberry Pi)</p>
-<p><strong>Improve last year’s projects</strong> – Zephyr, Spree, Nirmaan activities  manager, Resource management, Mess Management, e-Wallet</p>
+**Electronic Stock Exchange**  
+<http://www.quickfixj.org/>  
+<http://www.quickfixengine.org/>  
+<https://github.com/yccheok/jstock>  
+<https://github.com/philipperemy/Order-Book-Matching-Engine>  
+<https://github.com/ChrizC/StockExchange>
+
+**ebay replica**  
+<http://www.ebay.in/>
+
+**Recreate <https://www.usebackpack.com/>**
+
+**Local Whatsapp (XMPP + Google Protocol Buffers)**  
+<https://developers.google.com/protocol-buffers/docs/javatutorial>
+
+**jStock webapp version**  
+<http://jstock.org/>
+
+**GnuCash replica**  
+<http://www.gnucash.org/>
+
+**diagram editor using jgraphx**  
+<https://www.jgraph.com/>  
+<https://github.com/jgraph/jgraphx>
+
+**xero-like tax webapp**  
+<https://www.xero.com/>  
+<http://www.intuit.in/>
+
+**Improving e-wallet program with BitcoinJ**  
+The project must have money transfer capability, similar to NEFT  
+<https://bitcoinj.github.io/>
+
+**Game of life for BITSian**  
+<https://en.wikipedia.org/wiki/The_Game_of_Life>
+
+**Group videochat webapp**  
+<https://appear.in/>  
+<http://peerjs.com/>  
+<http://sipjs.com/>  
+<https://www.mozilla.org/en-US/firefox/hello/>
+
+**Replicate www.finances101thegame.org**
+
+**Templerun / Subway surfer on Beaglebone**  
+(using accelerometer, gyroscope and touch screen)
+
+**Home automation using Beaglebone**  
+(create a model home with lots of sensors and connect them as IoT; can be done on Beaglebone or Raspberry Pi)
+
+**Improve last year's projects** - Zephyr, Spree, Nirmaan activities manager, Resource management, Mess Management, e-Wallet

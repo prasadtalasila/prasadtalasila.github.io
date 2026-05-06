@@ -19,5 +19,4 @@ KK Birla Goa Campus (2012 to 2018), where I have taught [courses](courses.md) on
 Detailed [Research](research.md) and [Publications](publications.md) are available on their respective pages. Teaching materials are under [Courses](courses.md) and [Writings](writings.md).
 I am a big proponent of open-source software and my contributions are listed on the [Software](software.md) page. See [Contact](contact.md) page for professional collaboration and (if you are a former acquaintance) catchup.
 
-See a snapshot of my professional life is available in [brief](https://www.dropbox.com/s/e94vttr9o5j2vy9/resume_brief_dec_2020.pdf?dl=1) and
-[detailed](https://www.dropbox.com/s/ja6ncqwlg5uebh6/resume_detailed_dec_2020.pdf?dl=1) resume.
+A snapshot of my professional life is available as a [brief resume](resume_brief.md) and a [detailed resume](resume_complete.md).
