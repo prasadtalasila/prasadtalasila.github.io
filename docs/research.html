@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#engineering-scalable-and-trustworthy-digital-twin-platforms-for-cyber-physical-systems" class="md-skip">
+        <a href="#engineering-trustworthy-digital-twin-platforms-for-cyber-physical-systems" class="md-skip">
           Skip to content
         </a>
       
@@ -768,23 +768,26 @@
 
 
 
-<h1 id="engineering-scalable-and-trustworthy-digital-twin-platforms-for-cyber-physical-systems">Engineering Scalable and Trustworthy Digital Twin Platforms for Cyber-Physical Systems</h1>
+<h1 id="engineering-trustworthy-digital-twin-platforms-for-cyber-physical-systems">Engineering Trustworthy Digital Twin Platforms for Cyber-Physical Systems</h1>
 <h2 id="abstract">Abstract</h2>
-<p>Digital twins (DTs) are becoming essential infrastructure for engineering and operating
-cyber-physical systems (CPSs) across manufacturing, civil engineering, and energy.
-However, the effort needed to build a DT from scratch remains prohibitively high,
-limiting adoption to organisations with advanced software engineering resources.
-This research programme addresses three interlocking challenges:
-(1) the engineering of re-usable, composable DT assets and the platforms that manage
-them throughout their full life cycle;
-(2) the principled integration of heterogeneous simulations into live DTs to enable
-predictive and prescriptive capabilities; and
-(3) the establishment of secure, federated collaboration between organisations sharing
-DT assets and services.
-The unifying goal is an open, platform-level answer to the question: <em>how can digital
-twins be built, operated, and shared efficiently and securely by a wide range of users?</em>
-The outcomes are demonstrated through realistic case studies in structural health
-monitoring, district cooling, and autonomous systems, and released as open-source software.</p>
+<p>Digital twins (DTs) are virtual replicas of physical entities referred to as Physical Twins
+(PTs). DTs are becoming essential infrastructure for engineering and operating cyber-physical
+systems (CPSs) across manufacturing, critical infrastructure, and energy domains. DT research
+techniques are being used to create bespoke DTs for the oceans, the earth, and circular
+manufacturing systems that are crucial to achieving sustainability goals. However, the effort
+needed to build a DT from scratch remains prohibitively high, limiting adoption to
+organisations with advanced software engineering resources. This research programme addresses
+three interlocking challenges:
+(1) the engineering of re-usable, composable DTs and the platforms that manage them throughout
+their full life cycle;
+(2) the principled integration of heterogeneous simulations into live DTs to enable predictive
+and prescriptive capabilities, where the requirement for simulations may arise from a PT
+operating in a factory or from a factory linked with its supply chain; and
+(3) the establishment of secure, federated sharing of assets and services between organisations.
+The unifying goal is an open, platform-level answer to the question: <em>how can digital twins be
+built, operated, and shared efficiently and securely by a wide range of users?</em> The outcomes are
+demonstrated through realistic case studies in structural health monitoring, district cooling,
+and autonomous systems, and released as open-source software.</p>
 <h2 id="motivation">Motivation</h2>
 <p>The widespread adoption of sensing, connectivity, and cloud computing has created the
 technical prerequisites for digital twins. A DT acts as a persistent, software-based
@@ -804,14 +807,22 @@ models, functions, and tools) as the primary design principle.</p>
 <p>A second class of challenges arises once a DT is operational. Simulations are the engine
 of DT intelligence: they support what-if analysis, model validation, and predictive
 control. However, the integration of heterogeneous simulation environments into live DT
-architectures is poorly supported by current tooling. Most DT frameworks treat simulation
+architectures is poorly supported by current tooling — most DT frameworks treat simulation
 as an offline activity, disconnected from the run-time data loop. Enabling bidirectional,
 low-latency simulation integration across diverse modelling paradigms requires a dedicated
-architectural element — the <em>DT Simulation Bridge</em>.</p>
+simulation infrastructure. The <em>DT Simulation Bridge (DT-SB)</em> integrates distributed
+simulations — from MATLAB dynamics models to AnyLogic agent-based simulations — into live
+DTs, and has also found application in a Manufacturing-as-a-Service ecosystem.</p>
 <p>A third challenge emerges when organisations want to pool DT assets across institutional
-or organisational boundaries. DT assets may contain confidential models or proprietary
-operational data; sharing them requires not only technical interoperability but also
-security guarantees covering confidentiality, integrity, and access control.</p>
+or organisational boundaries (dataspaces). DT assets may contain confidential models or
+proprietary operational data; sharing them requires not only technical interoperability
+but also security guarantees covering confidentiality, integrity, and access control.
+Zero-trust security principles and federated identity management have been applied to
+cloud platforms but have not been systematically integrated into DT platforms. Preliminary
+results indicate that a federated DTaaS architecture enforcing secure asset sharing is
+both technically feasible and practically useful. Emerging Industry 5.0 standards further
+extend the requirements of DT platforms with the potential integration of AI, cloud
+services, and dataspaces.</p>
 <p><strong>Primary research question:</strong></p>
 <blockquote>
 <p><em>How can digital twin platforms be engineered so that composable, simulation-capable,
@@ -823,69 +834,50 @@ and securely shareable DTs are accessible to a wide range of users and organisat
    expertise needed to deploy a DT across diverse application domains?</li>
 <li>What architectural patterns and interaction protocols are needed to integrate
    heterogeneous, concurrent simulations into live DTs with minimal latency and coupling?</li>
-<li>How can DevOps and DevSecOps principles be adapted to the hybrid digital-physical
-   nature of DT development, specifically through the use of Mock Physical Twins?</li>
 <li>What mechanisms enable secure, federated sharing of DT assets and services across
    organisational boundaries while respecting data sovereignty?</li>
 <li>How do these platform capabilities translate into measurable engineering value in
-   real-world applications such as structural health monitoring, district cooling,
-   and autonomous systems?</li>
+   real-world applications such as manufacturing supply chains, digital product passports
+   (DPP), and autonomous systems?</li>
 </ol>
 <h2 id="methodology">Methodology</h2>
 <p>The research combines platform engineering, formal modelling, and empirical evaluation in a <em>design science</em> tradition: problems are extracted from real projects, artefacts are built to address them, and the artefacts are evaluated in context.</p>
 <p><strong>Platform and Architecture Research.</strong>
 The DTaaS platform is the primary research vehicle. Its microservice architecture
-separates concerns of asset management, lifecycle orchestration, execution provisioning,
+separates concerns of asset management, DT life cycle orchestration, execution provisioning,
 and user access. New capabilities — semantic lifting of DT configurations, hierarchical
 DT composition, and federated asset registries — are designed against a consistent set
 of stakeholder requirements drawn from the CP-SENS, SWiM, and Secure Collaboration
-projects. Architecture decisions are documented using the C4 model and evaluated for
-scalability on Kubernetes-hosted deployments.</p>
+projects.</p>
 <p><strong>Simulation Integration.</strong>
-The DT Simulation Bridge is designed as a protocol-agnostic middleware that decouples
-DTs from specific simulation tools. Three interaction patterns are supported:
-batch simulation (one-shot scenario analysis), streaming simulation (continuous state
-exchange), and physical twin simulation (virtual commissioning). Simulation agents for
-MATLAB and AnyLogic are implemented and evaluated on commercial hardware.
-Protocol overhead is measured empirically using MQTT, AMQP, and HTTP/2 to inform
-deployment decisions.</p>
-<p><strong>DevOps for Digital Twins.</strong>
-Mock Physical Twins (MockPTs) are formalised as software artefacts that emulate PT
-communication interfaces at increasing fidelity levels: from pure interface stubs,
-through trace-based replay, to full simulation. This progression allows DT development
-to advance independently of hardware availability and provides a structured path for
-continuous integration and deployment. The maturity levels are evaluated against the
-DTOps framework through experiments in robotic arm commissioning and greenhouse management.</p>
+The DT-SB is designed as a protocol-agnostic middleware that decouples DTs from specific
+simulation tools. DTs managed inside the DTaaS platform, when coupled with distributed
+simulators via the DT-SB, can thus achieve scalable, cross-domain operations.</p>
 <p><strong>Security and Federation.</strong>
 Federated DT platforms are designed using zero-trust principles: no user, service,
 or asset is trusted by default; every interaction is authenticated and authorised.
-The secure collaboration architecture builds on OAuth2 and verifiable credentials to
+The secure collaboration architecture builds on OIDC and verifiable credentials to
 control asset access across organisational boundaries. Threat modelling follows
-established industry standards and is validated against the CP-SENS security case
-studies involving engineering SMEs.</p>
+established industry standards and is validated against case studies on emergency
+management in crowd environments, for instance as part of the Aarhus Festival.</p>
 <p><strong>Case Studies.</strong>
 Claims about platform capabilities are validated through a portfolio of case studies
-with engineering partners. Current studies include: structural health monitoring of
-bridges and offshore wind turbine foundations (CP-SENS); district cooling systems in
-Asian megacities (SWiM); runtime verification of autonomous mobile robots (DS-RT 2024);
-and on-demand cardiac DTs demonstrating DevOps workflows. Each case study contributes
-reusable assets to the shared DTaaS asset library, reinforcing the platform's value
-for subsequent users.</p>
+with business partners. Current studies include: structural health monitoring of
+bridges and offshore wind turbine foundations (CP-SENS), and district cooling systems in
+Asian megacities (SWiM). Each case study contributes reusable assets to the shared DTaaS
+asset library, reinforcing the platform's value for subsequent users.</p>
 <p><strong>Open-Source Release.</strong>
-All platform components are released as open-source software under the INTO-CPS
-Association, enabling independent validation, community contributions, and adoption
-beyond the core research group.</p>
+All platform components are released as open-source software under the
+<a href="https://into-cps.org">INTO-CPS Association</a>, enabling independent validation, community
+contributions, and adoption beyond the core research group.</p>
 <h2 id="expected-outcomes">Expected Outcomes</h2>
 <ol>
 <li>A production-grade, open-source DTaaS platform supporting composable DTs with a
    well-defined asset model, lifecycle management, and scalable cloud deployment,
-   validated across at least five distinct application domains.</li>
-<li>A DT Simulation Bridge providing multi-protocol, heterogeneous simulation integration
-   with sub-5 ms median overhead, accompanied by agents for at least two major simulation
-   environments.</li>
-<li>A DTOps framework that formally defines MockPT maturity levels and maps them to
-   DevOps pipeline stages, enabling continuous integration and deployment of DTs
-   independently of hardware availability.</li>
+   validated across different application domains through industrial collaborations
+   with regional partners.</li>
+<li>A DT Simulation Bridge providing multi-protocol, heterogeneous simulation middleware
+   that complements the DT and DTaaS platform.</li>
 <li>A federated security architecture for DTaaS that enforces zero-trust asset sharing
    across organisational boundaries, with demonstrated application to SME industrial
    settings.</li>

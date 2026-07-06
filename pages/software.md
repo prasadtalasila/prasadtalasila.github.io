@@ -9,6 +9,9 @@ hide:
 In the interest of reproducible research, all implementations of our research work
 have been made available as open source software.
 
+See the [Project Portfolio](portfolio.md) for detailed system architecture diagrams and
+technology stacks behind the software listed below.
+
 ## Digital Twin as a Service (DTaaS)
 
 The DTaaS is a software platform to **Build, Use and Share** digital twins (DTs). DTaaS enables

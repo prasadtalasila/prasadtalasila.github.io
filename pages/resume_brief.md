@@ -54,6 +54,7 @@ I architect, program, and maintain research software for digital twin developmen
 | 2005 – 2012 | Assistant Professor | Departments of CS & IS and ECE, RVR & JC College of Engineering, India |
 
 ### Current Position
+
 **Researcher, Digital Twins Research Group, DIGIT Centre, Aarhus University** *(June 2020 – Present)*
 
 - Lead architecture, design, and implementation of Digital Twin as a Service for research and industrial projects.

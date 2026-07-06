@@ -6,9 +6,9 @@ hide:
 
 # Marathons
 
-I have been running half-marathons sporadically since 2012. The whole running started
-upon much prodding from Prof. Bharat Deshpande and Durgesh Samant.
-The experience as a whole is positive.
+I have been running half-marathons sporadically since 2012. It all started
+after much prodding from Prof. Bharat Deshpande and Durgesh Samant.
+The experience as a whole has been positive.
 
 A few interesting runners to look up:
 

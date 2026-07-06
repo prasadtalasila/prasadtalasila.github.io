@@ -37,7 +37,7 @@ Aarhus, Denmark
 - Deliver software, documentation, training, and technology transfer for CP-SENS and related collaborations with engineering partners.
 - Contribute to collaborative digital twin, simulation, and secure sharing projects including DIGITbrain, HUBCAP, Secure Collaboration on DTaaS, and SWiM.
 
-### PostDoctorate Researcher
+### Post-Doctorate Researcher
 
 **Agile Cloud Lab, Communications Group, Aarhus University** — Aarhus, Denmark  
 *June 2018 – May 2020*

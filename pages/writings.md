@@ -6,7 +6,7 @@ hide:
 
 # Writings
 
-Articles, presentations, manuals, artwork produced by me.
+Articles, presentations, manuals, and artwork produced by me.
 
 ## Lab Manuals
 
