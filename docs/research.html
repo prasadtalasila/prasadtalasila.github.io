@@ -507,6 +507,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -749,6 +760,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -792,18 +814,18 @@ and autonomous systems, and released as open-source software.</p>
 <p>The widespread adoption of sensing, connectivity, and cloud computing has created the
 technical prerequisites for digital twins. A DT acts as a persistent, software-based
 counterpart to a physical twin (PT), maintaining continuous synchronisation and using
-models and simulations to add operational value. This value takes concrete forms:
+models and simulations to add operational value <a href="#references">[1]</a>. This value takes concrete forms:
 predictive maintenance of offshore wind turbines, fault detection in structural health
-monitoring, adaptive control of manufacturing systems, and management of autonomous
+monitoring <a href="#references">[2]</a>, adaptive control of manufacturing systems <a href="#references">[3]</a>, and management of autonomous
 mobile robots.</p>
 <p>Despite this potential, implementation remains a major undertaking. A practitioner must
 assemble communication infrastructure, domain models, simulation tools, data pipelines,
 and visualisation services — and do so repeatedly for each new system. This is especially
 burdensome for Small and Medium-sized Enterprises (SMEs), who represent the largest
 segment of the industrial base but typically lack the specialised expertise needed to
-build DTs from scratch. The <strong><a href="https://github.com/into-cps-association/DTaaS">Digital Twin as a Service (DTaaS)</a></strong> platform has been
+build DTs from scratch <a href="#references">[4]</a>. The <strong><a href="https://github.com/into-cps-association/DTaaS">Digital Twin as a Service (DTaaS)</a></strong> platform has been
 developed to tackle this problem directly, treating re-usability of DT assets (data,
-models, functions, and tools) as the primary design principle.</p>
+models, functions, and tools) as the primary design principle <a href="#references">[4]</a>, <a href="#references">[5]</a>.</p>
 <p>A second class of challenges arises once a DT is operational. Simulations are the engine
 of DT intelligence: they support what-if analysis, model validation, and predictive
 control. However, the integration of heterogeneous simulation environments into live DT
@@ -812,17 +834,17 @@ as an offline activity, disconnected from the run-time data loop. Enabling bidir
 low-latency simulation integration across diverse modelling paradigms requires a dedicated
 simulation infrastructure. The <em>DT Simulation Bridge (DT-SB)</em> integrates distributed
 simulations — from MATLAB dynamics models to AnyLogic agent-based simulations — into live
-DTs, and has also found application in a Manufacturing-as-a-Service ecosystem.</p>
+DTs <a href="#references">[6]</a>, and has also found application in a Manufacturing-as-a-Service ecosystem <a href="#references">[7]</a>.</p>
 <p>A third challenge emerges when organisations want to pool DT assets across institutional
 or organisational boundaries (dataspaces). DT assets may contain confidential models or
 proprietary operational data; sharing them requires not only technical interoperability
 but also security guarantees covering confidentiality, integrity, and access control.
 Zero-trust security principles and federated identity management have been applied to
-cloud platforms but have not been systematically integrated into DT platforms. Preliminary
+cloud platforms <a href="#references">[8]</a> but have not been systematically integrated into DT platforms. Preliminary
 results indicate that a federated DTaaS architecture enforcing secure asset sharing is
-both technically feasible and practically useful. Emerging Industry 5.0 standards further
+both technically feasible and practically useful <a href="#references">[9]</a>. Emerging Industry 5.0 standards further
 extend the requirements of DT platforms with the potential integration of AI, cloud
-services, and dataspaces.</p>
+services, and dataspaces <a href="#references">[10]</a>.</p>
 <p><strong>Primary research question:</strong></p>
 <blockquote>
 <p><em>How can digital twin platforms be engineered so that composable, simulation-capable,
@@ -841,7 +863,7 @@ and securely shareable DTs are accessible to a wide range of users and organisat
    (DPP), and autonomous systems?</li>
 </ol>
 <h2 id="methodology">Methodology</h2>
-<p>The research combines platform engineering, formal modelling, and empirical evaluation in a <em>design science</em> tradition: problems are extracted from real projects, artefacts are built to address them, and the artefacts are evaluated in context.</p>
+<p>The research combines platform engineering, formal modelling, and empirical evaluation in a <em>design science</em> tradition <a href="#references">[11]</a>: problems are extracted from real projects, artefacts are built to address them, and the artefacts are evaluated in context.</p>
 <p><strong>Platform and Architecture Research.</strong>
 The DTaaS platform is the primary research vehicle. Its microservice architecture
 separates concerns of asset management, DT life cycle orchestration, execution provisioning,
@@ -884,6 +906,20 @@ contributions, and adoption beyond the core research group.</p>
 <li>A body of peer-reviewed publications in journals and conferences (SIMULATION,
    IEEE CPS, ACM MODELS, Springer Engineering of Digital Twins) reporting validated
    results from the above artefacts and case studies.</li>
+</ol>
+<h2 id="references">References</h2>
+<ol>
+<li>Michael Grieves. <em>Digital Twin: Manufacturing Excellence through Virtual Factory Replication.</em> White Paper, 2014.</li>
+<li>Prasad Talasila, Dmitri Tcherniak, Anders M.D. Jensen, Swarup Mahato, Andreas Schörghofer-Queiroz, Martin D. Ulriksen, Giuseppe Abbiati, Peter Gorm Larsen, and Lars Damkilde. <em>Structural Health Monitoring of Engineering Structures Using Digital Twins: A Digital Twin Platform Approach.</em> In Proc. 11th Conference on Experimental Vibration Analysis of Civil Engineering Structures (EVACES 2025), Porto, Portugal, 2–4 July 2025.</li>
+<li>Fei Tao, Q. Qi, L. Wang, and A.Y.C. Lee. <em>Digital Twins and Cyber-Physical Systems toward Smart Manufacturing and Industry 4.0: Correlation and Comparison.</em> <em>Engineering</em>, 5(4):653–661, 2019.</li>
+<li>Prasad Talasila, Cláudio Gomes, Lars B. Vosteen, Hannes Iven, Martin Leucker, Santiago Gil, Peter H. Mikkelsen, Eduard Kamburjan, and Peter G. Larsen. <em>Composable Digital Twins on Digital Twin as a Service Platform.</em> <em>Simulation</em>, 101(3):287–311, 2025. <a href="https://doi.org/10.1177/00375497241298653">https://doi.org/10.1177/00375497241298653</a></li>
+<li>Prasad Talasila, Peter Høgh Mikkelsen, Santiago Gil, and Peter Gorm Larsen. <em>Realising Digital Twins.</em> In John Fitzgerald, Cláudio Gomes, and Peter Gorm Larsen (Eds.), <em>The Engineering of Digital Twins</em>, pp. 225–256. Springer International Publishing, Cham, 2024.</li>
+<li>Marco Picone, Samuele Burattini, Marco Melloni, Prasad Talasila, Davide Ziglioli, Matteo Martinelli, Nicola Bicocchi, and Peter Gorm Larsen. <em>A Multi-Simulation Bridge for IoT Digital Twins.</em> In <em>Digital Twins Ecosystems and Applications</em>, 23rd IEEE International Conference on Pervasive Computing and Communications Workshops (PerCom 2026), Pisa, Italy, 16–20 March 2026.</li>
+<li>Milan Vathoopan, Prasad Talasila, Jalil Boudjadar, Chresten Larsen, Nicola Bicocchi, Marco Picone, and Marco Melloni. <em>Orchestrating Distributed Simulations for Circular Manufacturing-as-a-Service Ecosystems.</em> In Proc. IEEE International Conference on Industrial Technology (ICIT 2026), Monterrey, Mexico, 4–6 March 2026.</li>
+<li>Parwinder Singh, Michail J. Beliatis, and Mirko Presser. <em>Enabling Edge-Driven Dataspace Integration through Convergence of Distributed Technologies.</em> <em>Internet of Things</em>, 101087, 2024.</li>
+<li>Mirgita Frasheri, Prasad Talasila, and Vanessa Scherma. <em>Towards Federated Digital Twin Platforms.</em> In Proc. International Workshop on Autonomous System Quality Assurance and Prediction with Digital Twins (ASQAP), co-located with ACM Foundations of Software Engineering 2026, 5–9 July 2026.</li>
+<li>Parwinder Singh, Jan-Phillip Herrmann, Prasad Talasila, Sven Tackenberg, Michail J. Beliatis, Mirko Presser, and Peter Gorm Larsen. <em>AI-Human-Centric Industry 5.0: A Multimodal, Service-based, Edge-driven Digital Twin, AI Agents, and IoT Extended Reality.</em> <em>IEEE Transactions on Human-Machine Systems</em>, 2026. <em>Under Revision.</em></li>
+<li>Alan R. Hevner, Salvatore T. March, Jinsoo Park, and Sudha Ram. <em>Design Science in Information Systems Research.</em> <em>MIS Quarterly</em>, 28(1):75–105, 2004.</li>
 </ol>
 
 

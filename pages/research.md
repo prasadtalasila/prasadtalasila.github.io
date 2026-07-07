@@ -32,9 +32,9 @@ and autonomous systems, and released as open-source software.
 The widespread adoption of sensing, connectivity, and cloud computing has created the
 technical prerequisites for digital twins. A DT acts as a persistent, software-based
 counterpart to a physical twin (PT), maintaining continuous synchronisation and using
-models and simulations to add operational value. This value takes concrete forms:
+models and simulations to add operational value [[1]](#references). This value takes concrete forms:
 predictive maintenance of offshore wind turbines, fault detection in structural health
-monitoring, adaptive control of manufacturing systems, and management of autonomous
+monitoring [[2]](#references), adaptive control of manufacturing systems [[3]](#references), and management of autonomous
 mobile robots.
 
 Despite this potential, implementation remains a major undertaking. A practitioner must
@@ -42,9 +42,9 @@ assemble communication infrastructure, domain models, simulation tools, data pip
 and visualisation services — and do so repeatedly for each new system. This is especially
 burdensome for Small and Medium-sized Enterprises (SMEs), who represent the largest
 segment of the industrial base but typically lack the specialised expertise needed to
-build DTs from scratch. The **[Digital Twin as a Service (DTaaS)](https://github.com/into-cps-association/DTaaS)** platform has been
+build DTs from scratch [[4]](#references). The **[Digital Twin as a Service (DTaaS)](https://github.com/into-cps-association/DTaaS)** platform has been
 developed to tackle this problem directly, treating re-usability of DT assets (data,
-models, functions, and tools) as the primary design principle.
+models, functions, and tools) as the primary design principle [[4]](#references), [[5]](#references).
 
 A second class of challenges arises once a DT is operational. Simulations are the engine
 of DT intelligence: they support what-if analysis, model validation, and predictive
@@ -54,18 +54,18 @@ as an offline activity, disconnected from the run-time data loop. Enabling bidir
 low-latency simulation integration across diverse modelling paradigms requires a dedicated
 simulation infrastructure. The *DT Simulation Bridge (DT-SB)* integrates distributed
 simulations — from MATLAB dynamics models to AnyLogic agent-based simulations — into live
-DTs, and has also found application in a Manufacturing-as-a-Service ecosystem.
+DTs [[6]](#references), and has also found application in a Manufacturing-as-a-Service ecosystem [[7]](#references).
 
 A third challenge emerges when organisations want to pool DT assets across institutional
 or organisational boundaries (dataspaces). DT assets may contain confidential models or
 proprietary operational data; sharing them requires not only technical interoperability
 but also security guarantees covering confidentiality, integrity, and access control.
 Zero-trust security principles and federated identity management have been applied to
-cloud platforms but have not been systematically integrated into DT platforms. Preliminary
+cloud platforms [[8]](#references) but have not been systematically integrated into DT platforms. Preliminary
 results indicate that a federated DTaaS architecture enforcing secure asset sharing is
-both technically feasible and practically useful. Emerging Industry 5.0 standards further
+both technically feasible and practically useful [[9]](#references). Emerging Industry 5.0 standards further
 extend the requirements of DT platforms with the potential integration of AI, cloud
-services, and dataspaces.
+services, and dataspaces [[10]](#references).
 
 **Primary research question:**
 
@@ -86,7 +86,7 @@ services, and dataspaces.
 
 ## Methodology
 
-The research combines platform engineering, formal modelling, and empirical evaluation in a *design science* tradition: problems are extracted from real projects, artefacts are built to address them, and the artefacts are evaluated in context.
+The research combines platform engineering, formal modelling, and empirical evaluation in a *design science* tradition [[11]](#references): problems are extracted from real projects, artefacts are built to address them, and the artefacts are evaluated in context.
 
 **Platform and Architecture Research.**
 The DTaaS platform is the primary research vehicle. Its microservice architecture
@@ -135,3 +135,17 @@ contributions, and adoption beyond the core research group.
 4. A body of peer-reviewed publications in journals and conferences (SIMULATION,
    IEEE CPS, ACM MODELS, Springer Engineering of Digital Twins) reporting validated
    results from the above artefacts and case studies.
+
+## References
+
+1. Michael Grieves. *Digital Twin: Manufacturing Excellence through Virtual Factory Replication.* White Paper, 2014.
+2. Prasad Talasila, Dmitri Tcherniak, Anders M.D. Jensen, Swarup Mahato, Andreas Schörghofer-Queiroz, Martin D. Ulriksen, Giuseppe Abbiati, Peter Gorm Larsen, and Lars Damkilde. *Structural Health Monitoring of Engineering Structures Using Digital Twins: A Digital Twin Platform Approach.* In Proc. 11th Conference on Experimental Vibration Analysis of Civil Engineering Structures (EVACES 2025), Porto, Portugal, 2–4 July 2025.
+3. Fei Tao, Q. Qi, L. Wang, and A.Y.C. Lee. *Digital Twins and Cyber-Physical Systems toward Smart Manufacturing and Industry 4.0: Correlation and Comparison.* *Engineering*, 5(4):653–661, 2019.
+4. Prasad Talasila, Cláudio Gomes, Lars B. Vosteen, Hannes Iven, Martin Leucker, Santiago Gil, Peter H. Mikkelsen, Eduard Kamburjan, and Peter G. Larsen. *Composable Digital Twins on Digital Twin as a Service Platform.* *Simulation*, 101(3):287–311, 2025. <https://doi.org/10.1177/00375497241298653>
+5. Prasad Talasila, Peter Høgh Mikkelsen, Santiago Gil, and Peter Gorm Larsen. *Realising Digital Twins.* In John Fitzgerald, Cláudio Gomes, and Peter Gorm Larsen (Eds.), *The Engineering of Digital Twins*, pp. 225–256. Springer International Publishing, Cham, 2024.
+6. Marco Picone, Samuele Burattini, Marco Melloni, Prasad Talasila, Davide Ziglioli, Matteo Martinelli, Nicola Bicocchi, and Peter Gorm Larsen. *A Multi-Simulation Bridge for IoT Digital Twins.* In *Digital Twins Ecosystems and Applications*, 23rd IEEE International Conference on Pervasive Computing and Communications Workshops (PerCom 2026), Pisa, Italy, 16–20 March 2026.
+7. Milan Vathoopan, Prasad Talasila, Jalil Boudjadar, Chresten Larsen, Nicola Bicocchi, Marco Picone, and Marco Melloni. *Orchestrating Distributed Simulations for Circular Manufacturing-as-a-Service Ecosystems.* In Proc. IEEE International Conference on Industrial Technology (ICIT 2026), Monterrey, Mexico, 4–6 March 2026.
+8. Parwinder Singh, Michail J. Beliatis, and Mirko Presser. *Enabling Edge-Driven Dataspace Integration through Convergence of Distributed Technologies.* *Internet of Things*, 101087, 2024.
+9. Mirgita Frasheri, Prasad Talasila, and Vanessa Scherma. *Towards Federated Digital Twin Platforms.* In Proc. International Workshop on Autonomous System Quality Assurance and Prediction with Digital Twins (ASQAP), co-located with ACM Foundations of Software Engineering 2026, 5–9 July 2026.
+10. Parwinder Singh, Jan-Phillip Herrmann, Prasad Talasila, Sven Tackenberg, Michail J. Beliatis, Mirko Presser, and Peter Gorm Larsen. *AI-Human-Centric Industry 5.0: A Multimodal, Service-based, Edge-driven Digital Twin, AI Agents, and IoT Extended Reality.* *IEEE Transactions on Human-Machine Systems*, 2026. *Under Revision.*
+11. Alan R. Hevner, Salvatore T. March, Jinsoo Park, and Sudha Ram. *Design Science in Information Systems Research.* *MIS Quarterly*, 28(1):75–105, 2004.

@@ -49,7 +49,7 @@ Also see [Google Scholar](https://scholar.google.com/citations?user=53B5RKoAAAAJ
    *Towards Federated Digital Twin Platforms.*
    International Workshop on Autonomous System Quality Assurance and Prediction
    with Digital Twins (ASQAP), co-located with ACM Foundations of Software Engineering 2026,
-   5–9 July 2026.
+   5–9 January 2026.
 
 ---
 

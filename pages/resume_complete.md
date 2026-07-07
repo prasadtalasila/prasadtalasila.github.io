@@ -62,7 +62,7 @@ Aarhus, Denmark
 *November 2005 – May 2012*
 
 - Led coordination and administration for campus IT systems from 2009 to 2011; the deployed systems later supported 6,200 courses and 12,000 students over the 2009–2017 period.
-- Taught courses on [Unix Programming](https://www.dropbox.com/s/289crghpjziklas/AUP_lectures.pdf?dl=1) and [Computer Networks](http://courses.rvrjcce.ac.in/moodle/course/view.php?id=986).
+- Taught courses on [Unix Programming](https://www.dropbox.com/s/289crghpjziklas/AUP_lectures.pdf?dl=1) and **Computer Networks**.
 
 ---
 
@@ -116,6 +116,8 @@ My current work focuses on digital twin platforms, cyber-physical systems, colla
 - Worked on architecture requirements, distributed sandbox prototyping, and review of project deliverables for cloud-based model-driven engineering support for cyber-physical systems.
 - Created case study demonstrations for the platform.
 
+See [projects](projects.md) for further details.
+
 ---
 
 ## Software Development
@@ -129,6 +131,8 @@ I architect, program and maintain research software and supporting repositories 
 - **[Generalized Deduplication](https://github.com/prasadtalasila/generalized-deduplication)** — Better data deduplication using probability transformations.
 - **[AutolabJS](https://autolabjs.github.io)** — Auto evaluation tool for C/C++/Java/Python programming projects.
 - **[IRCLogParser](https://github.com/prasadtalasila/IRCLogParser)** — Analysis and visualization of Internet Relay Chat (IRC) channels.
+
+See [software](software.md) for a list of notable projects.
 
 ---
 
@@ -188,7 +192,7 @@ I architect, program and maintain research software and supporting repositories 
 
 ---
 
-## Honors & Awards
+## Services & Awards
 
 | Award | Event | Location | Year |
 |---|---|---|---|
@@ -220,6 +224,8 @@ I architect, program and maintain research software and supporting repositories 
 - Prasad Talasila et al., *Structural Health Monitoring of Engineering Structures Using Digital Twins*, EVACES, 2025.
 - Marco Picone, Prasad Talasila, et al., *Exploring DevOps for Integrating Physical and Digital Twins in Cyber-Physical Systems*, ICPS 2025.
 - Prasad Talasila et al., *Digital twin as a service (DTaaS): a platform for digital twin developers and users*, IEEE Smart World Congress, 2023.
+
+See [publications](publications.md) for a complete listing.
 
 ---
 
