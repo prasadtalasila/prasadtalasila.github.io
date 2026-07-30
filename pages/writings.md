@@ -8,6 +8,10 @@ hide:
 
 Articles, presentations, manuals, and artwork produced by me.
 
+## Tutorials
+
+[Digital Twins](writings/tutorials/digitaltwins/digital-twins.md) (July, 2026)  
+
 ## Lab Manuals
 
 [Advanced UNIX Programming Lab](https://www.dropbox.com/s/bvhfk33i1awg5mk/UNIX_manual.pdf?dl=1) (May, 2011)  
