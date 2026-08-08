@@ -25,6 +25,21 @@ including Small and Medium-sized Enterprises.
 |-------- |:----------:|:----------:|:----------:|
 | DTaaS | [GitHub](https://github.com/into-cps-association/DTaaS) | [DTaaS v1.0](https://github.com/into-cps-association/DTaaS/releases) | [website](https://into-cps-association.github.io/DTaaS) |
 
+## Chitragupta
+
+Chitragupta turns a BibTeX bibliography into grounded survey papers, thesis
+chapters, undergraduate textbook chapters and hands-on tutorials. Every citation
+is traceable back to a paper the bibliography actually holds: a citekey may only
+be used if it appears in your own `.bib` export *and* was picked up into the
+ledger by a real parse of a real PDF, and a citation gate sits on the single path
+between a draft and a rendered document. Drafting runs as a set of genre skills
+inside Claude Code; the corpus layer beneath them is deterministic and uses no
+LLM and no API key.
+
+| Software Name | Source Code | Releases | Documentation |
+|-------- |:----------:|:----------:|:----------:|
+| Chitragupta | [GitHub](https://github.com/prasadtalasila/chitragupta) | [Releases](https://github.com/prasadtalasila/chitragupta/releases) | [website](https://prasad.talasila.in/chitragupta) |
+
 ## Simulation Bridge
 
 Simulation Bridge is a Python-based distributed simulation middleware that routes requests between clients and simulation engines via RabbitMQ as a common messaging backbone. It supports multiple protocol adapters (REST, MQTT, RabbitMQ, and in-memory) and includes JWT-secured REST endpoints for streaming real-time results. Simulation agents for MATLAB and SIMUL8 fulfill simulation requests, supporting batch, streaming, and interactive modes.
@@ -65,7 +80,7 @@ networks.
 
 | Software Name | Source Code | Releases | Documentation |
 |-------- |:----------:|:----------:|:----------:|
-| IRCLogParser | [GitHub](https://github.com/prasadtalasila/IRCLogParser) | [IRCLogParser v1.1.1](https://github.com/prasadtalasila/IRCLogParser/releases/tag/v1.1.1) | [website](http://prasadtalasila.github.io/IRCLogParser/), [wiki](https://github.com/prasadtalasila/IRCLogParser/wiki) |
+| IRCLogParser | [GitHub](https://github.com/prasadtalasila/IRCLogParser) | [IRCLogParser v1.1.1](https://github.com/prasadtalasila/IRCLogParser/releases/tag/v1.1.1) | [website](https://prasad.talasila.in/IRCLogParser/), [wiki](https://github.com/prasadtalasila/IRCLogParser/wiki) |
 | MLCAT | [GitHub](https://github.com/DeveloperCAP/MLCAT) | [MLCAT v0.1.2](https://github.com/DeveloperCAP/MLCAT/releases/tag/v0.1.2) | [website](http://developercap.github.io/MLCAT/), [wiki](https://github.com/DeveloperCAP/MLCAT/wiki) |
 
 ## Protocol Analysis
@@ -90,4 +105,4 @@ to interested travelers.
 
 | Software Name | Source Code | Releases | Documentation |
 |-------- |:----------:|:----------:|:----------:|
-| Transport Scheduler | [GitHub](https://github.com/prasadtalasila/TransportScheduler) | [Transport Scheduler v0.1.0](https://github.com/prasadtalasila/TransportScheduler/releases/tag/v0.1.0) | [website](http://prasadtalasila.github.io/TransportScheduler), [wiki](https://github.com/prasadtalasila/TransportScheduler/wiki) |
+| Transport Scheduler | [GitHub](https://github.com/prasadtalasila/TransportScheduler) | [Transport Scheduler v0.1.0](https://github.com/prasadtalasila/TransportScheduler/releases/tag/v0.1.0) | [website](https://prasad.talasila.in/TransportScheduler), [wiki](https://github.com/prasadtalasila/TransportScheduler/wiki) |

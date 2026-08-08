@@ -1,0 +1,3113 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home page of Prasad Talasila">
+      
+      
+        <meta name="author" content="Prasad Talasila">
+      
+      
+        <link rel="canonical" href="https://prasad.talasila.in/writings/chitragupta/book-chapters/modelling.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Modelling Techniques for Digital Twins: One Plant Pot, Twelve Ways to Model It - Prasad Talasila</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/course-tables.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modelling-techniques-for-digital-twins-one-plant-pot-twelve-ways-to-model-it" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Prasad Talasila" class="md-header__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prasad Talasila
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modelling Techniques for Digital Twins: One Plant Pot, Twelve Ways to Model It
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../research.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Research
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../publications.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../projects.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../software.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../courses.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Courses
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../writings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Writings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../contact.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Prasad Talasila" class="md-nav__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Prasad Talasila
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../research.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../publications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../writings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-why-the-model-is-the-hard-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Why the Model Is the Hard Part
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-running-example-one-plant-one-pot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Running Example: One Plant, One Pot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. The Running Example: One Plant, One Pot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-the-system-is-not-yet-a-digital-twin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 The system is not yet a digital twin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-the-modelling-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 The modelling contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-two-layers-because-the-probe-is-in-the-wrong-place" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Two layers, because the probe is in the wrong place
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-nominal-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Nominal parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-what-arithmetic-tells-you-before-any-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 What arithmetic tells you before any model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-technique-1-first-principles-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Technique 1: First-Principles Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Technique 1: First-Principles Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-the-lumped-layer-assumption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 The lumped-layer assumption
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-deriving-the-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Deriving the equations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-what-the-model-tells-us-before-we-simulate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 What the model tells us before we simulate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-strengths-and-weaknesses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Strengths and weaknesses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-technique-2-discretisation-and-numerical-solvers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Technique 2: Discretisation and Numerical Solvers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Technique 2: Discretisation and Numerical Solvers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-eulers-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Euler's method
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-failure-mode-one-instability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Failure mode one: instability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-failure-mode-two-missing-the-event-entirely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Failure mode two: missing the event entirely
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-technique-3-distributed-models-and-technique-4-surrogates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Technique 3: Distributed Models, and Technique 4: Surrogates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Technique 3: Distributed Models, and Technique 4: Surrogates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-when-the-lump-breaks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 When the lump breaks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-surrogates-and-reduced-order-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Surrogates and reduced-order models
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-technique-5-black-box-system-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Technique 5: Black-Box System Identification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Technique 5: Black-Box System Identification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-the-arx-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 The ARX model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-it-works-perfectly-until-it-doesnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 It works perfectly, until it doesn't
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-the-diagnostic-that-does-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 The diagnostic that does work
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-a-second-trap-nonlinearity-in-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 A second trap: nonlinearity in the data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-what-this-technique-is-good-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 What this technique is good for
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-technique-6-machine-learning-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Technique 6: Machine-Learning Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Technique 6: Machine-Learning Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-where-it-fits-on-this-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Where it fits on this system
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-gaussian-processes-and-the-value-of-i-dont-know" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Gaussian processes and the value of "I don't know"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-the-extrapolation-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 The extrapolation problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-technique-7-hybrid-grey-box-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Technique 7: Hybrid (Grey-Box) Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Technique 7: Hybrid (Grey-Box) Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-residual-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Residual learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-physics-informed-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Physics-informed learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-parameter-varying-physics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Parameter-varying physics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-technique-8-probabilistic-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Technique 8: Probabilistic Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Technique 8: Probabilistic Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-where-uncertainty-comes-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Where uncertainty comes from
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-the-stochastic-pot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 The stochastic pot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-bayesian-calibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Bayesian calibration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-technique-9-state-estimation-and-virtual-sensors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Technique 9: State Estimation and Virtual Sensors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Technique 9: State Estimation and Virtual Sensors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-how-badly-the-probe-lies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 How badly the probe lies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-the-kalman-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 The Kalman filter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-joint-state-and-parameter-estimation-and-an-honest-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Joint state and parameter estimation, and an honest failure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-technique-10-discrete-event-models-and-hybrid-automata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Technique 10: Discrete-Event Models and Hybrid Automata
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Technique 10: Discrete-Event Models and Hybrid Automata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-the-controller-as-a-state-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 The controller as a state machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-hybrid-automata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Hybrid automata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-what-noise-does-to-a-discrete-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 What noise does to a discrete controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-why-the-distinction-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 Why the distinction matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-technique-11-co-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Technique 11: Co-Simulation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Technique 11: Co-Simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-the-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1 The idea
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-the-catch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2 The catch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-technique-12-degradation-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Technique 12: Degradation Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Technique 12: Degradation Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-the-sensor-degrades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1 The sensor degrades
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-the-soil-degrades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2 The soil degrades
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133-the-general-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3 The general pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-calibration-validation-and-drift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Calibration, Validation, and Drift
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Calibration, Validation, and Drift">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-calibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1 Calibration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.2 Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143-drift-and-model-updating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3 Drift and model updating
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-choosing-a-technique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Choosing a Technique
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15. Choosing a Technique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#closing-the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Closing the loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Exercises
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-hints-and-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Hints and Solutions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="modelling-techniques-for-digital-twins-one-plant-pot-twelve-ways-to-model-it">Modelling Techniques for Digital Twins: One Plant Pot, Twelve Ways to Model It</h1>
+<p><strong>Disclaimer:</strong> This article has been generated using
+<a href="https://prasad.talasila.in/chitragupta">chitragupta</a>.
+Despite some potential for hallucination, the ideas communicated in this
+tutorial are accurate. Please send your corrections and suggestions to
+<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#112;&#114;&#97;&#115;&#97;&#100;&#46;&#116;&#97;&#108;&#97;&#115;&#105;&#108;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#112;&#114;&#97;&#115;&#97;&#100;&#46;&#116;&#97;&#108;&#97;&#115;&#105;&#108;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></p>
+<blockquote>
+<p><strong>Summary.</strong> Every digital twin has a model at its heart, but "model" is
+not one thing -- it is a dozen techniques with genuinely different
+assumptions, costs, and failure modes. This tutorial introduces those
+techniques one at a time and applies <em>every one of them to the same
+physical system</em>: a single potted plant, watered by a pump, monitored by
+a soil moisture probe. The hardware is real and open -- the INTO-CPS
+Association's <code>plant-controller</code> -- and it starts out as something that
+is <em>not yet a digital twin</em>. Each technique is a step toward closing that
+loop. Every numerical result quoted here was computed from the parameter
+set in Section 2 and can be reproduced with Python's standard library.</p>
+</blockquote>
+<h3 id="learning-objectives">Learning objectives</h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol>
+<li><strong>Derive</strong> a first-principles water-balance model of soil in a pot from
+   a mass balance, and state the assumptions that make it valid.</li>
+<li><strong>Convert</strong> a continuous-time model into an executable one, choose a
+   time step defensibly, and predict when a numerical solver will fail --
+   both by diverging and by silently missing events.</li>
+<li><strong>Fit</strong> a black-box model to logged data by least squares, and
+   <strong>diagnose</strong> a badly wrong model whose prediction errors look excellent.</li>
+<li><strong>Select</strong> an appropriate modelling technique given a stated purpose, a
+   data budget, and a compute budget -- and justify the choice against at
+   least one rejected alternative.</li>
+<li><strong>Explain</strong> how state estimation lets a twin report a quantity no sensor
+   measures, and recognise when a quantity is <em>not</em> recoverable from the
+   available data.</li>
+</ol>
+<h3 id="outline">Outline</h3>
+<ol>
+<li><a href="#1-why-the-model-is-the-hard-part">Why the Model Is the Hard Part</a></li>
+<li><a href="#2-the-running-example-one-plant-one-pot">The Running Example: One Plant, One Pot</a></li>
+<li><a href="#3-technique-1-first-principles-models">Technique 1: First-Principles Models</a></li>
+<li><a href="#4-technique-2-discretisation-and-numerical-solvers">Technique 2: Discretisation and Numerical Solvers</a></li>
+<li><a href="#5-technique-3-distributed-models-and-technique-4-surrogates">Technique 3: Distributed Models, and Technique 4: Surrogates</a></li>
+<li><a href="#6-technique-5-black-box-system-identification">Technique 5: Black-Box System Identification</a></li>
+<li><a href="#7-technique-6-machine-learning-models">Technique 6: Machine-Learning Models</a></li>
+<li><a href="#8-technique-7-hybrid-grey-box-models">Technique 7: Hybrid (Grey-Box) Models</a></li>
+<li><a href="#9-technique-8-probabilistic-models">Technique 8: Probabilistic Models</a></li>
+<li><a href="#10-technique-9-state-estimation-and-virtual-sensors">Technique 9: State Estimation and Virtual Sensors</a></li>
+<li><a href="#11-technique-10-discrete-event-models-and-hybrid-automata">Technique 10: Discrete-Event Models and Hybrid Automata</a></li>
+<li><a href="#12-technique-11-co-simulation">Technique 11: Co-Simulation</a></li>
+<li><a href="#13-technique-12-degradation-models">Technique 12: Degradation Models</a></li>
+<li><a href="#14-calibration-validation-and-drift">Calibration, Validation, and Drift</a></li>
+<li><a href="#15-choosing-a-technique">Choosing a Technique</a></li>
+<li><a href="#16-exercises">Exercises</a></li>
+<li><a href="#17-hints-and-solutions">Hints and Solutions</a></li>
+</ol>
+<h2 id="1-why-the-model-is-the-hard-part">1. Why the Model Is the Hard Part</h2>
+<p>A digital twin is usually introduced as three things: a physical asset, a
+virtual counterpart, and a two-way flow of data between them. Sensor
+readings flow in, and decisions computed on the virtual side flow back out
+to change something physical. If data only travels one way -- asset to
+computer, full stop -- what you have is a <em>digital shadow</em>, not a twin
+[@kritzinger_digital_2018].</p>
+<p>That definition is easy to state and it hides where the difficulty lives.
+Getting sensor readings into a database is a solved problem. Getting
+control signals back out is routine. What is <em>not</em> routine is the thing in
+the middle: the model. The model turns a stream of numbers into an answer
+to a question -- how wet is the soil where the roots actually are, will
+this plant be short of water by Thursday, is my moisture probe lying to me.
+Everything a digital twin is <em>for</em> happens inside the model, and that is
+where the engineering risk sits.</p>
+<p>Newcomers often assume "the model" means one specific thing, usually
+whatever they met first: a mesh if they came from mechanical engineering, a
+neural network if they came from computer science, differential equations
+if they came from physics. In practice a twin of any real asset uses
+several models of several kinds, coupled together, and choosing among them
+is a genuine engineering decision with consequences
+[@thelen_comprehensive_2022]. The choice is not settled by the physics. The
+same pot can be modelled with soil-water equations, with a regression
+fitted to logged probe readings, or with a combination, and picking one
+trades off precision, development cost, and how well the result holds up in
+conditions it has never seen [@abbiati_modelling_2024].</p>
+<p>There is a second reason to take model selection seriously. A twin built by
+hand, by experts, for one high-value asset is achievable today; making that
+repeatable across many assets is much harder, and the modelling choices are
+where the non-repeatable, artisanal effort concentrates
+[@niederer_scaling_2021].</p>
+<p>This tutorial fixes one physical system and applies twelve techniques to
+it. The system is small enough to fit in your head and cheap enough to
+build. Because the asset never changes, every difference you see between
+sections is attributable to the modelling technique alone.</p>
+<h2 id="2-the-running-example-one-plant-one-pot">2. The Running Example: One Plant, One Pot</h2>
+<p>Our asset is a single potted plant on a shelf, watered automatically. The
+hardware is the INTO-CPS Association's open <code>plant-controller</code>: a Raspberry
+Pi reading Adafruit Seesaw capacitive soil moisture probes through a
+TCA9548A I2C multiplexer, together with an SHT45 temperature and humidity
+sensor and an AS7341 light-spectrum sensor, driving pumps through relays on
+an Automation HAT. Sensors are read every 60 seconds and logged to InfluxDB.</p>
+<p>The same pattern appears in the research literature. GreenhouseDT, an
+exemplar built at the University of Oslo, pairs exactly this class of
+hardware -- light, humidity and moisture sensors with a watering pump --
+with a simulation model, an asset model, and a time-series database, and
+uses it to study plant health monitoring and model-based control
+[@kamburjan_greenhousedt_2024]. That paper positions the greenhouse
+alongside a laboratory incubator as the two low-cost teaching exemplars for
+digital twins, so the system we are about to model sits in good company.</p>
+<h3 id="21-the-system-is-not-yet-a-digital-twin">2.1 The system is not yet a digital twin</h3>
+<p>Here is the most important fact about our starting point, and the reason
+this example is worth a whole tutorial.</p>
+<p><strong>The controller waters on a clock, not on moisture.</strong> Its rules are purely
+scheduled: Pump 1 fires at 10:15 for 15 seconds, Pump 2 at 14:30 for 6
+seconds, Pump 3 at 10:15 for 10 seconds. The three moisture probes are read
+every minute and faithfully logged -- and completely ignored when deciding
+whether to water.</p>
+<p>Data flows one way. In Kritzinger's terms this is a digital <em>shadow</em>
+[@kritzinger_digital_2018]. It is a perfectly reasonable engineering
+artefact, and it is not a digital twin.</p>
+<p>So this tutorial has a destination. Each technique below is a step toward
+closing that loop, and by Section 15 you will have the ingredients for a
+controller that decides when to water based on a model of what is actually
+happening in the soil.</p>
+<h3 id="22-the-modelling-contract">2.2 The modelling contract</h3>
+<p>Before writing an equation, state what the model is <em>for</em>. This sounds like
+bureaucracy and it is not. A model is not a description of reality; it is a
+purpose-built approximation, and "is this model good?" is unanswerable
+until you have said good <em>for what</em> [@gomes_foundational_2024].</p>
+<blockquote>
+<p><strong>Purpose.</strong> Predict soil moisture in the root zone up to three days
+ahead, given a watering schedule, to within 0.02 vol/vol. Additionally,
+report root-zone moisture <em>now</em>, which no sensor measures directly.</p>
+<p><strong>Inputs.</strong> Pump command $u \in {0,1}$; ambient conditions.</p>
+<p><strong>Outputs.</strong> Surface moisture $\theta_s$ (what the probe reads); root-zone
+moisture $\theta_r$ (what the plant experiences).</p>
+<p><strong>Validity envelope.</strong> Indoor conditions, 18--25 °C; one plant, one pot,
+no rain; soil between wilting point and saturation; probe calibrated
+within the last six months.</p>
+</blockquote>
+<p>That last item is the one students skip and engineers regret. Every model
+has conditions outside which it quietly stops being true. Writing them down
+converts a silent failure into a checkable one.</p>
+<h3 id="23-two-layers-because-the-probe-is-in-the-wrong-place">2.3 Two layers, because the probe is in the wrong place</h3>
+<p>A capacitive probe pushed into a pot measures the soil immediately around
+its blade -- the top few centimetres. The plant draws water through roots
+distributed lower down. These are not the same soil, and after watering
+they are not remotely the same moisture.</p>
+<p>So we model the pot as <strong>two layers</strong>: a surface layer that receives the
+pump water and loses water by evaporation, and a root layer that loses
+water by transpiration. Water moves between them by percolation and
+capillary exchange.</p>
+<p>This single decision is what makes the pot interesting. The quantity we can
+<em>measure</em> and the quantity we <em>care about</em> are different states of the same
+system, and most of Section 10 exists to bridge that gap.</p>
+<h3 id="24-nominal-parameters">2.4 Nominal parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$V_s$</td>
+<td>Soil volume, surface layer</td>
+<td>200 mL</td>
+</tr>
+<tr>
+<td>$V_r$</td>
+<td>Soil volume, root layer</td>
+<td>600 mL</td>
+</tr>
+<tr>
+<td>$\theta_{fc}$</td>
+<td>Field capacity</td>
+<td>0.28 vol/vol</td>
+</tr>
+<tr>
+<td>$\theta_{wp}$</td>
+<td>Wilting point</td>
+<td>0.10 vol/vol</td>
+</tr>
+<tr>
+<td>$K$</td>
+<td>Layer exchange coefficient</td>
+<td>0.02 mL/s per unit $\theta$</td>
+</tr>
+<tr>
+<td>$k_d$</td>
+<td>Drainage rate above field capacity</td>
+<td>1/1800 per second</td>
+</tr>
+<tr>
+<td>$E_s$</td>
+<td>Surface evaporation, unstressed</td>
+<td>10 mL/day</td>
+</tr>
+<tr>
+<td>$E_r$</td>
+<td>Transpiration, unstressed</td>
+<td>12 mL/day</td>
+</tr>
+<tr>
+<td>$q_p$</td>
+<td>Pump flow rate</td>
+<td>1.6 mL/s</td>
+</tr>
+</tbody>
+</table>
+<p>Two assumptions are worth flagging, because everything numerical depends on
+them. The pump is taken to be a <strong>peristaltic dosing pump at 1.6 mL/s</strong>; a
+submersible aquarium pump would deliver perhaps 28 mL/s and flood this pot
+in seconds, so if you rebuild this, measure your pump. The layer split and
+the exchange coefficient are representative of a fine potting mix rather
+than measured from a specific pot.</p>
+<h3 id="25-what-arithmetic-tells-you-before-any-model">2.5 What arithmetic tells you before any model</h3>
+<p>In steady state, water in must equal water out. The pot loses
+$E_s + E_r = 22$ mL/day when the plant is unstressed. At 1.6 mL/s the pump
+must therefore run <strong>13.75 seconds per day</strong>.</p>
+<p>Now compare that against the controller's actual schedule:</p>
+<table>
+<thead>
+<tr>
+<th>Pump</th>
+<th>Duration</th>
+<th>Delivers</th>
+<th>Versus 22 mL/day demand</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pump 1</td>
+<td>15 s</td>
+<td>24.0 mL/day</td>
+<td>surplus, +2.0</td>
+</tr>
+<tr>
+<td>Pump 3</td>
+<td>10 s</td>
+<td>16.0 mL/day</td>
+<td><strong>deficit, -6.0</strong></td>
+</tr>
+<tr>
+<td>Pump 2</td>
+<td>6 s</td>
+<td>9.6 mL/day</td>
+<td><strong>deficit, -12.4</strong></td>
+</tr>
+</tbody>
+</table>
+<p>You have just discovered, with nothing but arithmetic, that two of the
+three shipped schedules under-water their plants. Hold on to the 13.75
+seconds; we will check several models against it.</p>
+<p>The layer capacities follow directly: the surface layer holds 56 mL at
+field capacity and 20 mL at wilting point, the root layer 168 mL and 60 mL.
+The pot holds 224 mL when full and 80 mL when the plant dies, so there are
+<strong>144 mL of plant-available water</strong> -- about a week's supply, which matches
+the intuition that a neglected houseplant survives roughly that long.</p>
+<h2 id="3-technique-1-first-principles-models">3. Technique 1: First-Principles Models</h2>
+<p>The first technique is the one physicists reach for: write down the
+governing laws and solve them. Such models are called <em>first-principles</em>,
+<em>physics-based</em>, <em>mechanistic</em>, or <em>white-box</em>, the last name signalling
+that you can see and interpret everything inside
+[@thelen_comprehensive_2022].</p>
+<h3 id="31-the-lumped-layer-assumption">3.1 The lumped-layer assumption</h3>
+<p>Real soil water movement is a field problem: moisture varies continuously
+with depth and position, and the honest description is a partial
+differential equation. We are going to refuse to write it, and the refusal
+is the most important modelling decision in this tutorial.</p>
+<p>Instead we assume each layer has <strong>one moisture value throughout</strong>. This is
+the <em>lumped</em> assumption, and it turns a PDE in space and time into two
+ordinary differential equations in time alone.</p>
+<p>Notice how the justification works. We are not claiming the surface layer
+is genuinely uniform -- it is not. We are claiming that for a small pot,
+over the timescales we care about, the error from treating it as uniform is
+small enough given our stated purpose. The two-layer split exists precisely
+because the <em>one</em>-layer version is not good enough: it would erase the
+distinction between what the probe reads and what the roots get. Good
+modelling assumptions look like this -- justified by a physical feature of
+the problem, and traceable to the contract.</p>
+<h3 id="32-deriving-the-equations">3.2 Deriving the equations</h3>
+<p>Start with the root layer alone, ignoring the surface. Water leaves by
+transpiration at a rate that depends on how much is available -- a plant in
+dry soil closes its stomata and transpires less:</p>
+<p>$$\frac{dW_r}{dt} = -E_r \, f_r(W_r), \qquad
+f_r(W_r) = \mathrm{clip}!\left(\frac{W_r - W_{r,wp}}{W_{r,fc} - W_{r,wp}},\, 0,\, 1\right)$$</p>
+<p>The <em>water stress factor</em> $f_r$ runs from 0 at wilting point to 1 at field
+capacity. This is bookkeeping: rate of storage equals inflow minus outflow.</p>
+<p>Now couple the layers. Water exchanges between them by capillary action at
+a rate proportional to the moisture difference, and any surface water above
+field capacity percolates downward under gravity:</p>
+<p>$$
+\begin{aligned}
+\frac{dW_s}{dt} &amp;= q_p u - K!\left(\tfrac{W_s}{V_s} - \tfrac{W_r}{V_r}\right) - k_d \max(0, W_s - W_{s,fc}) - E_s f_s \
+\frac{dW_r}{dt} &amp;= K!\left(\tfrac{W_s}{V_s} - \tfrac{W_r}{V_r}\right) + k_d \max(0, W_s - W_{s,fc}) - k_d \max(0, W_r - W_{r,fc}) - E_r f_r
+\end{aligned}
+$$</p>
+<p>Read each line as an accounting identity. The surface layer gains pump
+water and loses to exchange, percolation, and evaporation. The root layer
+gains what the surface passes down, loses what drains out the bottom of the
+pot, and loses what the plant transpires. Nothing more sophisticated than
+conservation of mass is happening, which is characteristic of
+first-principles modelling: the equations are usually easy, and knowing
+which terms to include is the skill.</p>
+<p>In dynamical-systems notation this is $\dot{x} = f(x,u,p)$ with state
+$x = [W_s, W_r]^T$, input $u = [u_{\text{pump}}]$, and parameters
+$p = [K, k_d, E_s, E_r]^T$. The distinction between <em>state</em> (changes as the
+system runs), <em>input</em> (imposed from outside), and <em>parameter</em> (fixed, or
+slowly varying) matters in every later section.</p>
+<h3 id="33-what-the-model-tells-us-before-we-simulate">3.3 What the model tells us before we simulate</h3>
+<p>Between waterings and below field capacity, both $\max(0,\cdot)$ terms
+vanish and both stress factors are linear, so the system is <strong>linear</strong>:
+$\dot{x} = Ax + b$ with</p>
+<p>$$A = \begin{bmatrix} -K/V_s - a_s &amp; K/V_r \ K/V_s &amp; -K/V_r - a_r \end{bmatrix} = \begin{bmatrix} -1.0322 \times 10^{-4} &amp; 3.3333 \times 10^{-5} \ 1.0000 \times 10^{-4} &amp; -3.4619 \times 10^{-5} \end{bmatrix}$$</p>
+<p>where $a_s = E_s/(W_{s,fc}-W_{s,wp})$ and similarly for $a_r$. That
+linearity is a gift, and Sections 4, 6, and 10 all spend it.</p>
+<p>The eigenvalues are $-1.7631 \times 10^{-6}$ and $-1.3607 \times 10^{-4}$
+per second, giving time constants of <strong>6.56 days</strong> and <strong>2.04 hours</strong>. Both
+are negative, so the pot is stable: left alone, it dries to equilibrium.</p>
+<p>Both numbers are physically meaningful. The fast one is water
+<em>redistributing</em> between the layers after a watering. The slow one is the
+whole pot drying out. Together with the 15-second pump pulse, the system
+spans three timescales covering a factor of about <strong>37,800</strong> -- and that
+spread is about to become our problem.</p>
+<h3 id="34-strengths-and-weaknesses">3.4 Strengths and weaknesses</h3>
+<p>The strengths are considerable. The model extrapolates: it encodes mass
+conservation, so it stays plausible in conditions never observed. Its
+parameters are interpretable -- if the fitted $E_r$ doubles over a season,
+that means the plant is transpiring twice as much, which is what growth
+looks like. And it needs very little data: four parameters, estimable from
+one drying experiment.</p>
+<p>The weaknesses are equally real. Somebody has to <em>know</em> the physics, and
+for the biology half of this system -- how growth responds to water,
+nutrients, and light -- nobody knows it to the precision we know mass
+conservation. Where the physics is understood, capturing it faithfully may
+be too expensive to run live, the recurring fidelity-versus-cost tension in
+digital twin modelling [@thelen_comprehensive_2022]. And the model is only
+as good as its assumptions: move the pot outdoors and a model with no term
+for rainfall will be confidently, silently wrong.</p>
+<h2 id="4-technique-2-discretisation-and-numerical-solvers">4. Technique 2: Discretisation and Numerical Solvers</h2>
+<p>The equations describe continuous time. Computers do not do continuous
+time. Turning a differential equation into something a processor executes
+is itself a modelling step, with its own approximations and its own
+spectacular failure modes.</p>
+<h3 id="41-eulers-method">4.1 Euler's method</h3>
+<p>Approximate the derivative by a finite difference over a step $\Delta t$:</p>
+<p>$$x_{k+1} = x_k + \Delta t \cdot f(x_k, u_k, p)$$</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">step_euler</span><span class="p">(</span><span class="n">Ws</span><span class="p">,</span> <span class="n">Wr</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">60.0</span><span class="p">):</span>
+    <span class="n">Vs</span><span class="p">,</span> <span class="n">Vr</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">kd</span><span class="p">,</span> <span class="n">qp</span> <span class="o">=</span> <span class="mf">200.</span><span class="p">,</span> <span class="mf">600.</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mf">1800.</span><span class="p">,</span> <span class="mf">1.6</span>
+    <span class="n">Wsfc</span><span class="p">,</span> <span class="n">Wswp</span><span class="p">,</span> <span class="n">Wrfc</span><span class="p">,</span> <span class="n">Wrwp</span> <span class="o">=</span> <span class="mf">56.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">168.</span><span class="p">,</span> <span class="mf">60.</span>
+    <span class="n">Es</span><span class="p">,</span> <span class="n">Er</span> <span class="o">=</span> <span class="mf">10.</span><span class="o">/</span><span class="mi">86400</span><span class="p">,</span> <span class="mf">12.</span><span class="o">/</span><span class="mi">86400</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="p">(</span><span class="n">Ws</span> <span class="o">-</span> <span class="n">Wswp</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">Wsfc</span> <span class="o">-</span> <span class="n">Wswp</span><span class="p">)))</span>
+    <span class="n">fr</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="p">(</span><span class="n">Wr</span> <span class="o">-</span> <span class="n">Wrwp</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">Wrfc</span> <span class="o">-</span> <span class="n">Wrwp</span><span class="p">)))</span>
+    <span class="n">exch</span> <span class="o">=</span> <span class="n">K</span> <span class="o">*</span> <span class="p">(</span><span class="n">Ws</span><span class="o">/</span><span class="n">Vs</span> <span class="o">-</span> <span class="n">Wr</span><span class="o">/</span><span class="n">Vr</span><span class="p">)</span>
+    <span class="n">perc</span> <span class="o">=</span> <span class="n">kd</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">Ws</span> <span class="o">-</span> <span class="n">Wsfc</span><span class="p">)</span>
+    <span class="n">dWs</span> <span class="o">=</span> <span class="n">qp</span><span class="o">*</span><span class="n">u</span> <span class="o">-</span> <span class="n">exch</span> <span class="o">-</span> <span class="n">perc</span> <span class="o">-</span> <span class="n">Es</span><span class="o">*</span><span class="n">fs</span>
+    <span class="n">dWr</span> <span class="o">=</span> <span class="n">exch</span> <span class="o">+</span> <span class="n">perc</span> <span class="o">-</span> <span class="n">kd</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">Wr</span> <span class="o">-</span> <span class="n">Wrfc</span><span class="p">)</span> <span class="o">-</span> <span class="n">Er</span><span class="o">*</span><span class="n">fr</span>
+    <span class="k">return</span> <span class="n">Ws</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">dWs</span><span class="p">,</span> <span class="n">Wr</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">dWr</span>
+</code></pre></div></td></tr></table></div>
+<p>That is a complete, working digital twin model. Run it in a loop and you
+have a simulator.</p>
+<h3 id="42-failure-mode-one-instability">4.2 Failure mode one: instability</h3>
+<p>Euler is stable only when $\Delta t &lt; 2/|\lambda_{\max}|$. From Section 3.3,
+$|\lambda_{\max}| = 1.3607 \times 10^{-4}$, so our limit is
+$\Delta t &lt; 14{,}698$ s, or <strong>4.08 hours</strong>.</p>
+<p>Simulating ten days of free drying from field capacity, where the true
+answer (high-accuracy reference) is $W_r = 83.627$ mL:</p>
+<table>
+<thead>
+<tr>
+<th>Step size</th>
+<th>Euler</th>
+<th>RK4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>60 s</td>
+<td>83.625</td>
+<td>83.627</td>
+</tr>
+<tr>
+<td>15 min</td>
+<td>83.598</td>
+<td>83.627</td>
+</tr>
+<tr>
+<td>1 h</td>
+<td>83.513</td>
+<td>83.627</td>
+</tr>
+<tr>
+<td>4.00 h</td>
+<td>83.135</td>
+<td>83.627</td>
+</tr>
+<tr>
+<td><strong>4.44 h</strong></td>
+<td>$-1.5 \times 10^{17}$</td>
+<td>83.627</td>
+</tr>
+<tr>
+<td>6.00 h</td>
+<td>$-7.1 \times 10^{26}$</td>
+<td>$-5.2 \times 10^{37}$</td>
+</tr>
+</tbody>
+</table>
+<p>The prediction is exact. At 4.00 hours Euler is fine; at 4.44 hours -- just
+past the limit -- it returns $-1.5 \times 10^{17}$ mL of water. Nothing
+errors out. The simulation runs to completion and returns a number, and the
+number is garbage.</p>
+<p>Fourth-order Runge--Kutta evaluates the derivative four times per step and
+survives to 4.44 hours, failing only at 6. Four times the cost per step is
+a bargain when it lets you take steps several times larger.</p>
+<p>This matters because the <em>slow</em> dynamics tempt you into large steps. You
+want to simulate a whole growing season; stepping once per day is very
+tempting, and it produces numerical nonsense.</p>
+<h3 id="43-failure-mode-two-missing-the-event-entirely">4.3 Failure mode two: missing the event entirely</h3>
+<p>The second failure has no counterpart in most textbook treatments, and on
+this system it is the more dangerous one.</p>
+<p>The controller samples every 60 seconds. The pumps run for 15, 10, and 6
+seconds. A simulation stepping at 60 seconds <strong>cannot represent a 15-second
+pump pulse at all</strong>.</p>
+<p>Here is a 60-day open-loop simulation under the controller's three real
+schedules, reporting root-zone water over the final ten days:</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Pump 1 (15 s)</th>
+<th>Pump 3 (10 s)</th>
+<th>Pump 2 (6 s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>60 s</td>
+<td>155.1--198.4</td>
+<td>155.1--198.4</td>
+<td>155.1--198.4</td>
+</tr>
+<tr>
+<td>5 s</td>
+<td>154.4--169.7</td>
+<td>132.5--141.0</td>
+<td>132.5--141.0</td>
+</tr>
+<tr>
+<td>1 s</td>
+<td>154.4--169.7</td>
+<td>132.5--141.0</td>
+<td>103.4--108.4</td>
+</tr>
+</tbody>
+</table>
+<p>At a 60-second step the three schedules are <strong>indistinguishable</strong>, and the
+simulation cheerfully reports all three pots comfortably watered. Correctly
+integrated, Pump 2's pot sits at 103--108 mL, drifting toward the 60 mL
+wilting point, while Pump 1's sits near field capacity. At a 5-second step
+the 10 s and 6 s schedules still collapse together.</p>
+<p>Note what makes this worse than divergence: the wrong answer is <em>plausible</em>.
+Nobody looks at 155--198 mL and suspects a bug. A gardener acting on it
+would conclude the schedules are equivalent and keep the one that starves
+the plant.</p>
+<p>The general rule: <strong>your step must resolve the shortest event that matters,
+not just satisfy a stability bound.</strong> Here that is 15 seconds, even though
+stability permits four hours. The usual production fix is to handle the
+pump analytically -- add its delivered volume as an impulse and integrate
+the slow dynamics at 60 s. Doing that agrees with a 1-second reference to
+within 0.0007 mL over six hours, and runs sixty times faster.</p>
+<p><strong>The lesson.</strong> Solver and step size are part of your model, not an
+implementation detail beneath it. Two engineers with identical equations
+and different step sizes have different models. A twin that must keep pace
+with a physical asset also has to worry about falling behind, which is a
+live concern in real deployments [@frasheri_addressing_2023].</p>
+<h2 id="5-technique-3-distributed-models-and-technique-4-surrogates">5. Technique 3: Distributed Models, and Technique 4: Surrogates</h2>
+<p>Section 3 bought simplicity by assuming each layer has one moisture value.
+What if two layers are not enough?</p>
+<h3 id="51-when-the-lump-breaks">5.1 When the lump breaks</h3>
+<p>Water does not arrive uniformly. Poured at one spot, it forms a wetting
+front that moves down as a front, channels along the pot wall, and may
+bypass dry soil entirely through cracks. Roots are denser in some regions
+than others. A two-layer model cannot represent any of this: it has exactly
+two numbers to describe the whole pot.</p>
+<p>The honest response is a <strong>distributed model</strong>: discretise the soil into
+many cells and track moisture in each, governed by Richards' equation, the
+standard PDE for unsaturated flow in porous media. This captures the
+wetting front, depth-dependent gradients, and preferential flow.</p>
+<p>It is also expensive. A three-dimensional Richards solver for one pot can
+take minutes per simulated day, and it needs soil hydraulic parameters that
+are painful to measure. Our contract asks for three-day-ahead predictions
+on a Raspberry Pi. A model that takes an hour to predict tomorrow is not a
+digital twin component; it is an offline study.</p>
+<p>This is the central tension of digital twin modelling. The most accurate
+model available is usually far too slow to put in the loop, and practical
+twins deliberately use lower fidelity, accepting a quantified accuracy loss
+in exchange for keeping up with live data [@thelen_comprehensive_2022].</p>
+<h3 id="52-surrogates-and-reduced-order-models">5.2 Surrogates and reduced-order models</h3>
+<p>The resolution is not to discard the expensive model but to <em>distil</em> it. A
+<strong>surrogate</strong> is a cheap model fitted to the input-output behaviour of an
+expensive one. A <strong>reduced-order model</strong> projects the governing equations
+onto a low-dimensional subspace that captures the states actually visited.</p>
+<p>The workflow is always three steps, and it recurs across the whole field:</p>
+<ol>
+<li><strong>Sample offline.</strong> Run the expensive model across the operating
+   envelope -- watering volumes from 5 to 40 mL, initial moisture from
+   wilting point to saturation, two or three soil mixes.</li>
+<li><strong>Fit.</strong> Build a cheap approximator on those samples.</li>
+<li><strong>Deploy online.</strong> Evaluate the cheap model in the live twin.</li>
+</ol>
+<p>For our pot, a modest surrogate suffices: run the Richards model over that
+envelope and fit a correction mapping our two-layer prediction to the
+probe-depth moisture the full model reports. One correction term recovers
+most of what the expensive model knew, at the cost of a table lookup.</p>
+<p>This is how expensive physics reaches real-time twins in practice. Packaging
+a specific set of behaviours extracted from a heavyweight simulation into a
+stand-alone executable component is central enough to have earned its own
+name, the <em>executable digital twin</em> [@hartmann_executable_2022]. Where
+models of differing cost exist, a <em>multi-fidelity</em> surrogate can combine a
+few expensive runs with many cheap ones, getting most of the accuracy for a
+fraction of the sampling budget [@torzoni_deep_2023].</p>
+<p>The cost is generalisation. A surrogate compresses the expensive model
+<em>over the sampled region</em>. Ask it about a 200 mL flood when you sampled up
+to 40 mL and it will answer -- fluently and wrongly. Record the sampled
+envelope alongside the surrogate, and have the twin check inputs against it
+rather than trusting the surrogate blindly.</p>
+<h2 id="6-technique-5-black-box-system-identification">6. Technique 5: Black-Box System Identification</h2>
+<p>Now discard the physics entirely. Suppose you know nothing about soil, but
+you have InfluxDB full of probe readings and pump events. Can you build a
+predictive model from data alone?</p>
+<p>Yes. The classical technique is <strong>system identification</strong>: postulate a
+structure with free parameters and fit them to measured sequences
+[@thelen_comprehensive_2022].</p>
+<h3 id="61-the-arx-model">6.1 The ARX model</h3>
+<p>The standard structure is <em>autoregressive with exogenous input</em>. The next
+output is a linear combination of recent outputs and recent inputs:</p>
+<p>$$\theta_s[k{+}1] = a_1 \theta_s[k] + a_2 \theta_s[k{-}1] + b_1 u[k] + b_2 u[k{-}1] + c$$</p>
+<p>Second order, because we know the system has two states. In genuine
+black-box practice you would try several orders and choose by
+cross-validation.</p>
+<p>The elegant part: this is <em>linear in the unknowns</em>, so fitting is ordinary
+least squares. Stack every sample into $Y = \Phi\theta$ and solve
+$\theta = (\Phi^T\Phi)^{-1}\Phi^TY$. One matrix solve, global optimum, no
+learning rate.</p>
+<h3 id="62-it-works-perfectly-until-it-doesnt">6.2 It works perfectly, until it doesn't</h3>
+<p>Take an eight-day free-drying experiment -- pump off, starting just below
+field capacity -- sampled every 10 minutes. With noise-free data, the fit
+returns $a_1 = 1.92054$, $a_2 = -0.92063$. The true values, computed from
+the matrix exponential of $A$, are $a_1 = 1.920544$, $a_2 = -0.920627$.
+Exact recovery, to five decimals, knowing nothing about soil physics. That
+is a genuinely remarkable result and it is why the technique has endured.</p>
+<p>Now add measurement noise. Seesaw probes are noisy; a realistic standard
+deviation is about 0.01 vol/vol. We will start far below that.</p>
+<table>
+<thead>
+<tr>
+<th>Probe noise</th>
+<th>$a_1$</th>
+<th>$a_2$</th>
+<th>1-step RMS</th>
+<th>Free-run RMS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 (exact)</td>
+<td>1.92054</td>
+<td>-0.92063</td>
+<td>0.00000</td>
+<td>0.00000</td>
+</tr>
+<tr>
+<td><strong>0.0005</strong></td>
+<td><strong>0.47921</strong></td>
+<td><strong>0.51897</strong></td>
+<td>0.00062</td>
+<td>0.00081</td>
+</tr>
+<tr>
+<td>0.002</td>
+<td>0.47821</td>
+<td>0.51847</td>
+<td>0.00246</td>
+<td>0.00722</td>
+</tr>
+<tr>
+<td>0.010 (realistic)</td>
+<td>0.45968</td>
+<td>0.49988</td>
+<td>0.01222</td>
+<td>0.03096</td>
+</tr>
+</tbody>
+</table>
+<p>Look at the second row. The noise is 0.0005 vol/vol -- a <em>twentieth</em> of
+what a real probe delivers, far below anything achievable in hardware. The
+fitted coefficients are nonetheless <strong>completely wrong</strong>: $a_1$ has fallen
+from 1.92 to 0.48, and $a_2$ has flipped sign from -0.92 to +0.52.</p>
+<p>And both error metrics look excellent. One-step error is 0.00062 vol/vol.
+Free-running error -- feeding predictions back, which is what a twin
+forecasting three days ahead actually does -- is 0.00081, also tiny.</p>
+<p><strong>Neither metric detects the failure.</strong> This is worse than the usual
+warning that one-step error is optimistic; here even the honest free-run
+metric passes a structurally broken model. The reason is that the true
+signal is a slow smooth decay, and <em>many</em> wrong models reproduce a slow
+smooth decay. The data does not discriminate.</p>
+<h3 id="63-the-diagnostic-that-does-work">6.3 The diagnostic that does work</h3>
+<p>If prediction error cannot detect the problem, what can? <strong>Physics.</strong></p>
+<p>Convert the fitted coefficients to poles -- the roots of
+$z^2 - a_1 z - a_2 = 0$ -- and then to time constants via
+$\tau = \Delta t / (-\ln z)$:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Pole 1</th>
+<th>Pole 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>True</td>
+<td>0.9989, giving 6.56 days</td>
+<td>0.9216, giving 2.04 hours</td>
+</tr>
+<tr>
+<td>Fitted (noise 0.0005)</td>
+<td>0.9988, giving 5.79 days</td>
+<td><strong>-0.5196</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The fit recovered the slow mode nearly correctly. But its second pole is
+<strong>negative and real</strong>, which corresponds to a mode that flips sign every
+sample as it decays. Diffusion cannot do that. No physical process moving
+water between two soil layers produces an alternating decay.</p>
+<p>So you can reject this model <strong>without any ground truth at all</strong>, purely by
+noticing that one of its poles is physically impossible. That is the
+practical lesson: validate identified models against physical
+plausibility -- pole signs, time constants, steady-state gains -- not only
+against prediction error.</p>
+<h3 id="64-a-second-trap-nonlinearity-in-the-data">6.4 A second trap: nonlinearity in the data</h3>
+<p>Everything above used pure drying data, where the system is genuinely
+linear. Refit on twenty days of normal operation, <em>with</em> the daily watering
+included and no noise whatsoever, and you get $a_1 = 0.76541$,
+$a_2 = 0.08362$ -- badly wrong again.</p>
+<p>The culprit is the $\max(0, W_s - W_{s,fc})$ percolation term. Right after
+watering, the surface exceeds field capacity and the system stops being
+linear -- exactly during the most informative part of the record. Fitting a
+linear structure to nonlinear data does not fail loudly; it returns
+plausible-looking coefficients that are wrong.</p>
+<h3 id="65-what-this-technique-is-good-for">6.5 What this technique is good for</h3>
+<p>None of this makes black-box identification bad. It makes it a technique
+requiring discipline: excite the system deliberately rather than passively
+logging normal operation; sample so consecutive samples genuinely differ;
+segment the data so each fit covers one operating regime; and check the
+identified dynamics against physical plausibility.</p>
+<p>Its advantages are real. It needs no physical understanding, which matters
+enormously for assets nobody has modelled. It is fast to build. It adapts
+to a changing asset by refitting on recent data. And unlike a neural
+network, it yields a model you can <em>analyse</em> -- which is exactly what made
+the pole diagnostic possible.</p>
+<h2 id="7-technique-6-machine-learning-models">7. Technique 6: Machine-Learning Models</h2>
+<p>Machine-learning models extend Section 6: instead of assuming a linear
+structure, let a general-purpose learner find the structure. These range
+from Gaussian processes and random forests to deep networks, and they earn
+their keep where physics-based modelling struggles -- when the mechanism is
+poorly understood, or understood but too expensive to simulate
+[@thelen_comprehensive_2022].</p>
+<p>For the pot, this is not a strawman. The water balance is well understood;
+<strong>plant growth is not</strong>. How biomass responds to water, light, and nitrogen
+involves photosynthesis, stomatal regulation, and nutrient transport that
+no one writes down exactly for a specific houseplant. If we want the twin
+to predict growth -- and "a plant controller that nourishes the soil"
+implies exactly that -- machine learning stops being optional.</p>
+<h3 id="71-where-it-fits-on-this-system">7.1 Where it fits on this system</h3>
+<p>The natural formulation for the water half mirrors ARX. Train a small
+network
+$\theta_s[k{+}1] = g_\phi(\theta_s[k], \theta_s[k{-}1], u[k], T[k], \mathrm{RH}[k], L[k])$,
+now including the temperature, humidity, and light channels the hardware
+already logs. A physics model would need explicit evapotranspiration
+equations to use those; a network just takes them as features.</p>
+<p>Two structural points deserve emphasis. First, training happens <strong>offline</strong>,
+once; what runs in the live twin is the trained network doing fast forward
+evaluations, not the training loop. Confusing these makes people wildly
+overestimate the compute a deployed twin needs.</p>
+<p>Second, training on one-step prediction and then running recursively for a
+three-day forecast is a known trap -- Section 6.2's problem with more
+freedom to fit noise. Errors compound and trajectories drift somewhere
+unphysical. Whether a network is trained on one-step or multi-step
+objectives materially changes how it behaves when deployed recursively
+[@legaard_constructing_2023].</p>
+<h3 id="72-gaussian-processes-and-the-value-of-i-dont-know">7.2 Gaussian processes and the value of "I don't know"</h3>
+<p>For a system this small, a Gaussian process is often the better choice. A
+GP places a distribution over functions and conditions it on data, and its
+decisive advantage is a <em>predictive variance</em> alongside every prediction --
+confidence that correctly collapses far from the training data
+[@thelen_comprehensive_2022].</p>
+<p>That matters more than it first appears. A twin that says "the soil will be
+at 0.19 vol/vol on Thursday, and I have never seen conditions like this" is
+far safer driving a pump than one that just says "0.19". The cost is cubic
+scaling in sample count, so plain GPs become impractical past a few thousand
+points -- though at one sample per minute, a month of data is 43,200 points,
+so this bites sooner than you might hope.</p>
+<h3 id="73-the-extrapolation-problem">7.3 The extrapolation problem</h3>
+<p>Train on a pot that has lived between 0.15 and 0.28 vol/vol, then ask about
+0.08 -- below wilting point. The physics model answers correctly: mass
+conservation holds, the stress factor clips to zero, transpiration stops.
+The network answers confidently and arbitrarily. It has no notion that
+water is conserved or that a plant cannot transpire from soil drier than
+its wilting point.</p>
+<p>This is the fundamental trade. A machine-learning model is only as good as
+its training examples and can fail badly on situations unlike anything it
+has seen [@thelen_comprehensive_2022]. For a digital twin this matters more
+than in typical ML applications, because the situations you most need the
+twin to handle -- the failing pump, the forgotten holiday, the plant that
+suddenly wilts -- are exactly the ones least represented in data from a
+normally-functioning system.</p>
+<p>Which motivates the next technique.</p>
+<h2 id="8-technique-7-hybrid-grey-box-models">8. Technique 7: Hybrid (Grey-Box) Models</h2>
+<p>If physics extrapolates but misses effects, and data-driven models capture
+anything but extrapolate terribly, combine them. Hybrid or grey-box models
+do exactly that, and they are increasingly the default in serious digital
+twin work [@rasheed_digital_2020].</p>
+<p>For this system the split is unusually clean, and it is the honest reason
+to prefer hybrid here. <strong>Water movement is physics we know. Plant response
+is biology we do not.</strong> That is not a contrived division invented for a
+tutorial; it is where the knowledge boundary genuinely falls.</p>
+<h3 id="81-residual-learning">8.1 Residual learning</h3>
+<p>Keep the physics model and train a learner to predict its <em>error</em>:</p>
+<p>$$\theta_s^{\text{hybrid}}[k{+}1] = \underbrace{\theta_s^{\text{physics}}[k{+}1]}<em>{\text{Section 3}} + \underbrace{\Delta</em>\phi(\theta_s[k], u[k], T[k], \mathrm{RH}[k], L[k])}_{\text{learned correction}}$$</p>
+<p>Our two-layer model assumes evaporation depends only on soil water. In
+reality it depends strongly on humidity and air movement. The residual
+model learns that dependence from the SHT45 channel without anyone deriving
+a vapour-transport equation.</p>
+<p>The properties are excellent. The correction is <em>small</em> -- a few percent of
+the signal -- so it needs far less data than learning the whole dynamics.
+Outside the training region the physics term still dominates, so the model
+degrades gracefully rather than catastrophically. And the residual is
+diagnostic in itself: if $\Delta_\phi$ grows steadily over months, the
+physics model is drifting from the asset, which is a maintenance signal
+(Section 13).</p>
+<h3 id="82-physics-informed-learning">8.2 Physics-informed learning</h3>
+<p>The reverse direction: keep the network but constrain it with physics. A
+<em>physics-informed</em> network adds a loss term penalising predictions that
+violate known laws. Here the constraint is mass conservation -- water in
+minus water out must equal change in storage. If the network predicts the
+pot gaining water with the pump off and no condensation, that is
+impossible, and the loss says so.</p>
+<p>The result generalises better than pure machine learning while staying much
+cheaper than full physics simulation, borrowing the physics model's ability
+to stay sensible outside the training data and the data-driven model's
+ability to run fast [@thelen_comprehensive_2022].</p>
+<h3 id="83-parameter-varying-physics">8.3 Parameter-varying physics</h3>
+<p>The third hybrid, and the one most used in practice because it is least
+exotic: keep the Section 3 structure exactly, but let a learner supply its
+<em>parameters</em> as functions of operating condition. Instead of a fixed
+$E_r = 12$ mL/day, learn $E_r$ as a function of biomass, light, and
+humidity.</p>
+<p>This preserves everything good about the white-box model -- interpretability,
+extrapolation, small data requirements -- while absorbing effects it could
+not capture. The parameters stay physically meaningful, so a learned $E_r$
+that has doubled over a season still means "this plant now drinks twice as
+much", which no network weight ever means. Section 10 shows what that
+enables, and Section 13 shows why you want it.</p>
+<h2 id="9-technique-8-probabilistic-models">9. Technique 8: Probabilistic Models</h2>
+<p>Every model so far returns one number. Plants do not behave that way. Two
+seedlings from the same packet, in identical pots, on the same shelf, will
+differ measurably within weeks -- and no amount of modelling effort removes
+that. Biological variability is <em>irreducible</em>, not a measurement problem.</p>
+<p>A probabilistic model returns a <em>distribution</em>, and for a twin whose output
+drives a decision, that is often the more useful object.</p>
+<h3 id="91-where-uncertainty-comes-from">9.1 Where uncertainty comes from</h3>
+<p>Separating the sources matters, because they are addressed differently</p>
+<ul>
+<li><strong>Measurement noise.</strong> The Seesaw probe reports 0.21 when the truth is
+  0.205.</li>
+<li><strong>Parameter uncertainty.</strong> We estimated $K = 0.02$, but the data pins it
+  only to roughly 15%.</li>
+<li><strong>Process noise.</strong> A draught, a sunny afternoon, someone brushing past.</li>
+<li><strong>Structural uncertainty.</strong> Two layers is not really right, and no
+  parameter value fixes that.</li>
+</ul>
+<p>The first three are aleatory or parametric and admit routine probabilistic
+treatment. The fourth is epistemic, much harder, and routinely ignored --
+which is why models are so often overconfident in deployment.</p>
+<h3 id="92-the-stochastic-pot">9.2 The stochastic pot</h3>
+<p>Add noise terms:</p>
+<p>$$
+\begin{aligned}
+x_{k+1} &amp;= A_d x_k + B_d u_k + w_k, \qquad w_k \sim \mathcal{N}(0, Q) \
+z_k &amp;= H x_k + v_k, \qquad\qquad\quad\ v_k \sim \mathcal{N}(0, R)
+\end{aligned}
+$$</p>
+<p>with $w_k$ the process noise and $v_k$ the measurement noise. For our probe,
+$R = 10^{-4}$ in vol/vol units.</p>
+<p>This is not cosmetic. It changes what the model <em>is</em>: it now predicts a
+distribution. Instead of "0.19 vol/vol on Thursday" it says "0.19 plus or
+minus 0.02", and the second statement is the one you can act on. It is also
+exactly the structure Section 10 needs.</p>
+<h3 id="93-bayesian-calibration">9.3 Bayesian calibration</h3>
+<p>Given data, Bayesian calibration treats parameters as random variables and
+computes a <em>posterior</em> rather than a point fit. The output is not
+"$K = 0.02$" but a distribution reflecting how much the data actually
+constrained it -- which, as Section 14 shows, is much less than you would
+hope for some parameters. Propagating that distribution forward gives
+honest prediction intervals.</p>
+<p>The probabilistic graphical model framework generalises this, representing
+the twin's state, parameters, observations, and control inputs as nodes in
+a graph whose structure encodes what depends on what, updated as data
+arrives [@kapteyn_probabilistic_2021]. Our pot's graph is small, but the
+structure scales.</p>
+<p>The advantage is that it makes ignorance explicit. Given a bare number, a
+decision-maker cannot tell whether it is trustworthy; given a distribution,
+they can. Uncertainty quantification is correspondingly treated as central
+rather than optional in digital twin practice
+<a href="article.md">@thelen_comprehensive_2022-1</a>. The cost is computation -- a full Bayesian
+treatment can need thousands of model evaluations, which is often exactly
+why Section 5.2's surrogates exist.</p>
+<h2 id="10-technique-9-state-estimation-and-virtual-sensors">10. Technique 9: State Estimation and Virtual Sensors</h2>
+<p>Now we pay off the promise from Section 2.3. The probe measures the surface
+layer. The plant lives in the root layer. How wrong is it to use one for
+the other?</p>
+<h3 id="101-how-badly-the-probe-lies">10.1 How badly the probe lies</h3>
+<p>Water 24 mL into a pot sitting at 0.181 vol/vol, then watch both layers.
+The final column expresses the error in root-zone millilitres, and in
+multiples of the probe's own noise:</p>
+<table>
+<thead>
+<tr>
+<th>Time after watering</th>
+<th>$\theta_s$ (probe)</th>
+<th>$\theta_r$ (truth)</th>
+<th>Error if you trust the probe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 min</td>
+<td>0.2998</td>
+<td>0.1814</td>
+<td>71.1 mL (11.8 sigma)</td>
+</tr>
+<tr>
+<td>5 min</td>
+<td>0.2946</td>
+<td>0.1830</td>
+<td>67.0 mL (11.2 sigma)</td>
+</tr>
+<tr>
+<td>15 min</td>
+<td>0.2849</td>
+<td>0.1861</td>
+<td>59.3 mL (9.9 sigma)</td>
+</tr>
+<tr>
+<td>1 h</td>
+<td>0.2607</td>
+<td>0.1933</td>
+<td>40.4 mL (6.7 sigma)</td>
+</tr>
+<tr>
+<td>2 h</td>
+<td>0.2399</td>
+<td>0.1992</td>
+<td>24.4 mL (4.1 sigma)</td>
+</tr>
+<tr>
+<td>4 h</td>
+<td>0.2187</td>
+<td>0.2044</td>
+<td>8.6 mL (1.4 sigma)</td>
+</tr>
+<tr>
+<td>8 h</td>
+<td>0.2058</td>
+<td>0.2050</td>
+<td>0.4 mL (0.1 sigma)</td>
+</tr>
+</tbody>
+</table>
+<p>Immediately after watering the probe overstates root-zone moisture by up to
+<strong>71.9 mL, twelve standard deviations of probe noise</strong>. The water is
+sitting in the top of the pot; the roots have not received it yet. Only
+after about eight hours, roughly four redistribution time constants, do the
+layers agree.</p>
+<p>Note the honest flip side: after eight hours the probe is an excellent
+proxy. A twin that estimates root-zone moisture earns its keep in the hours
+<em>after</em> watering, not all the time. Virtual sensing pays off where dynamics
+are fast, and that is worth knowing before you build one.</p>
+<h3 id="102-the-kalman-filter">10.2 The Kalman filter</h3>
+<p>For a linear system with Gaussian noise -- exactly Section 9.2 -- the
+optimal estimator is the Kalman filter, alternating two steps.</p>
+<p><strong>Predict.</strong> Push the estimate forward and grow the uncertainty:</p>
+<p>$$\hat{x}<em k-1="k-1">{k|k-1} = A_d\hat{x}</em>A_d^T + Q$$} + B_d u_{k-1}, \qquad P_{k|k-1} = A_dP_{k-1</p>
+<p><strong>Update.</strong> Correct in proportion to relative confidence:</p>
+<p>$$K_k = P_{k|k-1}H^T(HP_{k|k-1}H^T+R)^{-1}, \qquad \hat{x}<em k_k-1="k|k-1">k = \hat{x}</em>)$$} + K_k(z_k - H\hat{x}_{k|k-1</p>
+<p>The gain $K_k$ is the whole idea: trust the sensor when it is reliable,
+trust the model when it is not, and blend in proportion. Neither the model
+blindly nor the noisy sensor blindly [@thelen_comprehensive_2022].</p>
+<p>For our pot, $A_d$ over a 60-second step is exactly</p>
+<p>$$A_d = \begin{bmatrix} 0.993832 &amp; 0.001992 \ 0.005975 &amp; 0.997931 \end{bmatrix}$$</p>
+<p>whose trace and determinant, 1.991763 and 0.991764, are precisely the ARX
+coefficients Section 6.2 recovered from clean data. The same system, seen
+two ways.</p>
+<p>The remarkable part is the <em>unmeasured</em> state. The off-diagonal terms of
+$P$ encode the correlation between the layers implied by the model. Because
+the model knows water percolates downward at a known rate, an error in
+predicted surface moisture is informative about the root layer, and the
+filter corrects $W_r$ using a surface measurement.</p>
+<p>Over 30 days at a realistic probe noise of 0.01 vol/vol:</p>
+<table>
+<thead>
+<tr>
+<th>Estimator</th>
+<th>RMS error, all times</th>
+<th>RMS error, 4 h after watering</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naive (assume root = surface)</td>
+<td>8.69 mL</td>
+<td>16.25 mL</td>
+</tr>
+<tr>
+<td>Kalman filter</td>
+<td><strong>5.75 mL</strong></td>
+<td><strong>11.30 mL</strong></td>
+</tr>
+</tbody>
+</table>
+<p>A 1.5 times improvement -- real but modest, exactly as Section 10.1
+predicted, because most of the time the naive estimate is fine. What the
+filter buys you is that it is <em>never</em> off by 71 mL, and it tells you which
+regime you are in. Real deployments lean on this pattern heavily; a twin of
+a floating offshore wind turbine uses the same Kalman-plus-structural-model
+combination to estimate tower loads its sensors cannot see
+[@branlard_digital_2024]. Our pot does it at houseplant scale.</p>
+<h3 id="103-joint-state-and-parameter-estimation-and-an-honest-failure">10.3 Joint state and parameter estimation, and an honest failure</h3>
+<p>A natural extension: append unknown <em>parameters</em> to the state and let the
+filter estimate them too. Since the system is now nonlinear in the
+augmented state, this needs an <em>extended</em> Kalman filter, which linearises
+about the current estimate at each step.</p>
+<p>The parameter worth estimating here is the plant's <strong>water demand</strong>. As the
+plant grows, transpiration rises; a fixed schedule that suited a seedling
+starves a mature plant. Nothing on the hardware measures demand. If the
+twin could infer it, the controller could adapt.</p>
+<p>So we simulated 60 days during which true demand rises from 1.0 to 2.15
+times the seedling value, and ran an EKF with demand as a third state.</p>
+<p><strong>It does not work well.</strong> The filter tracks demand from 1.00 to only 1.39
+while the truth reaches 2.15 -- recovering about 40% of the growth, with an
+RMS error of 0.55. Worse, it reports a standard deviation of 0.042,
+claiming roughly 13 times more confidence than it deserves. Meanwhile the
+root-zone estimate stays excellent: 114.0 mL estimated against 113.6 mL
+true at day 55.</p>
+<p>The reason is <strong>weak observability</strong>. From one surface probe, "the root
+zone is drier than I thought" and "the plant is thirstier than I thought"
+explain the same measurements almost equally well. The filter cannot
+separate them, so it splits the difference and reports false confidence.</p>
+<p>This is not a bug to tune away; it is a property of the sensor placement.
+The fix is not a better filter but better <em>data</em>: deliberately withhold
+water for a few days and measure the drying slope, which depends on demand
+and almost nothing else. That is Section 6.5's excitation lesson returning
+in a new costume, and it connects directly to the identifiability
+discussion in Section 14.1.</p>
+<p>Report this kind of result. A twin that silently produces a confident wrong
+number is worse than one that reports it cannot tell.</p>
+<h2 id="11-technique-10-discrete-event-models-and-hybrid-automata">11. Technique 10: Discrete-Event Models and Hybrid Automata</h2>
+<p>Everything so far models the <em>soil</em>. But the system also contains a
+controller, and a controller is not a differential equation. It is a
+switch. Modelling it with continuous mathematics is a category error.</p>
+<h3 id="111-the-controller-as-a-state-machine">11.1 The controller as a state machine</h3>
+<p>The shipped controller is purely time-driven: at 10:15, turn on Pump 1;
+after 15 seconds, turn it off. That is a state machine with two states and
+transitions triggered by clock events. Time appears only through event
+ordering.</p>
+<p>To close the loop, we replace it with moisture-triggered control with
+hysteresis: in state <code>DRY</code>, run the pump until the probe exceeds
+$\theta_{\text{off}}$; in state <code>WET</code>, hold off until it falls below
+$\theta_{\text{on}}$.</p>
+<h3 id="112-hybrid-automata">11.2 Hybrid automata</h3>
+<p>The full system is neither purely continuous nor purely discrete. It is
+<strong>hybrid</strong>, and the formalism capturing both is the <em>hybrid automaton</em>: the
+system occupies one of several discrete <em>modes</em>, within each mode the
+continuous state evolves by mode-specific differential equations, and
+crossing a guard triggers a jump [@abbiati_modelling_2024].</p>
+<p>Our pot has genuinely physical modes, not just controller states:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Continuous dynamics</th>
+<th>Guard</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SATURATED</code></td>
+<td>Free drainage active</td>
+<td>$W_s &lt; W_{s,fc}$</td>
+<td><code>NORMAL</code></td>
+</tr>
+<tr>
+<td><code>NORMAL</code></td>
+<td>Linear two-layer model</td>
+<td>$\theta_r$ below stress threshold</td>
+<td><code>STRESSED</code></td>
+</tr>
+<tr>
+<td><code>STRESSED</code></td>
+<td>Transpiration reduced by $f_r$</td>
+<td>$\theta_r &lt; \theta_{wp}$</td>
+<td><code>WILTING</code></td>
+</tr>
+<tr>
+<td><code>WILTING</code></td>
+<td>Transpiration zero</td>
+<td>$\theta_r &gt; \theta_{wp}$</td>
+<td><code>STRESSED</code></td>
+</tr>
+</tbody>
+</table>
+<p>Simulating the closed loop with thresholds on the surface probe:</p>
+<table>
+<thead>
+<tr>
+<th>Thresholds</th>
+<th>Cycle period</th>
+<th>Delivered</th>
+<th>Root-zone range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.18 / 0.24</td>
+<td>28.16 h</td>
+<td>6.00 s/day</td>
+<td>0.181--0.193</td>
+</tr>
+<tr>
+<td>0.22 / 0.26</td>
+<td>14.71 h</td>
+<td>9.30 s/day</td>
+<td>0.222--0.229</td>
+</tr>
+<tr>
+<td>0.24 / 0.28</td>
+<td>12.71 h</td>
+<td>10.95 s/day</td>
+<td>0.242--0.249</td>
+</tr>
+</tbody>
+</table>
+<p>Compare against the 13.75 s/day from Section 2.5. None of them reach it,
+and the reason is instructive: that figure assumed an <em>unstressed</em> plant.
+These controllers hold the pot below field capacity, so the stress factors
+sit below 1, so the plant actually transpires less than 22 mL/day and needs
+less water. The arithmetic was an upper bound, not a target -- and noticing
+the discrepancy is how you discover that the plant is being held slightly
+dry.</p>
+<h3 id="113-what-noise-does-to-a-discrete-controller">11.3 What noise does to a discrete controller</h3>
+<p>Now add realistic probe noise of 0.01 vol/vol to the 0.22/0.26 controller:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Cycle period</th>
+<th>Delivered</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Noise-free</td>
+<td>14.71 h</td>
+<td>9.30 s/day</td>
+</tr>
+<tr>
+<td>Noise 0.01</td>
+<td><strong>3.04 h</strong></td>
+<td>11.68 s/day</td>
+</tr>
+</tbody>
+</table>
+<p>The cycle period collapses by nearly a factor of five. Noise repeatedly
+carries the reading across the hysteresis band, so the pump switches far
+more often than designed -- classic <strong>short-cycling</strong>, which wears out
+relays and pumps.</p>
+<p>This is a genuinely hybrid phenomenon: it arises from the <em>interaction</em>
+between a continuous noise process and a discrete switching rule, and
+neither model alone predicts it. The fix is also hybrid -- widen the
+hysteresis band, filter the measurement, or impose a minimum dwell time in
+each mode. Notice that the Kalman filter of Section 10 would supply a
+filtered estimate almost for free.</p>
+<h3 id="114-why-the-distinction-matters">11.4 Why the distinction matters</h3>
+<p>Systems combining continuous and discrete behaviour across engineering
+disciplines are the normal case, and the discipline of using several
+formalisms together is developed under the name <em>multi-paradigm modelling</em>
+[@carreira_foundations_2020]. Forcing everything into one formalism means
+either a controller described by awkward continuous approximations or soil
+physics described by an implausibly large state machine. Neither is a good
+trade when you can use the right formalism for each part and define their
+interaction carefully.</p>
+<h2 id="12-technique-11-co-simulation">12. Technique 11: Co-Simulation</h2>
+<p>Section 11 raises a practical question. The soil model might be built in
+Modelica by a soil physicist. The growth model might come from an agronomist
+in R. The controller is Python on a Raspberry Pi. In a real project these
+come from different people, different tools, and different institutions --
+and they still have to run as one twin.</p>
+<h3 id="121-the-idea">12.1 The idea</h3>
+<p><strong>Co-simulation</strong> couples separately built simulators without merging them.
+Each sub-model keeps its implementation private and exposes a small
+standard interface -- essentially read a variable, set a variable, advance
+by a step [@abbiati_modelling_2024]. A master algorithm sets inputs, steps
+each unit, exchanges outputs, and repeats.</p>
+<p>The dominant standard is the <strong>Functional Mock-up Interface</strong>, maintained by
+the Modelica Association and supported by well over a hundred tools; a model
+packaged to it is a <em>Functional Mock-up Unit</em> [@abbiati_modelling_2024].
+For our pot you would export the soil model as one FMU and the controller
+as another, then step them in lockstep.</p>
+<p>This is not hypothetical for this hardware. Work on the INTO-CPS
+Association's own digital twin platform integrates FMI-based models
+alongside machine-learning components in exactly this style
+[@infante_integrating_2024], which is precisely the hybrid split Section 8
+argued for: physics as an FMU, biology as a learned component, coupled at
+runtime. Tooling has become increasingly Python-accessible, lowering the
+barrier for this kind of prototyping [@friedrich_cofmpy_2025], and the
+approach scales to serious industrial coupling [@wetter_spawn_2024-1].</p>
+<h3 id="122-the-catch">12.2 The catch</h3>
+<p>Co-simulation looks like free composition and is not. Each unit advances
+<em>independently</em> over a communication step, during which it does not see the
+others change. Inputs are typically held constant across the step, which
+introduces error unrelated to either model's own accuracy.</p>
+<p>On our pot the consequence should now be familiar. If the communication
+step is 60 seconds, the controller cannot react to a threshold crossing
+until up to 60 seconds later -- and the pump only runs for 15. Section 4.3's
+event-resolution problem returns, now as a <em>coupling</em> problem, and it is
+why co-simulation masters for systems with short events need either very
+small steps or explicit event detection.</p>
+<p>Worse, coupling two individually stable simulators can produce an unstable
+<em>combined</em> simulation, a failure with no counterpart in either model alone.
+Numerical stability of the coupling, algebraic loops, and tool
+interoperability remain recognised open challenges rather than solved
+engineering [@schweiger_empirical_2019].</p>
+<p>The lesson generalises: composing models is itself a modelling activity
+with its own error sources, and "I validated each component" does not imply
+"the assembly is valid".</p>
+<h2 id="13-technique-12-degradation-models">13. Technique 12: Degradation Models</h2>
+<p>Every model so far assumes fixed parameters. Real systems age. <strong>Degradation
+models</strong> describe how parameters evolve over months and years, and they
+underpin predictive maintenance -- one of the most commercially important
+uses of digital twins [@van_dinter_predictive_2022].</p>
+<p>Our pot degrades in two ways, and they behave very differently.</p>
+<h3 id="131-the-sensor-degrades">13.1 The sensor degrades</h3>
+<p>Capacitive soil probes corrode. Electrodes oxidise, the protective coating
+degrades, and readings drift -- typically reading progressively <em>lower</em> over
+a season or two. Suppose the drift is about 0.02 vol/vol per year.</p>
+<p>The controller holds the <em>measured</em> value in its hysteresis band, so drift
+moves the <em>true</em> moisture the same amount:</p>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Probe reads</th>
+<th>True $\theta_s$ held at</th>
+<th>Consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>correct</td>
+<td>0.220--0.260</td>
+<td>as designed</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0.02 low</td>
+<td>0.240--0.280</td>
+<td>wetter than intended</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0.04 low</td>
+<td>0.260--0.300</td>
+<td><strong>above field capacity: waterlogged</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td>0.06 low</td>
+<td>0.280--0.320</td>
+<td><strong>root rot</strong></td>
+</tr>
+</tbody>
+</table>
+<p>By year two the controller is holding the pot permanently above field
+capacity. It is drowning the plant while its logs show a textbook-perfect
+0.22--0.26 band. This is the most dangerous kind of degradation: the sensor
+that would reveal it is the thing that failed.</p>
+<p>Detecting it requires reasoning the raw signal cannot support. Two options
+work. First, <strong>redundancy</strong> -- the hardware has three probes, and probes
+rarely drift identically; a growing divergence between them is evidence.
+Second, <strong>model-based residuals</strong> -- if the twin's physics predicts the pot
+should dry from 0.26 to 0.22 in 14 hours and it consistently takes 20, the
+model and the sensor disagree, and one of them is wrong. Section 14.3
+develops this into a general drift alarm.</p>
+<h3 id="132-the-soil-degrades">13.2 The soil degrades</h3>
+<p>Potting mix settles and compacts, closing the large pores that conduct
+water quickly. That reduces the exchange coefficient $K$:</p>
+<table>
+<thead>
+<tr>
+<th>$K$</th>
+<th>Redistribution time constant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.020 (fresh)</td>
+<td>2.04 h</td>
+</tr>
+<tr>
+<td>0.015</td>
+<td>2.70 h</td>
+</tr>
+<tr>
+<td>0.010</td>
+<td>4.00 h</td>
+</tr>
+<tr>
+<td>0.006</td>
+<td>6.50 h</td>
+</tr>
+</tbody>
+</table>
+<p>As $K$ falls, water takes longer to reach the roots and the post-watering
+transient of Section 10.1 grows both larger and longer. The plant spends
+more of each day with water sitting above its roots rather than around
+them, even though total water delivered is unchanged.</p>
+<p>This one is nicely observable. $K$ is a <em>physically meaningful</em> parameter,
+so tracking it -- by joint estimation, or by periodically refitting on a
+drying experiment -- gives a direct read on soil condition and a repotting
+schedule. Extrapolating the trend gives a remaining-useful-life estimate for
+the growing medium.</p>
+<p>That interpretability is the first-principles model of Section 3 finally
+paying off, ten techniques later. A neural network trained on the same data
+has no weight meaning "how fast water reaches the roots", so it cannot
+support this reasoning at all.</p>
+<h3 id="133-the-general-pattern">13.3 The general pattern</h3>
+<p>Real degradation modelling for high-value assets is more sophisticated, but
+the shape recurs: a physics-based or empirical model of the mechanism,
+fused with machine learning that corrects it against observed behaviour,
+producing a <em>probabilistic</em> remaining-useful-life estimate rather than a
+point value [@thelen_augmented_2022]. Because these predictions are
+long-horizon and inherently uncertain, Section 9's probabilistic treatment
+is essential rather than optional -- the useful output is a distribution
+over failure time, not a date [@thelen_probabilistic_2024].</p>
+<h2 id="14-calibration-validation-and-drift">14. Calibration, Validation, and Drift</h2>
+<p>Three cross-cutting activities apply to every technique above, and skipping
+them is the commonest way a technically sound model becomes a useless twin.</p>
+<h3 id="141-calibration">14.1 Calibration</h3>
+<p><strong>Calibration</strong> estimates a model's free parameters from measurements. For
+our pot the procedure is concrete: water to field capacity, then withhold
+water for a week while logging the probe every minute, and solve a
+nonlinear least-squares problem for the parameters that best match the
+measured drying curve [@gomes_calibration_2024].</p>
+<p>Three practical points, all of which this system illustrates.</p>
+<p>First, calibrate against a <em>rich</em> experiment. A drying curve identifies the
+loss terms well and says almost nothing about $k_d$, which only acts above
+field capacity. Identifying $k_d$ needs a deliberate over-watering.</p>
+<p>Second, some parameters are far better constrained than others. This is
+<strong>practical identifiability</strong>, and Section 10.3 met it in its sharpest form:
+plant water demand was so weakly observable from a single surface probe
+that an otherwise well-behaved filter recovered under half of a doubling.
+No estimator fixes that. Only a different experiment does.</p>
+<p>Third, calibration compensates only for <em>parametric</em> error. If the model
+structure is wrong -- two layers where you need five, or a linear fit to
+the nonlinear regime of Section 6.4 -- calibration produces a well-fitted
+wrong model, which is more dangerous than an obviously bad one.</p>
+<h3 id="142-validation">14.2 Validation</h3>
+<p><strong>Validation</strong> asks whether the calibrated model is fit for its stated
+purpose, and the non-negotiable rule is that it must be evaluated on data
+the calibration never saw. For the pot: calibrate on a drying experiment,
+then validate on normal watering cycles and on a deliberate over-watering.</p>
+<p>Validation must test <em>the quantity you care about, over the horizon you
+care about</em>. But Section 6.2 is the sobering case: a structurally broken
+model passed both one-step <em>and</em> free-run tests. Prediction error alone was
+not enough, and the check that caught it was physical -- a negative pole in
+a diffusive system. Build both kinds of check into your validation.</p>
+<p>Finally, validation is bounded by Section 2.2's envelope. A model validated
+indoors at 18--25 °C has been shown to work <em>there</em>. It has been shown
+nothing about a windowsill in August. Establishing credibility for models
+used in consequential decisions is an active research problem, not a solved
+checklist
+[@committee_on_foundational_research_gaps_and_future_directions_for_digital_twins_foundational_2024].</p>
+<h3 id="143-drift-and-model-updating">14.3 Drift and model updating</h3>
+<p>A model calibrated once diverges from the asset through wear, repair, or
+unanticipated conditions. Production twins need a plan for <em>updating</em>, and
+the options line up with the techniques above: periodically refit on recent
+data; use the estimator of Section 10 to nudge the model toward the sensors
+continuously; or run joint state-parameter estimation so parameters track
+degradation automatically.</p>
+<p>Updating a twin from experimental measurements as the asset changes is an
+active area of method development rather than a settled procedure
+[@wagner_data-driven_2025], and deciding <em>when</em> a twin has diverged enough
+to require intervention is a genuine research question in its own right
+[@zhang_knowledge_2024].</p>
+<p>A monitoring rule you can implement today: track the Kalman filter's
+<strong>innovation</strong> -- the difference between each measurement and its
+prediction. If the model is right and the noise is characterised correctly,
+innovations should be zero-mean and consistent with their predicted
+covariance. A persistent bias means the model no longer matches the asset.
+That is exactly the drift alarm Section 13.1 needed to catch a corroding
+probe, and it comes free from machinery you already have.</p>
+<h2 id="15-choosing-a-technique">15. Choosing a Technique</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Technique</th>
+<th>Needs</th>
+<th>Gives you</th>
+<th>Fails when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>First-principles</td>
+<td>Physical understanding</td>
+<td>Interpretability, extrapolation, tiny data needs</td>
+<td>Mechanism unknown, or too costly to solve</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Numerical solvers</td>
+<td>A continuous model</td>
+<td>An executable model</td>
+<td>Step exceeds stability limit, or misses short events</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Distributed (PDE)</td>
+<td>Geometry, material data, compute</td>
+<td>Spatial detail a lump cannot capture</td>
+<td>Real-time use; far too slow</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Surrogate / ROM</td>
+<td>An expensive model to sample</td>
+<td>Real-time speed from expensive physics</td>
+<td>Inputs stray outside the sampled envelope</td>
+</tr>
+<tr>
+<td>5</td>
+<td>System identification</td>
+<td>Logged input/output data</td>
+<td>Fast models with no physics knowledge</td>
+<td>Data poorly excited, noisy, or spanning regimes</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Machine learning</td>
+<td>Large, representative datasets</td>
+<td>Patterns no one can write equations for</td>
+<td>Asked about unseen conditions</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Hybrid / grey-box</td>
+<td>Partial physics plus some data</td>
+<td>Graceful failure, good generalisation</td>
+<td>Neither ingredient available</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Probabilistic</td>
+<td>A noise characterisation</td>
+<td>Honest confidence, not just a number</td>
+<td>Compute budget is tight</td>
+</tr>
+<tr>
+<td>9</td>
+<td>State estimation</td>
+<td>A model plus live measurements</td>
+<td>Unmeasured states; drift correction</td>
+<td>The quantity is weakly observable</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Hybrid automata</td>
+<td>Discrete mode structure</td>
+<td>Correct switching, short-cycling, limit cycles</td>
+<td>Modes proliferate combinatorially</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Co-simulation</td>
+<td>Models in incompatible tools</td>
+<td>Composition without rewriting</td>
+<td>Coupling step too coarse; instability</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Degradation</td>
+<td>Long-horizon historical data</td>
+<td>Predictive maintenance, RUL</td>
+<td>Mechanism unknown or unobservable</td>
+</tr>
+</tbody>
+</table>
+<p>Three questions resolve most real choices.</p>
+<p><strong>What is the model for?</strong> Predicting when the pot needs water needs
+Sections 3--4 and nothing more. Knowing what the roots experience right now
+needs Section 10. Deciding whether to repot needs Section 13. Purpose
+determines technique, and a twin with several purposes needs several models
+[@gomes_foundational_2024].</p>
+<p><strong>What do you have?</strong> Good physics and little data: go white-box. Poor
+physics and abundant data: go black-box. Some of each -- the usual case,
+and exactly our pot, where hydrology is known and biology is not -- go
+hybrid, which is why most industrial practice has converged there
+[@rasheed_digital_2020].</p>
+<p><strong>What is your compute budget?</strong> Our pot's 2-hour and 6.5-day time constants
+are forgiving; a Raspberry Pi can run the whole twin. Assets with
+millisecond dynamics are not so kind, and that is what Section 5.2's
+surrogates are for.</p>
+<h3 id="closing-the-loop">Closing the loop</h3>
+<p>Recall where we started: a controller that waters on a clock and ignores its
+own sensors. You now have everything needed to fix it. A first-principles
+model (Section 3), integrated so it resolves the pump pulse (Section 4), its
+parameters calibrated from a drying experiment (Section 14.1), driving a
+Kalman filter that reports root-zone moisture rather than surface moisture
+(Section 10), feeding a hysteresis controller with a dwell time long enough
+to resist short-cycling (Section 11), monitored by innovation-based drift
+detection that notices when the probe starts to corrode (Sections 13.1 and
+14.3). That is a digital twin, and every piece of it was verified on the way
+through.</p>
+<p>One last observation. Across all twelve techniques, the recurring failure
+was never the mathematics. It was applying a model outside the conditions it
+was built for: Euler past its stability limit, a 60-second step against a
+15-second pump, a linear fit to data spanning a nonlinear regime, a filter
+asked for a quantity its sensor could not observe, a surrogate outside its
+sampled envelope. Every one is the <em>same mistake</em>. The discipline that
+prevents it is the modelling contract of Section 2.2 -- write down what the
+model is for and where it is valid, and check inputs against it at runtime.
+It is unglamorous, and it is most of what separates a digital twin that
+works from one that merely runs.</p>
+<h2 id="16-exercises">16. Exercises</h2>
+<p>Exercises marked ($\star$) are straightforward; ($\star\star$) require
+combining ideas; ($\star\star\star$) are open-ended. Hints and solutions
+follow.</p>
+<p><strong>16.1 ($\star$) Water balance.</strong> Using Section 2.4's parameters, compute
+the pump seconds per day needed to hold an unstressed plant in steady state
+if you replace the dosing pump with one delivering 4.0 mL/s. Then compute
+how long the pot survives from field capacity with the pump disconnected.
+State which assumption you are relying on.</p>
+<p><strong>16.2 ($\star$) Implement the model.</strong> Code the Euler stepper from Section
+4.1 and reproduce the free-drying reference $W_r = 83.627$ mL after ten
+days. Then reproduce the divergence at a 4.44 hour step. <em>Objective 2.</em></p>
+<p><strong>16.3 ($\star\star$) The event you cannot see.</strong> Reproduce Section 4.3's
+table. Then implement the impulse shortcut -- add the pump's volume
+instantly and integrate at 60 s -- and verify it matches a 1-second
+reference to better than 0.001 mL over six hours. Why is this legitimate
+here but not if the pump ran for two hours? <em>Objectives 2, 4.</em></p>
+<p><strong>16.4 ($\star\star$) Stability boundary.</strong> Derive the eigenvalues of $A$
+symbolically in terms of $K$, $V_s$, $V_r$, $a_s$ and $a_r$. Predict the
+Euler stability limit if the pot were divided into a 50 mL surface layer
+instead of 200 mL. Verify numerically. What does this say about modelling
+thin surface layers? <em>Objectives 1, 2.</em></p>
+<p><strong>16.5 ($\star\star$) The identification trap.</strong> Generate an eight-day
+drying curve, add noise of 0.0005 vol/vol, fit the ARX model, and reproduce
+the collapse in Section 6.2. Confirm both error metrics look excellent.
+Then compute the poles and find the negative one. <em>Objective 3.</em></p>
+<p><strong>16.6 ($\star\star$) Excitation design.</strong> Design a watering profile that
+identifies $K$ better than passive logging. Justify it in terms of Section
+3.3's time constants, then test it against 16.5's fit. <em>Objective 3.</em></p>
+<p><strong>16.7 ($\star\star$) Virtual sensing.</strong> Implement the Kalman filter of
+Section 10.2 and reproduce the 5.75 mL RMS error. Then compare against the
+naive estimator in the four hours after watering. How much does the
+advantage depend on watering frequency? <em>Objective 5.</em></p>
+<p><strong>16.8 ($\star\star$) Short-cycling.</strong> Reproduce Section 11.3's collapse
+from 14.71 h to 3.04 h under probe noise. Then fix it three ways -- widen
+the band, filter the measurement, impose a minimum dwell time -- and compare
+pump switches per day. Which best preserves the target moisture?
+<em>Objectives 4, 5.</em></p>
+<p><strong>16.9 ($\star\star\star$) Detect the drift.</strong> Simulate a probe drifting
+0.02 vol/vol per year under closed-loop control. Using only logged data --
+no ground truth -- devise a detector that raises an alarm before the pot
+goes above field capacity. How early can you catch it, and what is your
+false-alarm rate over a year? <em>Objectives 4, 5.</em></p>
+<p><strong>16.10 ($\star\star\star$) Technique selection.</strong> You must twin a
+commercial greenhouse: 5,000 plants, moisture probes on 200 of them,
+climate control, two years of logs, and a target of predicting crop yield
+eight weeks ahead. Choose techniques from Section 15, justify each, and name
+one you rejected and why. How does your answer change if you have only two
+weeks of data? <em>Objective 4.</em></p>
+<h2 id="17-hints-and-solutions">17. Hints and Solutions</h2>
+<p><strong>17.1 (full solution).</strong> Demand is $E_s + E_r = 22$ mL/day regardless of
+pump. At 4.0 mL/s the pump needs $22/4.0 = 5.5$ s/day. From field capacity
+(224 mL) to wilting point (80 mL) there are 144 mL available; at 22 mL/day
+that is 6.5 days, but this <em>overestimates</em> survival because the stress
+factors reduce transpiration as the soil dries, so the true figure is longer
+and the plant is suffering for much of it. You are relying on the unstressed
+assumption -- which, note, is exactly why Section 11.2's controllers
+delivered less than the predicted 13.75 s/day.</p>
+<p><strong>17.2 (hint).</strong> Loop the stepper with <code>u=0.0</code> from
+<code>Ws, Wr = 56.0, 168.0</code>. For the divergence, watch both states: they
+oscillate with growing amplitude, and the alternating sign is the signature
+of instability rather than inaccuracy -- the same signature as the negative
+pole in 16.5, which is not a coincidence.</p>
+<p><strong>17.3 (hint).</strong> The shortcut works because 15 s is far shorter than the
+2.04 h redistribution constant, so almost nothing happens <em>during</em> the
+pulse; only the delivered volume matters. A two-hour pump run is comparable
+to the fast time constant, so redistribution during pumping is significant
+and the impulse approximation breaks. The general test: an event may be
+treated as instantaneous when its duration is small compared with the
+fastest dynamics it excites.</p>
+<p><strong>17.4 (hint and partial solution).</strong> The characteristic polynomial is
+$\lambda^2 - \mathrm{tr}(A)\lambda + \det(A) = 0$ with
+$\mathrm{tr}(A) = -K/V_s - a_s - K/V_r - a_r$. Shrinking $V_s$ to 50 mL
+roughly quadruples $K/V_s$, so the fast eigenvalue grows about fourfold and
+the Euler limit falls to roughly an hour. The lesson: <em>thin layers force
+small time steps</em>. This is why modellers often merge a thin surface layer
+into its neighbour, or replace it with an algebraic relation -- a
+quasi-steady-state approximation trading a little accuracy for a large gain
+in allowable step size.</p>
+<p><strong>17.5 (hint).</strong> Reuse the design matrix from Section 6.1 on drying data
+only. The poles are roots of $z^2 - a_1z - a_2 = 0$; you should find 0.9988
+and -0.5196. Convert with $\tau = \Delta t/(-\ln z)$, which is undefined for
+the negative root -- and <em>that</em> is the diagnostic. Any real diffusive
+process has poles on the positive real axis between 0 and 1.</p>
+<p><strong>17.6 (hint).</strong> You need to excite the fast mode, which passive daily
+watering barely touches. A sequence of small waterings spaced near the
+2-hour redistribution constant -- rather than one large daily dose -- puts
+energy where the fast dynamics live. Contrast with the slow mode, which a
+week-long dry-down identifies well. The general principle: excite at
+timescales comparable to the dynamics you want to identify.</p>
+<p><strong>17.7 (hint).</strong> Use $A_d$ from Section 10.2, a measurement matrix picking
+out the surface state, and $R = 10^{-4}$. The filter's advantage is
+concentrated immediately after watering, so watering more often <em>increases</em>
+the advantage -- a useful counter-intuitive result. If your RMS is much
+worse than 5.75 mL, check that you are adding the pump volume to the
+predicted state as well as the true one.</p>
+<p><strong>17.8 (hint).</strong> Widening the band preserves pump life but lets moisture
+swing further from target. Filtering adds lag, which shifts the effective
+thresholds -- measure where the pot actually sits, not where you told it to.
+A minimum dwell time is usually the best trade here, because it directly
+bounds switching frequency without biasing the setpoint. Note that a
+Kalman-filtered estimate (Section 10) gives you the filtering benefit with
+far less lag than a moving average.</p>
+<p><strong>17.9 (discussion).</strong> The key insight is that drift is invisible in the
+controlled variable by construction -- the controller <em>forces</em> the measured
+value into its band, so the log looks perfect. You must look at something
+the controller does not regulate. Strong answers use: divergence between the
+three probes; the <em>drying time</em> between waterings, which shortens as the pot
+gets genuinely wetter; pump duty cycle, which rises; or Kalman innovations,
+which develop a persistent bias. Duty cycle is the most practical -- it is
+already logged and needs no extra hardware. Discuss the false-alarm
+trade-off honestly: seasonal changes in evaporation also shift duty cycle,
+so a detector needs to normalise for temperature and humidity, which the
+SHT45 already provides.</p>
+<p><strong>17.10 (discussion).</strong> A defensible answer: hybrid grey-box (technique 7)
+for the water and climate balance, since the physics is the same as our pot
+and generalises across plants; machine learning (technique 6) for the yield
+model, since 5,000 plants over two years is genuinely enough data and nobody
+has first-principles yield equations; a surrogate (technique 4) so the twin
+runs on greenhouse hardware; probabilistic output (technique 8), because an
+eight-week yield forecast without a confidence interval cannot support a
+sales commitment; and state estimation (technique 9) to infer moisture for
+the 4,800 plants with <em>no</em> probe from the 200 that have one -- the
+highest-value application in the whole system. Reasonable rejection:
+distributed PDE modelling (technique 3) per plant, because 5,000 Richards
+solvers cannot run in real time and the spatial detail does not change any
+decision. With only two weeks of data the answer inverts: there is nowhere
+near enough to learn a yield model spanning a growing season, so lean much
+harder on physics, and treat the first season as a calibration campaign --
+which is Section 14.1's excitation argument at industrial scale.</p>
+<h2 id="18-references">18. References</h2>
+<ul>
+<li><strong>abbiati_modelling_2024</strong> -- Modelling for Digital Twins (2024).</li>
+<li><strong>branlard_digital_2024</strong> -- A digital twin solution for floating offshore wind turbines validated using a full-scale prototype (2024).</li>
+<li><strong>carreira_foundations_2020</strong> -- Foundations of Multi-Paradigm Modelling for Cyber-Physical Systems (2020).</li>
+<li><strong>committee_on_foundational_research_gaps_and_future_directions_for_digital_twins_foundational_2024</strong> -- Foundational Research Gaps and Future Directions for Digital Twins (2024).</li>
+<li><strong>frasheri_addressing_2023</strong> -- Addressing time discrepancy between digital and physical twins (2023).</li>
+<li><strong>friedrich_cofmpy_2025</strong> -- CoFMPy: A Python Framework for Rapid Prototyping of FMI-based Digital Twins (2025).</li>
+<li><strong>gomes_calibration_2024</strong> -- Calibration of Models for Digital Twins (2024).</li>
+<li><strong>gomes_foundational_2024</strong> -- Foundational Concepts for Digital Twins of Cyber-Physical Systems (2024).</li>
+<li><strong>hartmann_executable_2022</strong> -- The Executable Digital Twin: merging the digital and the physics worlds (2022).</li>
+<li><strong>infante_integrating_2024</strong> -- Integrating FMI and ML/AI models on the open-source digital twin framework OpenTwins (2024).</li>
+<li><strong>kamburjan_greenhousedt_2024</strong> -- GreenhouseDT: An Exemplar for Digital Twins (2024).</li>
+<li><strong>kapteyn_probabilistic_2021</strong> -- A probabilistic graphical model foundation for enabling predictive digital twins at scale (2021).</li>
+<li><strong>kritzinger_digital_2018</strong> -- Digital Twin in manufacturing: A categorical literature review and classification (2018).</li>
+<li><strong>legaard_constructing_2023</strong> -- Constructing neural network-based models for simulating dynamical systems (2023).</li>
+<li><strong>niederer_scaling_2021</strong> -- Scaling digital twins from the artisanal to the industrial (2021).</li>
+<li><strong>rasheed_digital_2020</strong> -- Digital Twin: Values, Challenges and Enablers From a Modeling Perspective (2020).</li>
+<li><strong>schweiger_empirical_2019</strong> -- An empirical survey on co-simulation: Promising standards, challenges and research needs (2019).</li>
+<li><strong>thelen_augmented_2022</strong> -- Augmented model-based framework for battery remaining useful life prediction (2022).</li>
+<li><strong>thelen_comprehensive_2022</strong> -- A comprehensive review of digital twin — part 1: modeling and twinning enabling technologies (2022).</li>
+<li><strong>thelen_comprehensive_2022-1</strong> -- A comprehensive review of digital twin—part 2: roles of uncertainty quantification and optimization, a battery digital twin, and perspectives (2022).</li>
+<li><strong>thelen_probabilistic_2024</strong> -- Probabilistic machine learning for battery health diagnostics and prognostics—review and perspectives (2024).</li>
+<li><strong>torzoni_deep_2023</strong> -- A Deep Neural Network, Multi-fidelity Surrogate Model Approach for Bayesian Model Updating in SHM (2023).</li>
+<li><strong>van_dinter_predictive_2022</strong> -- Predictive maintenance using digital twins: A systematic literature review (2022).</li>
+<li><strong>wagner_data-driven_2025</strong> -- Data-Driven Updating of Digital Twins through Experimental Measurements and Parametric Finite Element Model Optimization (2025).</li>
+<li><strong>wetter_spawn_2024-1</strong> -- Spawn: coupling Modelica Buildings Library and EnergyPlus to enable new energy system and control applications (2024).</li>
+<li><strong>zhang_knowledge_2024</strong> -- Knowledge Equivalence in Digital Twins of Intelligent Systems (2024).</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Prasad Talasila
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.tabs.sticky", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

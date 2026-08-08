@@ -1,0 +1,3138 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home page of Prasad Talasila">
+      
+      
+        <meta name="author" content="Prasad Talasila">
+      
+      
+        <link rel="canonical" href="https://prasad.talasila.in/writings/chitragupta/book-chapters/software-engineering.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Building, Deploying and Operating a Digital Twin: A Software Engineering Approach - Prasad Talasila</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/course-tables.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#building-deploying-and-operating-a-digital-twin-a-software-engineering-approach" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Prasad Talasila" class="md-header__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prasad Talasila
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Building, Deploying and Operating a Digital Twin: A Software Engineering Approach
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../research.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Research
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../publications.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../projects.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../software.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../courses.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Courses
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../writings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Writings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../contact.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Prasad Talasila" class="md-nav__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Prasad Talasila
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../research.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../publications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../writings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-motivation-the-twin-you-cannot-pip-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Motivation: the twin you cannot pip install
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-what-you-are-actually-building" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. What you are actually building
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. What you are actually building">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-six-services-one-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Six services, one system
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-the-shadow-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 The shadow test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-why-this-is-hard-as-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Why this is hard as software
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-a-reference-architecture-you-can-build-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. A reference architecture you can build from
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. A reference architecture you can build from">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-layer-1-the-physical-twin-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Layer 1: the physical-twin interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-layer-2-ingestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Layer 2: ingestion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-layer-3-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Layer 3: storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-layer-4-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Layer 4: models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-layer-5-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Layer 5: services
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-layer-6-presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Layer 6: presentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-the-cross-cutting-concern-orchestration-and-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 The cross-cutting concern: orchestration and lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-worked-example-1-a-thermal-box-twin-in-150-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Worked example 1: a thermal box twin in 150 lines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Worked example 1: a thermal box twin in 150 lines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-step-1-characterise-the-physical-twin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Step 1: characterise the physical twin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-step-2-write-the-smallest-model-that-could-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Step 2: write the smallest model that could work
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-step-3-calibrate-against-real-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Step 3: calibrate against real data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-step-4-close-the-loop-with-an-estimator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Step 4: close the loop with an estimator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-step-5-turn-the-residual-into-a-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Step 5: turn the residual into a decision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-what-you-have-and-have-not-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 What you have and have not built
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-deciding-where-the-code-runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Deciding where the code runs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Deciding where the code runs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-do-the-latency-arithmetic-before-you-draw-the-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Do the latency arithmetic before you draw the diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-four-placement-heuristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Four placement heuristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-why-containers-specifically" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Why containers, specifically
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-worked-example-2-packaging-configuring-and-reusing-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Worked example 2: packaging, configuring, and reusing it
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Worked example 2: packaging, configuring, and reusing it">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-split-the-monolith-along-service-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Split the monolith along service lines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-the-configuration-is-the-twin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 The configuration is the twin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-platforms-what-you-get-by-not-building-this-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Platforms: what you get by not building this yourself
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-devops-for-digital-twins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. DevOps for digital twins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. DevOps for digital twins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-why-the-ordinary-pipeline-is-not-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Why the ordinary pipeline is not enough
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-a-test-pyramid-for-digital-twins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 A test pyramid for digital twins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 The pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-deployment-as-a-reconciled-desired-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Deployment as a reconciled desired state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-versioning-things-that-are-not-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 Versioning things that are not code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-operating-it-latency-drift-and-attackers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Operating it: latency, drift, and attackers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Operating it: latency, drift, and attackers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-instrument-the-twin-not-just-the-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Instrument the twin, not just the machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-reading-the-residual-three-faults-one-signal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Reading the residual: three faults, one signal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-the-attack-surface-you-just-created" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 The attack surface you just created
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-anti-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Anti-patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objective-1-decompose-an-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective 1 — decompose an architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective-2-implement-and-quantify-a-synchronisation-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective 2 — implement and quantify a synchronisation loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective-3-place-and-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective 3 — place and package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective-4-build-the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective 4 — build the pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective-5-diagnose-an-operational-twin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective 5 — diagnose an operational twin
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Where to go next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="building-deploying-and-operating-a-digital-twin-a-software-engineering-approach">Building, Deploying and Operating a Digital Twin: A Software Engineering Approach</h1>
+<p><strong>Disclaimer:</strong> This article has been generated using
+<a href="https://prasad.talasila.in/chitragupta">chitragupta</a>.
+Despite some potential for hallucination, the ideas communicated in this
+tutorial are accurate. Please send your corrections and suggestions to
+<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#112;&#114;&#97;&#115;&#97;&#100;&#46;&#116;&#97;&#108;&#97;&#115;&#105;&#108;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#112;&#114;&#97;&#115;&#97;&#100;&#46;&#116;&#97;&#108;&#97;&#115;&#105;&#108;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></p>
+<blockquote>
+<p><strong>Summary.</strong> Most introductions to digital twins tell you what a digital
+twin <em>is</em>. This one assumes you already accept the idea and asks a harder
+question: what does it take to <em>build</em> one, <em>ship</em> it, and <em>keep it
+running</em> for two years without it quietly going wrong? We treat a digital
+twin as what it actually is once you start typing — a small distributed
+system with sensors on one end, models in the middle, and consequences at
+the other end. We build one end-to-end in Python for a heated box, package
+it in containers, decide which parts run on a Raspberry Pi and which run in
+a data centre, wrap it in a CI pipeline that can test something that talks
+to hardware, and then look at the three ways it degrades in production:
+latency, drift, and attackers.</p>
+</blockquote>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You should be comfortable with Python (functions, classes, <code>numpy</code>), the
+shell, and <code>git</code>. You should know roughly what HTTP and a REST API are. Prior
+exposure to containers helps but is not assumed — Section 6 introduces what
+you need. No control theory, no thermodynamics, and no prior digital twin
+knowledge is required; where we need physics we derive the one equation we
+use from scratch.</p>
+<p>This tutorial is a companion to, not a replacement for, an introduction to
+the <em>concept</em> of digital twins. If the phrase "digital twin" is entirely new
+to you, read a conceptual introduction first and come back; we spend exactly
+one section (Section 2) on definitions and then move on to code.</p>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
+<ol>
+<li><strong>Decompose</strong> a digital twin into named architectural components —
+   physical-twin interface, ingestion, storage, models, services,
+   presentation, orchestration — and explain what each one owns.</li>
+<li><strong>Implement</strong> a working synchronisation loop in Python that reads sensor
+   data, advances a calibrated model, computes a residual, and turns that
+   residual into a decision, and <strong>quantify</strong> how good it is.</li>
+<li><strong>Package and place</strong> a digital twin's components across the edge–cloud
+   continuum, justifying each placement with an explicit latency, bandwidth,
+   or availability argument rather than a hunch.</li>
+<li><strong>Design a CI pipeline</strong> for a digital twin, including the kinds of test
+   that ordinary web-application pipelines never need — model-versus-data
+   tests, simulated-physical-twin tests, and hardware-in-the-loop tests.</li>
+<li><strong>Diagnose</strong> an operational digital twin: distinguish a sensor fault from
+   model drift from an attack, and name a mitigation appropriate to each.</li>
+</ol>
+<h2 id="outline">Outline</h2>
+<ol>
+<li><a href="#1-motivation-the-twin-you-cannot-pip-install">Motivation: the twin you cannot <code>pip install</code></a></li>
+<li><a href="#2-what-you-are-actually-building">What you are actually building</a></li>
+<li><a href="#3-a-reference-architecture-you-can-build-from">A reference architecture you can build from</a></li>
+<li><a href="#4-worked-example-1-a-thermal-box-twin-in-150-lines">Worked example 1: a thermal box twin in 150 lines</a></li>
+<li><a href="#5-deciding-where-the-code-runs">Deciding where the code runs</a></li>
+<li><a href="#6-worked-example-2-packaging-configuring-and-reusing-it">Worked example 2: packaging, configuring, and reusing it</a></li>
+<li><a href="#7-devops-for-digital-twins">DevOps for digital twins</a></li>
+<li><a href="#8-operating-it-latency-drift-and-attackers">Operating it: latency, drift, and attackers</a></li>
+<li><a href="#9-anti-patterns">Anti-patterns</a></li>
+<li><a href="#10-exercises">Exercises</a></li>
+<li><a href="#11-where-to-go-next">Where to go next</a></li>
+</ol>
+<h2 id="1-motivation-the-twin-you-cannot-pip-install">1. Motivation: the twin you cannot <code>pip install</code></h2>
+<p>Here is a project brief you might plausibly be handed in your first job.</p>
+<blockquote>
+<p>A company operates 400 shipping containers fitted with refrigeration
+units. Each unit reports its internal temperature, compressor state, and
+door-open events over a cellular link. Compressors fail. When one fails
+mid-voyage the cargo is lost, and nobody notices until the container is
+opened three weeks later. Build us something that notices in an hour.</p>
+</blockquote>
+<p>Notice what this brief does <em>not</em> say. It does not say "build us a
+dashboard." A dashboard would show you 400 temperature traces, and a human
+would have to stare at them. It does not say "build us a threshold alarm"
+either — a naive "alert if temperature &gt; 5 °C" fires constantly, because
+temperature legitimately rises every time a door opens, and it fires <em>too
+late</em> on a failing compressor, because by the time the setpoint is missed the
+cargo has already been warm for hours.</p>
+<p>What the brief actually asks for is a system that knows what each container
+<em>should</em> be doing, compares that against what it <em>is</em> doing, and raises its
+hand when the two disagree in a way that physics cannot explain. That is a
+digital twin. The definition follows from the requirement rather than the
+other way round.</p>
+<p>And here is the uncomfortable part: there is no library for this. You cannot
+<code>pip install digital-twin</code>. What you can install are the <em>pieces</em> — an MQTT
+client, a time-series database, a numerical integrator, a container runtime —
+and the engineering work is in how you assemble, deploy, version, test, and
+operate them. Surveys of the open-source landscape find a genuinely useful
+set of frameworks, but they differ sharply in which pieces they cover and in
+what they assume about your system, so choosing one is itself an
+architectural decision rather than a default [@gil_survey_2024]. This is
+also, empirically, the part where projects fail: reference models for digital
+twins have been proposed repeatedly precisely because there is a persistent
+gap between the tidy concept and what people actually implement
+[@pfeiffer_towards_2025].</p>
+<p>Three properties of the refrigeration brief will recur throughout this
+tutorial, and they are what make digital twins a distinct engineering
+problem rather than "web development with sensors":</p>
+<p><strong>The interesting logic is a model, not a rule.</strong> Your alerting decision
+comes from a physical model of a refrigerated box, which has parameters
+(insulation quality, compressor capacity) that differ per container and drift
+with age. Models have to be calibrated, revalidated, and versioned like code
+— but they are not code, and your ordinary tooling does not know that.</p>
+<p><strong>Time is part of the specification.</strong> A twin that tells you about a
+compressor failure four hours late is not a slightly worse twin; for this
+brief it is a useless one. Physical and digital sides run on different clocks
+with communication delays between them, and that discrepancy is a first-class
+design concern rather than an implementation detail
+[@frasheri_addressing_2023].</p>
+<p><strong>The consequences are physical.</strong> If your service crashes, a container
+warms. If your service is compromised, someone can warm it deliberately.
+Digital twins broaden the attack surface of the system they are attached to,
+because they add a data path from the outside world into something that used
+to be isolated [@de_azambuja_digital_2024].</p>
+<p>Everything below is in service of those three properties.</p>
+<h2 id="2-what-you-are-actually-building">2. What you are actually building</h2>
+<h3 id="21-six-services-one-system">2.1 Six services, one system</h3>
+<p>The most useful working definition of a digital twin, for someone about to
+write code, is functional rather than philosophical: a digital twin is a
+software support system attached to a physical system, providing some
+combination of visualisation, monitoring, predictive maintenance, fault
+diagnosis, decision support, and reconfiguration [@gomes_digital_2025].</p>
+<p>That list is worth internalising, because it doubles as a checklist of what
+you might be asked to build, in roughly increasing order of difficulty:</p>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>What it does</th>
+<th>Typical output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Visualisation</td>
+<td>Shows current and historical state</td>
+<td>A dashboard, a 3D scene</td>
+</tr>
+<tr>
+<td>Monitoring</td>
+<td>Continuously checks properties hold</td>
+<td>A boolean per property</td>
+</tr>
+<tr>
+<td>Predictive maintenance</td>
+<td>Estimates time-to-failure</td>
+<td>Hours remaining</td>
+</tr>
+<tr>
+<td>Fault diagnosis</td>
+<td>Identifies <em>which</em> thing broke</td>
+<td>A fault label</td>
+</tr>
+<tr>
+<td>Decision support</td>
+<td>Simulates alternatives before you act</td>
+<td>A ranked list of actions</td>
+</tr>
+<tr>
+<td>Reconfiguration</td>
+<td>Changes the physical system automatically</td>
+<td>A command</td>
+</tr>
+</tbody>
+</table>
+<p>Two things about this table matter more than they look.</p>
+<p>First, <strong>the services share infrastructure but are separate software</strong>. All
+six need sensor data, most need a model, and several need history — but a
+visualisation service and a reconfiguration service have wildly different
+latency, reliability, and safety requirements. Bundling them into one process
+is the single most common architectural mistake in student digital twin
+projects, and it is the reason the microservice style shows up again and
+again in digital twin architectures [@bordeleau_devops_nodate].</p>
+<p>Second, <strong>the physical system must work without the twin</strong>. The refrigeration
+units kept cargo cold before you arrived and must keep doing so if your
+service is down. This is the line between a digital twin and a control
+system: a control system is <em>in</em> the loop and its failure is the plant's
+failure; a twin <em>supports</em> the loop and its failure should degrade the
+system's intelligence, not its function [@gomes_digital_2025]. When you get
+to Section 8 and start reasoning about failure modes, this distinction is the
+thing that tells you which failures are catastrophic and which are merely
+annoying.</p>
+<h3 id="22-the-shadow-test">2.2 The shadow test</h3>
+<p>You will constantly need to answer the question "is this thing I built
+actually a digital twin?" There is a fast test, and it is about the direction
+of automatic data flow. Three levels are usually distinguished
+[@kritzinger_digital_2018]:</p>
+<ul>
+<li><strong>Digital model</strong> — no automatic data flow at all. A CAD file. Someone
+  updates it by hand when reality changes.</li>
+<li><strong>Digital shadow</strong> — automatic flow <em>from</em> physical <em>to</em> digital. Your
+  dashboard updates itself. Nothing flows back automatically.</li>
+<li><strong>Digital twin</strong> — automatic flow in <em>both</em> directions. The digital side
+  computes something and that computation changes the physical side without a
+  human in between.</li>
+</ul>
+<p>The word doing all the work is <strong>automatic</strong>. A dashboard that a human reads,
+after which the human phones a technician who changes a setpoint, is a
+digital shadow with a human-shaped gap in the return path. That is not a
+criticism — a great many valuable industrial systems are shadows, and the
+refrigeration brief above is arguably satisfiable by a very good shadow. But
+be honest in your architecture documents about which one you built, because
+the return path is where all the hard requirements live. Closing the loop
+means your software can now break things.</p>
+<p>A useful reframing: once the loop is closed, a digital twin <em>is</em> a
+self-adaptive system. It monitors the physical system, updates an internal
+model from observations, decides, and acts — the classic monitor-analyse-plan-
+execute-over-knowledge shape, with the model playing the part of the shared
+knowledge [@kamburjan_declarative_2024]. Everything the self-adaptive systems
+literature knows about stability, oscillation, and conflicting adaptation
+loops becomes your problem the moment you close the loop.</p>
+<h3 id="23-why-this-is-hard-as-software">2.3 Why this is hard as <em>software</em></h3>
+<p>Let us be precise about what makes a digital twin harder to engineer than a
+CRUD application of comparable size. Four things:</p>
+<ol>
+<li><strong>Heterogeneous artefacts in one deliverable.</strong> A digital twin bundles
+   source code, simulation models (often binary), calibration parameters,
+   configuration, and datasets. These have different lifecycles and different
+   correctness criteria. Treating them uniformly as "files in a repo" loses
+   information; treating them separately fragments your build. A productive
+   response is to name the categories explicitly and manage each as a
+   first-class, reusable asset — for example splitting a twin's contents into
+   <em>data</em>, <em>model</em>, <em>function</em>, and <em>tool</em> assets that can be declared once and
+   reused across many twins [@talasila_composable_2025].</li>
+<li><strong>Development crosses disciplines.</strong> The thermal model is written by
+   someone who is not a software engineer; the deployment is written by
+   someone who does not know thermodynamics. Digital twin projects for built
+   assets routinely involve software engineers alongside domain specialists in
+   energy, air quality, and security, and the engineering process has to let
+   those groups work independently without stepping on each other
+   [@aissat_devops_2025].</li>
+<li><strong>You cannot fully test against production.</strong> Your test environment does
+   not contain a shipping container. What it contains, if you are doing this
+   well, is a <em>simulated</em> shipping container — which means part of your test
+   infrastructure is itself a model, with its own fidelity question.</li>
+<li><strong>Requirements are stated in physical units.</strong> "Detect within one hour"
+   and "estimate temperature within 0.5 °C" are the acceptance criteria. Your
+   test suite has to assert on numbers with units, and those assertions are
+   statistical, not exact.</li>
+</ol>
+<p>Hold on to point 3 in particular. It is the reason Section 7 exists.</p>
+<h2 id="3-a-reference-architecture-you-can-build-from">3. A reference architecture you can build from</h2>
+<p>There is no shortage of reference architectures for digital twins. Systematic
+work on architecting them catalogues a large number of proposals and finds
+that, beneath the varied vocabulary, they mostly agree on a layered
+decomposition [@ferko_architecting_2022], and domain-specific versions add
+their own emphases — a predictive-maintenance reference architecture, for
+instance, foregrounds the data pipeline and model-serving stages that a
+generic diagram glosses over [@van_dinter_reference_2023]. The problem for a
+student is that these diagrams are drawn at a level of abstraction where every
+box is defensible and none is buildable.</p>
+<p>So here is a deliberately concrete version: seven components, each named after
+the thing you would actually run. Wherever a real technology makes the layer
+easier to picture, it is named. The point is not that you must use these
+technologies — it is that you should be able to point at each layer of your
+own design and say what plays that role.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code>   +---------------------------------------------------------+
+   |  6. Presentation      dashboards, APIs, 3D/AR views      |
+   +---------------------------------------------------------+
+   |  5. Services          monitoring, diagnosis, what-if,    |
+   |                       reconfiguration                    |
+   +---------------------------------------------------------+
+   |  4. Models            simulation + estimation, behind a  |
+   |                       uniform interface                  |
+   +---------------------------------------------------------+
+   |  3. Storage           time series, model registry,       |
+   |                       run artefacts                      |
+   +---------------------------------------------------------+
+   |  2. Ingestion         broker, schema, buffering, replay  |
+   +---------------------------------------------------------+
+   |  1. PT interface      sensors, actuators, gateway        |
+   +---------------------------------------------------------+
+        0. Physical twin
+
+   cross-cutting: orchestration, identity, observability
+</code></pre></div></td></tr></table></div>
+<h3 id="31-layer-1-the-physical-twin-interface">3.1 Layer 1: the physical-twin interface</h3>
+<p>This is the layer everyone underestimates. It owns three responsibilities
+that are easy to conflate and painful to separate later:</p>
+<ul>
+<li><strong>Acquisition</strong> — reading a sensor, at some rate, with some accuracy.</li>
+<li><strong>Timestamping</strong> — deciding <em>when</em> a reading happened, and in whose clock.</li>
+<li><strong>Actuation</strong> — turning a decision into a physical change, and reporting
+  whether it took effect.</li>
+</ul>
+<p>Timestamping deserves a paragraph on its own. If your gateway stamps readings
+on arrival rather than at the sensor, you have silently folded network delay
+into your data, and every downstream model will attribute that delay to
+physics. Stamp at the source if you possibly can, carry both stamps if you
+can afford the bytes, and treat clock synchronisation as a requirement rather
+than an assumption. The gap between when something happened physically and
+when the digital side knows about it is a well-studied problem in its own
+right, and pretending it is zero is a design decision you should make
+consciously, not by accident [@frasheri_addressing_2023]. What you can
+usefully sense, at what cost in energy and bandwidth, is likewise a design
+space rather than a given [@gomes_sensing_2024].</p>
+<p>Actuation deserves one too: <strong>a command is not a state change</strong>. "Set
+compressor to 60 %" is a request that may be rejected, delayed, clamped, or
+silently ignored by a local safety interlock. Your twin must model the
+requested value and the achieved value as different variables, or it will
+confidently simulate a world that never happened.</p>
+<h3 id="32-layer-2-ingestion">3.2 Layer 2: ingestion</h3>
+<p>Between the physical twin and everything else sits a message broker. Almost
+every digital twin architecture has one, and mapping studies of digital twin
+middleware find publish/subscribe messaging to be the near-universal
+integration mechanism [@almeida_middleware_2023].</p>
+<p>For most projects the choice is MQTT, and the reasons are worth knowing
+rather than absorbing as folklore. Comparisons of the candidate IoT protocols
+— MQTT, CoAP, AMQP, HTTP — line them up along message size, delivery
+guarantees, and transport assumptions, and MQTT's combination of tiny
+headers, a broker-mediated topic model, and three quality-of-service levels
+fits telemetry from constrained devices particularly well
+[@naik_choice_2017]. The broader survey literature on MQTT deployments adds
+the practical dimension: there are many broker implementations with quite
+different feature sets and performance envelopes, so "we use MQTT" does not
+by itself pin down behaviour [@mishra_use_2020].</p>
+<p>Three ingestion decisions you must make explicitly:</p>
+<ol>
+<li><strong>Quality of service.</strong> MQTT's QoS 0 is fire-and-forget; QoS 1 is at-least-
+   once; QoS 2 is exactly-once and expensive. Telemetry that feeds a
+   statistical model can usually tolerate QoS 0. A command that opens a valve
+   cannot.</li>
+<li><strong>Buffering and replay.</strong> When the cellular link on a ship drops for six
+   hours, does the gateway buffer and replay, or is that data gone? If it
+   replays, your consumers must handle out-of-order and duplicate messages.</li>
+<li><strong>Schema.</strong> Publish <code>{"t": 1712.4}</code> today and you will spend a year
+   guessing what <code>t</code> meant. Publish a versioned payload with units.</li>
+</ol>
+<p>Do not take broker performance on faith, either. Benchmarks built
+specifically for publish/subscribe under realistic domain workloads show
+substantial differences between popular brokers once you vary message rates,
+topic counts, and QoS [@badolato_psmark_2026], and independent functional and
+performance evaluations of open-source pub/sub systems reach the same
+conclusion from a different angle [@lazidis_publish-subscribe_2022]. If your
+twin's latency budget is tight, measure with your own workload.</p>
+<h3 id="33-layer-3-storage">3.3 Layer 3: storage</h3>
+<p>A digital twin needs at least three distinct stores, and conflating them is a
+classic error:</p>
+<ul>
+<li><strong>A time-series store</strong> for telemetry. Optimised for append-heavy writes and
+  range queries. InfluxDB, TimescaleDB, or similar.</li>
+<li><strong>A model/asset registry</strong> for models, their parameters, and their
+  provenance. This is the store that answers "which version of the thermal
+  model produced this alert, and what data was it calibrated on?"</li>
+<li><strong>An artefact store</strong> for run outputs: simulation traces, reports, plots.</li>
+</ul>
+<p>The middle one is the one beginners skip, and skipping it is what makes a
+two-year-old digital twin unmaintainable. When a regulator asks why the
+system recommended a shutdown on 3 March, the answer must be reconstructible.
+Proposals for "models-meet-data" repositories in construction engineering
+exist precisely because the pairing of a model version with the data version
+it was fitted to is the unit that needs storing, not either one alone
+[@zech_proposal_2024].</p>
+<h3 id="34-layer-4-models">3.4 Layer 4: models</h3>
+<p>Here is the layer that distinguishes a digital twin from every other
+distributed system you have built. Two observations shape its design.</p>
+<p><strong>Observation one: you will have more than one model.</strong> Even our small
+example has two — a simulator that predicts forward in time, and an estimator
+that fuses prediction with measurement. Real systems add data-driven models
+for anomaly detection, reduced-order models for speed, and high-fidelity
+models for offline analysis. Comprehensive reviews of the modelling side of
+digital twins survey this zoo at length: physics-based, data-driven, and
+hybrid approaches each carry different data appetites and different validity
+conditions [@thelen_comprehensive_2022].</p>
+<p><strong>Observation two: therefore you need a uniform interface.</strong> If each model
+exposes a bespoke API, your services become a tangle of adapters. The standard
+answer in the cyber-physical systems world is the Functional Mock-up Interface
+(FMI), which packages a model as a Functional Mock-up Unit with a common
+contract: set inputs and parameters, step time forward, read outputs. Case
+studies of digital twin construction routinely use FMI for the co-simulation
+side while providing an FMI-<em>like</em> Python interface for models that are more
+convenient to write natively [@oakes_case_2024], and tooling has grown up
+around making FMI-based twins quick to prototype in Python
+[@friedrich_cofmpy_2025]. Frameworks that manage a twin's behavioural models
+tend to standardise on the same contract for exactly this reason
+[@gil_toward_2024].</p>
+<p>You do not need FMI for a first project. You <em>do</em> need to write your models
+behind an interface with that shape:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Model</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="o">...</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="o">...</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="o">...</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span> <span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+<p>Four methods. If every model in your system obeys them, you can swap a
+physics model for a neural surrogate without touching a single service.</p>
+<h3 id="35-layer-5-services">3.5 Layer 5: services</h3>
+<p>Each of the six digital twin services from Section 2.1 becomes one or more
+processes here. Some are simple (monitoring: subscribe, compare, publish a
+verdict). Some are not: a what-if service must spin up a <em>copy</em> of the model,
+initialise it to current state, run it faster than real time across several
+candidate actions, and rank the outcomes — which means it needs compute
+on demand and must never block the real-time path [@frasheri_advanced_2024].</p>
+<p>The design pressure this creates is toward service orientation: independent
+deployment, independent scaling, explicit interfaces. It is the same pressure
+that produced microservices in web systems, and digital twin engineering
+frameworks have converged on the same answer, combining a microservice
+decomposition with a DevOps toolchain so that separate specialist teams can
+develop and deploy the pieces independently [@bordeleau_devops_nodate]. The
+services view is strong enough that some authors organise the whole
+engineering process around it, describing a twin top-down by the services it
+offers rather than bottom-up by the data it connects [@oakes_towards_2024].</p>
+<h3 id="36-layer-6-presentation">3.6 Layer 6: presentation</h3>
+<p>Dashboards, REST APIs, 3D scenes, augmented-reality overlays. Treat
+visualisation as a <em>service consuming the same interfaces as everything else</em>,
+not as a privileged layer with direct database access — otherwise your
+dashboard becomes a second, undocumented implementation of your business
+logic. Visualisation is a rich topic on its own, spanning plain time-series
+plots through to 3D and AR views, and each fidelity level buys a different
+kind of insight for a different engineering cost [@bohlbro_visualisation_2024].</p>
+<h3 id="37-the-cross-cutting-concern-orchestration-and-lifecycle">3.7 The cross-cutting concern: orchestration and lifecycle</h3>
+<p>Finally, something has to start these components in the right order, restart
+them when they crash, inject their configuration, and update them. This is
+not a seventh layer so much as a dimension running through all of them, and
+Sections 5 through 7 are about it. Its importance grows superlinearly with
+the number of twins: one twin can be babysat by a human; four hundred
+refrigerated containers cannot, which is why declarative approaches to
+digital twin lifecycle management — describe the desired state, let the
+platform reconcile — become the only tractable option at fleet scale
+[@kamburjan_declarative_2024].</p>
+<h2 id="4-worked-example-1-a-thermal-box-twin-in-150-lines">4. Worked example 1: a thermal box twin in 150 lines</h2>
+<p>Time to build one. Our physical twin is deliberately humble: an insulated
+plastic box with a resistive heating element, a small fan to keep the air
+mixed, and one temperature sensor, all driven by a microcontroller. This is
+not a toy chosen for convenience — a laboratory incubator of exactly this
+shape, built for tempeh fermentation, has been used as the running case study
+for a full digital twin research programme, and the reason is that it is
+small enough to understand completely while still exhibiting every hard
+problem: calibration, drift, delayed actuation, and unmodelled disturbances
+[@gomes_digital_2025].</p>
+<p>We build it in five steps. Each step produces something you can run.</p>
+<h3 id="41-step-1-characterise-the-physical-twin">4.1 Step 1: characterise the physical twin</h3>
+<p>Before writing any model, write down the interface. Ours:</p>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Direction</th>
+<th>Type</th>
+<th>Rate</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>temperature</code></td>
+<td>PT -&gt; DT</td>
+<td>float, °C</td>
+<td>1 Hz</td>
+<td>±0.15 °C noise (datasheet)</td>
+</tr>
+<tr>
+<td><code>heater_on</code></td>
+<td>PT -&gt; DT</td>
+<td>bool</td>
+<td>on change</td>
+<td><em>achieved</em> state</td>
+</tr>
+<tr>
+<td><code>heater_cmd</code></td>
+<td>DT -&gt; PT</td>
+<td>bool</td>
+<td>on demand</td>
+<td><em>requested</em> state</td>
+</tr>
+<tr>
+<td><code>lid_open</code></td>
+<td>PT -&gt; DT</td>
+<td>bool</td>
+<td>on change</td>
+<td>reed switch</td>
+</tr>
+</tbody>
+</table>
+<p>Note the deliberate split between <code>heater_cmd</code> and <code>heater_on</code>, exactly as
+argued in Section 3.1. Note also the sensor noise figure: it comes from the
+datasheet, and it will end up in our alarm threshold. <strong>Physical constants
+from datasheets are inputs to your software design.</strong> Get used to that.</p>
+<h3 id="42-step-2-write-the-smallest-model-that-could-work">4.2 Step 2: write the smallest model that could work</h3>
+<p>We need a model that predicts temperature forward in time. Start from an
+energy balance rather than from a library. The box holds some amount of
+thermal mass; the heater adds energy; energy leaks to the room through the
+insulation at a rate proportional to the temperature difference. In symbols,
+with <code>T</code> the inside temperature, <code>T_a</code> the ambient temperature, <code>P</code> the
+heater power in watts, and <code>u</code> the heater state (0 or 1):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>C * dT/dt  =  P * u  -  (T - T_a) / R
+</code></pre></div></td></tr></table></div>
+<p>Two parameters carry all the physics: <code>C</code>, the heat capacity in joules per
+kelvin (how much energy it takes to warm the box by one degree), and <code>R</code>, the
+thermal resistance in kelvin per watt (how well it is insulated). This is a
+<em>lumped-parameter</em> model: it pretends the entire box is at one uniform
+temperature. That is false — the air near the heater is warmer — and being
+explicit that it is false is what lets you predict where the model will
+break.</p>
+<p>Discretise with a forward Euler step of size <code>dt</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>T[k+1] = T[k] + (dt / C) * (P * u[k] - (T[k] - T_a) / R)
+</code></pre></div></td></tr></table></div>
+<p>In code, behind the four-method interface from Section 3.4:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ThermalBox</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Lumped-parameter thermal model of a heated box.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">800.0</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">T0</span><span class="o">=</span><span class="mf">21.0</span><span class="p">,</span> <span class="n">T_amb</span><span class="o">=</span><span class="mf">21.0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">P</span> <span class="o">=</span> <span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">P</span>      <span class="c1"># parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T</span> <span class="o">=</span> <span class="n">T0</span>                            <span class="c1"># state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T_amb</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span> <span class="o">=</span> <span class="n">T_amb</span><span class="p">,</span> <span class="mi">0</span>          <span class="c1"># inputs</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;heater&quot;</span><span class="p">:</span> <span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;ambient&quot;</span><span class="p">:</span> <span class="s2">&quot;T_amb&quot;</span><span class="p">}[</span><span class="n">name</span><span class="p">],</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="n">dTdt</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">P</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_amb</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">C</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">dTdt</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="p">}[</span><span class="n">name</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<p>Twenty lines. Before going further, sanity-check it by hand — this habit will
+save you hours. With the heater on forever, <code>dT/dt</code> reaches zero when
+<code>P * u = (T - T_a) / R</code>, so the steady-state rise above ambient is <code>P * R</code>.
+With <code>P = 40 W</code> and <code>R = 0.75 K/W</code> that is 30 °C, i.e. the box settles at
+51 °C in a 21 °C room. Plausible. The time constant is <code>tau = R * C =
+0.75 * 800 = 600 s</code>, so it should get roughly two-thirds of the way there in
+ten minutes. Also plausible. If your hand-check gives 4000 °C, you have a
+units bug, and you have found it in thirty seconds rather than after a day of
+debugging a service mesh.</p>
+<h3 id="43-step-3-calibrate-against-real-data">4.3 Step 3: calibrate against real data</h3>
+<p>The default parameters above are guesses. Calibration replaces them with
+numbers fitted to <em>your</em> box. Run one experiment — a step response — and fit.</p>
+<p>The experiment: start at room temperature, lid closed, turn the heater on,
+log temperature at 1 Hz for 40 minutes, turn it off, log for another 40. That
+second half matters: the cooling curve identifies <code>R * C</code> independently of
+the heater power, which catches the common failure where <code>P</code> is not really 40 W.</p>
+<p>The fit is ordinary least squares over two parameters:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">least_squares</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">T0</span><span class="p">,</span> <span class="n">T_amb</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="mf">40.0</span><span class="p">):</span>
+    <span class="n">R</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">params</span>
+    <span class="n">T</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">T0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+        <span class="n">out</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">if</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">else</span> <span class="mf">0.0</span>
+        <span class="n">T</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">P</span> <span class="o">*</span> <span class="n">u</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">T_amb</span><span class="p">)</span> <span class="o">/</span> <span class="n">R</span><span class="p">)</span> <span class="o">/</span> <span class="n">C</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">residuals</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">T_meas</span><span class="p">,</span> <span class="n">T_amb</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">simulate</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">T_meas</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">T_amb</span><span class="p">)</span> <span class="o">-</span> <span class="n">T_meas</span>
+
+<span class="n">fit</span> <span class="o">=</span> <span class="n">least_squares</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="p">[</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">800.0</span><span class="p">],</span>
+                    <span class="n">bounds</span><span class="o">=</span><span class="p">([</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20000.0</span><span class="p">]),</span>
+                    <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">T_meas</span><span class="p">,</span> <span class="n">T_amb</span><span class="p">))</span>
+<span class="n">R_hat</span><span class="p">,</span> <span class="n">C_hat</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">x</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="n">fun</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;R = </span><span class="si">{</span><span class="n">R_hat</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> K/W, C = </span><span class="si">{</span><span class="n">C_hat</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> J/K, RMSE = </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> C&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>On a run of this experiment you might get:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>R = 0.742 K/W, C = 812 J/K, RMSE = 0.21 C
+</code></pre></div></td></tr></table></div>
+<p>Now stop and read that RMSE, because it is the most important number in the
+whole project. <strong>0.21 °C is your model's floor.</strong> No service built on this
+model can reliably detect a temperature anomaly smaller than about 0.2 °C,
+because the model itself cannot tell that apart from its own error. If the
+refrigeration brief had demanded 0.05 °C accuracy, the correct engineering
+response would be to go back to the model — add a second thermal mass, model
+the sensor's own lag — not to build services on a foundation that cannot
+support them.</p>
+<p>Three warnings that cost people real time:</p>
+<ol>
+<li><strong>Bound your parameters.</strong> Unbounded fits happily return <code>C = -3</code> and a
+   beautiful RMSE, because a physically absurd parameter set can still match
+   40 minutes of data.</li>
+<li><strong>Hold out data.</strong> Fit on the heating curve, <em>evaluate</em> on the cooling
+   curve. A model that fits the data it was trained on is not evidence of
+   anything.</li>
+<li><strong>Record the validity envelope.</strong> These parameters were identified between
+   21 °C and 51 °C with the lid closed. Outside that range they are
+   extrapolation. Calibration is only valid under the conditions it was
+   performed in, and forgetting this is a standard way to invalidate a
+   simulation without noticing [@gomes_digital_2025].</li>
+</ol>
+<p>Write the envelope into the parameter file, not into a comment in a notebook
+you will lose:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># models/thermal_box/params-v3.yaml</span>
+<span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">thermal_box</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="nt">fitted_on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2026-03-14</span>
+<span class="nt">dataset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">s3://twin-data/box-01/step-response-2026-03-14.parquet</span>
+<span class="nt">parameters</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">R</span><span class="p">:</span><span class="w"> </span><span class="nv">0.742</span><span class="p p-Indicator">,</span><span class="nt"> C</span><span class="p">:</span><span class="w"> </span><span class="nv">812.0</span><span class="p p-Indicator">,</span><span class="nt"> P</span><span class="p">:</span><span class="w"> </span><span class="nv">40.0</span><span class="p p-Indicator">}</span>
+<span class="nt">validity</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">T_min_c</span><span class="p">:</span><span class="w"> </span><span class="nv">21.0</span><span class="p p-Indicator">,</span><span class="nt"> T_max_c</span><span class="p">:</span><span class="w"> </span><span class="nv">51.0</span><span class="p p-Indicator">,</span><span class="nt"> lid</span><span class="p">:</span><span class="w"> </span><span class="nv">closed</span><span class="p p-Indicator">}</span>
+<span class="nt">holdout_rmse_c</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.24</span>
+</code></pre></div></td></tr></table></div>
+<p>That file is an artefact of your build, it has a version, and Section 7 will
+put it through CI.</p>
+<h3 id="44-step-4-close-the-loop-with-an-estimator">4.4 Step 4: close the loop with an estimator</h3>
+<p>You now have a model that predicts. A prediction alone drifts: integrate for
+an hour with a slightly wrong <code>R</code> and the predicted temperature wanders away
+from reality. The fix is to fuse prediction with measurement, and for a
+one-dimensional linear system the standard tool is a scalar Kalman filter.
+Strip away the matrix notation and it is four lines of arithmetic:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ScalarKF</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fuse a model prediction with a noisy measurement.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">0.0225</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>      <span class="c1"># anything with .step()/.get_output()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">q</span> <span class="o">=</span> <span class="n">q</span>              <span class="c1"># process noise: how wrong the model is</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">r</span>              <span class="c1"># measurement noise: sensor variance (0.15^2)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">P</span> <span class="o">=</span> <span class="n">p0</span>             <span class="c1"># state uncertainty</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">P</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">q</span> <span class="o">*</span> <span class="n">dt</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_output</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_output</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">)</span>
+        <span class="n">innovation</span> <span class="o">=</span> <span class="n">z</span> <span class="o">-</span> <span class="n">T</span>                       <span class="c1"># the residual</span>
+        <span class="n">K</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">P</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">P</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">)</span>           <span class="c1"># Kalman gain, in [0, 1]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">T</span> <span class="o">=</span> <span class="n">T</span> <span class="o">+</span> <span class="n">K</span> <span class="o">*</span> <span class="n">innovation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">P</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">K</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">P</span>
+        <span class="k">return</span> <span class="n">innovation</span>
+</code></pre></div></td></tr></table></div>
+<p>The intuition is entirely contained in <code>K</code>. When the model is trusted
+(<code>self.P</code> small relative to <code>r</code>), <code>K</code> approaches 0 and measurements are
+largely ignored. When the model is distrusted, <code>K</code> approaches 1 and the
+filter simply believes the sensor. <code>q</code> and <code>r</code> are how you express that trust:
+<code>r</code> you get from the datasheet (0.15 °C noise gives variance 0.0225), and <code>q</code>
+you tune, starting from your calibration RMSE.</p>
+<p>And now the synchronisation loop — the actual heart of the digital twin,
+which turns out to be about fifteen lines:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">broker</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">kf</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">broker</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s2">&quot;box-01/telemetry&quot;</span><span class="p">):</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">set_input</span><span class="p">(</span><span class="s2">&quot;heater&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">[</span><span class="s2">&quot;heater_on&quot;</span><span class="p">])</span>
+        <span class="n">predicted</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+        <span class="n">innovation</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;temperature&quot;</span><span class="p">])</span>
+        <span class="n">broker</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">&quot;box-01/twin/state&quot;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="n">msg</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;measured_c&quot;</span><span class="p">:</span> <span class="n">msg</span><span class="p">[</span><span class="s2">&quot;temperature&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;predicted_c&quot;</span><span class="p">:</span> <span class="n">predicted</span><span class="p">,</span>
+            <span class="s2">&quot;estimated_c&quot;</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">get_output</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;residual_c&quot;</span><span class="p">:</span> <span class="n">innovation</span><span class="p">,</span>
+            <span class="s2">&quot;model_version&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="p">})</span>
+</code></pre></div></td></tr></table></div>
+<p>Read the published payload carefully. It carries <em>four</em> numbers where a naive
+implementation would carry one: what the sensor said, what the model expected,
+what the fused best estimate is, and how far apart the first two were. Every
+service downstream is built on that fourth number. Publishing the model
+version alongside them is not bureaucracy either — it is what makes an alert
+from six months ago interpretable.</p>
+<h3 id="45-step-5-turn-the-residual-into-a-decision">4.5 Step 5: turn the residual into a decision</h3>
+<p>Here is where the shadow becomes a twin. The residual is a <em>physics-aware
+error signal</em>: it is near zero whenever reality behaves the way the model
+says it should, and it grows whenever something happens that the model does
+not know about. Opening the lid is exactly such an event — it violates the
+assumptions the model was built under, so the filter can no longer track the
+system, and the discrepancy between estimate and measurement opens up
+immediately and then closes again once the lid is shut. This effect has been
+demonstrated on the real incubator, with the lid opened and closed at logged
+times and the residual tracking those events [@gomes_digital_2025].</p>
+<p>A workable detector, with the threshold derived rather than guessed:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">THRESH_C</span> <span class="o">=</span> <span class="mf">0.5</span>      <span class="c1"># ~3x the 0.15 C sensor noise, above the 0.21 C model RMSE</span>
+<span class="n">HOLD_S</span>   <span class="o">=</span> <span class="mi">30</span>       <span class="c1"># sustained, to reject transients</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">monitor</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="n">THRESH_C</span><span class="p">,</span> <span class="n">hold</span><span class="o">=</span><span class="n">HOLD_S</span><span class="p">):</span>
+    <span class="n">breach_started</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>                       <span class="c1"># box-01/twin/state</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s2">&quot;residual_c&quot;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">thresh</span><span class="p">:</span>
+            <span class="n">breach_started</span> <span class="o">=</span> <span class="n">breach_started</span> <span class="ow">or</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">breach_started</span> <span class="o">&gt;=</span> <span class="n">hold</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="p">{</span><span class="s2">&quot;alarm&quot;</span><span class="p">:</span> <span class="s2">&quot;unmodelled_disturbance&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;since&quot;</span><span class="p">:</span> <span class="n">breach_started</span><span class="p">,</span>
+                       <span class="s2">&quot;residual_c&quot;</span><span class="p">:</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;residual_c&quot;</span><span class="p">]}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">breach_started</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div></td></tr></table></div>
+<p>Two design choices are doing real work here. The threshold is above both the
+sensor noise floor <em>and</em> the model's RMSE, because an alarm that fires on
+model error is worse than useless. The hold time trades detection latency
+against false alarms: 30 seconds means you will never detect anything faster
+than 30 seconds, and you should check that against the requirement before
+shipping.</p>
+<p>Then close the loop:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span> <span class="n">alarm</span> <span class="ow">in</span> <span class="n">monitor</span><span class="p">(</span><span class="n">stream</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">alarm</span><span class="p">[</span><span class="s2">&quot;residual_c&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>            <span class="c1"># colder than modelled: heat escaping</span>
+        <span class="n">broker</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">&quot;box-01/cmd&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;heater_cmd&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;reason&quot;</span><span class="p">:</span> <span class="n">alarm</span><span class="p">})</span>
+</code></pre></div></td></tr></table></div>
+<p>That single <code>publish</code> is the difference between a digital shadow and a digital
+twin (Section 2.2), and it is also the line that makes your software capable
+of breaking a physical thing. Everything in Sections 7 and 8 exists because of
+that line.</p>
+<h3 id="46-what-you-have-and-have-not-built">4.6 What you have and have not built</h3>
+<p>You have a working digital twin: it ingests, models, estimates, monitors,
+diagnoses a specific fault class, and reconfigures. On a laptop, in one
+process, for one box.</p>
+<p>You have not built: anything that survives a restart (the filter state is in
+memory), anything that handles two boxes, anything anyone else can deploy,
+anything that will still be correct in a year, or anything you can test
+without the hardware on your desk. Those five gaps are the rest of this
+tutorial.</p>
+<h2 id="5-deciding-where-the-code-runs">5. Deciding where the code runs</h2>
+<p>Your laptop process has to become several processes on several machines. The
+question "which machine?" has a bad default answer ("the cloud, obviously")
+and a good method. Here is the method.</p>
+<h3 id="51-do-the-latency-arithmetic-before-you-draw-the-diagram">5.1 Do the latency arithmetic before you draw the diagram</h3>
+<p>Suppose our box is part of a laboratory rig where an over-temperature
+condition must trigger a heater cut-off <strong>within 200 ms</strong>. That number is the
+requirement; everything else is derived from it. Write down every hop and its
+cost:</p>
+<table>
+<thead>
+<tr>
+<th>Hop</th>
+<th>Edge deployment</th>
+<th>Cloud deployment (p50)</th>
+<th>Cloud (p99)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sensor sample + ADC</td>
+<td>5 ms</td>
+<td>5 ms</td>
+<td>5 ms</td>
+</tr>
+<tr>
+<td>Gateway serialise + publish</td>
+<td>3 ms</td>
+<td>3 ms</td>
+<td>3 ms</td>
+</tr>
+<tr>
+<td>Network to broker</td>
+<td>2 ms</td>
+<td>45 ms</td>
+<td>180 ms</td>
+</tr>
+<tr>
+<td>Broker fan-out</td>
+<td>2 ms</td>
+<td>2 ms</td>
+<td>2 ms</td>
+</tr>
+<tr>
+<td>Model step + filter update</td>
+<td>1 ms</td>
+<td>1 ms</td>
+<td>1 ms</td>
+</tr>
+<tr>
+<td>Decision logic</td>
+<td>1 ms</td>
+<td>1 ms</td>
+<td>1 ms</td>
+</tr>
+<tr>
+<td>Network back</td>
+<td>2 ms</td>
+<td>45 ms</td>
+<td>180 ms</td>
+</tr>
+<tr>
+<td>Actuator response</td>
+<td>20 ms</td>
+<td>20 ms</td>
+<td>20 ms</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>36 ms</strong></td>
+<td><strong>122 ms</strong></td>
+<td><strong>392 ms</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The cloud deployment meets the requirement on a median day and misses it by
+almost a factor of two on a bad one. If you only ever measure p50 you will
+ship this and it will fail in the field, intermittently, in a way that is
+almost impossible to reproduce. <strong>Budget against your tail, not your median.</strong></p>
+<p>This arithmetic is not a formality; it is the whole design. It tells you that
+the <em>monitoring and reconfiguration</em> services must run at the edge, and it
+says nothing at all about where the what-if service, the dashboard, or the
+model-calibration job should run — those have no comparable deadline and
+belong wherever compute is cheapest. The general form of this question —
+which component goes on which node in a fog or edge topology, subject to
+latency, capacity, and cost constraints — is a well-studied optimisation
+problem with a large literature of its own [@salaht_overview_2020], and when
+the components are microservices with dependencies between them, placement
+choices measurably change end-to-end response time [@raza_empowering_2024].
+Locality matters especially when the infrastructure spans administrative
+domains, where a placement that ignores which components must talk to each
+other frequently can be arbitrarily bad [@faticanti_locality-aware_2023].</p>
+<h3 id="52-four-placement-heuristics">5.2 Four placement heuristics</h3>
+<p>You will not run an optimiser for a course project. These four rules capture
+most of the value:</p>
+<ol>
+<li><strong>Latency-critical closed loops go at the edge.</strong> Anything on the path from
+   measurement to actuation, with a deadline, runs on hardware you can touch.
+   Digital twin architectures designed explicitly for the edge push exactly
+   this subset down — a local twin instance that keeps working when the
+   uplink does not [@picone_flexible_2023].</li>
+<li><strong>Bandwidth reduction goes at the edge.</strong> A 1 kHz vibration sensor produces
+   far more data than you want to ship. Compute features locally, ship the
+   features. Structural-health-monitoring deployments across civil
+   infrastructure are organised precisely as an edge/fog/cloud hierarchy for
+   this reason, with each tier reducing what the next has to carry
+   [@martin_facilitating_2022]. Increasingly, the inference itself moves
+   on-device rather than just the feature extraction
+   [@barbone_-device_2026].</li>
+<li><strong>Anything needing history, fleet-wide context, or serious compute goes to
+   the cloud.</strong> Calibration across 400 containers, what-if studies, model
+   retraining. These are batch jobs with elastic demand, which is exactly what
+   cloud pricing is good at.</li>
+<li><strong>Anything stateful and hard to move stays put — until you have a reason.</strong>
+   Moving a running component between tiers is possible, and there is a rich
+   line of work on making software migrate seamlessly across the cloud-to-edge
+   continuum [@aguzzi_cloud_2020], including orchestrators that treat the
+   continuum as one deployment target [@ullah_micado-edge_2021] and runtime
+   adaptation of containerised workloads as conditions change
+   [@robles-enciso_adapting_2024]. Some visions go further and ask why the
+   boundary between clusters should be visible to the application at all
+   [@iorio_computing_2023]. Treat all of that as a capability to grow into,
+   not a starting point.</li>
+</ol>
+<p>The framing that ties these together is the <strong>digital twin continuum</strong>: rather
+than "edge twin" versus "cloud twin", a twin's components are distributed
+across a spectrum of resources and may relocate as conditions change
+[@barbone_digital_2024]. Adaptation can even be driven by resource
+availability itself — degrade gracefully when CPU, bandwidth, or battery gets
+scarce, rather than failing [@akiki_resources_2025].</p>
+<h3 id="53-why-containers-specifically">5.3 Why containers, specifically</h3>
+<p>Whatever you place where, you need the placed thing to be a self-contained
+unit. Three properties make containers the right primitive for digital twins
+in particular — not merely the fashionable one.</p>
+<p><strong>Reproducibility.</strong> A digital twin's numerical output depends on library
+versions in ways that are genuinely hard to see: a different BLAS, a different
+<code>scipy</code>, and your calibration lands on slightly different parameters.
+Containers pin the entire software environment alongside the code, which is
+why they became standard practice in computational science for exactly this
+reason [@moreau_containers_2023]. For a system whose output is a <em>number</em> that
+someone will act on, this is not a convenience.</p>
+<p><strong>Heterogeneity.</strong> Your thermal model may be Python, your co-simulation
+orchestrator Java, your dashboard JavaScript, and a vendor's FMU may ship as a
+Linux <code>.so</code> compiled in 2019. Containers let each carry its own world.</p>
+<p><strong>Uniform deployment target.</strong> The same image runs on a developer laptop, an
+edge gateway, and a cluster node. Digital twin platforms lean on this: they
+package twins as containers and let Kubernetes handle scheduling, restart, and
+scaling [@talasila_realising_2024], and the broader cloud-native ecosystem —
+microservice decomposition plus container orchestration — is the assumed
+substrate in current surveys [@deng_cloud-native_2024].</p>
+<p>A caution before you reach for Kubernetes: it is a large, opinionated system,
+and for a single twin on a single gateway it is overhead you cannot justify.
+Start with Docker Compose. Move to Kubernetes when you have a real reason —
+multiple nodes, autoscaling, rolling updates across a fleet — and note that
+even then the day-to-day workflow can stay close to plain Docker if you set it
+up thoughtfully [@deslauriers_everyday_2022]. Systematic reviews of
+microservice deployment and communication patterns are a good map of the
+choices you are signing up for [@karabey_aksakalli_deployment_2021].</p>
+<h2 id="6-worked-example-2-packaging-configuring-and-reusing-it">6. Worked example 2: packaging, configuring, and reusing it</h2>
+<p>Back to the box. We now turn one laptop process into a deployable system, and
+then — the part that actually pays off — we deploy a <em>second</em> box without
+writing new code.</p>
+<h3 id="61-split-the-monolith-along-service-lines">6.1 Split the monolith along service lines</h3>
+<p>The single <code>run()</code> loop from Section 4.4 becomes four containers:</p>
+<table>
+<thead>
+<tr>
+<th>Container</th>
+<th>Responsibility</th>
+<th>Placement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>broker</code></td>
+<td>MQTT message bus</td>
+<td>Edge</td>
+</tr>
+<tr>
+<td><code>twin-core</code></td>
+<td>Model + estimator, publishes state</td>
+<td>Edge</td>
+</tr>
+<tr>
+<td><code>monitor</code></td>
+<td>Residual -&gt; alarms -&gt; commands</td>
+<td>Edge</td>
+</tr>
+<tr>
+<td><code>historian</code></td>
+<td>Subscribe -&gt; time-series database</td>
+<td>Cloud</td>
+</tr>
+</tbody>
+</table>
+<p>The split follows Section 5.1: <code>twin-core</code> and <code>monitor</code> are on the deadline
+path, <code>historian</code> is not. It also follows Section 2.1: these are different
+services with different failure consequences. If <code>historian</code> dies you lose
+history; if <code>monitor</code> dies you lose safety. Those should not share a process,
+and separating them is precisely what lets different people own and redeploy
+them independently [@aissat_juno-ops_2024].</p>
+<p>A minimal <code>docker-compose.yml</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">broker</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eclipse-mosquitto:2</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;1883:1883&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;./mosquitto.conf:/mosquitto/config/mosquitto.conf:ro&quot;</span><span class="p p-Indicator">]</span>
+
+<span class="w">  </span><span class="nt">twin-core</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./twin-core</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">broker</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">TWIN_ID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">box-01</span>
+<span class="w">      </span><span class="nt">BROKER_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mqtt://broker:1883</span>
+<span class="w">      </span><span class="nt">MODEL_PARAMS</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/assets/params/box-01-v3.yaml</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;./assets:/assets:ro&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+
+<span class="w">  </span><span class="nt">monitor</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./monitor</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">broker</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">TWIN_ID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">box-01</span>
+<span class="w">      </span><span class="nt">BROKER_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mqtt://broker:1883</span>
+<span class="w">      </span><span class="nt">THRESHOLD_C</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.5&quot;</span>
+<span class="w">      </span><span class="nt">HOLD_S</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;30&quot;</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+
+<span class="w">  </span><span class="nt">historian</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">influxdb:2</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;tsdb:/var/lib/influxdb2&quot;</span><span class="p p-Indicator">]</span>
+
+<span class="nt">volumes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> tsdb</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Three things in that file are worth arguing about, because students routinely
+get them wrong.</p>
+<p><strong>The parameters are mounted, not baked.</strong> <code>box-01-v3.yaml</code> is data, and it
+changes on a different schedule from the code. Baking it into the image means
+recalibration requires a rebuild, which means recalibration will not happen.</p>
+<p><strong>The thresholds are environment variables.</strong> They are <em>policy</em>, and policy is
+tuned in the field by people who will not open a pull request.</p>
+<p><strong><code>restart: unless-stopped</code> is a safety decision, not a convenience.</strong> Read it
+alongside Section 2.1: the box must keep heating when the twin is down, so the
+twin restarting is fine. If the twin were in the control loop, silent restart
+would be exactly the wrong behaviour.</p>
+<p>This idea — that a reference architecture becomes useful only when it is
+expressed as concrete deployment descriptors rather than a diagram — is worth
+taking seriously; work on interoperable architectures for digital-twin-aided
+manufacturing delivers them precisely as Dockerfiles, Compose files, and Helm
+charts, so that "the architecture" is a thing you can <code>apply</code>
+[@marosi_interoperable_2022].</p>
+<h3 id="62-the-configuration-is-the-twin">6.2 The configuration is the twin</h3>
+<p>Now add the second box. It is the same physical design but a different
+physical object, so it has the same code, the same models, and different
+parameters. A bad architecture requires a code change. A good one requires a
+new configuration file:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># twins/box-02.yaml</span>
+<span class="nt">twin_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">box-02</span>
+<span class="nt">physical_twin</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">broker_topic_prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">box-02</span>
+<span class="w">  </span><span class="nt">sensors</span><span class="p">:</span><span class="w">  </span><span class="p p-Indicator">[{</span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="nv">temperature</span><span class="p p-Indicator">,</span><span class="nt"> unit</span><span class="p">:</span><span class="w"> </span><span class="nv">celsius</span><span class="p p-Indicator">,</span><span class="nt"> noise_std_c</span><span class="p">:</span><span class="w"> </span><span class="nv">0.15</span><span class="p p-Indicator">}]</span>
+<span class="w">  </span><span class="nt">actuators</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[{</span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="nv">heater</span><span class="p p-Indicator">,</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">boolean</span><span class="p p-Indicator">,</span><span class="nt"> power_w</span><span class="p">:</span><span class="w"> </span><span class="nv">40.0</span><span class="p p-Indicator">}]</span>
+<span class="nt">models</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="nv">thermal</span><span class="p p-Indicator">,</span><span class="nt"> implementation</span><span class="p">:</span><span class="w"> </span><span class="nv">assets/models/thermal_box</span><span class="p p-Indicator">:</span><span class="nv">1.4.0</span><span class="p p-Indicator">,</span>
+<span class="nt">     parameters</span><span class="p">:</span><span class="w"> </span><span class="nv">assets/params/box-02-v1.yaml</span><span class="p p-Indicator">}</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="nv">estimator</span><span class="p p-Indicator">,</span><span class="nt"> implementation</span><span class="p">:</span><span class="w"> </span><span class="nv">assets/functions/scalar_kf</span><span class="p p-Indicator">:</span><span class="nv">2.1.0</span><span class="p p-Indicator">,</span>
+<span class="nt">     inputs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">thermal</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">temperature</span><span class="p p-Indicator">],</span><span class="nt"> config</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">q</span><span class="p">:</span><span class="w"> </span><span class="nv">1.0e-4</span><span class="p p-Indicator">,</span><span class="nt"> r</span><span class="p">:</span><span class="w"> </span><span class="nv">0.0225</span><span class="p p-Indicator">}}</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="nv">monitor</span><span class="p p-Indicator">,</span><span class="nt"> implementation</span><span class="p">:</span><span class="w"> </span><span class="nv">assets/functions/residual_monitor</span><span class="p p-Indicator">:</span><span class="nv">1.0.0</span><span class="p p-Indicator">,</span>
+<span class="nt">     config</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">threshold_c</span><span class="p">:</span><span class="w"> </span><span class="nv">0.6</span><span class="p p-Indicator">,</span><span class="nt"> hold_s</span><span class="p">:</span><span class="w"> </span><span class="nv">30</span><span class="p p-Indicator">}}</span>
+</code></pre></div></td></tr></table></div>
+<p>Look at what this file is doing. It names <em>reusable assets</em> by version and
+composes them into a twin. That is the central idea behind treating a digital
+twin as a composition over four categories of reusable asset — data, models,
+functions, and tools — declared once in a platform and reused across many
+twins by many users [@talasila_composable_2025]. The payoff arrives on twin
+number three, not twin number two: your marginal cost per twin becomes one
+YAML file and a calibration run.</p>
+<p>Note also that <code>box-02</code> uses a threshold of 0.6 °C rather than 0.5 °C, because
+it sits near a doorway and its residual is noisier. Per-instance policy in a
+per-instance config file: exactly the kind of variability that motivates
+treating a family of twins as a <em>product line</em>, with explicit variation points
+rather than copy-pasted repositories [@pfeiffer_towards_2023].</p>
+<h3 id="63-platforms-what-you-get-by-not-building-this-yourself">6.3 Platforms: what you get by not building this yourself</h3>
+<p>Everything above — asset storage, configuration, compute provision,
+communication, monitoring, lifecycle — is generic. It is not specific to
+heated boxes, and building it yourself for every project is waste. That
+observation is the entire argument for <strong>digital twin as a service (DTaaS)</strong>
+platforms: a shared platform manages assets, composes twins from them, runs
+them, and offers the running twins as services to other users
+[@talasila_composable_2025]. Reference models for DTaaS in Industry 4.0 set
+out the same idea in architectural terms [@aheleroff_digital_2021], and a
+recent survey maps the architecture, design requirements, and — usefully for
+engineers — the performance metrics by which such platforms should be judged
+[@duran_toward_2026].</p>
+<p>The concrete open-source landscape is varied, and it repays a look before you
+start typing:</p>
+<ul>
+<li>Frameworks built on an IoT digital-twin substrate plus a streaming layer,
+  composing twins from smaller twins [@robles_opentwins_2023].</li>
+<li>Platforms built directly on Kubernetes, using serverless primitives so that
+  a twin's compute is provisioned only when events arrive
+  [@wermann_ktwin_2024].</li>
+<li>Platforms built on Asset Administration Shell middleware, where the
+  motivating requirement is that several stakeholders share one twin instance
+  as a single source of truth [@zech_digital-twins-as--service_2024].</li>
+<li>Domain platforms that wrap an established workflow — vibration-based
+  structural health monitoring, say — around a general twin platform
+  [@talasila_digital_2026].</li>
+<li>Large-scale scientific twin infrastructures, where containerised workloads
+  and orchestration are what make elastic demand tractable at all
+  [@noauthor_intertwin_nodate].</li>
+<li>Comprehensive reference architectures for digital twin software platforms,
+  which are useful as checklists even when you do not adopt the platform
+  [@tao_maketwin_2024].</li>
+</ul>
+<p>Comparative surveys of open-source frameworks, evaluated by building the same
+case study on each, are the fastest way to see what the differences actually
+cost you [@gil_survey_2024]. And the same containerisation argument recurs in
+domains far from ours: cloud-based twins for cognitive robotics use containers
+and Kubernetes chiefly so that students and researchers can skip the setup and
+get to the content [@niedzwiecki_cloud-based_2024].</p>
+<p><strong>Choosing.</strong> For a course project, build it yourself with Compose — you learn
+more, and the assignment is the learning. For a research prototype that must
+outlive one student, use a platform. For an industrial deployment, the
+decisive questions are usually not technical: who operates it, what happens
+when the vendor changes their API, and can you get your models out.</p>
+<h2 id="7-devops-for-digital-twins">7. DevOps for digital twins</h2>
+<p>Everything so far produced <em>artefacts</em>. This section is about the machinery
+that turns a change to one of those artefacts into a running change in the
+field, safely, repeatedly, without a human remembering the steps. That
+machinery is DevOps, and applying it to digital twins is an active enough
+research area to have produced named approaches — TwinOps, which fuses
+model-based engineering with a DevOps pipeline for cyber-physical systems
+[@hugues_twinops_2020; @hugues_twinops_2022], model-based DevOps as a general
+programme for Industry 4.0 software [@combemale_model-based_2023], and
+JuNo-OPS, a DevOps framework built specifically around microservices for
+digital twins of built assets [@aissat_devops_2025].</p>
+<h3 id="71-why-the-ordinary-pipeline-is-not-enough">7.1 Why the ordinary pipeline is not enough</h3>
+<p>A standard web pipeline is: lint, unit test, integration test, build image,
+deploy, smoke test. Run that on our thermal box twin and here is what it
+fails to catch.</p>
+<ul>
+<li><strong>A parameter regression.</strong> Someone recalibrates and commits
+  <code>R = 0.42</code>. Every unit test passes — <code>R</code> is a float, the model still steps —
+  and the twin now systematically over-predicts temperature. Nothing in the
+  ordinary pipeline is capable of noticing.</li>
+<li><strong>A model-fidelity regression.</strong> Someone replaces the Euler integrator with
+  a larger step size for speed. All tests pass. The twin is now less accurate,
+  by an amount nobody measured.</li>
+<li><strong>A physical-interaction regression.</strong> Someone flips a sign in the actuation
+  path. Tests pass; the twin now cools when it should heat. You find out from
+  the hardware.</li>
+</ul>
+<p>The common thread: <strong>the correctness criteria are numerical and physical, and
+they live in data, not in code.</strong> Interview studies with practitioners doing
+continuous integration for cyber-physical systems find exactly this friction —
+the hardware dependency and the difficulty of testing without it are the
+recurring obstacles to CI adoption in the field [@zampetti_continuous_2023].
+And the organisational half is real too: longitudinal industrial studies of
+DevOps adoption catalogue the ways it goes wrong, and most of them are about
+process and expectations rather than tooling [@caprarelli_fallacies_2020].</p>
+<h3 id="72-a-test-pyramid-for-digital-twins">7.2 A test pyramid for digital twins</h3>
+<p>Here is a pyramid adapted to our problem. Each level is cheap enough to run at
+a different frequency, and each catches things the level below cannot.</p>
+<p><strong>Level 1 — Unit tests (every commit, seconds).</strong> Ordinary software tests on
+ordinary code paths: message parsing, config loading, unit conversion.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_step_conserves_equilibrium</span><span class="p">():</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">ThermalBox</span><span class="p">(</span><span class="n">R</span><span class="o">=</span><span class="mf">0.742</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">812.0</span><span class="p">,</span> <span class="n">T0</span><span class="o">=</span><span class="mf">21.0</span><span class="p">,</span> <span class="n">T_amb</span><span class="o">=</span><span class="mf">21.0</span><span class="p">)</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">set_input</span><span class="p">(</span><span class="s2">&quot;heater&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">m</span><span class="o">.</span><span class="n">get_output</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">21.0</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_steady_state_rise_matches_analytic</span><span class="p">():</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">ThermalBox</span><span class="p">(</span><span class="n">R</span><span class="o">=</span><span class="mf">0.742</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">812.0</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">T0</span><span class="o">=</span><span class="mf">21.0</span><span class="p">,</span> <span class="n">T_amb</span><span class="o">=</span><span class="mf">21.0</span><span class="p">)</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">set_input</span><span class="p">(</span><span class="s2">&quot;heater&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20_000</span><span class="p">):</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">m</span><span class="o">.</span><span class="n">get_output</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">21.0</span> <span class="o">+</span> <span class="mi">40</span> <span class="o">*</span> <span class="mf">0.742</span><span class="p">,</span> <span class="nb">abs</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Note the second test: it checks the model against an <em>analytically derived</em>
+property (steady-state rise is <code>P * R</code>), not against a recorded output. Tests
+that compare against yesterday's output only tell you the code changed.</p>
+<p><strong>Level 2 — Model-versus-data tests (every commit, seconds).</strong> Check the model
+against a stored, versioned reference dataset, and assert on a <em>physical</em>
+tolerance:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_model_tracks_reference_run</span><span class="p">():</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="s2">&quot;tests/data/box-01-step-response-2026-03-14.parquet&quot;</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">ThermalBox</span><span class="p">(</span><span class="o">**</span><span class="n">load_params</span><span class="p">(</span><span class="s2">&quot;assets/params/box-01-v3.yaml&quot;</span><span class="p">))</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">simulate_over</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">ds</span><span class="o">.</span><span class="n">heater</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">T0</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">T_amb</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">T_amb</span><span class="p">)</span>
+    <span class="n">rmse</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">pred</span> <span class="o">-</span> <span class="n">ds</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)))</span>
+    <span class="k">assert</span> <span class="n">rmse</span> <span class="o">&lt;</span> <span class="mf">0.30</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;model fidelity regressed: RMSE </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> C&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p>This is the test that catches the parameter regression and the integrator
+regression, and it is the one that has no analogue in a web pipeline. Two
+notes on making it useful rather than annoying. Set the tolerance from your
+<em>validation</em> RMSE with headroom (we measured 0.24 °C on holdout, so 0.30 °C
+allows normal variation while catching a real regression). And record the
+achieved RMSE as a build artefact, so you can plot fidelity over the project's
+lifetime — slow degradation across many small commits is otherwise invisible.</p>
+<p><strong>Level 3 — Simulated-physical-twin tests (every commit, minutes).</strong> Replace
+the hardware with a <em>simulator</em> of the hardware, wire the real twin
+containers to it, and test the whole system end to end. This is the level
+that resolves the "we cannot test without hardware" complaint, and it is the
+reason the idea of a digital twin <em>prototype</em> — a simulated stand-in for the
+physical system, used inside the CI pipeline for embedded software — is a
+serious research topic and not a workaround [@barbie_toward_2024].</p>
+<p>Crucially, the simulator must be a <em>different</em> model from the twin's, or your
+test is circular: a twin tested against its own model will pass whatever it
+does. Use a higher-fidelity model, add noise and delay, and inject faults:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_lid_open_raises_alarm_within_60s</span><span class="p">(</span><span class="n">compose_stack</span><span class="p">,</span> <span class="n">fake_pt</span><span class="p">):</span>
+    <span class="n">fake_pt</span><span class="o">.</span><span class="n">run_to_steady_state</span><span class="p">(</span><span class="n">setpoint_c</span><span class="o">=</span><span class="mf">35.0</span><span class="p">)</span>
+    <span class="n">fake_pt</span><span class="o">.</span><span class="n">inject</span><span class="p">(</span><span class="n">fault</span><span class="o">=</span><span class="s2">&quot;lid_open&quot;</span><span class="p">,</span> <span class="n">at_s</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+    <span class="n">alarms</span> <span class="o">=</span> <span class="n">compose_stack</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="s2">&quot;box-01/alarms&quot;</span><span class="p">,</span> <span class="n">until_s</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">any</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s2">&quot;alarm&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;unmodelled_disturbance&quot;</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">alarms</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">min</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">alarms</span><span class="p">)</span> <span class="o">-</span> <span class="mi">600</span> <span class="o">&lt;</span> <span class="mi">60</span>
+</code></pre></div></td></tr></table></div>
+<p>That test asserts on the <em>requirement</em> from Section 4.5 — detection latency —
+rather than on an implementation detail. Deliberately injecting faults into a
+simulation to see how the system responds is standard practice in the twin
+world [@frasheri_advanced_2024], and here it becomes a regression test.</p>
+<p><strong>Level 4 — Hardware-in-the-loop (nightly or pre-release, hours).</strong> One real
+box, on a bench, wired to a runner. Slow, flaky, and irreplaceable: it is the
+only level that tests your driver code, your timing assumptions, and your
+actuation path against reality. Run it on a schedule, not on every push, and
+treat a failure as blocking for release. Digital twin engineering processes
+draw the same distinction, with verification strategies combining
+demonstration, testing, modelling, and simulation rather than relying on any
+one [@fitzgerald_digital_2024]. Where the twin is being used to verify the
+system itself, this integrates naturally with model-based systems engineering
+practice [@honcak_mbse_2024].</p>
+<h3 id="73-the-pipeline">7.3 The pipeline</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># .github/workflows/twin.yml (abbreviated)</span>
+<span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">push</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">pull_request</span><span class="p p-Indicator">]</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">fast</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ruff check . &amp;&amp; mypy src/</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest tests/unit tests/model</span><span class="w">        </span><span class="c1"># levels 1-2</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python -m tools.validate_assets assets/</span><span class="w">   </span><span class="c1"># schemas + validity envelopes</span>
+<span class="w">  </span><span class="nt">system</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fast</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker compose -f compose.test.yml up --abort-on-container-exit</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest tests/system</span><span class="w">                  </span><span class="c1"># level 3</span>
+<span class="w">  </span><span class="nt">publish</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">system</span>
+<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == &#39;refs/heads/main&#39;</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker buildx build --platform linux/amd64,linux/arm64 --push .</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python -m tools.bump_manifest --env staging</span>
+</code></pre></div></td></tr></table></div>
+<p>Two details are digital-twin-specific and easy to miss.</p>
+<p><code>validate_assets</code> is a step you will not find in a web pipeline. It checks
+that every parameter file declares a validity envelope, that the envelope is
+non-degenerate, and that every model referenced by a twin config exists at the
+pinned version. Cheap, and it catches a whole class of "works on my twin"
+failure.</p>
+<p><code>--platform linux/amd64,linux/arm64</code> is there because your edge gateway is
+almost certainly ARM and your CI runner is almost certainly x86. Cross-building
+is not optional when the deployment target differs from the build host.</p>
+<h3 id="74-deployment-as-a-reconciled-desired-state">7.4 Deployment as a reconciled desired state</h3>
+<p>Do not push updates to gateways. Declare what should be running and let
+something reconcile reality to that declaration. Concretely: a git repository
+holds a manifest of which twin runs which image at which version with which
+parameter file; an agent on each site watches the repository and converges to
+it. This is GitOps, and it has been applied to digital twin lifecycle
+management specifically, with the argument that Git as the operational centre
+gives you version history, branching, and integration with CI/CD for free
+[@beaumont_towards_2025].</p>
+<p>Why this matters more for twins than for web services:</p>
+<ul>
+<li><strong>Sites are unreliable and numerous.</strong> Push-based deployment fails when the
+  target is offline; pull-based deployment just converges later.</li>
+<li><strong>You must be able to answer "what is running on box-207?"</strong> With a
+  reconciled manifest, the answer is a <code>git show</code>.</li>
+<li><strong>Rollback is a revert.</strong> Given the safety argument in Section 4.5, you want
+  rollback to be boring.</li>
+</ul>
+<p>At larger scale this generalises: the twin's lifecycle — creation,
+configuration, evolution, retirement — is itself something to describe
+declaratively rather than script imperatively [@kamburjan_declarative_2024].
+And it is worth noticing the reflexive twist that some authors have pursued:
+the software development process is itself a system that can be twinned, with
+CI/CD telemetry feeding a model of the process [@kimmel_digital_2025].</p>
+<h3 id="75-versioning-things-that-are-not-code">7.5 Versioning things that are not code</h3>
+<p>Last piece. Your repository holds code, models, parameters, and datasets, and
+<code>git</code> handles exactly one of those well. A workable convention:</p>
+<table>
+<thead>
+<tr>
+<th>Artefact</th>
+<th>Where it lives</th>
+<th>Versioned by</th>
+<th>Changes when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Service code</td>
+<td>Git</td>
+<td>Commit SHA -&gt; image tag</td>
+<td>Behaviour changes</td>
+</tr>
+<tr>
+<td>Model implementation</td>
+<td>Git or asset registry</td>
+<td>Semantic version</td>
+<td>Equations change</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Asset store, pointer in Git</td>
+<td>Monotonic integer</td>
+<td>Recalibration</td>
+</tr>
+<tr>
+<td>Datasets</td>
+<td>Object store, hash in Git</td>
+<td>Content hash</td>
+<td>Never (append only)</td>
+</tr>
+<tr>
+<td>Twin config</td>
+<td>Git</td>
+<td>Commit SHA</td>
+<td>Composition changes</td>
+</tr>
+</tbody>
+</table>
+<p>The rule that makes this work: <strong>an alert must be reconstructible from the
+identifiers it carries.</strong> Our <code>twin/state</code> payload in Section 4.4 carried
+<code>model_version</code> for this reason. Make it carry the parameter version and the
+image tag too, and any alert in your history can be replayed exactly. This is
+also what makes evolution manageable rather than terrifying: a twin is a
+long-lived thing whose sensors, models, and purposes change over its life, and
+the ability to say precisely what it was at a past moment is the precondition
+for changing it safely [@alskaif_evolution_2025].</p>
+<h2 id="8-operating-it-latency-drift-and-attackers">8. Operating it: latency, drift, and attackers</h2>
+<p>Your twin is deployed. It will now spend years being wrong in three distinct
+ways, and telling them apart is the operational skill this section teaches.</p>
+<h3 id="81-instrument-the-twin-not-just-the-machine">8.1 Instrument the twin, not just the machine</h3>
+<p>CPU and memory graphs tell you nothing about whether a digital twin is doing
+its job. Four twin-specific metrics do:</p>
+<ol>
+<li><strong>Synchronisation lag</strong> — wall-clock age of the newest telemetry the twin
+   has processed. Rising lag means the digital and physical sides have drifted
+   apart in <em>time</em>, which invalidates every decision the twin makes; this
+   discrepancy is a first-class concern, not a monitoring nicety
+   [@frasheri_addressing_2023].</li>
+<li><strong>Residual statistics</strong> — rolling mean and standard deviation of the
+   innovation from Section 4.4. Both matter, and they mean different things
+   (below).</li>
+<li><strong>Coverage</strong> — fraction of expected messages actually received, per sensor.
+   Distinguishes "everything is fine" from "the sensor died and the last value
+   is being repeated".</li>
+<li><strong>Envelope violations</strong> — how often the twin is operating outside the
+   validity range recorded during calibration (Section 4.3). A twin running
+   outside its envelope is extrapolating, and should say so.</li>
+</ol>
+<p>Publish all four. A dashboard showing a beautiful temperature trace from a
+sensor that stopped reporting an hour ago is worse than no dashboard.</p>
+<h3 id="82-reading-the-residual-three-faults-one-signal">8.2 Reading the residual: three faults, one signal</h3>
+<p>The residual is the twin's most informative output, and its <em>shape</em>
+discriminates between fault classes:</p>
+<table>
+<thead>
+<tr>
+<th>Residual behaviour</th>
+<th>Most likely cause</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Step change, then recovery</td>
+<td>Unmodelled disturbance (lid opened)</td>
+<td>Alarm; expect recovery</td>
+</tr>
+<tr>
+<td>Step change, no recovery</td>
+<td>Sensor fault or actuator fault</td>
+<td>Alarm; cross-check coverage</td>
+</tr>
+<tr>
+<td>Slow monotonic growth over weeks</td>
+<td><strong>Model drift</strong></td>
+<td>Recalibrate</td>
+</tr>
+<tr>
+<td>Variance grows, mean stays zero</td>
+<td>Sensor degradation / added noise</td>
+<td>Maintenance</td>
+</tr>
+<tr>
+<td>Sudden zero variance</td>
+<td>Sensor stuck at a constant</td>
+<td>Alarm — this is <em>not</em> good news</td>
+</tr>
+</tbody>
+</table>
+<p>The third row is the one that quietly ruins projects. Insulation degrades,
+heating elements age, a fan collects dust: the physical system slowly stops
+matching the parameters you fitted in March. Nothing breaks. The residual mean
+creeps from 0.0 to 0.15 to 0.3 °C, and one day your 0.5 °C threshold starts
+producing false alarms, and someone raises the threshold to 1.0 °C to make
+them stop, and now you cannot detect the fault you built the system for.</p>
+<p>The defence is to monitor the residual <em>mean</em> on a long timescale and trigger
+recalibration when it exceeds a fraction of your alarm threshold — say 0.2 °C
+for a 0.5 °C threshold. Automate the recalibration job; do not rely on
+somebody remembering. This is the operational face of a deeper question about
+when a twin's knowledge still counts as equivalent to the system it
+represents, which is what actually licenses acting on the twin's conclusions
+[@zhang_knowledge_2024]. The mature version of this idea gives the twin
+autonomy over its own upkeep — detecting deviation and adapting its models
+without a human trigger [@rivera_forging_2021] — and, where the physical
+system is itself reconfigurable, letting the twin drive that reconfiguration
+too [@esterle_autonomous_2024].</p>
+<h3 id="83-the-attack-surface-you-just-created">8.3 The attack surface you just created</h3>
+<p>Return to Section 4.5, and the <code>publish</code> that closed the loop. You have built
+a network path from a message broker to a heating element. Anyone who can
+publish to <code>box-01/cmd</code> can turn on the heater.</p>
+<p>This is the general shape of the problem: connecting a physical asset to a
+digital counterpart with bidirectional flow expands the attack surface of a
+system that may previously have been isolated [@de_azambuja_digital_2024].
+Comprehensive threat surveys map attacks across the whole stack — the physical
+layer, communication, data storage, and the visualisation and access layer
+where users and downstream processes connect [@alcaraz_digital_2022], and
+recent reviews add the emerging attack classes and open problems
+[@jaber_comprehensive_2025; @alhamam_comprehensive_2025].</p>
+<p>Rather than repeat a survey, here are five concrete measures for the system we
+built, in the order I would implement them:</p>
+<ol>
+<li><strong>Authenticate publishers, and separate topics by direction.</strong> Telemetry
+   topics are write-only for the gateway and read-only for everyone else.
+   Command topics accept writes from exactly one service identity. This is
+   not sophisticated; it is the single highest-value hour you will spend.</li>
+<li><strong>Distinguish read access from write access per user and per twin.</strong> In a
+   multi-stakeholder deployment, some users need to see a twin and others need
+   to change it, and enforcing that separation requires real isolation between
+   parts of the twin rather than a single credential granting everything
+   [@kulik_security_2024].</li>
+<li><strong>Treat the network as hostile.</strong> The zero trust model — no implicit trust
+   from network location, per-request authorisation, least privilege — maps
+   directly onto a twin whose components straddle a factory floor, a gateway,
+   and a cloud region [@rose_zero_2020], and there is practical guidance on
+   planning a migration towards it rather than attempting it in one step
+   [@rose_planning_2022].</li>
+<li><strong>Harden the containers.</strong> Non-root users, read-only root filesystems,
+   dropped capabilities, pinned base images, scanned dependencies. Container
+   isolation is weaker than virtual-machine isolation, and the specific
+   weaknesses are well catalogued [@sultan_container_2019].</li>
+<li><strong>Bound the actuation.</strong> Rate-limit commands, clamp them to a safe range,
+   and keep a hardware interlock that your software cannot override. If a
+   compromised twin can only request a 5 % duty cycle change once a minute,
+   the blast radius is small.</li>
+</ol>
+<p>One last observation that ties this section to the last. Attacks do not only
+manifest as breaches; they manifest as <em>degraded twin metrics</em>. Experimental
+work measuring the impact of cyber-attacks on digital twin metrics shows
+familiar symptoms — outdated or inconsistent state, undelivered updates, a
+twin that stops receiving data — arising from things like flooding a topic or
+downgrading message quality of service, and those look, from a dashboard, very
+much like a network problem [@picone_assessing_2026]. Which means your
+monitoring from Section 8.1 is also part of your security posture, and an
+unexplained rise in synchronisation lag deserves a security hypothesis
+alongside the networking one.</p>
+<h2 id="9-anti-patterns">9. Anti-patterns</h2>
+<p>A short catalogue of failures I would bet money on seeing in a first project.</p>
+<p><strong>The dashboard that thinks it is a twin.</strong> Telemetry goes into a time-series
+database and out to a set of charts, with no model anywhere. It is a digital
+shadow (Section 2.2) and it will not detect anything a threshold alarm could
+not. Diagnostic question: <em>where is the prediction that reality is being
+compared against?</em></p>
+<p><strong>The uncalibrated model.</strong> Textbook parameters, never fitted to the actual
+object. It produces a residual that reflects parameter error rather than
+physical events. Diagnostic question: <em>what is the holdout RMSE, and when was
+it last measured?</em></p>
+<p><strong>The single container.</strong> Ingestion, model, monitoring, and dashboard in one
+process, so that a dashboard bug takes down safety monitoring and the
+dashboard cannot be redeployed without restarting the estimator. Diagnostic
+question: <em>what happens to actuation when the visualisation crashes?</em></p>
+<p><strong>Parameters in the image.</strong> Recalibration requires a rebuild and a redeploy,
+so recalibration stops happening, and drift (Section 8.2) goes unaddressed
+until the twin is quietly useless.</p>
+<p><strong>The circular test.</strong> The simulated physical twin in CI is the same model the
+twin uses, so the system passes every test and fails on hardware. Diagnostic
+question: <em>if the model's equations were wrong, which test would fail?</em></p>
+<p><strong>The tuned-away alarm.</strong> Thresholds raised repeatedly to silence false
+alarms, until the detector cannot fire. Fix the drift instead, and record
+threshold changes in version control so the ratchet is visible.</p>
+<p><strong>No provenance on the alert.</strong> An alert says "anomaly at 14:32" and nothing
+else. Six months later, nobody can say which model version or parameter set
+produced it, so nobody can determine whether it was right.</p>
+<h2 id="10-exercises">10. Exercises</h2>
+<p>Difficulty is marked <em>easy</em> (a few minutes, pen and paper), <em>medium</em> (an hour
+or two at a keyboard), and <em>hard</em> (a weekend, or a small group project). <strong>Hints are given for
+all exercises; full worked solutions are given for 10.1, 10.4 and 10.7 only</strong> —
+the rest are deliberately left open, because the judgement they exercise is
+the point.</p>
+<h3 id="objective-1-decompose-an-architecture">Objective 1 — decompose an architecture</h3>
+<p><strong>10.1 [easy] Classify the system.</strong> A hospital logs every patient movement
+between wards into a database. A simulation of patient flow runs each night on
+the previous day's data, and its output is emailed to the bed manager, who
+sometimes changes staffing. Is this a digital model, a digital shadow, or a
+digital twin? What is the smallest change that would move it up one level?</p>
+<blockquote>
+<p><strong>Solution.</strong> It is a <em>digital shadow</em>: data flows automatically from the
+physical system into a model, but the return path runs through a human
+reading an email, so nothing flows back automatically. Two things
+disqualify it as a twin: the human in the return path, and the fact that
+the model runs nightly on yesterday's data rather than being synchronised
+with the physical system. The smallest change that makes it a twin is to
+let the simulation's output <em>automatically</em> adjust something physical — for
+example, automatically publishing a staffing roster or reserving beds in the
+admissions system — with the human moved from decision-maker to override.
+Note the important consequence: making that change converts a system whose
+worst failure mode is "an email is wrong" into one whose worst failure mode
+is "a ward is understaffed", which is a much larger engineering
+responsibility. Answering "should we?" is as legitimate as answering "how?"</p>
+</blockquote>
+<p><strong>10.2 [medium] Map the layers.</strong> Take the refrigerated-container brief from
+Section 1 and fill in the seven-layer architecture from Section 3 with a
+concrete technology or component for each layer. For every layer, write one
+sentence stating what breaks if that layer fails.
+<em>Hint: two layers have no acceptable failure mode given the brief. Identify
+them and say what redundancy you would add.</em></p>
+<p><strong>10.3 [medium] Interface hygiene.</strong> In our thermal box, <code>heater_cmd</code> and
+<code>heater_on</code> are separate signals. Construct a concrete scenario in which
+merging them into one signal causes the twin to produce a <em>wrong</em> alarm — not
+merely a missing one. Then write the test from Section 7.2 that would catch it.
+<em>Hint: think about a local safety interlock that refuses a command, and what
+the model then integrates.</em></p>
+<h3 id="objective-2-implement-and-quantify-a-synchronisation-loop">Objective 2 — implement and quantify a synchronisation loop</h3>
+<p><strong>10.4 [easy] Predict the equilibrium.</strong> A box has <code>R = 1.2 K/W</code> and
+<code>C = 1500 J/K</code>, with a 25 W heater, in a 20 °C room. With the heater on
+permanently: what is the steady-state temperature, and how long until the box
+is within 1 °C of it?</p>
+<blockquote>
+<p><strong>Solution.</strong> Steady state is where heat in equals heat out:
+<code>P = (T - T_a) / R</code>, so <code>T = T_a + P * R = 20 + 25 * 1.2 = 50 °C</code>. The
+time constant is <code>tau = R * C = 1.2 * 1500 = 1800 s</code> (30 minutes). The
+response is exponential, <code>T(t) = 50 - 30 * exp(-t / tau)</code>, so being within
+1 °C means <code>30 * exp(-t / 1800) = 1</code>, i.e.
+<code>t = 1800 * ln(30) ~= 1800 * 3.40 ~= 6120 s</code>, about 102 minutes. Two lessons
+worth extracting: the settling time is roughly <code>3.4 * tau</code>, not <code>tau</code>; and
+if your step-response calibration experiment (Section 4.3) only runs for
+40 minutes on <em>this</em> box, it never reaches steady state, so <code>R</code> and <code>C</code>
+become correlated in the fit and both are poorly identified. Design the
+experiment to last at least three or four time constants.</p>
+</blockquote>
+<p><strong>10.5 [medium] Implement and validate.</strong> Implement <code>ThermalBox</code> and <code>ScalarKF</code>
+from Section 4. Generate synthetic "measurements" from a <em>second</em>, different
+model — for example a two-mass model with the sensor thermally lagged behind
+the air — plus Gaussian noise, and run the estimator against it. Report the
+RMSE of the estimate and of the raw prediction.
+<em>Hint: the estimate should beat the prediction. If it does not, your <code>q</code>/<code>r</code>
+ratio is wrong. Try varying <code>q</code> over three orders of magnitude and plot RMSE
+against it; the curve should be U-shaped, and the minimum tells you what your
+model error actually is.</em></p>
+<p><strong>10.6 [hard] Detect a fault you did not design for.</strong> Extend your simulated
+box with a <em>heater degradation</em> fault: <code>P</code> decays linearly from 40 W to 30 W
+over six simulated hours. Does the detector from Section 4.5 fire? Should it?
+Design a second detector that distinguishes heater degradation from insulation
+degradation, and justify why your two residual signatures are distinguishable.
+<em>Hint: a failing heater and a leakier box both make the box colder than
+predicted. What differs is the dependence on the duty cycle — one shows up
+only when the heater is on. Consider correlating the residual with <code>u</code>.</em></p>
+<h3 id="objective-3-place-and-package">Objective 3 — place and package</h3>
+<p><strong>10.7 [medium] Redo the latency budget.</strong> A robot cell has a twin that must stop
+the robot within 100 ms of detecting a collision risk. Measured hops: sensor
+2 ms, gateway 2 ms, LAN 1 ms, broker 3 ms, model step 8 ms, decision 1 ms,
+actuator 30 ms. The cloud round trip adds 35 ms each way at p50 and 140 ms at
+p99. Can this run in the cloud? At the edge? What is the single most valuable
+optimisation?</p>
+<blockquote>
+<p><strong>Solution.</strong> Edge: <code>2 + 2 + 1 + 3 + 8 + 1 + 1 + 30 = 48 ms</code>, comfortably
+inside 100 ms with roughly 2× headroom. Cloud at p50:
+replace the two 1 ms network hops with 35 ms each, giving <code>48 - 2 + 70 =
+116 ms</code> — already over budget on a <em>good</em> day. At p99 it is <code>48 - 2 + 280 =
+326 ms</code>, more than three times the budget. Cloud is not viable at any
+percentile, so the placement decision is forced.
+The most valuable optimisation is the actuator's 30 ms, which is 62 % of the
+edge budget — and it is the one most engineers never look at, because it is
+not software. Failing that, the 8 ms model step is the largest software
+term, and a reduced-order model or a cached linearisation would attack it.
+The general lesson: do the arithmetic <em>before</em> optimising, or you will spend
+a week shaving the 3 ms broker hop.</p>
+</blockquote>
+<p><strong>10.8 [medium] Compose a second twin.</strong> Take your Section 6 Compose stack and add
+a second box without editing any Python. If you cannot, identify precisely
+which hard-coded value blocked you and refactor it into configuration. Then
+answer: what is your marginal cost — in files touched — for box number ten?
+<em>Hint: the usual culprits are topic names, parameter file paths, and the
+threshold. A good target is one new YAML file and zero code changes.</em></p>
+<h3 id="objective-4-build-the-pipeline">Objective 4 — build the pipeline</h3>
+<p><strong>10.9 [medium] Write the fidelity test.</strong> Add the Level 2 test from Section 7.2
+to your project: a versioned reference dataset, a tolerance derived from your
+holdout RMSE, and a CI job. Then deliberately break it — change <code>R</code> by 20 % —
+and confirm it fails. Finally, make the job record the achieved RMSE as an
+artefact and explain, in two sentences, what you would do with a plot of that
+number over 200 commits.
+<em>Hint: the interesting failure is not the 20 % break, which any test catches.
+It is twenty commits that each degrade fidelity by 1 %.</em></p>
+<p><strong>10.10 [hard] Build the simulated physical twin.</strong> Replace your hardware with
+a container that simulates the box and speaks the same MQTT topics, and get
+the system test from Section 7.2 passing in CI. Then answer the hard question:
+what does this test <em>not</em> prove about the real system? Write the list. It
+should have at least four entries.
+<em>Hint: consider timing, sensor placement, actuator dynamics, and every
+assumption shared between your simulator and your twin's model.</em></p>
+<h3 id="objective-5-diagnose-an-operational-twin">Objective 5 — diagnose an operational twin</h3>
+<p><strong>10.11 [medium] Triage.</strong> For each observation, give the most likely cause and
+the next diagnostic step you would take:
+(a) residual mean drifts from 0.0 to 0.4 °C over eight weeks, variance
+unchanged; (b) residual jumps to 3 °C and stays there, coverage drops to
+zero for one sensor; (c) residual variance triples overnight, mean unchanged;
+(d) synchronisation lag climbs steadily from 1 s to 40 s over an hour while
+all residuals stay normal; (e) residual variance drops to exactly zero.
+<em>Hint: exactly one of these is more likely to be an attack than a fault, and
+one is good news that looks like bad news — or the reverse.</em></p>
+<p><strong>10.12 [hard] Threat-model your own twin.</strong> Draw the data flow of your
+Section 6 stack and mark every point where an attacker could inject, modify,
+suppress, or observe a message. For the three highest-impact points, write the
+control you would implement and estimate its cost in engineer-days. Then
+answer: which of your controls would have <em>prevented</em> the incident, and which
+would only have <em>detected</em> it?
+<em>Hint: revisit Section 8.3's ordering. Prevention and detection are different
+budgets, and a good answer includes at least one control of each kind.</em></p>
+<h2 id="11-where-to-go-next">11. Where to go next</h2>
+<p>Three directions, depending on what you found most interesting.</p>
+<p><strong>If the modelling drew you in</strong>, the next step is co-simulation: coupling
+several models with different solvers and time steps into one twin, which is
+where the Functional Mock-up Interface earns its complexity, and where
+questions of numerical stability at the coupling points become real.</p>
+<p><strong>If the systems side drew you in</strong>, look at scale. Everything here concerned
+one twin, or a fleet of identical ones. Twins of <em>different</em> systems that must
+cooperate — a bridge twin talking to a traffic twin — raise federation and
+interoperability problems that are genuinely open [@marah_re-engineering_2025],
+and the shift in perspective from individual twins to whole <em>twinning systems</em>
+is an active reframing of the field [@lugaresi_digital_2025].</p>
+<p><strong>If the assurance side drew you in</strong>, follow the thread from Section 7.2 into
+using twins as testing infrastructure — anomaly detection for cyber-physical
+systems built on twin-produced expectations is a well-developed line of work
+[@xu_traversing_2023] — and into what it takes to trust a twin's conclusions
+enough to act on them automatically [@zhang_knowledge_2024].</p>
+<p>Whichever you pick, the discipline from Section 4.3 travels with you: write
+down what your model is valid for, measure how wrong it is, and never let a
+service make a decision finer than that number.</p>
+<h2 id="12-references">12. References</h2>
+<ul>
+<li><strong>aguzzi_cloud_2020</strong> -- From Cloud to Edge: Seamless Software Migration at the Era of the Web of Things (2020).</li>
+<li><strong>aheleroff_digital_2021</strong> -- Digital Twin as a Service (DTaaS) in Industry 4.0: An Architecture Reference Model (2021).</li>
+<li><strong>aissat_devops_2025</strong> -- A devops framework for the systematic engineering and evolution of digital twins for built assets (2025).</li>
+<li><strong>aissat_juno-ops_2024</strong> -- JuNo-OPS: A DevOps Framework for the Engineering of Digital Twins for Built Assets (2024).</li>
+<li><strong>akiki_resources_2025</strong> -- Resources don't grow on trees: A framework for resource-driven adaptation (2025).</li>
+<li><strong>alcaraz_digital_2022</strong> -- Digital Twin: A Comprehensive Survey of Security Threats (2022).</li>
+<li><strong>alhamam_comprehensive_2025</strong> -- A Comprehensive Review on Cybersecurity of Digital Twins Issues, Challenges, and Future Research Directions (2025).</li>
+<li><strong>almeida_middleware_2023</strong> -- Middleware for Digital Twins: A Systematic Mapping Study (2023).</li>
+<li><strong>alskaif_evolution_2025</strong> -- Evolution at the Core of Digital Twin Engineering (2025).</li>
+<li><strong>badolato_psmark_2026</strong> -- PSMark: a distributed IoT benchmark for publish/subscribe under domain-based workloads (2026).</li>
+<li><strong>barbie_toward_2024</strong> -- Toward Reproducibility of Digital Twin Research: Exemplified with the PiCar-X (2024).</li>
+<li><strong>barbone_-device_2026</strong> -- On-device AI and digital twins: A synergistic approach to intelligent cyber-physical systems (2026).</li>
+<li><strong>barbone_digital_2024</strong> -- Digital Twin Continuum: a Key Enabler for Pervasive Cyber-Physical Environments (2024).</li>
+<li><strong>beaumont_towards_2025</strong> -- Towards Automating the Life Cycle Management of Digital Twins (2025).</li>
+<li><strong>bohlbro_visualisation_2024</strong> -- Visualisation in a Digital Twin Context (2024).</li>
+<li><strong>bordeleau_devops_nodate</strong> -- A DevOps Approach for the Systematic Development and Evolution of Built Assets Digital Twins (n.d.).</li>
+<li><strong>caprarelli_fallacies_2020</strong> -- Fallacies and Pitfalls on the Road to DevOps: A Longitudinal Industrial Study (2020).</li>
+<li><strong>combemale_model-based_2023</strong> -- Model-Based DevOps: Foundations and Challenges (2023).</li>
+<li><strong>de_azambuja_digital_2024</strong> -- Digital Twins in Industry 4.0 – Opportunities and challenges related to Cyber Security (2024).</li>
+<li><strong>deng_cloud-native_2024</strong> -- Cloud-Native Computing: A Survey From the Perspective of Services (2024).</li>
+<li><strong>deslauriers_everyday_2022</strong> -- Everyday orchestration with Docker on Kubernetes (2022).</li>
+<li><strong>duran_toward_2026</strong> -- Toward Digital Twin-as-a-Service (DTaaS) Platforms: A Survey on Architecture, Design Requirements, and Performance Metrics (2026).</li>
+<li><strong>esterle_autonomous_2024</strong> -- Autonomous Reconfiguration Enabled by Digital Twins (2024).</li>
+<li><strong>faticanti_locality-aware_2023</strong> -- Locality-aware deployment of application microservices for multi-domain fog computing (2023).</li>
+<li><strong>ferko_architecting_2022</strong> -- Architecting Digital Twins (2022).</li>
+<li><strong>fitzgerald_digital_2024</strong> -- Digital Twin Engineering Processes (2024).</li>
+<li><strong>frasheri_addressing_2023</strong> -- Addressing time discrepancy between digital and physical twins (2023).</li>
+<li><strong>frasheri_advanced_2024</strong> -- Advanced Digital Twin Services (2024).</li>
+<li><strong>friedrich_cofmpy_2025</strong> -- CoFMPy: A Python Framework for Rapid Prototyping of FMI-based Digital Twins (2025).</li>
+<li><strong>gil_survey_2024</strong> -- Survey on open-source digital twin frameworks–A case study approach (2024).</li>
+<li><strong>gil_toward_2024</strong> -- Toward a systematic reporting framework for Digital Twins: a cooperative robotics case study (2024).</li>
+<li><strong>gomes_digital_2025</strong> -- Digital Twin Tutorial: The Incubator Case Study (2025).</li>
+<li><strong>gomes_sensing_2024</strong> -- Sensing and Communication of Data from the Physical Twin (2024).</li>
+<li><strong>honcak_mbse_2024</strong> -- An MBSE approach for Virtual Verification &amp; Validation of Systems with Digital Twins (2024).</li>
+<li><strong>hugues_twinops_2020</strong> -- TwinOps - DevOps meets model-based engineering and digital twins for the engineering of CPS (2020).</li>
+<li><strong>hugues_twinops_2022</strong> -- Twinops: Digital twins meets devops (2022).</li>
+<li><strong>iorio_computing_2023</strong> -- Computing Without Borders: The Way Towards Liquid Computing (2023).</li>
+<li><strong>jaber_comprehensive_2025</strong> -- A Comprehensive State-of-the-Art Review for Digital Twin: Cybersecurity Perspectives and Open Challenges (2025).</li>
+<li><strong>kamburjan_declarative_2024</strong> -- Declarative Lifecycle Management in Digital Twins (2024).</li>
+<li><strong>karabey_aksakalli_deployment_2021</strong> -- Deployment and communication patterns in microservice architectures: A systematic literature review (2021).</li>
+<li><strong>kimmel_digital_2025</strong> -- Digital Twins for Software Engineering Processes (2025).</li>
+<li><strong>kritzinger_digital_2018</strong> -- Digital Twin in manufacturing: A categorical literature review and classification (2018).</li>
+<li><strong>kulik_security_2024</strong> -- Security and Privacy-related Issues in a Digital Twin Context (2024).</li>
+<li><strong>lazidis_publish-subscribe_2022</strong> -- Publish-Subscribe approaches for the IoT and the cloud: Functional and performance evaluation of open-source systems (2022).</li>
+<li><strong>lugaresi_digital_2025</strong> -- From Digital Twins to Twinning Systems (2025).</li>
+<li><strong>marah_re-engineering_2025</strong> -- (Re-)Engineering Digital Twins Towards Federation: Vision and Roadmap (2025).</li>
+<li><strong>marosi_interoperable_2022</strong> -- Interoperable Data Analytics Reference Architectures Empowering Digital-Twin-Aided Manufacturing (2022).</li>
+<li><strong>martin_facilitating_2022</strong> -- Facilitating the monitoring and management of structural health in civil infrastructures with an Edge/Fog/Cloud architecture (2022).</li>
+<li><strong>mishra_use_2020</strong> -- The use of MQTT in M2M and IoT systems: A survey (2020).</li>
+<li><strong>moreau_containers_2023</strong> -- Containers for computational reproducibility (2023).</li>
+<li><strong>naik_choice_2017</strong> -- Choice of effective messaging protocols for IoT systems: MQTT, CoAP, AMQP and HTTP (2017).</li>
+<li><strong>niedzwiecki_cloud-based_2024</strong> -- Cloud-based Digital Twin for Cognitive Robotics (2024).</li>
+<li><strong>noauthor_intertwin_nodate</strong> -- interTwin: Advancing Scientific Digital Twins through AI, Federated Computing and Data (n.d.).</li>
+<li><strong>oakes_case_2024</strong> -- Case Studies in Digital Twins (2024).</li>
+<li><strong>oakes_towards_2024</strong> -- Towards Ontological Service-Driven Engineering of Digital Twins (2024).</li>
+<li><strong>pfeiffer_towards_2023</strong> -- Towards a Product Line Architecture for Digital Twins (2023).</li>
+<li><strong>pfeiffer_towards_2025</strong> -- Towards a Unifying Reference Model for Digital Twins of Cyber-Physical Systems (2025).</li>
+<li><strong>picone_assessing_2026</strong> -- Assessing the Impact of Cybersecurity Attacks on Digital Twin Metrics: An Experimental Study (2026).</li>
+<li><strong>picone_flexible_2023</strong> -- A Flexible and Modular Architecture for Edge Digital Twin: Implementation and Evaluation (2023).</li>
+<li><strong>raza_empowering_2024</strong> -- Empowering Microservices: A Deep Dive into Intelligent Application Component Placement for Optimal Response Time (2024).</li>
+<li><strong>rivera_forging_2021</strong> -- The forging of autonomic and cooperating digital twins (2021).</li>
+<li><strong>robles-enciso_adapting_2024</strong> -- Adapting Containerized Workloads for the Continuum Computing (2024).</li>
+<li><strong>robles_opentwins_2023</strong> -- OpenTwins: An open-source framework for the development of next-gen compositional digital twins (2023).</li>
+<li><strong>rose_planning_2022</strong> -- Planning for a Zero Trust Architecture: A Planning Guide for Federal Administrators (2022).</li>
+<li><strong>rose_zero_2020</strong> -- Zero Trust Architecture (2020).</li>
+<li><strong>salaht_overview_2020</strong> -- An Overview of Service Placement Problem in Fog and Edge Computing (2020).</li>
+<li><strong>sultan_container_2019</strong> -- Container security: Issues, challenges, and the road ahead (2019).</li>
+<li><strong>talasila_composable_2025</strong> -- Composable digital twins on Digital Twin as a Service platform (2025).</li>
+<li><strong>talasila_digital_2026</strong> -- A digital twin platform for structural health monitoring (2026).</li>
+<li><strong>talasila_realising_2024</strong> -- Realising Digital Twins (2024).</li>
+<li><strong>tao_maketwin_2024</strong> -- makeTwin: A reference architecture for digital twin software platform (2024).</li>
+<li><strong>thelen_comprehensive_2022</strong> -- A comprehensive review of digital twin — part 1: modeling and twinning enabling technologies (2022).</li>
+<li><strong>ullah_micado-edge_2021</strong> -- MiCADO-Edge: Towards an Application-level Orchestrator for the Cloud-to-Edge Computing Continuum (2021).</li>
+<li><strong>van_dinter_reference_2023</strong> -- Reference architecture for digital twin-based predictive maintenance systems (2023).</li>
+<li><strong>wermann_ktwin_2024</strong> -- KTWIN: A Serverless Kubernetes-based Digital Twin Platform (2024).</li>
+<li><strong>xu_traversing_2023</strong> -- Traversing the Data Spectrum: Path to Dependable Cyber-Physical Systems through Digital Twins (2023).</li>
+<li><strong>zampetti_continuous_2023</strong> -- Continuous Integration and Delivery Practices for Cyber-Physical Systems: An Interview-Based Study (2023).</li>
+<li><strong>zech_digital-twins-as--service_2024</strong> -- Digital-Twins-as-a-Service in Construction Engineering (2024).</li>
+<li><strong>zech_proposal_2024</strong> -- A Proposal for a Models-Meet-Data Repository for Digital Twins in Construction Engineering (2024).</li>
+<li><strong>zhang_knowledge_2024</strong> -- Knowledge Equivalence in Digital Twins of Intelligent Systems (2024).</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Prasad Talasila
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.tabs.sticky", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1359 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home page of Prasad Talasila">
+      
+      
+        <meta name="author" content="Prasad Talasila">
+      
+      
+        <link rel="canonical" href="https://prasad.talasila.in/writings/chitragupta/surveys/digital-twin-architectures.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Digital Twin Architectures: A Software Architecture Survey with Five Domain Case Studies - Prasad Talasila</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/course-tables.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#digital-twin-architectures-a-software-architecture-survey-with-five-domain-case-studies" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Prasad Talasila" class="md-header__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prasad Talasila
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Digital Twin Architectures: A Software Architecture Survey with Five Domain Case Studies
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../research.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Research
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../publications.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../projects.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../software.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../courses.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Courses
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../writings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Writings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../contact.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Prasad Talasila" class="md-nav__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Prasad Talasila
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../research.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../publications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../writings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abstract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-scope-and-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Scope and method
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-concepts-that-constrain-the-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Concepts that constrain the architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Concepts that constrain the architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-integration-level-is-the-first-architectural-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Integration level is the first architectural decision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-dimensional-decompositions-and-their-architectural-residue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Dimensional decompositions and their architectural residue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-reference-model-reference-architecture-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Reference model, reference architecture, architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-the-architectural-design-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. The architectural design space
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. The architectural design space">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-patterns-and-their-measured-frequencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Patterns and their measured frequencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-the-layered-stacks-and-why-they-disagree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 The layered stacks, and why they disagree
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-pattern-catalogues-the-finer-grain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Pattern catalogues: the finer grain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-deployment-cloud-edge-and-the-continuum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Deployment: cloud, edge, and the continuum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-composition-from-single-twins-to-ecosystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Composition: from single twins to ecosystems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-quality-attributes-and-architectural-tactics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Quality attributes and architectural tactics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Quality attributes and architectural tactics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-maintainability-and-evolvability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Maintainability and evolvability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-latency-synchronisation-and-fidelity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Latency, synchronisation and fidelity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Interoperability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-security-and-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Security and trust
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-the-trade-offs-stated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 The trade-offs, stated
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-five-example-architectures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Five example architectures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Five example architectures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-manufacturing-maketwin-a-platform-reference-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Manufacturing: makeTwin, a platform reference architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-healthcare-an-ecosystem-of-twins-for-operating-room-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Healthcare: an ecosystem of twins for operating room management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-mobility-a-cloudedge-mobility-digital-twin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Mobility: a cloud–edge mobility digital twin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-energy-a-digital-twin-for-a-floating-offshore-wind-turbine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Energy: a digital twin for a floating offshore wind turbine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-built-assets-a-microservice-twin-under-a-devops-regime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 Built assets: a microservice twin under a DevOps regime
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-cross-case-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Cross-case comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-cross-source-disagreements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Cross-source disagreements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-gap-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Gap analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="digital-twin-architectures-a-software-architecture-survey-with-five-domain-case-studies">Digital Twin Architectures: A Software Architecture Survey with Five Domain Case Studies</h1>
+<p><strong>Disclaimer:</strong> This article has been generated using
+<a href="https://prasad.talasila.in/chitragupta">chitragupta</a>.
+Despite some potential for hallucination, the ideas communicated in this
+tutorial are accurate. Please send your corrections and suggestions to
+<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#112;&#114;&#97;&#115;&#97;&#100;&#46;&#116;&#97;&#108;&#97;&#115;&#105;&#108;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#112;&#114;&#97;&#115;&#97;&#100;&#46;&#116;&#97;&#108;&#97;&#115;&#105;&#108;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></p>
+<h2 id="abstract">Abstract</h2>
+<p>The digital twin has been described as a modelling idea, a data-integration idea, and a business proposition. It is also, and perhaps most consequentially, a software architecture problem. A digital twin is a long-lived distributed software system that must remain faithful to a physical counterpart that is itself changing, must serve several classes of stakeholder at different latencies, must integrate models written in incompatible formalisms, and must be maintained across a lifespan measured in the decades of the asset rather than the months of a release cycle. This survey reads the digital twin literature through a software architecture lens. We first isolate the conceptual commitments that constrain design: the level of integration between physical and digital counterpart, the dimensional decompositions inherited from manufacturing, and the distinction between a reference model, a reference architecture and a concrete architecture. We then map the architectural design space — the patterns actually used and their measured frequencies, the recurring layered stacks, the published pattern catalogues, the cloud/edge deployment question, and the mechanisms for composing twins into ecosystems. We treat quality attributes as the driving force, examining maintainability and evolution, latency and fidelity, interoperability, and security, and we show where these attributes conflict. Against this background we present five example architectures drawn from different domains: a manufacturing platform reference architecture, an operating-room management twin built over a legacy hospital system, a mobility twin deployed on a commercial cloud, a floating offshore wind turbine twin validated against a full-scale prototype, and a built-asset twin engineered under a DevOps regime. A cross-case comparison shows that these five systems agree on very little at the level of structure and agree substantially at the level of the problems they are solving. We close with the disagreements the literature has not resolved and the gaps the retrieved corpus does not cover.</p>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Software architecture is the discipline of deciding, early and deliberately, which structures a system will have, because those structures determine which qualities the system can achieve and which changes it will be able to absorb. The choice matters most when a system is long-lived, distributed, and subject to requirements from multiple stakeholders who will never be in the same room. Digital twins are exactly such systems, and the software architecture community has recognised this. A systematic mapping study of the field found a growing body of peer-reviewed architectural solutions for digital twins, screening 1630 candidate publications and analysing 140 primary studies devoted specifically to architecting them [@ferko_architecting_2022]. That volume is itself a finding: architecting digital twins has become a research subject in its own right, distinct from modelling them or from the domain engineering that motivates them.</p>
+<p>The reason is not hard to locate. A digital twin is not a model with a network connection. It is an assembly of heterogeneous parts that must operate as one: sensing and acquisition, protocol adaptation, storage of both transient and persistent data, one or more executable models, an estimation or inference stage, services that consume the estimates, user interfaces, and — where the twin is genuinely a twin rather than a shadow — a return path to the physical system. Each of these parts has its own technology, its own vendor ecosystem, its own rate of change, and often its own owner. The literature describes this condition candidly. Work on human-centric industrial twins characterises the setting as one of "massive heterogeneity and fragmentation of existing systems characterized by a plethora of different devices, platforms, communication protocols and data formats" [@villani_digital_2025]. A hierarchical twin ecosystem for manufacturing frames its own motivation as the difficulty of digitalising "a complex and heterogeneous environment" given the "scattered nature of key information across the shop floor" [@martinelli_hierarchical_2024].</p>
+<p>Heterogeneity alone would be a systems integration problem. What makes it an architecture problem is that the twin has to keep integrating over time. A vision paper on engineering digital twins puts the difficulty precisely: engineering a twin "extends beyond managing the lifecycle of a Digital Twin (DT) to include its continuous, dynamic interaction with the lifecycle of the actual object, system, or process it represents", with the consequence that "when the AT changes, the DT may need to be entirely redeveloped in order not to become obsolete" [@alskaif_evolution_2025]. Two lifecycles are coupled, and the coupling is not symmetric: the physical asset is refurbished, reconfigured, instrumented and decommissioned on a schedule that the twin's maintainers do not control. An architecture that cannot absorb changes on the physical side will be rewritten rather than evolved. The same authors identify the underlying deficiency as "the lack of a more global approach/methodology to support the engineering and evolution of DTs" [@alskaif_evolution_2025], and dedicated notations have since been proposed to make twin evolution tractable [@mertens_continuous_2024].</p>
+<p>There is a second, quieter reason to read this literature architecturally. The field has a scaling problem that is usually framed as a modelling problem but is at least as much a structural one. A widely cited perspective describes the barriers to moving digital twins "from a labor intensive and highly specialized or artisanal" product "to a widely adopted or industrial commodity", drawing its evidence from aerospace engineering and cardiology, and argues that divergent interpretation across disciplines "is limiting the wider adoption of digital-twin technologies" [@niederer_scaling_2021]. A complementary line of work argues that a "unifying mathematical formulation is needed to move from one-off digital twins built through custom implementations" to "robust digital twin implementations at scale", and proposes a probabilistic graphical model as that formalism [@kapteyn_probabilistic_2021]. Both diagnoses point at the absence of a shared abstraction. Abstraction that can be shared across instances, teams and domains is what an architecture provides.</p>
+<p>This survey therefore asks three questions. What conceptual commitments in the digital twin literature constrain architectural choice before any structure is drawn? What is the actual design space — the patterns, layerings, deployment options and composition mechanisms that the field uses? And what do concrete architectures look like when a real system has to be built, in domains whose drivers differ as sharply as a textile shop floor differs from an operating theatre or a floating turbine?</p>
+<p>The paper is organised accordingly. Section 2 states scope and method. Section 3 examines the concepts that constrain design. Section 4 maps the design space. Section 5 treats quality attributes and the tactics used to achieve them, including the trade-offs the literature reports. Section 6 presents five example architectures in detail. Section 7 compares them. Section 8 sets out cross-source disagreements. Section 9 gives a gap analysis, including the areas the retrieved corpus covers thinly, and Section 10 concludes.</p>
+<h2 id="2-scope-and-method">2. Scope and method</h2>
+<p>This survey is drawn from a corpus of digital twin and cyber-physical systems literature retrieved by keyword-ranked search over parsed full texts. Candidate material was retrieved for eleven sub-themes — reference architectures, definitional and dimensional models, deployment styles, five application domains, standards and interoperability, quality attributes and security, composition and aggregation, model-driven engineering, platforms and tooling, evolution and lifecycle, and human-in-the-loop design — and each candidate was then read and judged individually before it was allowed to support a claim. Retrieval rank is a proxy for lexical overlap, not for relevance, and a substantial number of high-ranking hits were discarded on reading because they shared vocabulary with the query without bearing on the claim.</p>
+<p>Two boundaries should be stated. First, this is a survey of what the retrieved corpus contains, not a systematic mapping study; it does not claim exhaustive coverage of the field and it inherits whatever selection bias the underlying library carries. Where a sub-theme remained thin after reformulating queries, Section 9 says so explicitly rather than filling the space with uncited assertion. Second, the survey is deliberately architectural. It treats modelling techniques, machine learning methods and domain physics as forces acting on architecture rather than as subjects in themselves; readers wanting those subjects will find broad treatments elsewhere, including two-part reviews covering modelling and twinning enabling technologies [@thelen_comprehensive_2022] and the role of uncertainty quantification and optimisation [@thelen_comprehensive_2022-1].</p>
+<p>The five example architectures in Section 6 were selected on three criteria: they come from clearly distinct domains, the source publication describes structure in enough detail to be discussed as an architecture rather than a diagram, and the source states its own limitations. The third criterion excluded several otherwise attractive candidates. It matters because an architecture whose weaknesses are undocumented cannot be compared honestly with one whose weaknesses are.</p>
+<h2 id="3-concepts-that-constrain-the-architecture">3. Concepts that constrain the architecture</h2>
+<h3 id="31-integration-level-is-the-first-architectural-decision">3.1 Integration level is the first architectural decision</h3>
+<p>The most consequential decision in a digital twin project is made before any component is named. It is the decision about how data flows between the physical and digital counterparts, and it was given its canonical form in a categorical literature review of manufacturing twins. A <em>Digital Model</em> is "a digital representation of an existing or planned physical object that does not use any form of automated data exchange"; a <em>Digital Shadow</em> adds "an automated one-way data flow" from physical to digital; and only when "the data flows between an existing physical object and a digital object are fully integrated in both directions" is the term <em>Digital Twin</em> warranted, in which case "the digital object might also act as controlling instance of the physical object" [@kritzinger_digital_2018].</p>
+<p>This is a taxonomy of terminology, but it functions as a taxonomy of architecture. Each level implies a different structure. A digital model requires no runtime coupling and can be a batch artefact. A digital shadow requires acquisition, transport, storage and a synchronisation policy, and it inherits every availability and latency concern that comes with them, but it needs no return path and therefore no authority model over actuation. A digital twin requires the return path, and with it command validation, safety interlocks, arbitration between the twin and other controllers, and a security posture that treats the twin as part of the control system rather than as an observer of it. Adding bidirectionality late is not an increment; it is a redesign.</p>
+<p>The review's most sobering result is quantitative. Of the surveyed publications, 28% describe digital models and 35% digital shadows, and "only 18 percent of them are really describing a Digital Twin with a bidirectional data-transfer" [@kritzinger_digital_2018]. A reader of the architecture literature should hold this figure in mind, because papers routinely use the word "twin" for systems whose architecture supports only shadowing. A more recent framing proposes "twinning systems" as a unifying umbrella "for sensing, simulation and digital models/shadows/twins" [@lugaresi_digital_2025], which has the merit of keeping the distinctions visible while acknowledging that real deployments mix levels across subsystems.</p>
+<p>Standardisation has taken a different route. The ISO 23247 series defines a digital twin in manufacturing as "a fit for purpose digital representation of an observable manufacturing element with synchronization between the element and its digital representation" [@shao_analysis_2023]. "Fit for purpose" moves the criterion from data-flow topology to intended use, and "synchronization" is left deliberately unquantified. Architecturally this is permissive where Kritzinger is strict, and Section 8 returns to the tension.</p>
+<h3 id="32-dimensional-decompositions-and-their-architectural-residue">3.2 Dimensional decompositions and their architectural residue</h3>
+<p>Manufacturing research supplied the field's other founding abstraction: the enumeration of a twin's constituent dimensions. The three-dimension model — physical entity, virtual entity, and the connection between them — was extended because it "cannot accommodate the new requirements from applications, technology, modeling objects", giving a five-dimension model that adds digital twin data and services [@tao_five-dimension_2019]. The extension has not stopped; six-dimensional modelling has since been proposed for complex industrial systems [@li_six-dimensional_2025].</p>
+<p>These are conceptual decompositions rather than architectures — they say what a twin is made of, not how the pieces are deployed, who owns which interface, or what happens when one piece fails. But their residue is visible throughout the architecture literature, because most domain reference architectures are recognisably an elaboration of them. Data and services are promoted to first-class dimensions precisely because, in practice, they are where the software engineering effort concentrates. A survey of enabling technologies is explicit that services are the delivery vehicle and that "virtual models, data, and services are not isolated. They constantly interact with each other through connections among them towards collective evolution", requiring "application software, platform architecture technology, service oriented architecture (SoA) technologies, and knowledge technologies" [@qi_enabling_2021].</p>
+<p>The continued proliferation of dimension counts is worth reading as a finding rather than a curiosity. A field that has settled its reference model does not keep adding dimensions to it.</p>
+<h3 id="33-reference-model-reference-architecture-architecture">3.3 Reference model, reference architecture, architecture</h3>
+<p>Software architecture distinguishes a reference model — a division of functionality together with data flow — from a reference architecture, which maps that functionality onto a structure of components, and from a concrete architecture designed for a particular system. The mapping study applied this taxonomy to the digital twin field and found that 56.42% of primary studies propose a reference model [@ferko_architecting_2022]. The authors interpret this as a sign that architectural solutions "are still evolving and are just presented as simplified models" [@ferko_architecting_2022].</p>
+<p>The consequence is a persistent gap between what is published and what is buildable. A recent effort to synthesise "a detailed reference model for DTs that reduces the concept-implementation gap" opens by stating that "existing definitions and reference models of digital twins are overly abstract, impeding their" application [@pfeiffer_towards_2025]. Even careful reference architecture work reports the same tension from the inside: a reference architecture for twin-based predictive maintenance, built with domain analysis, feature modelling and UML views, notes that "using high-level modules caused the 5C architecture to be rather generic" [@van_dinter_reference_2023].</p>
+<p>There is a counterweight. Expert interviews conducted as part of the mapping study found that reference models are valued by industry for economic reasons: "it is easier to assess certain qualities using reference models or architectures, which require a lower amount of time and money", and reference models "are actually desirable solutions from a company's perspective since they are economically cheaper to leverage for multiple business and technical analyses" [@ferko_architecting_2022]. The abstraction that frustrates implementers is what makes the artefact reusable for evaluation. Both readings are correct; they simply serve different stakeholders, which is itself an architectural observation.</p>
+<h2 id="4-the-architectural-design-space">4. The architectural design space</h2>
+<h3 id="41-patterns-and-their-measured-frequencies">4.1 Patterns and their measured frequencies</h3>
+<p>The digital twin field's pattern usage has been measured, which is unusual and valuable. Across 140 primary studies, "the most recurring pattern is the layered pattern (35.9%), followed by SOA (29.3%), component-based (13.8%), and microservices (6.6%)", with publish-subscribe at 5.5%, event-driven at 2.7% and pipeline at 2.2% [@ferko_architecting_2022]. Ten unique patterns were identified in total, and patterns are usually combined rather than used alone: 38.19% of studies use more than one, and "the layered and SOA combination is, by far, the most used combination and accounts for 27 studies" [@ferko_architecting_2022].</p>
+<p>Two things stand out. The first is the dominance of layering, which the study attributes to its role "as an interface between physical and virtual space, consolidating syntax and semantics of different perspectives" [@ferko_architecting_2022]. Layering is the natural response to a system whose components differ in their rate of change and their technology stack. The second is the low share of microservices, which contrasts sharply with mainstream distributed systems practice. The study's expert interviews offer an explanation that is architectural rather than fashion-driven: microservices "may be less used because of the rigidity of some domains that can be safety-critical" and demanding of certifiable solutions "which are harder to build using given patterns" [@ferko_architecting_2022]. A twin embedded in a certified control loop cannot freely adopt a style whose defining property is independent, frequent, uncoordinated deployment.</p>
+<p>The service-oriented share deserves a note. Service orientation reached digital twins partly through Industry 4.0, where the twin is the mechanism that makes service-based production possible: work at Fraunhofer derives "the minimal data to be contained in digital twins to enable an Industry 4.0 service-oriented architecture", describes services by "their capabilities and their quality of service in terms of time, money and resulting product quality", and validates the models by implementing the use cases "on two model plants" [@schnicke_enabling_2020]. Here the twin is not a component within an SOA; it is the artefact that makes the SOA describable.</p>
+<h3 id="42-the-layered-stacks-and-why-they-disagree">4.2 The layered stacks, and why they disagree</h3>
+<p>If layering dominates, one would expect convergence on a set of layers. There is partial convergence and instructive divergence.</p>
+<p>The mapping study found that most layered digital twin architectures use four layers: "physical, data and network, virtual, and application layer", where "the physical layer is where machines, sensors, and actuators reside" and connects upward to data and network [@ferko_architecting_2022]. This is the modal stack, and it is essentially the five-dimension model with connection and data merged into a transport-and-storage tier.</p>
+<p>Other stacks compete. A reference architecture for the Industrial Internet is "composed of three interdependent layers (i.e., physical layer, DT layer and DT networks layer) and four critical attributes (i.e., privacy, security, awareness and real-time)" [@li_digital_2024]. This is a materially different decomposition: the twin is a single layer, and a further layer is devoted to networks <em>of</em> twins. Treating privacy, security, awareness and real-time as cross-cutting attributes rather than layers is also a distinct choice, and arguably a better-founded one, since none of them can be localised to a tier.</p>
+<p>The predictive maintenance reference architecture instead adopts the 5C layering — Connection, Conversion, Cyber, Cognition, Configuration — where the connection layer "provides the Physical Twin proxy, acquisition, storage, and communication", the conversion layer "provides security, data quality, and the predictive maintenance module", the cyber layer "contains sub-modules to create a simulation model at a certain abstraction level of the physical asset", cognition "provides visualizations and performs risk analysis", and configuration carries machine optimisation [@van_dinter_reference_2023]. Yet another framework for predictive maintenance twins proposes only three layers: "data collection layer, state judgement layer, service decision-making layer" [@zhong_overview_2023].</p>
+<p>Three, four and five layers, with different names and different assignments of security and storage, all for overlapping problems. The disagreement is not sloppiness. It reflects genuinely different separation criteria: by physical/digital boundary, by data transformation stage, by ownership, or by rate of change. A designer choosing a stack should therefore choose the criterion first and derive the layers, rather than adopt a published stack whose criterion is implicit.</p>
+<h3 id="43-pattern-catalogues-the-finer-grain">4.3 Pattern catalogues: the finer grain</h3>
+<p>Below the level of whole-system stacks sit catalogues of reusable solution structures. The most developed is a systems architecture design pattern catalogue containing nine patterns — Digital Model, Digital Generator, Digital Shadow, Digital Matching, Digital Proxy, Digital Restoration, Digital Monitor, Digital Control, Digital Autonomy — each described with "a well-defined pattern documentation template" and positioned against phases of the systems engineering lifecycle, illustrated through a multi-case study in agriculture and food [@tekinerdogan_systems_2020]. The catalogue is valuable because it converts the integration-level taxonomy of Section 3.1 into design vocabulary: Digital Shadow, Digital Monitor, Digital Control and Digital Autonomy are a ladder of increasing authority, and naming them separately makes the authority question explicit at design time. The predictive maintenance domain analysis found that "most DT-based PdM systems apply the Digital Monitor design pattern" [@van_dinter_reference_2023] — that is, the field's most industrially mature application sits deliberately below the control rung.</p>
+<p>A second catalogue addresses a specific and underappreciated deficiency of commercial platforms. Platform modelling capabilities "are mostly concerned with structural viewpoints, i.e., providing an overview of available components including their current and historical sensor values", while "behavioral viewpoints did not yet receive much attention on these platforms" [@lehner_pattern_2023]. The catalogue supplies modelling patterns for augmenting twin models with behaviour "without requiring any extension of the code bases of Digital Twin platforms", demonstrated on Microsoft's platform in an additive manufacturing use case [@lehner_pattern_2023]. That a workaround catalogue is needed at all is a finding about platform architecture: the dominant platforms model state well and behaviour poorly.</p>
+<p>A related concern is structural correspondence. Work on declarative lifecycle management, classified under software architectures, argues that structures "of the physical system should be matched correctly in the digital twin by the corresponding DT components" [@kamburjan_declarative_2024]. Correspondence is easy to state and hard to preserve under change, which returns us to evolution.</p>
+<h3 id="44-deployment-cloud-edge-and-the-continuum">4.4 Deployment: cloud, edge, and the continuum</h3>
+<p>Deployment is where digital twin architecture becomes concrete, and where the sharpest disagreements are found.</p>
+<p>The cloud-centric position has the longest history. An early reference model, C2PS, was explicitly "a digital twin architecture reference model for the cloud-based cyber-physical systems", identifying "various degrees of basic and hybrid computation-interaction modes" and using "a Bayesian belief network" for its smart interaction controller so that "the system dynamically considers current contexts" [@alam_c2ps_2017]. Cloud deployment gives elasticity, managed storage, and a single place to aggregate across assets.</p>
+<p>The counter-position is stated bluntly by work on edge digital twins. The Edge Digital Twin architectural model enables "the lightweight replication of physical devices providing an efficient digital abstraction layer", with state captured "through a dedicated physical adapter" and outgoing actions translated and forwarded so that "the two counterparts [are] always bidirectionally synchronized" [@picone_flexible_2023]. Crucially, the same work argues that porting a cloud-native twin to the edge does not solve the problem: "even if it is theoretically possible to deploy some cloud-oriented solutions (e.g., Eclipse Ditto) also on the edge, there is the concrete risk to introduce unnecessary delays and force the overall architecture to a monolithic vision of DTs" [@picone_flexible_2023].</p>
+<p>The mainstream resolution is hybrid, and it is argued from a specific trade-off: a cloud "architecture has sufficient computational resources, but it also exposes inherent poor latency performance", so "hybrid cloud-edge computing architectures" are needed together with "a near-instant and high-throughput communication network for synchronization" [@xu_survey_2023]. The continuum framing makes placement a first-class variable, and work on the digital twin continuum ties placement directly to two coupled qualities: twin schemas are "intrinsically linked to how accurately the DT represents the corresponding PA, i.e., its fidelity" and to "the communication latency between the DT and the Application", with the possibility of "multiple packages to cater to the same schema" on different platforms [@barbone_digital_2024]. That last clause is the architecturally interesting one: it makes fidelity a deployment-time selection rather than a design-time constant.</p>
+<p>Serverless has entered as a further option. A microservices-based and serverless-ready twin model is proposed as a foundation "for cost-effective DT deployment and orchestration", on the argument that the combination addresses "accommodating variable application requirements, managing load imbalances, and mitigating network faults" [@bellavista_exploiting_2024]. Serverless twin platforms built on Kubernetes have been targeted specifically at mid-sized cities, on cost-accessibility grounds [@wermann_ktwin_2024]. Placement in the network has also been treated as an architecture question in its own right, with dedicated analysis of "possible architectures for placing a DT in the network" given that twins "require significant resources for communications, computations, and data storage" [@vaezi_digital_2022].</p>
+<h3 id="45-composition-from-single-twins-to-ecosystems">4.5 Composition: from single twins to ecosystems</h3>
+<p>Almost all the foundational literature describes a twin of one asset. Almost all interesting applications need many. Composition is therefore the design space's fastest-moving region.</p>
+<p>The most systematic treatment couples aggregation with service orientation. A design framework proceeds through "1) needs and constraints analysis, 2) physical system decomposition, 3) services allocation, 4) performance and quality considerations, 5) implementation considerations and 6) verification and validation", working against "a general reference architecture that combines a digital twin aggregation hierarchy with a service-oriented architecture", which "allows for the separation of concerns, computational load distribution, incremental development and modular software design" [@human_design_2023]. The pairing is deliberate: the hierarchy gives the decomposition, the service layer gives the coupling mechanism.</p>
+<p>A concrete manufacturing instance shows the hierarchy in operation, with "monitoring modules in the local digital twins of the workstations, whereas the production rate is evaluated and assured by the global digital twin of the shop floor", supporting "decentralized and integrated decision-making for re-scheduling" [@villalonga_decision-making_2021]. Manufacturing surveys supply matching vocabulary — unit level, production line, shop floor, system-of-systems level [@liu_digital_2023] — and the scaling argument is explicit: "The spatial span of the complex digital twins may be huge, and it is impossible to express all the information on the same scale, so the scalability of complex digital twins is the ability" to span scales [@jia_simple_2022].</p>
+<p>The most ambitious reframing is the Web of Digital Twins. It begins by naming the limitation: "The dominant view developed in the literature so far is about the virtualisation of individual physical assets in a closed-system perspective", against which it proposes "an open, distributed and dynamic ecosystem of connected digital twins, functioning as an interoperable service-oriented layer for applications running on top", validated through case studies in healthcare and smart mobility [@ricci_web_2022]. Related work supplies the naming machinery: in distributed twin systems "services are identified by a pair (service type, physical entity), where the same type of twin can be associated with multiple physical entities" [@rothermel_proximity_2024].</p>
+<p>Platform-level composition has also been addressed directly, through a service platform that manages reusable twin assets and can "create composable digital twins from re-usable assets and make the digital twins available as a service to other users", supporting "management of re-usable assets, storage, provision of compute infrastructure, communication, monitoring, and execution tasks" [@talasila_composable_2025]. Nonetheless, the gap remains acknowledged: reviewing composition for Internet-of-Everything applications, one study reports "a notable absence of architectures that support" composition of heterogeneous twins [@amadeo_composing_2024]. Composition is well motivated and unevenly supported.</p>
+<h2 id="5-quality-attributes-and-architectural-tactics">5. Quality attributes and architectural tactics</h2>
+<p>Architecture exists to achieve qualities, and the interaction between multiple qualities is the substance of architectural analysis [@kazman_holistic_2023]. The digital twin literature has enough measured evidence to discuss these interactions concretely rather than aspirationally.</p>
+<h3 id="51-maintainability-and-evolvability">5.1 Maintainability and evolvability</h3>
+<p>Maintainability is, empirically, the field's leading concern: it is "the most mentioned quality attribute (16.2%)" across the mapped primary studies [@ferko_architecting_2022]. The study also had to extend ISO 25010 with three attributes mentioned in more than ten studies each — scalability, reconfigurability and extensibility [@ferko_architecting_2022] — all of which are, in effect, maintainability under different time horizons.</p>
+<p>The dominant tactic set is imported from mainstream software engineering. DevOps applied to twins has produced explicit frameworks structured around "(1) Software methodology to support the systematic and iterative development and evolution of DTs; (2) Microservice architecture to enable the independent development and composition of different aspects of DTs; and (3) DevOps infrastructure to support the development, integration, and deployment of DTs" [@bordeleau_devops_nodate]. TwinOps adds model-based engineering to the same loop, combining "systems engineering models to capture system requirements, interfaces, and the system's functional decomposition into subsystems", simulation models "to evaluate the system general behavior", and "engineering models for the system's design, and then model transformations towards analytical models" [@hugues_twinops_2022; @hugues_twinops_2020]. Treating model transformation as a pipeline stage is the key move: it makes model consistency a build-time property rather than a matter of discipline.</p>
+<p>Model-driven engineering for twins has become a community position, with a multi-institution communication setting out its opportunities and challenges [@michael_model-driven_2025]. Runtime observability of the architecture itself has also been proposed, on the argument that "stakeholders require tools to understand the behavioral state" and need "systematic and automated understanding of the data flow between DT components" [@fiter_dtinsight_2025]. Meanwhile the reproducibility of twin research is itself under scrutiny [@barbie_toward_2024], and reporting frameworks have been proposed to make twin implementations comparable, noting that "composition of interfaces, are current challenges in relation to DT model-driven engineering methods" [@gil_toward_2024].</p>
+<h3 id="52-latency-synchronisation-and-fidelity">5.2 Latency, synchronisation and fidelity</h3>
+<p>Fidelity and synchronisation rate are not implementation details; they are definitional. A twin "is characterized by a symbiotic relationship between a physical entity and its virtual representation" and by "its fidelity, rate of synchronization, and choice of" modelling [@mihai_digital_2022], and a network-oriented survey defines a twin as a representation "synchronized and updated from real-time data, at a specific frequency and fidelity" [@hakiri_comprehensive_2024]. Making these architecturally tractable requires measurement, and a recent survey of twin-as-a-service platforms names "twin fidelity, twinning rate, and inference latency" as the metrics "critical for evaluating the performance of individual components", while criticising earlier work for discussing fidelity, granularity and synchronisation latency without providing "concrete numerical benchmarks for these metrics" [@duran_toward_2026].</p>
+<p>The most architecturally significant treatment concerns what happens when synchronisation fails. Rather than assuming a reliable channel, work on time discrepancy handles the case where "a DT and its PT get out of sync as a result of disturbances in the normal operational conditions of the DT-PT system, e.g., due to network degradation or temporary network drop", with the explicit goal of providing "a best-effort functionality" [@frasheri_addressing_2023]. Designing for degraded synchronisation rather than for its absence is a mature architectural stance, and it is rare in the corpus.</p>
+<h3 id="53-interoperability">5.3 Interoperability</h3>
+<p>Interoperability is where digital twin architecture meets standardisation, and the news is mixed. The Asset Administration Shell is the most institutionally supported information model, specified as the vehicle for "the exchange of information between partners in the value chain" [@noauthor_asset_nodate], with open-source implementations of its reactive form surveyed in detail [@jacoby_open-source_2023] and its three types analysed specifically for their "feasibility for digital" twins [@zhang_digital_2024].</p>
+<p>But multiple description formats coexist and do not agree. The problem is stated plainly: descriptions such as AAS documents "can enable collaboration between machines by presenting their properties in a standardised format. However, the existing DTD formats present information in an incompatible way, hindering interoperability" [@mattila_interoperability_2025]. The field's response has been bridging rather than convergence. One study builds "a mapping between the Digital Twin Definition Language (DTDL) and Asset Administration Shell (AAS)" and implements and tests the transformation "for a physical asset" [@schmidt_increasing_2023]; another maps DTDL to OPC UA [@cavalieri_proposal_2023]. Comparative metamodel analysis across Azure's DTDL and the Eclipse Hono/Vorto/Ditto suite has required "an UML extension as pivot for bridging the gap" [@pfeiffer_modeling_2022]. Twin platforms have each grown their own domain-specific language, including "DTDL for Azure, Eclipse Hono, Eclipse Ditto, and also AWS IoT twinmaker", while "Eclipse BaSyX [is] designed based on the Asset Administration Shell (AAS) meta-model" [@talasila_composable_2025]. An industry consortium framework has attempted to raise the discussion above formats, organising around seven interoperability concepts beginning with system-centric design and built on the notions of digital thread and system-of-systems [@budiardjo_digital_2021].</p>
+<p>Behavioural interoperability is a separate problem, addressed by co-simulation standards. Co-simulation "prescribes the communication interface and protocol between the simulation units and orchestrator", with FMI, HLA and DEVS as the established standards [@schweiger_empirical_2019]. The necessity is structural: models span "diverse formalisms, some describing discrete digital processes and some describing continuous flows", and "the coupling of such models requires a standard in order to ensure interoperability" [@larsen_engineering_2024]. Tooling has not kept pace — "while standards like Functional Mock-up Interface (FMI) facilitate interoperability, there remains a lack of flexible, research-oriented tools that support rapid prototyping" [@friedrich_cofmpy_2025] — and open-source twin platforms have a well-documented blind spot here: projects such as Eclipse Ditto and iTwin.js "focus primarily on facilitating the creation and management of twins and their associated data, but do not provide adequate support for simulation" while other projects "concentrate solely on simulation" [@infante_integrating_2024]. Broader comparative surveys of fourteen open-source twin frameworks across ten dimensions confirm that combining tools is usually necessary [@gil_survey_2024], and platform proliferation across sectors continues at uneven maturity [@khoshkenar_exploring_2024].</p>
+<h3 id="54-security-and-trust">5.4 Security and trust</h3>
+<p>Security in digital twins is not a component; it is a property of the whole structure, and the literature says so. A comprehensive threat survey classifies threats "taking into consideration its functionality layers and the operational requirements", insisting that "any security analysis of a DT must take into account the four functionality layers", and labels each threat by the layer it originates in [@alcaraz_digital_2022]. Its most architecturally useful contribution is the cascade analysis: "a threat [T1.1] in Layer 1 may involve a synchronization variation that implies significant changes in the final management of the digital models included in Layers 2 and 3" [@alcaraz_digital_2022]. A sensing-layer integrity failure propagates upward as a model-validity failure, which is precisely the failure mode a layered architecture is supposed to contain and does not.</p>
+<p>Deployment style changes the risk profile: "the more decentralized, the lower the risk of bottleneck or exhaustion" [@alcaraz_digital_2022]. Other reviews reinforce that "all the components encompassing the infrastructure must be" protected and that risk trade-offs must be assessed, "such as latency and feasibility issues, especially when dealing with specific systems like those in the energy sector" [@alhamam_comprehensive_2025]. Tactically, detection must complement prevention: "attack detection is a critical component of a robust DT cybersecurity strategy in addition to prevention and mitigation measures like firewalls, encryption and access controls", covering "the CPS including the DT, communication channels, sensors, actuators" [@kulik_security_2024]. Standards context is available — ISO 23247 alongside "ISO 8000 for data quality and ISO 27001 for organizational security" [@qureshi_survey_2025] — and where twins span organisational boundaries, zero trust architecture is the relevant reference model from the security side [@rose_zero_2020]. Twins are also used as security instruments rather than only as security liabilities, with security simulation frameworks tested on "a PoC of an industrial filling plant and a conveyor belt" while evaluating "system performance and latency" [@qureshi_survey_2025].</p>
+<h3 id="55-the-trade-offs-stated">5.5 The trade-offs, stated</h3>
+<p>The single most useful trade-off result in the corpus is that "the high reliability, maintainability and on-demand scalability offered by microservices can lead to increased latency, and in this case, a trade-off between performance and other QAs is needed" [@ferko_architecting_2022]. This is the central tension of digital twin architecture in one sentence. The tactics that make a twin maintainable over its asset's lifetime — decomposition into independently deployable services, indirection through message brokers and gateways, abstraction of storage behind adapters — all add hops, and hops cost latency, and latency is a defining quality of a twin. The corpus also links pattern choice to quality: microservice patterns are mentioned together with maintainability (19.2%), compatibility (19.2%) and scalability (23%) [@ferko_architecting_2022]. The five case studies in the next section can be read as five different resolutions of exactly this conflict.</p>
+<h2 id="6-five-example-architectures">6. Five example architectures</h2>
+<h3 id="61-manufacturing-maketwin-a-platform-reference-architecture">6.1 Manufacturing: makeTwin, a platform reference architecture</h3>
+<p><strong>Drivers.</strong> The stated motivation is a gap in the platform market rather than in a single factory. Commercial twin platforms are judged inadequate from two directions: researchers find them insufficient for theoretical investigation, while for enterprise users the platforms are "highly specialized, providing professional-grade multi-physical coupling analysis, diverse algorithms, and advanced 3D visualization development techniques" yet leaving "a significant challenge for common enterprise users who struggle to customize digital twin application service systems to align with their specific requirements", from which the authors conclude that "a configurable, modular, and universally applicable digital twin development platform" is required [@tao_maketwin_2024]. The architecture is therefore a product-line architecture: its purpose is to make many twins cheaply, not to make one twin well.</p>
+<p><strong>Structure.</strong> makeTwin "is comprised of ten fundamental functional modules, namely twinModelBuilder, twinDataProcessor, twinAlgBuilder, twinIoTConnector, twinInteractor, twinSimulator, twinLibrary, twinVisualization, twinSceneTemplate, and twinAppDeployer", where "each module provides interoperability with features such as configurability, callability, modifiability, and extendibility" and "the eight core functions of makeTwin (excluding twinAppDeployer and twinLibrary) can interact through customizable API" [@tao_maketwin_2024]. The exclusion of two modules from the API mesh is telling: twinLibrary is a shared repository and twinAppDeployer is a build-and-ship function, so both sit outside the runtime interaction graph by design.</p>
+<p>Internal decomposition is deep. twinModelBuilder splits into ModelContainer (import, creation, conversion, lightweighting) and ModelIntegration (assembly, fusion, validation, correction), where model assembly covers "individual models, unit-level models, system-level models, and complex-system-level models in the spatial dimension" including "the creation of topological and constraint relationships", and model validation entails "verifying the consistency between digital model output and physical object output" [@tao_maketwin_2024]. This is the aggregation hierarchy of Section 4.5 realised inside a single module. twinIoTConnector carries the physical coupling, addressing "the digital twin guidelines of accuracy, real-time, consistency, security, and reliability" through protocol selection, creation and configuration, physical data source access, system data aggregation and data asset management [@tao_maketwin_2024].</p>
+<p><strong>Variability and deployment.</strong> Reuse is explicit rather than incidental. twinSceneTemplate provides "a collection of common scenario templates across various fields" — smart equipment, shop-floor logistics, stereo warehouse, smart energy — which can be imported at project start and saved back after development [@tao_maketwin_2024], and the documented workflow branches on whether an applicable template exists before falling back to configuration from the component libraries [@tao_maketwin_2024]. twinAppDeployer supports both offline deployment, where "the digital twin application system is installed locally after configuring the environment on a designated computer or server", and online deployment to "a cloud server environment" accessed via web links [@tao_maketwin_2024].</p>
+<p><strong>Validation and limitations.</strong> The architecture is instantiated for a chemical fibre textile shop floor, with three functional requirements — three-dimensional visualisation of production logistics, high-fidelity modelling of the winding, packaging and warehousing units, and adaptive scheduling optimisation [@tao_maketwin_2024]. The authors state that "the architecture and functions need to be further iterated and improved to forming an applicable engineering software, as well as ensuring the adaptability to various industrial and application scenarios" [@tao_maketwin_2024]. In architectural terms: the variability mechanism has been demonstrated on one product, not across a family, so its central claim remains partly unvalidated.</p>
+<p><strong>Standard comparison.</strong> makeTwin can be read against ISO 23247, which decomposes the same domain into entities rather than modules: a user entity hosting PLM, ERP, MOM and human-machine interfaces; a digital twin entity with operation-and-management, application-and-service, and resource-access-and-interchange sub-entities; a device communication entity with data-collection and device-control sub-entities; and a cross-system entity providing "common functionalities such as data translation, data assurance, and security support" [@shao_analysis_2023]. The cross-system entity is the structural counterpart of the cross-cutting attributes of Section 4.2, and its existence concedes that some concerns will not localise. The standard has been instantiated in use-case scenarios implementable "at the National Institute of Standards and Technology (NIST) Smart Manufacturing Systems (SMS) Test Bed or on any manufacturing shop floor that has similar maturity level of digital transformation" [@shao_use_2021], and it presumes integration with incumbent systems rather than their replacement [@shao_framework_2020].</p>
+<h3 id="62-healthcare-an-ecosystem-of-twins-for-operating-room-management">6.2 Healthcare: an ecosystem of twins for operating room management</h3>
+<p><strong>Drivers.</strong> This system is an integration problem before it is a twin problem. The legacy QR-code scanning system "stores the data about each hospital and its ORs in a local relational database that aggregates data coming from modules of the healthcare information system", and "it was unfeasible for this project to change the data storage on the original legacy system" [@burattini_ecosystem_2023]. The dominant force is therefore an immovable constraint, and the architecture is organised around routing past it. The clinical need was equally specific: medical staff "identified data inconsistency as the main issue to be solved as a first step" [@burattini_ecosystem_2023].</p>
+<p><strong>Structure.</strong> Three tiers. First, a data integration and standardisation tier: "a separate centralised component that is responsible for polling the databases and integrating the data coming from the different hospitals", writing into "an HL7 FHIR server based on the IBM FHIR server implementation" [@burattini_ecosystem_2023]. Surgery is mapped onto three linked FHIR resources — an appointment defining "the nature of the planned surgery, its expected duration and its priority", an encounter for patient–staff interaction, and multiple procedures "representing each action performed on the patient during the overall surgery process" — such that "the duration of each step of the perioperative process are kept in the appropriate resource" [@burattini_ecosystem_2023].</p>
+<p>This tier is an anti-corruption layer in the classical sense, and the authors justify it in exactly those terms: the standardisation "decouples the new DT layer from the legacy systems involved, allowing to build DTs with a modern approach and keeping them independent from the evolution of the healthcare information system" [@burattini_ecosystem_2023]. They also predict its own obsolescence — "we can expect this step to not be necessary for future applications once the standards reach a pervasive use" [@burattini_ecosystem_2023] — which is an unusually explicit statement that a component exists to absorb a temporary environmental deficiency.</p>
+<p>Second, the digital twin layer, containing a Surgery DT and an OR-DT. The Surgery DT "periodically queries the data from the implemented FHIR server ... and aggregates the data from the different resources into a Surgery entity model that implements the rules defined above and generates the appropriate warnings, decorating the data coming from the FHIR server with the new information" [@burattini_ecosystem_2023]. Encoded rules cover missing or misordered timestamps, anomalous surgery or step durations "depending on the average time defined in medical literature", anomalous ward-to-OR transfer duration, and the integrity constraint "that only one surgical procedure can be performed at the same time in a single OR" [@burattini_ecosystem_2023]. The OR-DT holds static location information and computes current availability by checking for an open encounter with no registered end time [@burattini_ecosystem_2023].</p>
+<p>Third, a management dashboard web application on top of the twin layer, with authenticated roles separating viewing from editing because "only the authorised leader of the medical staff should be able to annotate" a surgery [@burattini_ecosystem_2023].</p>
+<p><strong>A general design principle, stated locally.</strong> The twin layer exposes data in two forms: "either directly as FHIR resources or, in a more compact format that aggregates the relevant details about each step in a single Surgery resource, including the warnings computed by the DT". The authors generalise: "This duality of data representation is a common feature of DTs... DTs should not be built with a single application in mind, but they should be seen as a way to store data concerning a physical asset in a coherent way" [@burattini_ecosystem_2023]. This is a clean statement of why a twin is an architectural layer rather than an application backend.</p>
+<p><strong>Limitations.</strong> Stated frankly. "The DT Layer implements a partial view of the vision", and because the system "still requires a human input to label each step with the current time of execution, the real-time acquisition is not guaranteed", with IoT instrumentation deferred to future work [@burattini_ecosystem_2023]. The polling-based coupling is also acknowledged as provisional: "we can imagine that in the future the DT could listen for events concerning the update of resources in the FHIR server" [@burattini_ecosystem_2023]. On Kritzinger's scale this is a digital shadow with a partly manual acquisition path [@kritzinger_digital_2018].</p>
+<p><strong>Intra-domain contrast.</strong> Healthcare twins do not converge on this shape. A hospital ward-flow twin is built on entirely different foundations, "leveraging executable formal models for system exploration, ontologies for knowledge representation and an SMT solver for constraint satisfiability", turning "a stream of arriving patients ... into a stream of optimization problems" [@sieve_bedreflyt_2025]. Others adopt a cloud-centric framing for elderly care services [@liu_novel_2019]. The scoping literature confirms the breadth of ambition without confirming architectural convergence [@katsoulakis_digital_2024].</p>
+<h3 id="63-mobility-a-cloudedge-mobility-digital-twin">6.3 Mobility: a cloud–edge mobility digital twin</h3>
+<p><strong>Drivers.</strong> Three classes of entity must be twinned at once — vehicles, humans and traffic — and the data is generated by a mobile, intermittently connected fleet. The architecture is explicitly an instantiation rather than a proposal, built "to realize the Digital Twin concept in the real world" [@wang_mobility_2022].</p>
+<p><strong>Structure.</strong> Four layers: "1) the cloud layer, which is built on AWS and its Virtual Private Cloud (VPC); 2) the edge layer, which has a storage component; 3) the device layer, which generates data; [and an] API layer, which hooks up the cloud layer with external" sources [@wang_mobility_2022]. The mapping between conceptual framework and physical deployment is stated rather than left implicit: the physical space "is represented by the device layer", the communication plane sits "within the edge layer's communication component", and the digital space "spans the whole part of the cloud and API layers, as well as part of the edge layer (except for its communication" component) [@wang_mobility_2022]. Making this mapping explicit is good architectural practice and comparatively rare in the corpus.</p>
+<p>Within the cloud layer, storage is polyglot by design: "Amazon S3, a scalable storage infrastructure to build our Digital Twin data lakes", "Amazon DocumentDB" with MongoDB compatibility for "flexible, low latency queries to obtain a near real-time record of events in parallel on a massive scale", and Redis [@wang_mobility_2022]. AWS IoT Core provides device connection, a rule engine "evaluates the rules configured for entities (e.g., humans and vehicles) on the data received", data workflows are "triggered via Apache Airflow", and identity uses "a simple identity layer on top of the OAuth 2.0 authorization protocol" [@wang_mobility_2022]. The API layer admits external traffic and map data and supports further microservices [@wang_mobility_2022].</p>
+<p><strong>The measurement that matters.</strong> This case study reports end-to-end latency, which makes it unusually assessable. Uplink time scales with batch size, "with a minimum of 1.4 s for 12 MB and a maximum of 21.1 s for 240 MB", but "the majority of the end-to-end latency is made up by the aforementioned cloud computing processes, which roughly takes 16 s" [@wang_mobility_2022]. Sixteen seconds of cloud processing is the architecture's verdict on itself: this structure supports advisory and predictive features, not closed-loop vehicle control. It is a concrete, quantified instance of the latency cost of the maintainable, elastic style [@ferko_architecting_2022].</p>
+<p><strong>Limitations.</strong> Named clearly. Standardisation "can face numerous challenges, since the consensus may be difficult to reach across the public sector (e.g., transportation agencies) and the private sector (e.g., automotive manufacturers, suppliers, and network providers)" [@wang_mobility_2022]. Vendor coupling is acknowledged and bounded — the framework is deployed on AWS, but "this does not necessarily mean our proposed MDT framework can only work on AWS", with Azure, GCP and Alibaba Cloud named as alternatives [@wang_mobility_2022]. And the trust problem is stated squarely: "The nature of public cloud platforms inevitably gives away the control of resources to some extent, which may introduce cybersecurity and privacy risks for end users", particularly for Human Digital Twin microservices [@wang_mobility_2022]. Vehicle mobility also stresses the connectivity assumptions, with DSRC widely deployed but limited and C-V2X "not affordable and widely deployed" by comparison [@wang_mobility_2022].</p>
+<p><strong>Domain contrast.</strong> An alternative urban architecture rejects this system's automation premise outright. A Digital Twin Federation for urban mobility observes that twins "have been proposed to automate solutions, yet such automation often conflicts with the requirements of human-driven planning in urban mobility systems", and is therefore "designed for comprehensive urban mobility assessments with human-in-the-loop control", integrating "multilevel simulations with real-time data ingestion, traffic management and optimisation, advanced data analysis, and interactive visualisation" [@li_digital_2025]. A smart-city twin architecture built for the edge-cloud continuum targets "dynamic resource management, real-time data processing, and autonomous decision-making" and is demonstrated on autonomous traffic management in Issy-les-Moulineaux [@herath_smart_2024]. Federated city twin efforts have also produced shared environments allowing "models, data, and simulations to" interoperate, against a background where prototype city twins "may not be interoperable without consistent guidelines to follow" [@vaezi_digital_2022]. Governance is a real constraint here, since these technologies "have the potential to reshape or redefine how we think and manage city governance and our key or critical urban infrastructure" [@alexandridis_social_2024].</p>
+<h3 id="64-energy-a-digital-twin-for-a-floating-offshore-wind-turbine">6.4 Energy: a digital twin for a floating offshore wind turbine</h3>
+<p><strong>Drivers.</strong> This case is the clearest instance of physics driving structure. The purpose is "to follow the life cycle of a wind turbine in real time and ultimately provide tangible signals to inform O&amp;M decisions", under a hard architectural constraint chosen deliberately: "Our goal is to achieve this by relying only on measurements expected to be available on most wind turbines, thereby avoiding the extra cost of adding sensors" [@branlard_digital_2024]. Sensing is treated as an economic budget rather than an engineering free variable, and everything else follows. Whether additional optimally placed sensors would repay their cost is left explicitly open [@branlard_digital_2024].</p>
+<p><strong>Structure.</strong> A pipeline rather than a layered stack. Inputs are "high-frequency measurements from the SCADA system (e.g., power, pitch, rotor speed)" [@branlard_digital_2024]. The core is a state estimator: "The core algorithm in the estimation is a Kalman filter that uses a linear wind turbine model", estimating "aerodynamic states (wind speed, thrust) and motions of the structure (e.g., surge, pitch, tower deflection)" [@branlard_digital_2024]. Estimated states then feed "a virtual sensing step to produce quantities of interests (QoIs), such as the loads at key locations of the structure", which "are then intended to be postprocessed by a monitoring and diagnostic tool to generate the data needed to perform condition-based O&amp;M" [@branlard_digital_2024]. Deployment intent is stated: "The digital twin is intended to run in real time on a cloud platform" [@branlard_digital_2024].</p>
+<p>The model supply chain is itself an architectural element. Linear models are obtained through two independent routes — "a suite of dedicated Python tools implemented as part of this work and the OpenFAST linearization feature" — and "in our final version of the digital twin, we use components from both approaches" [@branlard_digital_2024]. Maintaining two derivations that must agree is a validation tactic: cross-checking substitutes for an oracle that does not exist. Validation proceeds in two stages, first against "numerical experiments" where "the QoIs are directly accessible and can be compared to the estimates for verification purposes", then against the TetraSpar floating prototype, a 3.6 MW turbine with a 130 m rotor equipped with additional sensors used only to validate the estimates [@branlard_digital_2024].</p>
+<p><strong>Limitations.</strong> Exceptionally well demarcated. "Structural health modeling, monitoring and diagnostics, and O&amp;M decisions" are "postponed to future work, even though they are essential steps to achieve our final vision", and also outside scope are "the use of historical data to assist in the diagnostics, the use of estimates to perform model updating, and real-time implementation" [@branlard_digital_2024]. The last item is significant: the architecture is designed for real-time cloud operation but has not been operated that way. Tool coverage is partial too — in the in-house library "currently, no controller or aerodynamic module is present" to "cover the full range of options available with OpenFAST" [@branlard_digital_2024]. This is a digital shadow with a rigorous estimator, honestly labelled.</p>
+<p><strong>Domain contrast.</strong> A diagnostic digital twin for the same asset class defines a capability tier explicitly: "a virtual representation of an asset that combines real-time data and models to monitor damage, detect anomalies, and diagnose failures, thereby enabling condition-based and predictive maintenance", while noting that "the DNN architecture, learning rate, and batch size have been manually tuned" [@stadtmann_diagnostic_2024] — manual tuning being a maintainability liability in a system meant to run for an asset's lifetime. Structural test platforms underpin this work physically, such as a 12.6 m reference blade and its moulds developed as a research and demonstration platform [@haselbach_blade_2020]. Predictive maintenance twins cluster in this domain: within energy, "most research is focused on Renewable Energy sources (n = 4), such as Wind Turbines", with smaller counts for fossil energy, grids and nuclear [@van_dinter_predictive_2022]. Grid-connected twins inherit an existing sectoral reference architecture: NIST's smart grid architecture consists "of several domains and subdomains", each reflecting "the purview of stakeholders, including the consumers, market operators, energy managers, utility services, generators, transmission operators, and distributors" [@reynolds_digital_2024]. Decomposition by stakeholder purview, rather than by data-flow stage, is a fourth separation criterion to add to those in Section 4.2.</p>
+<h3 id="65-built-assets-a-microservice-twin-under-a-devops-regime">6.5 Built assets: a microservice twin under a DevOps regime</h3>
+<p><strong>Drivers.</strong> Here the driver is organisational as much as technical. Twins for built assets are multidisciplinary artefacts, and the framework's stated purpose is to let "domain experts" contribute "without having to worry about the details of the software engineering process such as testing, deployment, distributed systems considerations, and monitoring of the software contributions" [@aissat_devops_2025]. The architecture is designed to partition expertise, not only computation. Twins here are treated frankly as "complex software systems" [@aissat_juno-ops_2024].</p>
+<p><strong>Structure.</strong> Three layers, presented "using a UML composite structure diagram": "DT Data Management, DT Data Distribution, and DT Services, all three fueled by data from the underlying AT and its surrounding Environment", including external data sources [@aissat_devops_2025]. The distinguishing commitment is that "all DT internal communications are made through the Pub/Sub Internal Data Distribution layer", with ports explicitly labelled "P" for publisher and "S" for subscriber and the topic named beside each port [@aissat_devops_2025]. Naming topics in the architecture diagram makes the coupling structure inspectable, which most twin architecture diagrams do not.</p>
+<p>Data sources are threefold: IoT devices ranging "from resource-constrained microcontrollers (e.g., Arduino-based setups) to more capable Single Board Computers (SBCs) such as RPi running lightweight containerized environments"; metadata, notably "the BIM model of the GRIDD Lab [which] offers a 3D spatial representation of the laboratory, embedding details about the physical layout along with many other 'as built' details such as sensors placement"; and external data such as an OpenWeather API feed [@aissat_devops_2025].</p>
+<p>Storage is heterogeneous by design — MongoDB Atlas on AWS for asset detection JSON, Azure TSI for temperature and humidity time series, BIM data from Autodesk Construction Cloud — and the architecture's key tactic is that it "introduces dedicated data access adapters for each storage source, rather than depicting the storage technologies themselves", so that "if a storage solution needs to be replaced (e.g., migrating from Azure TSI to another time-series database or switching BIM providers), only the corresponding adapter must be updated - leaving the rest of the architecture unaffected" [@aissat_devops_2025]. The distribution layer above it "provides a unified abstraction for information sharing that shields the upper layer from the complexities of data acquisition, processing, and storage" [@aissat_devops_2025]. Services "operate as independent microservices, adhering to a modular architecture that ensures loose coupling and high cohesion", "containerized using Docker" so each "can run consistently across different environments, whether on the cloud or at the edge", forming "an easily deployable build artifact" [@aissat_devops_2025]. Remote communication avoids "proprietary or component-specific protocols", using "RESTful APIs, using JSON messages", with AWS API Gateway dispatching to Lambda for one aspect and an Azure IoT gateway brokering the other [@aissat_devops_2025].</p>
+<p><strong>The reported failure, and why it is valuable.</strong> The two aspects were developed independently and then integrated, and the integration exposed a defect: "while the Thermal Comfort aspect leveraged a dedicated data distribution component, the Asset Management aspect lacked an equivalent layer, making its integration more tightly coupled with upstream components. This asymmetry revealed the need for consistent abstraction mechanisms across all DT aspects, not only to streamline development but also to support independent evolution of each aspect" [@aissat_devops_2025]. The authors also generalise the lesson that integration requirements must be anticipated "from the very beginning" because such decisions "have a direct impact on data flow, versioning, and deployment processes" [@aissat_devops_2025]. Uniformity of abstraction across peer subsystems is an architectural obligation, and the omission is only discovered at composition time.</p>
+<p><strong>Limitations.</strong> The twin is human-in-the-loop by construction: "control actions remain unautomated", with "a dotted arrow" representing "the manual user feedback loop between the UI and the physical asset", while automatic regulation of thermal conditions is envisaged for the future [@aissat_devops_2025].</p>
+<p><strong>Domain contrast.</strong> Construction twin-as-a-service work sets an explicit open-standards requirement, mandating support for IFC models and designing "such that the communication middleware can be replaced, e.g., with Eclipse Ditto, thanks to the IfcCockpitAPI which abstracts away low-level implementation details" [@zech_digital-twins-as--service_2024] — the same adapter tactic applied to middleware rather than storage. Elsewhere, BIM-integrated monitoring systems have been built at LOD 400 for urban infrastructure maintenance [@yang_design_2025].</p>
+<h2 id="7-cross-case-comparison">7. Cross-case comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Architecture</th>
+<th>Citekey</th>
+<th>Domain</th>
+<th>Core structural idea</th>
+<th>Deployment</th>
+<th>Integration level</th>
+<th>Stated limitations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>makeTwin</td>
+<td>[@tao_maketwin_2024]</td>
+<td>Manufacturing (textile shop floor)</td>
+<td>Ten configurable functional modules interacting via customisable APIs; scene templates as the variability mechanism</td>
+<td>Offline local install or online cloud with web access</td>
+<td>Twin-capable via twinIoTConnector and twinInteractor; case study emphasises monitoring, scheduling optimisation and visualisation</td>
+<td>Architecture and functions "need to be further iterated"; adaptability across industrial scenarios not yet ensured; validated on one instance</td>
+</tr>
+<tr>
+<td>OR management twin ecosystem</td>
+<td>[@burattini_ecosystem_2023]</td>
+<td>Healthcare (surgical suite)</td>
+<td>Three tiers: FHIR standardisation as anti-corruption layer, Surgery DT and OR-DT with encoded rules, dashboard</td>
+<td>Centralised server components over multi-hospital legacy databases</td>
+<td>Shadow; partly manual acquisition</td>
+<td>"Partial view of the vision"; "real-time acquisition is not guaranteed"; polling rather than event-driven coupling</td>
+</tr>
+<tr>
+<td>Mobility Digital Twin</td>
+<td>[@wang_mobility_2022]</td>
+<td>Mobility (connected vehicles)</td>
+<td>Four layers — cloud, edge, device, API — with polyglot storage and rule engine; vehicle, human and traffic twins</td>
+<td>AWS VPC with edge storage and device tier</td>
+<td>Advisory closed loop: guidance is sent back to entities, but at seconds-scale latency</td>
+<td>~16 s cloud processing dominates end-to-end latency; standardisation consensus hard; public cloud cedes resource control, raising security and privacy risk</td>
+</tr>
+<tr>
+<td>Floating offshore wind turbine twin</td>
+<td>[@branlard_digital_2024]</td>
+<td>Energy (offshore wind)</td>
+<td>Estimation pipeline: SCADA input → Kalman filter over linear models → virtual sensing → QoIs → diagnostics</td>
+<td>Intended for real-time cloud operation</td>
+<td>Shadow; O&amp;M decision loop closed by humans</td>
+<td>Structural health modelling, diagnostics, O&amp;M decisions, model updating and real-time implementation all outside current scope</td>
+</tr>
+<tr>
+<td>GRIDD Lab twin (JuNo-OPS)</td>
+<td>[@aissat_devops_2025]</td>
+<td>Built assets (laboratory building)</td>
+<td>Three layers with mandatory internal pub/sub, per-source storage adapters, containerised microservices</td>
+<td>Docker containers on cloud and edge; AWS and Azure gateways</td>
+<td>Shadow with human-in-the-loop actuation</td>
+<td>Abstraction asymmetry between aspects discovered at integration; "control actions remain unautomated"</td>
+</tr>
+</tbody>
+</table>
+<p>Four observations follow from the comparison.</p>
+<p><strong>Structural agreement is low; problem agreement is high.</strong> No two of the five share a layering. makeTwin is module-and-API oriented, the operating-room twin is tier-oriented around a standardisation boundary, the mobility twin is deployment-tier oriented, the turbine twin is a dataflow pipeline, and the built-asset twin is broker-mediated. Yet all five confront the same four problems: heterogeneous sources needing adaptation, model or rule logic needing somewhere to live, a return path that is either deferred or explicitly human, and an evolution story. The uniformity of the problem set alongside the diversity of solutions is the strongest argument in this survey for reference models being pitched at the problem level, which is roughly what the mapped literature actually produces [@ferko_architecting_2022].</p>
+<p><strong>Adapters are the field's most portable tactic.</strong> Storage adapters in the built-asset twin [@aissat_devops_2025], physical adapters in edge twins [@picone_flexible_2023], twinIoTConnector's protocol configuration in makeTwin [@tao_maketwin_2024], the FHIR mapping tier in the operating room [@burattini_ecosystem_2023], and replaceable middleware behind an abstracting API in construction [@zech_digital-twins-as--service_2024] are the same tactic under five names. Given that heterogeneity is the field's defining condition [@villani_digital_2025], this convergence is unsurprising and probably the most transferable result available.</p>
+<p><strong>Four of five stop short of automated actuation.</strong> Only the mobility twin sends guidance back to physical entities in the normal operating loop, and it does so at seconds-scale latency [@wang_mobility_2022]. The operating-room twin needs human input even for acquisition [@burattini_ecosystem_2023], the built-asset twin leaves "control actions ... unautomated" [@aissat_devops_2025], and the turbine twin explicitly defers the O&amp;M decision stage [@branlard_digital_2024]. This is consistent with the finding that only 18% of publications describe bidirectional twins [@kritzinger_digital_2018] and with the predictive-maintenance field's concentration on the Digital Monitor pattern [@van_dinter_reference_2023]. Practising architects should treat full bidirectionality as an aspiration in most domains, not a baseline.</p>
+<p><strong>Latency budgets differ by orders of magnitude and are rarely stated.</strong> The mobility twin's measured ~16 s cloud stage [@wang_mobility_2022] would be irrelevant to a scheduling twin and disqualifying for a control twin. Of the five, only that one publishes numbers, which is precisely the deficiency the DTaaS survey identifies when it criticises prior work for lacking "concrete numerical benchmarks" for fidelity, granularity and synchronisation latency [@duran_toward_2026].</p>
+<h2 id="8-cross-source-disagreements">8. Cross-source disagreements</h2>
+<p>Four disagreements in the corpus are substantive rather than terminological, and none is resolved.</p>
+<p><strong>Is a twin passive data or an active component?</strong> The passive reading treats the twin as a synchronised representation that applications query. The active reading is stated as a critique of named platforms: in Azure "DTs are conceptualized as centralized cloud entities integrated within a robust yet isolated framework, lacking the capability for integration with other DTs", while with Eclipse Ditto twins "are depicted as passive entities, deferring the responsibility for implementing their behavioral model and lacking active monitoring of their behavior and performance during execution" [@bellavista_entanglement-aware_2024]. The same group elsewhere describes "a recent shift towards envisioning DTs also as active software components ... autonomous entities" [@bellavista_exploiting_2024], and the Web of Digital Twins vision presupposes twins active enough to serve as "an interoperable service-oriented layer" for multiagent systems above them [@ricci_web_2022]. The disagreement has teeth: if twins are passive, behaviour belongs to applications and the platform can be a database with a schema; if active, the platform must host and orchestrate behaviour, and the platform's failure to model behaviour becomes a defect rather than a scope decision [@lehner_pattern_2023].</p>
+<p><strong>Cloud-first or edge-first?</strong> Cloud-centric reference models are long established [@alam_c2ps_2017], and the mobility case demonstrates what is achievable on a commercial cloud stack [@wang_mobility_2022]. The edge position holds that migrating a cloud twin edgeward risks "unnecessary delays" and forces "a monolithic vision of DTs" [@picone_flexible_2023]. The hybrid position treats this as a resolved trade-off between resources and latency [@xu_survey_2023], but "hybrid" only names the problem; the continuum literature is more useful in making fidelity and latency jointly determined by placement [@barbone_digital_2024]. Security cuts across the same axis, since "the more decentralized, the lower the risk of bottleneck or exhaustion" [@alcaraz_digital_2022] while the mobility case reports that public cloud "inevitably gives away the control of resources to some extent" [@wang_mobility_2022].</p>
+<p><strong>Must a twin be bidirectional?</strong> Kritzinger's criterion is strict: without fully integrated bidirectional flow, the artefact is a shadow or a model [@kritzinger_digital_2018]. ISO 23247 is permissive, requiring a "fit for purpose digital representation ... with synchronization" and leaving synchronisation unquantified [@shao_analysis_2023]. Both positions are defensible and they classify the same systems differently. Four of this survey's five case studies would be twins under ISO's definition and shadows under Kritzinger's. The practical consequence is that a project should state which criterion it is using, because the answer determines whether an actuation path, a command-authority model and the associated safety analysis are in scope.</p>
+<p><strong>Are reference models an achievement or a symptom?</strong> The mapping study's finding that 56.42% of solutions are reference models is read by its authors as evidence that architectural solutions "are still evolving" [@ferko_architecting_2022], and others argue existing reference models are "overly abstract, impeding their" use [@pfeiffer_towards_2025]. The same study's expert interviews found industry values reference models precisely for their cheapness in analysis [@ferko_architecting_2022]. This is less a contradiction than an unacknowledged split in audience, but the literature does not usually declare which audience a proposed reference model serves.</p>
+<h2 id="9-gap-analysis">9. Gap analysis</h2>
+<p><strong>What the corpus covers thinly.</strong> Several architecturally important topics returned little after query reformulation. <em>Architectural evaluation</em> is the most conspicuous: the corpus contains general software architecture treatments of definition, evolution and analysis [@kazman_holistic_2023] and abundant twin architecture proposals, but almost nothing applying structured evaluation methods to a digital twin architecture and reporting the result. The mapping study reports that solutions are validated with "experience, analysis and example" rather than by persuasion [@ferko_architecting_2022], which is encouraging about rigour but does not amount to a quality-attribute-driven evaluation practice. <em>Cost and organisational economics</em> is nearly absent as an architectural driver, appearing only obliquely through SME accessibility arguments [@talasila_realising_2024] and platform-cost motivations [@wermann_ktwin_2024]. <em>Runtime observability of twin architectures</em> is represented by a single dedicated tool [@fiter_dtinsight_2025]. <em>Decommissioning and end-of-life</em> barely appears, despite the lifecycle framing being central to the field's self-description [@alskaif_evolution_2025].</p>
+<p><strong>What is described but not measured.</strong> The field states quality attributes far more often than it quantifies them. Fidelity, twinning rate and inference latency have been named as the necessary metrics [@duran_toward_2026], but only one of the five case studies publishes latency figures [@wang_mobility_2022] and none publishes a fidelity measurement against a stated target. Without such numbers, claims that an architecture is scalable or real-time are unfalsifiable, and cross-architecture comparison — the point of a reference architecture — remains impossible. This connects directly to reproducibility concerns raised in the corpus [@barbie_toward_2024] and to proposals for systematic reporting [@gil_toward_2024].</p>
+<p><strong>Where the standards story is incomplete.</strong> Information-model standards are well developed and mutually incompatible [@mattila_interoperability_2025], and the field's response has been pairwise bridging [@schmidt_increasing_2023; @cavalieri_proposal_2023] rather than convergence, with each platform contributing another DSL [@talasila_composable_2025; @pfeiffer_modeling_2022]. Behavioural interoperability through co-simulation is better standardised [@schweiger_empirical_2019; @larsen_engineering_2024] but poorly integrated into twin platforms, several of which support data management without simulation or simulation without data management [@infante_integrating_2024]. No source in the corpus proposes an architecture in which structural and behavioural interoperability standards are unified rather than adjacently deployed. That is a genuine and specific gap.</p>
+<p><strong>Where composition remains unsolved.</strong> Aggregation hierarchies [@human_design_2023], hierarchical ecosystems [@martinelli_hierarchical_2024], twin webs [@ricci_web_2022] and composable platform assets [@talasila_composable_2025] all address composition, and the corpus still reports "a notable absence of architectures that support" it for heterogeneous twins [@amadeo_composing_2024]. The unresolved questions are consistency between overlapping twins of the same asset, arbitration when composed twins disagree, and versioning across a federation whose members evolve independently. Naming schemes exist [@rothermel_proximity_2024]; consistency semantics do not.</p>
+<p><strong>Where the human sits.</strong> Human involvement is architecturally decisive in three of the five case studies, yet it appears mostly as narrative rather than structure. Digital triplet formulations make the human explicit and even measure latency across operating modes [@karnoub_how_2025], and triple human-twin architectures decompose human behaviour data alongside physical, model and service data [@shangguan_triple_2022]. The urban mobility federation goes furthest in treating human-in-the-loop control as a design pillar rather than a limitation [@li_digital_2025]. But no source in the corpus offers a general treatment of the human as an architectural element with defined interfaces, latency characteristics and failure modes, which is what is needed if human-in-the-loop is to be designed rather than merely tolerated.</p>
+<p><strong>Cross-domain generalisation.</strong> Comprehensive research-gap analyses exist at national-academy level [@committee_on_foundational_research_gaps_and_future_directions_for_digital_twins_foundational_2024], and the corpus supports the claim that twin concepts differ "as the context of application changes (aerospace, manufacturing, city management)" and carry "their own specificity within the life cycle phase of the product" [@semeraro_digital_2021]. Adoption barriers have been catalogued for process industries [@perno_implementation_2022], and platform maturity varies markedly across sectors [@khoshkenar_exploring_2024]. What is missing is empirical work testing whether a reference architecture developed in one domain can be instantiated in another. The predictive-maintenance reference architecture comes closest, deriving three application architectures across tractor clutch monitoring, semiconductor polishing and electro-optical health monitoring [@van_dinter_reference_2023], but these are three applications of one narrow function rather than a genuine cross-domain test.</p>
+<h2 id="10-conclusion">10. Conclusion</h2>
+<p>Reading the digital twin literature architecturally produces a consistent picture. The field's dominant patterns are layering and service orientation, applied together more often than separately [@ferko_architecting_2022]; its dominant quality concern is maintainability under a coupled asset lifecycle [@ferko_architecting_2022; @alskaif_evolution_2025]; its most portable tactic is the adapter, appearing under many names in every case study examined here; and its most common honest position is the shadow rather than the twin [@kritzinger_digital_2018].</p>
+<p>The five example architectures show what is at stake. A manufacturing platform organises for variability across a product family [@tao_maketwin_2024]. A hospital twin organises around an immovable legacy boundary and buys independence with a standardisation tier it expects to become unnecessary [@burattini_ecosystem_2023]. A mobility twin organises by deployment tier on a commercial cloud and pays a measured latency price for it [@wang_mobility_2022]. A wind turbine twin organises as an estimation pipeline under a deliberate sensing budget and states precisely which stages it has not built [@branlard_digital_2024]. A built-asset twin organises around a mandatory internal broker and discovers, at integration time, that abstraction must be applied uniformly across peer subsystems or not at all [@aissat_devops_2025].</p>
+<p>None of these is a special case of the others. That is the finding. The value of a digital twin reference architecture, on this evidence, lies not in prescribing a layer stack but in making explicit the decisions that all five had to make and that most publications leave implicit: the integration level and therefore the authority model; the separation criterion that generates the layers; the placement of each component on the cloud-edge continuum and the fidelity that placement permits; the adapter boundaries at which heterogeneity is absorbed; the latency budget for each service class, stated numerically; and the mechanism by which the twin will absorb change in the asset it mirrors. A field that documented those six decisions as consistently as it documents its diagrams would be considerably easier to build in.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>aissat_devops_2025</strong> -- A devops framework for the systematic engineering and evolution of digital twins for built assets (2025).</li>
+<li><strong>aissat_juno-ops_2024</strong> -- JuNo-OPS: A DevOps Framework for the Engineering of Digital Twins for Built Assets (2024).</li>
+<li><strong>alam_c2ps_2017</strong> -- C2PS: A digital twin architecture reference model for the cloud-based cyber-physical systems (2017).</li>
+<li><strong>alcaraz_digital_2022</strong> -- Digital Twin: A Comprehensive Survey of Security Threats (2022).</li>
+<li><strong>alexandridis_social_2024</strong> -- Social and Human Dimensions of Digital Twin Technologies in Formal and Informal Institutional Settings (2024).</li>
+<li><strong>alhamam_comprehensive_2025</strong> -- A Comprehensive Review on Cybersecurity of Digital Twins Issues, Challenges, and Future Research Directions (2025).</li>
+<li><strong>alskaif_evolution_2025</strong> -- Evolution at the Core of Digital Twin Engineering (2025).</li>
+<li><strong>amadeo_composing_2024</strong> -- Composing Digital Twins for Internet of Everything Applications: A User-Centric Perspective (2024).</li>
+<li><strong>barbie_toward_2024</strong> -- Toward Reproducibility of Digital Twin Research: Exemplified with the PiCar-X (2024).</li>
+<li><strong>barbone_digital_2024</strong> -- Digital Twin Continuum: a Key Enabler for Pervasive Cyber-Physical Environments (2024).</li>
+<li><strong>bellavista_entanglement-aware_2024</strong> -- An Entanglement-Aware Middleware for Digital Twins (2024).</li>
+<li><strong>bellavista_exploiting_2024</strong> -- Exploiting microservices and serverless for Digital Twins in the cloud-to-edge continuum (2024).</li>
+<li><strong>bordeleau_devops_nodate</strong> -- A DevOps Approach for the Systematic Development and Evolution of Built Assets Digital Twins (n.d.).</li>
+<li><strong>branlard_digital_2024</strong> -- A digital twin solution for floating offshore wind turbines validated using a full-scale prototype (2024).</li>
+<li><strong>budiardjo_digital_2021</strong> -- Digital twin system interoperability framework (2021).</li>
+<li><strong>burattini_ecosystem_2023</strong> -- An Ecosystem of Digital Twins for Operating Room Management (2023).</li>
+<li><strong>cavalieri_proposal_2023</strong> -- Proposal of Mapping Digital Twins Definition Language to Open Platform Communications Unified Architecture (2023).</li>
+<li><strong>committee_on_foundational_research_gaps_and_future_directions_for_digital_twins_foundational_2024</strong> -- Foundational Research Gaps and Future Directions for Digital Twins (2024).</li>
+<li><strong>duran_toward_2026</strong> -- Toward Digital Twin-as-a-Service (DTaaS) Platforms: A Survey on Architecture, Design Requirements, and Performance Metrics (2026).</li>
+<li><strong>ferko_architecting_2022</strong> -- Architecting Digital Twins (2022).</li>
+<li><strong>fiter_dtinsight_2025</strong> -- DTInsight: A Tool for Explicit, Interactive, and Continuous Digital Twin Reporting (2025).</li>
+<li><strong>frasheri_addressing_2023</strong> -- Addressing time discrepancy between digital and physical twins (2023).</li>
+<li><strong>friedrich_cofmpy_2025</strong> -- CoFMPy: A Python Framework for Rapid Prototyping of FMI-based Digital Twins (2025).</li>
+<li><strong>gil_survey_2024</strong> -- Survey on open‐source digital twin frameworks–A case study approach (2024).</li>
+<li><strong>gil_toward_2024</strong> -- Toward a systematic reporting framework for Digital Twins: a cooperative robotics case study (2024).</li>
+<li><strong>hakiri_comprehensive_2024</strong> -- A comprehensive survey on digital twin for future networks and emerging Internet of Things industry (2024).</li>
+<li><strong>haselbach_blade_2020</strong> -- Blade research and demonstration platform (2020).</li>
+<li><strong>herath_smart_2024</strong> -- Smart City Digital Twins: A Modular and Adaptive Architecture for Real-Time Data-Driven Urban Management (2024).</li>
+<li><strong>hugues_twinops_2020</strong> -- TwinOps - DevOps meets model-based engineering and digital twins for the engineering of CPS (2020).</li>
+<li><strong>hugues_twinops_2022</strong> -- Twinops: Digital twins meets devops (2022).</li>
+<li><strong>human_design_2023</strong> -- A design framework for a system of digital twins and services (2023).</li>
+<li><strong>infante_integrating_2024</strong> -- Integrating FMI and ML/AI models on the open-source digital twin framework OpenTwins (2024).</li>
+<li><strong>jacoby_open-source_2023</strong> -- Open-Source Implementations of the Reactive Asset Administration Shell: A Survey (2023).</li>
+<li><strong>jia_simple_2022</strong> -- From simple digital twin to complex digital twin Part I: A novel modeling method for multi-scale and multi-scenario digital twin (2022).</li>
+<li><strong>kamburjan_declarative_2024</strong> -- Declarative Lifecycle Management in Digital Twins (2024).</li>
+<li><strong>kapteyn_probabilistic_2021</strong> -- A probabilistic graphical model foundation for enabling predictive digital twins at scale (2021).</li>
+<li><strong>karnoub_how_2025</strong> -- How to understand the role of human in digital twins: A digital triplet concept (2025).</li>
+<li><strong>katsoulakis_digital_2024</strong> -- Digital twins for health: a scoping review (2024).</li>
+<li><strong>kazman_holistic_2023</strong> -- A Holistic View of Architecture Definition, Evolution, and Analysis (2023).</li>
+<li><strong>khoshkenar_exploring_2024</strong> -- Exploring Digital Twin platforms across industries (2024).</li>
+<li><strong>kritzinger_digital_2018</strong> -- Digital Twin in manufacturing: A categorical literature review and classification (2018).</li>
+<li><strong>kulik_security_2024</strong> -- Security and Privacy-related Issues in a Digital Twin Context (2024).</li>
+<li><strong>larsen_engineering_2024</strong> -- Engineering Digital Twins for Cyber-Physical Systems (2024).</li>
+<li><strong>lehner_pattern_2023</strong> -- A pattern catalog for augmenting Digital Twin models with behavior (2023).</li>
+<li><strong>li_digital_2024</strong> -- Digital twin for Industrial Internet (2024).</li>
+<li><strong>li_digital_2025</strong> -- Digital Twin Federation for Urban Mobility Assessment: A Functional Architecture for Low-Car Transformations in the Netherlands (2025).</li>
+<li><strong>li_six-dimensional_2025</strong> -- Six-dimensional digital twin modeling and software platform design for complex industrial systems (2025).</li>
+<li><strong>liu_digital_2023</strong> -- Digital Twin-based manufacturing system: a survey based on a novel reference model (2023).</li>
+<li><strong>liu_novel_2019</strong> -- A Novel Cloud-Based Framework for the Elderly Healthcare Services Using Digital Twin (2019).</li>
+<li><strong>lugaresi_digital_2025</strong> -- From Digital Twins to Twinning Systems (2025).</li>
+<li><strong>martinelli_hierarchical_2024</strong> -- Hierarchical Digital Twin Ecosystem for Industrial Manufacturing Scenarios (2024).</li>
+<li><strong>mattila_interoperability_2025</strong> -- Interoperability of Digital Twins for Automation With Digital Twin Schema (2025).</li>
+<li><strong>mertens_continuous_2024</strong> -- Continuous Evolution of Digital Twins using the DarTwin Notation (2024).</li>
+<li><strong>michael_model-driven_2025</strong> -- Model-Driven Engineering for Digital Twins: Opportunities and Challenges (2025).</li>
+<li><strong>mihai_digital_2022</strong> -- Digital Twins: A Survey on Enabling Technologies, Challenges, Trends and Future Prospects (2022).</li>
+<li><strong>niederer_scaling_2021</strong> -- Scaling digital twins from the artisanal to the industrial (2021).</li>
+<li><strong>noauthor_asset_nodate</strong> -- Asset Administration Shell Part - 1 (n.d.).</li>
+<li><strong>perno_implementation_2022</strong> -- Implementation of digital twins in the process industry: A systematic literature review of enablers and barriers (2022).</li>
+<li><strong>pfeiffer_modeling_2022</strong> -- Modeling capabilities of digital twin platforms-old wine in new bottles? (2022).</li>
+<li><strong>pfeiffer_towards_2025</strong> -- Towards a Unifying Reference Model for Digital Twins of Cyber-Physical Systems (2025).</li>
+<li><strong>picone_flexible_2023</strong> -- A Flexible and Modular Architecture for Edge Digital Twin: Implementation and Evaluation (2023).</li>
+<li><strong>qi_enabling_2021</strong> -- Enabling technologies and tools for digital twin (2021).</li>
+<li><strong>qureshi_survey_2025</strong> -- A survey on security enhancing Digital Twins: Models, applications and tools (2025).</li>
+<li><strong>reynolds_digital_2024</strong> -- Digital Twins for Creating Value Through “Buildings as Batteries” Using a Mass Customization Network (2024).</li>
+<li><strong>ricci_web_2022</strong> -- Web of Digital Twins (2022).</li>
+<li><strong>rose_zero_2020</strong> -- Zero Trust Architecture (2020).</li>
+<li><strong>rothermel_proximity_2024</strong> -- A Proximity Model for Distributed Digital Twin Systems (2024).</li>
+<li><strong>schmidt_increasing_2023</strong> -- Increasing Interoperability between Digital Twin Standards and Specifications: Transformation of DTDL to AAS (2023).</li>
+<li><strong>schnicke_enabling_2020</strong> -- Enabling Industry 4.0 Service-Oriented Architecture Through Digital Twins (2020).</li>
+<li><strong>schweiger_empirical_2019</strong> -- An empirical survey on co-simulation: Promising standards, challenges and research needs (2019).</li>
+<li><strong>semeraro_digital_2021</strong> -- Digital twin paradigm: A systematic literature review (2021).</li>
+<li><strong>shangguan_triple_2022</strong> -- A Triple Human-Digital Twin Architecture for Cyber-Physical Systems (2022).</li>
+<li><strong>shao_analysis_2023</strong> -- An Analysis of the New ISO 23247 Series of Standards on Digital Twin Framework for Manufacturing (2023).</li>
+<li><strong>shao_framework_2020</strong> -- Framework for a digital twin in manufacturing: Scope and requirements (2020).</li>
+<li><strong>shao_use_2021</strong> -- Use Case Scenarios for Digital Twin Implementation Based on ISO 23247 (2021).</li>
+<li><strong>sieve_bedreflyt_2025</strong> -- BedreFlyt: Improving Patient Flows through Hospital Wards with Digital Twins (2025).</li>
+<li><strong>stadtmann_diagnostic_2024</strong> -- Diagnostic Digital Twin for Anomaly Detection in Floating Offshore Wind Energy (2024).</li>
+<li><strong>talasila_composable_2025</strong> -- Composable digital twins on Digital Twin as a Service platform (2025).</li>
+<li><strong>talasila_realising_2024</strong> -- Realising Digital Twins (2024).</li>
+<li><strong>tao_five-dimension_2019</strong> -- Five-dimension digital twin model and its ten applications (2019).</li>
+<li><strong>tao_maketwin_2024</strong> -- makeTwin: A reference architecture for digital twin software platform (2024).</li>
+<li><strong>tekinerdogan_systems_2020</strong> -- Systems Architecture Design Pattern Catalog for Developing Digital Twins (2020).</li>
+<li><strong>thelen_comprehensive_2022</strong> -- A comprehensive review of digital twin — part 1: modeling and twinning enabling technologies (2022).</li>
+<li><strong>thelen_comprehensive_2022-1</strong> -- A comprehensive review of digital twin—part 2: roles of uncertainty quantification and optimization, a battery digital twin, and perspectives (2022).</li>
+<li><strong>vaezi_digital_2022</strong> -- Digital twins from a networking perspective (2022).</li>
+<li><strong>van_dinter_predictive_2022</strong> -- Predictive maintenance using digital twins: A systematic literature review (2022).</li>
+<li><strong>van_dinter_reference_2023</strong> -- Reference architecture for digital twin-based predictive maintenance systems (2023).</li>
+<li><strong>villalonga_decision-making_2021</strong> -- A decision-making framework for dynamic scheduling of cyber-physical production systems based on digital twins (2021).</li>
+<li><strong>villani_digital_2025</strong> -- A Digital Twin Driven Human-Centric Ecosystem for Industry 5.0 (2025).</li>
+<li><strong>wang_mobility_2022</strong> -- Mobility digital twin: Concept, architecture, case study, and future challenges (2022).</li>
+<li><strong>wermann_ktwin_2024</strong> -- KTWIN: A Serverless Kubernetes-based Digital Twin Platform (2024).</li>
+<li><strong>xu_survey_2023</strong> -- A Survey on Digital Twin for Industrial Internet of Things: Applications, Technologies and Tools (2023).</li>
+<li><strong>yang_design_2025</strong> -- Design and Validation of a Real-Time Maintenance Monitoring System Using BIM and Digital Twin Integration (2025).</li>
+<li><strong>zech_digital-twins-as--service_2024</strong> -- Digital-Twins-as-a-Service in Construction Engineering (2024).</li>
+<li><strong>zhang_digital_2024</strong> -- Digital twin and the asset administration shell (2024).</li>
+<li><strong>zhong_overview_2023</strong> -- Overview of predictive maintenance based on digital twin technology (2023).</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Prasad Talasila
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.tabs.sticky", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

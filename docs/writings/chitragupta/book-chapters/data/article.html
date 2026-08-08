@@ -1,0 +1,2131 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home page of Prasad Talasila">
+      
+      
+        <meta name="author" content="Prasad Talasila">
+      
+      
+        <link rel="canonical" href="https://prasad.talasila.in/writings/chitragupta/book-chapters/data/article.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Data for Digital Twins: Protocols, Processing, Storage and Integration - Prasad Talasila</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/course-tables.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-for-digital-twins-protocols-processing-storage-and-integration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../index.html" title="Prasad Talasila" class="md-header__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prasad Talasila
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data for Digital Twins: Protocols, Processing, Storage and Integration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../research.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Research
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../publications.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../projects.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../software.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../courses.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Courses
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../writings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Writings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../contact.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../index.html" title="Prasad Talasila" class="md-nav__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    Prasad Talasila
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../research.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../publications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../software.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../writings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contact.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-why-data-is-the-hard-part-of-a-digital-twin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Why Data Is the Hard Part of a Digital Twin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Why Data Is the Hard Part of a Digital Twin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-a-tempting-misconception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 A tempting misconception
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-what-goes-wrong-concretely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 What goes wrong, concretely
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-the-twinning-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 The twinning loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-a-vocabulary-for-digital-twin-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. A Vocabulary for Digital Twin Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. A Vocabulary for Digital Twin Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-by-origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 By origin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-by-timeliness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 By timeliness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-by-lifecycle-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 By lifecycle phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-from-physical-quantity-to-number-the-sensing-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. From Physical Quantity to Number: The Sensing Boundary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. From Physical Quantity to Number: The Sensing Boundary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-sampling-and-the-nyquist-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Sampling and the Nyquist limit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-event-based-sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Event-based sampling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-quantisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Quantisation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-time-the-most-under-rated-data-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Time: the most under-rated data field
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-what-fidelity-means-at-runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 What "fidelity" means at runtime
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-moving-the-data-iot-protocols-for-digital-twins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Moving the Data: IoT Protocols for Digital Twins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Moving the Data: IoT Protocols for Digital Twins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-the-stack-briefly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 The stack, briefly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-the-four-workhorses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 The four workhorses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-quality-of-service-what-it-does-and-does-not-promise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Quality of service: what it does and does not promise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-beyond-the-basics-sparkplug-opc-ua-dds-lwm2m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Beyond the basics: Sparkplug, OPC UA, DDS, LwM2M
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-how-to-actually-choose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 How to actually choose
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-data-processing-turning-streams-into-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Data Processing: Turning Streams into State
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Data Processing: Turning Streams into State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-the-ingestion-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 The ingestion pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-stream-versus-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Stream versus batch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-filtering-and-state-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Filtering and state estimation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-where-to-process-edge-fog-or-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 Where to process: edge, fog or cloud
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-storing-digital-twin-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Storing Digital Twin Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Storing Digital Twin Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-one-twin-several-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 One twin, several databases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-time-series-storage-in-more-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Time-series storage in more depth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-data-lakes-warehouses-and-the-cold-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Data lakes, warehouses and the cold path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-a-sizing-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 A sizing calculation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-integrating-data-making-twins-understand-each-other" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Integrating Data: Making Twins Understand Each Other
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Integrating Data: Making Twins Understand Each Other">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 The problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-information-models-the-main-contenders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Information models: the main contenders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-mapping-between-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Mapping between standards
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-ontologies-linked-data-and-knowledge-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 Ontologies, linked data and knowledge graphs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-crossing-organisational-boundaries-dataspaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 Crossing organisational boundaries: dataspaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-worked-example-an-end-to-end-data-path-for-a-greenhouse-twin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Worked Example: An End-to-End Data Path for a Greenhouse Twin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Worked Example: An End-to-End Data Path for a Greenhouse Twin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-the-system-and-its-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 The system and its purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-step-1-the-sensing-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Step 1: the sensing decision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-step-2-the-protocol-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Step 2: the protocol decision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-step-3-ingestion-and-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 Step 3: ingestion and processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-step-4-state-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5 Step 4: state estimation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#96-step-5-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.6 Step 5: storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#97-step-6-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7 Step 6: integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-cross-cutting-concerns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Cross-Cutting Concerns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Cross-Cutting Concerns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-data-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Data quality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-privacy-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Privacy and governance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Common Mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Exercises
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-solutions-and-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Solutions and Hints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="data-for-digital-twins-protocols-processing-storage-and-integration">Data for Digital Twins: Protocols, Processing, Storage and Integration</h1>
+<p><strong>A tutorial chapter for undergraduate students in software, computer and control engineering.</strong></p>
+<p><strong>Disclaimer:</strong> This article has been generated using
+<a href="https://prasad.talasila.in/chitragupta">chitragupta</a>.
+Despite some potential for hallucination, the ideas communicated in this
+tutorial are accurate. Please send your corrections and suggestions to
+<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#112;&#114;&#97;&#115;&#97;&#100;&#46;&#116;&#97;&#108;&#97;&#115;&#105;&#108;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#112;&#114;&#97;&#115;&#97;&#100;&#46;&#116;&#97;&#108;&#97;&#115;&#105;&#108;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></p>
+<h2 id="1-learning-objectives">1. Learning Objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
+<ol>
+<li><strong>Classify</strong> the data that flows through a digital twin -- by origin (sensed, simulated, derived, configured), by lifecycle phase, and by timeliness requirement -- and explain why a digital twin is defined by its <em>data connection</em> to a physical asset rather than by the sophistication of its model.</li>
+<li><strong>Analyse the sensing boundary</strong>: given a physical phenomenon and a measurement requirement, choose a sampling rate and quantisation resolution, and explain the specific ways in which sampling, quantisation, clock error and network delay corrupt the twin's picture of reality.</li>
+<li><strong>Select and justify an IoT communication protocol</strong> (MQTT, CoAP, AMQP, HTTP, OPC UA, DDS, and their variants) for a given twin, using message overhead, transport, delivery semantics, discovery and security as explicit decision criteria -- and state precisely what a protocol's "quality of service" level does and does not guarantee.</li>
+<li><strong>Design a data processing pipeline</strong> for a twin, distinguishing stream from batch processing, choosing between edge and cloud placement, and applying windowing, filtering and state estimation correctly.</li>
+<li><strong>Design a storage schema</strong> for twin data across time-series, relational, document, object and graph stores, and reason quantitatively about retention, downsampling and compression.</li>
+<li><strong>Integrate heterogeneous data sources</strong> using an information model (Asset Administration Shell, DTDL, W3C Thing Description, NGSI-LD), and explain what "semantic interoperability" buys you that a shared file format does not.</li>
+</ol>
+<p>You will need: basic programming (Python is used for examples), an understanding of TCP/IP networking to the level of "what a socket is", elementary probability, and no prior exposure to digital twins.</p>
+<hr />
+<h2 id="2-why-data-is-the-hard-part-of-a-digital-twin">2. Why Data Is the Hard Part of a Digital Twin</h2>
+<h3 id="21-a-tempting-misconception">2.1 A tempting misconception</h3>
+<p>When students first meet the phrase <em>digital twin</em>, they usually picture a beautiful 3D model of a jet engine spinning on a screen. That picture is not wrong, but it puts the emphasis in exactly the wrong place. A rotating CAD model is a <em>drawing</em>. What makes something a twin is that it is <strong>wired to a real thing that is running right now</strong>, and that the wire carries data in both directions.</p>
+<p>The most widely used classification in the field makes this precise by grading twins on how their data connection works. A <em>digital model</em> has no automatic data exchange at all -- someone updates it by hand. A <em>digital shadow</em> has an automatic one-way flow from the physical object to the digital object. Only when the flow is automatic in <em>both</em> directions does the term <em>digital twin</em> apply [@kritzinger_digital_2018]. Notice that this taxonomy says nothing about geometry, physics, fidelity or machine learning. It is a taxonomy about <strong>data plumbing</strong>. When surveys of manufacturing applications apply it, they consistently find that a large fraction of published "digital twins" are, by this definition, shadows or models: they have a virtual representation but the integration with the physical side is partial or one-directional [@bottjer_review_2023-1].</p>
+<p>This should reframe how you think about the engineering effort. In a typical twin project, the modelling is done by a domain expert who already knows the physics. The part that eats the schedule is: getting a sensor to produce a trustworthy number, getting that number across an unreliable network with a usable timestamp, storing it so that it can still be found in three years, and making it mean the same thing to the six different tools that need to read it.</p>
+<h3 id="22-what-goes-wrong-concretely">2.2 What goes wrong, concretely</h3>
+<p>Consider a small, real-scale example: a temperature-controlled incubator used to ferment a food product. It has a heating element, a fan, two temperature sensors (one in the air, one on the product), and a controller. A digital twin of it would monitor the current state, predict the temperature trajectory, warn when the batch will miss its target, and possibly retune the controller. Such incubator twins are used precisely because they are small enough to build in a semester yet contain every hard problem in miniature [@gomes_digital_2025].</p>
+<p>Now enumerate the data problems in that one box:</p>
+<ul>
+<li>The thermistor does not measure temperature. It measures resistance, which is converted to a voltage, which is converted by an analog-to-digital converter (ADC) into an integer, which a lookup table converts to degrees Celsius. Every one of those steps injects error.</li>
+<li>The controller samples at 10 Hz, but the fan's thermal effect has a time constant of two minutes. Ninety-nine percent of the samples are redundant; the one percent that matter arrive during transients.</li>
+<li>The device timestamps a reading using its own clock. That clock drifts. If the twin's simulation is fed samples whose timestamps are wrong by 400 ms, the twin's estimate of the <em>rate of change</em> -- the thing the controller actually cares about -- is wrong.</li>
+<li>The Wi-Fi link drops for eleven seconds. What should the twin do with a gap? Interpolate? Freeze? Declare itself stale?</li>
+<li>A year later somebody wants to compare this batch with a batch from a different incubator running different firmware, where the same field was called <code>temp_c</code> instead of <code>airTemperature</code> and was reported in Fahrenheit.</li>
+</ul>
+<p>Every one of these is a data engineering problem, and not one of them is solved by a better thermodynamic model. Reviews of digital twin enabling technologies place data acquisition, fusion and computation alongside modelling as first-class pillars, precisely because they are where implementations fail in practice [@wu_comprehensive_2023].</p>
+<h3 id="23-the-twinning-loop">2.3 The twinning loop</h3>
+<p>It helps to hold one picture in your head for the whole chapter. A digital twin is a loop:</p>
+<p><img alt="Figure 1: The twinning loop. Sensors on the physical asset feed a protocol into the digital twin's ingest and state-estimation stages; the digital twin's services decide and act back on the asset's actuators through a protocol of their own." src="figures/fig01_twinning_loop.svg" /></p>
+<p><strong>Figure 1.</strong> The twinning loop. The physical twin's sensors feed leg (1), <em>sense</em>, into the digital twin's ingest, state-estimation and storage stages; the digital twin's services decide and act back on the physical twin's actuators through leg (2), <em>act</em>. Everything between the two legs -- processing, storage and integration -- is the subject of this chapter.</p>
+<p>Leg (1) is the <em>sensing and communication</em> problem. Leg (2) is the <em>actuation</em> problem, which has the same shape but much harsher safety requirements. In between sits everything this chapter is about: processing, storage and integration. Reference architectures for twins differ in vocabulary but essentially all decompose into this loop plus a set of services hanging off the digital side [@pfeiffer_towards_2025].</p>
+<p>One more term you will meet: <strong>synchronisation</strong>. The ISO 23247 framework for manufacturing digital twins defines a digital twin as a "fit for purpose digital representation of an observable manufacturing element with synchronization between the element and its digital representation" [@shao_analysis_2023]. Two ideas are packed in there. <em>Fit for purpose</em> means there is no such thing as a "complete" twin -- you build only what the intended service needs. <em>Synchronisation</em> means the twin is kept in step with reality at some defined rate, and that rate is a design parameter you must choose, not a property you get for free.</p>
+<hr />
+<h2 id="3-a-vocabulary-for-digital-twin-data">3. A Vocabulary for Digital Twin Data</h2>
+<p>Before designing anything, you need to be able to say precisely which data you mean. Three orthogonal classifications will carry you a long way.</p>
+<h3 id="31-by-origin">3.1 By origin</h3>
+<p><strong>Sensed data</strong> comes from the physical twin: temperatures, currents, vibration spectra, camera frames, GPS fixes. It is the only category with a direct causal link to reality, and therefore the only category that can falsify your model. It is also noisy, gappy and expensive to obtain.</p>
+<p><strong>Simulated data</strong> is produced by the twin's own models: the predicted temperature at t+60 s, the stress field of a finite-element solve, the output of a co-simulation. It is clean, dense, cheap and <em>possibly wrong</em>.</p>
+<p><strong>Derived data</strong> is computed from the other two: a residual (measured minus simulated), a rolling mean, a health index, an anomaly score, a remaining-useful-life estimate. Derived data is where most of the twin's business value lives, and it is the category students most often forget to store, on the theory that it "can always be recomputed" -- which is false the moment the code that computed it changes.</p>
+<p><strong>Descriptive/configuration data</strong> is everything static or slow-moving: serial numbers, material properties, calibration coefficients, CAD geometry, controller gains, maintenance history. It is small, it changes rarely, and losing it is catastrophic because it is usually the only thing that makes the other three interpretable.</p>
+<p>Multi-dimensional twin models make this decomposition explicit: the classic five-dimension formulation treats the physical entity, the virtual entity, services, connections, and <strong>data</strong> as five separately-engineered elements, with the data element explicitly holding the fusion of physical, virtual, service and domain-knowledge data rather than being a by-product of the other four [@tao_five-dimension_2019].</p>
+<h3 id="32-by-timeliness">3.2 By timeliness</h3>
+<p>Not all data needs to arrive quickly, and pretending it does is the single most common way to overspend on a twin architecture. A useful three-way split, which appears in industrial data analytics reference architectures under the names <em>hot</em>, <em>warm</em> and <em>cold</em> path, is:</p>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Latency budget</th>
+<th>Typical use</th>
+<th>Typical technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hot</td>
+<td>milliseconds to ~1 s</td>
+<td>safety interlocks, closed-loop control, live alarms</td>
+<td>in-memory stream processor at the edge</td>
+</tr>
+<tr>
+<td>Warm</td>
+<td>seconds to minutes</td>
+<td>dashboards, short-horizon prediction, operator decision support</td>
+<td>stream processor plus time-series database</td>
+</tr>
+<tr>
+<td>Cold</td>
+<td>hours to months</td>
+<td>model retraining, fleet comparison, regulatory reporting</td>
+<td>batch jobs over a data lake or warehouse</td>
+</tr>
+</tbody>
+</table>
+<p>The warm path applies more detailed processing at the cost of larger delay, and the cold path is batch processing at long intervals [@marosi_interoperable_2022]. Assigning each of your twin's services to a path early is the highest-leverage architectural decision you will make, because it determines protocol choice, storage choice and deployment location all at once.</p>
+<p><img alt="Figure 2: Hot, warm and cold data paths arranged by increasing latency budget, each annotated with its typical use and typical technology." src="figures/fig02_hot_warm_cold.svg" /></p>
+<p><strong>Figure 2.</strong> The hot/warm/cold split as a spectrum of increasing latency budget. Notice how the choice of path pre-determines the technology column beneath it -- this is why the hot/warm/cold decision is made once, early, rather than negotiated service by service.</p>
+<h3 id="33-by-lifecycle-phase">3.3 By lifecycle phase</h3>
+<p>A twin outlives any single deployment of it. Data accrues across design (requirements, CAD, simulation results), manufacturing (process parameters, quality inspections), operation (the telemetry stream), and end-of-life (disposal, recycling, material recovery). The thread that links a given physical instance's data across all of these is often called the <strong>digital thread</strong>. Interoperability frameworks stress that this information has its own lifecycle -- origination, transport, storage, retrieval, use -- and that the thread must preserve fidelity and governance across the whole of it [@budiardjo_digital_2021].</p>
+<p>The practical consequence for a student project is modest but real: even in a semester project, record <em>which version of which model and which firmware</em> produced each data set. That single habit converts an unreproducible pile of CSVs into an asset.</p>
+<hr />
+<h2 id="4-from-physical-quantity-to-number-the-sensing-boundary">4. From Physical Quantity to Number: The Sensing Boundary</h2>
+<p>This section is about leg (1) of the loop, before any network is involved. If you get this wrong, no amount of downstream cleverness recovers the information.</p>
+<h3 id="41-sampling-and-the-nyquist-limit">4.1 Sampling and the Nyquist limit</h3>
+<p>Sampling reduces a continuous-time signal to a discrete-time sequence. The Nyquist-Shannon sampling theorem states that a signal containing no frequency component above $f_{max}$ can be perfectly reconstructed from uniform samples taken at a rate greater than $2 f_{max}$. Sampling below that rate causes <strong>aliasing</strong>: high-frequency components masquerade as low-frequency ones in the sampled data, and no processing can undo it [@gomes_sensing_2024].</p>
+<p>Aliasing is worth dwelling on because it is <em>silent</em>. A twin fed aliased data does not crash, does not report an error, and produces a plausible-looking curve that is simply a lie. The classic demonstration is a wheel filmed at 24 frames per second appearing to rotate backwards.</p>
+<p>Two practical rules:</p>
+<ul>
+<li><strong>Anti-alias in hardware.</strong> Put an analog low-pass filter before the ADC with a cutoff below half your sampling rate. Filtering after sampling is too late; the damage is already in the samples.</li>
+<li><strong>Oversample when cheap.</strong> Sampling above the Nyquist rate does not harm the signal -- it costs bandwidth and storage, which are usually cheaper than a missed fault. A 5x to 10x margin over the highest frequency of interest is a common engineering choice.</li>
+</ul>
+<p><img alt="Figure 3: A 9 Hz signal sampled at 40 Hz is faithfully recovered; the same signal sampled at 10 Hz aliases to a false 1 Hz component." src="figures/fig03_aliasing.svg" /></p>
+<p><strong>Figure 3.</strong> The same 9 Hz signal sampled two ways. Left: sampled at 40 Hz, well above the 18 Hz Nyquist rate, the samples trace the true waveform. Right: sampled at only 10 Hz, below Nyquist, the <em>identical</em> samples are also exactly consistent with a slow 1 Hz wave -- the high-frequency information is not degraded, it is gone, replaced by a plausible-looking lie. This is why anti-aliasing has to happen in hardware, before the samples are taken.</p>
+<p>Sampling below Nyquist with perfect recovery is still possible under extra assumptions, for instance if the signal is known to be sparse in some basis (the domain of compressed sensing), but this requires you to <em>know</em> that structure in advance.</p>
+<h3 id="42-event-based-sampling">4.2 Event-based sampling</h3>
+<p>Uniform sampling is not the only option. <strong>Event-based</strong> (or send-on-delta) sampling transmits only when the signal changes by more than a threshold. For the incubator's temperature -- flat for minutes, then a ramp -- this can cut message volume by an order of magnitude. The price is that you no longer have a guarantee of perfect reconstruction, and that your receiving code must handle irregular timestamps [@gomes_sensing_2024].</p>
+<p>A hybrid that works well in practice: send on delta, <em>plus</em> a mandatory heartbeat every N seconds even if nothing changed. The heartbeat lets the consumer distinguish "the value is stable" from "the sensor is dead", which a pure send-on-delta scheme cannot.</p>
+<h3 id="43-quantisation">4.3 Quantisation</h3>
+<p>Quantisation maps a continuous range onto a finite set of levels. An n-bit ADC over a range R has a step size of $R / 2^n$ and a maximum quantisation error of half a step. For a 10-bit ADC over 0 to 5 V, the step is about 4.9 mV.</p>
+<p>The question to ask is not "how many bits does my ADC have" but <strong>"what is the smallest change I need to detect, and does one quantisation step fit inside it?"</strong> If your incubator control law reacts to changes of 0.1 degrees C and your sensing chain resolves 0.35 degrees C per step, your controller is chattering on quantisation noise, not on temperature.</p>
+<p>A worked calculation. A thermistor circuit maps 0 to 100 degrees C onto 0.5 to 4.5 V. With a 10-bit ADC over 0 to 5 V:</p>
+<ul>
+<li>Volts per count: $5 / 1024 = 4.88$ mV.</li>
+<li>Volts per degree C: $(4.5 - 0.5) / 100 = 40$ mV.</li>
+<li>Degrees C per count: $4.88 / 40 = 0.122$ degrees C.</li>
+<li>Worst-case quantisation error: about $\pm 0.061$ degrees C.</li>
+</ul>
+<p>That is adequate for a 0.1 degrees C control band, but only just, and it leaves nothing for sensor tolerance or self-heating. A 12-bit ADC would give 0.03 degrees C per count and comfortable margin. This is the kind of five-line calculation you should do <em>before</em> writing any twin code.</p>
+<p><img alt="Figure 4: A true temperature ramp quantised by a 10-bit ADC produces a staircase reading, with a sawtooth-shaped quantisation error bounded by plus-or-minus half a step." src="figures/fig04_quantization.svg" /></p>
+<p><strong>Figure 4.</strong> The worked calculation, plotted. Top: a 2 degC window of the true temperature ramp (blue) against the quantised reading (orange) -- every 0.122 degC of true change, the reading jumps by exactly one count. Bottom: the resulting error is a sawtooth bounded at +/-0.061 degC, the "worst-case quantisation error" from the calculation above, shown here across the full 10-30 degC ramp.</p>
+<h3 id="44-time-the-most-under-rated-data-field">4.4 Time: the most under-rated data field</h3>
+<p>Every sample needs a timestamp, and where that timestamp comes from matters enormously.</p>
+<ul>
+<li><strong>Device time</strong> is stamped by the sensor node at acquisition. Most accurate relative to the physical event, but subject to clock drift and to devices that boot with the clock at 1 January 1970.</li>
+<li><strong>Broker/gateway time</strong> is stamped on arrival at the message broker. Robust, monotonic, but includes all the network delay.</li>
+<li><strong>Ingestion time</strong> is stamped by the database. Worst of all for physics, best for auditing.</li>
+</ul>
+<p>Serious twins carry at least two of these, because the difference between them <em>is itself a measurement</em> -- of network health, of clock drift, of queue backlog. Experimental work on twin security has used exactly this: comparing sensor timestamps, broker log times and twin state-update times to compute deviation metrics that act as early indicators of an incident, without needing to inspect payloads [@picone_assessing_2026].</p>
+<p>There is a deeper issue than stamping, which is that the physical and digital sides run on <em>different notions of time altogether</em>. A simulation advances in solver steps; the physical system advances in wall-clock time; the network delivers messages in an order that respects neither. When the co-simulation step size and the sensor sampling interval are mismatched, messages get dropped or retained essentially at random with respect to their importance -- sometimes the message announcing an obstacle survives, sometimes it does not [@frasheri_addressing_2023]. Designing the twin so that its step size, the sampling interval and the transport latency are consciously related, rather than accidentally related, is a genuine engineering task.</p>
+<h3 id="45-what-fidelity-means-at-runtime">4.5 What "fidelity" means at runtime</h3>
+<p>Given all this corruption, how do you know the twin is still a faithful representation? One operational answer is to compare the two systems over <em>sliding windows</em>: align snapshots of the physical and digital states over a fixed interval -- say the last 2 seconds at a 0.1 s snapshot period -- and score the divergence, rather than asking for pointwise equality that noise makes impossible [@munoz_towards_2024]. Treating fidelity as a continuously-monitored, windowed quantity, rather than a property established once at commissioning, is the modern view.</p>
+<hr />
+<h2 id="5-moving-the-data-iot-protocols-for-digital-twins">5. Moving the Data: IoT Protocols for Digital Twins</h2>
+<h3 id="51-the-stack-briefly">5.1 The stack, briefly</h3>
+<p>IoT communication is layered like any other network communication, and confusion in this area almost always comes from comparing protocols that live at different layers. A survey structured around a generic IoT stack is useful here precisely because it separates concerns: physical/link technologies (Bluetooth Low Energy, Zigbee, LoRaWAN, 802.11, 802.15.4), adaptation and network layers (6LoWPAN, IPv6, RPL), transport (TCP, UDP, and the security layers TLS and DTLS), and the application layer where MQTT, CoAP, AMQP and HTTP live [@tournier_survey_2021].</p>
+<p>For twin work, the decisions you actually make are usually at two places: the <strong>link technology</strong> (dictated by physics -- range, power budget, whether you can run a cable) and the <strong>application protocol</strong> (dictated by software architecture). This section concentrates on the second.</p>
+<h3 id="52-the-four-workhorses">5.2 The four workhorses</h3>
+<p>Four application-layer protocols dominate IoT messaging: <strong>MQTT</strong>, <strong>CoAP</strong>, <strong>AMQP</strong> and <strong>HTTP</strong>. A direct comparative study of the four gives the following characteristics [@naik_choice_2017]:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>MQTT</th>
+<th>CoAP</th>
+<th>AMQP</th>
+<th>HTTP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pattern</td>
+<td>publish/subscribe</td>
+<td>request/response (REST-like)</td>
+<td>pub/sub and queues</td>
+<td>request/response</td>
+</tr>
+<tr>
+<td>Transport</td>
+<td>TCP (MQTT-SN can use UDP)</td>
+<td>UDP, SCTP</td>
+<td>TCP, SCTP</td>
+<td>TCP</td>
+</tr>
+<tr>
+<td>Header size</td>
+<td>2 bytes</td>
+<td>4 bytes</td>
+<td>8 bytes</td>
+<td>undefined (verbose)</td>
+</tr>
+<tr>
+<td>Message size</td>
+<td>small, undefined limit</td>
+<td>small, undefined</td>
+<td>negotiable, undefined</td>
+<td>large, undefined</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>TLS/SSL</td>
+<td>DTLS, IPsec</td>
+<td>TLS/SSL, IPsec, SASL</td>
+<td>TLS/SSL</td>
+</tr>
+<tr>
+<td>Default ports</td>
+<td>1883, 8883 (TLS)</td>
+<td>5683, 5684 (DTLS)</td>
+<td>5672, 5671 (TLS)</td>
+<td>80, 443 (TLS)</td>
+</tr>
+</tbody>
+</table>
+<p>Read the table with care, because the raw header sizes are misleading on their own. MQTT has the smallest header at 2 bytes, but its requirement of a TCP connection adds connection-establishment overhead, so its <em>total</em> cost per exchange is higher than the header suggests. CoAP runs over UDP and therefore avoids connection overheads entirely, which makes it the lowest-overhead option for occasional small exchanges. AMQP is still lightweight but pays for its richer provisioning and interoperability features. HTTP, designed for a completely different job, is the most verbose of the four [@naik_choice_2017].</p>
+<p>A second consequence of the transport choice concerns latency under poor networks. TCP opens its congestion window gradually, so it does not use the available bandwidth in the first few round trips of a connection -- which matters a great deal if your device connects, sends one reading, and disconnects to save power. A CoAP exchange over UDP requires only a single round trip [@naik_choice_2017].</p>
+<p><strong>When to reach for which, in a twin context:</strong></p>
+<ul>
+<li><strong>MQTT</strong> is the default for telemetry ingestion. Its pub/sub decoupling means you can add a new consumer (a dashboard, an anomaly detector, a second twin) without touching the devices. It has become dominant enough in machine-to-machine and IoT research that its growth visibly outpaces the alternatives [@mishra_use_2020].</li>
+<li><strong>CoAP</strong> is for severely constrained, battery-powered, often sleepy devices, and for cases where the RESTful resource model maps naturally onto the device (<code>GET /sensors/temp</code>).</li>
+<li><strong>AMQP</strong> is for the enterprise side of the twin -- where you need durable queues, transactions, routing rules and delivery guarantees between backend services rather than to sensors.</li>
+<li><strong>HTTP/REST</strong> is for the twin's own outward-facing API: configuration, queries, model uploads, anything a human or a web application talks to. Almost every twin platform exposes an HTTP API even when its data plane is MQTT.</li>
+</ul>
+<p>Real twin platforms mix them deliberately. Eclipse Ditto handles twins by centralising communication and exposing synchronous and asynchronous APIs over HTTP, MQTT, AMQP and WebSockets simultaneously [@picone_flexible_2023]. A serverless Kubernetes-based twin platform routes HTTPS requests to an event broker ingress while forwarding AMQP and MQTT connections directly to the broker, with in-broker rules fanning events out to the right queues [@wermann_ktwin_2024]. The lesson is that "choose a protocol" is really "choose a protocol per interface".</p>
+<h3 id="53-quality-of-service-what-it-does-and-does-not-promise">5.3 Quality of service: what it does and does not promise</h3>
+<p>MQTT offers three delivery levels, and misunderstanding them is a rich source of bugs.</p>
+<ul>
+<li><strong>QoS 0 -- at most once.</strong> Fire and forget. The message may be lost. No acknowledgement.</li>
+<li><strong>QoS 1 -- at least once.</strong> Acknowledged; the publisher retransmits until acknowledged. <strong>Duplicates are possible.</strong></li>
+<li><strong>QoS 2 -- exactly once.</strong> A four-part handshake ensures single delivery. Highest latency and overhead.</li>
+</ul>
+<p>Three things students routinely get wrong:</p>
+<ol>
+<li><strong>QoS is hop-by-hop, not end-to-end.</strong> MQTT QoS governs publisher-to-broker and broker-to-subscriber separately. A message published at QoS 2 and subscribed at QoS 0 can be lost on the second hop. The effective level is the <em>minimum</em> of the two.</li>
+<li><strong>QoS 1 means your consumer must be idempotent.</strong> If a duplicate temperature reading increments a counter twice, that is your bug, not the broker's.</li>
+<li><strong>QoS 2 is rarely the right answer for telemetry.</strong> For a sensor that reports every second, losing one sample is usually harmless and the next sample supersedes it. Reserve QoS 2 for commands and for events that are not naturally repeated -- "batch complete", "alarm acknowledged", "set the setpoint to 37".</li>
+</ol>
+<p>A related and frequently-missed MQTT feature is the <strong>Last Will and Testament</strong>: a message the broker publishes automatically if a client disconnects ungracefully. For a twin this is how you detect a dead physical asset without polling. Pair it with a <strong>retained message</strong> on the same topic so a newly-connected consumer immediately learns the current state instead of waiting for the next publish.</p>
+<h3 id="54-beyond-the-basics-sparkplug-opc-ua-dds-lwm2m">5.4 Beyond the basics: Sparkplug, OPC UA, DDS, LwM2M</h3>
+<p>Raw MQTT deliberately says nothing about payload format or topic structure -- it moves opaque bytes. That flexibility becomes a liability at scale, when twenty teams invent twenty topic conventions. <strong>Sparkplug</strong> is a specification layered on MQTT that fixes this: it defines a topic namespace, a binary payload encoding, and a session-state model built on <em>birth</em> and <em>death</em> certificates (<code>NBIRTH</code> for a node coming online, <code>DBIRTH</code> for each device it hosts) plus per-message sequence numbers so a consumer can detect gaps and reordering. The specification is explicit that what to do about out-of-order messages is an application decision -- a time-series database might insert everything regardless of order, while a rules engine might need strict ordering to preserve causality [@noauthor_sparkplug_nodate]. That distinction maps directly onto the hot/warm/cold split of Section 3.2.</p>
+<p><strong>OPC UA</strong> occupies a different niche. It is not just a transport but a combined communication <em>and information modelling</em> standard for industrial automation, which is exactly why it recurs in twin work: it carries not only values but a typed, browsable address space describing what those values mean. Its role as the reference standard for interoperable information exchange in Industry 4.0 is why researchers have worked out systematic mappings from twin modelling languages onto it -- for instance from Microsoft's Digital Twins Definition Language into OPC UA address spaces [@cavalieri_proposal_2023]. If your twin talks to programmable logic controllers, you will meet OPC UA whether you planned to or not.</p>
+<p><strong>DDS</strong> (Data Distribution Service) is a decentralised, broker-less publish/subscribe middleware with very fine-grained QoS policies (deadline, latency budget, durability, liveliness), used where real-time determinism matters -- robotics, defence, vehicles. It is one of the three most common pub/sub protocols in IoT domains alongside MQTT and AMQP [@badolato_psmark_2026].</p>
+<p><strong>LwM2M</strong> adds device management -- firmware update, remote configuration, bootstrapping -- on top of CoAP. Telemetry protocols do not manage devices; if your twin has to keep a thousand field devices patched, you need something in this class.</p>
+<p>For the deterministic end of the spectrum, twin architectures increasingly assume link-layer support as well: long-range wide-area networks (LoRaWAN) for sparse, low-power, wide-area sensing, and Time-Sensitive Networking (TSN) or cellular for bounded-latency industrial traffic, with each layer of the architecture distinguished by how much processing of the data it performs [@alcaraz_digital_2022].</p>
+<h3 id="55-how-to-actually-choose">5.5 How to actually choose</h3>
+<p>Do not choose by popularity. Work through this checklist:</p>
+<ol>
+<li><strong>What is the latency budget?</strong> (From Section 3.2.) Milliseconds pushes you to DDS or a local broker; seconds admits anything.</li>
+<li><strong>Who initiates?</strong> If the device sleeps and wakes, it must initiate -- that rules out anything requiring the server to reach in. If the twin must query on demand, you need request/response or a broker that retains state.</li>
+<li><strong>How many consumers, and do they change?</strong> One fixed consumer: request/response is fine. Unknown and growing: pub/sub, and the decoupling pays for itself immediately.</li>
+<li><strong>What is the power and bandwidth budget?</strong> A coin-cell device on LoRaWAN with a few hundred bytes per day cannot run TLS handshakes over TCP.</li>
+<li><strong>What are the delivery semantics of the <em>application</em>?</strong> Idempotent telemetry: QoS 0 or 1. Non-repeating commands: QoS 2 or an application-level acknowledgement.</li>
+<li><strong>What must the payload mean to other systems?</strong> If the answer is "several teams and a regulator", you need an information model (Section 8), not just a transport.</li>
+<li><strong>What is the security posture?</strong> Note from the table that every one of the four workhorses has a standard security binding; there is never a good reason to run one unencrypted "because it is only a test".</li>
+</ol>
+<p><img alt="Figure 5: A decision tree for protocol choice, branching first on latency budget and then on the number and growth of consumers." src="figures/fig05_protocol_decision.svg" /></p>
+<p><strong>Figure 5.</strong> The two highest-leverage questions from the checklist, as a decision tree. Latency budget (question 1) separates out the hard-real-time and sleepy-device cases immediately; for everything else, the number and growth of consumers (question 2) is usually what decides between request/response and pub/sub. The remaining questions in the checklist (power, delivery semantics, payload meaning, security) still have to be answered for whichever branch you land on -- this tree narrows the search, it does not replace the checklist.</p>
+<p>A caution on benchmarking. Published protocol comparisons are usually made under static, homogeneous workloads that do not model realistic IoT device behaviour, which is dynamic and heterogeneous; benchmarks designed specifically to stress publish/subscribe systems under domain-based, multi-protocol workloads exist for exactly this reason [@badolato_psmark_2026]. And when latency genuinely matters, measure it on your own infrastructure: round-trip times of 1 ms or less are achievable in a properly configured production factory, but that is a property of the deployment, not of the protocol [@iorio_when_2021].</p>
+<hr />
+<h2 id="6-data-processing-turning-streams-into-state">6. Data Processing: Turning Streams into State</h2>
+<p>Raw messages are not twin state. Something must convert a stream of noisy, irregular, occasionally duplicated readings into a coherent estimate of what the asset is doing. That is data processing.</p>
+<h3 id="61-the-ingestion-pipeline">6.1 The ingestion pipeline</h3>
+<p>A conventional pipeline has five stages, and it is worth naming them because students tend to collapse them into one function that becomes unmaintainable:</p>
+<ol>
+<li><strong>Ingest.</strong> Accept the message, stamp it with broker time, write it to a durable buffer. Nothing else. The buffer (typically a log-structured broker such as Kafka, or a queue) exists so that a slow or crashed consumer never causes data loss and never applies back-pressure to the sensor.</li>
+<li><strong>Validate.</strong> Reject or quarantine what is structurally wrong: missing fields, wrong types, values outside physically possible ranges, timestamps in the future. Crucially, <em>quarantine rather than discard</em> -- a burst of invalid data is itself a diagnostic signal.</li>
+<li><strong>Clean.</strong> Handle what is structurally fine but physically suspicious: outliers, stuck values (the same reading twelve times running from a sensor that should be noisy), gaps.</li>
+<li><strong>Transform.</strong> Unit conversion, coordinate transforms, renaming to the canonical vocabulary, joining with configuration data.</li>
+<li><strong>Enrich and derive.</strong> Compute residuals against the model, rolling statistics, health indices. Then store, and publish onward.</li>
+</ol>
+<p><img alt="Figure 6: The five-stage ingestion pipeline: Ingest, Validate, Clean, Transform, and Enrich and derive, each with its own responsibility." src="figures/fig06_ingestion_pipeline.svg" /></p>
+<p><strong>Figure 6.</strong> The five stages as a pipeline. Each stage has a distinct responsibility and a distinct failure mode -- collapsing any two of them into one function, which is the natural thing to do under time pressure, is exactly what makes the resulting code unmaintainable.</p>
+<p>Stage 1 must never be skipped, and stages 2 and 3 must never be merged, because they have different failure semantics: validation failure means "this message is broken", cleaning failure means "this measurement is implausible", and those go to different people.</p>
+<h3 id="62-stream-versus-batch">6.2 Stream versus batch</h3>
+<p><strong>Stream processing</strong> handles each record (or micro-batch) as it arrives, maintaining state incrementally. <strong>Batch processing</strong> runs periodically over a bounded, stored data set.</p>
+<p>They are not competitors; a twin needs both, on the hot/warm and cold paths respectively. The canonical mapping is: a streaming source ingests device data; the stream processor computes the low-latency views; the same data lands in durable storage where batch jobs later compute the expensive things -- model retraining, fleet-wide comparison, monthly reports [@marosi_interoperable_2022]. Capability breakdowns of twin data services in practice list acquisition and ingestion, streaming, transformation and contextualisation as separate sub-capabilities with distinct tooling for each [@aghaabbasi_digital_2024].</p>
+<p>A rule of thumb for deciding: <strong>if the answer changes the physical system's behaviour within its own time constant, it belongs on the stream. Otherwise it belongs in a batch.</strong></p>
+<h3 id="63-windows">6.3 Windows</h3>
+<p>Streams are infinite; aggregates are not. A <strong>window</strong> bounds a stream so that "the average" becomes computable.</p>
+<ul>
+<li><strong>Tumbling windows</strong> are fixed-size and non-overlapping (every 10 s). Each record belongs to exactly one window. Use for periodic reporting.</li>
+<li><strong>Sliding windows</strong> are fixed-size and overlapping (the last 10 s, recomputed every 1 s). Use for smooth monitoring, and for fidelity scoring of the kind described in Section 4.5, where a window is defined by a time interval or by a number of events [@munoz_towards_2024].</li>
+<li><strong>Session windows</strong> are bounded by inactivity gaps. Use when the natural unit is "one production run" or "one trip" rather than a fixed duration.</li>
+</ul>
+<p><img alt="Figure 7: Three window types on a shared timeline: tumbling windows are fixed and adjacent, sliding windows are fixed and overlapping, session windows vary in length and are bounded by gaps." src="figures/fig07_windows.svg" /></p>
+<p><strong>Figure 7.</strong> The three window types, drawn on a shared timeline. Tumbling windows partition the stream with no overlap; sliding windows recompute over a moving span, so a single record can fall in several windows at once; session windows have no fixed size at all -- their boundaries are wherever the data goes quiet.</p>
+<p>The hard part of windowing is <strong>late data</strong>. A message stamped 12:00:03 arrives at 12:00:11 because the device was offline. If your 12:00:00-12:00:10 window already closed and emitted, what happens? Three legitimate answers: drop it (simple, lossy), hold windows open for a grace period (adds latency), or emit corrections downstream (correct but requires every consumer to handle updates). Choose deliberately and document it; the default in most frameworks is "drop", which will silently eat your reconnection data.</p>
+<h3 id="64-filtering-and-state-estimation">6.4 Filtering and state estimation</h3>
+<p>The distinctive processing step in a <em>twin</em>, as opposed to a generic IoT pipeline, is that you have a model of the system, so you can do better than smoothing.</p>
+<p>Consider the incubator. You have (a) a noisy temperature measurement, and (b) a thermodynamic model that predicts temperature from heater power. Naive options are to trust the sensor (noisy) or trust the model (drifts). The <strong>Kalman filter</strong> does neither: it maintains a state estimate with an associated uncertainty, propagates both forward through the model, and then corrects using the measurement, weighting the two in inverse proportion to their uncertainties. Applied to twins, this same machinery does double duty -- it estimates the state you cannot measure directly <em>and</em> it estimates model parameters, so the twin's models are continuously calibrated against the physical twin rather than only at commissioning [@feng_model-based_2023].</p>
+<p>The conceptual step to appreciate is that this is <em>processing that only a twin can do</em>. A generic pipeline can compute a moving average; only a system carrying a model of the physics can infer the product core temperature from the air temperature, or notice that the heater's efficiency has dropped 8% because the residual has developed a bias.</p>
+<p>More broadly, combining physical observations with virtual models in a rigorous and scalable way is the domain of inverse problems and data assimilation, and calibrating and updating a twin <em>on actionable timescales</em> remains an open research area rather than a solved engineering procedure [@committee_on_foundational_research_gaps_and_future_directions_for_digital_twins_foundational_2024]. Uncertainty quantification -- carrying and propagating the uncertainty rather than reporting a bare number -- is treated as a defining capability of a mature twin rather than an optional extra [@thelen_comprehensive_2022-1].</p>
+<h3 id="65-where-to-process-edge-fog-or-cloud">6.5 Where to process: edge, fog or cloud</h3>
+<p>The same computation can run on the sensor node, on a gateway near the asset, or in a data centre. The trade-off:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Edge (on/near device)</th>
+<th>Cloud</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Latency</td>
+<td>low, predictable</td>
+<td>higher, variable</td>
+</tr>
+<tr>
+<td>Bandwidth cost</td>
+<td>low (send conclusions)</td>
+<td>high (send raw data)</td>
+</tr>
+<tr>
+<td>Compute available</td>
+<td>constrained</td>
+<td>effectively unlimited</td>
+</tr>
+<tr>
+<td>Privacy</td>
+<td>data need not leave site</td>
+<td>data leaves site</td>
+</tr>
+<tr>
+<td>Maintainability</td>
+<td>hard (fleet updates)</td>
+<td>easy</td>
+</tr>
+</tbody>
+</table>
+<p>The industry answer is not "edge" or "cloud" but a <strong>continuum</strong>, in which components are placed to optimise response time and resource use across hierarchical segments, with proximity exploited where it helps [@raza_empowering_2024]. Twin-specific work explores microservices and serverless deployment across cloud-to-edge precisely so that placement becomes a deployment decision rather than an architectural one [@bellavista_exploiting_2024].</p>
+<p><img alt="Figure 8: The edge-to-cloud continuum, with latency, bandwidth cost, compute availability, privacy and maintainability trading off in opposite directions along it." src="figures/fig08_edge_cloud_continuum.svg" /></p>
+<p><strong>Figure 8.</strong> The trade-offs from the table above, redrawn as a single spectrum. No property is free: every step toward the cloud buys compute and maintainability at the cost of latency, bandwidth and data locality, and every step toward the edge reverses the trade. Placement is chosen per component, not once for the whole twin.</p>
+<p>Do not assume edge always wins. Measured analyses of offloading big-data tasks from edge nodes to cloud resources have found completion-time reductions of up to 97%, with the right choice depending on task complexity and wide-area network conditions rather than on a blanket preference [@singh_offload_2022].</p>
+<p>A concrete heuristic for twins: <strong>process at the edge whatever is needed to close a control loop or to reduce data volume; process in the cloud whatever needs history, fleet context, or heavy computation.</strong> Anomaly <em>detection</em> at the edge, anomaly <em>diagnosis</em> in the cloud.</p>
+<hr />
+<h2 id="7-storing-digital-twin-data">7. Storing Digital Twin Data</h2>
+<h3 id="71-one-twin-several-databases">7.1 One twin, several databases</h3>
+<p>Beginners look for "the" database for a twin. There isn't one, because the four data categories of Section 3.1 have irreconcilable access patterns. A workable default mapping:</p>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Store type</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Telemetry, residuals, derived series</td>
+<td><strong>Time-series database</strong></td>
+<td>append-heavy, time-ranged queries, downsampling, retention policies</td>
+</tr>
+<tr>
+<td>Configuration, assets, batches, users</td>
+<td><strong>Relational database</strong></td>
+<td>integrity constraints, joins, transactions</td>
+</tr>
+<tr>
+<td>Twin state documents, model descriptions</td>
+<td><strong>Document store</strong></td>
+<td>schema flexibility, whole-object read/write</td>
+</tr>
+<tr>
+<td>CAD, images, raw waveforms, model binaries</td>
+<td><strong>Object store</strong></td>
+<td>large opaque blobs, cheap, versionable</td>
+</tr>
+<tr>
+<td>Relationships: composition, connectivity, dependency</td>
+<td><strong>Graph database</strong></td>
+<td>multi-hop traversal without expensive joins</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Figure 9: Each of the five data categories from the table maps to a distinct store type, connected one-to-one: time-series, relational, document, object and graph." src="figures/fig09_storage_mapping.svg" /></p>
+<p><strong>Figure 9.</strong> The mapping redrawn as a diagram rather than a table, to make the one-to-one structure explicit: there is no single database that serves all five categories well, because each has a different dominant access pattern.</p>
+<p>This is what production twin systems actually do. A six-dimensional twin platform explicitly proposes a <em>dual-core</em> data architecture combining a relational database with a time-series database to optimise storage and access for the twin model, rather than forcing one to do both jobs [@li_six-dimensional_2025]. Open-source twin frameworks combine IoT ingestion with real-time time-series storage of twin states and separate visualisation [@robles_opentwins_2023]. And for relationship-heavy twins, graph databases store nodes <em>and</em> the relationships between them, which enables traversal and querying of those relationships with low cost -- the reason they appear whenever a twin must answer "what else is affected if this pump fails?" [@duran_toward_2026].</p>
+<h3 id="72-time-series-storage-in-more-depth">7.2 Time-series storage in more depth</h3>
+<p>Since telemetry dominates the volume, the time-series store is where design effort pays.</p>
+<p><strong>Schema.</strong> The near-universal model is: a <em>measurement</em> name, a set of <em>tags</em> (indexed, low-cardinality metadata: device id, site, batch), a set of <em>fields</em> (the actual values, not indexed), and a <em>timestamp</em>. The single most common beginner mistake is putting a high-cardinality value in a tag -- a UUID per reading, say -- which explodes the index and destroys performance. Rule: <strong>tags are things you filter or group by; fields are things you aggregate.</strong></p>
+<p><strong>Retention and downsampling.</strong> You cannot keep everything at full resolution forever, and you rarely need to. A standard scheme:</p>
+<ul>
+<li>Raw (1 Hz): keep 7 days.</li>
+<li>1-minute aggregates (mean, min, max, count, stddev): keep 1 year.</li>
+<li>1-hour aggregates: keep forever.</li>
+</ul>
+<p>Always store <code>min</code>, <code>max</code> and <code>count</code> alongside <code>mean</code> when downsampling. A mean alone hides exactly the transients that matter to a twin, and <code>count</code> is what lets you distinguish "stable" from "no data".</p>
+<p><strong>Compression.</strong> Time series compress extremely well because successive values are highly correlated. Beyond generic delta-of-delta and columnar encodings, there is a <em>model-based</em> approach: fit simple mathematical models (constant, linear, and lossy variants within a user-specified error bound) to segments of the series and store the model parameters instead of the points. ModelarDB does this across edge and cloud, and reports that using models reduces bandwidth, storage <em>and</em> computation -- aggregates can be computed directly from the stored segments without reconstructing the points [@jensen_demonstration_2025]. On real high-frequency wind turbine data, a tolerance as small as 0.01% error gave more than twice the compression of a lossless alternative [@abduvakhobov_scalable_2024].</p>
+<p>That last point deserves emphasis, because it violates a naive intuition: <strong>accepting a tiny, bounded, explicitly-specified loss can buy more than a factor of two in storage over lossless compression.</strong> For sensor data whose own quantisation error is larger than the tolerance you set, this loss is genuinely free.</p>
+<h3 id="73-data-lakes-warehouses-and-the-cold-path">7.3 Data lakes, warehouses and the cold path</h3>
+<p>The cold path typically lands in an <strong>object store</strong> holding raw and lightly-processed data in columnar files (Parquet is the usual choice), queried by batch engines. Two design rules:</p>
+<ul>
+<li><strong>Partition by time, then by asset.</strong> <code>year=2026/month=08/asset=incubator-03/</code> lets a query for one asset-month read a handful of files instead of scanning everything.</li>
+<li><strong>Keep the raw data.</strong> Storage is cheap; the ability to re-derive everything after you discover a bug in your cleaning code is priceless. This is the practical form of the reproducibility point from Section 3.3.</li>
+</ul>
+<h3 id="74-a-sizing-calculation">7.4 A sizing calculation</h3>
+<p>Students consistently over- or under-estimate storage by orders of magnitude. Do the arithmetic.</p>
+<p>A wind farm twin: 50 turbines, 200 signals each, sampled at 10 Hz, stored as 8-byte doubles with an 8-byte timestamp.</p>
+<ul>
+<li>Values per second: $50 \times 200 \times 10 = 100{,}000$.</li>
+<li>Bytes per second, naive: $100{,}000 \times 16 = 1.6$ MB/s.</li>
+<li>Per day: about 138 GB. Per year: about 50 TB.</li>
+</ul>
+<p>Now apply the tools above. Columnar encoding with delta timestamps and typical time-series compression gets perhaps 10x. Model-based compression at a bounded tolerance gets considerably more on smooth channels. Downsampling everything older than a week to 1-minute aggregates cuts the retained volume by roughly $600\times$ for the aggregated tier. The 50 TB/year becomes a few hundred GB of hot data plus a manageable archive -- but only because someone did this calculation at design time rather than discovering it when the disk filled.</p>
+<hr />
+<h2 id="8-integrating-data-making-twins-understand-each-other">8. Integrating Data: Making Twins Understand Each Other</h2>
+<h3 id="81-the-problem">8.1 The problem</h3>
+<p>Suppose two teams each build a twin of a pump. Team A's twin reports <code>{"t": 341.2, "u": "K"}</code>. Team B's reports <code>{"temperature_f": 154.5}</code>. Both are valid JSON. Both are parseable. Neither system can use the other's data without a human writing a bespoke translator, and that translator breaks the moment either side adds a field.</p>
+<p>This is the distinction between <strong>syntactic</strong> interoperability (we agree on the format -- JSON, XML, Protobuf) and <strong>semantic</strong> interoperability (we agree on the <em>meaning</em> -- that this field denotes the fluid temperature at the pump outlet, in kelvin, measured by a sensor of stated accuracy). Syntactic interoperability lets machines exchange data; semantic interoperability ensures meaningful data exchange and improves overall data utilisation [@farahani_kernel_2025]. Only the second scales past two teams.</p>
+<p>The industrial cost of getting this wrong is why interoperability frameworks describe their goal as achieving something like USB-style plug-compatibility for connected systems, and note that most systems were designed for specific tasks and do not inherently interoperate with anything outside themselves -- making "system integration" a labour-intensive discipline rather than a configuration step [@budiardjo_digital_2021].</p>
+<h3 id="82-information-models-the-main-contenders">8.2 Information models: the main contenders</h3>
+<p>An <strong>information model</strong> is a machine-readable description of what a twin is and what data it exposes. Four you should know:</p>
+<p><strong>Asset Administration Shell (AAS).</strong> The Industrie 4.0 standard. An AAS is the digital representation of exactly one asset, and its information is split into <strong>submodels</strong>, each covering an aspect (technical data, documentation, operational data, carbon footprint), which are further divided into collections of typed properties and other submodel elements [@noauthor_asset_nodate]. Submodels are the key idea: they let different stakeholders own different parts of the same asset's description without colliding. AAS is defined in three <em>types</em> -- roughly, a passive file-based type, a type that retrieves data from the asset at runtime, and a type that additionally sends commands back -- though the community has noted these type definitions are used inconsistently and benefit from a more careful classification [@ellwein_rethinking_2025]. Notice how neatly the three types map onto the model/shadow/twin taxonomy of Section 2.1. A survey of open-source AAS implementations found that all of them support at least a minimal required feature set while none implements the specification in full detail [@jacoby_open-source_2023] -- a useful reality check on standards adoption generally, and a warning to test the specific features you depend on. Analysis of the three AAS types against digital twin engineering needs suggests AAS is a strong foundation but not by itself a complete answer [@zhang_digital_2024].</p>
+<p><strong>Digital Twins Definition Language (DTDL).</strong> Microsoft's JSON-LD-based language, organised around <em>interfaces</em> containing telemetry, properties, commands, components and relationships. Its relationship construct makes it natural for building twin graphs.</p>
+<p><strong>W3C Web of Things Thing Description (TD).</strong> A JSON-LD document describing a thing's <em>interaction affordances</em> -- properties, actions, events -- and, critically, the concrete <strong>protocol bindings</strong> for each: this property is readable by an HTTP GET at this URL, or subscribable via MQTT on this topic. The Web of Things approach connects to Linked Data so that interrelated datasets enable large-scale integration and reasoning over data rather than isolated device descriptions [@sciullo_survey_2022]. This is the standard to reach for when your twin must span genuinely heterogeneous protocols.</p>
+<p><strong>NGSI-LD.</strong> A context-information model and API standardised for smart cities, with entities, properties and relationships expressed against shared ontologies. Publish/subscribe systems built around it (Orion-LD, Scorpio, Stellio) treat NGSI-LD as the message format itself, with subscriptions expressed over Linked Data [@lazidis_publish-subscribe_2022].</p>
+<p>There are also <em>framework</em> standards that deliberately do not standardise the information model. ISO 23247 defines eight types of observable manufacturing element and seven attribute types for each, and organises the system into an Observable Manufacturing Domain, a Digital Twin Domain and an interfacing Device Communication Domain with bidirectional links -- but it explicitly is <em>not</em> a standard for information models, leaving you to select appropriate ones (MTConnect for data collection, STEP for product representation, and so on) within its framework [@shao_analysis_2023]. Reference architectures at the IoT level, such as ISO/IEC 30141, play a similar structuring role [@iso_isoiec_nodate], as does the Industrial Internet Reference Architecture with its component capability patterns [@noauthor_industrial_nodate].</p>
+<h3 id="83-mapping-between-standards">8.3 Mapping between standards</h3>
+<p>You will inevitably need to bridge two of these. This is a well-trodden path: systematic transformations have been worked out from DTDL to AAS by comparing metamodel structure, data representation and semantic annotation of data element by element [@schmidt_increasing_2023], and from DTDL into OPC UA address spaces [@cavalieri_proposal_2023]. Attempts also exist to define a neutral schema that clients can use to extract values from standardised keys across whichever description format a twin happens to use, so that collaboration does not require every twin to adopt the same format [@mattila_interoperability_2025].</p>
+<p>The practical advice for a project: <strong>pick one canonical internal model, and write adapters at the boundary.</strong> Do not let three formats leak into your core code. Which one you pick matters less than the discipline of having exactly one.</p>
+<h3 id="84-ontologies-linked-data-and-knowledge-graphs">8.4 Ontologies, linked data and knowledge graphs</h3>
+<p>An information model tells you the shape of the data. An <strong>ontology</strong> tells you what the terms mean and how they relate -- that a centrifugal pump <em>is a</em> pump, that a pump <em>has part</em> an impeller, that outlet temperature <em>is a</em> temperature measurement whose unit <em>is</em> kelvin. Encoding this in RDF/OWL lets a reasoner answer questions no schema can, such as "give me every temperature measurement anywhere in this plant" without anyone having enumerated them.</p>
+<p>For ecosystems of twins, the argument for Linked Data is that it addresses discoverability of data and services, deployment management, and data and knowledge integration together, rather than solving each with a separate mechanism [@burattini_towards_2024]. Where twins of individual components must be composed into systems-of-systems that reconfigure at runtime, efficient composition according to dynamic requirements is a prerequisite that ad-hoc field mapping cannot satisfy [@gill_toward_2024]. And the <strong>cognitive digital twin</strong> line of work is essentially about pushing this further: over a long lifecycle many twin models accumulate across domains and phases, and integrating them requires augmenting twins with semantics rather than more data plumbing [@jinzhi_exploring_2022].</p>
+<p>Be honest about the cost. Ontologies are expensive to build and easy to over-engineer. For a single twin of a single machine, a well-documented JSON schema is usually the right level. Reach for full semantics when you have many twins, many owners, or a long lifetime -- which is to say, when integration cost is about to dominate everything else.</p>
+<h3 id="85-crossing-organisational-boundaries-dataspaces">8.5 Crossing organisational boundaries: dataspaces</h3>
+<p>The hardest integration problem is not technical but organisational: a supplier's twin and a customer's twin need to exchange data, but neither will hand over a database. <strong>Dataspaces</strong> address this by providing an architecture in which data is shared, reused and exchanged in a governed and secure manner -- enabling search, query, aggregation, federation, integration and analysis over geographically distributed and diverse resources while preserving each participant's control [@singh_data-driven_2024]. The organising principle is <strong>data sovereignty</strong>: cross-domain data integration and sharing across edges requires governance of the rights each party retains, not merely a shared API [@singh_navigating_2024]. Work on integration approaches for twins in dataspaces connects this directly to the AAS world [@schmidt_integration_2025].</p>
+<p>The takeaway for a student: when data crosses an organisational boundary, the interesting questions become <em>who may use this data, for what purpose, for how long, and how is that enforced</em> -- and no message protocol answers them.</p>
+<hr />
+<h2 id="9-worked-example-an-end-to-end-data-path-for-a-greenhouse-twin">9. Worked Example: An End-to-End Data Path for a Greenhouse Twin</h2>
+<p>We now build one complete path, small enough to follow, containing every concept above. Follow along and you could implement it.</p>
+<p><img alt="Figure 10: The full greenhouse twin architecture, from 20 sensor nodes through an MQTT broker, an ingestion pipeline, a Kalman filter, four storage backends, and services, down to actuator commands." src="figures/fig10_greenhouse_architecture.svg" /></p>
+<p><strong>Figure 10.</strong> A preview of the complete data path built step by step below: sensing (Section 9.2) publishes over the protocol chosen in Section 9.3; ingestion and processing (Section 9.4) clean the stream and feed the Kalman filter (Section 9.5); four purpose-fitted stores (Section 9.6) each hold one data category; and the services layer (Section 9.7) closes the loop by commanding the actuators back through the same broker -- the twinning loop of Figure 1, now filled in with a real system.</p>
+<h3 id="91-the-system-and-its-purpose">9.1 The system and its purpose</h3>
+<p>A research greenhouse. Twenty sensor nodes, each measuring air temperature, relative humidity, soil moisture and photosynthetically active radiation. Four actuators: vents, a heater, irrigation valves, supplemental lighting.</p>
+<p><strong>Purpose of the twin</strong> (state it before anything else, per "fit for purpose"): predict air temperature 30 minutes ahead so vents open pre-emptively rather than reactively, and detect a failing sensor within one hour.</p>
+<p>That purpose immediately fixes the requirements. A 30-minute prediction horizon means the hot path needs at most second-scale latency. Sensor-failure detection within an hour is a warm-path job. Nothing here needs millisecond determinism. Good -- that saves us from DDS and TSN.</p>
+<h3 id="92-step-1-the-sensing-decision">9.2 Step 1: the sensing decision</h3>
+<p>Greenhouse air temperature changes on a scale of minutes; the fastest meaningful transient is a vent opening, with a time constant of roughly 60 s. By Nyquist we need better than 1 sample per 30 s. Applying the 5-10x oversampling margin from Section 4.1, we choose <strong>1 sample every 5 s</strong>.</p>
+<p>Resolution: the control band is 0.5 degrees C, so we want quantisation error well under 0.1 degrees C. Reusing the calculation of Section 4.3, a 12-bit ADC over a 0-50 degrees C range gives about 0.012 degrees C per count -- ample.</p>
+<p>Transmission: at 5 s intervals, 20 nodes and 4 signals, that is 16 messages per second. Trivial. But we apply send-on-delta anyway (threshold 0.1 degrees C) with a 60 s heartbeat, because most nodes are battery-powered and radio time dominates their power budget. Expected reduction: roughly 10x on quiet days.</p>
+<h3 id="93-step-2-the-protocol-decision">9.3 Step 2: the protocol decision</h3>
+<p>Run the Section 5.5 checklist:</p>
+<ol>
+<li>Latency budget: seconds. Anything works.</li>
+<li>Initiation: devices sleep between transmissions, so devices must initiate. Rules out server-pull.</li>
+<li>Consumers: currently a dashboard and the predictor; the group already wants to add a research logger. Unknown and growing -&gt; <strong>pub/sub</strong>.</li>
+<li>Power: battery nodes on Wi-Fi; a persistent TCP connection with keepalives is affordable at 5 s intervals.</li>
+<li>Semantics: telemetry, naturally repeating. <strong>QoS 1</strong> with idempotent consumers -- we accept duplicates, we do not accept silent loss during reconnection.</li>
+<li>Meaning to others: one lab, one schema, for now. Documented JSON is sufficient; we note AAS as future work.</li>
+<li>Security: TLS on port 8883, per-device credentials.</li>
+</ol>
+<p><strong>Decision: MQTT over TLS, QoS 1.</strong> With a Last Will and Testament on <code>greenhouse/node/+/status</code> so a dead node is detected in seconds rather than at the next heartbeat.</p>
+<p>Topic design (flat, hierarchical, no data in the payload that belongs in the topic):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>greenhouse/node/&lt;node_id&gt;/telemetry
+greenhouse/node/&lt;node_id&gt;/status          # retained; LWT publishes &quot;offline&quot;
+greenhouse/actuator/&lt;act_id&gt;/command
+greenhouse/actuator/&lt;act_id&gt;/state        # retained
+greenhouse/twin/prediction
+</code></pre></div></td></tr></table></div>
+<p>Payload:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;node_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;n07&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ts_device&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-08-03T09:14:22.481Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;seq&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">148213</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;readings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;air_temp_c&quot;</span><span class="p">:</span><span class="w">      </span><span class="p">{</span><span class="nt">&quot;v&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">24.31</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;q&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;rel_humidity_pct&quot;</span><span class="p">:{</span><span class="nt">&quot;v&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">61.2</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;q&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;soil_moisture_pct&quot;</span><span class="p">:{</span><span class="nt">&quot;v&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">33.9</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;q&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stale&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;par_umol_m2s&quot;</span><span class="p">:</span><span class="w">    </span><span class="p">{</span><span class="nt">&quot;v&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">812.0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;q&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;fw&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.4.2&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Four deliberate choices worth defending. <strong>Units are in the field names</strong>, so no reading can ever be ambiguous. <strong>A per-reading quality flag</strong> lets one bad channel be reported without discarding the message. <strong>A sequence number</strong> lets the consumer detect gaps, the Sparkplug idea from Section 5.4. <strong>The firmware version</strong> travels with the data, which is the reproducibility discipline of Section 3.3 -- when readings from <code>fw 1.4.1</code> turn out to have a sign error, you can find exactly which rows to fix.</p>
+<h3 id="94-step-3-ingestion-and-processing">9.4 Step 3: ingestion and processing</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Stage 1-2: ingest and validate. Deliberately does nothing clever.</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dt</span>
+
+<span class="n">PLAUSIBLE</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;air_temp_c&quot;</span><span class="p">:</span>       <span class="p">(</span><span class="o">-</span><span class="mf">20.0</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">),</span>
+    <span class="s2">&quot;rel_humidity_pct&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">),</span>
+    <span class="s2">&quot;soil_moisture_pct&quot;</span><span class="p">:(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">),</span>
+    <span class="s2">&quot;par_umol_m2s&quot;</span><span class="p">:</span>     <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2500.0</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">on_message</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+    <span class="n">t_broker</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">payload</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
+        <span class="n">quarantine</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">payload</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;unparseable&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">required</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;node_id&quot;</span><span class="p">,</span> <span class="s2">&quot;ts_device&quot;</span><span class="p">,</span> <span class="s2">&quot;seq&quot;</span><span class="p">,</span> <span class="s2">&quot;readings&quot;</span><span class="p">}</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">required</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">payload</span><span class="p">):</span>
+        <span class="n">quarantine</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;missing_fields&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># Keep BOTH clocks. Their difference is a measurement (Section 4.4).</span>
+    <span class="n">payload</span><span class="p">[</span><span class="s2">&quot;ts_broker&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_broker</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+    <span class="n">durable_log</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>          <span class="c1"># never process before durably buffering</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Stage 3-5: clean, transform, derive. Runs off the durable log.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;node_id&quot;</span><span class="p">]</span>
+    <span class="n">t_dev</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;ts_device&quot;</span><span class="p">])</span>
+    <span class="n">t_brk</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;ts_broker&quot;</span><span class="p">])</span>
+
+    <span class="c1"># Clock skew as a first-class derived signal.</span>
+    <span class="n">skew_s</span> <span class="o">=</span> <span class="p">(</span><span class="n">t_brk</span> <span class="o">-</span> <span class="n">t_dev</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">skew_s</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">5.0</span><span class="p">:</span>
+        <span class="n">alert</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;node </span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2"> clock skew </span><span class="si">{</span><span class="n">skew_s</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Gap detection via the sequence number.</span>
+    <span class="n">prev</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">last_seq</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">prev</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;seq&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">prev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">record</span><span class="p">[</span><span class="s2">&quot;gap_before&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;seq&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">prev</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">last_seq</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;seq&quot;</span><span class="p">]</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;readings&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">PLAUSIBLE</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">lo</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">[</span><span class="s2">&quot;v&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">hi</span><span class="p">):</span>
+            <span class="n">quarantine</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">_out_of_range&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;ok&quot;</span><span class="p">:</span>
+            <span class="n">r</span><span class="p">[</span><span class="s2">&quot;v&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>                <span class="c1"># keep the row, mark the value absent</span>
+        <span class="c1"># Stuck-sensor check: no change at all over a 30-minute window.</span>
+        <span class="k">if</span> <span class="n">state</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">minutes</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">spread</span><span class="p">()</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="n">alert</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;node </span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2"> sensor </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> appears stuck&quot;</span><span class="p">)</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">t_dev</span><span class="p">,</span> <span class="n">r</span><span class="p">[</span><span class="s2">&quot;v&quot;</span><span class="p">],</span> <span class="n">node</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">out</span>
+</code></pre></div></td></tr></table></div>
+<p>Two details worth noticing. Quarantine is used for structural problems and range violations, but a merely <em>flagged</em> reading keeps its row with a null value -- so the count of expected-versus-received readings stays correct, which is what the stuck-sensor and dead-node checks depend on. And the stuck-sensor check uses a 30-minute sliding window (Section 6.3): well inside the one-hour detection requirement from Section 9.1, and long enough that genuinely stable conditions on a still night do not trigger it. If they did, we would raise the window rather than remove the check.</p>
+<h3 id="95-step-4-state-estimation">9.5 Step 4: state estimation</h3>
+<p>The dashboard could plot raw readings, but the twin's job is prediction, and for that it needs a state estimate, not a sample. The greenhouse air temperature obeys, approximately,</p>
+<p>$$ C \frac{dT}{dt} = Q_{heat} + Q_{solar} - UA (T - T_{out}) - \dot{m} c_p (T - T_{out}) $$</p>
+<p>with $C$ the thermal capacitance, $UA$ the envelope loss coefficient, and the last term the vent airflow. A Kalman filter over this model, driven by the heater command, the measured solar radiation and the outside temperature, gives a smoothed estimate of $T$ <em>and</em> running estimates of $C$ and $UA$ -- which drift as the crop grows and as the plastic ages. This is the dual role from Section 6.4: state estimation and continuous model calibration in one mechanism [@feng_model-based_2023].</p>
+<p>The 30-minute prediction is then a forward integration of the same model from the current estimate, using a weather forecast for $T_{out}$ and $Q_{solar}$. Report it with an uncertainty band, not as a single number.</p>
+<h3 id="96-step-5-storage">9.6 Step 5: storage</h3>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Where</th>
+<th>Retention</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cleaned telemetry, 5 s</td>
+<td>time-series DB</td>
+<td>raw 14 days; 1-min aggregates (mean/min/max/count) 2 years; 1-hour forever</td>
+</tr>
+<tr>
+<td>Kalman state and parameter estimates</td>
+<td>time-series DB</td>
+<td>same policy</td>
+</tr>
+<tr>
+<td>Predictions and their later realised error</td>
+<td>time-series DB</td>
+<td>2 years, never downsampled</td>
+</tr>
+<tr>
+<td>Node registry, calibration, firmware, crop plan</td>
+<td>relational DB</td>
+<td>forever, with history</td>
+</tr>
+<tr>
+<td>Quarantined messages</td>
+<td>object store</td>
+<td>90 days</td>
+</tr>
+<tr>
+<td>Node-to-zone-to-actuator topology</td>
+<td>graph DB</td>
+<td>forever</td>
+</tr>
+</tbody>
+</table>
+<p>Two justifications. <strong>Predictions are never downsampled</strong> because prediction error is the primary evidence of twin quality, and it is small in volume. <strong>Quarantined messages are kept for 90 days</strong> because "the twin went strange last month" is a question you will be asked, and the quarantine bucket is where the answer is.</p>
+<p>Sizing: 20 nodes x 4 signals every 5 s is 16 values/s, about 1.4 million values/day. At 16 bytes raw that is 22 MB/day, roughly 8 GB/year before compression -- comfortable on any machine. Contrast with the wind farm of Section 7.4 and note that the <em>architecture</em> is the same; only the numbers, and therefore the compression and downsampling urgency, differ.</p>
+<h3 id="97-step-6-integration">9.7 Step 6: integration</h3>
+<p>Six months in, an agronomy group wants to correlate our data with theirs from a different greenhouse running a commercial controller.</p>
+<p>The syntactic fix -- a CSV export with an agreed column order -- takes an afternoon and breaks the first time either side adds a sensor. The semantic fix is to describe each node as a W3C Thing Description: interaction affordances for each property, with MQTT protocol bindings giving the topic and the payload schema, and each property annotated against a shared vocabulary for quantity kinds and units. Now their tooling can <em>discover</em> that our <code>air_temp_c</code> and their <code>Lufttemperatur</code> are both air temperature, and convert units without a human in the loop.</p>
+<p>This is the moment to reach for semantics: many owners, long lifetime, integration cost about to dominate (Section 8.4). Doing it in month one would have been premature; doing it in year three would be too late to be cheap.</p>
+<hr />
+<h2 id="10-cross-cutting-concerns">10. Cross-Cutting Concerns</h2>
+<h3 id="101-data-quality">10.1 Data quality</h3>
+<p>Every twin needs an explicit answer to "how do I know this number is good?". Environmental factors, wear and calibration drift produce faults in multiple sensors, causing data loss, noise and inconsistency, and the twin's usefulness depends directly on detecting them [@savaglio_generative_2025]. Concretely, monitor at minimum:</p>
+<ul>
+<li><strong>Completeness</strong>: received samples divided by expected samples, per node per hour.</li>
+<li><strong>Timeliness</strong>: distribution of broker-time minus device-time.</li>
+<li><strong>Plausibility</strong>: fraction quarantined, by reason.</li>
+<li><strong>Consistency</strong>: agreement between redundant or physically-related sensors (if the air temperature rises and the product temperature does not, one of them is wrong).</li>
+<li><strong>Staleness</strong>: age of the most recent update per signal.</li>
+</ul>
+<p>Publish these as first-class twin signals, on the same dashboards as the physics. A twin that reports its own data quality is trustworthy in a way that one which silently degrades is not. Assessments of research gaps in the field list assessing data quality, determining how to use all available information, and understanding how data quality affects twin performance among the open problems -- alongside the observation that standards and governance policies are what make quality, accuracy, security and integrity achievable at all [@committee_on_foundational_research_gaps_and_future_directions_for_digital_twins_foundational_2024].</p>
+<h3 id="102-security">10.2 Security</h3>
+<p>A twin enlarges the attack surface twice over: it adds a network path into an operational system, and it creates a high-fidelity replica of that system which is itself worth stealing. Because data between physical and digital twin is exchanged close to real time and can carry critical signals, cyber security assurance is a requirement rather than a hardening step applied afterwards [@kulik_security_2024]. Comprehensive threat surveys organise the problem around requirements including coexistence of assets, interoperability of protocols and trust in every interacting entity [@alcaraz_digital_2022].</p>
+<p>The minimum bar for a student project, all of which the protocols of Section 5 support natively:</p>
+<ul>
+<li><strong>Transport encryption everywhere.</strong> TLS for MQTT/AMQP/HTTP, DTLS for CoAP. No exceptions for test deployments.</li>
+<li><strong>Per-device identity</strong>, not a shared password. When one node is compromised, you must be able to revoke exactly one node.</li>
+<li><strong>Authorisation on topics.</strong> A sensor node may publish to its own telemetry topic and nothing else. In particular, a sensor must never be permitted to publish actuator commands.</li>
+<li><strong>Treat the actuation leg as safety-critical.</strong> The command path deserves stronger delivery guarantees, authentication and rate limiting than the telemetry path, and needs a physical interlock that the twin cannot override.</li>
+</ul>
+<p>Note also the opportunity: the observability a twin already provides can be turned back on the security problem, using deviations in ordinary twin metrics as lightweight runtime indicators of an incident without intrusive inspection [@picone_assessing_2026].</p>
+<h3 id="103-privacy-and-governance">10.3 Privacy and governance</h3>
+<p>If the physical twin involves people -- occupants, drivers, patients, operators -- the data is personal data, and regulation such as the GDPR constrains what the twin may do with it and for what purposes, which is a live concern in twin engineering rather than a legal footnote [@marah_re-engineering_2025]. Two techniques go a long way: aggregate at the edge so that individual-level data never leaves the site (Section 6.5), and set retention deliberately so that data expires by default rather than by neglect.</p>
+<hr />
+<h2 id="11-common-mistakes">11. Common Mistakes</h2>
+<p>Collected from the sections above, the errors that most often sink student twin projects:</p>
+<ol>
+<li><strong>Building the model before the data path.</strong> The model is the part you already know how to do. Prototype the pipeline end to end with a single fake sensor in week one.</li>
+<li><strong>Sampling by intuition.</strong> Compute the Nyquist requirement and the quantisation step. It takes five minutes and prevents unrecoverable data loss.</li>
+<li><strong>Storing one timestamp.</strong> Keep device time and broker time. Their difference is free diagnostics.</li>
+<li><strong>Assuming QoS 2 means exactly-once end to end.</strong> It does not; it is hop-by-hop, and the effective level is the minimum across hops.</li>
+<li><strong>Deleting bad data.</strong> Quarantine it. The pattern of failures is a signal.</li>
+<li><strong>Putting high-cardinality values in time-series tags.</strong> This destroys database performance in a way that is hard to reverse.</li>
+<li><strong>Never storing derived data</strong> on the grounds that it can be recomputed -- until the code changes.</li>
+<li><strong>Discovering the semantic problem at integration time.</strong> You do not need an ontology on day one, but you do need to know the day it becomes cheaper than the alternative.</li>
+<li><strong>Ignoring the gap.</strong> Decide explicitly what the twin does when data stops arriving. Silent extrapolation is the worst option and the most common default.</li>
+</ol>
+<hr />
+<h2 id="12-exercises">12. Exercises</h2>
+<p>Difficulty: (<em>) straightforward, (</em><em>) requires reasoning across sections, (</em>**) open-ended design.</p>
+<p><strong>12.1 (*) Sampling.</strong> A vibration sensor monitors a motor whose bearing fault signature appears at 3.2 kHz. (a) What is the minimum sampling rate for the signature to be recoverable? (b) The team samples at 5 kHz. What frequency will the 3.2 kHz component appear at in the sampled data? (c) Name the one hardware component whose absence makes (b) unrecoverable.</p>
+<p><strong>12.2 (*) Quantisation.</strong> A pressure transducer maps 0-10 bar onto 0.5-4.5 V, read by a 10-bit ADC over 0-5 V. Compute bar per count and the worst-case quantisation error. The control requirement is to detect changes of 0.02 bar. Does the chain meet it? If not, what is the minimum ADC width that does?</p>
+<p><strong>12.3 (</strong>) Protocol choice.** For each system, choose an application-layer protocol and justify it against at least four criteria from Section 5.5:
+(a) 500 soil-moisture sensors across 40 km of farmland, solar-powered, one reading per hour.
+(b) A robot arm cell where a safety controller must react to a light-curtain break within 5 ms.
+(c) A twin exposing an API so that three separate research groups can query historical batch results.
+(d) A hospital ward with 60 infusion pumps, requiring remote firmware updates and configuration.</p>
+<p><strong>12.4 (</strong>) QoS reasoning.<em><em> A publisher sends at QoS 2; a subscriber subscribes at QoS 0. (a) What is the effective delivery guarantee, and why? (b) Give a concrete scenario where a duplicate under QoS 1 causes a wrong twin state, and describe the change that makes the consumer idempotent. (c) For the greenhouse of Section 9, argue for or against upgrading the </em>actuator command</em> topic to QoS 2.</p>
+<p><strong>12.5 (</strong>) Windows and late data.** Reading of Section 6.3 required. A node loses connectivity for 8 minutes and, on reconnecting, publishes its 96 buffered readings within 2 seconds. Describe what happens under each of the three late-data policies (drop, grace period, emit corrections) to (a) the 1-minute mean stored in the time-series DB, (b) the completeness metric of Section 10.1, and (c) the Kalman filter state. Which policy would you choose here, and what does it cost?</p>
+<p><strong>12.6 (</strong>) Storage sizing.<em><em> A city twin ingests from 12,000 parking bay sensors, each reporting occupancy (a boolean) on change, averaging 40 changes per day, plus a 15-minute heartbeat. (a) Estimate raw events per day. (b) At 40 bytes per stored event, estimate the annual volume. (c) Propose a retention and downsampling policy, stating which aggregates you keep and why. (d) The team proposes lossy model-based compression at 0.5% tolerance. Explain why this is a poor fit for </em>this</em> data and name a signal in the same city twin where it would be an excellent fit.</p>
+<p><strong>12.7 (</strong><em>) Integration design.</em>* Two universities each operate an incubator twin. University A uses MQTT with a bespoke JSON payload; University B uses an OPC UA server exposed by its PLC. They want to run a joint experiment and pool results. (a) Identify three specific semantic mismatches likely to arise beyond units. (b) Propose an integration architecture, naming the canonical information model you would adopt and where the adapters sit. (c) Explain what changes if the two universities are unwilling to expose their raw data to each other.</p>
+<p><strong>12.8 (</strong><em>) Full design.</em>* Design the complete data path for a twin of an electric bus fleet (200 buses) whose purpose is to predict battery state of health and to schedule charging. Cover: signals and sampling rates with justification, protocol choice per interface, edge-versus-cloud processing placement, storage schema and retention, and the three data-quality metrics you would monitor. State your assumptions. Two to four pages.</p>
+<hr />
+<h2 id="13-solutions-and-hints">13. Solutions and Hints</h2>
+<p>Full solutions are given for 12.1, 12.2 and 12.4; hints only for the rest.</p>
+<p><strong>12.1</strong> (a) Strictly greater than 6.4 kHz; in practice 5-10x, so 16-32 kHz. (b) Aliasing folds the component about the Nyquist frequency of 2.5 kHz: the apparent frequency is $|3200 - 5000| = 1800$ Hz. The fault will appear as a spurious 1.8 kHz component, which is both a false signal and a lost true one. (c) An analog anti-aliasing low-pass filter ahead of the ADC. Once sampled, the information is gone and no digital filter recovers it.</p>
+<p><strong>12.2</strong> Volts per count $= 5/1024 = 4.883$ mV. Volts per bar $= 4.0/10 = 400$ mV. Bar per count $= 4.883/400 = 0.0122$ bar; worst-case error $\pm 0.0061$ bar. The requirement to detect 0.02 bar is met, but with under two counts per detectable change -- marginal once sensor tolerance and noise are added. A 12-bit ADC gives 0.00305 bar per count, about 6.5 counts per detectable change, which is comfortable.</p>
+<p><strong>12.4</strong> (a) QoS 0 -- at most once. MQTT applies QoS per hop; the publisher-to-broker hop is QoS 2 but the broker-to-subscriber hop is QoS 0, and the effective end-to-end guarantee is the minimum. (b) A twin counts production units by incrementing on each <code>unit_complete</code> message. A QoS 1 duplicate double-counts, and the error is permanent because the counter has no independent source of truth. The fix is to carry a monotonic sequence number or unit id in the payload and have the consumer ignore ids it has already seen -- making the operation idempotent -- or to publish the <em>absolute</em> count rather than an increment, so a duplicate is harmless. (c) In favour: commands are non-repeating and a duplicated "open vent" that toggles state would be harmful. Against: QoS 2 adds a four-part handshake and latency, and the same safety is obtained more robustly by making commands <em>absolute and idempotent</em> ("vent position = 40%", not "open vent further") and by having the actuator publish a retained state topic the twin can verify against. The stronger design is idempotent commands with acknowledgement, not a higher QoS; QoS 2 papers over a design that should not need it.</p>
+<p><strong>12.3</strong> <em>Hint.</em> (a) Range and power dominate: think LoRaWAN at the link layer and CoAP or a LoRaWAN-native application layer above; MQTT's persistent TCP connection is wrong for a solar node reporting hourly. (b) 5 ms with hard determinism rules out anything broker-based over general networking; look at DDS and consider what the <em>link</em> layer must guarantee. (c) Request/response over HTTP with an authenticated REST API; the consumers are humans and scripts, not devices. (d) Note the word <em>management</em> -- telemetry protocols do not do firmware update.</p>
+<p><strong>12.5</strong> <em>Hint.</em> Work out for each policy whether the 1-minute buckets covering the outage are ever written, and whether the completeness metric later reports 100% or 0% for that period -- they can disagree, and that disagreement is the point. For the Kalman filter, consider that feeding 96 readings in 2 seconds while the filter advances on <em>device</em> timestamps is different from advancing on arrival order, and that the filter's uncertainty should have grown during the gap.</p>
+<p><strong>12.6</strong> <em>Hint.</em> (b) Do not forget the heartbeat, which dominates: 96 heartbeats per day per sensor against 40 changes. (d) Model-based lossy compression fits smooth, continuous, correlated signals; ask what "0.5% tolerance" even means for a boolean, then look for a signal in a city twin that <em>is</em> smooth and high-frequency.</p>
+<p><strong>12.7</strong> <em>Hint.</em> (a) Look beyond units to sampling semantics (is "temperature" an instantaneous sample or a 1-minute mean?), to state vocabulary (what exactly does "running" mean on each side?), and to time (which clock, which timezone, and is the timestamp the start or the end of the interval?). (b) Section 8.3's advice applies: one canonical model, adapters at the boundary. (c) Section 8.5.</p>
+<p><strong>12.8</strong> <em>Hint.</em> Note that buses are mobile and intermittently connected, so the store-and-forward behaviour of your protocol and the late-data policy of Section 6.3 become central rather than peripheral. Battery state of health changes over months, so almost nothing here is genuinely a hot-path problem -- resist over-engineering. Cell-level voltage data is high-volume and smooth, which should point you at Section 7.2.</p>
+<hr />
+<h2 id="14-further-reading">14. Further Reading</h2>
+<p>For the sensing boundary and the physical-to-digital transition, the treatment of sampling, quantisation and communication in [@gomes_sensing_2024] is pitched at almost exactly this level, as is the surrounding textbook [@fitzgerald_engineering_2024-1] for twin engineering generally. For a direct, quantitative comparison of the four workhorse messaging protocols, [@naik_choice_2017] remains the compact reference, with [@tournier_survey_2021] giving the full stack view and the security dimension. For twin platforms and how they actually combine these pieces, [@gil_survey_2024] surveys open-source frameworks through case studies, [@almeida_middleware_2023] maps the middleware landscape, and [@duran_toward_2026] covers architecture and performance metrics for twin-as-a-service platforms. For the industrial data and technology landscape around twins for the industrial IoT, [@xu_survey_2023] is a good entry point, and for enabling technologies including data acquisition and fusion, [@qi_enabling_2021]. For the standards themselves, start with the AAS specification [@noauthor_asset_nodate] and the ISO 23247 analysis in [@shao_analysis_2023]. Finally, for an honest account of what remains unsolved -- particularly around data quality, calibration on actionable timescales, and uncertainty -- see [@committee_on_foundational_research_gaps_and_future_directions_for_digital_twins_foundational_2024] and [@rasheed_digital_2020].</p>
+<h2 id="15-references">15. References</h2>
+<ul>
+<li><strong>abduvakhobov_scalable_2024</strong> -- Scalable Model-Based Management of Massive High Frequency Wind Turbine Data with ModelarDB (2024).</li>
+<li><strong>aghaabbasi_digital_2024</strong> -- Digital Twins for Assessing the Impact of Autonomous Vehicles on Built-Environment Changes (2024).</li>
+<li><strong>alcaraz_digital_2022</strong> -- Digital Twin: A Comprehensive Survey of Security Threats (2022).</li>
+<li><strong>almeida_middleware_2023</strong> -- Middleware for Digital Twins: A Systematic Mapping Study (2023).</li>
+<li><strong>badolato_psmark_2026</strong> -- PSMark: a distributed IoT benchmark for publish/subscribe under domain-based workloads (2026).</li>
+<li><strong>bellavista_exploiting_2024</strong> -- Exploiting microservices and serverless for Digital Twins in the cloud-to-edge continuum (2024).</li>
+<li><strong>bottjer_review_2023-1</strong> -- A review of unit level digital twin applications in the manufacturing industry (2023).</li>
+<li><strong>budiardjo_digital_2021</strong> -- Digital twin system interoperability framework (2021).</li>
+<li><strong>burattini_towards_2024</strong> -- Towards Linked Data for Ecosystems of Digital Twins (2024).</li>
+<li><strong>cavalieri_proposal_2023</strong> -- Proposal of Mapping Digital Twins Definition Language to Open Platform Communications Unified Architecture (2023).</li>
+<li><strong>committee_on_foundational_research_gaps_and_future_directions_for_digital_twins_foundational_2024</strong> -- Foundational Research Gaps and Future Directions for Digital Twins (2024).</li>
+<li><strong>duran_toward_2026</strong> -- Toward Digital Twin-as-a-Service (DTaaS) Platforms: A Survey on Architecture, Design Requirements, and Performance Metrics (2026).</li>
+<li><strong>ellwein_rethinking_2025</strong> -- Rethinking Asset Administration Shell Communication Types: A Systematic Mapping Study and Portfolio-Based Classification (2025).</li>
+<li><strong>farahani_kernel_2025</strong> -- From Kernel to Cloud: A Concise Comparative Study of Practical IoT Operating Systems (2025).</li>
+<li><strong>feng_model-based_2023</strong> -- Model-Based Monitoring and State Estimation for Digital Twins: The Kalman Filter (2023).</li>
+<li><strong>fitzgerald_engineering_2024-1</strong> -- The Engineering of Digital Twins (2024).</li>
+<li><strong>frasheri_addressing_2023</strong> -- Addressing time discrepancy between digital and physical twins (2023).</li>
+<li><strong>gil_survey_2024</strong> -- Survey on open‐source digital twin frameworks–A case study approach (2024).</li>
+<li><strong>gill_toward_2024</strong> -- Toward Automating the Composition of Digital Twins Within System-of-Systems (2024).</li>
+<li><strong>gomes_digital_2025</strong> -- Digital Twin Tutorial: The Incubator Case Study (2025).</li>
+<li><strong>gomes_sensing_2024</strong> -- Sensing and Communication of Data from the Physical Twin (2024).</li>
+<li><strong>iorio_when_2021</strong> -- When latency matters: measurements and lessons learned (2021).</li>
+<li><strong>iso_isoiec_nodate</strong> -- ISO/IEC 30141: Internet of things (IoT) – Reference architecture (n.d.).</li>
+<li><strong>jacoby_open-source_2023</strong> -- Open-Source Implementations of the Reactive Asset Administration Shell: A Survey (2023).</li>
+<li><strong>jensen_demonstration_2025</strong> -- Demonstration of ModelarDB: Model-Based Management of High-Frequency Time Series Across Edge, Cloud, and Client (2025).</li>
+<li><strong>jinzhi_exploring_2022</strong> -- Exploring the concept of Cognitive Digital Twin from model-based systems engineering perspective (2022).</li>
+<li><strong>kritzinger_digital_2018</strong> -- Digital Twin in manufacturing: A categorical literature review and classification (2018).</li>
+<li><strong>kulik_security_2024</strong> -- Security and Privacy-related Issues in a Digital Twin Context (2024).</li>
+<li><strong>lazidis_publish-subscribe_2022</strong> -- Publish-Subscribe approaches for the IoT and the cloud: Functional and performance evaluation of open-source systems (2022).</li>
+<li><strong>li_six-dimensional_2025</strong> -- Six-dimensional digital twin modeling and software platform design for complex industrial systems (2025).</li>
+<li><strong>marah_re-engineering_2025</strong> -- (Re-)Engineering Digital Twins Towards Federation: Vision and Roadmap (2025).</li>
+<li><strong>marosi_interoperable_2022</strong> -- Interoperable Data Analytics Reference Architectures Empowering Digital-Twin-Aided Manufacturing (2022).</li>
+<li><strong>mattila_interoperability_2025</strong> -- Interoperability of Digital Twins for Automation With Digital Twin Schema (2025).</li>
+<li><strong>mishra_use_2020</strong> -- The use of MQTT in M2M and IoT systems: A survey (2020).</li>
+<li><strong>munoz_towards_2024</strong> -- Towards Measuring Digital Twins Fidelity at Runtime (2024).</li>
+<li><strong>naik_choice_2017</strong> -- Choice of effective messaging protocols for IoT systems: MQTT, CoAP, AMQP and HTTP (2017).</li>
+<li><strong>noauthor_asset_nodate</strong> -- Asset Administration Shell Part - 1 (n.d.).</li>
+<li><strong>noauthor_industrial_nodate</strong> -- The Industrial Internet Reference Architecture (n.d.).</li>
+<li><strong>noauthor_sparkplug_nodate</strong> -- The Sparkplug Specification \textbar The Eclipse Foundation (n.d.).</li>
+<li><strong>pfeiffer_towards_2025</strong> -- Towards a Unifying Reference Model for Digital Twins of Cyber-Physical Systems (2025).</li>
+<li><strong>picone_assessing_2026</strong> -- Assessing the Impact of Cybersecurity Attacks on Digital Twin Metrics: An Experimental Study (2026).</li>
+<li><strong>picone_flexible_2023</strong> -- A Flexible and Modular Architecture for Edge Digital Twin: Implementation and Evaluation (2023).</li>
+<li><strong>qi_enabling_2021</strong> -- Enabling technologies and tools for digital twin (2021).</li>
+<li><strong>rasheed_digital_2020</strong> -- Digital Twin: Values, Challenges and Enablers From a Modeling Perspective (2020).</li>
+<li><strong>raza_empowering_2024</strong> -- Empowering Microservices: A Deep Dive into Intelligent Application Component Placement for Optimal Response Time (2024).</li>
+<li><strong>robles_opentwins_2023</strong> -- OpenTwins: An open-source framework for the development of next-gen compositional digital twins (2023).</li>
+<li><strong>savaglio_generative_2025</strong> -- Generative Digital Twins: A Novel Approach in the IoT Edge-Cloud Continuum (2025).</li>
+<li><strong>schmidt_increasing_2023</strong> -- Increasing Interoperability between Digital Twin Standards and Specifications: Transformation of DTDL to AAS (2023).</li>
+<li><strong>schmidt_integration_2025</strong> -- Integration Approaches for Digital Twins in Dataspaces (2025).</li>
+<li><strong>sciullo_survey_2022</strong> -- A Survey on the Web of Things (2022).</li>
+<li><strong>shao_analysis_2023</strong> -- An Analysis of the New ISO 23247 Series of Standards on Digital Twin Framework for Manufacturing (2023).</li>
+<li><strong>singh_data-driven_2024</strong> -- Data-Driven IoT Ecosystem for Cross Business Growth: An Inspiration Future Internet Model with Dataspace at the Edge (2024).</li>
+<li><strong>singh_navigating_2024</strong> -- Navigating the International Data Space To Build Edge-Driven Cross-Domain Dataspace Ecosystem: English (2024).</li>
+<li><strong>singh_offload_2022</strong> -- To Offload or Not? An Analysis of Big Data Offloading Strategies from Edge to Cloud (2022).</li>
+<li><strong>tao_five-dimension_2019</strong> -- Five-dimension digital twin model and its ten applications (2019).</li>
+<li><strong>thelen_comprehensive_2022-1</strong> -- A comprehensive review of digital twin—part 2: roles of uncertainty quantification and optimization, a battery digital twin, and perspectives (2022).</li>
+<li><strong>tournier_survey_2021</strong> -- A survey of IoT protocols and their security issues through the lens of a generic IoT stack (2021).</li>
+<li><strong>wermann_ktwin_2024</strong> -- KTWIN: A Serverless Kubernetes-based Digital Twin Platform (2024).</li>
+<li><strong>wu_comprehensive_2023</strong> -- A Comprehensive Review of Digital Twin from the Perspective of Total Process: Data, Models, Networks and Applications (2023).</li>
+<li><strong>xu_survey_2023</strong> -- A Survey on Digital Twin for Industrial Internet of Things: Applications, Technologies and Tools (2023).</li>
+<li><strong>zhang_digital_2024</strong> -- Digital twin and the asset administration shell (2024).</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Prasad Talasila
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.tabs.sticky", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

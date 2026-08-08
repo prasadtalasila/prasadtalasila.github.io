@@ -8,9 +8,8 @@ hide:
 
 Articles, presentations, manuals, and artwork produced by me.
 
-## Tutorials
-
-[Digital Twins](writings/tutorials/digitaltwins/digital-twins.md) (July, 2026)  
+See [this page](writings/chitragupta/chitragupta.md) for writing samples generated using
+[Chitragupta](https://prasad.talasila.in/chitragupta).
 
 ## Lab Manuals
 
