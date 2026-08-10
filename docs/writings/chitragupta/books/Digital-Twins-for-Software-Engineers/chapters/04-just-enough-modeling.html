@@ -1,0 +1,2151 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home page of Prasad Talasila">
+      
+      
+        <meta name="author" content="Prasad Talasila">
+      
+      
+        <link rel="canonical" href="https://prasad.talasila.in/writings/chitragupta/books/Digital-Twins-for-Software-Engineers/chapters/04-just-enough-modeling.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 4 -- Just Enough Modeling: Physics-Based, Data-Driven, and Hybrid Models - Prasad Talasila</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/course-tables.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-4-just-enough-modeling-physics-based-data-driven-and-hybrid-models" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../../index.html" title="Prasad Talasila" class="md-header__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prasad Talasila
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 4 -- Just Enough Modeling: Physics-Based, Data-Driven, and Hybrid Models
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../research.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Research
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../projects.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../software.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../courses.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Courses
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../writings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Writings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../contact.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../../index.html" title="Prasad Talasila" class="md-nav__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.png" alt="logo">
+
+    </a>
+    Prasad Talasila
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../research.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../software.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../courses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../writings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../contact.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#40-before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.0 Before you start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.0 Before you start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning objectives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-why-a-software-engineer-needs-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Why a software engineer needs this
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-what-a-model-is-made-of" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 What a model is made of
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 What a model is made of">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.1 State
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422-inputs-and-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.2 Inputs and outputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423-parameters-and-why-they-are-separate-from-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.3 Parameters, and why they are separate from structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#424-the-assumption-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.4 The assumption ledger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#425-what-a-model-is-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.5 What a model is not
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-family-1-physics-based-derived-from-scratch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Family 1: physics-based, derived from scratch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Family 1: physics-based, derived from scratch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431-start-from-a-conservation-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.1 Start from a conservation statement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432-make-it-specific-one-assumption-at-a-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.2 Make it specific, one assumption at a time
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#433-get-from-water-to-a-sensor-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.3 Get from water to a sensor reading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#434-the-assumption-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.4 The assumption ledger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#435-a-numeric-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.5 A numeric instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-family-2-the-same-job-data-driven" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Family 2: the same job, data-driven
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 Family 2: the same job, data-driven">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#441-what-it-looks-like-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.1 What it looks like here
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#442-what-it-buys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.2 What it buys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#443-what-it-costs-and-the-cost-that-decides-this-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.3 What it costs, and the cost that decides this case
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-family-3-hybrid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Family 3: hybrid
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 Family 3: hybrid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#451-corrected-physics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.1 Corrected physics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#452-constrained-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.2 Constrained learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#453-surrogates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.3 Surrogates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46-the-white-to-black-box-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 The white-to-black-box scale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47-validity-envelopes-and-how-each-family-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 Validity envelopes, and how each family fails
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.7 Validity envelopes, and how each family fails">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#471-the-failure-modes-differ-by-family-and-this-is-the-useful-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7.1 The failure modes differ by family, and this is the useful part
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#472-what-this-chapter-is-not-claiming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7.2 What this chapter is not claiming
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#48-choosing-a-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 Choosing a family
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#49-five-questions-to-ask-a-modelling-expert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9 Five questions to ask a modelling expert
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#410-other-formalisms-you-will-meet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10 Other formalisms you will meet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#411-faded-example-the-offshore-turbine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.11 Faded example: the offshore turbine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#412-posed-problem-the-vendors-model-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.12 Posed problem: the vendor's model card
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#413-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.13 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#414-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.14 Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.14 Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solutions-and-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solutions and hints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#415-where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.15 Where to go next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-4-just-enough-modeling-physics-based-data-driven-and-hybrid-models">Chapter 4 -- Just Enough Modeling: Physics-Based, Data-Driven, and Hybrid Models</h1>
+<h2 id="40-before-you-start">4.0 Before you start</h2>
+<p><strong>Where we are.</strong> Part I is behind you. Chapter 1 established that a twin is
+bought to improve a decision, and that fidelity is a requirement derived
+from a value metric rather than a virtue pursued for itself. Chapter 2 drew
+the model/shadow/twin boundary and defined a <em>model</em> as a description of
+behaviour that does not itself run. Chapter 3 drew the model as a box in an
+architecture and called it "a versioned artefact with an interface".</p>
+<p>Three times now this book has said "a model" and moved on. Part II opens the
+box.</p>
+<p><strong>What Part II is for, and what it is not for.</strong> Part II is your interface
+to the modelling experts. It is enough to ask good questions and evaluate
+the answers. It is not enough to build models, and it is not trying to be.
+You will finish this chapter unable to derive a heat-transfer model for a
+turbine blade, and able to sit across from someone who can and tell whether
+their model is fit for the decision your twin has to make. Those are
+different skills, and only one of them is yours.</p>
+<p><strong>What you are assumed to know.</strong> Everything Part I assumed. Beyond that:
+school-level physics (things are conserved; rates add up), and the ability
+to read a difference equation, which is a loop body. <strong>No calculus is
+assumed in working order.</strong> Exactly one derivative appears in this chapter,
+in Sec. 4.3; it is explained in words before it is written down, used once,
+and converted immediately into arithmetic you could implement. No integrals,
+no matrices, no probability notation.</p>
+<p><strong>What this chapter covers.</strong> What a model is made of; three families
+(physics-based, data-driven, hybrid) derived and compared on the <em>same</em>
+problem -- the demonstrator's pot; the white-to-black-box scale; validity
+envelopes and how each family fails outside its own; a decision procedure
+for choosing; and five questions to ask a modelling expert.</p>
+<p><strong>What this chapter deliberately does not cover.</strong> How to <em>fit</em> the
+parameters -- that is calibration, Chapter 7. Whether to <em>believe</em> the
+fitted model -- verification and validation, also Chapter 7. How a model is
+<em>executed</em> -- Chapters 5 and 6. Machine-learning method detail and its
+specific risks -- Chapter 8. State estimation -- Chapter 6. Uncertainty
+quantification -- named where it matters, owned by Chapter 7. Discrete-event
+models, state machines and the other formalisms -- named in Sec. 4.10 so
+you recognise them, taught in Chapters 5 and 6.</p>
+<h3 id="learning-objectives">Learning objectives</h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol>
+<li><strong>Identify</strong> the state, inputs, parameters, outputs and assumptions of a
+   proposed model, and <strong>distinguish</strong> its structure from its fitted
+   parameters.</li>
+<li><strong>Derive</strong> a simple physics-based model from a conservation statement,
+   and <strong>enumerate</strong> the assumptions the derivation made.</li>
+<li><strong>Compare</strong> physics-based, data-driven and hybrid models on the same
+   problem, and <strong>predict</strong> what each one demands in data, expertise and
+   maintenance.</li>
+<li><strong>State</strong> a model's validity envelope and <strong>predict</strong> how it fails
+   outside it, distinguishing silent failure from loud failure.</li>
+<li><strong>Conduct</strong> a fidelity conversation with a modelling expert: ask the five
+   questions of Sec. 4.9 and <strong>evaluate</strong> the answers you get.</li>
+</ol>
+<hr />
+<h2 id="41-why-a-software-engineer-needs-this">4.1 Why a software engineer needs this</h2>
+<p>You are not going to write the model. Here is why you nonetheless cannot
+treat it as somebody else's box.</p>
+<p><strong>Because you own its failure modes.</strong> Chapter 3 put the model behind an
+interface, and interfaces hide implementation, not consequences. A model
+that returns a plausible number under conditions it was never valid for
+returns a <code>200 OK</code>. Nothing in your monitoring will fire. If that number
+feeds Chapter 2's command path, your system waters a pot that did not need
+it, and the incident review will ask you what the model assumed. "The
+modelling team owns that" is a true sentence that will not survive the
+meeting.</p>
+<p><strong>Because you are the one who notices the deployment mismatch.</strong> The
+modeller optimises for accuracy. You are the person who knows the model has
+to run every ten minutes on a machine that also runs the ingest loop, that
+the input it wants is sampled at a different rate than it assumes, and that
+its parameters were fitted on a pot that has since been repotted. Those are
+not modelling questions. They are integration questions, and nobody else in
+the room is looking at them.</p>
+<p><strong>Because the vocabulary gap is where projects fail.</strong> Chapter 2 quoted a
+practitioner survey in which respondents observed that colleagues "mean
+simulation when referring to DTs". The same confusion runs one level down:
+"the model" means a set of equations to one person, a trained network to
+another, and a CAD file to a third. Reviews of twin content in manufacturing
+find models grouped into geometric, physical, behaviour and rule types
+[1] -- four different things, one word.</p>
+<p><strong>And because the literature agrees this is where the substance is.</strong> A
+chapter-length treatment of modelling for twins opens by saying that at the
+heart of a twin is one or more models of the real-world system, that
+real-world systems have many facets, and that many types of model are
+available, each with different strengths [2]. Three
+main classes of approach are consistently reported -- model-based,
+data-driven, and hybrid [3]. Those three are this
+chapter.</p>
+<p><strong>What "just enough" means, concretely.</strong> By the end you should be able to
+say, out loud, in a design review: <em>"That is a physics-based model with two
+fitted parameters, its validity envelope is one watering interval, and
+outside that it fails silently. What is our plan for detecting that?"</em>
+That sentence is the deliverable.</p>
+<hr />
+<h2 id="42-what-a-model-is-made-of">4.2 What a model is made of</h2>
+<p>Chapter 3 said a model is something that takes a starting state, inputs and
+a time horizon, and returns a trajectory. That is the interface. Here are
+the parts behind it. Every model you meet has all five, whether or not
+anyone has written them down.</p>
+<h3 id="421-state">4.2.1 State</h3>
+<p><strong>State</strong> is the smallest set of quantities that, together with future
+inputs, determines the model's future behaviour.</p>
+<p>For the pot, the state is one number: <strong><code>W</code></strong>, the amount of water held in
+the soil, in millilitres.</p>
+<p>Two things are worth noticing immediately, because both come up in review.</p>
+<p><em>State is a choice, not a fact.</em> A more elaborate model of the same pot
+might have three state variables -- water in the upper soil, water in the
+lower soil, water in the plant -- and be more accurate and more expensive.
+The pot did not change. The model's ambition did.</p>
+<p><em>State is what the model represents, and therefore also a statement of what
+it does not.</em> Our one-number state cannot represent water sitting on the
+surface, unabsorbed. That is not a bug; it is a documented limit, and
+Sec. 4.3.4 will list it.</p>
+<h3 id="422-inputs-and-outputs">4.2.2 Inputs and outputs</h3>
+<p><strong>Inputs</strong> are things from outside that affect the model and that the model
+does not explain. For the pot: the watering dose <code>d</code>, in millilitres, and --
+if we choose to include them -- air temperature, humidity and light.</p>
+<p><strong>Outputs</strong> are what the model predicts and what can be compared against a
+measurement. For the pot, the output is <code>m</code>, the moisture <em>reading</em> the
+sensor produces.</p>
+<p><strong>The distinction between <code>W</code> and <code>m</code> is the one beginners collapse, and it
+matters.</strong> <code>W</code> is water. <code>m</code> is a number a capacitive sensor reports. They
+are related, and they are not the same quantity, and the relationship
+between them is itself a modelling assumption (Sec. 4.3.3). Any twin whose
+model outputs a quantity that no sensor reports has, somewhere, a hidden
+assumption connecting the two. Finding it is a productive question in a
+review.</p>
+<h3 id="423-parameters-and-why-they-are-separate-from-structure">4.2.3 Parameters, and why they are separate from structure</h3>
+<p>A <strong>parameter</strong> is a number that is constant over the timescale of interest
+and is fitted rather than derived. For the pot: <code>k</code> and <code>g</code>.</p>
+<p>The <strong>model structure</strong> is the form of the relationship with no numbers in
+it at all -- "the reading falls at a steady rate and steps up when water
+arrives".</p>
+<p>This split is the thing Chapter 3's model registry existed to manage, and
+now you can see why it deserved its own component:</p>
+<ul>
+<li><strong>Structure is shared.</strong> Every pot on the bench uses the same structure.</li>
+<li><strong>Parameters are specific.</strong> <code>k</code> and <code>g</code> belong to <em>this</em> pot, with this
+  soil, this plant, this drainage.</li>
+<li><strong>They change on different schedules.</strong> The structure changes when someone
+  decides the model is wrong. The parameters change when the plant grows,
+  the soil compacts, or the pot is repotted.</li>
+</ul>
+<p>Chapter 3 warned that losing track of which parameters go with which pot
+produces a twin that is confidently wrong while every component works. Now
+you can see the mechanism: the structure is still right, so nothing looks
+broken.</p>
+<h3 id="424-the-assumption-ledger">4.2.4 The assumption ledger</h3>
+<p>Every model is a set of decisions to ignore things. The <strong>assumption
+ledger</strong> is the written list of those decisions. It is not standard
+terminology; the practice is standard, and giving it a name makes it
+askable-for.</p>
+<p>An assumption ledger has one row per assumption, and each row answers three
+questions: <em>what did we assume, why is it reasonable, and what happens when
+it stops being true?</em> Sec. 4.3.4 builds one.</p>
+<p><strong>Why insist on this?</strong> Because a model's validity envelope (Sec. 4.7) is
+nothing more than the intersection of the conditions under which its
+assumptions hold. A model with no written assumptions has no statable
+envelope, which means nobody can say when to stop believing it.</p>
+<h3 id="425-what-a-model-is-not">4.2.5 What a model is not</h3>
+<p>Two adjacent things get called "the model" and are not.</p>
+<p><em>It is not the estimator.</em> A model says how the pot behaves. An <strong>estimator</strong>
+combines the model with noisy measurements to say what the pot's state
+currently is. Chapter 3 drew them as separate components; Chapter 6 supplies
+the estimator's mechanism. When someone says "the model tracks the moisture",
+ask which of the two they mean.</p>
+<p><em>It is not the simulator.</em> Chapter 2 settled this: the simulator executes
+the model. Chapters 5 and 6 own it.</p>
+<hr />
+<h2 id="43-family-1-physics-based-derived-from-scratch">4.3 Family 1: physics-based, derived from scratch</h2>
+<p>Now we build the model that Chapters 2 and 3 have been using on credit.</p>
+<p>A <strong>physics-based model</strong> gets its structure from a first principle -- a
+conservation law, or another statement that holds independently of this
+particular pot. Its parameters are few, and they usually mean something you
+could measure another way.</p>
+<h3 id="431-start-from-a-conservation-statement">4.3.1 Start from a conservation statement</h3>
+<p>The first principle here is that water does not appear or vanish:</p>
+<blockquote>
+<p>The water in the pot changes at a rate equal to what goes in minus what
+comes out.</p>
+</blockquote>
+<p>That is the whole physics. In symbols, writing <code>dW/dt</code> for "the rate at
+which <code>W</code> changes with time" -- this is the one derivative in the chapter,
+and it means exactly what the words say:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dW/dt = (water in) - (water out)
+</code></pre></div></td></tr></table></div>
+<p>Water in arrives in doses from the pump. Water out leaves by evaporation
+from the soil and transpiration through the plant, which we lump into one
+outflow because our one-number state cannot tell them apart.</p>
+<h3 id="432-make-it-specific-one-assumption-at-a-time">4.3.2 Make it specific, one assumption at a time</h3>
+<p>Between waterings there is no inflow, so:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dW/dt = -(outflow rate)
+</code></pre></div></td></tr></table></div>
+<p>To go further we must say something about outflow, and there is no way to do
+that without an assumption. Take the simplest one:</p>
+<blockquote>
+<p><strong>Assumption A1.</strong> Over the interval we care about, the outflow rate is
+constant. Call it <code>e</code>, in millilitres per hour.</p>
+</blockquote>
+<p>Then the water falls in a straight line:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>W(t) = W0 - e * t
+</code></pre></div></td></tr></table></div>
+<p>where <code>W0</code> is the water at the start and <code>t</code> is hours elapsed.</p>
+<p><strong>Was A1 reasonable?</strong> Partly, and the honest treatment of "partly" is the
+most useful thing in this section. A drier soil gives up water more slowly,
+and a wilting plant transpires less, so outflow really falls as <code>W</code> falls. A
+better assumption is that outflow is proportional to the water present:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dW/dt = -W / tau
+</code></pre></div></td></tr></table></div>
+<p>which gives a curve that decays and flattens rather than a straight line.</p>
+<p>Here is the payoff. For times short compared with <code>tau</code>, that curve and the
+straight line are the same to within a small error -- the straight line is
+the curve's first-order approximation near the start. So <strong>A1 is not a
+different model; it is the good model, restricted to short intervals.</strong></p>
+<p>That single observation is the chapter in miniature. The linear model is
+not "wrong", and it is not "right". It is <em>correct within an envelope</em>, and
+the envelope is "a time short compared with <code>tau</code>". Chapter 4's whole job is
+to make you the person in the room who asks what the envelope is.</p>
+<p>For the demonstrator, <code>tau</code> is on the order of days and the interval we
+reason over is one watering cycle, about eight hours. Short compared with
+days. A1 holds. Use the straight line.</p>
+<h3 id="433-get-from-water-to-a-sensor-reading">4.3.3 Get from water to a sensor reading</h3>
+<p>The model predicts <code>W</code>. The sensor reports <code>m</code>. Bridging them needs another
+assumption:</p>
+<blockquote>
+<p><strong>Assumption A2.</strong> Over the operating range, the reading is proportional
+to the water present, plus an offset: <code>m = a * W + b</code>.</p>
+</blockquote>
+<p>Real capacitive soil sensors are not exactly proportional across their whole
+range, and they are close enough over a band in the middle. Since <code>a</code> and
+<code>b</code> are constants, we can fold them in and work directly in reading units,
+which is what Chapters 2 and 3 have been doing:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>m(t) = m0 - k * t          between waterings
+</code></pre></div></td></tr></table></div>
+<p>with <strong><code>k</code> in reading units per hour</strong>. One parameter, and it absorbs both
+the evaporation rate and the sensor's scale. Note what we have quietly
+bought: we never have to know <code>a</code>, <code>b</code> or <code>e</code> separately, because the
+decision only needs <code>m</code>.</p>
+<p>Now the dose. When the pump delivers <code>d</code> millilitres:</p>
+<blockquote>
+<p><strong>Assumption A3.</strong> All of the delivered water reaches the sensed region of
+soil, and mixes through it quickly compared with the sampling interval.</p>
+</blockquote>
+<p>Then the reading steps up by an amount proportional to the dose:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>m -&gt; m + g * (d / 100)     at a watering
+</code></pre></div></td></tr></table></div>
+<p>with <strong><code>g</code> in reading units per 100 ml</strong>. Two parameters, <code>k</code> and <code>g</code>, which
+is exactly the model Chapters 2 and 3 committed to.</p>
+<h3 id="434-the-assumption-ledger">4.3.4 The assumption ledger</h3>
+<p>Writing it down, in the shape Sec. 4.2.4 specified.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Assumption</th>
+<th>Why it is reasonable</th>
+<th>What happens when it breaks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td>Outflow rate is constant over the interval</td>
+<td>The interval (about 8 h) is short compared with the drying time constant (days)</td>
+<td>Over long dry spells the model predicts drying faster than reality; the reading appears to level off "unexpectedly"</td>
+</tr>
+<tr>
+<td>A1b</td>
+<td>The same rate <code>k</code> applies by day and by night</td>
+<td>Keeps the model to one parameter</td>
+<td>A plant transpires far less in the dark, so a single <code>k</code> over-predicts overnight drying and under-predicts daytime drying. Chapter 2 wrote <code>k</code> as a rate "per hour of daylight", anticipating exactly this refinement</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>Reading is affine in water content</td>
+<td>True over the middle of a capacitive sensor's range</td>
+<td>Near saturation or bone-dry, the sensor flattens; a real change produces no reading change, and the model sees a fault that is not there</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>Delivered water reaches the sensed soil and mixes fast</td>
+<td>Small pot, dripper positioned over the root zone</td>
+<td>Channelling down the side of the pot, or a dripper knocked aside, produces a small step -- <strong>which is indistinguishable from the fault the twin is looking for</strong></td>
+</tr>
+<tr>
+<td>A4</td>
+<td>Parameters are constant over weeks</td>
+<td>Soil and plant change slowly</td>
+<td>After repotting or rapid growth, <code>k</code> and <code>g</code> are wrong and every prediction drifts</td>
+</tr>
+<tr>
+<td>A5</td>
+<td>One number describes the pot's water</td>
+<td>The decision needs only the sensed region</td>
+<td>Surface pooling, or a dry lower layer under wet upper soil, is invisible to the model</td>
+</tr>
+</tbody>
+</table>
+<p>Three rows deserve a second look.</p>
+<p><strong>A3 is a design-limiting assumption, not a caveat.</strong> Chapter 1's whole
+value case was detecting that a dose failed to arrive. A3 says that a dose
+which arrives but <em>misses the sensor</em> looks identical. So the twin cannot
+distinguish "pump failed" from "dripper displaced". Is that acceptable? For
+Chapter 1's value metric -- experiment-weeks lost to undetected watering
+faults -- yes, because both are faults and both want a human to walk over.
+Notice how the answer came from the value metric, not from the model.</p>
+<p><strong>A2 explains a fault report you will otherwise chase for a week.</strong> A pot
+watered to saturation shows no step, because the sensor is already at the
+top of its range. The twin alerts. Nothing is wrong. The alert is correct
+behaviour from a model used outside its envelope.</p>
+<p><strong>A1b is how a model grows a parameter.</strong> Splitting <code>k</code> into a daytime rate
+and a night-time rate turns two parameters into three and makes the model
+better. It also makes it more expensive to fit, more expensive to keep, and
+one row longer in Chapter 3's registry. Whether to do it is not a modelling
+question -- it is Chapter 1's question, asked again: does the extra fidelity
+change the decision? For a fault detector comparing an expected step against
+an observed one, it does not, and one <code>k</code> is the right answer. For a twin
+scheduling doses to a target moisture, it might. Same pot, same physics,
+different model, because a different decision.</p>
+<h3 id="435-a-numeric-instance">4.3.5 A numeric instance</h3>
+<p>Abstract structure becomes usable when you put numbers in it. These are
+illustrative; the real ones come from fitting, which is Chapter 7.</p>
+<p>Suppose that over one dry night, twelve hours with no watering, the reading
+falls from 640 to 592. Then:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>k = (640 - 592) / 12 = 4 reading units per hour
+</code></pre></div></td></tr></table></div>
+<p>And suppose a 100 ml dose takes the reading from 592 back to 640:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>g = 48 reading units per 100 ml
+</code></pre></div></td></tr></table></div>
+<p>Recall from Chapter 1 that the shipped schedule doses 100 ml at 09:16 and
+120 ml at 17:05. Predict the reading just before the evening dose, starting
+from 640 immediately after the morning one. The gap is 7 hours 49 minutes,
+call it 7.8 hours:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>m = 640 - 4 * 7.8 = 640 - 31.2 = 608.8
+</code></pre></div></td></tr></table></div>
+<p>And the expected step from the 120 ml evening dose:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>g * (120 / 100) = 48 * 1.2 = 57.6 reading units
+</code></pre></div></td></tr></table></div>
+<p><strong>Now the diagnostic.</strong> If the evening dose produces a step of 55, the model
+is working. If it produces a step of 3, water is not arriving. That
+comparison -- expected step against observed step -- is the residual
+Chapter 1 built its entire value case on, and you have now derived it from
+the statement that water is conserved.</p>
+<p><strong>How much did this cost?</strong> One conservation statement, five assumptions,
+two parameters, and about a page. That is the appeal of physics-based
+models, and it is not a small thing: the whole model fits in a code review.</p>
+<hr />
+<h2 id="44-family-2-the-same-job-data-driven">4.4 Family 2: the same job, data-driven</h2>
+<p>Now solve the same problem without knowing any of that.</p>
+<p>A <strong>data-driven model</strong> takes a generic structure -- one that could describe
+almost anything -- and gets its behaviour by fitting to observed data. You
+supply examples of inputs and outputs; the fitting procedure supplies the
+relationship. In twin practice these are described as models that reproduce
+the input-output relationship from sampled data, of which the simplest
+example is a linear regression [2], and they are
+reached for exactly when the underlying physics or principles are not fully
+available [4].</p>
+<h3 id="441-what-it-looks-like-here">4.4.1 What it looks like here</h3>
+<p>Take every ten-minute sample from the last three months. For each one, build
+a row:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>inputs :  m[n], dose delivered since last sample, air temperature,
+          humidity, light level, hour of day
+target :  m[n+1]
+</code></pre></div></td></tr></table></div>
+<p>Fit any function you like to predict the target from the inputs. The result
+predicts the next reading, which is what the diagnostic needs -- compare
+predicted with observed, alert on a gap.</p>
+<p>Notice what we did <em>not</em> need: any idea what a capacitive sensor measures,
+any notion of evaporation, any decision about linear versus exponential
+decay. That is the appeal, and it is real.</p>
+<h3 id="442-what-it-buys">4.4.2 What it buys</h3>
+<p><strong>It captures effects you did not think of.</strong> Our physics model ignores air
+temperature, humidity and light. They plainly matter -- a hot bright day
+dries a pot faster. The physics model would need a new derivation to include
+them. The data-driven model needs a new column.</p>
+<p><strong>It does not require a modelling expert.</strong> It requires a different expert,
+which is often easier to find.</p>
+<p><strong>It handles messiness the physics does not describe.</strong> The plant grows. The
+soil settles. A learned model refitted monthly tracks that drift without
+anyone deriving anything.</p>
+<h3 id="443-what-it-costs-and-the-cost-that-decides-this-case">4.4.3 What it costs, and the cost that decides this case</h3>
+<p><strong>It needs data covering the conditions you care about.</strong> A model fitted
+over a mild spring predicts July badly, and it will not tell you so. This is
+<strong>extrapolation</strong>, and it is the characteristic failure of the family.</p>
+<p><strong>Its parameters mean nothing.</strong> In the physics model, <code>k = 4</code> is inspectable
+by a human: is four reading units per hour plausible for this plant? Someone
+can answer. A learned model's coefficients afford no such check. Chapter 7
+will need something to check, and this family offers less of it.</p>
+<p><strong>It cannot easily be interrogated about its assumptions.</strong> Sec. 4.3.4's
+ledger has no counterpart. The assumptions are still there -- they are in
+the choice of inputs and in what the training data happened to contain --
+but they are implicit, which is precisely what the ledger exists to prevent.</p>
+<p><strong>And the one that decides this particular case.</strong> Chapter 1's value metric
+is detecting watering faults. The training data is three months of
+historical operation -- during which, by Chapter 1's own baseline, <em>three
+watering faults occurred and went undetected for four days each</em>. A model
+fitted to that data has been taught that a dose producing no moisture step
+is a normal thing that happens sometimes.</p>
+<p><strong>A data-driven model trained on unlabelled history learns the faults as
+normal.</strong> That is not a subtle statistical point; it is a direct consequence
+of what fitting does. The physics model is immune, because its expectation
+of a moisture step comes from a conservation law rather than from a record
+of what usually happened.</p>
+<p>This is the strongest single argument in the chapter, and it generalises:
+<strong>a model used to detect abnormality should not be taught what is normal by
+data that contains the abnormality.</strong></p>
+<hr />
+<h2 id="45-family-3-hybrid">4.5 Family 3: hybrid</h2>
+<p>The third family combines the two, and it is where a great deal of current
+practice sits. The argument for it is that both pure approaches have
+shortfalls, and that a combined framework aims at removing them
+[5]. Reviews of specific domains report the same
+trend: relying solely on data-driven models for precise prediction is
+difficult, physics-based modelling is often needed to aid the predictive
+models, and the result is a rising use of hybrid models
+[6].</p>
+<p>"Hybrid" covers at least three distinct things. Distinguishing them is
+useful, because they solve different problems and only one of them fits our
+pot.</p>
+<h3 id="451-corrected-physics">4.5.1 Corrected physics</h3>
+<p>Keep the physics model. Add a learned term that predicts its <em>error</em>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>m[n+1] = physics(m[n], dose)  +  learned_correction(temperature, humidity, light)
+</code></pre></div></td></tr></table></div>
+<p>The physics carries the part we understand -- water is conserved, a dose
+produces a step -- and the learned term absorbs what the derivation ignored.
+Published work does exactly this shape: combining analytical white-box
+friction models with data-driven black-box models against live data, because
+the friction depends on load, temperature and time in ways that are hard to
+model analytically [7].</p>
+<p><strong>Why this one fits the pot.</strong> It keeps <code>g</code>, the expected step per 100 ml,
+derived from conservation rather than learned from history -- so Sec. 4.4.3's
+fatal objection does not apply. And it lets temperature and light improve
+the decay prediction, which is where the physics model is weakest. The
+interpretable parameter survives; the messiness gets absorbed.</p>
+<h3 id="452-constrained-learning">4.5.2 Constrained learning</h3>
+<p>Fit a data-driven model, but penalise it during fitting for producing
+predictions that violate physics. The common realisation adds a
+physics-informed term to the loss function, which penalises predictions that
+do not comply with first principles and so constrains training toward
+physically compliant solutions -- reported as the most common way to build
+hybrid physics-machine-learning models [8].</p>
+<p><strong>Why not here.</strong> It is heavier machinery than a two-parameter problem
+justifies, and it needs someone who can express the constraint properly. Its
+place is where the learned model is doing most of the work and you need to
+stop it inventing impossible behaviour.</p>
+<h3 id="453-surrogates">4.5.3 Surrogates</h3>
+<p>Fit a fast model to the outputs of a slow one. Surrogate and reduced-order
+models sit at the intersection of high-fidelity physics simulation and
+data-driven modelling, and they trade some accuracy for much greater
+computational speed [5]. The motivation is that
+traditional large-scale physics-based models are often intractable in
+real-time or many-query settings, so time is invested offline to build a
+cheap approximation that can be used online [9]. The same
+reasoning drives model order reduction for twins meant to be executed in
+deployment [10], and healthcare work describes an AI
+model used as a surrogate of a knowledge-driven model, giving comparable
+predictions at a fraction of the computational cost
+[11].</p>
+<p><strong>The distinction to hold on to.</strong> A surrogate is fitted to <em>a model</em>, not
+to reality. It therefore inherits every one of that model's assumptions, and
+adds approximation error of its own. It can never be more accurate than what
+it was fitted to. A surrogate solves a <em>speed</em> problem, not an <em>accuracy</em>
+problem -- and that is why it belongs to Chapter 6, where speed becomes a
+design constraint.</p>
+<p><strong>Why not here.</strong> Our physics model evaluates in nanoseconds. There is
+nothing to accelerate. Recording that is worthwhile: reaching for a
+surrogate when the base model is already fast is a common and expensive
+misreading of what surrogates are for.</p>
+<hr />
+<h2 id="46-the-white-to-black-box-scale">4.6 The white-to-black-box scale</h2>
+<p>You will meet a second vocabulary for the same territory, and you should be
+able to move between them.</p>
+<p>The box metaphor is a systems-engineering framing: a box takes inputs,
+performs operations, and produces outputs, and the colour describes how much
+of the operation you can see [12].</p>
+<ul>
+<li><strong>White box.</strong> The internals are visible and derived from known
+  principles. Our Sec. 4.3 model.</li>
+<li><strong>Black box.</strong> Only inputs and outputs are visible; the internals are
+  fitted. Our Sec. 4.4 model.</li>
+<li><strong>Grey box.</strong> Some of each. Our Sec. 4.5 model.</li>
+</ul>
+<p>The scale is used widely across twin-adjacent fields. Structural health
+monitoring explains the twin concept through white, grey and black boxes
+[13], and offshore predictive modelling describes grey-box
+work as enhancing the predictive capability of physics-based white-box
+models by adding machine-learning components where the physics is not fully
+understood [14]. Modelling techniques get placed on
+an explicit white-to-black scale when assembling a twin's overall model set
+[3]. The same words are reused for model order
+reduction, where black-box approaches need no knowledge of the underlying
+system, grey-box approaches need some, and white-box approaches need full
+access [10] -- a reminder to check which sense is
+meant.</p>
+<p><strong>The one caution.</strong> Colour describes <em>visibility of internals</em>, not
+<em>accuracy</em>, <em>trustworthiness</em> or <em>quality</em>. A white-box model built on wrong
+assumptions is wrong and inspectable. A black-box model fitted to excellent
+data covering every condition you care about can be more accurate than
+anything you could derive. The scale tells you what you can inspect and
+therefore what kind of argument you can make about the model -- which
+matters enormously for Chapter 7, and is not the same as telling you which
+model is better.</p>
+<hr />
+<h2 id="47-validity-envelopes-and-how-each-family-fails">4.7 Validity envelopes, and how each family fails</h2>
+<p>This is the section Chapter 1 was pointing at.</p>
+<blockquote>
+<p><strong>Validity envelope.</strong> The range of conditions over which a model's
+assumptions hold and its predictions may be believed.</p>
+</blockquote>
+<p>The principle is stated bluntly in the literature: all uses of models,
+including the trustworthy operation of twins, depend critically on the fact
+that these models are only used within their validity range
+[15]. And the companion point, which is Chapter 1's
+fidelity principle arriving from the modelling side: the appropriate
+fidelity level is not necessarily the highest feasible, and it depends on
+the use case [16].</p>
+<p>For our pot, the envelope reads straight off the assumption ledger:</p>
+<blockquote>
+<p>Valid for intervals up to about a day, with readings in the middle of the
+sensor's range, in a pot that has not been repotted since the parameters
+were fitted, with the dripper positioned over the sensed soil.</p>
+</blockquote>
+<p>Every clause of that came from a row of Sec. 4.3.4's table. That is what the
+ledger was for.</p>
+<h3 id="471-the-failure-modes-differ-by-family-and-this-is-the-useful-part">4.7.1 The failure modes differ by family, and this is the useful part</h3>
+<table>
+<thead>
+<tr>
+<th>Family</th>
+<th>How it fails outside its envelope</th>
+<th>Can you tell?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Physics-based</td>
+<td>Predictions drift in a direction the assumptions predict -- e.g. A1 breaking makes it dry too fast</td>
+<td>Often yes: the error has a recognisable shape, and the ledger tells you which assumption produces it</td>
+</tr>
+<tr>
+<td>Data-driven</td>
+<td>Extrapolation: confident output in a region with no training data</td>
+<td>Usually no, unless the model reports its own uncertainty or you check input coverage</td>
+</tr>
+<tr>
+<td>Hybrid (corrected physics)</td>
+<td>The physics part degrades predictably; the correction extrapolates</td>
+<td>Partly: the physics half stays inspectable, which is a real advantage</td>
+</tr>
+<tr>
+<td>Surrogate</td>
+<td>Inherits the base model's failures, plus its own approximation error</td>
+<td>Only against the base model, which is the thing you were avoiding running</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Silent failure is the hazard.</strong> A model that crashes outside its envelope
+is a good model with a bad interface. A model that returns 608.8 when the
+truth is 400 is the problem, because 608.8 is a plausible number and nothing
+downstream can tell. Chapter 3's guard exists partly for this, and it can
+only refuse on conditions someone stated.</p>
+<p><strong>The engineering response, and it is yours, not the modeller's:</strong> make the
+envelope a runtime check. If the model is valid for readings between 300 and
+900, then the code that calls it refuses -- loudly -- outside that band. You
+now know enough to ask for the numbers that check needs, and asking is
+Sec. 4.9.</p>
+<h3 id="472-what-this-chapter-is-not-claiming">4.7.2 What this chapter is not claiming</h3>
+<p>Stating an envelope is not the same as establishing one. Sec. 4.3.4's rows
+are <em>claims</em> about where the assumptions hold, and claims need evidence.
+Getting that evidence -- fitting the parameters, testing the model against
+held-out reality, quantifying how wrong it might be -- is calibration,
+validation and uncertainty quantification, and all three belong to Chapter
+7. This chapter gives you the vocabulary to demand them.</p>
+<hr />
+<h2 id="48-choosing-a-family">4.8 Choosing a family</h2>
+<p>A decision procedure. Run it in order; the first clear answer wins.</p>
+<p><strong>1. Is there a usable first principle, and does the decision depend on few
+quantities?</strong> If yes, start physics-based. Cheap, inspectable, small, and it
+extrapolates in a way you can reason about. This is the pot.</p>
+<p><strong>2. Is the model being asked to distinguish normal from abnormal, using
+history that may contain the abnormal?</strong> If yes, the expectation must not be
+learned from that history. Physics-based, or hybrid with the physics
+carrying the expectation. Sec. 4.4.3.</p>
+<p><strong>3. Is the phenomenon one nobody can write down, with plenty of data
+covering the conditions you care about?</strong> If yes, data-driven is the
+sensible answer and the honest one. Do not derive equations for the sake of
+looking rigorous.</p>
+<p><strong>4. Do you have a principle for part of it and not the rest?</strong> Hybrid,
+corrected-physics form. This is the most common real answer, and it is why
+the hybrid trend exists [5], [6].</p>
+<p><strong>5. Do you have an accurate model that is too slow for how often you must
+run it?</strong> Surrogate -- and note this is a <em>speed</em> question, which means you
+already had a model, and it is Chapter 6's territory.</p>
+<p><strong>A cross-check to run afterwards.</strong> Whatever you chose, ask: what will it
+cost to <em>keep</em>? Chapter 1 named model maintenance as the largest forgotten
+cost and Chapter 14 owns it. A physics model is re-fitted when the physical
+twin changes. A data-driven model may need re-fitting whenever conditions
+drift, which is a standing operational commitment, and a model that changes
+weekly is a versioned artefact changing weekly underneath a system that may
+be commanding hardware (Chapter 3, Sec. 3.2.4).</p>
+<hr />
+<h2 id="49-five-questions-to-ask-a-modelling-expert">4.9 Five questions to ask a modelling expert</h2>
+<p>Chapter 1 said Part II would let you hold up your end of a fidelity
+conversation. This is it. Five questions, what a good answer sounds like,
+and what a worrying answer sounds like.</p>
+<p><strong>Q1. What is the model's state, and what does it deliberately not
+represent?</strong></p>
+<p><em>Good:</em> "One variable, the water in the sensed region. It does not represent
+surface pooling or layering."
+<em>Worrying:</em> "It models the pot." An answer that does not name what is left
+out means the exclusions have not been thought about, and the exclusions are
+where the surprises live.</p>
+<p><strong>Q2. Which parameters are fitted to this specific physical twin, and when
+were they last fitted?</strong></p>
+<p><em>Good:</em> "Two, <code>k</code> and <code>g</code>, fitted for this pot on 3 March, over a two-week
+window."
+<em>Worrying:</em> "They came with the model." That means the parameters belong to
+somebody else's pot. This is Chapter 3's binding problem arriving in
+conversation.</p>
+<p><strong>Q3. What is the validity envelope?</strong></p>
+<p><em>Good:</em> a list with numbers and units, traceable to assumptions.
+<em>Worrying:</em> "It is accurate to about five per cent." That is a single
+accuracy figure, which is not an envelope -- accurate to five per cent
+<em>under what conditions?</em> Push once, politely. If a numeric envelope does not
+exist, you have learned something important: nobody has written the
+assumptions down, and Sec. 4.7's runtime check cannot be specified.</p>
+<p><strong>Q4. How does it fail outside the envelope -- loudly or silently?</strong></p>
+<p><em>Good:</em> "It drifts high, and it drifts in a way you can spot because the
+error grows with elapsed time since the last watering."
+<em>Worrying:</em> "It should not be used outside the envelope." That is a
+statement about intent, not behaviour. Your system will use it outside the
+envelope one day, because a sensor will fail or a plant will be repotted.
+Ask what it <em>does</em>.</p>
+<p><strong>Q5. What measurement would change your mind about this model?</strong></p>
+<p><em>Good:</em> a specific answer -- "if a dose produced a step more than twenty per
+cent off the predicted one across several pots, the structure is wrong, not
+the parameters."
+<em>Worrying:</em> no answer. A model that no observation could count against
+cannot be validated, and Chapter 7 will have nothing to work with.</p>
+<p><strong>A note on tone, which matters more than the questions.</strong> These are not
+challenges, and asking them badly will cost you the working relationship
+that the rest of the project depends on. The framing that works is the one
+Chapter 1 gave you: <em>the decision the twin has to improve</em>. "The decision we
+have to support is whether a dose landed, within eight hours. What does the
+model need to be true for that to work?" You are not auditing their
+competence. You are bringing them the only thing they cannot get without
+you, which is what the software will actually do with their answer.</p>
+<hr />
+<h2 id="410-other-formalisms-you-will-meet">4.10 Other formalisms you will meet</h2>
+<p>The chapter has treated one kind of model: a continuous quantity changing
+over time. That is the right first case and it is not the only one. Named
+here so you recognise them, and handed onward.</p>
+<ul>
+<li><strong>Geometric models</strong> -- shape and space. Chapter 2 already declined to
+  call these twins on their own.</li>
+<li><strong>Behaviour models</strong> -- state machines and discrete-event descriptions,
+  for systems whose interesting dynamics are transitions rather than
+  quantities. A pump is either on or off; a batch is queued, running or
+  done. Reviews group twin content into geometric, physical, behaviour and
+  rule models for exactly this reason [1], [17], and practical modelling stacks place continuous
+  time, discrete time, state machines and discrete-event models on one
+  scale [3].</li>
+<li><strong>Rule models</strong> -- explicit logic, from operating procedures or
+  regulations. Ordinary software, and routinely forgotten to be part of the
+  model at all -- which means it also escapes the versioning of Chapter 3's
+  registry and the assumption ledger of Sec. 4.2.4.</li>
+<li><strong>Hybrid formalisms</strong> -- for systems that are both, such as our pot with
+  its continuous drying and its discrete watering events. Handling discrete
+  and continuous behaviour together in one principled execution is a
+  named problem with named machinery, and it is Chapter 6's
+  [2], [18].</li>
+</ul>
+<p>Notice that our pot model is already mildly hybrid in this second sense: the
+drying is continuous, the doses are discrete events. We got away with
+treating it informally because the events are rare and simple. Chapter 6
+explains what to do when they are not.</p>
+<hr />
+<h2 id="411-faded-example-the-offshore-turbine">4.11 Faded example: the offshore turbine</h2>
+<p>Chapter 3 designed components for the turbine anomaly service: vibration and
+temperature stream to shore, a service compares them against a model of that
+turbine, a work order goes to a planner. Chapter 3 also noted that the
+quantity of interest -- accumulated fatigue, or bearing condition -- is not
+measured by any sensor, but inferred.</p>
+<p><strong>Worked, for the first two steps.</strong></p>
+<p><em>State.</em> Not the vibration. Vibration is an <em>output</em>, a thing you measure.
+The state is the turbine's condition -- crack length, bearing wear -- which
+no sensor reports. This is the <code>W</code> versus <code>m</code> distinction of Sec. 4.2.2,
+and it is much starker here: in the pot, the reading tracked the state
+closely. Here the state must be inferred from a signal that relates to it
+indirectly.</p>
+<p><em>Which family?</em> Run Sec. 4.8. Step 1: is there a usable first principle?
+Partly -- fatigue accumulation under load has well-developed theory, so the
+physics is available for part of the problem. Step 4 is therefore the likely
+landing point: hybrid, with physics carrying fatigue accumulation and a
+learned component carrying the map from vibration spectra to condition,
+which nobody can write down. That is the shape the offshore literature
+describes as grey-box: physics-based prediction enhanced with
+machine-learning components where the physics is not fully understood
+[14].</p>
+<p><strong>Now it is your turn.</strong></p>
+<ul>
+<li><strong>(a)</strong> Write three rows of the assumption ledger for the physics half.
+  For each, say what happens operationally when it breaks -- not what
+  happens mathematically.</li>
+<li><strong>(b)</strong> The learned half is fitted on data from a fleet of turbines, not
+  this one. Name the two distinct risks that creates, using this chapter's
+  vocabulary. One of them is a Chapter 3 concept, not a Chapter 4 one.</li>
+<li><strong>(c)</strong> State a validity envelope for the combined model, with units.
+  Then say what the runtime check of Sec. 4.7.1 would look like, and which
+  component of Chapter 3's architecture would perform it.</li>
+<li><strong>(d)</strong> Ask Q4 of Sec. 4.9 about this model and answer it yourself. Does
+  it fail loudly or silently, and does your answer differ for the two
+  halves?</li>
+</ul>
+<p><em>Hint for (b):</em> one risk is about the conditions the fleet data covers.
+The other is about which physical twin the fitted parameters belong to, and
+Chapter 3 has a word for it.</p>
+<hr />
+<h2 id="412-posed-problem-the-vendors-model-card">4.12 Posed problem: the vendor's model card</h2>
+<p>A vendor supplies a twin for a hospital's chilled-water plant -- the same
+one Chapter 3 reviewed. Asked about the model, they say:</p>
+<blockquote>
+<p>"It is a deep-learning model trained on two years of plant data. It
+predicts chilled-water supply temperature fifteen minutes ahead with a
+mean absolute error of 0.3 degrees. It retrains nightly on the last ninety
+days."</p>
+</blockquote>
+<p>Produce a one-page model assessment. It must:</p>
+<ol>
+<li>Classify the model by family and by box colour, and state which of
+   Sec. 4.8's steps their choice corresponds to -- or say that it
+   corresponds to none.</li>
+<li>Ask the five questions of Sec. 4.9 and, for each, say what you would
+   accept as an answer and what you would escalate on.</li>
+<li>Identify the one property of their description that should worry you
+   most, given that the plant's value case is <em>detecting when a chiller is
+   degrading</em>. Justify it from Sec. 4.4.3.</li>
+<li>Recommend either accepting the model, accepting it with a stated
+   condition, or proposing a different family -- and defend the
+   recommendation on the value metric, not on modelling taste.</li>
+</ol>
+<p>There is no single right assessment. There is a wrong one, and it is the
+assessment that argues about the 0.3 degrees.</p>
+<hr />
+<h2 id="413-summary">4.13 Summary</h2>
+<p>Against the objectives.</p>
+<ol>
+<li><strong>Every model has five parts:</strong> state, inputs, parameters, outputs and
+   assumptions (Sec. 4.2). Structure is shared across physical twins and
+   parameters belong to one -- which is what Chapter 3's model registry
+   existed to keep straight, and why losing the binding produces a twin that
+   is confidently wrong while everything works.</li>
+<li><strong>A physics-based model comes from a first principle plus a stack of
+   assumptions</strong> (Sec. 4.3). We derived Part I's two-parameter water balance
+   from "water is conserved", and found that its linear form is the good
+   exponential model restricted to short intervals -- so the model is
+   neither wrong nor right, but <em>correct within an envelope</em>.</li>
+<li><strong>Three families, compared on one problem</strong> (Secs. 4.3 to 4.5).
+   Physics-based: small, inspectable, few parameters, needs a principle.
+   Data-driven: no principle needed, captures the unmodelled, but
+   extrapolates silently and -- decisively for our case -- <strong>learns the
+   faults as normal when trained on unlabelled history</strong>. Hybrid: three
+   distinct forms, of which corrected-physics fits our pot, constrained
+   learning is heavier machinery, and surrogates solve a speed problem
+   rather than an accuracy one.</li>
+<li><strong>The validity envelope is the intersection of the assumptions</strong>
+   (Sec. 4.7), it reads straight off the ledger, and the failure modes
+   differ by family. Silent failure is the hazard, and the engineering
+   response -- checking the envelope at runtime -- is yours rather than the
+   modeller's.</li>
+<li><strong>Five questions</strong> (Sec. 4.9) give you the fidelity conversation Chapter
+   1 promised. The framing that makes them land is the decision the twin has
+   to improve, not the model's quality.</li>
+</ol>
+<p>The sentence to carry forward: <strong>a model is not right or wrong, it is
+correct within an envelope</strong> -- and its companion, <strong>a model used to detect
+abnormality must not learn what is normal from data containing the
+abnormality.</strong></p>
+<hr />
+<h2 id="414-exercises">4.14 Exercises</h2>
+<p>Objectives in brackets. Solutions and hints follow.</p>
+<p><strong>4.14.1 (Objective 1, easy).</strong> For a model that predicts a lithium battery
+pack's voltage from current draw and temperature, classify each as state,
+input, parameter or output: (a) current draw; (b) internal resistance; (c)
+state of charge; (d) terminal voltage; (e) ambient temperature.</p>
+<p><strong>4.14.2 (Objective 1, easy).</strong> Sec. 4.2.3 says structure is shared and
+parameters are specific. Give one example from any system you have worked on
+where something you treated as a constant in code was really a parameter
+belonging to one specific deployment. What went wrong, or what would have?</p>
+<p><strong>4.14.3 (Objective 2, easy).</strong> Using <code>k = 4</code> and <code>g = 48</code> from Sec. 4.3.5,
+predict the reading at 08:00 the next morning, starting from 640 just after
+the 17:05 dose of 120 ml. State which assumption in the ledger you are
+leaning on hardest, and why.</p>
+<p><strong>4.14.4 (Objective 4, medium).</strong> Assumption A2 says the sensor is affine
+over its middle range. Design the runtime check of Sec. 4.7.1 for it: what
+does the calling code test, what does it do when the test fails, and what
+does it tell the operator? Then say why "clamp the reading to the valid
+range and carry on" is the wrong answer.</p>
+<p><strong>4.14.5 (Objective 3, medium).</strong> Sec. 4.4.3 argues a data-driven model
+trained on unlabelled history learns the faults as normal. Suppose you have
+three months of history <em>and</em> a maintenance log recording exactly when the
+three faults occurred. Does that fix the problem? Answer carefully -- the
+honest answer is "partly", and the interesting part is what remains.</p>
+<p><strong>4.14.6 (Objective 3, medium).</strong> For each, choose a family using Sec. 4.8
+and name the step that decided it: (a) predicting queueing time at a
+hospital scanner from arrival patterns; (b) predicting stress in a bracket
+under a known load; (c) predicting when a paint line's finish quality will
+drop, where nobody can say what causes it and there are five years of
+inspection records; (d) running a thermal model of a data hall two thousand
+times to choose fan speeds, where one run takes four minutes.</p>
+<p><strong>4.14.7 (Objective 5, medium).</strong> Complete Sec. 4.11, parts (a) through (d).</p>
+<p><strong>4.14.8 (Objectives 2 and 4, hard).</strong> Derive a model for the <em>water
+reservoir</em> that feeds the demonstrator's pumps: the tank level falls by the
+delivered dose at each watering and is refilled by a human occasionally.
+Write the structure, name the parameters, and produce an assumption ledger
+of at least four rows. Then answer: could this model detect the "empty
+reservoir" fault from Chapter 1's baseline, and how does that compare with
+detecting it from the pot's moisture?</p>
+<p><strong>4.14.9 (Objective 5, hard).</strong> Take a model you or a colleague have shipped
+-- any predictive component at all, including a heuristic. Write its
+assumption ledger retrospectively. Then state its validity envelope, and say
+whether the running system checks it.</p>
+<p><strong>4.14.10 (Objectives 1 through 5, hard, open-ended).</strong> Do Sec. 4.12, the
+vendor's model card, in full.</p>
+<h3 id="solutions-and-hints">Solutions and hints</h3>
+<p><strong>4.14.1.</strong> (a) input; (b) parameter -- it is fitted, roughly constant over
+the timescale of a discharge, and it drifts over the pack's life, which is
+exactly the profile of Sec. 4.2.3; (c) state; (d) output; (e) input. Worth
+noticing: internal resistance is the row that would be a <em>state</em> variable in
+an ageing model spanning years. Whether something is a parameter or a state
+depends on the timescale the model is for, which is the same
+purpose-dependence as everything else in this chapter.</p>
+<p><strong>4.14.2.</strong> Open. Assessed on whether the example distinguishes a genuine
+constant of nature from a fitted number that happened to be typed in. Strong
+answers name a timeout, a threshold or a calibration factor that was right
+for the first customer.</p>
+<p><strong>4.14.3.</strong> From 640 at 17:05 to 08:00 is 14.9 hours, so
+<code>640 - 4 * 14.9 = 640 - 59.6 = 580.4</code>. The assumption under most strain is
+<strong>A1</strong>: fifteen hours is no longer short compared with a drying time
+constant of a couple of days, so the true reading will be a little <em>higher</em>
+than 580.4, because real drying slows as the soil dries. A very good answer
+also notes that this bias is in a known direction, which is Sec. 4.7.1's
+point about physics-based models failing in a shape you can predict.</p>
+<p><strong>4.14.4.</strong> <em>Hint:</em> the check is a band test on the input reading, and the
+action is refusal plus an alert naming the reason. On the second half: a
+clamp produces a plausible number from an implausible one, which is exactly
+Sec. 4.7's silent failure, manufactured deliberately. The reading being out
+of range is information -- it means the sensor is saturated or broken, and
+that is worth telling somebody.</p>
+<p><strong>4.14.5.</strong> <em>Partial.</em> It helps: you can exclude the fault windows from
+training, so the model no longer learns those three events as normal. What
+remains is the harder half. First, faults that were never detected are not
+in the log, so the excluded set is the faults you <em>found</em>, and Chapter 1's
+whole premise is that discovery took four days. Second, the four days
+<em>before</em> each discovery are the fault, and the log records the discovery
+date, not the onset -- so your exclusion windows are wrong at the boundary,
+in the direction that leaves fault data in the training set. Third, even
+with perfect labels you have three positive examples, which is not enough to
+learn a fault signature from. Good answers reach at least the second point.</p>
+<p><strong>4.14.6.</strong> (a) Data-driven, step 3 -- arrival patterns are behavioural and
+nobody has a first principle for them; note this is also the case where a
+discrete-event model (Sec. 4.10) is the real answer, so credit an answer
+that says so. (b) Physics-based, step 1 -- structural mechanics is exactly
+the case the family was made for. (c) Data-driven, step 3, and five years of
+records is the condition that makes it defensible; watch for the Sec. 4.4.3
+trap, and ask whether the inspection records label the drop or merely
+contain it. (d) Surrogate, step 5 -- two thousand runs at four minutes is
+133 hours, so the question is speed and you already have the model.</p>
+<p><strong>4.14.7.</strong> <em>Partial.</em> (a) Rows worth having: loading history is
+representative; the fatigue law's parameters suit this material and weld
+detail; damage accumulates independently of sequence. The operational
+consequence of the last one breaking is the interesting one -- an unusual
+storm sequence makes the model's remaining-life estimate optimistic, and
+nothing in the data says so. (b) Risk one: the fleet's conditions may not
+cover this turbine's -- extrapolation (Sec. 4.4.3). Risk two: <strong>binding</strong>
+(Chapter 3, Sec. 3.3.1) -- fleet-fitted parameters are not this turbine's,
+and Sec. 4.9's Q2 is the question that surfaces it. (c) and (d) are yours;
+for (d), the expected answer is that the halves differ, which is the
+practical argument for the corrected-physics form of Sec. 4.5.1.</p>
+<p><strong>4.14.8.</strong> <em>Hint:</em> the structure is a running total -- level decreases by
+each delivered dose, increases by refills. Parameters: the tank's capacity,
+and the relationship between commanded dose and delivered volume, which is
+the pump calibration Chapter 1 quoted. Ledger rows worth having: every
+commanded dose is actually delivered (which is the very thing the twin
+doubts -- note the circularity and say so); no leaks; refills are recorded;
+calibration is current. On the comparison: the reservoir model detects
+<em>empty reservoir</em> directly and early, but is blind to a blocked tube,
+because the water leaves the tank either way. The pot's moisture model
+detects both, later. The strongest answers conclude that the two together
+localise the fault, which neither does alone -- and that this is an argument
+for a second model rather than a better one.</p>
+<p><strong>4.14.9.</strong> Open. Assessed on whether the envelope has numbers and units,
+and on the honesty of the last part. "No, nothing checks it" is a complete
+and common answer, and noticing that is the exercise.</p>
+<p><strong>4.14.10.</strong> <em>Hint:</em> no solution, but a test. The property that should worry
+you most is the nightly retraining on the last ninety days, given a value
+case of <em>detecting degradation</em>. A model that continuously relearns what
+recent operation looks like will absorb a slow degradation into its notion
+of normal and stop flagging it -- Sec. 4.4.3's failure with a moving window
+attached. If your assessment argues about the 0.3 degrees, you have reviewed
+the model's accuracy instead of its fitness.</p>
+<hr />
+<h2 id="415-where-to-go-next">4.15 Where to go next</h2>
+<p><strong>In this book.</strong> Chapter 5 takes the other half of Chapter 2's deferred
+vocabulary: what a simulation actually is, and what state and time mean once
+a model has to be executed. Chapter 6 supplies the simulators, the state
+estimator's mechanism, and the machinery for models that mix continuous and
+discrete behaviour (Sec. 4.10). Chapter 7 is where everything this chapter
+<em>claimed</em> gets established: fitting the parameters, testing the model, and
+quantifying how wrong it might be. Chapter 8 takes the data-driven family
+and its specific risks seriously. Chapter 14 is where the maintenance cost
+of Sec. 4.8's cross-check comes due.</p>
+<p><strong>In the literature.</strong></p>
+<ul>
+<li><em>Modelling for twins, the closest single reference to this chapter:</em>
+  [2] introduces physics-based, data-driven and
+  discrete formalisms together and works them on an incubator example;
+  [19] is the containing book.</li>
+<li><em>The three-family split and the hybrid argument:</em>
+  [5] is the clearest statement of why neither pure
+  approach suffices and what combining them buys, with
+  [3] for the model-based / data-driven / hybrid
+  classification, [6] for the hybrid trend in one domain,
+  and [1] for the first-principles / data-driven /
+  hybrid split applied to real manufacturing twins.</li>
+<li><em>Hybrid mechanics:</em> [8] on physics-informed loss
+  functions as the common realisation, [7] for a
+  worked white-box-plus-black-box combination against live data, and
+  [20] with [21] for
+  multi-fidelity and surrogate-assisted approaches in civil and structural
+  settings.</li>
+<li><em>Surrogates and reduced-order models:</em> [9] on
+  investing offline computation to make online use tractable,
+  [10] on model order reduction for twins meant to be
+  executed in deployment, and [11] for the
+  surrogate-of-a-knowledge-model framing in health.</li>
+<li><em>Validity and fidelity:</em> [15] on models being usable
+  only within their validity range, and [16] for the
+  statement that the appropriate fidelity is not the highest feasible --
+  the modelling-side version of Chapter 1's principle.</li>
+<li><em>The box scale:</em> [12] and [22] for
+  the systems-engineering framing, [13] and
+  [14] for its use in structural and offshore work.</li>
+<li><em>Other formalisms, ahead of Chapters 5 and 6:</em>
+  [18] on discrete-event abstraction and
+  statecharts, [17] for the geometric / physical /
+  behavioural / rule grouping, [23] for learned automata as
+  twin models, and [24] on co-simulation, which is
+  where multiple models meet.</li>
+<li><em>Consulted, not drawn on above:</em> [25] on
+  uncertainty and optimisation (Chapter 7),
+  [26]
+  on the open research gaps including model error and identifiability,
+  [27] on models that learn their own structure,
+  [28] on choosing between model types inside a systems
+  engineering process, [29] on the practical difficulty of
+  covering corner cases when the physical process is a black box,
+  [30] for representation types inside a
+  maintenance architecture, [31] on transferring
+  models between similar physical twins, [4] and
+  [32] for industrial model portfolios, and
+  [33] on what happens when models from different
+  twins must be integrated (Chapter 15).</li>
+</ul>
+<p><strong>In the demonstrator.</strong> Pull two weeks of moisture readings and watering
+events through the endpoints of Chapter 3, plot them, and estimate <code>k</code> and
+<code>g</code> by eye from the slopes and the steps. You are not calibrating -- that is
+Chapter 7 -- you are checking whether the <em>structure</em> of Sec. 4.3 looks like
+the data at all. If the decay is visibly curved over your window, A1 is
+already under strain, and you have learned something about the envelope
+before writing a line of the twin.</p>
+<h2 id="references">References</h2>
+<p>[1] T. Bottjer et al., "A review of unit level digital twin applications in the manufacturing industry," <em>CIRP Journal of Manufacturing Science and Technology</em>, vol. 45, pp. 162-189, 2023.</p>
+<p>[2] G. Abbiati, C. Gomes, M. Sandberg, Z. Kazemi, S. T. Hansen, and P. G. Larsen, "Modelling for Digital Twins," in <em>The Engineering of Digital Twins</em>, pp. 89-127, Springer International Publishing, 2024.</p>
+<p>[3] N. Anwer, R. Stark, F. Tao, and J. Erkoyuncu, "Developing and leveraging digital twins in engineering design," <em>CIRP Annals</em>, vol. 2025, 2025.</p>
+<p>[4] Y. Jiang, S. Yin, K. Li, H. Luo, and O. Kaynak, "Industrial applications of digital twins," <em>Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences</em>, vol. 379, no. 2207, p. 20200360, Royal Society, 2021.</p>
+<p>[5] A. Rasheed, O. San, and T. Kvamsdal, "Digital Twin: Values, Challenges and Enablers From a Modeling Perspective," <em>IEEE Access</em>, vol. 8, pp. 21980-22012, 2020.</p>
+<p>[6] Z. Chen et al., "Service oriented digital twin for additive manufacturing process," <em>Journal of Manufacturing Systems</em>, vol. 74, pp. 762-776, 2024.</p>
+<p>[7] M. Heithoff, M. Trinh, J. Michael, B. Rumpe, and C. Brecher, <em>A Digital Shadow for Accurate Robot Motion Control: Integrating Data with Friction Models</em>, 2025.</p>
+<p>[8] A. Thelen et al., "A comprehensive review of digital twin -- part 1: modeling and twinning enabling technologies," <em>Structural and Multidisciplinary Optimization</em>, vol. 65, no. 12, p. 354, 2022.</p>
+<p>[9] M. G. Kapteyn, D. J. Knezevic, and K. Willcox, "Toward predictive digital twins via component-based reduced-order models and interpretable machine learning," in <em>AIAA Scitech 2020 Forum</em>, American Institute of Aeronautics and Astronautics, 2020.</p>
+<p>[10] D. Hartmann and H. Van der Auweraer, <em>The Executable Digital Twin: merging the digital and the physics worlds</em>, 2022.</p>
+<p>[11] M. Viceconti, M. De Vos, S. Mellone, and L. Geris, "Position Paper From the Digital Twins in Healthcare to the Virtual Human Twin: A Moon-Shot Project for Digital Health Research," <em>IEEE Journal of Biomedical and Health Informatics</em>, vol. 28, no. 1, pp. 491-501, 2024.</p>
+<p>[12] M. Grieves, "Digital Twins and Their Role in Reengineering Engineering Education," in <em>Digital Twin: Fundamentals and Applications</em>, pp. 237-261, Springer Nature Switzerland, 2024.</p>
+<p>[13] H. Pezeshki, H. Adeli, D. Pavlou, and S. C. Siriwardane, "State of the art in structural health monitoring of offshore and marine structures," <em>Proceedings of the Institution of Civil Engineers - Maritime Engineering</em>, vol. 176, no. 2, pp. 89-108, ICE Publishing, 2023.</p>
+<p>[14] U. T. Tygesen, K. Worden, T. Rogers, G. Manson, and E. J. Cross, "State-of-the-Art and Future Directions for Predictive Modelling of Offshore Structure Dynamics Using Machine Learning," in <em>Dynamics of Civil Structures, Volume 2</em>, pp. 223-233, Springer International Publishing, 2019.</p>
+<p>[15] G. Lugaresi and H. Vangheluwe, <em>From Digital Twins to Twinning Systems</em>, 2025.</p>
+<p>[16] Z. Ali, R. Biglari, J. Denil, J. Mertens, M. Poursoltan, and M. K. Traore, "From modeling and simulation to Digital Twin: evolution or revolution?," <em>SIMULATION</em>, vol. 100, no. 7, pp. 751-769, 2024.</p>
+<p>[17] H. Zheng, T. Liu, J. Liu, and B. Jinsong, "Visual analytics for digital twins: a conceptual framework and case study," <em>Journal of Intelligent Manufacturing</em>, vol. 35, pp. 1-16, 2023.</p>
+<p>[18] P. Carreira, V. Amaral, and H. Vangheluwe, Eds., <em>Foundations of Multi-Paradigm Modelling for Cyber-Physical Systems</em>, Springer Nature, 2020.</p>
+<p>[19] J. Fitzgerald, C. Gomes, and P. G. Larsen, Eds., <em>The Engineering of Digital Twins</em>, Springer International Publishing, 2024.</p>
+<p>[20] M. Torzoni, M. Tezzele, S. Mariani, A. Manzoni, and K. E. Willcox, "A digital twin framework for civil engineering structures," <em>Computer Methods in Applied Mechanics and Engineering</em>, vol. 418, p. 116584, 2024.</p>
+<p>[21] M. Torzoni, A. Manzoni, and S. Mariani, "A Deep Neural Network, Multi-fidelity Surrogate Model Approach for Bayesian Model Updating in SHM," in <em>European Workshop on Structural Health Monitoring</em>, pp. 1076-1086, Springer International Publishing, 2023.</p>
+<p>[22] S. Sabri, K. Alexandridis, and N. Lee, Eds., <em>Digital Twin: Fundamentals and Applications</em>, Springer Nature Switzerland, 2024.</p>
+<p>[23] Q. Xu, <em>Traversing the Data Spectrum: Path to Dependable Cyber-Physical Systems through Digital Twins</em>, 2023.</p>
+<p>[24] G. Schweiger et al., "An empirical survey on co-simulation: Promising standards, challenges and research needs," <em>Simulation Modelling Practice and Theory</em>, vol. 95, pp. 148-163, 2019.</p>
+<p>[25] A. Thelen et al., "A comprehensive review of digital twin--part 2: roles of uncertainty quantification and optimization, a battery digital twin, and perspectives," <em>Structural and Multidisciplinary Optimization</em>, vol. 66, no. 1, p. 1, 2022.</p>
+<p>[26] <em>Foundational Research Gaps and Future Directions for Digital Twins</em>, National Academies Press, 2024.</p>
+<p>[27] F. Emmert-Streib, H. Cherifi, K. Kaski, S. Kauffman, and O. Yli-Harja, "Complexity data science: A spin-off from digital twins," <em>PNAS Nexus</em>, vol. 3, no. 11, p. pgae456, 2024.</p>
+<p>[28] R. Honcak and A. Wooley, "An MBSE approach for Virtual Verification &amp; Validation of Systems with Digital Twins," in <em>Proceedings of the ACM/IEEE 27th International Conference on Model Driven Engineering Languages and Systems</em>, pp. 390-400, ACM, 2024.</p>
+<p>[29] R. Gu, T. Barbuceanu, N. Xiong, and T. Seceleanu, "Experiences in Building a Digital Twin Framework: Challenges and Possible Solutions," in <em>2024 IEEE 48th Annual Computers, Software, and Applications Conference (COMPSAC)</em>, pp. 531-536, 2024.</p>
+<p>[30] R. van Dinter, B. Tekinerdogan, and C. Catal, "Reference architecture for digital twin-based predictive maintenance systems," <em>Computers &amp; Industrial Engineering</em>, vol. 177, p. 109099, 2023.</p>
+<p>[31] P. Gardner, L. A. Bull, J. Gosliga, N. Dervilis, and K. Worden, "Foundations of population-based SHM, Part III: Heterogeneous populations - Mapping and transfer," <em>Mechanical Systems and Signal Processing</em>, vol. 149, p. 107142, 2021.</p>
+<p>[32] S. Mihai et al., "Digital Twins: A Survey on Enabling Technologies, Challenges, Trends and Future Prospects," <em>IEEE Communications Surveys &amp; Tutorials</em>, vol. 24, no. 4, pp. 2255-2291, 2022.</p>
+<p>[33] B. Combemale et al., "On the Challenges of Integrating Digital Twins," in <em>2nd International Conference on Engineering Digital Twins (EDTconf 2025)</em>, 2025.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Prasad Talasila
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.tabs.sticky", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

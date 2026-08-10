@@ -1,0 +1,2445 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home page of Prasad Talasila">
+      
+      
+        <meta name="author" content="Prasad Talasila">
+      
+      
+        <link rel="canonical" href="https://prasad.talasila.in/writings/chitragupta/books/Digital-Twins-for-Software-Engineers/chapters/13-standards-and-open-source.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 13 -- Standards and Open Source: What Exists So You Don't Build It Twice - Prasad Talasila</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/course-tables.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-13-standards-and-open-source-what-exists-so-you-dont-build-it-twice" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../../index.html" title="Prasad Talasila" class="md-header__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prasad Talasila
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 13 -- Standards and Open Source: What Exists So You Don't Build It Twice
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../research.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Research
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../projects.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../software.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../courses.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Courses
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../writings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Writings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../contact.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../../index.html" title="Prasad Talasila" class="md-nav__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.png" alt="logo">
+
+    </a>
+    Prasad Talasila
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../research.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../software.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../courses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../writings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../contact.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#130-before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.0 Before you start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.0 Before you start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning objectives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#131-what-a-standard-is-worth-and-to-whom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1 What a standard is worth, and to whom
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.1 What a standard is worth, and to whom">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1311-chapter-1s-promise-taken-literally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1.1 Chapter 1's promise, taken literally
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1312-what-the-three-honest-notes-mean-for-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1.2 What the three honest notes mean for you
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1313-the-counterparty-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1.3 The counterparty rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#132-the-four-kinds-and-the-division-that-matters-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2 The four kinds, and the division that matters more
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.2 The four kinds, and the division that matters more">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1321-four-kinds-of-standard-a-twin-meets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.1 Four kinds of standard a twin meets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1322-chosen-and-given" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.2 Chosen and given
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1323-a-note-on-the-landscape-and-on-landscape-surveys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.3 A note on the landscape, and on landscape surveys
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#133-the-six-this-book-has-already-named" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3 The six this book has already named
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.3 The six this book has already named">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1331-iso-23247-vocabulary-and-the-one-chapter-3-owed-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.1 ISO 23247 -- vocabulary, and the one Chapter 3 owed you
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1332-fmi-interface-and-the-one-chapter-6-owed-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.2 FMI -- interface, and the one Chapter 6 owed you
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1333-opc-ua-interface-and-the-one-chapter-9-owed-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.3 OPC UA -- interface, and the one Chapter 9 owed you
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1334-the-asset-administration-shell-interface-and-chapter-10s-context-model-in-somebody-elses-notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.4 The Asset Administration Shell -- interface, and Chapter 10's context model in somebody else's notation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1335-asme-vv-40-process-and-the-second-one-chapter-7-owed-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.5 ASME VV-40 -- process, and the second one Chapter 7 owed you
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1336-ai-data-and-regulation-the-group-chapter-8-and-chapter-10-owed-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.6 AI, data and regulation -- the group Chapter 8 and Chapter 10 owed you
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1337-the-six-on-one-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.7 The six, on one page
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#134-the-adoption-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4 The adoption calculation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.4 The adoption calculation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1341-a-standard-is-a-platform-with-a-different-f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4.1 A standard is a platform with a different F
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1342-the-demonstrators-audit-against-chapter-1s-four-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4.2 The demonstrator's audit, against Chapter 1's four lines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1343-the-counterparty-count-computed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4.3 The counterparty count, computed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1344-four-ways-the-count-is-got-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4.4 Four ways the count is got wrong
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1345-what-a-standard-buys-that-the-arithmetic-misses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4.5 What a standard buys that the arithmetic misses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#135-open-source-what-exists-so-you-do-not-build-it-twice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5 Open source: what exists so you do not build it twice
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.5 Open source: what exists so you do not build it twice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1351-three-different-things-called-open-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5.1 Three different things called open source
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1352-four-checks-before-depending-on-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5.2 Four checks before depending on one
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1353-the-exemplars-twins-you-can-read-instead-of-guessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5.3 The exemplars: twins you can read instead of guessing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1354-contributing-back-is-cheaper-than-forking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5.4 Contributing back is cheaper than forking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#136-worked-example-the-demonstrators-standards-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.6 Worked example: the demonstrator's standards decision
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.6 Worked example: the demonstrator&#39;s standards decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1361-the-counterparty-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.6.1 The counterparty count
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1362-the-decision-standard-by-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.6.2 The decision, standard by standard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1363-what-is-adopted-instead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.6.3 What is adopted instead
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1364-and-the-exemplars-which-cost-nothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.6.4 And the exemplars, which cost nothing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1365-the-expiry-triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.6.5 The expiry triggers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#137-faded-example-the-turbine-fleet-and-its-auditor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.7 Faded example: the turbine fleet and its auditor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#138-posed-problem-the-standards-clause" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.8 Posed problem: the standards clause
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#139-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.9 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1310-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.10 Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.10 Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solutions-and-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solutions and hints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1311-where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.11 Where to go next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-13-standards-and-open-source-what-exists-so-you-dont-build-it-twice">Chapter 13 -- Standards and Open Source: What Exists So You Don't Build It Twice</h1>
+<h2 id="130-before-you-start">13.0 Before you start</h2>
+<p><strong>Where we are.</strong> Chapter 12 evaluated platforms without naming one. This
+chapter has the opposite obligation: the book has already named six
+standards, promised each of them an explanation, and in one case said in as
+many words that two of them were "named once each and did not explain"
+(Chapter 7 Sec. 7.13). Those explanations are due.</p>
+<p>The chapter's title comes from Chapter 1 Sec. 1.4, which put the case in one
+sentence: <em>every hour you spend re-inventing an interface that a standard
+already defines is cost with no value attached, and Chapter 13 is about not
+paying it twice.</em> That is a promise about <strong>cost</strong>, so this chapter answers
+it with a cost calculation rather than with a catalogue.</p>
+<p><strong>The register, unchanged from Chapters 9 to 12.</strong> You have read a
+specification before, and you know what it feels like to adopt one that
+nobody else in the room had adopted.</p>
+<blockquote>
+<p><strong>This chapter does not teach any standard. It teaches what a standard is
+worth, to whom, and under what condition -- and the condition turns out to
+be countable.</strong></p>
+</blockquote>
+<p><strong>Three things the field says about itself, which shape everything below.</strong>
+It is worth putting them at the top rather than burying them, because they
+are not what a chapter about standards usually opens with:</p>
+<ul>
+<li>Adoption of ISO 23247, the manufacturing twin reference architecture, is
+  "still in its embryonic stages", and "we are far from being able to
+  properly measure the compliance of existing digital twin architectures"
+  with it [1].</li>
+<li>Existing digital-twin description formats "present information in an
+  incompatible way, hindering interoperability between different Digital
+  Twins" [2].</li>
+<li>Open-source implementations of the Asset Administration Shell are
+  <strong>incompatible with one another</strong> [3].</li>
+</ul>
+<p>Three independent sources saying that the standards landscape does not yet
+reliably deliver the thing standards exist to deliver. That does not make
+standards worthless -- several of them pay handsomely, and Sec. 13.3 says
+which. It means <strong>the value has to be argued for a specific case rather
+than assumed</strong>, which is what Sec. 13.4 does.</p>
+<p><strong>What you are assumed to know.</strong> Everything so far. Especially: Chapter 1's
+cost estimate in Sec. 1.8.7 and its "don't pay twice" claim; Chapter 2's two
+standards-derived definitions in Sec. 2.5; Chapter 3's ISO 23247 domains in
+Sec. 3.5.3; Chapter 6's model-exchange versus co-simulation split; Chapter
+7's credibility argument and its risk-informed principle; Chapter 9's five
+transport properties; Chapter 10's context model and provenance chain; and
+<strong>Chapter 12's cost model</strong> -- <code>B</code>, <code>F</code>, <code>r</code>, <code>a</code>, <code>p</code> -- which this chapter
+reuses rather than replacing.</p>
+<p><strong>The maths budget.</strong> As Chapters 9 to 12: more arithmetic welcome, no new
+mathematics. One set piece, and it is Chapter 12's model with a different
+<code>F</code>.</p>
+<p><strong>What this chapter deliberately does not cover.</strong> Teaching any
+specification. A current inventory of standards -- the landscape survey this
+chapter draws on is a 2021 deliverable and is cited for its framing and
+method rather than its list, which Sec. 13.2 says explicitly. Ontology
+formalism -- Chapter 10 excluded it with reasons recorded and this chapter
+does not reopen it. Legal exposition of regulation -- Sec. 13.3.6 covers
+only what a regulation obliges you to <em>produce</em>. Data spaces,
+cross-organisation sharing and ecosystems -- Chapter 15, and the
+counterparty rule is the bridge. Security standards in depth -- Chapter 3
+Sec. 3.3.3. Product selection -- Chapter 12. Licence law.</p>
+<h3 id="learning-objectives">Learning objectives</h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol>
+<li><strong>Classify</strong> a standard into one of four kinds, and <strong>determine</strong> whether
+   it is one you choose or one you are given.</li>
+<li><strong>Explain</strong> what each standard this book has named is for, what adopting
+   it costs, and the one condition under which it pays.</li>
+<li><strong>Compute</strong> a standard's adoption using Chapter 12's cost model and
+   <strong>apply</strong> the counterparty rule to decide.</li>
+<li><strong>Distinguish</strong> three different things called open source in a twin
+   project, and <strong>check</strong> the four things that matter before depending on
+   one.</li>
+<li><strong>Name</strong> the published twin exemplars you can read instead of guessing,
+   and <strong>state</strong> what each one demonstrates.</li>
+</ol>
+<hr />
+<h2 id="131-what-a-standard-is-worth-and-to-whom">13.1 What a standard is worth, and to whom</h2>
+<h3 id="1311-chapter-1s-promise-taken-literally">13.1.1 Chapter 1's promise, taken literally</h3>
+<p>Chapter 1's claim was economic: re-inventing a defined interface is cost
+with no value attached. True, and incomplete, because it invites a
+conclusion that does not follow -- <em>therefore adopt the standard</em>. The
+missing term is what adoption itself costs.</p>
+<p><strong>Adopting a standard is not free and is frequently not cheap.</strong> You read
+the specification, you map your model onto its abstractions, you acquire or
+build tooling, and you deal with the parts of your system that do not fit
+its shape. Chapter 12 gave that quantity a name -- <code>F</code>, the fixed
+integration cost -- and observed that it is paid before anything has been
+supplied.</p>
+<p>So Chapter 1's sentence, completed:</p>
+<blockquote>
+<p>Re-inventing a defined interface is cost with no value attached <strong>when
+somebody else is already using that definition</strong>. When nobody is, adopting
+it is also cost with no value attached, and it is usually the larger of
+the two.</p>
+</blockquote>
+<h3 id="1312-what-the-three-honest-notes-mean-for-you">13.1.2 What the three honest notes mean for you</h3>
+<p>Sec. 13.0 quoted three findings. Read as engineering advice rather than as
+criticism, they say:</p>
+<p><em>Do not assume a standard is implemented consistently.</em> AAS implementations
+are incompatible with each other [3], which means
+"we both use AAS" is not the same statement as "we interoperate". <strong>Test the
+exchange, do not infer it from the name</strong> -- which is Chapter 12
+Sec. 12.3.2's export test in a different guise.</p>
+<p><em>Do not assume a reference architecture is adopted.</em> ISO 23247 adoption is
+early and compliance is not yet measurable [1].
+So citing it in a design document is a communication act, which is valuable,
+and not a compatibility claim, which it is often mistaken for.</p>
+<p><em>Do not assume description formats compose.</em> Different twin-description
+formats present information incompatibly [2],
+and work exists precisely to bridge them -- which tells you the bridging is
+not free.</p>
+<p><strong>None of that is a reason to skip standards.</strong> It is the reason the rest of
+this chapter is a decision procedure rather than a recommendation.</p>
+<h3 id="1313-the-counterparty-rule">13.1.3 The counterparty rule</h3>
+<p>Here is the idea the chapter is built on, and it is worth stating before any
+standard is named:</p>
+<blockquote>
+<p><strong>A standard's value is not what it saves you from writing. It is what it
+saves you from <em>agreeing</em>.</strong></p>
+</blockquote>
+<p>Consider what you would do without one. You would define an interface, write
+it down, and give it to whoever needs to speak it. That is a <strong>bilateral
+agreement</strong>, and it works. Its costs are that it must be negotiated,
+documented, versioned, and re-negotiated with each new party -- and that
+nobody outside your project has ever heard of it.</p>
+<p>A standard is a bilateral agreement that somebody else already negotiated
+and that other people have already implemented. <strong>So its value scales with
+how many people you need to agree with</strong>, and with nobody, it has none.</p>
+<blockquote>
+<p><strong>The counterparty rule.</strong> Count the parties you must exchange something
+with, who already implement the standard. Call it <code>C</code>. Adopt when</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>C x I  &gt;  F
+</code></pre></div></td></tr></table></div>
+<p>where <code>I</code> is what one bilateral integration would cost you and <code>F</code> is
+Chapter 12's fixed adoption cost.</p>
+</blockquote>
+<p>Sec. 13.4.3 puts numbers on it. The shape of the answer, in advance:</p>
+<table>
+<thead>
+<tr>
+<th>Counterparties</th>
+<th>Usually right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 -- you are the only party</td>
+<td><strong>Skip.</strong> Write your own interface and document it</td>
+</tr>
+<tr>
+<td>1 or 2</td>
+<td><strong>Usually a bilateral agreement</strong>, unless the counterparty has already adopted, in which case adopting is free for you</td>
+</tr>
+<tr>
+<td>3 or more</td>
+<td><strong>Adopt</strong></td>
+</tr>
+<tr>
+<td>Any number, but one of them is an auditor or a regulator</td>
+<td><strong>The arithmetic does not apply</strong> -- see Sec. 13.2.2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>A counterparty is not always another company.</strong> Your future self is not
+one. But a second team in your own organisation is, a supplier delivering
+models is, a customer receiving reports is, an auditor reading your evidence
+is, and -- in Chapter 15's world -- another twin is. Counting them honestly
+is the whole decision.</p>
+<hr />
+<h2 id="132-the-four-kinds-and-the-division-that-matters-more">13.2 The four kinds, and the division that matters more</h2>
+<h3 id="1321-four-kinds-of-standard-a-twin-meets">13.2.1 Four kinds of standard a twin meets</h3>
+<p>They are not interchangeable and they fail differently.</p>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>What it specifies</th>
+<th>Example</th>
+<th>Adopting it gets you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vocabulary</strong></td>
+<td>Words, roles, a reference architecture. <strong>No bytes</strong></td>
+<td>ISO 23247</td>
+<td>A shared conversation, and an audit trail that uses recognised terms</td>
+</tr>
+<tr>
+<td><strong>Interface</strong></td>
+<td>An exchange, precisely enough that two implementations interoperate</td>
+<td>FMI, OPC UA</td>
+<td>Actual interoperability, and tooling you did not write</td>
+</tr>
+<tr>
+<td><strong>Process</strong></td>
+<td>What evidence you must produce and how</td>
+<td>ASME VV-40</td>
+<td>A structure for Chapter 7's argument, and credibility with someone who knows the standard</td>
+</tr>
+<tr>
+<td><strong>Regulation</strong></td>
+<td>What you are obliged to do, with legal force</td>
+<td>AI and sector-specific law</td>
+<td>Permission to operate</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The commonest category error in twin projects is treating a vocabulary
+standard as an interface standard.</strong> ISO 23247 will not let two systems
+exchange anything, because it specifies nothing to exchange. Chapter 3
+Sec. 3.5.3 already said the honest version: it is a reference model at an
+abstraction level not directly suitable for code generation
+[4]. That is not a flaw -- vocabulary is genuinely
+useful -- but a project that adopts it expecting interoperability has bought
+the wrong thing.</p>
+<h3 id="1322-chosen-and-given">13.2.2 Chosen and given</h3>
+<p>More important than the four kinds:</p>
+<blockquote>
+<p><strong>A standard you <em>choose</em> is subject to Sec. 13.1.3's arithmetic. A
+standard you are <em>given</em> is not.</strong></p>
+</blockquote>
+<p>If a customer's purchase order requires ISO 23247 vocabulary, if an auditor
+works to ASME VV-40, if a regulator's pathway assumes a particular evidence
+form, then the cost-benefit calculation has already been made by somebody
+else and your only question is <strong>what does this oblige me to produce, and
+what is the cheapest honest way to produce it?</strong></p>
+<p><strong>Two practical consequences.</strong></p>
+<p><em>Find out which you are in, first.</em> An hour spent asking "is this required,
+or are we choosing it?" saves weeks. Teams routinely run an adoption
+evaluation on a standard they have no choice about, and routinely skip the
+evaluation on one they do.</p>
+<p><em>A given standard still has a cheapest form.</em> Chapter 7's credibility
+argument was five parts on two pages. If an auditor requires a particular
+structure, the work is mapping your five parts onto their structure -- not
+producing different evidence. <strong>Evidence you already have, presented in
+somebody else's shape, is the whole of most compliance work</strong>, and
+recognising that is the difference between a two-week task and a two-month
+one.</p>
+<h3 id="1323-a-note-on-the-landscape-and-on-landscape-surveys">13.2.3 A note on the landscape, and on landscape surveys</h3>
+<p>There is a genre of document that enumerates every standard relevant to
+digital twins. The most useful one in this book's corpus was produced for
+exactly the audience this chapter serves -- it exists because implementing
+twins in small and medium enterprises "is much facilitated by deploying
+standards", and it identifies the relevant standardisation bodies and the
+standards each works on [5].</p>
+<p><strong>Read that sentence for its method and not for its list.</strong> That deliverable
+is from 2021, and any inventory of this landscape ages faster than the
+standards in it. What transfers is the approach: identify the bodies, find
+which standards touch your domain, and then -- the step the surveys cannot
+do for you -- <strong>apply Sec. 13.1.3 to each one</strong>.</p>
+<hr />
+<h2 id="133-the-six-this-book-has-already-named">13.3 The six this book has already named</h2>
+<p>Each subsection answers three questions: what is it, what does adopting it
+cost, and when does it pay.</p>
+<h3 id="1331-iso-23247-vocabulary-and-the-one-chapter-3-owed-you">13.3.1 ISO 23247 -- vocabulary, and the one Chapter 3 owed you</h3>
+<p><strong>What it is.</strong> A reference architecture for digital twins in
+manufacturing. Chapter 2 Sec. 2.5.2 took its definition -- a fit-for-purpose
+digital representation of an observable manufacturing element, with a means
+to enable convergence at an appropriate rate of synchronisation
+[6]. Chapter 3 Sec. 3.5.3 took its four domains:
+observable manufacturing, device communication, digital twin, and user, with
+the device communication domain splitting into data collection and device
+control sub-entities [7], [8]. It has
+been used as the frame for component catalogues
+[9], mapped onto by other frameworks
+[10], and applied to worked use cases [11], [12].</p>
+<p><strong>What it costs.</strong> Two to five engineer-days to read and map onto your
+architecture. <strong>No tooling, because there is nothing to implement.</strong></p>
+<p><strong>When it pays.</strong> When you have a counterparty who uses its vocabulary -- a
+manufacturing customer, an auditor, a partner in a consortium. Then it
+converts a translation problem into a shared one. When you do not, it buys
+a shared conversation with yourself.</p>
+<p><strong>What to know before citing it.</strong> Adoption is early: an analysis of 29
+manufacturing twin architectures against the standard found several
+multinationals starting to use it while adoption remains "in its embryonic
+stages", and concluded that measuring compliance is not yet really possible
+[1]. <strong>So "ISO 23247 compliant" is a weaker claim
+than it sounds, in both directions</strong> -- it is hard to verify and therefore
+hard to rely on.</p>
+<p><strong>And the gap Chapter 7 already found.</strong> ISO 23247 does not cover
+verification, validation and uncertainty quantification -- the credibility
+assessment of Chapter 7 -- and this is named as a hole in the standard by
+people working on it [7]. A twin that is ISO 23247
+conformant has said nothing about whether it should be believed.</p>
+<h3 id="1332-fmi-interface-and-the-one-chapter-6-owed-you">13.3.2 FMI -- interface, and the one Chapter 6 owed you</h3>
+<p><strong>What it is.</strong> The Functional Mock-up Interface: a standard for packaging a
+model as a component another tool can execute. Chapter 6 Sec. 6.8 taught the
+mechanism and the one distinction that matters -- model exchange, where the
+importer's solver steps the model, versus co-simulation, where the model
+brings its own solver -- and Chapter 6 said Chapter 13 owed the standard's
+own story.</p>
+<p><strong>What it costs.</strong> Modest and asymmetric. <em>Consuming</em> an FMU is nearly free
+-- open-source and commercial importers exist, and lightweight frameworks
+for wiring FMI-based twins are published [13]. <em>Exporting</em>
+one from your own model is real work, and the tooling depends on how your
+model was built.</p>
+<p><strong>When it pays.</strong> The moment a model crosses an organisational boundary --
+which is why it exists. A supplier who delivers an FMU has delivered
+something you can run without knowing what tool produced it, and that is a
+genuine "do not build it twice". An empirical survey of co-simulation
+practice reports the same finding from the research side: the main needs are
+modular, stable, valid coupling of simulation units and standard interfaces
+for it [14].</p>
+<p><strong>When it does not.</strong> When the model never leaves your team and evaluates in
+nanoseconds, which is the demonstrator's case (Chapter 4 Sec. 4.5.3).
+Wrapping a nine-line water-balance model as an FMU is Chapter 1's unpaid
+work.</p>
+<p><strong>The honest caveat.</strong> FMI standardises the <em>interface</em>, not the model's
+quality. Chapter 7's entire apparatus still applies to an FMU you were
+handed, and Chapter 7 Sec. 7.7.5's contract clauses are how you ask for it.</p>
+<h3 id="1333-opc-ua-interface-and-the-one-chapter-9-owed-you">13.3.3 OPC UA -- interface, and the one Chapter 9 owed you</h3>
+<p><strong>What it is.</strong> The industrial-automation communication standard, and the
+reason Chapter 9 Sec. 9.4.4 singled it out: it carries an <strong>information
+model</strong> as well as data. It answers "what is this value?" as well as "what
+is it now?", which is the distinction Chapter 10 spent a chapter on --
+context, not just measurement.</p>
+<p><strong>What it costs.</strong> Substantial if you are implementing a server; moderate if
+you are a client against somebody else's. The information-modelling half is
+where the real effort is, because it requires deciding what your assets <em>are</em>
+before you can describe them -- which is Chapter 10 Sec. 10.4's work, done
+in somebody else's notation.</p>
+<p><strong>When it pays.</strong> When your physical twin already speaks it. This is the
+common case in industrial settings and it makes the decision trivial: the
+counterparty count is at least one and the alternative is a translation
+layer you own forever.</p>
+<p><strong>When it does not.</strong> When your source offers HTTP and nothing else, which
+is the demonstrator's situation. Chapter 9 Sec. 9.9.1 scored that plain REST
+API five out of five on the properties that actually matter, and adding OPC
+UA would mean building a server to talk to yourself.</p>
+<p><strong>The interoperability work around it is real and worth knowing exists</strong>
+[15], [16], including proposals
+for mapping between OPC UA and the Asset Administration Shell
+[17]. That such mappings are an active subject is
+itself the point of Sec. 13.1.2: two standards do not automatically compose.</p>
+<h3 id="1334-the-asset-administration-shell-interface-and-chapter-10s-context-model-in-somebody-elses-notation">13.3.4 The Asset Administration Shell -- interface, and Chapter 10's context model in somebody else's notation</h3>
+<p><strong>What it is.</strong> A specification for describing an asset in a
+machine-readable way: an administration shell containing submodels, each
+identified and referring to a submodel template that gives it meaning
+[18]. It is the Industry 4.0 world's answer to the
+question Chapter 10 Sec. 10.4 asked -- how do you describe what a thing <em>is</em>,
+alongside what it is doing?</p>
+<p><strong>What it costs.</strong> The highest <code>F</code> of anything in this section. You need the
+specification, tooling, and a mapping from your context model onto submodels
+-- and Chapter 10's validity intervals, which make context historical, are
+not evidently expressible. <strong>Budget eight to fifteen engineer-days before
+anything works, and check the history question early</strong>, because it is the
+one most likely to force a compromise.</p>
+<p><strong>When it pays.</strong> When you exchange asset descriptions with other
+organisations -- a supply chain, a customer's plant system, a marketplace.
+The counterparty count is the whole argument and it is often genuinely
+above three.</p>
+<p><strong>The two cautions, both from the corpus.</strong> Open-source implementations are
+incompatible with each other [3], so choosing AAS
+does not finish the decision -- you also choose an implementation and
+inherit its interpretation. And description formats more broadly present
+information incompatibly [2], which is why
+bridging work exists. <strong>Run Chapter 12 Sec. 12.3.2's export test between
+your implementation and your counterparty's before designing around the
+exchange.</strong></p>
+<p><strong>And a pointer rather than a lecture.</strong> The asset-model question is Chapter
+10 Sec. 10.4.6's, and this book deliberately does not teach the formalisms.
+If your context is seven well-maintained tables with validity intervals, you
+are ahead of most, and AAS is a way to <em>export</em> that, not a replacement for
+having it.</p>
+<h3 id="1335-asme-vv-40-process-and-the-second-one-chapter-7-owed-you">13.3.5 ASME VV-40 -- process, and the second one Chapter 7 owed you</h3>
+<p><strong>What it is.</strong> A standard for assessing the credibility of computational
+models, from the medical-device world. Chapter 7 Sec. 7.1.2 named it as the
+origin of the chapter's organising idea -- <strong>risk-informed credibility</strong>:
+the depth of the assessment is set by the consequence of being wrong, not by
+how much rigour the team enjoys [19].</p>
+<p><strong>What it costs.</strong> Reading it is a couple of days. Working to it is not a
+software cost at all: it is the cost of producing the evidence, which
+Chapter 7 already costed at a fortnight of discipline for an advisory twin.</p>
+<p><strong>When it pays.</strong> Whenever there is a reviewer -- an auditor, a regulator, a
+customer's engineering function. Then it supplies a shape they already
+recognise, and Sec. 13.2.2's point applies: you are presenting evidence you
+should have anyway, in their structure.</p>
+<p><strong>When it does not.</strong> Never quite "does not" -- <strong>its idea is worth having
+even if you never cite it</strong>, because Chapter 7's whole method is that idea.
+But formally conforming to it, for a twin nobody external will review, buys
+paperwork.</p>
+<p><strong>The limitation Chapter 8 found, restated here because it belongs to the
+standard rather than to the technique.</strong> VV-40 assumes a credibility
+assessment can be done once for a knowledge-driven model, and for
+data-driven models that assumption is explicitly unresolved
+[19]. Chapter 8 Sec. 8.6.1 built the cadence answer.
+<strong>A standard that predates your model class is a starting structure, not a
+verdict.</strong></p>
+<h3 id="1336-ai-data-and-regulation-the-group-chapter-8-and-chapter-10-owed-you">13.3.6 AI, data and regulation -- the group Chapter 8 and Chapter 10 owed you</h3>
+<p>Three strands, and they behave differently from the five above because they
+are mostly <em>given</em>.</p>
+<p><strong>AI quality standards.</strong> Work on AI in cyber-physical systems reports a
+family of standards under development for evaluating AI system performance
+and for data quality in machine learning -- covering terms, quality
+requirements, a measurement process framework
+[20]. What matters for you is the direction: <strong>the things
+Chapter 8 asked you to do voluntarily -- characterise the training data,
+state the coverage, report the two rates -- are becoming things you will be
+asked to evidence.</strong> Building them in now is cheaper than retrofitting.</p>
+<p><strong>Regulation.</strong> The compliance landscape for AI is real and moving
+[21], and in regulated sectors the pathway is the
+subject rather than a detail -- healthcare twin work treats the credibility
+assessment as the hardest part of getting an in-silico method accepted
+[19], [22]. <strong>This chapter's
+position is narrow and deliberate:</strong> a regulation is a given standard, so
+the only question is what it obliges you to produce, and the answer is
+almost always a form of Chapter 7's credibility argument plus Chapter 10's
+provenance. If you have those, compliance is presentation. If you do not,
+no standard will help.</p>
+<p><strong>Research-data practice.</strong> Chapter 10 deferred FAIR here. Its content --
+that data should be findable, accessible, interoperable and reusable -- is
+not a twin standard and is closer to a discipline. <strong>For a twin, the useful
+translation is Chapter 10 Sec. 10.7's reproducible dataset</strong>: a named,
+re-runnable definition with a frozen watermark is the operative form of
+"reusable", and it is worth more than a compliance checkbox.</p>
+<p><strong>Security.</strong> Named once, per Chapter 3 Sec. 3.3.3 and Chapter 9
+Sec. 9.8.4. Twin threat classifications organise by functional layer
+[23], and the standards that apply are your sector's
+rather than the twin field's. This chapter does not extend them.</p>
+<h3 id="1337-the-six-on-one-page">13.3.7 The six, on one page</h3>
+<table>
+<thead>
+<tr>
+<th>Standard</th>
+<th>Kind</th>
+<th><code>F</code>, engineer-days</th>
+<th>Pays when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ISO 23247</td>
+<td>Vocabulary</td>
+<td>2-5</td>
+<td>A counterparty uses its words</td>
+</tr>
+<tr>
+<td>FMI</td>
+<td>Interface</td>
+<td>1 to consume, 5-10 to export</td>
+<td>A model crosses an organisational boundary</td>
+</tr>
+<tr>
+<td>OPC UA</td>
+<td>Interface</td>
+<td>5 as client, 15+ as server</td>
+<td>Your physical twin already speaks it</td>
+</tr>
+<tr>
+<td>Asset Administration Shell</td>
+<td>Interface</td>
+<td>8-15</td>
+<td>You exchange asset descriptions with other organisations</td>
+</tr>
+<tr>
+<td>ASME VV-40</td>
+<td>Process</td>
+<td>2 to read</td>
+<td>Anybody external will review your evidence</td>
+</tr>
+<tr>
+<td>AI / data / regulation</td>
+<td>Mostly given</td>
+<td>Varies</td>
+<td>You are told</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The <code>F</code> figures are illustrative</strong>, in the sense Chapter 9 Sec. 9.0 used
+for datasheet numbers: the method transfers, the values depend on your team
+and your tooling, and they are measurable by spending a day on a prototype.
+What is <em>not</em> illustrative is their ordering, which is stable: vocabulary is
+cheap, interfaces are moderate, asset description is expensive, process is
+cheap to read and expensive to satisfy.</p>
+<hr />
+<h2 id="134-the-adoption-calculation">13.4 The adoption calculation</h2>
+<h3 id="1341-a-standard-is-a-platform-with-a-different-f">13.4.1 A standard is a platform with a different <code>F</code></h3>
+<p>Chapter 12's model needs no modification:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>F  = fixed cost of adopting: reading, mapping, tooling, and the misfits
+r  = fraction of the build it removes
+B  = engineer-days to build the twin
+</code></pre></div></td></tr></table></div>
+<p><strong>What is different is where <code>r</code> comes from.</strong> A platform's <code>r</code> is code you
+do not write. A standard's <code>r</code> is mostly <em>agreement you do not negotiate</em>,
+which is why Sec. 13.1.3 counts counterparties instead of components.</p>
+<h3 id="1342-the-demonstrators-audit-against-chapter-1s-four-lines">13.4.2 The demonstrator's audit, against Chapter 1's four lines</h3>
+<p>Chapter 1 Sec. 1.8.7 split the build into four lines of 1.5 weeks each.
+Run every standard in Sec. 13.3.7 against them:</p>
+<table>
+<thead>
+<tr>
+<th>Build line</th>
+<th>7.5 days each</th>
+<th>Which standard could remove any of it?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data path: poll the REST API, land readings</td>
+<td>7.5</td>
+<td><strong>None.</strong> The source speaks HTTP. OPC UA would mean building a server to talk to ourselves</td>
+</tr>
+<tr>
+<td>Water-balance model and parameter fitting</td>
+<td>7.5</td>
+<td><strong>None.</strong> FMI packages a model; it does not write one</td>
+</tr>
+<tr>
+<td>Residuals, thresholds, alerting</td>
+<td>7.5</td>
+<td><strong>None.</strong> No standard specifies Chapter 11's three outcomes or Chapter 7's threshold</td>
+</tr>
+<tr>
+<td>Deployment, documentation, handover</td>
+<td>7.5</td>
+<td><strong>Marginally.</strong> ISO 23247 vocabulary in the documentation, perhaps a day saved arguing about names</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>total r across all six standards   = about 1 engineer-day
+total F if all six were adopted    = 25 to 50 engineer-days
+</code></pre></div></td></tr></table></div>
+<p><strong>The audit's answer is unambiguous and slightly uncomfortable: for this
+twin, essentially no standard removes any build.</strong> Chapter 1's "don't pay
+twice" was a true statement about a situation the demonstrator is not in.</p>
+<h3 id="1343-the-counterparty-count-computed">13.4.3 The counterparty count, computed</h3>
+<p>Sec. 13.1.3's rule with numbers. Take a standard with <code>F</code> = 10 engineer-days
+-- an interface standard, mid-range -- and suppose one bilateral integration
+costs <code>I</code> = 4 engineer-days to define, document and maintain.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>adopt when  C x I &gt; F
+            C x 4 &gt; 10
+                C &gt; 2.5
+</code></pre></div></td></tr></table></div>
+<p><strong>Three counterparties.</strong> Below that, define your own interface and write it
+down; above it, adopt.</p>
+<p>Now count the demonstrator's counterparties, honestly:</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>A counterparty?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The physical twin's REST API</td>
+<td><strong>No</strong> -- but not because the question does not arise. Chapter 1 Sec. 1.8.1 noted that the demonstrator's own documentation names a <em>Remote Connecter</em>, "either a person or a computer running a Digital Twin": its authors designed for a party at the other end. <code>C</code> is zero because <strong>they already supplied the interface</strong>, which is the counterparty rule working rather than an exception to it</td>
+</tr>
+<tr>
+<td>The lab's own researchers</td>
+<td>No. They read a plot</td>
+</tr>
+<tr>
+<td>A future second bench</td>
+<td>No -- <strong>a future party is not a counterparty</strong>, and Chapter 12 Sec. 12.8.4 already made "a second twin is funded" an expiry trigger</td>
+</tr>
+<tr>
+<td>An external auditor</td>
+<td>None exists</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>C = 0.  C x I = 0.  Adopt nothing.
+</code></pre></div></td></tr></table></div>
+<p>And the inversion, which is the same arithmetic pointed at a different
+project. A manufacturing supplier delivering twin-ready components to five
+customers, each of whom would otherwise need a bespoke integration:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>C = 5,  I = 4,  C x I = 20  &gt;  F = 10.   Adopt, comfortably.
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<p><strong>Same standard, same cost, opposite decisions, and the only variable is
+<code>C</code>.</strong> That is the chapter's central claim and it is why a research bench
+and a manufacturing supply chain reach different answers without either
+being wrong.</p>
+</blockquote>
+<h3 id="1344-four-ways-the-count-is-got-wrong">13.4.4 Four ways the count is got wrong</h3>
+<p><strong>Counting parties who do not implement it.</strong> A customer who has <em>heard of</em>
+AAS is not a counterparty for AAS purposes. The question is whether adopting
+lets you skip an integration, and it only does if they have already adopted.</p>
+<p><strong>Counting your future self.</strong> "We will want this later" is Chapter 12's
+expiry-trigger pattern, not a counterparty. Write the trigger; do not pay
+now.</p>
+<p><strong>Not counting internal parties.</strong> A second team in your own organisation
+building a second twin <em>is</em> a counterparty, and this is the count most often
+missed -- because it feels like something you can settle in a corridor. You
+can, once. Chapter 12 Sec. 12.6.3's third failure is what happens after
+that.</p>
+<p><strong>Not counting the auditor.</strong> If anyone external will read your evidence,
+Sec. 13.2.2 says you are in the given case and the arithmetic does not apply.</p>
+<h3 id="1345-what-a-standard-buys-that-the-arithmetic-misses">13.4.5 What a standard buys that the arithmetic misses</h3>
+<p>Three things, and they are the reason the answer is not always the one the
+calculation gives.</p>
+<p><strong>An export format that outlives you.</strong> Chapter 12 Sec. 12.3.2's exit
+question -- can you get your data out in a form another system can consume?
+-- has a much better answer when there is an agreed format to export <em>into</em>.
+A twin whose data exports to a standard shape has a cheaper worst day, and
+that value is real and does not appear in <code>r</code>.</p>
+<p><strong>Recognition.</strong> Chapter 7's credibility argument is more persuasive when
+its structure is one the reader has seen before. This is the whole value of
+a process standard and most of the value of a vocabulary one.</p>
+<p><strong>A decision somebody else made carefully.</strong> A standard encodes choices --
+what to name things, what to make mandatory, how to version -- that you
+would otherwise make in an afternoon. Even where you do not adopt it,
+<strong>reading one is a cheap way to find the questions you have not asked</strong>, and
+Sec. 13.3.4's history question is an example: reading the asset-description
+specification is what prompts you to check whether Chapter 10's validity
+intervals are expressible at all, which is worth having checked whether or
+not you adopt anything.</p>
+<hr />
+<h2 id="135-open-source-what-exists-so-you-do-not-build-it-twice">13.5 Open source: what exists so you do not build it twice</h2>
+<p>The chapter's second half, and in practice the one that pays for the
+demonstrator.</p>
+<h3 id="1351-three-different-things-called-open-source">13.5.1 Three different things called open source</h3>
+<p>They have different risks and get conflated constantly.</p>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>Example in this book</th>
+<th>What you depend on</th>
+<th>Risk if it goes away</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ordinary components</strong></td>
+<td>A time-series store, a broker, a plotting library, a scheduler</td>
+<td>A mature project with many users outside your field</td>
+<td>Low. Alternatives exist and interfaces are similar</td>
+</tr>
+<tr>
+<td><strong>Twin frameworks</strong></td>
+<td>Purpose-built twin platforms and frameworks [24]-[27]</td>
+<td>A smaller community, often one research group or consortium</td>
+<td>Moderate to high. Chapter 12's <code>F</code> was mostly about these</td>
+</tr>
+<tr>
+<td><strong>Exemplars</strong></td>
+<td>Published, documented, runnable twins (Sec. 13.5.3)</td>
+<td>Nothing at runtime -- you read them</td>
+<td>None. You copied an idea</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The third row is the one people miss, and it is the safest dependency in
+the table</strong>, because it is not a dependency. Chapter 12's whole analysis was
+about the first two.</p>
+<h3 id="1352-four-checks-before-depending-on-one">13.5.2 Four checks before depending on one</h3>
+<p>Not a licence lecture. Four things, in the order they bite.</p>
+<p><strong>1. Does it do what you need, tested?</strong> Chapter 12 Sec. 12.3.2's export
+test, applied to a library: run your actual data through it before designing
+around it.</p>
+<p><strong>2. Who maintains it, and what happens if they stop?</strong> For an ordinary
+component, "many organisations" is the answer you want. For a twin
+framework, it is frequently one research group with a grant. <strong>That is not a
+reason to avoid it</strong> -- it is a reason to know it, to keep Chapter 12
+Sec. 12.6.2's seams intact, and to be able to say what forking would cost.</p>
+<p><strong>3. Does the licence say what you think?</strong> Read it, once, and check it
+against what you will do with the output -- especially if you will ship the
+twin to a customer or embed it in a product.</p>
+<p><strong>4. Can you contribute?</strong> Not altruism. Sec. 13.5.4.</p>
+<h3 id="1353-the-exemplars-twins-you-can-read-instead-of-guessing">13.5.3 The exemplars: twins you can read instead of guessing</h3>
+<p><strong>This is the most concrete answer this chapter has to its own title.</strong> A
+handful of digital twins are published with their code, their data and their
+write-ups. Reading one is worth more than reading three surveys, and each of
+these has appeared earlier in this book.</p>
+<p><strong>The incubator.</strong> A physical incubator with heaters, fans and temperature
+sensors, twinned end to end. It has: a tutorial-length treatment of the
+whole system, its services and its architecture [28]; a
+case-study chapter that shows the calibration done properly, including a
+two-parameter model compared against a four-parameter one on real data
+[29]; and -- the unusual part -- <strong>a survey that implements
+the same case study across five open-source twin frameworks</strong>
+[24]. That last one is the closest thing the field has to a
+controlled comparison, and Chapter 12 Sec. 12.13 already recommended it for
+that reason.</p>
+<p><em>What it demonstrates:</em> Chapter 7's calibration on real hardware, Chapter
+11's service set, and Chapter 12's framework question, all on one system you
+can run.</p>
+<p><strong>GreenhouseDT.</strong> A greenhouse exemplar built around a knowledge graph that
+records the structure of the physical system <strong>and its changes</strong>, with
+plants that move between shelves [30]. This book
+has cited it since Chapter 1 for binding, and Chapter 10 Sec. 10.4 for
+context history. Related work takes the same system further into semantic
+self-adaptation [31].</p>
+<p><em>What it demonstrates:</em> Chapter 3's binding problem and Chapter 10's context
+history, in the case where the physical configuration genuinely changes.</p>
+<p><strong>The plant-controller demonstrator.</strong> This book's own. The physical twin
+exists, it is documented, and its firmware and API are published -- which is
+why Chapter 1 Sec. 1.8.1 could describe the hardware from the
+demonstrator's own documentation and source rather than from an
+idealisation.</p>
+<p><em>What it demonstrates:</em> what a physical twin looks like <em>before</em> anyone
+twins it -- which is the state most readers will actually meet, and the one
+exemplars usually skip.</p>
+<blockquote>
+<p><strong>Why this section is the chapter's best answer to "don't build it
+twice".</strong> A standard saves you an agreement. A framework saves you code. An
+exemplar saves you the six weeks you would spend discovering that
+calibration needs two experiments, that context needs history, and that a
+detector needs three outcomes. <strong>The book you are reading is one long
+argument that those discoveries are expensive; the exemplars are where you
+can watch somebody else make them.</strong></p>
+</blockquote>
+<h3 id="1354-contributing-back-is-cheaper-than-forking">13.5.4 Contributing back is cheaper than forking</h3>
+<p>The engineering case, not the ethical one.</p>
+<p>You will need a change. The options are to fork, to carry a patch, or to
+contribute upstream. Forking means you own it forever, including every
+upstream fix you now have to merge by hand. Carrying a patch is a fork with
+optimism. Contributing upstream costs a review cycle and then costs nothing
+ever again.</p>
+<p><strong>Two twin-specific notes.</strong></p>
+<p><em>Twin frameworks are small enough that contributing works.</em> Unlike a major
+infrastructure project, a framework maintained by one research group will
+usually engage with a well-made contribution quickly.</p>
+<p><em>What you contribute is often not code.</em> Chapter 12 Sec. 12.3.2's export
+test, run against a framework and written up, is a contribution. So is a
+worked example on different hardware -- which is, exactly, another exemplar.</p>
+<hr />
+<h2 id="136-worked-example-the-demonstrators-standards-decision">13.6 Worked example: the demonstrator's standards decision</h2>
+<h3 id="1361-the-counterparty-count">13.6.1 The counterparty count</h3>
+<p><code>C</code> = 0, per Sec. 13.4.3. One project, one physical twin, one team, one
+audience of researchers reading a plot. No auditor, no regulator, no
+supplier, no second team.</p>
+<h3 id="1362-the-decision-standard-by-standard">13.6.2 The decision, standard by standard</h3>
+<table>
+<thead>
+<tr>
+<th>Standard</th>
+<th>Decision</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ISO 23247</td>
+<td><strong>Borrow the vocabulary, do not claim conformance</strong></td>
+<td>Its words are useful in the documentation and cost nothing. "Conformant" is unverifiable [1] and would be a claim we cannot support</td>
+</tr>
+<tr>
+<td>FMI</td>
+<td><strong>No</strong></td>
+<td>The model is nine lines and never leaves the team. Revisit if a modelling group is contracted</td>
+</tr>
+<tr>
+<td>OPC UA</td>
+<td><strong>No</strong></td>
+<td>The source speaks HTTP, five out of five on Chapter 9's properties</td>
+</tr>
+<tr>
+<td>AAS</td>
+<td><strong>No</strong></td>
+<td>Highest <code>F</code> in the table, zero counterparties, and Chapter 10's validity intervals may not map</td>
+</tr>
+<tr>
+<td>ASME VV-40</td>
+<td><strong>Use the idea, skip the conformance</strong></td>
+<td>Chapter 7's whole method already is its idea. No external reviewer exists</td>
+</tr>
+<tr>
+<td>AI / data / regulation</td>
+<td><strong>Not applicable</strong></td>
+<td>No learned model in production yet; Chapter 8's proposal 2 would change this</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total adopted: one vocabulary, borrowed.</strong> And that is the correct answer
+for this twin, arrived at by counting rather than by taste.</p>
+<h3 id="1363-what-is-adopted-instead">13.6.3 What is adopted instead</h3>
+<p>Sec. 13.5's first row does the work the standards could not -- and the way
+it does it is worth getting right, because the obvious accounting is wrong.</p>
+<p><strong>The tempting version.</strong> Credit ordinary open-source components with
+removing days from the 30: three for the store, two for the plot, one and a
+half for scheduling and retries. Six and a half days for about one day of
+adoption cost, against the standards' one day for twenty-five to fifty.</p>
+<p><strong>Why that is wrong, and the way it is wrong is the point.</strong> Look again at
+Chapter 1's first line: <em>"poll the REST API, </em><em>land readings in a
+time-series store</em><em> -- 1.5 wk"</em>. Seven and a half days is what it costs to
+<strong>wire up</strong> a time-series store. It is not remotely what it costs to write
+one. The same is true of every other line: the model line assumes a
+numerical library, the alerting line assumes a scheduler, the deployment
+line assumes a container runtime.</p>
+<blockquote>
+<p><strong><code>B</code> = 30 already presupposes ordinary open-source components. They are
+not a saving against it -- they are the reason it is 30.</strong></p>
+</blockquote>
+<p>So the right question is what <code>B</code> would be without them. Writing a
+time-series store, a plotting library, an HTTP client and a scheduler is not
+a fortnight's work in any universe; it is hundreds of engineer-days, and
+<strong>nobody on the project ever considered it, which is exactly why it appears
+nowhere in the estimate.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Kind of re-use</th>
+<th>Visible in the estimate?</th>
+<th>What it is worth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Twin-specific standards</td>
+<td><strong>Yes</strong> -- a line somebody must justify</td>
+<td>About 1 day removed, 25 to 50 spent</td>
+</tr>
+<tr>
+<td>Ordinary open-source components</td>
+<td><strong>No</strong></td>
+<td>More than the entire project</td>
+</tr>
+<tr>
+<td>Exemplars (Sec. 13.5.3)</td>
+<td><strong>No</strong></td>
+<td>The weeks you would spend rediscovering Chapters 7 to 11</td>
+</tr>
+</tbody>
+</table>
+<p><strong>That table is the chapter's real finding, and the middle column is where
+it lives.</strong> The re-use that pays most is invisible in every estimate,
+because an estimate only counts what somebody considered building. The
+re-use that is <em>visible</em> -- standards, with their specifications, their
+conformance claims and their line in the budget -- is the one that has to
+justify itself, and for a single-organisation twin it usually cannot.</p>
+<p><strong>Which is not an argument against standards.</strong> It is an argument against
+judging them by the yardstick that flatters components. Standards are paid
+for by counterparties, not by lines of code, and Sec. 13.4.3 is where they
+are judged properly.</p>
+<h3 id="1364-and-the-exemplars-which-cost-nothing">13.6.4 And the exemplars, which cost nothing</h3>
+<p>Before writing anything, read the incubator's tutorial and case study
+[28], [29] and GreenhouseDT
+[30]. <strong>Zero adoption cost, no dependency, and
+they demonstrate three things this book spent chapters on.</strong> If the standards
+audit is the chapter's negative result, this is its positive one.</p>
+<h3 id="1365-the-expiry-triggers">13.6.5 The expiry triggers</h3>
+<p>Following Chapter 12 Sec. 12.8.4, a decision with no expiry condition is a
+claim about a moment that has passed:</p>
+<blockquote>
+<p><strong>Revisit when:</strong> a modelling group is contracted to deliver models (FMI);
+a second bench or second team appears (<code>C</code> becomes 1, and at 3 the
+arithmetic flips); the greenhouse is instrumented with equipment that
+speaks OPC UA; anybody external asks to review the evidence (VV-40 and
+Sec. 13.2.2's given case); or a learned model reaches production
+(Sec. 13.3.6).</p>
+</blockquote>
+<hr />
+<h2 id="137-faded-example-the-turbine-fleet-and-its-auditor">13.7 Faded example: the turbine fleet and its auditor</h2>
+<p>Chapters 4 through 12 each took the turbine one step further. Now decide its
+standards. Two parts are worked; four are yours.</p>
+<p><strong>The system, recapped.</strong> Eighty floating offshore wind turbines, a
+platform-based build (Chapter 12 Sec. 12.9), four of Chapter 3's five
+services, and two outputs at two levels of rigour -- maintenance scheduling,
+advisory, and life extension, which faces a regulator. Diagnostic twins of
+this shape run on operational assets [32] and are
+validated against full-scale prototypes [33].</p>
+<p><strong>(a) The counterparty count is not zero, and that settles most of it --
+worked.</strong> Count them: the turbine manufacturer, who supplies models; the
+certification body, which reviews the life-extension case; the operator's
+own asset-management system; two maintenance contractors; and, at fleet
+scale, other turbines' twins. <code>C</code> is comfortably above three for interface
+standards and <strong>at least one of the counterparties is a regulator</strong>, which
+puts the certification path into Sec. 13.2.2's <em>given</em> category where the
+arithmetic does not run.</p>
+<p><strong>So the decision inverts almost completely from the demonstrator's</strong>, and
+the reason has nothing to do with the technology being harder. It is that
+somebody else is at the other end of every interface.</p>
+<p><strong>(b) FMI is the clear win here -- worked, because it shows what <code>r</code> means
+for a standard.</strong> The manufacturer supplies structural models. Without FMI
+that is a bilateral integration per model per version, negotiated and
+maintained. With it, the model arrives as something the runner executes.
+Chapter 6 Sec. 6.8's model-exchange versus co-simulation distinction now
+becomes a <strong>procurement</strong> question -- which variant does the contract
+require, and therefore who owns the solver -- and Chapter 7 Sec. 7.7.5's
+credibility clauses are what you attach to it, because FMI standardises the
+interface and says nothing about whether the model deserves belief.</p>
+<p>Now yours.</p>
+<p><strong>(c)</strong> Run Sec. 13.3.7's table for this asset and give each standard a
+decision with a reason. At least one should be <em>given</em> rather than chosen;
+say which and what it obliges you to produce.</p>
+<p><strong>(d)</strong> Sec. 13.3.5 noted that VV-40 assumes a one-off credibility
+assessment, which Chapter 8 Sec. 8.6.1 found unresolved for data-driven
+models. This twin has a learned anomaly detector (Chapter 8 Sec. 8.8). Say
+what you would present to the certification body for that component, and
+whether you would put it in the certification path at all.</p>
+<p><strong>(e)</strong> Apply Sec. 13.4.5's first item. What export format would you want
+the fifteen-year evidence trail in, given Chapter 10 Sec. 10.10(b)'s finding
+that a 2026 retention decision can invalidate a 2041 certification?</p>
+<p><strong>(f)</strong> Sec. 13.5.3's exemplars are all small systems. Say what an exemplar
+for a fleet of this kind would have to contain to be useful, and why one
+probably does not exist. <em>Hint: what does Chapter 12 Sec. 12.9's arithmetic
+imply about who can afford to build one?</em></p>
+<hr />
+<h2 id="138-posed-problem-the-standards-clause">13.8 Posed problem: the standards clause</h2>
+<p>No solution is given.</p>
+<p><strong>The situation.</strong> The water utility of Chapters 9 to 12 is procuring the
+next phase of its district-heating twin. Its legal team has sent you a draft
+clause:</p>
+<blockquote>
+<p><em>"The supplier shall deliver a digital twin compliant with all relevant
+international standards, including but not limited to ISO 23247, and shall
+ensure full interoperability with the Authority's existing systems."</em></p>
+</blockquote>
+<p>You have been asked to fix it. You also know: the utility exchanges data
+with two metering vendors and one regional grid operator; an economic
+regulator reviews its capital programme every five years; and the internal
+GIS team maintains its own asset register.</p>
+<p><strong>Produce a revised clause and a supporting note of no more than four pages
+containing:</strong></p>
+<ol>
+<li><strong>What is wrong with the draft clause</strong>, in three specific points. At
+   least one should concern the difference between a vocabulary standard and
+   an interface standard (Sec. 13.2.1), and at least one the word
+   "compliant" given Sec. 13.3.1's finding about measurability.</li>
+<li><strong>A counterparty count</strong> (Sec. 13.1.3), naming each and saying whether
+   they already implement anything.</li>
+<li><strong>A decision per standard</strong> in Sec. 13.3.7's table, marked chosen or
+   given, with the arithmetic where it applies.</li>
+<li><strong>A revised clause</strong>, which should be shorter than the original, name
+   specific standards for specific exchanges, and be <strong>checkable</strong> --
+   Chapter 2 Sec. 2.11's rule that a term nobody can check is not a term.</li>
+<li><strong>A test plan for the interoperability claim</strong>, per Sec. 13.1.2: what
+   exchange you will actually run, with whom, before acceptance.</li>
+<li><strong>What you will require of any open-source dependency</strong> the supplier
+   uses, per Sec. 13.5.2's four checks.</li>
+<li><strong>The evidence obligation</strong> for the regulator, per Sec. 13.2.2 -- and say
+   plainly whether the utility already has it, given Chapter 10
+   Sec. 10.11's post-mortem.</li>
+<li><strong>One paragraph on what you are deliberately not requiring</strong>, and why
+   requiring it would cost the utility money for nothing.</li>
+</ol>
+<p><strong>What a good answer looks like.</strong> It replaces "all relevant international
+standards" with a short list tied to named exchanges, because an
+unbounded obligation is unpriceable and every supplier will price it as
+risk. It notices that ISO 23247 cannot deliver interoperability and that
+requiring it <em>for that purpose</em> is a category error the supplier will
+happily satisfy without helping. It makes the interoperability claim
+testable rather than asserted. It treats the regulator as a given standard
+and asks what must be produced rather than which standard names it. And its
+final paragraph is honest that the biggest risk here is not a missing
+standard but Chapter 10's missing provenance, which no clause about
+standards will fix.</p>
+<hr />
+<h2 id="139-summary">13.9 Summary</h2>
+<p>Seven things, tied to the five objectives.</p>
+<ol>
+<li><strong>Chapter 1's promise, completed</strong> (Sec. 13.1.1). Re-inventing a defined
+   interface is cost with no value attached <em>when somebody else is already
+   using that definition</em>. When nobody is, adopting it is also cost with no
+   value attached, and usually the larger of the two.</li>
+<li><strong>The field says the landscape does not yet deliver what standards are
+   for</strong> (Sec. 13.0, Sec. 13.1.2): ISO 23247 adoption is embryonic and its
+   compliance is not measurable; description formats are mutually
+   incompatible; AAS implementations disagree with each other. <strong>So test the
+   exchange, never infer it from the name.</strong></li>
+<li><strong>Four kinds, and a division that matters more</strong> (Sec. 13.2). Vocabulary,
+   interface, process, regulation -- and <strong>chosen versus given</strong>. A given
+   standard is not subject to any arithmetic; the only question is what it
+   obliges you to produce, and the answer is usually evidence you should
+   have anyway in somebody else's shape. <em>(Objective 1.)</em></li>
+<li><strong>Six standards, explained rather than named</strong> (Sec. 13.3), each with
+   what it is, what <code>F</code> it costs, and the condition under which it pays --
+   including the two Chapter 7 Sec. 7.13 said had been "named once each and
+   did not explain". Their cost ordering is stable even though the numbers
+   are illustrative: vocabulary cheap, interfaces moderate, asset
+   description expensive, process cheap to read and expensive to satisfy.
+   <em>(Objective 2.)</em></li>
+<li><strong>The counterparty rule decides it</strong> (Sec. 13.1.3, Sec. 13.4.3): adopt
+   when <code>C x I &gt; F</code>. For the demonstrator <code>C</code> = 0 and the answer is nothing;
+   for a supplier with five customers the same standard at the same cost is
+   an unambiguous yes. <strong>Same standard, same cost, opposite decisions, and the
+   only
+   variable is the number of people you must agree with.</strong> <em>(Objective 3.)</em></li>
+<li><strong>The audit is the uncomfortable part, and the accounting behind it is
+   the interesting part</strong> (Sec. 13.4.2, Sec. 13.6.3). Run all six standards
+   against Chapter 1's four build lines and they remove about one
+   engineer-day for 25 to 50 days of adoption cost. Ordinary open-source
+   components look like they remove six and a half -- but they do not,
+   because <strong><code>B</code> = 30 already presupposes them; they are the reason it is
+   30 rather than hundreds.</strong> The re-use that pays most is invisible in
+   every estimate, because an estimate counts only what somebody considered
+   building; the re-use that is visible is the one that must justify itself.
+   <em>(Objective 3, 4.)</em></li>
+<li><strong>The exemplars are the chapter's best answer to its own title</strong>
+   (Sec. 13.5.3). A standard saves you an agreement, a framework saves you
+   code, and an exemplar saves you the weeks you would spend discovering
+   what this book has spent twelve chapters telling you. The incubator,
+   GreenhouseDT and the demonstrator itself are published, documented and
+   readable, and depending on them costs nothing because it is not a
+   dependency. <em>(Objective 5.)</em></li>
+</ol>
+<p><strong>And the note this chapter adds to Part III.</strong> Chapters 11 and 12 each
+concluded that the question is never whether a thing would work but whether
+a decision needs it. Chapter 13 finds the same answer with a different
+variable: <strong>not whether a standard is good, but how many people you have to
+agree with.</strong> Every chapter of this Part has now reduced a technology
+question to a question about the situation -- which is the difference
+between engineering and shopping, and it is the last thing Part III has to
+teach before Chapter 14 asks what happens once the thing is running.</p>
+<hr />
+<h2 id="1310-exercises">13.10 Exercises</h2>
+<p>Solutions or hints follow. Each exercise names the objective it exercises.</p>
+<p><strong>13.10.1</strong> <em>(Objective 1.)</em> Classify each as vocabulary, interface, process
+or regulation, and say whether it would be chosen or given: (a) a customer's
+purchase order requiring ISO 23247 terminology in all deliverables; (b) a
+decision to package your model as an FMU so a partner can run it; (c) a
+sector regulator's requirement for a documented validation process; (d) an
+internal decision to describe assets using AAS submodels.</p>
+<p><strong>13.10.2</strong> <em>(Objective 1.)</em> Your project lead says "let's be ISO 23247
+compliant so our twin can interoperate with the customer's MES". Give the
+two-sentence correction, and say what you would propose instead.</p>
+<p><strong>13.10.3</strong> <em>(Objective 2.)</em> For each, name the standard from Sec. 13.3.7
+that would help and state the condition under which it pays: (a) a supplier
+will deliver three thermal models a year and you must run them; (b) an
+insurer will audit your remaining-life predictions; (c) you must publish
+machine-readable descriptions of 200 pieces of equipment to a customer's
+procurement system; (d) your plant's PLCs already expose a rich data model
+and you must read it.</p>
+<p><strong>13.10.4</strong> <em>(Objective 3.)</em> Compute the counterparty decision for a
+standard with <code>F</code> = 18 engineer-days where a bilateral integration costs
+<code>I</code> = 5, for <code>C</code> = 1, 3 and 6. Then state which of the three answers you
+would be least confident in and what you would measure to settle it.</p>
+<p><strong>13.10.5</strong> <em>(Objective 3.)</em> A colleague argues that adopting AAS now is
+worth it "because we'll have more partners in three years". Using
+Sec. 13.4.4, name which counting error this is, and write the alternative
+that gets them most of what they want.</p>
+<p><strong>13.10.6</strong> <em>(Objective 3.)</em> Run Sec. 13.4.2's audit shape for a twin whose
+build is: connector 20 days, model 15, services 25, deployment 10. The
+physical twin speaks OPC UA natively and two suppliers deliver FMUs. Estimate
+<code>r</code> for each of those two standards against those lines, and say whether the
+answer would change if the physical twin spoke a proprietary protocol
+instead.</p>
+<p><strong>13.10.7</strong> <em>(Objective 4.)</em> For each dependency, say which of Sec. 13.5.1's
+three kinds it is and which of Sec. 13.5.2's four checks matters most:
+(a) a widely used time-series database; (b) a twin framework from a
+university group with two active contributors; (c) a published incubator
+case study you are reading for ideas; (d) a plotting library that has not
+had a release in three years.</p>
+<p><strong>13.10.8</strong> <em>(Objective 4.)</em> You need a change in a twin framework
+maintained by one research group. Compare forking, carrying a patch and
+contributing upstream, in engineer-days over three years, stating your
+assumptions. Then say which of Chapter 12 Sec. 12.6.2's seams reduces the
+cost of all three.</p>
+<p><strong>13.10.9</strong> <em>(Objective 5.)</em> For each of the three exemplars in
+Sec. 13.5.3, name one chapter of this book whose content you could check
+against it, and one question it would <em>not</em> answer.</p>
+<p><strong>13.10.10</strong> <em>(Objectives 1-5, and the one that leaves the book.)</em> Read one
+of Sec. 13.5.3's exemplars end to end -- the incubator is the most complete.
+Then write two lists: three things it does that this book recommends, and
+three things it does differently. For each of the second three, decide
+whether it is a difference of situation or a disagreement, and say which of
+Chapter 1's questions would settle it.</p>
+<h3 id="solutions-and-hints">Solutions and hints</h3>
+<p><strong>13.10.1.</strong> (a) Vocabulary, <strong>given</strong> -- and note it obliges you to produce
+terminology, not interoperability. (b) Interface, chosen -- and the
+counterparty count is at least one, so run Sec. 13.1.3. (c) Process, given.
+(d) Interface, chosen -- <strong>and the word "internal" should make you check
+<code>C</code></strong>, because an internal decision with zero counterparties is
+Sec. 13.4.3's demonstrator case wearing an Industry 4.0 badge.</p>
+<p><strong>13.10.2.</strong> "ISO 23247 is a vocabulary standard -- it defines domains,
+roles and terms and specifies nothing on the wire, so conforming to it
+cannot make two systems interoperate; and 'compliant' is a claim we could
+not verify anyway, since measuring compliance with it is not currently
+possible [1]. What will make us interoperate with
+the MES is agreeing a specific exchange -- most likely OPC UA if their
+system speaks it -- and testing it before we commit, so let us use ISO
+23247's vocabulary in the documents and put the interoperability requirement
+where it belongs."</p>
+<p><strong>13.10.3.</strong> (a) FMI, and it pays because the models cross an organisational
+boundary three times a year -- the counterparty count is one supplier but
+the integration recurs, which is the case where <code>I</code> should be counted per
+delivery rather than once. (b) ASME VV-40, and it pays because an external
+reviewer exists; note this is Sec. 13.2.2's given case if the insurer
+specifies it. (c) AAS, and it pays because <code>C</code> is at least one and the
+exchange is exactly what it is for -- but run Sec. 13.3.4's caution about
+implementation incompatibility first. (d) OPC UA as a client, and it pays
+immediately because the alternative is a translation layer you own forever.</p>
+<p><strong>13.10.4.</strong> <code>C x I</code> versus <code>F</code> = 18. At <code>C</code> = 1: 5 &lt; 18, do not adopt. At
+<code>C</code> = 3: 15 &lt; 18, <strong>do not adopt, but only just</strong>. At <code>C</code> = 6: 30 &gt; 18,
+adopt. <strong>The least confident answer is <code>C</code> = 3</strong>, because it is within the
+error of both estimates -- and the thing to measure is <code>I</code>, by actually
+doing one bilateral integration and timing it, which you will have to do
+anyway under the do-not-adopt branch. That is the cheap experiment: the
+first integration settles the parameter that decides the rest.</p>
+<p><strong>13.10.5.</strong> The second error in Sec. 13.4.4: <strong>counting your future self</strong>,
+or in this case future parties. The alternative that gets them most of what
+they want: <strong>write it as an expiry trigger</strong>, per Chapter 12 Sec. 12.8.4 --
+"adopt AAS when a second organisation that already implements it needs asset
+descriptions from us" -- and in the meantime keep Chapter 12 Sec. 12.6.2's
+fourth seam clean, so the context model is data rather than code and can be
+projected into submodels later. <strong>Cost now: zero. Cost of the option: also
+close to zero, because Chapter 10 already required that seam.</strong></p>
+<p><strong>13.10.6.</strong> Build lines total 70 days. OPC UA against the connector line:
+the physical twin speaks it natively, so the alternative is writing a
+protocol translator -- <code>r</code> might be 8 to 12 of the 20 connector days, against
+<code>F</code> of about 5 as a client. <strong>Clear adopt.</strong> FMI against the model line: two
+suppliers delivering models, so <code>r</code> is the bilateral integrations you avoid
+rather than model-writing days -- say 6 to 10 days over the first year,
+against <code>F</code> of about 1 to consume. <strong>Clear adopt.</strong> If the physical twin
+spoke a proprietary protocol instead, OPC UA's <code>r</code> collapses to zero and the
+answer flips, <strong>while FMI's is unchanged</strong> -- because the two standards are
+paid for by different counterparties, which is the point of the exercise.</p>
+<p><strong>13.10.7.</strong> (a) Ordinary component; check 3, the licence, is usually the
+only live question. (b) Twin framework; <strong>check 2 dominates</strong> -- who
+maintains it and what forking would cost -- and Chapter 12's seams are the
+mitigation. (c) Exemplar; <strong>none of the four checks applies</strong>, because it is
+not a dependency, and that is the point of Sec. 13.5.1's third row. (d) An
+ordinary component that is behaving like a framework: three years without a
+release makes check 2 the live one, and check 1 -- does it still work with
+your stack -- the immediate one.</p>
+<p><strong>13.10.8.</strong> <em>Hint.</em> Reasonable assumptions: the change is 3 days to write
+either way; contributing adds a review cycle, say 2 days spread over weeks;
+forking means merging upstream twice a year at 1 to 2 days a time, so 6 to
+12 days over three years, plus the risk that a security fix arrives when
+nobody is free. Carrying a patch is the same merge cost with more surprise.
+<strong>Contributing is cheapest in every plausible parameterisation</strong>, which is
+why the section makes the engineering case rather than the ethical one. The
+seam that reduces all three: <strong>the model interface</strong>, Chapter 12
+Sec. 12.6.2's second -- if the framework is behind a seam you control, the
+change may not need to be in the framework at all.</p>
+<p><strong>13.10.9.</strong> The incubator: check Chapter 7's calibration against
+[29]'s two-versus-four-parameter comparison; it will not
+answer anything about scale, since it is one device. GreenhouseDT: check
+Chapter 10's context history against a system where plants genuinely move;
+it will not answer Chapter 7's credibility question, which is not its
+subject. The plant-controller demonstrator: check Chapter 9's connector
+against a real API with a real history parameter; <strong>it will not answer
+anything about the digital twin at all</strong>, because the twin is what this book
+asks you to build -- which is the honest and slightly awkward status of the
+book's own running example.</p>
+<p><strong>13.10.10.</strong> No solution. One prediction: at least one of your "does
+differently" items will turn out to be a difference of situation -- a
+different <code>C</code>, a different value metric, a different physical twin -- rather
+than a disagreement, and finding that out is worth more than either list.</p>
+<hr />
+<h2 id="1311-where-to-go-next">13.11 Where to go next</h2>
+<p><strong>In this book.</strong> <strong>Chapter 14 is the immediate sequel</strong> and takes the
+things this chapter treated as static and puts them in motion: a standard
+gets a new version, a framework you depend on stops being maintained, an
+auditor's expectations change, and the credibility argument Chapter 7 wrote
+expires. Chapter 15 is where Sec. 13.1.3's counterparty count becomes the
+subject rather than a parameter -- ecosystems, twin-of-twins, and exchange
+across organisational boundaries, which is exactly the regime where the
+arithmetic of this chapter flips from <em>skip</em> to <em>adopt</em>. Chapter 15 is also
+where data spaces land, which Chapters 10 and 12 both deferred.</p>
+<p><strong>In the literature, if you want more.</strong></p>
+<ul>
+<li><em>The honest notes, and worth reading in full:</em>
+  [1] analyses 29 manufacturing twin architectures
+  against ISO 23247 using a literature review, a survey and expert
+  interviews, and is candid about how early adoption is;
+  [2] on incompatible twin-description formats;
+  [3] on incompatible open-source AAS
+  implementations.</li>
+<li><em>ISO 23247 itself, as used:</em> [7] is the clearest short
+  analysis and names the VVUQ gap; [11] and
+  [12] apply it; [9] builds a
+  component catalogue on it; [4] gives the honest
+  abstraction-level assessment; [34] surveys the
+  proliferation of reference models more generally.</li>
+<li><em>Asset description:</em> [18] is the specification;
+  [17] on mapping between AAS and OPC UA;
+  [35] and [36] on integration
+  work around it; [37] and [38]
+  on applications.</li>
+<li><em>The landscape, read for method:</em> [5] identifies
+  the bodies and their standards, with an explicit SME framing -- <strong>a 2021
+  deliverable, so use its approach rather than its inventory</strong>.
+  [39] covers the adjacent web-of-things standards world.</li>
+<li><em>Interoperability work:</em> [15] and
+  [16], as in Chapters 9, 10 and 12.</li>
+<li><em>Open source and exemplars:</em> [24] implements the incubator
+  across five frameworks; [28] and [29] are
+  the incubator's own treatments; [30] and
+  [31] are GreenhouseDT;
+  [25], [26] and
+  [27] are working open frameworks.</li>
+<li><em>Consulted, not drawn on above:</em> [40] and
+  [41] on rethinking asset representation,
+  [42] on twin description approaches,
+  [22] on the regulatory framing in healthcare, and
+  [43] on machine-readable trust between twins, which
+  is Chapter 15's direction.</li>
+</ul>
+<p><strong>In the demonstrator.</strong> Exercise 13.10.10 is the assignment and it is the
+cheapest one in Part III: read somebody else's twin. The incubator is
+published, documented and complete, and an afternoon with it will confirm or
+challenge more of this book than any amount of further reading about
+standards. <strong>Then do the thing the chapter argues for and count your own
+counterparties.</strong> If the number is zero, you have just saved yourself
+several weeks, and that is what this chapter was for.</p>
+<h2 id="references">References</h2>
+<p>[1] E. Ferko, A. Bucaioni, P. Pelliccione, and M. Behnam, "Standardisation in Digital Twin Architectures in Manufacturing," in <em>2023 IEEE 20th International Conference on Software Architecture (ICSA)</em>, pp. 70-81, 2023.</p>
+<p>[2] J. Mattila, R. Ala-Laurinaho, J. Autiosalo, and K. Tammi, "Interoperability of Digital Twins for Automation With Digital Twin Schema," <em>IEEE Access</em>, vol. 13, pp. 200595-200608, 2025.</p>
+<p>[3] M. Jacoby et al., "Open-Source Implementations of the Reactive Asset Administration Shell: A Survey," <em>Sensors</em>, vol. 23, p. 5229, 2023.</p>
+<p>[4] M. Heithoff, N. Jansen, J. Michael, F. Rademacher, and B. Rumpe, "Model-Based Engineering of Multi-Purpose Digital Twins in Manufacturing," in <em>Digital Twin: Fundamentals and Applications</em>, pp. 89-126, Springer Nature Switzerland, 2024.</p>
+<p>[5] <em>Summary of IoT, and DT Standards</em>, Change2Twin project, n.d.</p>
+<p>[6] T. Bottjer et al., "A review of unit level digital twin applications in the manufacturing industry," <em>CIRP Journal of Manufacturing Science and Technology</em>, vol. 45, pp. 162-189, 2023.</p>
+<p>[7] G. Shao, S. Frechette, and V. Srinivasan, <em>An Analysis of the New ISO 23247 Series of Standards on Digital Twin Framework for Manufacturing</em>, American Society of Mechanical Engineers Digital Collection, 2023.</p>
+<p>[8] N. Anwer, R. Stark, F. Tao, and J. Erkoyuncu, "Developing and leveraging digital twins in engineering design," <em>CIRP Annals</em>, vol. 2025, 2025.</p>
+<p>[9] C. Steinmetz, G. N. Schroeder, R. N. Rodrigues, A. Rettberg, and C. E. Pereira, "Key-Components for Digital Twin Modeling With Granularity: Use Case Car-as-a-Service," <em>IEEE Transactions on Emerging Topics in Computing</em>, vol. 10, no. 1, pp. 23-33, 2022.</p>
+<p>[10] X. Liu and I. David, "AI simulation by digital twins: systematic survey, reference framework, and mapping to a standardized architecture," <em>Software and Systems Modeling</em>, 2025.</p>
+<p>[11] G. Shao, "Use Case Scenarios for Digital Twin Implementation Based on ISO 23247," <em>NIST</em>, Guodong Shao, 2021.</p>
+<p>[12] G. Shao and M. Helu, "Framework for a digital twin in manufacturing: Scope and requirements," <em>Manufacturing Letters</em>, vol. 24, pp. 105-107, 2020.</p>
+<p>[13] C. Friedrich, A. Lombana, J. Fasquel, C. Schlick, N. Bennani, and M. Mendil, "CoFMPy: A Python Framework for Rapid Prototyping of FMI-based Digital Twins," in <em>The 2nd International Conference on Engineering Digital Twins</em>, 2025.</p>
+<p>[14] G. Schweiger et al., "An empirical survey on co-simulation: Promising standards, challenges and research needs," <em>Simulation Modelling Practice and Theory</em>, vol. 95, pp. 148-163, 2019.</p>
+<p>[15] A. C. Marosi et al., "Interoperable Data Analytics Reference Architectures Empowering Digital-Twin-Aided Manufacturing," <em>Future Internet</em>, vol. 14, no. 4, p. 114, Multidisciplinary Digital Publishing Institute, 2022.</p>
+<p>[16] M. Picone et al., "Harmonizing Physical and Digital Twins Lifecycles," in <em>2025 IEEE 22nd International Conference on Software Architecture Companion (ICSA-C)</em>, pp. 197-204, 2025.</p>
+<p>[17] S. Cavalieri and S. Gambadoro, "Proposal of Mapping Digital Twins Definition Language to Open Platform Communications Unified Architecture," <em>Sensors</em>, vol. 23, p. 2349, 2023.</p>
+<p>[18] <em>Asset Administration Shell Part - 1</em>, n.d.</p>
+<p>[19] M. Viceconti, M. De Vos, S. Mellone, and L. Geris, "Position Paper From the Digital Twins in Healthcare to the Virtual Human Twin: A Moon-Shot Project for Digital Health Research," <em>IEEE Journal of Biomedical and Health Informatics</em>, vol. 28, no. 1, pp. 491-501, 2024.</p>
+<p>[20] J. Chae, S. Lee, J. Jang, S. Hong, and K.-J. Park, "A Survey and Perspective on Industrial Cyber-Physical Systems (ICPS): From ICPS to AI-Augmented ICPS," <em>IEEE Transactions on Industrial Cyber-Physical Systems</em>, vol. 1, pp. 257-272, 2023.</p>
+<p>[21] P. Singh, N. Meratnia, M. Beliatis, and M. Presser, <em>Navigating the International Data Space To Build Edge-Driven Cross-Domain Dataspace Ecosystem: English</em>, 2024.</p>
+<p>[22] E. Katsoulakis et al., "Digital twins for health: a scoping review," <em>npj Digital Medicine</em>, vol. 7, no. 1, pp. 1-11, Nature Publishing Group, 2024.</p>
+<p>[23] C. Alcaraz and J. Lopez, "Digital Twin: A Comprehensive Survey of Security Threats," <em>IEEE Communications Surveys &amp; Tutorials</em>, vol. 24, no. 3, pp. 1475-1503, 2022.</p>
+<p>[24] S. Gil, P. H. Mikkelsen, C. Gomes, and P. G. Larsen, "Survey on open-source digital twin frameworks-A case study approach," <em>Software: Practice and Experience</em>, vol. 54, no. 6, pp. 929-960, 2024.</p>
+<p>[25] J. Robles, C. Martin, and M. Diaz, "OpenTwins: An open-source framework for the development of next-gen compositional digital twins," <em>Computers in Industry</em>, vol. 152, p. 104007, 2023.</p>
+<p>[26] S. Infante et al., "Integrating FMI and ML/AI models on the open-source digital twin framework OpenTwins," <em>Software Practice and Experience</em>, 2024.</p>
+<p>[27] P. Talasila, P. H. Mikkelsen, S. Gil, and P. G. Larsen, "Realising Digital Twins," in <em>The Engineering of Digital Twins</em>, pp. 225-256, Springer International Publishing, 2024.</p>
+<p>[28] C. Gomes et al., "Digital Twin Tutorial: The Incubator Case Study," in <em>Engineering Trustworthy Software Systems: 6th International School, SETSS 2024, Chongqing, China, April 14-21, 2024, Tutorial Lectures</em>, pp. 68-101, Springer Nature, 2025.</p>
+<p>[29] B. J. Oakes et al., "Case Studies in Digital Twins," in <em>The Engineering of Digital Twins</em>, pp. 257-310, Springer International Publishing, 2024.</p>
+<p>[30] E. Kamburjan et al., "GreenhouseDT: An Exemplar for Digital Twins," in <em>Proceedings of the 19th International Symposium on Software Engineering for Adaptive and Self-Managing Systems</em>, pp. 175-181, Association for Computing Machinery, 2024.</p>
+<p>[31] E. Kamburjan, N. Bencomo, S. L. Tapia Tarifa, and E. B. Johnsen, "Declarative Lifecycle Management in Digital Twins," in <em>Proceedings of the ACM/IEEE 27th International Conference on Model Driven Engineering Languages and Systems</em>, pp. 353-363, ACM, 2024.</p>
+<p>[32] F. Stadtmann and A. Rasheed, <em>Diagnostic Digital Twin for Anomaly Detection in Floating Offshore Wind Energy</em>, arXiv, 2024.</p>
+<p>[33] E. Branlard, J. Jonkman, C. Brown, and J. Zhang, "A digital twin solution for floating offshore wind turbines validated using a full-scale prototype," <em>Wind Energy Science</em>, vol. 9, no. 1, pp. 1-24, Copernicus GmbH, 2024.</p>
+<p>[34] J. Pfeiffer et al., <em>Towards a Unifying Reference Model for Digital Twins of Cyber-Physical Systems</em>, arXiv, 2025.</p>
+<p>[35] C. Schmidt, F. Volz, L. Stojanovic, and G. Sutschet, "Increasing Interoperability between Digital Twin Standards and Specifications: Transformation of DTDL to AAS," <em>Sensors</em>, vol. 23, p. 7742, 2023.</p>
+<p>[36] C. Schmidt, F. Volz, L. Stojanovic, and H. Kett, "Integration Approaches for Digital Twins in Dataspaces," <em>Applied Sciences</em>, vol. 15, no. 21, p. 11623, Multidisciplinary Digital Publishing Institute, 2025.</p>
+<p>[37] F. Schnicke, T. Kuhn, and P. O. Antonino, "Enabling Industry 4.0 Service-Oriented Architecture Through Digital Twins," in <em>Software Architecture</em>, pp. 490-503, Springer International Publishing, 2020.</p>
+<p>[38] Q.-D. Nguyen, Y. Huang, F. Keith, C. Leroy, M.-T. Thi, and S. Dhouib, "Manufacturing 4.0: Checking the Feasibility of a Work Cell Using Asset Administration Shell and Physics-Based Three-Dimensional Digital Twins," <em>Machines</em>, vol. 12, p. 95, 2024.</p>
+<p>[39] L. Sciullo, L. Gigli, F. Montori, A. Trotta, and M. Felice, "A Survey on the Web of Things," <em>IEEE Access</em>, vol. 10, pp. 1-1, 2022.</p>
+<p>[40] C. Ellwein et al., "Rethinking Asset Administration Shell Communication Types: A Systematic Mapping Study and Portfolio-Based Classification," <em>Production Engineering</em>, vol. 20, 2025.</p>
+<p>[41] K. Gleich, S. Behrendt, M. Horger, M. Benfer, and G. Lanza, "An Asset Administration Shell-Based Digital Product Passport as a Gaia-X Service," <em>Procedia CIRP</em>, vol. 127, pp. 224-229, 2024.</p>
+<p>[42] J. Zhang, C. Ellwein, M. Heithoff, J. Michael, and A. Wortmann, <em>Digital twin and the asset administration shell</em>, 2024.</p>
+<p>[43] <em>Assuring Trustworthiness in Dynamic Systems Using Digital Twins and Trust Vectors</em>, Digital Twin Consortium, 2024.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Prasad Talasila
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.tabs.sticky", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

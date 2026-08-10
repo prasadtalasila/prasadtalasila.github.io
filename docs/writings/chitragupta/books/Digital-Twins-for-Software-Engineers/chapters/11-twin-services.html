@@ -1,0 +1,2930 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home page of Prasad Talasila">
+      
+      
+        <meta name="author" content="Prasad Talasila">
+      
+      
+        <link rel="canonical" href="https://prasad.talasila.in/writings/chitragupta/books/Digital-Twins-for-Software-Engineers/chapters/11-twin-services.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 11 -- Twin Services: Visualization, Monitoring, Prediction, and Decision Support - Prasad Talasila</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/course-tables.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-11-twin-services-visualization-monitoring-prediction-and-decision-support" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../../index.html" title="Prasad Talasila" class="md-header__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prasad Talasila
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 11 -- Twin Services: Visualization, Monitoring, Prediction, and Decision Support
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../research.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Research
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../projects.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../software.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../courses.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Courses
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../writings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Writings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../contact.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../../index.html" title="Prasad Talasila" class="md-nav__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.png" alt="logo">
+
+    </a>
+    Prasad Talasila
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../research.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../software.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../courses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../writings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../contact.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#110-before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.0 Before you start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.0 Before you start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning objectives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#111-what-a-twin-service-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 What a twin service is
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.1 What a twin service is">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1111-chapter-3s-table-restated-as-a-build-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1.1 Chapter 3's table, restated as a build order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1112-four-properties-every-twin-service-needs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1.2 Four properties every twin service needs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1113-who-may-write-restated-once" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1.3 Who may write, restated once
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#112-monitor-the-cheapest-pattern-and-not-nothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Monitor: the cheapest pattern, and not nothing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.2 Monitor: the cheapest pattern, and not nothing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1121-what-it-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2.1 What it is
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1122-three-things-a-monitor-view-must-show-that-a-dashboard-usually-does-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2.2 Three things a monitor view must show that a dashboard usually does not
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1123-age-of-twin-belongs-on-the-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2.3 Age of twin belongs on the screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#113-visualisation-which-is-a-view-and-not-a-twin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 Visualisation, which is a view and not a twin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.3 Visualisation, which is a view and not a twin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1131-what-visualisation-is-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3.1 What visualisation is for
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1132-the-delete-the-geometry-test-and-when-geometry-earns-its-place" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3.2 The delete-the-geometry test, and when geometry earns its place
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1133-four-audiences-four-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3.3 Four audiences, four views
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1134-the-plot-that-actually-gets-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3.4 The plot that actually gets used
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#114-diagnose-the-service-that-finds-the-fault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 Diagnose: the service that finds the fault
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.4 Diagnose: the service that finds the fault">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1141-the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4.1 The loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1142-three-outcomes-not-two" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4.2 Three outcomes, not two
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1143-fixing-chapter-10s-defect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4.3 Fixing Chapter 10's defect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1144-the-alert-as-an-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4.4 The alert as an object
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1145-alert-economics-worked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4.5 Alert economics, worked
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1146-three-fixes-and-what-each-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4.6 Three fixes, and what each costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1147-what-confirmation-does-not-fix-and-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4.7 What confirmation does not fix, and it matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1148-what-to-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4.8 What to ask
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#115-predict-the-forecast-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.5 Predict: the forecast service
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.5 Predict: the forecast service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1151-what-a-forecast-owes-beyond-the-forecast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.5.1 What a forecast owes beyond the forecast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1152-where-the-range-comes-from-and-where-it-does-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.5.2 Where the range comes from, and where it does not
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1153-the-real-time-factor-as-a-request-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.5.3 The real-time factor as a request budget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1154-the-scoring-loop-which-almost-nobody-builds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.5.4 The scoring loop, which almost nobody builds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1155-prognostics-briefly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.5.5 Prognostics, briefly
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#116-decide-scenario-comparison-and-optimisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.6 Decide: scenario comparison and optimisation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.6 Decide: scenario comparison and optimisation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1161-what-if-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.6.1 What-if as a service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1162-optimisation-is-a-search-and-it-is-not-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.6.2 Optimisation is a search, and it is not learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1163-sizing-it-from-chapter-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.6.3 Sizing it, from Chapter 6
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1164-advisory-and-acting-and-the-one-cell-in-the-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.6.4 Advisory and acting, and the one cell in the grid
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#117-certify-and-train" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.7 Certify-and-train
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.7 Certify-and-train">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1171-what-it-is-and-the-thing-worth-noticing-about-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.7.1 What it is, and the thing worth noticing about it
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1172-named-and-deferred" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.7.2 Named, and deferred
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#118-four-cross-cutting-service-concerns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.8 Four cross-cutting service concerns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.8 Four cross-cutting service concerns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1181-the-query-api-and-what-it-must-not-expose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.8.1 The query API, and what it must not expose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1182-idempotent-re-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.8.2 Idempotent re-evaluation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1183-what-happens-when-a-service-is-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.8.3 What happens when a service is down
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1184-chapter-7s-monitors-as-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.8.4 Chapter 7's monitors, as services
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#119-worked-example-the-demonstrators-services-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.9 Worked example: the demonstrator's services, built
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.9 Worked example: the demonstrator&#39;s services, built">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1191-what-is-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.9.1 What is built
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1192-the-diagnose-services-parameters-all-traced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.9.2 The diagnose service's parameters, all traced
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1193-the-expected-alert-volume-stated-up-front" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.9.3 The expected alert volume, stated up front
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1194-what-chapter-7s-credibility-argument-gains-and-loses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.9.4 What Chapter 7's credibility argument gains, and loses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1195-what-is-declined-and-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.9.5 What is declined, and why
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1110-faded-example-the-turbines-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.10 Faded example: the turbine's services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1111-posed-problem-the-service-catalogue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.11 Posed problem: the service catalogue
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1112-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.12 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1113-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.13 Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.13 Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solutions-and-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solutions and hints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1114-where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.14 Where to go next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-11-twin-services-visualization-monitoring-prediction-and-decision-support">Chapter 11 -- Twin Services: Visualization, Monitoring, Prediction, and Decision Support</h1>
+<h2 id="110-before-you-start">11.0 Before you start</h2>
+<p><strong>Where we are.</strong> Chapter 9 built the connector, Chapter 10 built the store,
+and both stopped at their own boundary. This chapter builds the things the
+rest of the world actually touches. More chapters defer to this one than to
+any other in Part III: Chapter 2 for visualisation and monitoring, Chapter 5
+for the real-time factors it derived, Chapter 6 for optimisation, Chapter 7
+for monitoring-as-a-service and for turning its threshold into a running
+thing, Chapter 8 for the six jobs of its Sec. 8.3, Chapter 9 for the
+alerting its detectors feed, and Chapter 10 for the query API.</p>
+<p>And one debt is unlike the others. <strong>Chapter 10 Sec. 10.5.3 found a bug and
+left it for this chapter to fix.</strong> It is the only place in the book where
+one chapter repairs a defect another chapter demonstrated, and it is the
+spine of Sec. 11.4.</p>
+<p><strong>A note on the chapter's title, so nobody arriving from the contents page
+is confused.</strong> The table of contents names four services -- visualization,
+monitoring, prediction, decision support. Chapter 3 Sec. 3.2.6 names five,
+and called the correspondence with Chapter 1's five value patterns
+"deliberately one-to-one". This chapter follows Chapter 3, because Chapter
+3's component grid is what a design review checks against:</p>
+<table>
+<thead>
+<tr>
+<th>Contents page</th>
+<th>This chapter</th>
+<th>Chapter 1's pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monitoring</td>
+<td>Monitor (Sec. 11.2)</td>
+<td>Monitor</td>
+</tr>
+<tr>
+<td><em>(inside monitoring)</em></td>
+<td><strong>Diagnose (Sec. 11.4)</strong></td>
+<td>Diagnose</td>
+</tr>
+<tr>
+<td>Prediction</td>
+<td>Predict (Sec. 11.5)</td>
+<td>Predict</td>
+</tr>
+<tr>
+<td>Decision support</td>
+<td>Decide (Sec. 11.6)</td>
+<td>Decide</td>
+</tr>
+<tr>
+<td><em>(not named)</em></td>
+<td>Certify-and-train (Sec. 11.7)</td>
+<td>Certify-and-train</td>
+</tr>
+<tr>
+<td>Visualization</td>
+<td>Visualisation (Sec. 11.3), a cross-cutting concern</td>
+<td><em>(a view onto any of them)</em></td>
+</tr>
+</tbody>
+</table>
+<p>Diagnose gets the most space of the five, because it is the demonstrator's
+only funded service and because it is where the interesting failure lives.</p>
+<p><strong>The register, unchanged from Chapters 9 and 10.</strong> You have built services,
+designed APIs, and been paged by your own alerts at three in the morning.</p>
+<blockquote>
+<p><strong>This chapter does not teach service design. It teaches what a twin's
+services must do that an ordinary application's services do not -- which
+comes down to consuming data that has an age, a quality and a provenance,
+and producing output that a human will act on physically.</strong></p>
+</blockquote>
+<p><strong>What you are assumed to know.</strong> Everything so far. Especially: Chapter 1's
+five value patterns and its value metric; Chapter 2's data-flow test and its
+two negatives about dashboards and 3D models; Chapter 3's component grid and
+the services table; Chapter 5's real-time factor; Chapter 6's Monte Carlo
+sizing; Chapter 7's threshold, its 16 per cent detection floor, and its
+monitors; Chapter 8's miss-rate and false-alarm-rate discipline and its
+alarm-fatigue point; Chapter 9's six quality states and completeness rule;
+and Chapter 10's <code>as_of</code>, <code>decision_time</code>, <code>inputs_watermark</code>, and the
+defect of Sec. 10.5.3.</p>
+<p><strong>The maths budget.</strong> As Chapters 9 and 10: more arithmetic welcome, no new
+mathematics. One substantial set piece -- the alert economics of
+Sec. 11.4.5 -- and it is multiplication and division throughout.</p>
+<p><strong>What this chapter deliberately does not cover.</strong> Service architecture, API
+technology and deployment -- Chapter 12. Visualisation technology and
+rendering -- Chapter 12; this chapter covers what visualisation is <em>for</em>.
+Human factors and interface personalisation -- out; alarm fatigue appears as
+a design constraint, not as a literature. Natural-language interfaces --
+Chapter 8 Sec. 8.3.6 covered them and set the actuation-guard test, and this
+chapter does not reopen it. The command path's mechanism -- Chapter 3
+Sec. 3.2.7. Fault injection and replay as practices -- Chapter 14.
+Optimisation algorithms -- named, not taught.</p>
+<h3 id="learning-objectives">Learning objectives</h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol>
+<li><strong>Map</strong> each of Chapter 1's five value patterns to a service and
+   <strong>determine</strong>, from Chapter 3's grid, which components a proposed service
+   requires and therefore what it costs.</li>
+<li><strong>Specify</strong> a diagnose service with <strong>three</strong> outcomes rather than two,
+   and <strong>explain</strong> why a two-outcome service reports infrastructure failures
+   as physical faults.</li>
+<li><strong>Compute</strong> a service's expected annual alert volume from measured
+   detection and false-alarm rates, and <strong>evaluate</strong> a suppression strategy
+   against the detection latency it costs.</li>
+<li><strong>State</strong> what a forecast service must carry beyond the forecast, and
+   <strong>distinguish</strong> scenario comparison from optimisation from a learned
+   policy.</li>
+<li><strong>Decide</strong> which services a twin's value case funds, and <strong>justify</strong>
+   declining the rest.</li>
+</ol>
+<hr />
+<h2 id="111-what-a-twin-service-is">11.1 What a twin service is</h2>
+<h3 id="1111-chapter-3s-table-restated-as-a-build-order">11.1.1 Chapter 3's table, restated as a build order</h3>
+<p>Chapter 3 Sec. 3.2.6 mapped patterns to services and Sec. 3.4 mapped
+services to components. Read together they are a build order, because each
+row needs everything the rows above it need and a little more:</p>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Adds, over the row above</th>
+<th>Can it write to the physical twin?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monitor</td>
+<td>nothing -- connector and store only</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Diagnose</td>
+<td>a model, and a state estimator</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Predict</td>
+<td>the simulation runner</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Decide</td>
+<td>the runner <strong>at scale</strong>, and possibly a command path</td>
+<td>Only in its acting form</td>
+</tr>
+<tr>
+<td>Certify-and-train</td>
+<td>synthetic inputs; may need no physical twin at all</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Three consequences that decide project sequencing.</strong></p>
+<p><em>Monitor is nearly free once Chapters 9 and 10 exist.</em> It needs no model. If
+your twin has a connector and a store, you can ship a monitor view this
+week, and Sec. 11.2 argues you should.</p>
+<p><em>The jump from monitor to diagnose is the largest in the table, and it is
+where the value is.</em> Chapter 3 said so, and Chapter 1's whole worked example
+depends on it.</p>
+<p><em>Only one cell in the grid writes to the physical world.</em> Four of the five
+patterns are deliverable with no command path at all. When somebody proposes
+a command path for a monitor service, Chapter 3's answer stands: that is a
+scope question, not a design question.</p>
+<h3 id="1112-four-properties-every-twin-service-needs">11.1.2 Four properties every twin service needs</h3>
+<p>Here is the part that is not ordinary service engineering. A twin's services
+consume data that has an age, a quality and a provenance, and they produce
+output somebody will act on physically. Four properties follow, and a
+service missing any of them will behave correctly in testing and wrongly in
+service.</p>
+<p><strong>1. Age awareness.</strong> Every service must know how old its inputs are and
+must have a defined behaviour when they are too old. Chapter 2 Sec. 2.7.1
+asked "how stale can the digital state be before the decision it feeds
+becomes wrong?" -- that number is a service-level parameter, not a
+philosophical question, and Chapter 9 Sec. 9.5.4 made age of twin computable
+per binding.</p>
+<p><strong>2. Quality awareness.</strong> Chapter 9's six quality states exist so that
+services can behave differently. Chapter 9 Sec. 9.6.2 gave the table; this
+chapter is where the columns of that table become code. A service that
+selects <code>WHERE value IS NOT NULL</code> has thrown the distinction away at the
+first query.</p>
+<p><strong>3. Provenance emission.</strong> Every output a service produces must carry what
+produced it. Chapter 10 Sec. 10.5.2 defined the fields -- <code>as_of</code>,
+<code>decision_time</code>, <code>inputs_watermark</code>, model version, parameter set -- and
+Chapter 10 Sec. 10.6.2 showed that Chapter 7's five incident questions are
+each one join away <em>if the services wrote those fields</em>. They are the
+services' job to populate honestly, and nothing downstream can check them.</p>
+<p><strong>4. A defined behaviour when the input is missing.</strong> Not an exception, not
+a null, not the last known value: a stated behaviour with a name. This is
+Sec. 11.4.2's third outcome, and it is the chapter's central idea.</p>
+<blockquote>
+<p><strong>A test you can apply to any twin service in a design review.</strong> Ask what
+it does when its newest input is two hours old, when that input is marked
+<code>substituted</code>, and when it did not arrive at all. If the three answers are
+the same answer, the service has one of the four properties and needs
+four.</p>
+</blockquote>
+<h3 id="1113-who-may-write-restated-once">11.1.3 Who may write, restated once</h3>
+<p>Chapter 2 Sec. 2.8 established that closing the loop changes the
+obligations, and Chapter 3 Sec. 3.2.7 built the actuation guard. The
+service-layer restatement is one sentence: <strong>exactly one service may reach
+the command path, its writes go through the guard, and every command is
+audited with the state that justified it.</strong> Sec. 11.6.4 returns to it.
+Everything else in this chapter writes to screens, queues and tables.</p>
+<hr />
+<h2 id="112-monitor-the-cheapest-pattern-and-not-nothing">11.2 Monitor: the cheapest pattern, and not nothing</h2>
+<h3 id="1121-what-it-is">11.2.1 What it is</h3>
+<p>Current and historical state, presented. No model, no estimator, no runner.
+Chapter 2 Sec. 2.6.2 classified it precisely and without insult: <strong>a
+monitoring dashboard is a digital shadow, not a digital twin</strong> -- and
+shadows earn money, which is why Chapter 1's nine-month payback case was
+one.</p>
+<p><strong>Build it first, and not only because it is cheap.</strong> A monitor view is the
+first thing that will tell you your connector is wrong. Chapter 9's
+completeness counts and age-of-twin metric are numbers; a plot of the last
+week with gaps visible is the same information in a form where a human spots
+the problem in two seconds. <strong>Every twin project should have a monitor view
+before it has a model</strong>, because it is the cheapest possible test of
+Chapters 9 and 10.</p>
+<h3 id="1122-three-things-a-monitor-view-must-show-that-a-dashboard-usually-does-not">11.2.2 Three things a monitor view must show that a dashboard usually does not</h3>
+<p>A general-purpose dashboard plots values against time. A twin's monitor view
+needs three more things, and each corresponds to something an earlier
+chapter fought for.</p>
+<p><strong>Gaps as gaps.</strong> Chapter 9 Sec. 9.6.1 created <code>no_reading</code> rows so that
+absence is a fact rather than a hole. A plotting library will happily draw a
+straight line between the readings on either side of a two-hour outage, and
+that line is a lie the eye believes. <strong>Break the line.</strong> This is the single
+highest-value plotting decision in a twin, and it is one configuration
+option in most libraries.</p>
+<p><strong>Quality, distinguishably.</strong> A <code>substituted</code> value should not look like a
+measured one. A hollow marker, a lighter colour, anything -- but different.
+Chapter 10 Sec. 10.3.3 made the distinction storable; here it becomes
+visible.</p>
+<p><strong>Measured and estimated in different colours, always.</strong> Chapter 5
+Sec. 5.2.4 warned that a twin storing predicted and measured in one table
+with a flag will eventually plot one as the other. The plotting layer is
+where "eventually" happens.</p>
+<h3 id="1123-age-of-twin-belongs-on-the-screen">11.2.3 Age of twin belongs on the screen</h3>
+<p>Chapter 9 Sec. 9.5.4 called age of twin the best single health metric a twin
+has, because it responds to a dead sensor, a dead gateway, a dead network, a
+crashed connector and a full disk. Put it on the monitor view, per binding,
+as a number and not as a chart.</p>
+<p><strong>And the reason it must be on the same screen as the data</strong>, rather than on
+an operations dashboard somebody else looks at: the person reading the
+moisture plot is the person who needs to know that the plot stops being
+current at 14:20. A stale chart with a fresh-looking axis is how a human
+comes to trust a number that is six hours old.</p>
+<hr />
+<h2 id="113-visualisation-which-is-a-view-and-not-a-twin">11.3 Visualisation, which is a view and not a twin</h2>
+<p>Chapter 2 Sec. 2.6.1 promised this section: "Presentation is a service the
+twin offers, and Chapter 11 covers it properly. It is not the twin."</p>
+<h3 id="1131-what-visualisation-is-for">11.3.1 What visualisation is for</h3>
+<p>The purpose is not decoration and it is not marketing. The overall objective
+is to make it easier for humans to extract the desired information from
+data, and in a twin specifically it lets users get the most value from the
+models, data and analytic services the twin offers -- presenting the state
+and dynamics of the system, augmented with the results of simulation,
+analysis and prediction [1]. Two consequences of
+that framing are worth stating because they are load-bearing.</p>
+<p><strong>It widens the audience.</strong> Visualisation lets people with a modest
+system-level understanding use and act on what the twin knows, taking the
+target group beyond the data engineer to workers in the field with a
+non-technical background [1]. That is a real
+business function, not a nicety.</p>
+<p><strong>It is bounded by dimensionality, not by taste.</strong> In principle one might
+want to consider ten variables over time; in practice it is hard to
+visualise more than three dimensions plus time
+[1]. So the design question is always <em>which three</em>
+-- and answering it requires knowing the decision, which is Chapter 1 again.</p>
+<h3 id="1132-the-delete-the-geometry-test-and-when-geometry-earns-its-place">11.3.2 The delete-the-geometry test, and when geometry earns its place</h3>
+<p>Chapter 2 gave the test: ask what happens if you delete the geometry. If the
+twin still answers its questions, the geometry was a view. If the whole
+thing stops, you had a CAD model with a data feed.</p>
+<p><strong>That test is a sorting rule, not a prohibition.</strong> Geometry earns its place
+in exactly three situations, and it is worth knowing them so you can say yes
+for a reason:</p>
+<ol>
+<li><strong>The answer is spatial.</strong> Where is the hot spot, which joint is
+   cracking, which aisle is congested. A number cannot carry a location and
+   a plot cannot carry a shape.</li>
+<li><strong>The audience is spatial.</strong> A technician who will walk to the thing
+   navigates by where it is. "Pot 3, bay 2" is a map problem.</li>
+<li><strong>The model is spatial.</strong> Chapter 6 Sec. 6.3.4 covered finite elements;
+   a model whose state is distributed over a geometry has results that are
+   only meaningful on that geometry.</li>
+</ol>
+<p><strong>For the demonstrator, all three are false</strong>, and the honest visualisation
+is a plot. Twelve pots on a bench do not need a rendered greenhouse, and
+building one would be Chapter 1's unpaid work in its purest form. Platform
+comparisons note that twins present data as 3D models and interactive
+dashboards to help stakeholders follow complex processes
+[2] -- true, and the question is always whether <em>this</em>
+stakeholder following <em>this</em> process needs it.</p>
+<h3 id="1133-four-audiences-four-views">11.3.3 Four audiences, four views</h3>
+<p>The commonest visualisation failure is one view for everybody. Four
+audiences, and their needs barely overlap:</p>
+<table>
+<thead>
+<tr>
+<th>Audience</th>
+<th>Wants</th>
+<th>Time horizon</th>
+<th>The mistake</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The technician acting now</td>
+<td>What is wrong, where, and what to do</td>
+<td>Now</td>
+<td>Giving them the residual plot</td>
+</tr>
+<tr>
+<td>The engineer investigating</td>
+<td>Measured against predicted, with quality and gaps</td>
+<td>Days</td>
+<td>Giving them a summary</td>
+</tr>
+<tr>
+<td>The scientist or operator planning</td>
+<td>Trends and scenario comparisons</td>
+<td>Weeks</td>
+<td>Giving them live data at 10-minute resolution</td>
+</tr>
+<tr>
+<td>The sponsor</td>
+<td>The value metric of Chapter 1, in its own units</td>
+<td>Quarters</td>
+<td>Giving them anything technical at all</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The fourth row is the one engineers get wrong.</strong> Chapter 1's whole method
+was to name a value metric in the sponsor's units -- experiment-weeks lost
+to undetected watering faults -- and the sponsor's view should show that
+number and its trend, not moisture. A twin that cannot report its own value
+metric will have its budget questioned by someone who has no way to answer
+the question.</p>
+<h3 id="1134-the-plot-that-actually-gets-used">11.3.4 The plot that actually gets used</h3>
+<p>For the demonstrator, one plot does most of the work, and it is worth
+describing because its composition is the chapter in miniature:</p>
+<blockquote>
+<p>Measured moisture, as points, with gaps broken and substituted values
+marked differently. The model's expected trajectory over the same window,
+as a line in a different colour. Commanded watering events as vertical
+marks with their doses. Alerts as annotations. And the age of twin, as a
+number in the corner.</p>
+</blockquote>
+<p>Five layers, four of which exist only because Chapters 9 and 10 kept
+something a simpler pipeline would have discarded. <strong>A technician looking at
+that plot can diagnose most of what goes wrong with this twin without
+reading anything else</strong>, which is a better description of a successful
+visualisation than any statement about fidelity.</p>
+<hr />
+<h2 id="114-diagnose-the-service-that-finds-the-fault">11.4 Diagnose: the service that finds the fault</h2>
+<p>This is the demonstrator's only funded service (Chapter 3 Sec. 3.7.6), the
+one Chapter 1 built its value case on, and the one with the interesting
+failure.</p>
+<h3 id="1141-the-loop">11.4.1 The loop</h3>
+<p>For each commanded watering event: work out what the model expected, work
+out what was observed, compare, and act on the comparison. Chapter 7
+Sec. 7.5.2 supplied the numbers -- expected step 56.4 reading units for a
+120 ml dose, alert when the observed step falls more than 9.0 units below
+that.</p>
+<p>Naively, then:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>on each watering event e:
+    expected = g * (e.dose / 100)
+    observed = reading_after(e) - reading_before(e)
+    if observed &lt; expected - 9.0:  raise fault alert
+    else:                          all clear
+</code></pre></div></td></tr></table></div>
+<p><strong>That is the service Chapter 10 caught being wrong</strong>, and everything below
+is the repair.</p>
+<h3 id="1142-three-outcomes-not-two">11.4.2 Three outcomes, not two</h3>
+<p>Here is the chapter's central idea, and it generalises far beyond this
+service.</p>
+<blockquote>
+<p><strong>A service that can only answer "problem" or "no problem" will report
+infrastructure failures as physical faults.</strong></p>
+</blockquote>
+<p>The loop above has two outcomes. But there is a third state of the world it
+cannot express: <em>the inputs needed to decide did not arrive.</em> When the
+post-dose reading is missing, the service does not know whether the dose
+landed. It knows that it does not know, and "I do not know" is a different
+answer from "the pump failed" -- different cause, different owner, different
+action, different cost.</p>
+<table>
+<thead>
+<tr>
+<th>Outcome</th>
+<th>Means</th>
+<th>Goes to</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fault</code></td>
+<td>The dose demonstrably did not deliver</td>
+<td>Duty researcher</td>
+<td>Walk to the rig</td>
+</tr>
+<tr>
+<td><code>healthy</code></td>
+<td>The dose demonstrably delivered</td>
+<td>Nobody</td>
+<td>None</td>
+</tr>
+<tr>
+<td><strong><code>cannot_evaluate</code></strong></td>
+<td><strong>The data needed to decide is absent or unusable</strong></td>
+<td><strong>Whoever owns the connector</strong></td>
+<td><strong>Fix the pipeline</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notice that Chapter 9 built the vocabulary for this two chapters ago and
+nothing consumed it.</strong> The six quality states exist precisely so that a
+service can tell "no water arrived" from "no reading arrived". A service
+with two outcomes throws that distinction away at the last step, after two
+chapters of work to preserve it -- which is a good description of how
+carefully-built infrastructure comes to nothing.</p>
+<p><strong>And the third outcome is the one that changes the alert economics</strong>, as
+Sec. 11.4.5 computes: it is more common than the fault it is confused with.</p>
+<h3 id="1143-fixing-chapter-10s-defect">11.4.3 Fixing Chapter 10's defect</h3>
+<p>Chapter 10 Sec. 10.5.3 walked an incident: on 14 August the service alerted
+"dose did not land" at 17:22, and the dose had in fact landed. Chapter 10
+found two defects and named the fix as this chapter's. Here it is.</p>
+<p><strong>Defect 1: the service subtracted without checking its operands.</strong> It took
+the newest available reading as the post-dose value without checking that it
+was actually <em>after</em> the dose. Both operands were the 17:00 reading, so the
+step came out as 0 -- an arithmetic artifact of subtracting a reading from
+itself, presented as a measured absence of water.</p>
+<p><strong>Defect 2: the service evaluated before its data could have arrived.</strong> It
+ran at 17:22 against an input watermark of 17:00. Chapter 9 Sec. 9.7.3
+allowed one poll interval of lateness; the service ignored the allowance.</p>
+<p><strong>The repaired loop</strong>, with every added line traced to its source:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>on each watering event e:
+    before = last_good_reading(e.binding, before=e.time)
+    after  = first_good_reading(e.binding, after=e.time, within=window)
+
+    # Defect 1: the post-dose operand must exist and be after the dose.
+    if after is None:
+        if now() &lt; e.time + window + lateness_allowance:
+            defer            # Ch9 Sec. 9.7.3: late data may still arrive
+        else:
+            return cannot_evaluate(&quot;no post-dose reading&quot;)
+    if before is None:
+        return cannot_evaluate(&quot;no pre-dose reading&quot;)
+
+    # Ch9 Sec. 9.6.2: quality decides admissibility, not nullness.
+    if before.quality != good or after.quality != good:
+        return cannot_evaluate(&quot;post-dose reading not usable: &quot; + after.quality)
+
+    expected = g * (e.dose / 100)
+    observed = after.value - before.value
+    verdict  = fault if observed &lt; expected - threshold else healthy
+
+    # Ch10 Sec. 10.5.2: emit provenance or the incident review is impossible.
+    return verdict with (as_of=after.event_time,
+                         decision_time=now(),
+                         inputs_watermark=newest_event_time_visible(),
+                         model_version, parameter_set_version,
+                         expected, observed)
+</code></pre></div></td></tr></table></div>
+<p><strong>Re-run 14 August against it.</strong> At 17:22 there is no reading after 17:05,
+and the lateness allowance has not expired, so the service <strong>defers</strong>. It
+runs again after the allowance; by then the 18:30 backfill has delivered the
+17:10 reading of 663, so <code>observed</code> = 663 - 606 = 57.0, which is within one
+spread of the expected 56.4, and the verdict is <code>healthy</code>. <strong>No alert, no
+incident, no week spent hunting a threshold bug in November.</strong></p>
+<p><strong>And if the backfill had never come</strong>, the service returns
+<code>cannot_evaluate("no post-dose reading")</code> -- which goes to whoever owns the
+connector, not to a researcher who would have walked to a healthy rig.</p>
+<blockquote>
+<p><strong>Three lines of defensive checking, and they are the difference between a
+service that is right and a service that is right when the data is
+perfect.</strong> Chapter 9 and Chapter 10 spent two chapters making the
+distinction between absent and zero available; this is the code that
+spends it.</p>
+</blockquote>
+<h3 id="1144-the-alert-as-an-object">11.4.4 The alert as an object</h3>
+<p>An alert is not a message. Chapter 3 Sec. 3.2.7 required every command to be
+audited with the state that justified it, and Chapter 7 Sec. 7.7.3 listed
+the five questions an incident review asks. An alert must carry enough to
+answer them:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>alert(
+    id, binding, raised_at,
+    outcome,                    -- fault | cannot_evaluate
+    reason,                     -- the human sentence
+    dose_event_id, expected, observed, threshold,
+    as_of, decision_time, inputs_watermark,
+    model_version, parameter_set_version,
+    state_id,                   -- the twin_state row that justified it
+    acknowledged_at, acknowledged_by, resolution
+)
+</code></pre></div></td></tr></table></div>
+<p><strong>Four fields carry more weight than they look.</strong></p>
+<p><em><code>threshold</code> is stored, not looked up later.</em> Chapter 7's threshold is
+derived from a calibration that will be refitted. An alert that records the
+threshold it fired against is self-explaining; one that does not is
+interpreted years later against a number that has changed.</p>
+<p><em><code>state_id</code> points at the belief, not at a copy of it.</em> Chapter 10's
+<code>twin_state</code> row has the <code>decision_time</code> and the watermark; pointing at it
+keeps one source of truth.</p>
+<p><em><code>resolution</code> closes the loop on the value metric.</em> Chapter 1 measured
+experiment-weeks lost to undetected faults, and Sec. 11.3.3 said the sponsor
+wants that number. It is computable only if somebody records what each alert
+turned out to be. <strong>This is the field teams skip and then cannot report
+their own value.</strong></p>
+<p><em><code>acknowledged_at</code> is how you measure whether the service is being ignored.</em>
+Which Sec. 11.4.5 argues is the thing to worry about.</p>
+<h3 id="1145-alert-economics-worked">11.4.5 Alert economics, worked</h3>
+<p>Nobody costs an alerting service before building it, and the arithmetic
+takes ten minutes. Here it is for the demonstrator, at twelve pots -- the
+same hypothetical plant count Chapter 10 Sec. 10.3.5 used, and the
+conclusions hold at any count you like.</p>
+<p><strong>The inputs, all from earlier chapters:</strong></p>
+<ul>
+<li>Dose events per year: <code>12 x 2 x 365 = 8,760</code>.</li>
+<li>Genuine fault episodes: Chapter 1's baseline was three in three months, so
+  <strong>12 a year</strong>. With the twin deployed, a fault is found and fixed the same
+  day, so each episode produces about <strong>2</strong> raw alerts before repair.</li>
+<li>False-alarm rate: Chapter 8 Sec. 8.5.1 measured the physics detector at
+  <strong>2 false alarms in 194 healthy doses</strong>, or 1.03 per cent.</li>
+<li>Incomplete windows: <strong>2 per cent</strong>, meaning one dose window in fifty is
+  unusable at evaluation time by Chapter 9's completeness rule. <strong>This is the
+  one number here with no provenance</strong> -- the other three come from Chapter
+  1, Chapter 8 and arithmetic. It is illustrative, in the sense Chapter 9
+  Sec. 9.0 used for datasheet figures: the method transfers, the value does
+  not, and it is measurable on your own connector in a week. It also happens
+  to be the input the chapter's largest finding rests on, so measure it
+  before quoting that finding.</li>
+</ul>
+<p><strong>The arithmetic:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>raw fault alerts        = 12 episodes x 2      =  24
+false alarms            = 8,736 x 0.0103       =  90
+cannot-evaluate alerts  = 8,760 x 0.02         = 175
+                                          total = 289 per year
+                                                = about 5.6 per week
+</code></pre></div></td></tr></table></div>
+<p><strong>And the number that matters, which nobody computes:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>signal ratio = 12 genuine episodes / 289 alerts = 1 in 24
+</code></pre></div></td></tr></table></div>
+<p><strong>One alert in twenty-four is a real fault.</strong> Chapter 8 Sec. 8.11.4's
+solution named the consequence: a detector firing that often will be muted,
+and a muted detector has a miss rate of 100 per cent regardless of what any
+test said. <strong>This service, built exactly to Chapter 7's specification and
+with a measured 0 per cent miss rate, would fail in the field within a
+month.</strong></p>
+<p>Notice also that the largest category is not the false alarms. It is
+<code>cannot_evaluate</code> -- 175 of 289, more than the faults and false alarms
+combined. A two-outcome service (Sec. 11.4.2) reports every one of those 175
+as "dose did not land", which means <strong>60 per cent of this service's alerts
+would be infrastructure failures wearing a plant fault's clothes.</strong></p>
+<h3 id="1146-three-fixes-and-what-each-costs">11.4.6 Three fixes, and what each costs</h3>
+<p><strong>Fix 1: route <code>cannot_evaluate</code> to a different owner, aggregated.</strong> It is
+not a plant problem. Send it to whoever owns the connector, as one daily
+digest rather than 175 individual alerts.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>researcher&#39;s queue: 289 - 175 = 114 per year
+</code></pre></div></td></tr></table></div>
+<p>Cost: nothing. This is the fix Sec. 11.4.2 was for, and it is free.</p>
+<p><strong>Fix 2: suppress duplicates.</strong> A pot with a failed pump fails every dose
+until somebody fixes it. One <em>open</em> alert per binding per condition, updated
+rather than re-raised.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>researcher&#39;s queue: 114 - 12 = 102 per year, signal ratio 1 in 8.5
+</code></pre></div></td></tr></table></div>
+<p>Cost: nothing, and it also makes <code>resolution</code> meaningful, because there is
+one alert per episode to resolve.</p>
+<p><strong>Fix 3: require confirmation.</strong> Alert only after <strong>two consecutive</strong> doses
+fail on the same pot.</p>
+<p>A genuine pump failure persists, so confirmation costs detection latency and
+not detection. A noise-driven false alarm does not persist, so two in a row
+on the same pot is the product of two small rates:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>false-alarm rate per dose      = 0.0103
+probability of two in a row    = 0.0103 x 0.0103 = 0.000106
+consecutive pairs per year     = 12 pots x 729   = 8,748
+both doses evaluable (0.98^2)  = 8,748 x 0.96    = about 8,400 usable pairs
+expected confirmed false alarms = 8,400 x 0.000106 = about 0.9 per year
+</code></pre></div></td></tr></table></div>
+<p><strong>Two doses in a row is not two scheduled doses in a row</strong>, and the
+difference has to be decided rather than assumed. Sec. 11.4.2's third
+outcome means a dose between two others may be neither pass nor fail:
+<code>cannot_evaluate</code> neither confirms a pending detection nor clears it. So
+"consecutive" must mean <strong>the next dose that could be evaluated</strong>, which is
+why only about 96 per cent of adjacent pairs are usable above. Three rules
+follow, and all three belong in the service's specification:</p>
+<ol>
+<li><strong>A pending detection survives an unevaluable dose</strong> and waits for the
+   next evaluable one. Dropping it would silently discard a real detection;
+   confirming on it would defeat the purpose.</li>
+<li><strong>The wait is bounded.</strong> A pending detection unconfirmed after 48 hours
+   is escalated as an <em>unconfirmed suspicion</em> to the researcher, with a
+   <code>cannot_evaluate</code> to the connector owner. An unbounded pending state is
+   how a fault goes unreported while the system believes it is being
+   careful.</li>
+<li><strong>The latency claim must account for it.</strong> About 102 first detections a
+   year (12 genuine plus 90 false), of which 2 per cent meet an unevaluable
+   confirming dose -- so <strong>about twice a year a detection waits an extra
+   dose</strong>, taking the worst case to roughly 24 hours instead of 16. Almost
+   all of those two are false first detections that then clear.</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>researcher&#39;s queue: 12 + 0.9 = about 13 per year, one every four weeks
+signal ratio: 12 in 13
+</code></pre></div></td></tr></table></div>
+<p><strong>From one alert in twenty-four to twelve in thirteen.</strong></p>
+<p><strong>What fix 3 costs, stated precisely.</strong> Detection waits for the next dose.
+Doses are at 09:16 and 17:05, so the delay is about 8 hours if the morning
+dose fails and about 16 if the evening one does. Check that against the
+requirement rather than against instinct: Chapter 1's baseline was faults
+undetected for <strong>four days</strong>, and Chapter 2 Sec. 2.7.1 said a state one hour
+old is fine and one week old is useless. <strong>Sixteen hours against a
+ninety-six-hour baseline is affordable</strong>, and so is the twice-a-year
+twenty-four, and this is the check that distinguishes an engineering
+decision from a preference.</p>
+<h3 id="1147-what-confirmation-does-not-fix-and-it-matters">11.4.7 What confirmation does not fix, and it matters</h3>
+<p>The multiplication in fix 3 assumes the two false alarms are <strong>independent</strong>
+-- that a spurious low reading on one dose tells you nothing about the next,
+eight hours later. For false alarms driven by sensor noise, that is
+reasonable.</p>
+<p><strong>It is false for anything systematic.</strong> A sensor drifting low, a dripper
+partially blocked, a calibration that has gone stale -- these produce
+<em>every</em> dose reading low, so confirmation confirms them enthusiastically and
+the false alarms survive at full rate. This is Chapter 7's distinction
+between bias and spread arriving in the alerting layer: <strong>confirmation
+defeats spread and does nothing to bias.</strong></p>
+<p>Which tells you what else has to exist. Chapter 7 Sec. 7.7.4's monitors --
+rolling residual bias, rolling residual spread, estimator gain -- are the
+things that catch the systematic case, and Sec. 11.8.4 makes them services.
+<strong>Confirmation and drift monitoring are not alternatives; each is blind to
+what the other catches</strong>, and a service that has only one of them has a
+known gap that should be in Chapter 7's credibility argument.</p>
+<h3 id="1148-what-to-ask">11.4.8 What to ask</h3>
+<ul>
+<li>What are this service's three outcomes, and where does each one go?</li>
+<li>What does it do when the reading it needs has not arrived yet, as opposed
+  to definitely not coming?</li>
+<li>How many alerts a year, and what fraction of them will be real?</li>
+<li>Who acknowledges them, and what is measured about whether they do?</li>
+<li>Which false alarms does the suppression strategy <em>not</em> remove?</li>
+</ul>
+<hr />
+<h2 id="115-predict-the-forecast-service">11.5 Predict: the forecast service</h2>
+<h3 id="1151-what-a-forecast-owes-beyond-the-forecast">11.5.1 What a forecast owes beyond the forecast</h3>
+<p>A forecast is not a number. Four things must travel with it, and each is
+owed to an earlier chapter.</p>
+<p><strong>A horizon and an <code>as_of</code>.</strong> "Moisture will be 606" is meaningless.
+"Moisture at 17:05, forecast as of 09:20" is a claim.</p>
+<p><strong>A range.</strong> Chapter 7 Sec. 7.6.3 established the demonstrator's day-ahead
+prediction as 606.6 plus or minus 2.0, and was careful that the range
+supersedes a component-by-component budget rather than adding to it. <strong>A
+forecast service that emits a bare number has discarded the entire content
+of Chapter 7.</strong></p>
+<p><strong>The assumptions about inputs.</strong> A twelve-hour forecast depends on what
+happens in those twelve hours -- the scheduled doses, the weather. Chapter 7
+Sec. 7.6.1 listed input and scenario uncertainty as the one source that
+cannot be reduced by better modelling. So the forecast must say which
+scenario it assumed, and a forecast under an assumed schedule that then
+changes is not wrong, it is answering a different question.</p>
+<p><strong>Its provenance.</strong> Chapter 10 Sec. 10.5.2's fields, exactly as for
+diagnose.</p>
+<h3 id="1152-where-the-range-comes-from-and-where-it-does-not">11.5.2 Where the range comes from, and where it does not</h3>
+<p>Two sources, and confusing them is the standard error.</p>
+<p><em>From Chapter 7's hold-out.</em> The model-reality gap, measured end to end.
+This is the honest default and it is what Sec. 11.5.1's "plus or minus 2.0"
+is.</p>
+<p><em>From Chapter 6's Monte Carlo.</em> Propagating stated input uncertainty through
+many runs. This is more expensive and answers a different question -- how
+much does the <em>answer</em> move when the <em>inputs</em> move -- and Chapter 6
+Sec. 6.7.4 and Chapter 7 Sec. 7.6.2 were both explicit that it propagates
+stated uncertainty and cannot discover unstated uncertainty.</p>
+<p><strong>Use the hold-out range for a forecast under a known scenario, and Monte
+Carlo when the scenario itself is uncertain.</strong> Reporting both, added
+together, is Chapter 7 Sec. 7.6.3's double-counting trap.</p>
+<h3 id="1153-the-real-time-factor-as-a-request-budget">11.5.3 The real-time factor as a request budget</h3>
+<p>Chapter 5 Sec. 5.3.2 derived which patterns need a real-time factor above
+one, and this chapter owes only the service-level consequence, which is
+short.</p>
+<p><em>Predict</em> needs the forecast before the horizon elapses -- a twelve-hour
+forecast computed in thirteen hours is not a forecast. For the demonstrator
+this is not a constraint: Chapter 5 Sec. 5.3.4 costed a whole run at 32
+microseconds.</p>
+<p><strong>The real constraint is the request, not the horizon.</strong> If the forecast is
+computed on demand behind an API, Chapter 5's arithmetic must fit inside
+whatever timeout sits in front of it -- and Chapter 6 Sec. 6.3.3's warning
+about adaptive solvers applies: a solver that chooses its own step size has
+a tail-latency problem that will not appear in testing on quiet data.
+<strong>Either bound the solver's work or compute forecasts on a schedule and
+serve them from the store.</strong> For most twins the second is right, and it also
+gives you Sec. 11.5.4 for free.</p>
+<h3 id="1154-the-scoring-loop-which-almost-nobody-builds">11.5.4 The scoring loop, which almost nobody builds</h3>
+<p>Here is a service that costs a day and pays for years: <strong>compare each past
+forecast against what actually happened, continuously.</strong></p>
+<p>You already have everything. Chapter 10 retains derived output with its
+<code>as_of</code> and <code>decision_time</code>, so yesterday's twelve-hour forecast is in the
+store next to today's measurements. Joining them gives a residual per
+forecast per horizon.</p>
+<p><strong>What it buys, and each item is something an earlier chapter wanted:</strong></p>
+<ul>
+<li>It is Chapter 7's hold-out, running forever, on live data. The spread of
+  scoring residuals is the model-reality gap <strong>as it is now</strong>, not as it was
+  in week 3.</li>
+<li>It gives Chapter 7 Sec. 7.7.4's expiry monitors their input, for the
+  forecast service specifically rather than for the estimator.</li>
+<li>It makes the forecast's stated range checkable. If you publish plus or
+  minus 2.0 and the scoring residuals have a spread of 5, you are
+  overclaiming, and the service can notice this about itself.</li>
+<li>It distinguishes horizons. A forecast good at two hours and poor at twelve
+  is a normal and useful thing to know, and it is invisible without scoring.</li>
+</ul>
+<p><strong>Score by horizon, not in aggregate.</strong> Averaging a two-hour forecast's
+error with a twelve-hour forecast's error produces a number that describes
+neither.</p>
+<h3 id="1155-prognostics-briefly">11.5.5 Prognostics, briefly</h3>
+<p>The industrial form of prediction is remaining useful life, and it is the
+largest commercial application of twins that involves forecasting. It has
+its own systematic literature [3], its own
+reference architectures [4], and its own overviews
+[5]. Chapter 8 Sec. 8.3.2 covered what makes it hard --
+labels for "time until failure" require failures, you get one per asset per
+lifetime, and the assets you most want to predict have not failed.</p>
+<p><strong>The service-level consequence, which is the part this chapter owes:</strong> a
+remaining-life output must carry its range even more insistently than a
+short-horizon forecast, because the decision it feeds -- send a vessel,
+extend a certification -- is expensive and irreversible. A point estimate of
+remaining life is not a forecast, it is an invitation.</p>
+<hr />
+<h2 id="116-decide-scenario-comparison-and-optimisation">11.6 Decide: scenario comparison and optimisation</h2>
+<h3 id="1161-what-if-as-a-service">11.6.1 What-if as a service</h3>
+<p>Chapter 3 called this row <em>decide</em>, and its first form is not a decision at
+all: it is presenting alternatives to somebody who will decide.</p>
+<blockquote>
+<p>A what-if simulation evaluates the behaviour of the physical twin under
+different circumstances and hypotheses; where unwanted behaviour is
+detected, it lets a human operator or the twin itself compare
+interventions and inspect the consequences before applying them, so a more
+informed decision can be made [6].</p>
+</blockquote>
+<p><strong>Three service-level requirements follow from that sentence</strong>, and they are
+what separates a what-if service from a script somebody runs.</p>
+<p><em>The scenarios must be reproducible.</em> Chapter 5 Sec. 5.6's requirement,
+arriving as an API contract: a what-if result must be re-runnable, which
+means the scenario definition is stored, not passed and forgotten.</p>
+<p><em>The starting state must be pinned.</em> Every scenario in a comparison must
+start from the <em>same</em> twin state, or you are comparing scenarios and
+starting conditions at once. Chapter 10's <code>as_of</code> is what pins it.</p>
+<p><em>The comparison must be presented as a comparison.</em> Five separate forecast
+results are not a decision aid. The output is a ranked table with the
+metric that ranks them named -- which is Chapter 1's value metric again,
+and if nobody can name it the service has no output specification.</p>
+<h3 id="1162-optimisation-is-a-search-and-it-is-not-learning">11.6.2 Optimisation is a search, and it is not learning</h3>
+<p>Chapter 8 Sec. 8.3.5 drew this distinction and handed the optimisation half
+here. Restating it because the two get called the same thing:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Optimisation</th>
+<th>Learned control policy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What it is</td>
+<td>A search over candidate actions, running the model on each</td>
+<td>A model that outputs the action directly</td>
+</tr>
+<tr>
+<td>Where the knowledge is</td>
+<td>In the model</td>
+<td>In the weights</td>
+</tr>
+<tr>
+<td>What you can inspect</td>
+<td>The candidates, their scores, and the winner</td>
+<td>Nothing</td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>Model runs times candidates</td>
+<td>Microseconds</td>
+</tr>
+<tr>
+<td>What it needs</td>
+<td>A model and compute</td>
+<td>Training data and a training procedure</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Optimisation involves no learning at all</strong>, and it is the right first
+answer for almost every twin, because its reasoning is inspectable: here are
+the candidates, here is the objective, here is what each scored. Chapter 8
+Sec. 8.3.5's rule stands -- do not make a learned policy the first thing you
+close a loop with.</p>
+<p><strong>What you do have to decide is the objective</strong>, and it is the same decision
+Chapter 7 Sec. 7.4.3 flagged for calibration. An optimiser will
+enthusiastically minimise whatever it is given. "Minimise water" produces a
+dead plant; "maximise moisture" produces a flooded one. The objective is a
+business statement and it belongs to whoever owns Chapter 1's value metric.
+Design-space-exploration techniques and their trade-off surfaces are the
+standard machinery here [6], and the machinery is not
+the hard part.</p>
+<h3 id="1163-sizing-it-from-chapter-6">11.6.3 Sizing it, from Chapter 6</h3>
+<p>Chapter 6 sized these runs and this chapter only has to spend the numbers.
+For the demonstrator: a run costs 672 steps at about a microsecond a step,
+and Chapter 6 Sec. 6.7.3 established that a roughly ten per cent answer
+needs about 1,000 Monte Carlo runs. So a what-if service comparing five
+candidate schedules, each with its uncertainty propagated:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>5 candidates x 1,000 runs x 672 microseconds = about 3.4 seconds
+</code></pre></div></td></tr></table></div>
+<p><strong>Which fits in a request</strong>, comfortably, and settles the architecture: no
+job queue, no asynchronous result, no polling endpoint. Chapter 5
+Sec. 5.3.4's question -- does it fit in a request? -- answered with
+arithmetic rather than with an assumption, and answered <em>before</em> somebody
+builds the job queue.</p>
+<p><strong>The same arithmetic for the turbine gives a different architecture</strong>, and
+that is the point of doing it.</p>
+<h3 id="1164-advisory-and-acting-and-the-one-cell-in-the-grid">11.6.4 Advisory and acting, and the one cell in the grid</h3>
+<p>Chapter 3 Sec. 3.4's grid has exactly one cell that writes to the physical
+twin: decide, in its acting form. Chapter 2 Sec. 2.8 established what
+changes there.</p>
+<p><strong>The service-layer restatement, in four rules:</strong></p>
+<ol>
+<li><strong>The decision and the command are separate steps</strong>, and the guard sits
+   between them. A service that computes a recommendation and issues it in
+   one function has no place to put the guard.</li>
+<li><strong>Every command carries the state that justified it</strong> -- Chapter 3
+   Sec. 3.2.7 and Chapter 10's <code>alert</code> object shape, applied to commands.</li>
+<li><strong>Fail-safe is defined per command, in advance.</strong> What happens when the
+   twin state is stale, when the model registry cannot resolve a version,
+   when the connector is down. Chapter 3 listed these; the service is where
+   they become branches.</li>
+<li><strong>The maximum age at which acting is allowed is a number in
+   configuration.</strong> Chapter 3 Sec. 3.3.2 called this Chapter 2's
+   twinning-rate question arriving as a line of code. Here it is that line.</li>
+</ol>
+<p><strong>And the honest note about the demonstrator</strong>, which Chapter 3 already
+made: it is at Stage 2, advisory, and Sec. 11.9 does not build a command
+path. Chapter 2's sentence stands -- "it will tell you within eight hours
+that pot 7 stopped receiving water; it will not water pot 7; making it water
+pot 7 is a separate increment, and here is what that costs."</p>
+<hr />
+<h2 id="117-certify-and-train">11.7 Certify-and-train</h2>
+<h3 id="1171-what-it-is-and-the-thing-worth-noticing-about-it">11.7.1 What it is, and the thing worth noticing about it</h3>
+<p>Replay, rehearsal, fault injection, operator training. Chapter 3 Sec. 3.2.6
+made an observation about this row that is worth repeating because it
+prevents a class of confusion:</p>
+<blockquote>
+<p><strong>Certify-and-train may not need a physical twin at all.</strong> A rehearsal
+environment running models against synthetic inputs is a <em>digital model</em>
+by Chapter 2's test. It shares components with the twin and is not one.</p>
+</blockquote>
+<p>Saying that in a review is worth an hour, because the alternative is a long
+argument about whether the training environment needs a live connection to
+an asset that is, in the scenario being rehearsed, on fire.</p>
+<p><strong>What the service needs</strong>, and it is less than people expect: the models,
+the runner, and a source of inputs that is not the connector. Chapter 5
+Sec. 5.5.3's simulate-the-physical-twin arrangement is exactly this, and
+Chapter 5 already built it as a testing device.</p>
+<h3 id="1172-named-and-deferred">11.7.2 Named, and deferred</h3>
+<p>Fault injection is the technique that makes rehearsal systematic, and it
+belongs to this family of advanced twin services [6]
+-- but it is framed there, correctly, as a <strong>validation technique for
+dependability</strong>, which makes its practice Chapter 14's rather than this
+chapter's. Chapter 5 Sec. 5.12 already sent replay and
+simulate-the-physical-twin to Chapter 14 for the same reason.</p>
+<p><strong>What this chapter asserts and stops:</strong> certify-and-train is a real row in
+Chapter 3's grid, it is the only row that may not need the physical twin, it
+reuses the runner and the models, and Chapter 1 Sec. 1.3's fifth pattern
+said it needs everything in Chapter 7 plus evidence. The demonstrator's
+value case funds none of it, and Sec. 11.9.5 declines it explicitly.</p>
+<hr />
+<h2 id="118-four-cross-cutting-service-concerns">11.8 Four cross-cutting service concerns</h2>
+<h3 id="1181-the-query-api-and-what-it-must-not-expose">11.8.1 The query API, and what it must not expose</h3>
+<p>Chapter 10 Sec. 10.0 deferred query APIs here. Three rules, each of which
+protects something an earlier chapter built.</p>
+<p><strong>Never expose a value without its quality.</strong> An API returning
+<code>{"moisture": 606}</code> has undone Chapter 9 Sec. 9.6 at the boundary, and every
+consumer will treat every number as measured. Return the quality, and make
+it required rather than optional in the response schema.</p>
+<p><strong>Never expose a belief without its <code>as_of</code>.</strong> Chapter 3 Sec. 3.3.2 required
+<code>as_of</code> to be an output rather than a log line. An endpoint returning
+current state without saying how current is the same defect as a stale chart
+with a fresh axis (Sec. 11.2.3).</p>
+<p><strong>Expose the two questions separately.</strong> Chapter 10 Sec. 10.5.1
+distinguished "what was measured at t" from "what did the twin believe at t,
+at that moment". Those are two endpoints, or one endpoint with a required
+parameter -- but not one endpoint whose meaning depends on who is asking.</p>
+<h3 id="1182-idempotent-re-evaluation">11.8.2 Idempotent re-evaluation</h3>
+<p>Every service in this chapter will be re-run: because late data arrived
+(Chapter 9 Sec. 9.7.3), because a parameter set was refitted (Chapter 7
+Sec. 7.4.7), because somebody is reproducing an incident.</p>
+<p><strong>So make re-evaluation a normal operation, not a recovery procedure.</strong> Two
+requirements:</p>
+<p><em>Re-evaluating produces a new row, not an edit.</em> Chapter 10's
+<code>(binding, as_of, decision_time)</code> key was designed for this: the same <code>as_of</code>
+evaluated twice gives two rows with different <code>decision_time</code>s, and both are
+true. <strong>Do not update the old belief.</strong> The old belief is what the twin
+acted on.</p>
+<p><em>Re-evaluation must not re-raise alerts.</em> A service re-run over last month
+should not page anybody. That means the alerting side effect is separate
+from the evaluation, which is a small design decision to make early and an
+awkward one to retrofit.</p>
+<h3 id="1183-what-happens-when-a-service-is-down">11.8.3 What happens when a service is down</h3>
+<p>Chapter 8 Sec. 8.3.8 asked this of any service-side proposal -- a service
+with no defined behaviour when down is a dependency nobody costed. It
+applies here with a twin-specific twist.</p>
+<p><strong>An ingest gap is recoverable; a missed evaluation may not be.</strong> If the
+connector stops for two hours, Chapter 9's backfill recovers the
+measurements. If the <em>diagnose service</em> stops for two hours, the
+measurements are safe -- but the doses that happened in those two hours were
+never evaluated, and nothing will notice unless somebody arranged for it.</p>
+<p><strong>The fix is a work queue rather than a schedule.</strong> Do not evaluate "every
+ten minutes"; evaluate "every watering event that has no verdict and whose
+window has closed". Then a stopped service catches up by itself, and a
+service that has fallen behind is visible as a queue depth. This is the same
+instinct as Chapter 9's watermark, applied to work rather than to data.</p>
+<h3 id="1184-chapter-7s-monitors-as-services">11.8.4 Chapter 7's monitors, as services</h3>
+<p>Chapter 7 Sec. 7.7.4 specified three monitors and Chapter 7 Sec. 7.13 said
+this chapter would build them. They are the smallest services in the
+chapter and among the most valuable:</p>
+<table>
+<thead>
+<tr>
+<th>Monitor</th>
+<th>Reads</th>
+<th>Fires when</th>
+<th>Goes to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Residual bias</td>
+<td>Scoring residuals (Sec. 11.5.4) or diagnose residuals</td>
+<td>14-day rolling mean outside plus or minus 1.0</td>
+<td>Model owner: refit trigger</td>
+</tr>
+<tr>
+<td>Residual spread</td>
+<td>Same</td>
+<td>Rolling spread grows materially</td>
+<td>Connector owner: sensor or plumbing</td>
+</tr>
+<tr>
+<td>Estimator gain</td>
+<td>The state estimator</td>
+<td>Sustained move outside its stated band</td>
+<td>Model owner: expiry trigger</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Three notes.</strong></p>
+<p><em>These are expiry triggers, not alerts.</em> Chapter 7 Sec. 7.7.2 made "the
+credibility argument has expired" a state of the world. Firing one of these
+should mark the argument stale, not page a researcher at 3 a.m.</p>
+<p><em>They catch what confirmation cannot.</em> Sec. 11.4.7's point: confirmation
+defeats spread and does nothing to bias, and the bias monitor is the thing
+that catches bias.</p>
+<p><em>They are the reason Sec. 11.5.4's scoring loop is worth building</em>, because
+scoring gives them a live input instead of a quarterly study.</p>
+<hr />
+<h2 id="119-worked-example-the-demonstrators-services-built">11.9 Worked example: the demonstrator's services, built</h2>
+<p>Chapter 3 Sec. 3.7.6 specified this in eight lines and declined three
+services. Here it is in full, and the declining is part of the work.</p>
+<h3 id="1191-what-is-built">11.9.1 What is built</h3>
+<p><strong>Diagnose</strong>, per Sec. 11.4.3's repaired loop, with three outcomes,
+confirmation, suppression, and the alert object of Sec. 11.4.4.</p>
+<p><strong>Monitor</strong>, per Sec. 11.2: the five-layer plot of Sec. 11.3.4 and age of
+twin per binding.</p>
+<p><strong>The three expiry monitors</strong> of Sec. 11.8.4, because they cost a few lines
+each and Chapter 7's credibility argument depends on them.</p>
+<p>Nothing else.</p>
+<h3 id="1192-the-diagnose-services-parameters-all-traced">11.9.2 The diagnose service's parameters, all traced</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Expected step</td>
+<td><code>g x dose/100</code>, <code>g</code> = 47.0</td>
+<td>Ch7 Sec. 7.4.2</td>
+</tr>
+<tr>
+<td>Alert threshold</td>
+<td>9.0 reading units below expected</td>
+<td>Ch7 Sec. 7.5.2, three spreads</td>
+</tr>
+<tr>
+<td>Evaluation window</td>
+<td>30 minutes after the dose</td>
+<td>Ch4 A3: water mixes fast relative to <code>Ts</code></td>
+</tr>
+<tr>
+<td>Lateness allowance</td>
+<td>one poll interval, 10 minutes</td>
+<td>Ch9 Sec. 9.7.3</td>
+</tr>
+<tr>
+<td>Admissible quality</td>
+<td><code>good</code> only</td>
+<td>Ch9 Sec. 9.6.2</td>
+</tr>
+<tr>
+<td>Confirmation</td>
+<td>2 consecutive <strong>evaluable</strong> failed doses, same binding; a pending detection survives an unevaluable dose</td>
+<td>Sec. 11.4.6</td>
+</tr>
+<tr>
+<td>Pending-detection bound</td>
+<td>48 hours, then escalate as unconfirmed suspicion</td>
+<td>Sec. 11.4.6</td>
+</tr>
+<tr>
+<td>Suppression</td>
+<td>one open alert per binding per condition</td>
+<td>Sec. 11.4.6</td>
+</tr>
+<tr>
+<td><code>cannot_evaluate</code> routing</td>
+<td>daily digest to the connector owner</td>
+<td>Sec. 11.4.2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1193-the-expected-alert-volume-stated-up-front">11.9.3 The expected alert volume, stated up front</h3>
+<p>From Sec. 11.4.5 and Sec. 11.4.6, at twelve pots:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>genuine fault episodes         12 per year
+confirmed false alarms          1 per year
+researcher&#39;s queue             13 per year, about one every four weeks
+signal ratio                   12 in 13
+cannot-evaluate, aggregated   175 per year, as about 365 daily digests
+                              (most of them empty)
+detection latency              8 to 16 hours, against a 96-hour baseline
+                              (about 24 hours twice a year, when the
+                               confirming dose is itself unevaluable)
+</code></pre></div></td></tr></table></div>
+<p><strong>Putting that table in the design document before building is the whole
+point of Sec. 11.4.5</strong>, because every number in it is a decision somebody
+should get to argue with.</p>
+<h3 id="1194-what-chapter-7s-credibility-argument-gains-and-loses">11.9.4 What Chapter 7's credibility argument gains, and loses</h3>
+<p><em>Gains.</em> The claim of Chapter 7 Sec. 7.8.5 can now state a detection latency
+and an alert volume, both derived rather than hoped for.</p>
+<p><em>Loses -- and this must be written down.</em> Confirmation raises the detection
+latency from one dose to two, so Chapter 7's claim sentence changes:</p>
+<blockquote>
+<p>The twin's watering-fault detector raises an alert when <strong>two consecutive
+evaluable</strong> scheduled doses deliver 16 per cent less water than commanded,
+or less. Detection latency is 8 to 16 hours, extending to about 24 when
+the confirming dose cannot be evaluated; a detection unconfirmed after 48
+hours is reported as an unconfirmed suspicion. <strong>A single failed dose
+followed by a successful one is not reported</strong>, and confirmation does not
+reduce false alarms arising from a systematic cause such as sensor drift;
+the residual monitors of Sec. 11.8.4 cover that case.</p>
+</blockquote>
+<p><strong>That is a weaker claim than Chapter 7's and a truer one</strong>, and it is the
+kind of amendment that only appears when somebody builds the service.</p>
+<h3 id="1195-what-is-declined-and-why">11.9.5 What is declined, and why</h3>
+<table>
+<thead>
+<tr>
+<th>Declined</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Forecast</td>
+<td>Chapter 1's value metric is faults detected, not moisture predicted. Nothing acts on a twelve-hour forecast here</td>
+</tr>
+<tr>
+<td>What-if / optimisation</td>
+<td>There is one schedule and nobody is choosing between schedules. Sec. 11.6.3 shows it would <em>fit</em> -- 3.4 seconds -- and fitting is not a reason</td>
+</tr>
+<tr>
+<td>Rehearsal</td>
+<td>No operator to train, no certification to earn</td>
+</tr>
+<tr>
+<td>Command path</td>
+<td>Stage 2 is advisory. Chapter 2's sentence stands</td>
+</tr>
+<tr>
+<td>3D visualisation</td>
+<td>All three of Sec. 11.3.2's tests fail</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Five services declined, one and a half built.</strong> Chapter 6 Sec. 6.9 chose
+the cheaper option in five of six subsections and called that the chapter's
+thesis in miniature; Chapter 8 Sec. 8.7.5 declined two proposals of four.
+The same thesis, one layer up: <strong>the question is never whether the service
+would work, it is whether a decision needs it.</strong></p>
+<hr />
+<h2 id="1110-faded-example-the-turbines-services">11.10 Faded example: the turbine's services</h2>
+<p>Chapters 4 through 10 each took the turbine one step further. Now expose it.
+Two parts are worked; four are yours.</p>
+<p><strong>The system, recapped.</strong> A floating offshore wind turbine with a
+reduced-order structural model, a Kalman filter, a fatigue service, Chapter
+8's anomaly detector on residuals, Chapter 9's three sampling rates with the
+connector at the edge, and Chapter 10's three-tier retention. Two outputs at
+two levels of rigour: maintenance scheduling (advisory) and life extension
+(certification). Diagnostic twins of this shape run on operational floating
+turbines [7], and are validated against full-scale
+prototype measurements [8].</p>
+<p><strong>(a) The service set is different from the demonstrator's -- worked,
+because the difference is instructive.</strong> Reading Chapter 3's grid for this
+asset:</p>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Built?</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monitor</td>
+<td>Yes</td>
+<td>Operations centre watches a fleet</td>
+</tr>
+<tr>
+<td>Diagnose</td>
+<td>Yes</td>
+<td>Chapter 8's anomaly detector, on residuals</td>
+</tr>
+<tr>
+<td>Predict</td>
+<td><strong>Yes, and it is the point</strong></td>
+<td>Remaining life is the product</td>
+</tr>
+<tr>
+<td>Decide</td>
+<td>Advisory only</td>
+<td>Vessel scheduling; no closed loop offshore</td>
+</tr>
+<tr>
+<td>Certify-and-train</td>
+<td><strong>Yes, and this is the surprise</strong></td>
+<td>The life-extension output <em>is</em> a certification service, and Chapter 1's fifth pattern is where it lives</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Four of five, against the demonstrator's one and a half</strong> -- and the
+reason is entirely Chapter 1's: the cost of being wrong, and the cost of
+going there, are both enormous, so more patterns clear the bar.</p>
+<p><strong>(b) <code>cannot_evaluate</code> matters more here, not less -- worked.</strong> The
+demonstrator's connector is a cable to a Pi in the next room. This one is a
+satellite or cellular link to a structure in the North Sea, and Chapter 9
+Sec. 9.10(e) already asked what a hard bandwidth cap does to it. So
+<code>cannot_evaluate</code> will be common, and the consequence is sharper: a
+maintenance decision deferred because data did not arrive is a vessel not
+dispatched, and <strong>the cost of not knowing is a number somebody can compute.</strong>
+Route it, aggregate it, and report its rate as a service-level figure --
+because at this asset a rising <code>cannot_evaluate</code> rate is itself a business
+event.</p>
+<p>Now yours.</p>
+<p><strong>(c)</strong> Run Sec. 11.4.5's alert economics for this asset. You will need to
+invent a fault base rate and a false-alarm rate; state them. Then decide
+whether confirmation (Sec. 11.4.6) is available here, given that a
+structural anomaly is not a twice-daily event with a natural repeat
+interval. <em>Hint: what plays the role of "the next dose"?</em></p>
+<p><strong>(d)</strong> Sec. 11.5.5 said a remaining-life output must carry its range
+insistently. Specify what the fatigue service returns, for both the advisory
+output and the certification output, and say what differs between them.
+<em>Hint: Chapter 7 Sec. 7.9(a) established these are two credibility arguments,
+not one.</em></p>
+<p><strong>(e)</strong> Sec. 11.5.4's scoring loop compares a past forecast against what
+happened. Work out what scoring means for a remaining-life prediction whose
+horizon is years, and propose something that can be scored on a timescale
+short enough to be useful. <em>Hint: what shorter-horizon quantity does the
+fatigue calculation depend on?</em></p>
+<p><strong>(f)</strong> Sec. 11.6.3 sized the demonstrator's what-if service at 3.4 seconds
+and concluded no job queue was needed. Do the same arithmetic for a what-if
+service over this turbine's reduced-order model, using Chapter 6's figures,
+and say which architectural decision your answer forces.</p>
+<hr />
+<h2 id="1111-posed-problem-the-service-catalogue">11.11 Posed problem: the service catalogue</h2>
+<p>No solution is given.</p>
+<p><strong>The situation.</strong> You have inherited the district-heating twin of Chapters
+9 and 10: 400 substations, three vendors, a fault detector on the
+supply-return temperature difference. It has been running two years. The
+data layer has just been rebuilt to Chapter 10's shape, and the operations
+team is unhappy for reasons nobody has quantified:</p>
+<ul>
+<li>The fault detector raises "roughly forty alerts a week" across the fleet.
+  Nobody knows how many were real, because there is no resolution field.</li>
+<li>Operators say they "mostly ignore" the alerts but cannot say which ones.</li>
+<li>A weekly report of predicted demand is produced by a script on somebody's
+  laptop and emailed as a spreadsheet.</li>
+<li>The utility's board has asked for "an AI dashboard".</li>
+<li>One engineer wants to add automatic valve control "since the model is
+  good now".</li>
+</ul>
+<p><strong>Produce a service catalogue and plan of no more than four pages
+containing:</strong></p>
+<ol>
+<li><strong>Each existing and proposed capability mapped to Chapter 1's five value
+   patterns and Chapter 3's component grid</strong>, with what each needs and
+   whether the components exist.</li>
+<li><strong>The alert economics</strong> for the fault detector, per Sec. 11.4.5. You will
+   have to state assumptions; state them as assumptions and say which
+   measurement would replace each. Compute the signal ratio and say what it
+   implies about "mostly ignore".</li>
+<li><strong>Three outcomes, applied.</strong> How much of the forty-a-week is plausibly
+   <code>cannot_evaluate</code>, given Chapter 9's three vendors, and where should it
+   go instead?</li>
+<li><strong>A suppression and confirmation strategy</strong> with the detection latency it
+   costs, and an explicit statement of which false alarms it does not
+   remove. <em>Note that a fault detector on a difference between two sensors
+   has a systematic failure mode -- Chapter 9 Sec. 9.11 flagged it.</em></li>
+<li><strong>What the weekly demand report must gain</strong> to become a forecast service,
+   per Sec. 11.5.1, and whether it should exist at all.</li>
+<li><strong>A response to "an AI dashboard"</strong> that is neither a refusal nor
+   compliance: name what the board is actually asking for, in terms of
+   Sec. 11.3.3's four audiences, and say which view answers it.</li>
+<li><strong>A position on automatic valve control</strong>, using Sec. 11.6.4 and Chapter
+   2 Sec. 2.8. State what must exist first, and who owns the safety argument
+   for a municipal heating network.</li>
+<li><strong>A build order</strong> with what you would ship in the first month, and one
+   thing you would delete.</li>
+</ol>
+<p><strong>What a good answer looks like.</strong> It computes the signal ratio before
+proposing anything, because that number reframes the whole complaint: "we
+mostly ignore the alerts" is not an attitude problem, it is a correct
+response to a service with a bad ratio, and the fix is engineering rather
+than training. It notices that the resolution field's absence means the
+utility cannot report its own value and puts that first. It says plainly
+that a fault detector on a <em>difference</em> between two sensors cannot be fixed
+by confirmation alone. It treats "an AI dashboard" as a request for the
+sponsor's view of Sec. 11.3.3 rather than as a technology request. And its
+"one thing you would delete" is a real answer -- most likely the laptop
+spreadsheet, which is a service with no owner, no provenance and no scoring.</p>
+<hr />
+<h2 id="1112-summary">11.12 Summary</h2>
+<p>Seven things, tied to the five objectives.</p>
+<ol>
+<li><strong>Chapter 3's five patterns are a build order</strong> (Sec. 11.1.1). Monitor is
+   nearly free once the connector and store exist; the jump to diagnose is
+   the largest step and holds most of the value; only one cell in the whole
+   grid writes to the physical world. <em>(Objective 1.)</em></li>
+<li><strong>Four properties separate a twin service from an ordinary one</strong>
+   (Sec. 11.1.2): age awareness, quality awareness, provenance emission, and
+   a defined behaviour when the input is missing. Ask any service what it
+   does when its input is two hours old, marked <code>substituted</code>, and absent --
+   three different answers, or it has one property where it needs four.
+   <em>(Objective 1.)</em></li>
+<li><strong>A service with two outcomes reports infrastructure failures as physical
+   faults</strong> (Sec. 11.4.2). The third outcome, <code>cannot_evaluate</code>, has a
+   different cause, a different owner and a different action -- and Chapter
+   9 built the vocabulary for it two chapters before anything consumed it.
+   <em>(Objective 2.)</em></li>
+<li><strong>Chapter 10's bug, fixed</strong> (Sec. 11.4.3). Check that the post-dose
+   operand exists and is after the dose; defer while late data may still
+   arrive; return <code>cannot_evaluate</code> when it does not. Re-run against 14
+   August and the alert does not fire, because the dose had landed.
+   <em>(Objective 2.)</em></li>
+<li><strong>One alert in twenty-four would have been real</strong> (Sec. 11.4.5). Twelve
+   genuine episodes, ninety false alarms, and one hundred and seventy-five
+   <code>cannot_evaluate</code> -- so the largest category is the one a two-outcome
+   service mislabels. Route the third outcome elsewhere, suppress
+   duplicates, and require confirmation, and the queue becomes about thirteen
+   a year with twelve of them real. <strong>Confirmation costs eight to sixteen
+   hours against a ninety-six-hour baseline, and defeats spread but not
+   bias</strong> -- which is why Chapter 7's residual monitors are not optional.
+   <em>(Objective 3.)</em></li>
+<li><strong>A forecast is not a number</strong> (Sec. 11.5). It carries a horizon, an
+   <code>as_of</code>, a range from Chapter 7's hold-out, the scenario it assumed, and
+   its provenance. And the scoring loop -- comparing past forecasts against
+   what happened, forever -- costs a day and turns Chapter 7's hold-out into
+   a standing measurement. <em>(Objective 4.)</em></li>
+<li><strong>Optimisation is a search and it is not learning</strong> (Sec. 11.6.2), its
+   reasoning is inspectable, and Chapter 6's arithmetic sizes it before
+   anybody builds a job queue -- 3.4 seconds for five candidate schedules,
+   so no queue. The objective function is a business statement, and an
+   optimiser will enthusiastically minimise whatever it is given.
+   <em>(Objective 4.)</em></li>
+</ol>
+<p><strong>And what the demonstrator's service catalogue says about the book's
+method.</strong> One and a half services built, five declined, and the declining
+took as much reasoning as the building (Sec. 11.9.5). Chapter 6 chose the
+cheaper option five times in six; Chapter 8 accepted two AI proposals of
+four and deferred a third; this chapter declines a forecast that would run in 3.4 seconds,
+<em>because fitting is not a reason</em>. <strong>Three chapters of Part III have now
+reached the same conclusion from three different directions, which is about
+as much evidence as a book can offer that it is the right one.</strong>
+<em>(Objective 5.)</em></p>
+<hr />
+<h2 id="1113-exercises">11.13 Exercises</h2>
+<p>Solutions or hints follow. Each exercise names the objective it exercises.</p>
+<p><strong>11.13.1</strong> <em>(Objective 1.)</em> For each, name the value pattern and read off
+Chapter 3's grid which components it needs: (a) a screen showing every
+pump's on/off state; (b) a weekly email of which pots are trending dry;
+(c) a service that picks the cheapest of five irrigation schedules; (d) a
+service that tells you a filter will clog in about six days; (e) a training
+simulator for new lab staff.</p>
+<p><strong>11.13.2</strong> <em>(Objective 1.)</em> A colleague proposes a "monitor service" that
+also switches off a pump when moisture exceeds a limit. Give the two-sentence
+response, using Chapter 3's grid.</p>
+<p><strong>11.13.3</strong> <em>(Objective 2.)</em> For each situation, say which of the three
+outcomes the diagnose service should return and who should receive it:
+(a) the post-dose reading is 604 against an expected step of 56.4 from 606;
+(b) no post-dose reading exists and the lateness allowance expired an hour
+ago; (c) the post-dose reading exists but is marked <code>substituted</code>; (d) the
+post-dose reading is 1023, the top of the sensor range; (e) no post-dose
+reading exists and the dose was two minutes ago.</p>
+<p><strong>11.13.4</strong> <em>(Objective 2.)</em> Your diagnose service returns two outcomes and
+you cannot change it this quarter. Name the one change you would make to the
+<em>alert message</em> that recovers most of the value of the third outcome, and
+say what it still does not fix.</p>
+<p><strong>11.13.5</strong> <em>(Objective 3.)</em> A fleet of 60 machines produces 4 evaluable
+events per machine per day. The measured false-alarm rate is 0.5 per cent
+per event, genuine faults occur 30 times a year across the fleet, and 3 per
+cent of events cannot be evaluated. Compute the annual totals and the signal
+ratio. Then apply Sec. 11.4.6's three fixes and recompute, assuming
+confirmation of two consecutive events.</p>
+<p><strong>11.13.6</strong> <em>(Objective 3.)</em> Continuing 11.13.5: the events are 6 hours
+apart, and the requirement is to detect a fault within 24 hours. Is
+three-event confirmation available? Compute its false-alarm rate and its
+worst-case latency, and say whether you would use it.</p>
+<p><strong>11.13.7</strong> <em>(Objective 4.)</em> A forecast service returns
+<code>{"moisture_in_12h": 604.2}</code>. List the four things missing per Sec. 11.5.1,
+and for each say which decision becomes unsafe without it.</p>
+<p><strong>11.13.8</strong> <em>(Objective 4.)</em> Classify each as scenario comparison,
+optimisation, or a learned policy: (a) run the model under five candidate
+watering schedules and show the operator a ranked table; (b) search 200
+schedules and return the one minimising water while keeping moisture above
+a floor; (c) a network trained on a year of operator decisions that outputs
+tomorrow's schedule; (d) run the model under the current schedule with the
+forecast hot week substituted. Then say which two could be swapped for each
+other with no change to what the operator sees, and why that matters.</p>
+<p><strong>11.13.9</strong> <em>(Objective 5.)</em> Your sponsor asks for a 3D visualisation of the
+greenhouse. Apply Sec. 11.3.2's three tests, then write the two-sentence
+reply -- which should neither refuse nor agree, but should name what they
+are likely to actually want.</p>
+<p><strong>11.13.10</strong> <em>(Objectives 1-5, and the one that leaves the book.)</em> Take the
+store you built in exercise 10.13.10 and add a monitor view: the five layers
+of Sec. 11.3.4, plus age of twin per binding. Then run it against your real
+week of data and report which of the five layers was hardest to produce, and
+whether any of them showed you something about your connector that Chapters
+9 and 10's checks did not.</p>
+<h3 id="solutions-and-hints">Solutions and hints</h3>
+<p><strong>11.13.1.</strong> (a) Monitor -- connector, store, thin estimator or none. (b)
+Monitor, arguably diagnose if "trending dry" is a comparison against a model
+expectation; the exercise is here because the answer depends on that, and if
+it is a threshold on a raw value it is monitor and needs no model. (c)
+Decide -- adds the runner at scale; advisory unless it also applies the
+schedule. (d) Predict -- adds the runner. (e) Certify-and-train -- models
+and runner, <strong>and possibly no connector at all</strong>, per Sec. 11.7.1.</p>
+<p><strong>11.13.2.</strong> "That is not a monitor service; the moment it switches a pump
+it is the acting form of <em>decide</em>, which is the one cell in Chapter 3's grid
+that needs a command path, an actuation guard, fail-safe behaviour defined
+per command, and Chapter 7's credibility argument plus a safety argument. If
+we want that, it is a separate increment with a separate cost -- and if we
+do not, the limit check belongs in the controller, not in the twin."</p>
+<p><strong>11.13.3.</strong> (a) <code>fault</code> -- observed step is -2 against an expected 56.4;
+duty researcher. (b) <code>cannot_evaluate</code> -- connector owner. (c)
+<code>cannot_evaluate</code> -- a substituted value is not evidence about the world
+(Chapter 9 Sec. 9.6.2); connector owner. (d) <code>cannot_evaluate</code>, and
+additionally an alert on the <em>sensor</em>: 1023 is <code>out_of_range</code>, which is
+evidence about the instrument rather than about the pot, and Chapter 4's
+assumption A2 predicted exactly this at saturation. (e) <strong>Neither -- defer.</strong>
+The lateness allowance has not expired and the window has not closed. This
+is the case Chapter 10's incident turned on, and a service that returns an
+answer here is the service Sec. 11.4.3 repaired.</p>
+<p><strong>11.13.4.</strong> Change the message so that the alert states <strong>the observed step
+and the readings it was computed from, with their timestamps and
+qualities</strong>. A human then sees "observed step 0.0, computed from 606 at
+17:00 and 606 at 17:00" and recognises an infrastructure failure in two
+seconds. What it does not fix: the alert still goes to the researcher rather
+than the connector owner, it still counts against the signal ratio of
+Sec. 11.4.5, and it still cannot be routed or aggregated automatically --
+because the distinction exists in prose rather than in a field.</p>
+<p><strong>11.13.5.</strong> Events per year: <code>60 x 4 x 365 = 87,600</code>. Cannot-evaluate:
+<code>87,600 x 0.03 = 2,628</code>. Evaluable events: <code>87,600 - 2,628 = 84,972</code>. False
+alarms: <code>84,972 x 0.005 = about 425</code>. Genuine episodes 30, at say 2 raw
+alerts each = 60. <strong>Total about 3,113 a year, or 60 a week, with a signal
+ratio of 30 in 3,113 -- 1 in 104.</strong> Fix 1 removes 2,628. Fix 2 takes 60 to
+30. Queue: <code>30 + 425 = 455</code>, ratio 1 in 15. Fix 3: consecutive pairs per
+machine per year is <code>1,460 - 1 = 1,459</code>, times 60 machines is 87,540 pairs;
+<code>0.005 x 0.005 = 0.000025</code>; <code>87,540 x 0.000025 = about 2.2</code> confirmed false
+alarms a year. <strong>Queue: about 32 a year, ratio 30 in 32.</strong> From 1 in 104 to
+15 in 16.</p>
+<p><strong>11.13.6.</strong> Events are 6 hours apart, so two-event confirmation costs 6
+hours and three-event costs 12 -- both inside a 24-hour requirement, so
+<strong>yes, it is available.</strong> Three-event false alarms:
+<code>0.005^3 = 1.25e-7</code>, times about 87,480 consecutive triples, is about
+<strong>0.011 a year</strong> -- roughly one per century. Would I use it? Probably not:
+two-event already gives 2.2 false alarms a year against 30 real faults, so
+the third event buys about two fewer false alarms a year and costs another 6
+hours on every detection. <strong>The marginal return has collapsed, and the right
+answer is to stop at two</strong> -- which is worth noticing, because the temptation
+with a cheap multiplicative win is to keep going.</p>
+<p><strong>11.13.7.</strong> Missing: (i) the <code>as_of</code> -- twelve hours from <em>when</em>, which
+makes the number unusable for scheduling anything; (ii) the range, so no
+decision can be made about how much margin to leave, and Chapter 7's entire
+Sec. 7.6 is discarded; (iii) the assumed scenario, so a user cannot tell
+whether it assumed today's schedule or an amended one, and any decision that
+<em>changes</em> the schedule invalidates the forecast it was based on; (iv)
+provenance, so Chapter 7's incident review cannot reconstruct it and Chapter
+10's five questions are unanswerable.</p>
+<p><strong>11.13.8.</strong> (a) Scenario comparison. (b) Optimisation. (c) Learned policy.
+(d) Scenario comparison -- a single what-if, which is the degenerate case.
+<strong>The two that could be swapped with no change to what the operator sees are
+(b) and (c)</strong>: both output a schedule. That matters because the operator has
+no way to tell them apart, while their failure modes are entirely different
+-- (b) fails visibly when the model is wrong and its candidates and scores
+can be inspected, (c) fails silently off-distribution with nothing to
+inspect (Chapter 8 Sec. 8.5.5, Sec. 8.6.1). <strong>When two services are
+indistinguishable at the interface and different in their failure modes, the
+interface must say which one it is.</strong></p>
+<p><strong>11.13.9.</strong> Test 1, is the answer spatial? No -- the answer is "pot 3 did
+not get water". Test 2, is the audience spatial? Marginally: a technician
+does walk to a pot, but twelve pots on a bench need a label, not a model.
+Test 3, is the model spatial? No -- one number per pot. <strong>All three fail.</strong>
+The reply: "A 3D view would not answer any question we currently ask, and
+the plot in Sec. 11.3.4 answers all of them -- but I think what you want is
+a view you can show the funders, which is the value metric of Chapter 1 and
+its trend, and I can build that this week." <em>The point of the exercise is
+that the honest answer is not "no"; it is that a request for a picture is
+usually a request for a different audience's view.</em></p>
+<p><strong>11.13.10.</strong> No solution. One prediction: the hardest layer will be
+breaking the line across gaps, because the default in every plotting library
+is to join the points, and you will discover that your own eye had been
+believing those lines for a week.</p>
+<hr />
+<h2 id="1114-where-to-go-next">11.14 Where to go next</h2>
+<p><strong>In this book.</strong> Chapter 12 selects the platforms, tools and topology this
+chapter deliberately named without recommending, and answers the
+build-versus-buy question for the service layer; twin-as-a-service platforms
+that generate and host services automatically are one shape of that answer
+[9], and open-source twin frameworks
+differ substantially in which of Chapter 3's five services they supply out
+of the box [10], [11]. Chapter 13 covers the
+standards, including the service and interface definitions that let a twin's
+services be discovered rather than documented. <strong>Chapter 14 is where these
+services are operated</strong>: the work queue of Sec. 11.8.3 when it backs up, the
+day a threshold changes, and the fault injection and replay that Sec. 11.7.2
+named and deferred. Chapter 15 asks what happens when the fleet is 400
+substations rather than twelve pots, and Sec. 11.4.5's arithmetic is the
+part that scales worst -- a signal ratio that is tolerable for one asset is
+an unusable service for four hundred.</p>
+<p><strong>In the literature, if you want more.</strong></p>
+<ul>
+<li><em>Visualisation:</em> [1] is a chapter-length
+  treatment aimed at twin builders, covering what visualisation is for, the
+  service forms it takes, and the dimensionality limit that Sec. 11.3.1
+  turns into a design question.</li>
+<li><em>The decide row, properly:</em> [6] on what-if analysis,
+  design-space exploration, fault injection and predictive maintenance as
+  twin services -- the source for Sec. 11.6.1's definition and the place to
+  go for the machinery this chapter named and did not teach.</li>
+<li><em>Prognostics as a service:</em> [3] for the
+  systematic literature, [4] for a reference
+  architecture, [5] for an overview. These are the
+  Chapter 1 references parked for this chapter.</li>
+<li><em>A worked service set on real hardware:</em> [12] and
+  [13] show the incubator's services -- monitoring, state
+  estimation, calibration, decision support -- wired together, which is
+  Sec. 11.9 done by somebody else on a different physical twin.</li>
+<li><em>Diagnosis in the field:</em> [7] for the diagnostic
+  service on an operational floating turbine, and [8]
+  for the same asset validated against a prototype.</li>
+<li><em>Consulted, not drawn on above:</em> [2] on how
+  platforms present twins, [14] on the platform properties a
+  service layer should expose, [15] on decision support
+  framings, and [16] on adapting interfaces to the
+  operator -- a direction Sec. 11.3.3's four audiences only gestures at.</li>
+</ul>
+<p><strong>In the demonstrator.</strong> Exercise 11.13.10 is the assignment, and it is the
+first one that produces something you will look at every day: the five-layer
+plot, against your own week of data, with the gaps broken. Then, if you want
+the rest of the chapter, add the diagnose service of Sec. 11.4.3 with its
+three outcomes and count what it produces over a month. The count is the
+design review.</p>
+<h2 id="references">References</h2>
+<p>[1] C. H. Bohlbro, H. D. Macedo, D. Tola, L. Esterle, and P. G. Larsen, "Visualisation in a Digital Twin Context," in <em>The Engineering of Digital Twins</em>, pp. 175-188, Springer International Publishing, 2024.</p>
+<p>[2] D. Parle, G. Sharma, N. Anand, N. Padgaonkar, D. Stoddart, and D. Malley, "A Comparative Analysis for Harnessing Digital Twin Platforms for Net-Zero Manufacturing," <em>IEEE Access</em>, vol. PP, 2024.</p>
+<p>[3] R. van Dinter, B. Tekinerdogan, and C. Catal, "Predictive maintenance using digital twins: A systematic literature review," <em>Information and Software Technology</em>, vol. 151, p. 107008, 2022.</p>
+<p>[4] R. van Dinter, B. Tekinerdogan, and C. Catal, "Reference architecture for digital twin-based predictive maintenance systems," <em>Computers &amp; Industrial Engineering</em>, vol. 177, p. 109099, 2023.</p>
+<p>[5] D. Zhong, Z. Xia, Y. Zhu, and J. Duan, "Overview of predictive maintenance based on digital twin technology," <em>Heliyon</em>, vol. 9, no. 4, p. e14534, 2023.</p>
+<p>[6] M. Frasheri, T. Bottjer, P. G. Larsen, L. Esterle, and C. Gomes, "Advanced Digital Twin Services," in <em>The Engineering of Digital Twins</em>, pp. 209-222, Springer International Publishing, 2024.</p>
+<p>[7] F. Stadtmann and A. Rasheed, <em>Diagnostic Digital Twin for Anomaly Detection in Floating Offshore Wind Energy</em>, arXiv, 2024.</p>
+<p>[8] E. Branlard, J. Jonkman, C. Brown, and J. Zhang, "A digital twin solution for floating offshore wind turbines validated using a full-scale prototype," <em>Wind Energy Science</em>, vol. 9, no. 1, pp. 1-24, Copernicus GmbH, 2024.</p>
+<p>[9] P. Zech, C. Nardin, S. Ristov, M. Flora, and R. Breu, "Digital-Twins-as-a-Service in Construction Engineering," in <em>2024 IEEE 20th International Conference on Automation Science and Engineering (CASE)</em>, pp. 3004-3010, 2024.</p>
+<p>[10] S. Gil, P. H. Mikkelsen, C. Gomes, and P. G. Larsen, "Survey on open-source digital twin frameworks-A case study approach," <em>Software: Practice and Experience</em>, vol. 54, no. 6, pp. 929-960, 2024.</p>
+<p>[11] J. Robles, C. Martin, and M. Diaz, "OpenTwins: An open-source framework for the development of next-gen compositional digital twins," <em>Computers in Industry</em>, vol. 152, p. 104007, 2023.</p>
+<p>[12] C. Gomes et al., "Digital Twin Tutorial: The Incubator Case Study," in <em>Engineering Trustworthy Software Systems: 6th International School, SETSS 2024, Chongqing, China, April 14-21, 2024, Tutorial Lectures</em>, pp. 68-101, Springer Nature, 2025.</p>
+<p>[13] B. J. Oakes et al., "Case Studies in Digital Twins," in <em>The Engineering of Digital Twins</em>, pp. 257-310, Springer International Publishing, 2024.</p>
+<p>[14] K. Duran et al., "Toward Digital Twin-as-a-Service (DTaaS) Platforms: A Survey on Architecture, Design Requirements, and Performance Metrics," <em>IEEE Communications Surveys &amp; Tutorials</em>, vol. 28, pp. 1845-1878, 2026.</p>
+<p>[15] J. Li, J. Grubel, A. Nadi, M. Snelder, B. van Arem, and J. Gao, <em>Digital Twin Federation for Urban Mobility Assessment: A Functional Architecture for Low-Car Transformations in the Netherlands</em>, Elsevier, Forthcoming, 2025.</p>
+<p>[16] F. Franco, L. Lamazzi, M. Picone, M. Savarese, C. A. Grazia, and L. Bedogni, "Customizing Human Machine Interfaces leveraging Digital Twins and Large Language Models," in <em>2026 IEEE 23rd Consumer Communications &amp; Networking Conference (CCNC)</em>, pp. 1-6, 2026.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Prasad Talasila
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.tabs.sticky", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

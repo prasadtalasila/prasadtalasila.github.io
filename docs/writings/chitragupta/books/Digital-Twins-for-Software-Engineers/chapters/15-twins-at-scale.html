@@ -1,0 +1,2455 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home page of Prasad Talasila">
+      
+      
+        <meta name="author" content="Prasad Talasila">
+      
+      
+        <link rel="canonical" href="https://prasad.talasila.in/writings/chitragupta/books/Digital-Twins-for-Software-Engineers/chapters/15-twins-at-scale.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 15 -- Twins at Scale: Ecosystems - Prasad Talasila</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/course-tables.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-15-twins-at-scale-ecosystems" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../../index.html" title="Prasad Talasila" class="md-header__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prasad Talasila
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 15 -- Twins at Scale: Ecosystems
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../research.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Research
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../projects.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../software.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../courses.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Courses
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../writings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Writings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../contact.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../../index.html" title="Prasad Talasila" class="md-nav__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.png" alt="logo">
+
+    </a>
+    Prasad Talasila
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../research.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../software.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../courses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../writings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../contact.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#150-before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.0 Before you start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15.0 Before you start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning objectives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#151-how-many-twins-is-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.1 How many twins is this?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15.1 How many twins is this?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1511-the-question-nobody-asks-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.1.1 The question nobody asks first
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1512-three-ways-to-divide-and-what-each-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.1.2 Three ways to divide, and what each costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1513-the-unit-conversion-before-any-arithmetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.1.3 The unit conversion, before any arithmetic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1514-the-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.1.4 The test
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#152-what-scales-what-does-not-and-what-gets-worse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.2 What scales, what does not, and what gets worse
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15.2 What scales, what does not, and what gets worse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1521-the-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.2.1 The method
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1522-what-stays-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.2.2 What stays fixed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1523-what-grows-with-the-fleet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.2.3 What grows with the fleet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1524-the-two-that-grow-faster-than-the-fleet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.2.4 The two that grow faster than the fleet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1525-commissioning-not-operating-is-what-actually-breaks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.2.5 Commissioning, not operating, is what actually breaks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#153-operating-a-population-instead-of-many-individuals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.3 Operating a population instead of many individuals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15.3 Operating a population instead of many individuals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1531-the-shift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.3.1 The shift
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1532-validation-on-a-sample" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.3.2 Validation on a sample
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1533-ranking-not-notifying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.3.3 Ranking, not notifying
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1534-context-as-kinds-not-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.3.4 Context as kinds, not instances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1535-calibration-across-a-population" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.3.5 Calibration across a population
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1536-purpose-drift-sampled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.3.6 Purpose drift, sampled
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#154-ecosystems-twins-that-talk-to-each-other" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.4 Ecosystems: twins that talk to each other
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15.4 Ecosystems: twins that talk to each other">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1541-the-mesh-case-which-chapter-13-deferred" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.4.1 The mesh case, which Chapter 13 deferred
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1542-composition-is-not-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.4.2 Composition is not integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1543-the-credibility-argument-of-a-composed-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.4.3 The credibility argument of a composed system
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1544-data-spaces-named-and-bounded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.4.4 Data spaces, named and bounded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1545-what-is-genuinely-unsolved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.4.5 What is genuinely unsolved
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#155-worked-example-the-greenhouse-becomes-a-facility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.5 Worked example: the greenhouse becomes a facility
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15.5 Worked example: the greenhouse becomes a facility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1551-how-many-twins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.5.1 How many twins?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1552-the-commissioning-bill-and-the-population-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.5.2 The commissioning bill, and the population answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1553-operating-180-pots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.5.3 Operating 180 pots
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1554-what-the-facility-gains-that-the-bench-could-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.5.4 What the facility gains that the bench could not
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#156-faded-example-the-wind-farm-inside-an-energy-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.6 Faded example: the wind farm inside an energy system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#157-posed-problem-the-fleet-proposal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.7 Posed problem: the fleet proposal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#158-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.8 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#159-the-book-closed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.9 The book, closed
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15.9 The book, closed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1591-what-you-can-do-now" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.9.1 What you can do now
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1592-what-this-book-did-not-teach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.9.2 What this book did not teach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1593-the-demonstrator-honestly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.9.3 The demonstrator, honestly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1594-where-to-go" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.9.4 Where to go
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1510-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.10 Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15.10 Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solutions-and-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solutions and hints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-15-twins-at-scale-ecosystems">Chapter 15 -- Twins at Scale: Ecosystems</h1>
+<h2 id="150-before-you-start">15.0 Before you start</h2>
+<p><strong>Where we are.</strong> Twelve chapters defer something to this one, and every one
+of them defers the same thing: what happens when there is more than one
+twin. Chapter 3 said "composing many twins -- Chapter 15". Chapter 9 asked
+what happens when 400 substations become 400 twins. Chapter 11 said its
+alert arithmetic "is the part that scales worst". Chapter 12 said this is
+where its <code>N</code> "stops being a parameter and becomes the subject". Chapter 13
+said the counterparty count does the same. Chapter 14 said this chapter
+takes every number in its operating bill and multiplies it.</p>
+<p><strong>Four separate chapters have each claimed that something of theirs scales
+worst.</strong> Chapter 10 said the context model does not scale by copying,
+Chapter 11 said the signal ratio, Chapter 14 said announced triggers and,
+separately, purpose-drift detection. They cannot all be right, and ranking
+them is a job only the last chapter can do.</p>
+<p><strong>The register, unchanged from Chapters 9 to 14.</strong> You have scaled a system
+before. You know the interesting question is which quantity grows fastest,
+not how to add machines.</p>
+<blockquote>
+<p><strong>This chapter does not teach scaling. It performs a scaling analysis of
+this book's own results</strong> -- every quantity Parts II and III computed,
+asked how it behaves in <code>N</code> -- <strong>and finds that two of them grow faster
+than the fleet does.</strong></p>
+</blockquote>
+<p><strong>And it has a second job.</strong> This is the last chapter. Sec. 15.9 closes the
+book.</p>
+<p><strong>What you are assumed to know.</strong> Everything. This chapter reuses more
+earlier results than any other and computes almost nothing new: Chapter 1's
+value metric, Chapter 7's calibration campaigns and credibility argument,
+Chapter 10's context model and dataset definitions, Chapter 11's alert
+economics, Chapter 12's cost model, Chapter 13's counterparty rule, and
+<strong>Chapter 14's operating bill, which is the number everything here
+multiplies.</strong></p>
+<p><strong>The maths budget.</strong> As Chapters 9 to 14. Three arithmetic set pieces, all
+of them reusing earlier numbers: a unit conversion that has to come first
+(Sec. 15.1.3), the commissioning cost that actually breaks (Sec. 15.2.5),
+and the mesh case Chapter 13 deferred (Sec. 15.4.1).</p>
+<p><strong>What this chapter deliberately does not cover.</strong> Distributed-systems
+engineering -- no sharding, no consensus, no partitioning; what is different
+about a fleet of twins is which <em>quantities</em> grow, not how to add machines.
+An ecosystem survey: the corpus offers composite, federated, integrated,
+system-of-systems and collaborative framings, and Sec. 15.4.2 notes the
+proliferation rather than cataloguing it. Data spaces in depth -- one
+bounded subsection. Federated learning as a technology -- Chapter 8 named
+it, Chapter 12 placed it. Governance and organisational design, named where
+the sources name them. <strong>And nothing new about a single twin</strong>: everything
+here is a consequence of <code>N</code>.</p>
+<h3 id="learning-objectives">Learning objectives</h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol>
+<li><strong>Decide</strong> how many twins a fleet of assets should be, and <strong>state</strong> the
+   cost consequence of the boundary you chose.</li>
+<li><strong>Sort</strong> a twin's costs into what stays fixed, what grows with the fleet
+   and what grows faster, and <strong>identify</strong> which quantity binds first.</li>
+<li><strong>Convert</strong> a per-asset operating practice into a population practice --
+   sampled validation, ranking, population calibration -- and <strong>state</strong> what
+   each trades away.</li>
+<li><strong>Explain</strong> what changes about a credibility argument when a twin's
+   inputs are other twins, and <strong>apply</strong> Chapter 13's counterparty rule in
+   the mesh case.</li>
+<li><strong>Recognise</strong> which problems at this scale are genuinely unsolved, and
+   say so.</li>
+</ol>
+<hr />
+<h2 id="151-how-many-twins-is-this">15.1 How many twins is this?</h2>
+<h3 id="1511-the-question-nobody-asks-first">15.1.1 The question nobody asks first</h3>
+<p>Four hundred substations. Eighty turbines. Twelve pots. <strong>How many twins?</strong></p>
+<p>The question sounds like bookkeeping and it is the most consequential
+decision in this chapter, because every quantity in Sec. 15.2 is measured
+<em>per twin</em> and the boundary is a choice.</p>
+<p><strong>Notice that this book has already made the choice twice without
+discussing it.</strong> The demonstrator is <em>one</em> twin covering twelve pots --
+Chapter 3 architected one twin, Chapter 7 wrote one credibility argument,
+Chapter 14 costed one operating bill. The turbine fleet has been described
+as eighty twins. Nobody argued for either.</p>
+<h3 id="1512-three-ways-to-divide-and-what-each-costs">15.1.2 Three ways to divide, and what each costs</h3>
+<table>
+<thead>
+<tr>
+<th>Division</th>
+<th>What it is</th>
+<th>Cheap</th>
+<th>Expensive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>One twin per asset</strong></td>
+<td>400 twins, each with its own model, argument and register</td>
+<td>Per-asset decisions are natural; assets can differ</td>
+<td>Everything in Chapter 14's bill, 400 times</td>
+</tr>
+<tr>
+<td><strong>One twin for the whole fleet</strong></td>
+<td>One model family, one argument, one register, 400 bindings</td>
+<td>Chapter 14's per-twin lines paid once</td>
+<td>Per-asset decisions become awkward; one credibility argument must cover 400 different situations</td>
+</tr>
+<tr>
+<td><strong>A hierarchy</strong></td>
+<td>Asset twins beneath a system twin</td>
+<td>Matches how people think about the plant</td>
+<td>Two levels to build, two to operate, and the interface between them is Sec. 15.4's problem</td>
+</tr>
+</tbody>
+</table>
+<p>Hierarchical composition is a recognised architectural capability rather
+than an improvisation: the ability to compose two or more digitalised
+entities into a higher-level entity "that lives thanks to information
+flowing from the underlying structures" is one of the named properties such
+architectures set out to provide [1].</p>
+<h3 id="1513-the-unit-conversion-before-any-arithmetic">15.1.3 The unit conversion, before any arithmetic</h3>
+<p>Here is the trap, and it catches people because Chapter 14 handed you a
+single number.</p>
+<blockquote>
+<p><strong>Chapter 14's 17.3 engineer-days a year is per <em>twin</em>, and the
+demonstrator's twin covers twelve pots.</strong></p>
+</blockquote>
+<p>So "scale to 400 assets" is not "multiply by 400". It is multiply by 400
+<strong>only if you have also decided there are 400 twins</strong>, and that is the
+decision of Sec. 15.1.1 rather than a property of the substations.</p>
+<p><strong>Work out what Chapter 14's bill actually contains.</strong> Of its seven lines,
+which depend on the number of <em>assets</em> inside the twin, and which do not?</p>
+<table>
+<thead>
+<tr>
+<th>Chapter 14's line</th>
+<th>Days</th>
+<th>Depends on asset count?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recalibration and re-validation</td>
+<td>6.5</td>
+<td><strong>No</strong> -- one refit cycle covers all twelve pots. Grows with the number of <em>exceptions</em> to review, not with pots</td>
+</tr>
+<tr>
+<td>Alert handling</td>
+<td>1.3</td>
+<td><strong>Yes</strong> -- more assets, more alerts</td>
+</tr>
+<tr>
+<td>Cannot-evaluate digest review</td>
+<td>3.0</td>
+<td>No -- one digest</td>
+</tr>
+<tr>
+<td>Sensor recalibration or replacement</td>
+<td>1.0</td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr>
+<td>Dependency and platform upgrades</td>
+<td>2.0</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Incident investigation</td>
+<td>2.0</td>
+<td>Weakly -- more assets, more incidents, but shared learning</td>
+</tr>
+<tr>
+<td>Recording physical changes</td>
+<td>1.5</td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>17.3</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Roughly 11.5 of the 17.3 days are per-twin, about 4 are per-asset, and 2
+grow weakly with asset count</strong>, and that split is the whole of Sec. 15.2.</p>
+<blockquote>
+<p><strong>Which yields the finding this section exists for, and it is the opposite
+of most people's instinct: the cheapest way to cover more assets is
+usually to put them inside one twin, not to make more twins.</strong> Twelve pots
+cost about the same to operate as one, because the work is per
+refit-cycle, per digest and per upgrade -- not per pot.</p>
+</blockquote>
+<p><strong>The limit on that, stated so nobody over-applies it.</strong> More assets in one
+twin works while the assets are <strong>near-identical</strong> and serve <strong>the same
+decision</strong>. The moment two assets need different models, different
+thresholds or different credibility claims, one twin covering both has a
+credibility argument that must be true of both -- and Chapter 7's intended-use
+statement cannot name two intended uses. That is the real boundary, and it
+is about the decisions rather than about the hardware.</p>
+<h3 id="1514-the-test">15.1.4 The test</h3>
+<p>Three questions, in order:</p>
+<ol>
+<li><strong>Do these assets serve the same decision?</strong> If not, they are different
+   twins regardless of how similar the hardware is.</li>
+<li><strong>Are they similar enough that one model family fits, with per-asset
+   parameters?</strong> If yes, one twin with many bindings. If no, separate twins
+   or a hierarchy.</li>
+<li><strong>Does anybody need a statement about the whole?</strong> "Is the network
+   healthy" is a different question from "is substation 214 healthy", and if
+   somebody asks it, you need a level above.</li>
+</ol>
+<p><strong>For the demonstrator: same decision, near-identical pots, nobody asks
+about the greenhouse as a whole.</strong> One twin, twelve bindings -- which is
+what Chapter 3 built, and Sec. 15.1.3 is why it was right.</p>
+<hr />
+<h2 id="152-what-scales-what-does-not-and-what-gets-worse">15.2 What scales, what does not, and what gets worse</h2>
+<h3 id="1521-the-method">15.2.1 The method</h3>
+<p>Take every quantity Parts II and III computed and ask how it behaves as the
+number of assets grows. Three columns: fixed, linear, and worse than linear.</p>
+<p><strong>Do this before designing anything.</strong> The fixed column tells you what a
+platform amortises (Chapter 12), the linear column tells you what to
+automate (Chapter 14 Sec. 14.4.5), and the third column tells you what
+architecture you actually need.</p>
+<h3 id="1522-what-stays-fixed">15.2.2 What stays fixed</h3>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>From</th>
+<th>Why it does not grow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The software build</td>
+<td>Ch1's 30 engineer-days</td>
+<td>Written once for a family of assets</td>
+</tr>
+<tr>
+<td>Dependency and platform upgrades</td>
+<td>Ch14's 2 days</td>
+<td>One stack</td>
+</tr>
+<tr>
+<td>Expiry-register <em>structure</em></td>
+<td>Ch14 Sec. 14.1.2</td>
+<td>One register; rows grow, the review does not</td>
+</tr>
+<tr>
+<td>Standards adoption <code>F</code></td>
+<td>Ch13 Sec. 13.1.3</td>
+<td>Paid once</td>
+</tr>
+<tr>
+<td>The cannot-evaluate digest</td>
+<td>Ch11 Sec. 11.4.6</td>
+<td>One digest, more rows</td>
+</tr>
+<tr>
+<td>Model <em>structure</em></td>
+<td>Ch4</td>
+<td>One family for similar assets</td>
+</tr>
+</tbody>
+</table>
+<p><strong>This column is why fleets are possible at all</strong>, and it is also Chapter
+12's answer arriving: a platform's fixed cost <code>F</code> amortises over exactly
+these lines, which is why Chapter 12 Sec. 12.5.2 found the crossover between
+the first twin and the second.</p>
+<h3 id="1523-what-grows-with-the-fleet">15.2.3 What grows with the fleet</h3>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>From</th>
+<th>At 400 assets</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ingest volume and storage</td>
+<td>Ch9 Sec. 9.8.1, Ch10 Sec. 10.3.5</td>
+<td>Linear, and Chapter 9's arithmetic says still small for slow assets</td>
+</tr>
+<tr>
+<td>Alerts</td>
+<td>Ch11 Sec. 11.4.5</td>
+<td>Linear in count</td>
+</tr>
+<tr>
+<td>Sensor events, physical changes</td>
+<td>Ch14 Sec. 14.4.2</td>
+<td>Linear, and every one is an <strong>announced</strong> trigger</td>
+</tr>
+<tr>
+<td>Recalibration runs</td>
+<td>Ch7 Sec. 7.7.2</td>
+<td>Linear if per-asset; Sec. 15.3.5 is the alternative</td>
+</tr>
+<tr>
+<td>Context rows</td>
+<td>Ch10 Sec. 10.4</td>
+<td>Linear in assets</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Linear is manageable and it is not free.</strong> The rule from Chapter 14
+Sec. 14.4.5 applies unchanged: automate the largest line first. What changes
+at scale is that a line costing half a day a year becomes 200 days, so lines
+nobody would automate for one twin become the first thing to automate for
+four hundred.</p>
+<h3 id="1524-the-two-that-grow-faster-than-the-fleet">15.2.4 The two that grow faster than the fleet</h3>
+<p><strong>First: human attention per asset is not available.</strong></p>
+<p>Chapter 11 Sec. 11.11 gave the real figure for the district-heating twin --
+"roughly forty alerts a week" across 400 substations, or about <strong>2,080 a
+year</strong>. At Chapter 14's 0.1 engineer-day per alert that is <strong>208
+engineer-days a year of triage demand.</strong></p>
+<p>Now count the supply. Chapter 13 Sec. 13.10 gave the utility a team of four
+with no on-call rotation. If one of them spends a tenth of their time on
+alerts, that is about <strong>22 days a year</strong>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>demand  208 engineer-days
+supply   22 engineer-days
+ratio   about 9 to 1
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<p><strong>Which explains a fact this book reported two chapters ago and did not
+explain.</strong> Chapter 11 Sec. 11.11 said the operators "mostly ignore" the
+alerts. <strong>They are not being careless. Ignoring roughly eight alerts in
+nine is the only physically available response</strong>, and no amount of
+training changes a nine-to-one arithmetic.</p>
+</blockquote>
+<p>This is not linear growth of a cost. It is linear growth of demand against
+<strong>fixed</strong> supply, which is the same thing as unbounded, and Chapter 11
+predicted exactly it: a signal ratio tolerable for one asset is an unusable
+service for four hundred.</p>
+<p><strong>Second: integrations, if twins must talk to each other.</strong> <code>N(N-1)/2</code>
+rather than <code>N</code>. Sec. 15.4.1 does that arithmetic, because it belongs with
+the ecosystem material.</p>
+<p><strong>And the honourable mention, which is not superlinear and is worse than it
+looks.</strong> Chapter 14 Sec. 14.1.3 found about half of the book's expiry
+conditions are <strong>announced</strong> -- they exist only if a human says something.
+Those grow linearly in <em>events</em>, and the mechanism that detects them --
+somebody remembering -- does not improve with practice or tooling. Chapter
+14 Sec. 14.8(a) found the only reliable answer: attach the record to an act
+the organisation already logs. <strong>At 400 assets that stops being good
+practice and becomes the difference between a context model that is true and
+one that is fiction.</strong></p>
+<h3 id="1525-commissioning-not-operating-is-what-actually-breaks">15.2.5 Commissioning, not operating, is what actually breaks</h3>
+<p>Here is the quantity no chapter costed, and it is larger than everything
+above.</p>
+<p><strong>Chapter 14 costed <em>operating</em> a twin. Nobody costed <em>commissioning</em> one
+asset.</strong> Look at what Chapter 7 required before a single pot could be
+trusted: two calibration campaigns (Sec. 7.4.1 and Sec. 7.4.2), a hold-out
+week (Sec. 7.4.5), a validity envelope built from the assumption ledger
+(Sec. 7.5.3), an alert threshold derived from the value metric
+(Sec. 7.5.2), and a credibility argument (Sec. 7.8.5).</p>
+<p>For twelve near-identical pots that was done once. <strong>For 400 substations
+that are not identical -- different vintages, different heat exchangers,
+different building loads -- it is per asset.</strong> Call it 3 engineer-days each,
+which is generous given that Chapter 7's campaign alone took two weeks of
+logging:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>400 assets x 3 engineer-days = 1,200 engineer-days
+                             = about 5.5 engineer-years, before anything runs
+</code></pre></div></td></tr></table></div>
+<p><strong>Against Chapter 14's entire annual operating bill of 17.3 days.</strong>
+Commissioning is not a rounding error on operations; at scale it is two
+orders of magnitude larger, and it is spent before the twin delivers
+anything.</p>
+<blockquote>
+<p><strong>That single figure is why the field has population methods, and why
+Sec. 15.3 exists.</strong> Every technique in the next section is a way of not
+paying 1,200 days.</p>
+</blockquote>
+<p><strong>What the alternative costs.</strong> Fit a model across the population once, then
+derive each asset's parameters as an offset from a short window:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>population fit, once                     about  20 engineer-days
+per-asset offset, 400 x 0.25 days        about 100 engineer-days
+                                         --------------------------
+                                         about 120 engineer-days
+</code></pre></div></td></tr></table></div>
+<p><strong>A factor of ten</strong>, and Sec. 15.3.5 is what it costs in accuracy.</p>
+<hr />
+<h2 id="153-operating-a-population-instead-of-many-individuals">15.3 Operating a population instead of many individuals</h2>
+<h3 id="1531-the-shift">15.3.1 The shift</h3>
+<p>Everything in Sec. 15.2's third column has the same answer, and it is a
+change of unit rather than a change of technique:</p>
+<blockquote>
+<p><strong>Stop treating the fleet as <code>N</code> twins that each need attention, and start
+treating it as one population that needs attention.</strong></p>
+</blockquote>
+<p>Five practices follow. Each one converts a per-asset activity into a
+per-population one, and <strong>each pays for it with something specific</strong> -- the
+chapter's job is to name the price rather than to recommend the practice.</p>
+<h3 id="1532-validation-on-a-sample">15.3.2 Validation on a sample</h3>
+<p>Chapter 14 Sec. 14.8(b) already worked this: full re-validation per asset
+per quarter is eighty days a quarter for eighty turbines, and unaffordable.</p>
+<p><strong>The population version.</strong> Full re-validation on a rotating sample --
+say 10 per cent of assets each quarter, so every asset is fully re-validated
+roughly every two and a half years -- plus Chapter 11 Sec. 11.5.4's
+continuous scoring on <strong>all</strong> of them.</p>
+<p><strong>What it costs.</strong> An asset outside the sample is covered only by the
+continuous half, and Chapter 14 Sec. 14.3.3's table says what the continuous
+half cannot catch: <strong>a model that is wrong in a way the current conditions
+do not exercise.</strong> So the sampled regime is blind to exactly the seasonal
+and rare-condition failures that full validation exists to find, for assets
+not currently sampled.</p>
+<p><strong>The mitigation, and it is not more sampling.</strong> Promote an asset into the
+full-validation set when its continuous scores are unusual, when its context
+says it differs from the population, or when its output feeds a decision
+that has just become more consequential. <strong>The sample is stratified by risk,
+not random</strong>, and saying which stratification you used belongs in the
+credibility argument.</p>
+<h3 id="1533-ranking-not-notifying">15.3.3 Ranking, not notifying</h3>
+<p>Sec. 15.2.4 found a nine-to-one gap between alert demand and human supply.
+No improvement in the detector closes it, because Chapter 11's three fixes
+were already applied and the remaining alerts are mostly <em>real</em>.</p>
+<p><strong>The population version.</strong> Stop notifying per asset. Produce, once a day, a
+ranked list of the worst <code>k</code> assets -- ten, twenty, whatever a person can
+actually work through -- and let a human work down it.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>attention demand becomes O(1) in N:  k items a day, whatever N is
+</code></pre></div></td></tr></table></div>
+<p><strong>What it costs, precisely.</strong> An asset ranked below the cut is not seen
+today. If it worsens it rises; if it does not, it may never be seen. So:</p>
+<ul>
+<li><strong>Large faults are safe.</strong> A failed heat exchanger ranks near the top
+  immediately.</li>
+<li><strong>Small persistent faults become invisible.</strong> An asset sitting at rank 50
+  with a real but modest problem is never reached.</li>
+</ul>
+<blockquote>
+<p><strong>That is Chapter 11 Sec. 11.4.7's finding arriving at fleet scale.</strong>
+Confirmation defeated spread and did nothing to bias; <strong>ranking defeats
+volume and does nothing to the persistent small fault.</strong> The two blind
+spots compose, and a fleet using both should say so in one sentence of its
+credibility argument.</p>
+</blockquote>
+<p><strong>The instrument that covers the gap is not another alert.</strong> It is
+Chapter 7 Sec. 7.7.4's residual-bias monitor, run per asset and reviewed as
+a <em>distribution</em> across the population: an asset whose bias has been
+mildly wrong for six months shows up in a histogram even though it never
+reached rank ten.</p>
+<h3 id="1534-context-as-kinds-not-instances">15.3.4 Context as kinds, not instances</h3>
+<p>Chapter 10 Sec. 10.14 said the context model "is the part that does not
+scale by copying". Here is why, and what to do.</p>
+<p><strong>Why copying fails.</strong> Chapter 10's context tables describe <em>this</em> pot,
+<em>this</em> sensor, <em>this</em> binding. Four hundred copies is four hundred sets of
+rows to maintain, and every schema change is a migration across all of them.
+Worse, the interesting relationships at fleet scale are <strong>between</strong> assets --
+substation 214 is downstream of 187 -- and those have no home in a
+per-asset table.</p>
+<p><strong>The population version.</strong> Separate what is true of a <em>kind</em> from what is
+true of an <em>instance</em>:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Holds</th>
+<th>Rows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kind</strong></td>
+<td>This model of heat exchanger; this sensor type with its range, resolution and drift; this model family with its envelope</td>
+<td>Tens</td>
+</tr>
+<tr>
+<td><strong>Instance</strong></td>
+<td>This substation, its serial numbers, its bindings, its fitted parameters, its validity intervals</td>
+<td>Thousands</td>
+</tr>
+<tr>
+<td><strong>Relationship</strong></td>
+<td>Downstream of, shares a feeder with, same vintage as</td>
+<td>Thousands</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Three payoffs, each of which is a cost avoided.</strong> Chapter 9's six
+datasheet numbers are stated once per sensor <em>type</em>, not per sensor.
+Chapter 7's envelope is stated once per model <em>family</em>. And the relationship
+layer is what makes Sec. 15.3.5's population possible at all -- because
+"similar enough to share information" is a statement about kinds.</p>
+<p><strong>This is where the asset-model literature stops being optional.</strong> Chapter
+10 Sec. 10.4.6 said a graph becomes worth looking at when the number of
+<em>kinds</em> of relationship starts growing, and named the greenhouse exemplar's
+knowledge graph, built to record structure and its changes
+[2]. Four hundred assets with relationships
+between them is that moment.</p>
+<h3 id="1535-calibration-across-a-population">15.3.5 Calibration across a population</h3>
+<p>Sec. 15.2.5 priced per-asset commissioning at 1,200 engineer-days and
+promised an alternative.</p>
+<p><strong>The idea, and it has a literature.</strong> Population-based structural health
+monitoring is exactly "the process of utilising information across a
+population of structures in order to perform and improve inferences that
+generalise for the complete population", built on knowledge transfer and
+mapping between members -- and motivated by precisely the fleet situation,
+where labelled data exists for some members and not others
+[3]. Probabilistic graphical formulations of twin
+calibration make the same claim from the other direction: a principled,
+unified calibration and updating process <strong>able to scale to an entire fleet
+of digital twins</strong> [4].</p>
+<p><strong>What it looks like operationally</strong>, without any of the mathematics:</p>
+<ol>
+<li>Fit a model across the population, using all assets' data together.</li>
+<li>Derive each asset's parameters as an <strong>offset</strong> from the population --
+   typically from a much shorter window than a full campaign needs.</li>
+<li>Flag assets whose offset is unusual. <strong>Those are either interesting
+   assets or bad data</strong>, and both are worth a human.</li>
+</ol>
+<p><strong>What it costs, and this is the part to be honest about.</strong> A population
+model assumes the population is a population. Chapter 7's whole apparatus --
+the assumption ledger, the envelope, the hold-out -- now applies to the
+<em>population assumption</em> as well as to the model. And the failure mode is
+specific: <strong>an asset that is genuinely unlike its population gets parameters
+pulled toward the population's, and is therefore modelled worse than it
+would have been alone</strong> -- while looking entirely normal, because its
+parameters are plausible.</p>
+<blockquote>
+<p><strong>So step 3 is not optional bookkeeping, it is the safety mechanism.</strong> The
+assets whose offsets are unusual are the ones the population method is
+least entitled to speak about, and reviewing them is what stops a
+ten-times saving becoming a fleet-wide silent error.</p>
+</blockquote>
+<h3 id="1536-purpose-drift-sampled">15.3.6 Purpose drift, sampled</h3>
+<p>Chapter 14 Sec. 14.5.2 found the failure that nothing fires on -- a
+credibility argument that is true and irrelevant -- and its only detector
+was a five-minute question to a user: <em>what was the last decision you made
+using this?</em> Chapter 14 Sec. 14.12 then noted that with one twin you can ask
+and with four hundred you cannot.</p>
+<p><strong>The population version is the obvious one and it works.</strong> Ask a sample.
+Five users a quarter, chosen across roles rather than randomly, is twenty
+conversations a year and about two engineer-days.</p>
+<p><strong>What it costs.</strong> Purpose drift is not uniform across a fleet -- it starts
+somewhere, usually with one enthusiastic user, and spreads. <strong>A sample finds
+widespread drift reliably and localised drift only by luck.</strong> The
+compensating instrument is usage data you already have: an asset or a view
+whose query pattern changed is a candidate for the question, and that turns
+a random sample into a targeted one for no extra cost.</p>
+<hr />
+<h2 id="154-ecosystems-twins-that-talk-to-each-other">15.4 Ecosystems: twins that talk to each other</h2>
+<p>Everything so far is one organisation operating many assets. This section is
+the other axis: <strong>twins whose inputs are other twins</strong>, frequently across an
+organisational boundary.</p>
+<h3 id="1541-the-mesh-case-which-chapter-13-deferred">15.4.1 The mesh case, which Chapter 13 deferred</h3>
+<p>Chapter 13 Sec. 13.1.3 gave the counterparty rule -- adopt a standard when
+<code>C x I &gt; F</code> -- and Chapter 13's own record of rejected material noted that
+it used the <strong>hub</strong> case, where you integrate with <code>C</code> counterparties who do
+not integrate with each other, and excluded the full-mesh case as rare for
+twins. <strong>This is where it stops being rare</strong>, and it arrives on schedule.</p>
+<p><strong>The arithmetic.</strong> If <code>N</code> twins must each exchange with every other, the
+number of bilateral agreements is <code>N(N-1)/2</code>. If instead each adopts a
+common standard, the number of adoptions is <code>N</code>. With Chapter 13's figures
+-- <code>I</code> = 4 engineer-days per bilateral integration, <code>F</code> = 10 per adoption:</p>
+<table>
+<thead>
+<tr>
+<th>Twins</th>
+<th>Bilateral: <code>N(N-1)/2 x 4</code></th>
+<th>Standard: <code>N x 10</code></th>
+<th>Cheaper</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>12</td>
+<td>30</td>
+<td>Bilateral</td>
+</tr>
+<tr>
+<td>6</td>
+<td>60</td>
+<td>60</td>
+<td>Equal</td>
+</tr>
+<tr>
+<td>10</td>
+<td>180</td>
+<td>100</td>
+<td>Standard</td>
+</tr>
+<tr>
+<td>400</td>
+<td>319,200</td>
+<td>4,000</td>
+<td><strong>Standard, by about eighty to one</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Break-even at six mutually-interoperating twins.</strong></p>
+<blockquote>
+<p><strong>So Chapter 13's answer for the demonstrator -- adopt nothing, because
+<code>C</code> = 0 -- and this chapter's answer for an ecosystem are the same rule
+producing opposite results, and the variable is still just how many people
+you must agree with.</strong> Chapter 13 said that in one line and could not
+demonstrate it; this table is the demonstration.</p>
+</blockquote>
+<p><strong>One qualification, so the table is not over-applied.</strong> Most fleets are
+<em>not</em> meshes. Four hundred substations reporting to one operator is a hub:
+<code>N</code> integrations, not <code>N(N-1)/2</code>, and Chapter 13's original arithmetic
+applies unchanged. <strong>The mesh case needs a reason to exist</strong> -- typically
+that the twins belong to different organisations with no natural centre,
+which is the situation Sec. 15.4.4's data spaces address.</p>
+<h3 id="1542-composition-is-not-integration">15.4.2 Composition is not integration</h3>
+<p>The vocabulary here has proliferated, and it is worth knowing that before
+reading anything: the same idea appears as composite, federated, integrated,
+system-of-systems, composable and collaborative digital twins
+[5]. <strong>Do not spend time on the taxonomy.</strong></p>
+<p><strong>The distinction that does matter</strong> is between integration and
+composition.</p>
+<p><em>Integration</em> is making two systems exchange data. It is a Chapter 9 and
+Chapter 13 problem, it is well understood, and Sec. 15.4.1 prices it.</p>
+<p><em>Composition</em> is making a twin whose <strong>state and behaviour</strong> derive from
+other twins -- a network twin whose health is a function of 400 substation
+twins' health. That is a modelling problem, not a plumbing one, and it is
+where the hard parts live.</p>
+<p><strong>Three of the hard parts, each of which the book has the vocabulary for.</strong></p>
+<p><em>Whose time?</em> Chapter 9's four timestamps and Chapter 10's <code>as_of</code> were hard
+enough for one twin. A composite twin's state at time <code>t</code> is a function of
+component states that were each true at slightly different times, with
+different ages. <strong>Chapter 2's age-of-twin becomes a property of a
+composition rather than of a stream</strong>, and the composite is at best as fresh
+as its stalest input.</p>
+<p><em>Whose uncertainty?</em> Chapter 7 reported the demonstrator's prediction as
+plus or minus 2.0. A composite of 400 such predictions has an uncertainty
+that depends on whether the component errors are independent -- and they
+usually are not, because the assets share weather, share suppliers and share
+a calibration procedure. <strong>Assuming independence is the standard error here
+and it makes the composite look far more precise than it is.</strong></p>
+<p><em>Whose model?</em> Chapter 4 catalogued model families, and a composite may
+contain several. Integrating models that were built separately, for separate
+purposes, is a recognised open problem rather than a solved one
+[6].</p>
+<h3 id="1543-the-credibility-argument-of-a-composed-system">15.4.3 The credibility argument of a composed system</h3>
+<p>Chapter 7 Sec. 7.13 asked what happens to a credibility argument when twins
+start composing, and Chapter 7 Sec. 7.7.5 pointed at the answer: an approach
+in which each side publishes, per trustworthiness characteristic, a link to
+a human- and machine-readable justification -- an assurance case -- so a
+composed system can reason about whether its parts are trustworthy enough
+for the job [7].</p>
+<p><strong>What that means in practice, in three rules.</strong></p>
+<p><strong>1. A composite's credibility argument cites its components' arguments; it
+does not restate them.</strong> Chapter 7's five parts still apply at the top
+level, and the evidence section becomes a list of references plus a
+statement about the <em>composition</em>.</p>
+<p><strong>2. The composite's claim is bounded by its weakest component, on every
+axis separately.</strong> Its validity envelope is the intersection of the
+components' envelopes. Its freshness is the age of the stalest input. Its
+expiry is the earliest component expiry. <strong>Each of those is a different
+component</strong>, and computing them is a small, mechanical, and routinely
+skipped exercise.</p>
+<p><strong>3. A component's expiry must reach the composite.</strong> Chapter 14's expiry
+register was one list with one owner; a composed system has a register per
+twin and <strong>an expiry that fires in a component invalidates the composite
+silently</strong> unless somebody wired it. That is the single most likely defect
+in any composed twin, and it is a Chapter 14 artifact extended by one
+column: <em>who else depends on this row?</em></p>
+<p><strong>And the genuinely hard case, stated and not solved.</strong> If the components
+belong to different organisations, you cannot inspect their arguments and
+must rely on what they publish. That is what the trust-vector proposal is
+for [7], and the obstacles named around composite
+twins are exactly the ones you would expect: trust, interoperability,
+governance, ownership, security and privacy
+[5]. <strong>Five of those six are not
+engineering problems</strong>, which is the honest reason ecosystem twins are rarer
+than the literature's enthusiasm suggests.</p>
+<h3 id="1544-data-spaces-named-and-bounded">15.4.4 Data spaces, named and bounded</h3>
+<p>Chapters 10, 12 and 13 all deferred data spaces here. One subsection.</p>
+<p><strong>What it is, in one sentence.</strong> An arrangement -- technical and contractual
+-- under which organisations exchange data while each retains control over
+what is shared, with whom, and on what terms.</p>
+<p><strong>Why it exists for twins.</strong> Chapter 13's counterparty rule says the value
+of a standard grows with the number of parties. Data spaces are the same
+observation applied to the <em>data</em> rather than to the interface: they exist
+because the parties want the exchange and do not want to hand over the
+asset. Work in this direction covers decentralised approaches
+[8], asset-oriented exchange
+[9] and data-driven cross-organisation architectures
+[10].</p>
+<p><strong>The one question that decides whether you need one.</strong></p>
+<blockquote>
+<p><strong>Is there data you cannot move, and a party who needs what it would
+tell them?</strong></p>
+</blockquote>
+<p>If no data is restricted, ordinary integration is cheaper. If data is
+restricted and nobody outside needs it, keep it and say nothing. <strong>A data
+space earns its considerable cost only when both halves are true</strong>, and that
+is a much rarer situation than the literature's volume suggests. Chapter 8
+Sec. 8.3.7 made the identical point about federated learning, and it is the
+same instinct: architecture adopted for a constraint you do not have is
+complexity with no purchaser.</p>
+<h3 id="1545-what-is-genuinely-unsolved">15.4.5 What is genuinely unsolved</h3>
+<p>Chapter 4 Sec. 4.16 parked a reference for this chapter and it is the right
+one to close on. A review of digital-twin integration, using a smart city as
+its worked example, identifies <strong>nine key integration challenges that still
+need to be addressed</strong> and issues a call to the community to investigate
+them [6]. That is a 2025 paper describing open
+problems, not a survey of solved ones.</p>
+<p><strong>Four things this chapter has been honest about not solving:</strong></p>
+<p><em>Composing uncertainty correctly</em> (Sec. 15.4.2), where the independence
+assumption is standard and usually wrong.</p>
+<p><em>Credibility across organisational boundaries</em> (Sec. 15.4.3), where trust
+vectors are a proposal rather than a practice.</p>
+<p><em>Integrating models built separately for separate purposes</em>
+[6].</p>
+<p><em>The five non-engineering obstacles</em> -- trust, governance, ownership,
+security, privacy -- that a composite twin architecture must address
+[5], and which no amount of good software
+resolves.</p>
+<p><strong>Why saying this matters more here than anywhere else in the book.</strong>
+Ecosystems are the part of the field with the largest gap between what is
+published and what is running. A reader who has followed fourteen chapters
+of "derive it from the decision" should be equipped to notice that gap, and
+this chapter's last technical act is to name it rather than to close it.</p>
+<hr />
+<h2 id="155-worked-example-the-greenhouse-becomes-a-facility">15.5 Worked example: the greenhouse becomes a facility</h2>
+<p>The lab's twelve-pot bench is a success. The institute funds a facility:
+<strong>twenty benches, 240 pots, four research groups.</strong></p>
+<h3 id="1551-how-many-twins">15.5.1 How many twins?</h3>
+<p>Sec. 15.1.4's three questions.</p>
+<p><em>Same decision?</em> Mostly. All four groups want watering faults detected. But
+one group is running a drought-stress experiment in which <strong>failing to water
+is the intervention</strong>, and a fault detector that alerts on it is worse than
+useless.</p>
+<p><em>One model family with per-asset parameters?</em> Yes for three groups. The
+drought group's pots leave Chapter 4's assumption A1 behind entirely.</p>
+<p><em>Anybody asking about the whole?</em> Yes -- facility management wants to know
+water consumption and whether the pump manifold is healthy.</p>
+<p><strong>Decision: three twins, not one and not twenty.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Twin</th>
+<th>Covers</th>
+<th>Why separate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard cultivation</td>
+<td>15 benches, 180 pots</td>
+<td>One decision, one model family, per-pot parameters</td>
+</tr>
+<tr>
+<td>Drought experiment</td>
+<td>3 benches, 36 pots</td>
+<td><strong>Different decision</strong> -- Sec. 15.1.3's real boundary</td>
+</tr>
+<tr>
+<td>Facility</td>
+<td>Manifold, supply, consumption</td>
+<td>Different question, different assets</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notice what decided it.</strong> Not the pot count, not the hardware, not the
+network. <strong>The decisions</strong>, exactly as Sec. 15.1.4 said and exactly as
+Chapter 1 has said since its second section.</p>
+<h3 id="1552-the-commissioning-bill-and-the-population-answer">15.5.2 The commissioning bill, and the population answer</h3>
+<p>Sec. 15.2.5's arithmetic for the standard-cultivation twin:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>per-pot commissioning at Chapter 7&#39;s cost, 180 x 3 days = 540 engineer-days
+                                                        = about 2.5 engineer-years
+</code></pre></div></td></tr></table></div>
+<p><strong>Unaffordable for a research facility</strong>, and it would have been discovered
+in month four rather than in planning.</p>
+<p>The population version, per Sec. 15.3.5:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>population fit across 180 pots, once            about 15 engineer-days
+per-pot offset from a 3-day window, 180 x 0.1   about 18 engineer-days
+review of unusual offsets, say 15 pots x 0.5     about  8 engineer-days
+                                                 ---------------------
+                                                 about 41 engineer-days
+</code></pre></div></td></tr></table></div>
+<p><strong>A factor of thirteen</strong>, and the third line is the safety mechanism rather
+than an overhead: the fifteen pots whose offsets are unusual are where the
+population assumption is least entitled to speak.</p>
+<h3 id="1553-operating-180-pots">15.5.3 Operating 180 pots</h3>
+<table>
+<thead>
+<tr>
+<th>Practice</th>
+<th>For 12 pots (Ch14)</th>
+<th>For 180</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alerts</td>
+<td>13 a year, notify each</td>
+<td><strong>Rank</strong>: a daily top-ten across the facility</td>
+</tr>
+<tr>
+<td>Recalibration</td>
+<td>13 cycles, all pots</td>
+<td>Same 13 cycles; review only unusual offsets</td>
+</tr>
+<tr>
+<td>Full re-validation</td>
+<td>Quarterly, whole twin</td>
+<td>Quarterly on a <strong>risk-stratified 10 per cent sample</strong></td>
+</tr>
+<tr>
+<td>Physical changes</td>
+<td>6 a year, a form</td>
+<td>Same form, now attached to the bench-booking system</td>
+</tr>
+<tr>
+<td>Purpose question</td>
+<td>Ask the researcher</td>
+<td>Ask <strong>five researchers a quarter</strong>, across groups</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The operating bill grows sublinearly</strong>: Chapter 14's per-twin lines are
+paid three times rather than twenty, and the per-asset lines are the ones
+Sec. 15.3 converted.</p>
+<h3 id="1554-what-the-facility-gains-that-the-bench-could-not">15.5.4 What the facility gains that the bench could not</h3>
+<p>One thing, and it is worth stating because it is the only genuine upside of
+scale in this example: <strong>180 pots is a population, and a population makes
+the drought group's experiment interpretable.</strong> Chapter 7's residual spread
+of 2.0 was measured on one bench in one season; across 180 pots and four
+groups it can be measured as a distribution, and an unusual pot becomes
+detectable against its peers rather than against a threshold somebody chose.</p>
+<p><strong>That is Sec. 15.3.5's technique used for science rather than for cost</strong>,
+and it is the reason population methods survive contact with people who do
+not care about engineer-days.</p>
+<hr />
+<h2 id="156-faded-example-the-wind-farm-inside-an-energy-system">15.6 Faded example: the wind farm inside an energy system</h2>
+<p>Chapters 4 through 14 followed one turbine and then eighty. Now the farm is
+one participant in a regional energy system that also contains a grid
+operator's twin, a weather service, and two other farms. Two parts are
+worked; four are yours.</p>
+<p><strong>(a) This is the mesh case, and it is the first time in the book that it is
+-- worked.</strong> Sec. 15.4.1 said the mesh needs a reason to exist, and here it
+is: <strong>the participants belong to different organisations with no natural
+centre.</strong> The grid operator is not the farm's owner, the weather service
+sells to all of them, and the farms are competitors who must nevertheless
+coordinate curtailment.</p>
+<p>Count: five participants, so <code>5 x 4 / 2 = 10</code> bilateral agreements against 5
+standard adoptions. At Chapter 13's figures that is 40 days against 50 --
+<strong>bilateral is still cheaper at five</strong>, and Sec. 15.4.1's break-even at six
+is doing real work rather than decorating a page. <strong>The moment a sixth
+participant joins, the answer flips</strong>, and the honest planning position is
+to adopt before that rather than after.</p>
+<p><strong>(b) The composite's freshness is bounded by the weather service -- worked,
+because it is the counter-intuitive one.</strong> Sec. 15.4.3's rule 2 says a
+composite is as fresh as its stalest input. The farm's own twin runs at
+Chapter 9's three rates, the fastest of them 2 kHz. The weather input
+arrives every ten minutes at best and is a <em>forecast</em>, so its effective age
+is negative and its uncertainty dominates.</p>
+<p><strong>So a composite curtailment decision cannot be more current than ten
+minutes</strong>, no matter what the turbine twins do -- and any design that
+implies otherwise has mistaken the freshness of a component for the
+freshness of the whole. Chapter 2's age-of-twin, defined for one stream, is
+here a property of a composition.</p>
+<p>Now yours.</p>
+<p><strong>(c)</strong> Apply Sec. 15.4.3's three rules to the composite's credibility
+argument. Which component's expiry would invalidate a curtailment decision
+most quietly, and what column does Chapter 14's expiry register need?</p>
+<p><strong>(d)</strong> Sec. 15.4.2 warned that composite uncertainty is usually computed
+assuming independence. Name three ways the eighty turbines' prediction
+errors are correlated, and say what each does to the farm-level uncertainty.
+<em>Hint: Chapter 7 Sec. 7.6.1's four sources, read across assets rather than
+across time.</em></p>
+<p><strong>(e)</strong> The grid operator asks the farm to publish a trust vector
+[7]. Using Chapter 7's five-part argument, say what
+you would publish, what you would refuse to publish, and how a counterparty
+could check the parts you do publish.</p>
+<p><strong>(f)</strong> Sec. 15.4.4's data-space question, applied. Is there data here that
+cannot move, and a party who needs what it would tell them? Answer for each
+of the five participants, and say whether the answer justifies the
+arrangement.</p>
+<hr />
+<h2 id="157-posed-problem-the-fleet-proposal">15.7 Posed problem: the fleet proposal</h2>
+<p>No solution is given. It is the last posed problem in the book and it asks
+for everything.</p>
+<p><strong>The situation.</strong> A rail operator runs 1,200 passenger vehicles across four
+depots. Each vehicle has door systems, HVAC, traction and bogies, all
+instrumented to some degree. Today there is one twin: a successful
+proof-of-concept covering <strong>one vehicle</strong>, built by a small team, detecting
+door faults, with a credibility argument and a nine-month payback that the
+board liked.</p>
+<p>The board has asked for "the same thing, for the fleet", and has approved a
+budget on the assumption that it costs 1,200 times the proof-of-concept.</p>
+<p><strong>Produce a proposal of no more than six pages containing:</strong></p>
+<ol>
+<li><strong>How many twins</strong>, per Sec. 15.1.4, with the three questions answered
+   explicitly. Note that four subsystems and 1,200 vehicles do not
+   necessarily give either 4 or 1,200 or 4,800.</li>
+<li><strong>The unit conversion</strong> (Sec. 15.1.3): what the proof-of-concept's cost
+   actually contains, split into per-twin and per-asset, before any
+   multiplication.</li>
+<li><strong>The commissioning bill</strong> (Sec. 15.2.5) under the board's assumption and
+   under a population approach, with the factor stated. <strong>This is the
+   number the board's assumption gets wrong</strong>, and it is the proposal's
+   central point.</li>
+<li><strong>The scaling table</strong> (Sec. 15.2): every cost line sorted into fixed,
+   linear and worse-than-linear, with the quantity that binds first
+   identified and its arithmetic shown.</li>
+<li><strong>The population practices</strong> you would adopt (Sec. 15.3), and <strong>for each,
+   what it trades away</strong>, stated as plainly as Sec. 15.3.2 to Sec. 15.3.6
+   state theirs.</li>
+<li><strong>The alert arithmetic</strong> (Sec. 15.2.4) for 1,200 vehicles, against the
+   staffing actually available, with your ranking design and its blind spot.</li>
+<li><strong>Whether this is an ecosystem</strong> (Sec. 15.4): are there counterparties --
+   a maintenance contractor, a regulator, a leasing company, the
+   manufacturer -- and is it hub or mesh?</li>
+<li><strong>One paragraph telling the board what they got wrong</strong>, in their units
+   rather than yours, and what the corrected payback looks like.</li>
+</ol>
+<p><strong>What a good answer looks like.</strong> It does the unit conversion before
+multiplying anything, because that is where the board's error is. It reaches
+a commissioning figure that is large and defensible, and it offers the
+population alternative rather than only the objection. It says which
+quantity binds first and shows the arithmetic. It resists making the twin
+count equal the asset count. And its last paragraph is honest in Chapter 1's
+terms: <strong>a proof-of-concept's payback does not survive multiplication,
+because the numerator scales and a substantial part of the denominator was
+paid once</strong> -- which is not a reason to refuse the programme, but is the
+reason to size it properly before the board hears a number twice.</p>
+<hr />
+<h2 id="158-summary">15.8 Summary</h2>
+<p>Seven things, tied to the five objectives.</p>
+<ol>
+<li><strong>How many twins is a design decision, and it comes first</strong>
+   (Sec. 15.1). Chapter 14's operating bill is per <em>twin</em>, and the
+   demonstrator's twin covers twelve pots -- so "scale to 400 assets" is not
+   "multiply by 400" until somebody has decided there are 400 twins. Roughly
+   11.5 of Chapter 14's 17.3 days are per-twin and about 4 per-asset, which
+   means <strong>the cheapest way to cover more assets is usually to put them
+   inside one twin.</strong> The limit is the decision, not the hardware: one twin
+   cannot have two intended-use statements. <em>(Objective 1.)</em></li>
+<li><strong>Three columns, and the third is short</strong> (Sec. 15.2). Fixed: the build,
+   upgrades, the register's structure, a standard's <code>F</code>. Linear: ingest,
+   alerts, sensor events, context rows. Worse: human attention, and
+   integrations in the mesh case. <em>(Objective 2.)</em></li>
+<li><strong>Human attention is the quantity that binds first</strong> (Sec. 15.2.4). The
+   district-heating twin's 2,080 alerts a year is 208 engineer-days of
+   triage demand against about 22 available -- <strong>nine to one</strong>, which
+   explains a fact Chapter 11 reported and could not explain: the operators
+   "mostly ignore" the alerts because ignoring eight in nine is the only
+   available response. <em>(Objective 2.)</em></li>
+<li><strong>Commissioning, not operating, is what actually breaks</strong> (Sec. 15.2.5),
+   and no earlier chapter costed it. Chapter 7's per-asset work at 3
+   engineer-days times 400 assets is <strong>1,200 days, about 5.5 engineer-years
+   before anything runs</strong> -- two orders of magnitude above Chapter 14's
+   annual operating bill. Population methods take it to about 120.
+   <em>(Objective 2, 3.)</em></li>
+<li><strong>Five practices convert per-asset work into per-population work, and
+   each has a stated price</strong> (Sec. 15.3): sampled validation is blind to
+   rare conditions on unsampled assets; ranking is blind to the small
+   persistent fault; kinds-and-instances requires the relationship layer;
+   population calibration models an atypical asset <em>worse</em> while making it
+   look normal; sampled purpose questions find widespread drift and miss
+   localised drift. <strong>Naming the price is the point</strong> -- Chapter 11
+   Sec. 11.4.7's confirmation-defeats-spread-not-bias, generalised.
+   <em>(Objective 3.)</em></li>
+<li><strong>Chapter 13's rule, in the mesh case, flips</strong> (Sec. 15.4.1).
+   <code>N(N-1)/2</code> bilateral agreements against <code>N</code> adoptions gives break-even at
+   <strong>six mutually-interoperating twins</strong>, and eighty-to-one at four hundred.
+   Same rule as Chapter 13's, opposite answer, and the variable is still how
+   many people you must agree with. Most fleets are hubs and this does not
+   apply to them. <em>(Objective 4.)</em></li>
+<li><strong>A composite's credibility argument cites rather than restates, is
+   bounded by its weakest component on every axis separately, and must have
+   component expiries wired to it</strong> (Sec. 15.4.3) -- the last of which is
+   the most likely defect in any composed twin. And the honest close:
+   composing uncertainty correctly, credibility across organisations, and
+   integrating separately-built models are <strong>open problems</strong>, and five of
+   the six named obstacles to composite twins are not engineering problems
+   at all. <em>(Objectives 4, 5.)</em></li>
+</ol>
+<hr />
+<h2 id="159-the-book-closed">15.9 The book, closed</h2>
+<h3 id="1591-what-you-can-do-now">15.9.1 What you can do now</h3>
+<p>Not build a twin on your own. <strong>Hold up your end of building one</strong>, which
+was the goal stated on the first page and is a different and more useful
+thing.</p>
+<p>Concretely, and each of these is a chapter: name the decision a twin would
+serve and the metric it would move; classify what somebody is proposing and
+say whether it is a twin at all; draw the seven components and say which the
+project needs; ask a modelling expert five questions that change their
+answer; say what a simulation run costs before anybody builds it; name what
+will have to solve each part of a proposed twin and predict where the
+compute goes; demand a credibility argument and know what a good one
+contains; place machine
+learning where it belongs and refuse it where it does not; build a connector
+that does not lie to you; design a store that can answer what the twin
+believed last August; ship services with three outcomes; price a platform;
+count counterparties before adopting a standard; write an expiry register
+and cost the operating year; and decide how many twins a fleet is.</p>
+<p><strong>The through-line, if you keep one sentence from fifteen chapters:</strong></p>
+<blockquote>
+<p><strong>Derive it from the decision.</strong> Fidelity, sampling interval, accuracy
+target, service set, platform, standard, twin boundary -- every one of
+them was settled in this book by asking what decision the twin serves and
+what being wrong costs, and never by asking what was technically
+possible.</p>
+</blockquote>
+<h3 id="1592-what-this-book-did-not-teach">15.9.2 What this book did not teach</h3>
+<p>Stated plainly, because a reader who overestimates what they now know is
+worse off than before.</p>
+<p><strong>You cannot build a model.</strong> Part II was explicit and repeated: it teaches
+what each kind of model is <em>for</em>, what it costs, and what to ask. You cannot
+derive a Runge-Kutta step, mesh a finite-element problem, implement a
+particle filter, or write a Modelica library.</p>
+<p><strong>You cannot do the statistics.</strong> No Bayesian calibration, no confidence
+intervals, no sensitivity indices. Chapter 7 gave you an average, a spread,
+and a hold-out, and said so.</p>
+<p><strong>You cannot write a safety case.</strong> Chapter 7 Sec. 7.7.6 named it as a
+different artifact with a different owner and stopped there. If your twin
+closes a loop on something that can hurt someone, you need that person.</p>
+<p><strong>You have not been told which product to buy.</strong> Chapters 12 and 13 refused,
+with reasons.</p>
+<p><strong>And the numbers in this book are illustrative.</strong> The demonstrator's
+sensors, calibration values, alert rates and costs were constructed to be
+internally consistent and to teach a method. Chapters 4, 7, 8, 9, 11 and 12
+each said so at the point of use. The method transfers; the values do not.</p>
+<h3 id="1593-the-demonstrator-honestly">15.9.3 The demonstrator, honestly</h3>
+<p>The book's running example is a real physical twin: a plant-pot rig with
+sensors, pumps and a documented HTTP API, which is why Chapter 1 could
+describe its hardware from its own source rather than from an idealisation.</p>
+<p><strong>And the digital twin of it does not exist.</strong> Chapter 13 Sec. 13.5.3 said
+this in passing and it deserves saying properly at the end: the exemplar
+this book has used for fifteen chapters demonstrates <strong>what a physical twin
+looks like before anyone twins it</strong> -- which is the state most readers will
+actually meet, and the state that published exemplars usually skip.</p>
+<p>So the book ends with its own worked example unbuilt, on purpose. Every
+chapter's final exercise has been a step toward building it, and exercise
+15.10.10 is the last one.</p>
+<h3 id="1594-where-to-go">15.9.4 Where to go</h3>
+<p><strong>Read somebody else's twin.</strong> Chapter 13 Sec. 13.5.3 named three that are
+published, documented and runnable: the incubator, with a tutorial
+[11], a calibration case study [12] and a
+survey that builds the <em>same</em> case study across five frameworks
+[13]; and GreenhouseDT, built around a knowledge graph that
+records structure and its changes [2]. An
+afternoon with one of these is worth more than another book.</p>
+<p><strong>Then build the smallest thing that serves a decision.</strong> Chapter 1's method
+and Chapter 2's honest sentence -- <em>this is a digital shadow, it will tell
+you within eight hours that pot 7 stopped receiving water, it will not water
+pot 7</em> -- are the whole of a good first project.</p>
+<p><strong>And expect the second year to be the interesting one.</strong> Chapter 14 is the
+chapter most readers will need soonest and appreciate last.</p>
+<p><strong>In the literature, for this chapter and for what comes after it.</strong></p>
+<ul>
+<li><em>Scale as a research problem:</em> [14] on moving twins
+  from the artisanal to the industrial, which is the reference Chapter 1
+  parked for here and which names validation speed as the binding
+  constraint; [15]
+  on the open agenda, including at fleet scale.</li>
+<li><em>Composition, and the vocabulary around it:</em>
+  [5] on composite twins and the six
+  obstacles -- trust, interoperability, governance, ownership, security,
+  privacy; [1] on hierarchical composition as an
+  architectural capability; [16] on composability
+  as the route to enterprise scale, from Chapter 12;
+  [17] and [18] on composing twins across
+  the edge-to-cloud continuum, which Chapter 2 parked for here.</li>
+<li><em>What is unsolved:</em> [6] is the one to read --
+  nine integration challenges with a call to the community, and the
+  reference Chapter 4 parked for this chapter.</li>
+<li><em>Populations:</em> [3] on population-based structural
+  health monitoring and transfer across a fleet;
+  [4] on a calibration and updating process that
+  scales to an entire fleet; [19] on combining sources
+  of information across wind farms.</li>
+<li><em>Ecosystems and exchange:</em> [7] on machine-readable
+  trust between twins, which Chapter 7 pointed here;
+  [10], [9] and
+  [8] on cross-organisation exchange;
+  [20] on the platform view, which Chapter 3 said
+  would come back here.</li>
+<li><em>Consulted, not drawn on above:</em> [21],
+  [22] and [23] on system-level
+  and interoperability framings, and [24] on
+  distributed twin infrastructure.</li>
+</ul>
+<hr />
+<h2 id="1510-exercises">15.10 Exercises</h2>
+<p>Solutions or hints follow. Each exercise names the objective it exercises.</p>
+<p><strong>15.10.1</strong> <em>(Objective 1.)</em> For each, say how many twins and why: (a) 30
+identical air handling units in one building, all monitored for filter
+blockage; (b) the same 30 units, plus a question about total building energy
+use; (c) 30 units across six buildings owned by five different landlords;
+(d) two units that are identical hardware, one in a data centre and one in a
+concert hall.</p>
+<p><strong>15.10.2</strong> <em>(Objective 1.)</em> Chapter 14's bill was 17.3 engineer-days for a
+twin covering twelve pots. Your colleague proposes twelve twins, one per
+pot, "for cleanliness". Compute both, then give the one argument <em>for</em> their
+proposal that is not about cost.</p>
+<p><strong>15.10.3</strong> <em>(Objective 2.)</em> Sort into fixed, linear or worse: (a) the
+credibility argument's page count; (b) the number of expiry-register rows;
+(c) the time spent reviewing the register monthly; (d) the number of
+bilateral data agreements in a hub; (e) the same in a mesh; (f) the number
+of people who must remember to report a physical change.</p>
+<p><strong>15.10.4</strong> <em>(Objective 2.)</em> A fleet of 250 assets produces 6 human-facing
+alerts per asset per year. Triage is 0.15 engineer-days each. Available
+attention is half of one person. Compute demand, supply and the ratio, then
+state what must change and by how much for the service to be usable.</p>
+<p><strong>15.10.5</strong> <em>(Objective 2.)</em> Estimate the commissioning bill for 250 assets
+at Chapter 7's per-asset cost, then for a population approach, and state the
+one assumption the population figure depends on and how you would test it
+before committing.</p>
+<p><strong>15.10.6</strong> <em>(Objective 3.)</em> For each population practice, name what it
+trades away and give one situation where the trade is unacceptable:
+(a) sampled validation; (b) ranking instead of notifying; (c) population
+calibration; (d) sampled purpose questions.</p>
+<p><strong>15.10.7</strong> <em>(Objective 3.)</em> Sec. 15.3.5's step 3 flags assets with unusual
+offsets. Design the check: what counts as unusual, what a reviewer looks at,
+and what the two possible conclusions are. Then say what happens if 40 per
+cent of assets are flagged.</p>
+<p><strong>15.10.8</strong> <em>(Objective 4.)</em> Nine organisations, each with a twin, must all
+exchange with each other. With <code>I</code> = 6 and <code>F</code> = 12 engineer-days, compute
+both options. Then compute the break-even number of participants, and say
+what would make you recommend bilateral agreements anyway.</p>
+<p><strong>15.10.9</strong> <em>(Objective 4 and 5.)</em> A composite twin's claim is "the network
+will meet demand for the next six hours". Its components are 400 substation
+twins (as of 10 minutes ago), a demand forecast (issued hourly), and a
+weather feed (updated every 30 minutes). State the composite's freshness,
+its envelope, and its expiry, per Sec. 15.4.3's rule 2 -- and name one thing
+about its uncertainty you cannot state at all.</p>
+<p><strong>15.10.10</strong> <em>(Objectives 1-5, and the last exercise in the book.)</em> Build
+it. Take the plant-controller rig, or any physical thing you have access to
+that produces data and has a decision attached. Work Chapter 1's method to a
+value case, Chapter 3's anatomy to a component list, and Chapters 9 to 11 to
+a connector, a store and one service. Then write Chapter 7's credibility
+argument and Chapter 14's expiry register for what you built. <strong>If the value
+case fails, stop -- and that is a successful outcome</strong>, because Chapter 1
+Sec. 1.7 said so and it cost you an afternoon instead of six months.</p>
+<h3 id="solutions-and-hints">Solutions and hints</h3>
+<p><strong>15.10.1.</strong> (a) One twin, 30 bindings -- same decision, near-identical
+assets. (b) <strong>Two</strong>, or one twin plus a composite: the building-energy
+question is a different question about a different thing, per
+Sec. 15.1.4's third test. (c) <strong>At least two considerations collide</strong>: the
+decision is the same, so technically one twin would serve -- but five
+landlords means five counterparties, five sets of access rules and possibly
+five credibility arguments, so the <em>organisational</em> boundary forces the
+split even though the engineering does not. This is the exercise's point.
+(d) <strong>Two twins.</strong> Identical hardware, entirely different operating
+envelopes and therefore different models, different thresholds and different
+consequences of failure. Sec. 15.1.3's limit is about the decisions and the
+conditions, not the parts.</p>
+<p><strong>15.10.2.</strong> One twin: 17.3 days. Twelve twins: the per-twin lines (about 11
+days) are paid twelve times, so roughly <code>12 x 11 + 6 = 138</code> days -- about
+eight times more. <strong>The argument for it that is not about cost:</strong> twelve
+twins can be retired, re-scoped or re-validated independently. If one pot
+joins a different experiment (Sec. 15.5.1's drought group), a per-pot twin
+follows it and a shared twin has to be split. <strong>Optionality has a price and
+here it is eight times the operating cost</strong>, which is a fine thing to
+decline explicitly.</p>
+<p><strong>15.10.3.</strong> (a) Fixed -- Chapter 7's two pages describe a claim, and a
+fleet claim is still two pages. (b) Linear -- more assets, more rows. (c)
+<strong>Fixed</strong>, and this is the useful one: the monthly review reads <em>categories</em>
+of row, not rows. Design it that way and it stays fixed. (d) Linear. (e)
+Worse -- <code>N(N-1)/2</code>. (f) Linear in people, and Sec. 15.2.4's honourable
+mention: the detection mechanism does not improve with <code>N</code>, so the failure
+rate per event is roughly constant and the absolute number of missed changes
+grows.</p>
+<p><strong>15.10.4.</strong> Demand: <code>250 x 6 x 0.15 = 225</code> engineer-days. Supply: half a
+person is about 110 days, though realistically far less is spent on triage
+-- take 30 days as the honest figure. <strong>Ratio about 7 to 1.</strong> What must
+change: the alert count, by roughly a factor of seven, and Sec. 15.3.3 says
+the only lever that reduces <em>volume</em> rather than improving the ratio is to
+stop notifying per asset. A top-ten daily list is about 2,500 items a year
+seen, of which the operator works whatever they can -- <strong>note that this
+does not reduce the alerts, it reduces the ones a human is asked to look
+at</strong>, and the difference matters for the credibility argument.</p>
+<p><strong>15.10.5.</strong> <code>250 x 3 = 750</code> engineer-days, about 3.4 engineer-years.
+Population: <code>20 + 250 x 0.25 = 82.5</code> days, plus review of the unusual, so
+about 95 -- a factor of about eight. <strong>The assumption:</strong> that the 250 assets
+form a population, meaning a model fitted across them with per-asset offsets
+predicts each about as well as a per-asset fit would. <strong>How to test it
+before committing:</strong> commission ten assets the expensive way, fit a
+population model on those ten, and compare the population-plus-offset
+predictions against the individually-fitted ones on held-out windows. That
+costs 30 days and settles a 650-day question.</p>
+<p><strong>15.10.6.</strong> (a) Trades away detection of rare-condition failures on
+unsampled assets; unacceptable where a rare condition is the dangerous one
+-- a flood-defence asset validated only in dry weather. (b) Trades away the
+small persistent fault; unacceptable where slow degradation is the failure
+mode you are paid to catch, which is most predictive maintenance. (c) Trades
+away accuracy on atypical assets <em>while making them look normal</em>;
+unacceptable where the atypical asset is the important one -- the oldest
+unit, the one in the harshest location. (d) Trades away localised drift;
+unacceptable where one user's misuse is high-consequence, such as a single
+clinician using a population tool for an individual decision.</p>
+<p><strong>15.10.7.</strong> Unusual: the offset falls outside the bulk of the population's
+offsets -- Chapter 7's <em>spread</em>, applied across assets rather than across
+time, with a stated multiple. What the reviewer looks at: the asset's raw
+data and its context row, in that order. <strong>The two conclusions are the whole
+point</strong>: either the asset is genuinely different, in which case it needs its
+own parameters and possibly its own model, or the data is wrong, in which
+case it is a Chapter 9 problem. If 40 per cent are flagged, <strong>the population
+assumption has failed</strong> -- these are not one population, and the right
+response is to look for the natural sub-populations in the context model
+(vintage, location, supplier) rather than to loosen the threshold.</p>
+<p><strong>15.10.8.</strong> Bilateral: <code>9 x 8 / 2 = 36</code> agreements, <code>36 x 6 = 216</code>
+engineer-days. Standard: <code>9 x 12 = 108</code> days. <strong>Standard wins by two to
+one.</strong> Break-even: <code>N(N-1)/2 x 6 = N x 12</code>, so <code>(N-1) x 3 = 12</code>, <code>N = 5</code>.
+What would make you recommend bilateral anyway: <strong>if only a few of the 36
+pairs actually need to exchange anything.</strong> The mesh arithmetic assumes
+everyone talks to everyone, and Sec. 15.4.1 warned that most fleets are
+hubs. Count the pairs that genuinely exchange before believing 36.</p>
+<p><strong>15.10.9.</strong> Freshness: <strong>bounded by the hourly demand forecast</strong>, so the
+composite is at best an hour old regardless of the substations' ten minutes
+-- and Sec. 15.6(b) is the same finding on a different system. Envelope: the
+intersection of the three components' envelopes, which is narrower than any
+of them and is a different set of conditions from each. Expiry: the earliest
+of the three, and it is probably the weather feed's. <strong>What you cannot state
+about its uncertainty:</strong> how correlated the 400 substation errors are.
+They share weather, share a calibration procedure and share suppliers, so
+they are certainly not independent -- and without knowing the correlation
+you cannot combine 400 individual ranges into a network range at all.
+Sec. 15.4.2 named this and Sec. 15.4.5 lists it as unsolved.</p>
+<p><strong>15.10.10.</strong> No solution, and no hint. This is the book's last exercise and
+it is the only one whose output is a system rather than a document. <strong>The
+most likely outcome is that you stop at Chapter 1's value case, and that is
+the outcome this book most wants for you</strong> -- because an afternoon that
+prevents six months is the highest-return thing in these fifteen chapters,
+and it is available to you now in a way it was not before you started.</p>
+<hr />
+<h2 id="references">References</h2>
+<p>[1] M. Martinelli, J. Zhang, A.-K. Splettstoer, M. Picone, M. Lippi, and A. Wortmann, "Hierarchical Digital Twin Ecosystem for Industrial Manufacturing Scenarios," in <em>2024 50th Euromicro Conference on Software Engineering and Advanced Applications (SEAA)</em>, pp. 56-63, 2024.</p>
+<p>[2] E. Kamburjan et al., "GreenhouseDT: An Exemplar for Digital Twins," in <em>Proceedings of the 19th International Symposium on Software Engineering for Adaptive and Self-Managing Systems</em>, pp. 175-181, Association for Computing Machinery, 2024.</p>
+<p>[3] P. Gardner, L. A. Bull, J. Gosliga, N. Dervilis, and K. Worden, "Foundations of population-based SHM, Part III: Heterogeneous populations - Mapping and transfer," <em>Mechanical Systems and Signal Processing</em>, vol. 149, p. 107142, 2021.</p>
+<p>[4] M. G. Kapteyn, J. V. R. Pretorius, and K. E. Willcox, "A probabilistic graphical model foundation for enabling predictive digital twins at scale," <em>Nature Computational Science</em>, vol. 1, no. 5, pp. 337-347, Nature Publishing Group, 2021.</p>
+<p>[5] P. Kuruppuarachchi, S. Rea, and A. McGibney, "An architecture for composite digital twin enabling collaborative digital ecosystems," in <em>2022 IEEE 25th International Conference on Computer Supported Cooperative Work in Design (CSCWD)</em>, pp. 980-985, IEEE, 2022.</p>
+<p>[6] B. Combemale et al., "On the Challenges of Integrating Digital Twins," in <em>2nd International Conference on Engineering Digital Twins (EDTconf 2025)</em>, 2025.</p>
+<p>[7] <em>Assuring Trustworthiness in Dynamic Systems Using Digital Twins and Trust Vectors</em>, Digital Twin Consortium, 2024.</p>
+<p>[8] J. M. Bernabe Murcia, E. Canovas, J. Garcia-Rodriguez, A. M. Zarca, and A. Skarmeta, "Decentralised Identity Management solution for zero-trust multi-domain Computing Continuum frameworks," <em>Future Generation Computer Systems</em>, vol. 162, p. 107479, 2025.</p>
+<p>[9] K. Gleich, S. Behrendt, M. Horger, M. Benfer, and G. Lanza, "An Asset Administration Shell-Based Digital Product Passport as a Gaia-X Service," <em>Procedia CIRP</em>, vol. 127, pp. 224-229, 2024.</p>
+<p>[10] P. Singh, N. .., M. Beliatis, and M. Presser, "Data-Driven IoT Ecosystem for Cross Business Growth: An Inspiration Future Internet Model with Dataspace at the Edge," <em>INTERNET 2024 :</em>, 2024.</p>
+<p>[11] C. Gomes et al., "Digital Twin Tutorial: The Incubator Case Study," in <em>Engineering Trustworthy Software Systems: 6th International School, SETSS 2024, Chongqing, China, April 14-21, 2024, Tutorial Lectures</em>, pp. 68-101, Springer Nature, 2025.</p>
+<p>[12] B. J. Oakes et al., "Case Studies in Digital Twins," in <em>The Engineering of Digital Twins</em>, pp. 257-310, Springer International Publishing, 2024.</p>
+<p>[13] S. Gil, P. H. Mikkelsen, C. Gomes, and P. G. Larsen, "Survey on open-source digital twin frameworks-A case study approach," <em>Software: Practice and Experience</em>, vol. 54, no. 6, pp. 929-960, 2024.</p>
+<p>[14] S. A. Niederer, M. S. Sacks, M. Girolami, and K. Willcox, "Scaling digital twins from the artisanal to the industrial," <em>Nature Computational Science</em>, vol. 1, no. 5, pp. 313-320, Nature Publishing Group, 2021.</p>
+<p>[15] <em>Foundational Research Gaps and Future Directions for Digital Twins</em>, National Academies Press, 2024.</p>
+<p>[16] P. van Schalkwyk and D. Isaacs, "Achieving Scale Through Composable and Lean Digital Twins," in <em>The Digital Twin</em>, pp. 153-180, Springer International Publishing, 2023.</p>
+<p>[17] A. Barbone, S. Burattini, M. Martinelli, M. Picone, A. Ricci, and A. Virdis, "Digital Twin Continuum: a Key Enabler for Pervasive Cyber-Physical Environments," in <em>2024 33rd International Conference on Computer Communications and Networks (ICCCN)</em>, pp. 1-9, 2024.</p>
+<p>[18] M. S. Gill, J. Zhang, A. Wortmann, and A. Fay, "Toward Automating the Composition of Digital Twins Within System-of-Systems," in <em>2024 IEEE 29th International Conference on Emerging Technologies and Factory Automation (ETFA)</em>, pp. 1-4, 2024.</p>
+<p>[19] L. A. Bull et al., "Data-Centric Monitoring of Wind Farms: Combining Sources of Information," in <em>Data Driven Methods for Civil Structural Health Monitoring and Resilience</em>, CRC Press, 2023.</p>
+<p>[20] P. Talasila, P. H. Mikkelsen, S. Gil, and P. G. Larsen, "Realising Digital Twins," in <em>The Engineering of Digital Twins</em>, pp. 225-256, Springer International Publishing, 2024.</p>
+<p>[21] H. Marah and M. Challenger, "(Re-)Engineering Digital Twins Towards Federation: Vision and Roadmap," in <em>Leveraging Applications of Formal Methods, Verification and Validation. Software Engineering Methodologies</em>, pp. 60-81, Springer Nature Switzerland, 2025.</p>
+<p>[22] A. Budiardjo and D. Migliori, <em>Digital twin system interoperability framework</em>, Tech. rep. Digital Twin Consortium, East Lansing, Michigan, 2021.</p>
+<p>[23] E. Altamiranda, "A System of Systems Foundation for Digital Asset Lifecycle Management," in <em>Digital Twin: Fundamentals and Applications</em>, pp. 59-87, Springer Nature Switzerland, 2024.</p>
+<p>[24] D. McKee and D. Dokter, "DISCS: An Approach for Accelerating the Development of Digital Twins for Smart Cities," in <em>Digital Twin: Fundamentals and Applications</em>, pp. 31-58, Springer Nature Switzerland, 2024.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Prasad Talasila
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.tabs.sticky", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

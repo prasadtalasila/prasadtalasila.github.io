@@ -1,0 +1,3589 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home page of Prasad Talasila">
+      
+      
+        <meta name="author" content="Prasad Talasila">
+      
+      
+        <link rel="canonical" href="https://prasad.talasila.in/writings/chitragupta/books/Digital-Twins-for-Software-Engineers/chapters/07-should-you-trust-the-twin.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 7 -- Should You Trust the Twin? Calibration, Credibility, and V&V - Prasad Talasila</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/course-tables.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-7-should-you-trust-the-twin-calibration-credibility-and-vv" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../../index.html" title="Prasad Talasila" class="md-header__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prasad Talasila
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 7 -- Should You Trust the Twin? Calibration, Credibility, and V&amp;V
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../research.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Research
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../projects.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../software.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../courses.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Courses
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../writings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Writings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../contact.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../../index.html" title="Prasad Talasila" class="md-nav__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.png" alt="logo">
+
+    </a>
+    Prasad Talasila
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../research.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../software.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../courses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../writings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../contact.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#70-before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.0 Before you start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.0 Before you start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning objectives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#71-trust-is-not-a-property-of-a-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Trust is not a property of a model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.1 Trust is not a property of a model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#711-the-question-that-does-have-an-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1.1 The question that does have an answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#712-how-much-evidence-you-owe-depends-on-what-the-twin-may-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1.2 How much evidence you owe depends on what the twin may do
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#713-why-this-is-a-software-engineers-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1.3 Why this is a software engineer's problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-four-questions-hiding-in-one-word" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Four questions hiding in one word
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2 Four questions hiding in one word">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#721-a-table-you-can-hang-on-a-wall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2.1 A table you can hang on a wall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#722-the-ordering-trap-which-is-the-one-to-remember" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2.2 The ordering trap, which is the one to remember
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-verification-the-part-that-is-ordinary-software-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Verification: the part that is ordinary software engineering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.3 Verification: the part that is ordinary software engineering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#731-three-layers-and-they-fail-differently" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3.1 Three layers, and they fail differently
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#732-numerical-error-is-not-the-model-reality-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3.2 Numerical error is not the model-reality gap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#733-golden-trajectories-and-comparing-model-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3.3 Golden trajectories, and comparing model versions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#734-reproducibility-is-a-precondition-not-an-achievement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3.4 Reproducibility is a precondition, not an achievement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#735-what-to-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3.5 What to ask
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#74-calibration-getting-the-numbers-out-of-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Calibration: getting the numbers out of the data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.4 Calibration: getting the numbers out of the data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#741-fitting-k-by-hand-from-six-nights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4.1 Fitting k, by hand, from six nights
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#742-fitting-g-and-why-the-two-campaigns-look-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4.2 Fitting g, and why the two campaigns look different
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#743-the-cost-function-is-a-choice-and-it-is-your-business" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4.3 The cost function is a choice, and it is your business
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#744-identifiability-when-the-data-cannot-tell-two-answers-apart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4.4 Identifiability: when the data cannot tell two answers apart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#745-hold-out-the-test-that-finds-what-the-fit-hid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4.5 Hold-out: the test that finds what the fit hid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#746-when-an-extra-parameter-is-earned-and-what-it-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4.6 When an extra parameter is earned, and what it costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#747-calibration-is-not-a-one-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4.7 Calibration is not a one-off
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#748-what-to-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4.8 What to ask
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#75-validation-does-it-match-a-reality-it-has-not-seen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 Validation: does it match a reality it has not seen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.5 Validation: does it match a reality it has not seen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#751-the-rule-and-the-three-ways-teams-get-around-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5.1 The rule, and the three ways teams get around it
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#752-how-close-is-close-enough-derive-it-from-the-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5.2 How close is close enough? Derive it from the decision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#753-establishing-the-validity-envelope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5.3 Establishing the validity envelope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#754-what-would-count-against-it-the-falsifiability-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5.4 What would count against it? The falsifiability question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#755-validating-a-model-whose-parameters-mean-nothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5.5 Validating a model whose parameters mean nothing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#756-what-cannot-be-validated-and-saying-so" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5.6 What cannot be validated, and saying so
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#757-what-to-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5.7 What to ask
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#76-uncertainty-how-wrong-might-it-be" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 Uncertainty: how wrong might it be
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.6 Uncertainty: how wrong might it be">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#761-four-sources-in-plain-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6.1 Four sources, in plain words
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#762-what-monte-carlo-can-and-cannot-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6.2 What Monte Carlo can and cannot do
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#763-reporting-a-prediction-and-the-double-counting-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6.3 Reporting a prediction, and the double-counting trap
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#77-the-credibility-argument-what-you-actually-deliver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7 The credibility argument: what you actually deliver
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.7 The credibility argument: what you actually deliver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#771-five-parts-and-a-document-that-fits-on-two-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7.1 Five parts, and a document that fits on two pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#772-expiry-is-the-part-that-makes-it-a-twin-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7.2 Expiry is the part that makes it a twin document
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#773-the-record-the-argument-depends-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7.3 The record the argument depends on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#774-monitors-that-keep-the-argument-alive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7.4 Monitors that keep the argument alive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#775-the-contract-clause" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7.5 The contract clause
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#776-what-this-document-is-not-the-safety-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7.6 What this document is not: the safety case
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#78-worked-example-the-credibility-argument-for-the-greenhouse-twin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8 Worked example: the credibility argument for the greenhouse twin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.8 Worked example: the credibility argument for the greenhouse twin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#781-fix-the-intended-use-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8.1 Fix the intended use first
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#782-verification-in-an-afternoon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8.2 Verification, in an afternoon
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#783-calibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8.3 Calibration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#784-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8.4 Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#785-the-two-page-argument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8.5 The two-page argument
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#786-what-this-cost-and-the-point-of-the-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8.6 What this cost, and the point of the section
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#79-faded-example-the-offshore-turbine-trusted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.9 Faded example: the offshore turbine, trusted
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#710-posed-problem-the-vv-plan-for-a-pumping-station" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.10 Posed problem: the V&amp;V plan for a pumping station
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#711-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.11 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#712-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.12 Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.12 Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solutions-and-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solutions and hints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#713-where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.13 Where to go next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-7-should-you-trust-the-twin-calibration-credibility-and-vv">Chapter 7 -- Should You Trust the Twin? Calibration, Credibility, and V&amp;V</h1>
+<h2 id="70-before-you-start">7.0 Before you start</h2>
+<p><strong>Where we are.</strong> This is the fourth chapter of Part II, and it is the
+chapter every previous chapter has been writing cheques against. Chapter 1 said
+credibility is what the top value rung costs. Chapter 2 said credibility
+evidence is optional for a shadow and mandatory for a twin. Chapter 3 said
+the audit record it would require is unrecoverable if you did not write it
+at the time. Chapter 4 gave you two parameters and told you the real ones
+come from fitting. Chapter 5 told you a reproducible run can still be wrong.
+Chapter 6 said, in print, that this was the last time the book would defer
+it.</p>
+<p>Fifteen deferrals come due here. They are listed in this chapter's dossier,
+and every one of them has a section.</p>
+<p><strong>The register, stated plainly, because it is the whole design of the
+chapter.</strong> This chapter teaches how to decide whether to believe a twin, and
+how to write the argument down so that somebody else can check it. <strong>It
+teaches no estimation theory.</strong> You will finish unable to derive a
+least-squares estimator, run a Bayesian calibration, or compute a
+sensitivity index. What you will be able to do is calibrate a two-parameter
+model by hand from a table, design a hold-out test, read residuals well
+enough to tell a broken model from a noisy sensor, set an alert threshold
+that a business sponsor can defend, notice when your data cannot tell two
+parameter sets apart, and write the five-part document that a regulator, a
+customer or an incident review will actually ask for.</p>
+<p><strong>What you are assumed to know.</strong> Everything so far. Especially: Chapter 1's
+value metric and its fidelity principle; Chapter 2's data-flow test and what
+changes when you close the loop; Chapter 3's seven components, in particular
+the store, the model registry and the actuation guard; Chapter 4's pot model
+with its parameters <code>k</code> and <code>g</code>, and its assumption ledger A1 to A5; Chapter
+5's step size <code>h</code>, sampling interval <code>Ts</code>, and the difference between
+numerical error and being wrong about the world; Chapter 6's estimator gain
+and the <code>1/sqrt(N)</code> cost law.</p>
+<p><strong>The maths budget.</strong> Same as Chapter 6: no derivatives, no integrals, no
+matrices, no probability notation, no named distributions. The chapter uses
+exactly three operations on data -- an average, a <strong>spread</strong>, and a square
+root -- and computes the spread in full, by hand, once (Sec. 7.4.1). After
+that it is arithmetic and tables.</p>
+<p><strong>What this chapter deliberately does not cover.</strong> Estimation and
+optimisation theory: no least-squares derivation, no gradient descent, no
+Bayesian machinery, no sensitivity indices. Each is named where you would
+meet the word, and pointed at. Machine-learning risk in its own right --
+Chapter 8; Sec. 7.5.5 covers only what changes about the <em>argument</em> when the
+model is learned. Provenance plumbing -- Chapter 10. Monitoring as a service
+-- Chapter 11. Standards in depth -- Chapter 13. The operational loop that
+re-validates a twin in production -- Chapter 14; this chapter owes you the
+<em>criterion</em> for when belief expires, not the cron job that acts on it. The
+safety case -- named in Sec. 7.7.6 as a different artifact with a different
+owner.</p>
+<p><strong>One warning about the data.</strong> The demonstrator's numbers in this chapter
+are constructed, not measured. There is a real plant-pot-and-pump rig behind
+this book, but no calibration campaign has been run on it and this chapter
+invents none. Chapter 4 was equally explicit about its own numbers being
+illustrative. Everything about the <em>method</em> transfers; the specific values
+do not, and Sec. 7.12's last exercise is to go and get real ones.</p>
+<h3 id="learning-objectives">Learning objectives</h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol>
+<li><strong>Distinguish</strong> verification, validation, calibration and uncertainty
+   quantification, and <strong>classify</strong> a given activity, complaint or contract
+   clause as belonging to one of them.</li>
+<li><strong>Calibrate</strong> a two-parameter model from a table of observations,
+   <strong>report</strong> each parameter as a value with a spread, and <strong>detect</strong> when a
+   body of data cannot tell two parameter sets apart.</li>
+<li><strong>Design</strong> a hold-out test, <strong>read</strong> its residuals to separate bias from
+   noise, and <strong>decide</strong> whether an observed bias justifies adding a
+   parameter.</li>
+<li><strong>Derive</strong> an alert threshold and the smallest fault it can catch from
+   the model-reality gap and Chapter 1's value metric, and <strong>separate</strong> that
+   gap from Chapter 5's numerical error.</li>
+<li><strong>Write</strong> a credibility argument with its five required parts, including
+   a validity envelope and the conditions under which the argument expires.</li>
+</ol>
+<hr />
+<h2 id="71-trust-is-not-a-property-of-a-model">7.1 Trust is not a property of a model</h2>
+<p>The chapter title asks the wrong question, deliberately, because it is the
+question you will be asked. "Should you trust the twin?" has no answer. It
+is the same shape as "is this code correct?" -- correct <em>for what</em>, against
+<em>which specification</em>, under <em>which inputs</em>.</p>
+<h3 id="711-the-question-that-does-have-an-answer">7.1.1 The question that does have an answer</h3>
+<p>Replace it with this one:</p>
+<blockquote>
+<p><strong>May this twin's output be used to make this decision, in these
+conditions, given this evidence?</strong></p>
+</blockquote>
+<p>Four qualifications, and dropping any of them turns the question back into
+one nobody can answer.</p>
+<p><em>This twin's output.</em> Not "the twin". A twin computes several things. The
+demonstrator's fault detector compares an expected watering step against an
+observed one; its what-if service predicts a reading twelve hours ahead.
+Those are different claims with different evidence, and one can be sound
+while the other is not. In the literature this is put as the requirement
+that a measure of confidence be provided for the <em>outputs and predictions</em>,
+which in turn requires the sources of uncertainty in them to have been
+identified [1]. Outputs, plural.</p>
+<p><em>This decision.</em> Chapter 1's value metric decides how good is good enough,
+and Sec. 1.8.6 already derived a fidelity requirement from it. A model
+accurate to plus or minus 30 reading units is useless for scheduling doses
+to a target moisture and entirely adequate for noticing that a pump did not
+run. Same model, same accuracy, two verdicts, because two decisions.</p>
+<p><em>These conditions.</em> Chapter 4 Sec. 4.7 called this the validity envelope and
+was explicit that stating one is not establishing one. Establishing it is
+Sec. 7.5.3's job.</p>
+<p><em>This evidence.</em> Written down, checkable by somebody who was not there.
+Sec. 7.7 is the format.</p>
+<h3 id="712-how-much-evidence-you-owe-depends-on-what-the-twin-may-do">7.1.2 How much evidence you owe depends on what the twin may do</h3>
+<p>This is the single most useful principle in the chapter, and it comes
+straight out of Chapter 1's ladder of value patterns.</p>
+<table>
+<thead>
+<tr>
+<th>Chapter 1 pattern</th>
+<th>What a wrong answer costs</th>
+<th>Evidence typically owed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monitor</td>
+<td>A misleading number on a screen; a human notices</td>
+<td>Verification, plus a sanity check against measurements</td>
+</tr>
+<tr>
+<td>Diagnose</td>
+<td>A false alarm, or a missed fault</td>
+<td>Calibration, a hold-out test, a stated threshold and its miss rate</td>
+</tr>
+<tr>
+<td>Predict</td>
+<td>A decision made early on a bad forecast</td>
+<td>All of the above, plus a stated range on the prediction and an envelope</td>
+</tr>
+<tr>
+<td>Decide (advisory)</td>
+<td>A human acts on a bad recommendation</td>
+<td>All of the above, plus the record of what the twin believed when it advised</td>
+</tr>
+<tr>
+<td>Decide (closed loop)</td>
+<td>The twin acts. Chapter 2 Sec. 2.8's world</td>
+<td>All of the above, plus fail-safe behaviour, runtime envelope checks, and a safety argument that is not this document</td>
+</tr>
+</tbody>
+</table>
+<p>The formal name for reading a table like that is <strong>risk-informed
+credibility</strong>: the depth of the assessment is set by the consequence of
+being wrong, not by how much rigour the team enjoys. It is the organising
+idea of ASME VV-40, the standard the medical-device world uses for exactly
+this purpose [2], and Chapter 13 is where standards
+get their own treatment. What matters here is the direction of the
+inference. <strong>You do not decide how much V&amp;V to do and then see what the twin
+may be allowed to do. You decide what the twin is allowed to do, and that
+tells you the bill.</strong></p>
+<p>The reverse mistake is the expensive one. A team that validates to
+aerospace depth a twin whose only job is to colour a dashboard has spent six
+months buying nothing. A team that closes the loop on the strength of "the
+model looked good in the notebook" has bought a liability.</p>
+<h3 id="713-why-this-is-a-software-engineers-problem">7.1.3 Why this is a software engineer's problem</h3>
+<p>Three reasons, and none of them are that you will fit the parameters.</p>
+<p><strong>The evidence is mostly infrastructure.</strong> Every test in this chapter needs
+data the model has not seen, held with its timestamps, its units, its
+sensor identity and its version metadata intact. That is Chapter 3's store
+and Chapter 10's data engineering. A modelling expert who asks for two weeks
+of held-out readings and gets a spreadsheet with the times rounded to the
+hour cannot do their job, and will not always tell you why.</p>
+<p><strong>The claim expires, and something has to notice.</strong> A twin is not validated
+once. The literature is explicit that validation of a twin differs from
+classical simulation validation exactly here: in classical practice a model
+is calibrated, then validated, then considered finished, whereas a twin's
+model must be <em>continually</em> re-checked against a system that changes, with
+recalibration triggered when it no longer matches [3]. The
+thing that notices is a monitor you build.</p>
+<p><strong>The argument is a deliverable with a filename.</strong> Chapter 2 Sec. 2.11 asked
+you to write a contract clause and pointed out that a term nobody can check
+is not a term. Sec. 7.7.5 is the clause. Somebody has to own the document,
+version it, and fail a release when it is stale. In practice that is the
+same person who owns the model registry, and that is you.</p>
+<hr />
+<h2 id="72-four-questions-hiding-in-one-word">7.2 Four questions hiding in one word</h2>
+<p>People say "we validated the model" to mean at least four different things.
+Separating them is worth doing once, carefully, because the four have
+different inputs, different owners and a <strong>mandatory ordering</strong> that teams
+get wrong.</p>
+<blockquote>
+<p><strong>Verification</strong> -- did we build the model <em>right</em>? Does the code
+implement the equations somebody intended, with solver settings adequate
+to the job, and does the plumbing deliver the numbers unaltered? An
+internal question. <strong>You can answer it without measuring the physical twin
+at all.</strong></p>
+<p><strong>Calibration</strong> -- what values should the parameters have? Choosing
+numbers so that the model's output matches observed data. Also called
+parameter estimation [4].</p>
+<p><strong>Validation</strong> -- did we build the <em>right</em> model? Does it match the part
+of reality the decision depends on? An external question. <strong>Unanswerable
+without measurements the model has not already been fitted to.</strong></p>
+<p><strong>Uncertainty quantification (UQ)</strong> -- how wrong might the answer be, and
+from which causes?</p>
+</blockquote>
+<p>The standard shorthand bundles all four as <strong>VVUQ</strong>, and it is the term you
+will meet in procurement documents and standards gap analyses -- ISO 23247,
+the manufacturing digital-twin framework standard, is criticised in exactly
+these words for not covering it [5]. The formal
+definitions are old and stable: verification is the check that the
+programmed model is a correct implementation of the conceptual model,
+performed before any parameter is fitted [3].</p>
+<h3 id="721-a-table-you-can-hang-on-a-wall">7.2.1 A table you can hang on a wall</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Verification</th>
+<th>Calibration</th>
+<th>Validation</th>
+<th>UQ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Question</td>
+<td>Did we build it right?</td>
+<td>What are the numbers?</td>
+<td>Did we build the right thing?</td>
+<td>How wrong might it be?</td>
+</tr>
+<tr>
+<td>Compares</td>
+<td>Code against intent</td>
+<td>Model against fitting data</td>
+<td>Model against <strong>unseen</strong> data</td>
+<td>Answer against its own error budget</td>
+</tr>
+<tr>
+<td>Needs measurements?</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes, and different ones</td>
+<td>Yes, from the two before it</td>
+</tr>
+<tr>
+<td>Typical owner</td>
+<td>You</td>
+<td>Modelling expert</td>
+<td>Both, plus whoever owns the decision</td>
+<td>Modelling expert, reported by you</td>
+</tr>
+<tr>
+<td>Fails like</td>
+<td>Wrong sign, wrong units, step too coarse</td>
+<td>Parameters that fit nothing, or fit anything</td>
+<td>Good fit, wrong predictions</td>
+<td>A confident number with no range on it</td>
+</tr>
+<tr>
+<td>Fixed by</td>
+<td>Reading code, refining the step</td>
+<td>More or better data</td>
+<td>A different model, or a smaller claim</td>
+<td>Honesty</td>
+</tr>
+</tbody>
+</table>
+<h3 id="722-the-ordering-trap-which-is-the-one-to-remember">7.2.2 The ordering trap, which is the one to remember</h3>
+<p>The four have an order: <strong>verify, then calibrate, then validate, then
+quantify.</strong> Two ways teams break it, both common enough to have symptoms.</p>
+<p><strong>Calibrating before verifying.</strong> The parameters absorb the bug. Suppose the
+code applies the watering dose at the end of the step instead of the start
+-- Chapter 5 Sec. 5.2.4 showed exactly that ambiguity, and nothing warned
+us. Fit <code>k</code> and <code>g</code> against data with that bug in place and the fitted
+values will quietly compensate for it. The fit will look <em>good</em>. Then
+somebody fixes the bug, the fit degrades, and the team concludes the fix was
+wrong. <strong>Symptom: a parameter whose fitted value changes materially when a
+piece of code that should not affect it is changed.</strong></p>
+<p><strong>Validating on the calibration data.</strong> The model was chosen to match those
+numbers. Testing it on them measures the fitting procedure, not the model.
+This is the train/test split under a different name, and every engineer who
+has trained a classifier already knows it -- the failure is not ignorance,
+it is that in modelling projects the two datasets are often the same
+expensive measurement campaign, and the temptation to use all of it for
+fitting is real. <strong>Symptom: a validation report whose accuracy figure is
+suspiciously similar to the calibration report's.</strong></p>
+<p>There is a third, subtler break, and Sec. 7.4.5 walks into it on purpose so
+that you can watch it happen: <strong>using the hold-out data to fix the model.</strong>
+The moment you do, it is no longer hold-out data, and you owe a fresh set.</p>
+<hr />
+<h2 id="73-verification-the-part-that-is-ordinary-software-engineering">7.3 Verification: the part that is ordinary software engineering</h2>
+<p>Good news first. Verification is the quarter of this chapter that needs no
+statistics, no modelling expert, and no measurement campaign. It is code
+review, tests, and version discipline, and you are already good at it.</p>
+<h3 id="731-three-layers-and-they-fail-differently">7.3.1 Three layers, and they fail differently</h3>
+<p>Chapter 6 Sec. 6.1 stacked method, algorithm, solver and simulator. For
+verification the useful stack is shorter.</p>
+<p><strong>Layer 1: the model as written.</strong> Does the code compute the equations the
+assumption ledger describes? The demonstrator's model is nine lines and
+fits in a code review, which Chapter 4 called the appeal of physics-based
+models and which is also its verification story. Things to check by reading:</p>
+<ul>
+<li><strong>Units and their scale.</strong> <code>g</code> is reading units per <em>100</em> millilitres.
+  Code that multiplies by the dose in millilitres directly is wrong by a
+  factor of a hundred, and a factor of a hundred shows up in the first plot
+  anybody draws. Code that is wrong by a factor of 1.2 does not.</li>
+<li><strong>Signs.</strong> Drying subtracts, watering adds. A sign error in a model that
+  is symmetric enough will still produce a plausible curve.</li>
+<li><strong>Event placement.</strong> Where in the step does a dose land? Chapter 5
+  Sec. 5.2.4 put it forty-five minutes early and said nothing.</li>
+<li><strong>Boundaries.</strong> What does the model do at reading 1023, the top of the
+  sensor's range? Assumption A2 says it stops being affine there. Does the
+  code know?</li>
+</ul>
+<p><strong>Layer 2: the solver and its settings.</strong> Chapter 5's <code>h</code>, or an adaptive
+solver's tolerance. Sec. 7.3.2 is entirely about this layer, because it is
+where the confusion between two different errors lives.</p>
+<p><strong>Layer 3: the plumbing.</strong> Chapter 3's connector, store and runner, between
+the sensor and the model's input. Resampling, unit conversion, timezone
+handling, gap filling, the interpolation that Chapter 5 Sec. 5.2.4 warned
+was an assumption. This layer produces the most verification defects in
+practice and gets the least attention, because it does not look like
+modelling. A twin that reads a moisture value from a store that silently
+forward-fills a two-hour sensor outage is being lied to by its own
+infrastructure, and no amount of validation will find it -- the model is
+fine.</p>
+<blockquote>
+<p><strong>A rule worth adopting.</strong> Verify each layer against the layer above it
+with the layer below held fixed. Test the model with synthetic inputs you
+constructed by hand. Test the plumbing with a constant signal whose value
+you know. Do not debug all three at once against live data, which is what
+"the twin's numbers look wrong" usually degenerates into.</p>
+</blockquote>
+<h3 id="732-numerical-error-is-not-the-model-reality-gap">7.3.2 Numerical error is not the model-reality gap</h3>
+<p>Chapter 5 promised this section three times and Chapter 6 promised it once.
+Here it is, and it is the most confused pair of quantities in the subject.</p>
+<p>There are two entirely different ways the number on the screen can differ
+from the truth.</p>
+<ul>
+<li><strong>Numerical error</strong> -- the gap between what the model <em>says</em> and what the
+  solver <em>computed</em>. Caused by step size, tolerance, event placement.
+  Belongs to verification. <strong>Measurable without any sensor.</strong></li>
+<li><strong>The model-reality gap</strong> -- the gap between what the model says and what
+  the world does. Caused by assumptions A1 to A5 being imperfect, by
+  parameters being slightly off, by the world containing things the model
+  omits. Belongs to validation. <strong>Not measurable without sensors.</strong></li>
+</ul>
+<p>They are not comparable in kind and they are routinely added together and
+called "the error".</p>
+<p><strong>The check that separates them, and it costs one afternoon.</strong> Take the
+scenario you intend to validate on. Run it at your chosen step size. Then
+run it again at half that step, and again at half of that, and watch what
+happens to the answer. Chapter 5 Sec. 5.4.2 ran exactly this experiment on
+the exponential form of the pot model -- reading falls toward a floor of
+400, time constant 48 hours, starting at 640, over 24 hours of drying with
+no watering. The exact answer, from the mathematics rather than the solver,
+is 545.6. Extending Chapter 5's table downward:</p>
+<table>
+<thead>
+<tr>
+<th><code>h</code> (hours)</th>
+<th>steps</th>
+<th>result at t = 24 h</th>
+<th>numerical error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24</td>
+<td>1</td>
+<td>520.0</td>
+<td>25.6</td>
+</tr>
+<tr>
+<td>12</td>
+<td>2</td>
+<td>535.0</td>
+<td>10.6</td>
+</tr>
+<tr>
+<td>6</td>
+<td>4</td>
+<td>540.7</td>
+<td>4.9</td>
+</tr>
+<tr>
+<td>3</td>
+<td>8</td>
+<td>543.2</td>
+<td>2.4</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>16</td>
+<td>544.4</td>
+<td>1.2</td>
+</tr>
+<tr>
+<td>0.75</td>
+<td>32</td>
+<td>545.0</td>
+<td>0.6</td>
+</tr>
+<tr>
+<td>0.375</td>
+<td>64</td>
+<td>545.3</td>
+<td>0.3</td>
+</tr>
+</tbody>
+</table>
+<p>Each halving of <code>h</code> halves the error, which is Chapter 5's first-order rule
+behaving as advertised. <strong>Now the point.</strong> Section 7.4.6 will measure this
+model's gap against reality, on data it has never seen, and get about
+<strong>2 reading units</strong>. Read that
+number back into the table:</p>
+<ul>
+<li>At <code>h</code> = 24 the numerical error is 25.6, twelve times the model-reality
+  gap. A validation run at that step size measures your step size. It says
+  nothing whatever about your model.</li>
+<li>At <code>h</code> = 3 the numerical error is 2.4, slightly <em>larger</em> than the gap you
+  are trying to measure. Still useless, and this is the dangerous row,
+  because 2.4 looks small.</li>
+<li>At <code>h</code> = 0.375 the numerical error is 0.3, about a seventh of the gap.
+  Now a validation result is about the model.</li>
+</ul>
+<blockquote>
+<p><strong>The rule.</strong> Before validating anything, drive the numerical error to a
+small fraction of the gap you expect to measure -- a fifth is a defensible
+convention. Then say in the credibility argument which step size the
+validation was run at, because the result is only valid for runs at that
+setting or finer.</p>
+</blockquote>
+<p>Two practical notes. First, run the convergence check <strong>on the scenario you
+will validate on</strong>, not on a convenient one; the table above is a 24-hour
+dry-down, and a scenario with watering events in it will behave differently
+because the events interact with the step boundaries. Second, if halving the
+step keeps changing the answer by the same amount instead of half as much,
+stop and get help: that is not convergence, and the usual causes are an
+event landing on a step boundary or the instability Chapter 5 Sec. 5.4.4
+described.</p>
+<h3 id="733-golden-trajectories-and-comparing-model-versions">7.3.3 Golden trajectories, and comparing model versions</h3>
+<p>Chapter 5 Sec. 5.6 said that Chapter 7 would want to compare model versions
+against the same scenario. This is that.</p>
+<p>A <strong>golden trajectory</strong> is a recorded scenario -- initial state, inputs,
+horizon, step size, solver identity and version -- together with the output
+the current model produces for it, checked into version control beside the
+model. It is a snapshot test, and everything you know about snapshot tests
+applies, including that they rot.</p>
+<p>Three things it buys you, in increasing order of value.</p>
+<p><strong>A regression test.</strong> A refactor of the model code that changes no
+behaviour changes no trajectory. This catches the sign error, the unit
+error, and the accidental step-size default change.</p>
+<p><strong>A diff between model versions.</strong> When the modelling expert delivers
+version 3, run version 2 and version 3 against the same golden scenarios and
+diff the outputs. You now have a sentence for the release notes: "version 3
+predicts evening readings 4 units lower on average across the twelve
+regression scenarios, and differs by more than 10 units only in the
+saturation scenario." Without golden trajectories that sentence does not
+exist, and model upgrades happen on trust.</p>
+<p><strong>A test for the change nobody declared.</strong> The most common way a twin
+degrades is that something changed which nobody thought was part of the
+model -- a library version, a default tolerance, a timezone database. A
+golden trajectory that starts failing after a dependency bump has told you
+something no other test would.</p>
+<blockquote>
+<p><strong>The discipline that makes this work, and it is not optional.</strong> A golden
+trajectory whose recorded inputs are incomplete is worse than none,
+because it fails intermittently and gets deleted. Chapter 5 Sec. 5.6
+listed what a run needs to be reproducible; the golden trajectory must
+carry all of it, including the solver version, and must be <em>handed</em> its
+inputs rather than fetching them. Chapter 5 named a runner that fetches
+instead of being handed as the commonest cause of irreproducibility, and
+it is also the commonest cause of a flaky golden test.</p>
+</blockquote>
+<p>An automated approach to this is a live research and practice area rather
+than a solved one. Work on systematic digital-twin testing for industrial
+processes builds an architecture around exactly this idea -- snapshot
+creation plus a testing agent that runs online and detects performance
+shift -- and reports that it accelerates the testing process and improves
+its reliability [6]. The multi-level testing frameworks
+being built for cyber-physical systems more generally
+[7], and the requirements-driven testing that
+carries a scenario from simulation through to the real system
+[8], are the same instinct applied at larger scale.
+Continuous-integration practice for cyber-physical systems is itself an
+uncomfortable fit, and an interview study of practitioners found the
+hardware-in-the-loop stages to be the awkward part [9]
+-- a finding a software engineer should read as permission to expect this to
+be harder than it is for a web service.</p>
+<h3 id="734-reproducibility-is-a-precondition-not-an-achievement">7.3.4 Reproducibility is a precondition, not an achievement</h3>
+<p>Chapter 5 Sec. 5.6 argued for reproducibility and then said something that
+this chapter has to finish: <strong>a seed makes a run repeatable, not correct.</strong></p>
+<p>Reproducibility buys you the ability to <em>have</em> the argument. Without it you
+cannot compare two model versions, cannot re-run last Tuesday's alert during
+the incident review, and cannot demonstrate that the number in the
+credibility argument is the number the system produces. With it you have
+none of those answers yet -- you merely have a system in which the questions
+are askable.</p>
+<p>The failure this prevents is specific and worth naming, because it is the
+one that destroys a credibility argument in a meeting. Somebody asks why the
+twin raised an alert at 17:20 on the 14th. You re-run the scenario and get
+no alert. Now the argument is not about the model at all; it is about
+whether the system can be reasoned about, and you have lost. Chapter 3's
+audit trail and Sec. 7.7.3's record exist to prevent that specific
+conversation.</p>
+<h3 id="735-what-to-ask">7.3.5 What to ask</h3>
+<ul>
+<li>Which layer is this defect in -- the model, the solver settings, or the
+  plumbing? (If nobody can say, that is the answer.)</li>
+<li>What step size or tolerance was this result produced at, and what does the
+  convergence table look like at half of it?</li>
+<li>Where are the golden trajectories, and when did one last fail?</li>
+<li>Can you re-run the run that produced this number, today, and get this
+  number?</li>
+</ul>
+<hr />
+<h2 id="74-calibration-getting-the-numbers-out-of-the-data">7.4 Calibration: getting the numbers out of the data</h2>
+<p>Chapter 4 gave the pot model two parameters, <code>k</code> and <code>g</code>, put illustrative
+values on them by reading two points off a chart, and said the real ones
+come from fitting. This section fits them.</p>
+<blockquote>
+<p><strong>Calibration.</strong> Choosing values for a model's parameters so that its
+predictions match observed data. Also called parameter estimation. It
+finds values that optimise the model's accuracy about the future evolution
+of the modelled system [4].</p>
+</blockquote>
+<p>Note what calibration is <em>not</em>. It does not change the model's structure, it
+does not test the model, and it cannot fix an assumption. A wrong model with
+well-fitted parameters is a wrong model that fits.</p>
+<h3 id="741-fitting-k-by-hand-from-six-nights">7.4.1 Fitting <code>k</code>, by hand, from six nights</h3>
+<p>Chapter 4 estimated <code>k</code> from one dry night: the reading fell from 640 to 592
+over twelve hours, so <code>k</code> = 48 / 12 = 4 reading units per hour. One
+observation, one number, no idea how good it is.</p>
+<p>A calibration campaign is that, repeated. Take six overnight windows with no
+watering, each twelve hours long, from the first week of logging. The drops,
+in reading units:</p>
+<table>
+<thead>
+<tr>
+<th>Night</th>
+<th>Reading at start</th>
+<th>Reading at end</th>
+<th>Drop</th>
+<th>Rate (drop / 12)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>640</td>
+<td>592</td>
+<td>48</td>
+<td>4.00</td>
+</tr>
+<tr>
+<td>2</td>
+<td>631</td>
+<td>589</td>
+<td>42</td>
+<td>3.50</td>
+</tr>
+<tr>
+<td>3</td>
+<td>637</td>
+<td>592</td>
+<td>45</td>
+<td>3.75</td>
+</tr>
+<tr>
+<td>4</td>
+<td>628</td>
+<td>589</td>
+<td>39</td>
+<td>3.25</td>
+</tr>
+<tr>
+<td>5</td>
+<td>641</td>
+<td>597</td>
+<td>44</td>
+<td>3.67</td>
+</tr>
+<tr>
+<td>6</td>
+<td>635</td>
+<td>589</td>
+<td>46</td>
+<td>3.83</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The estimate.</strong> Average the drops: (48 + 42 + 45 + 39 + 44 + 46) / 6 =
+264 / 6 = 44.0 reading units per night. Divide by 12 hours:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>k = 44.0 / 12 = 3.67 reading units per hour
+</code></pre></div></td></tr></table></div>
+<p><strong>The spread, computed once in full.</strong> A single number is not a calibration
+result. How much do the nights disagree? Take each drop's deviation from
+44.0, square it, add the squares, divide by one less than the count, and
+take the square root. This chapter calls the result the <strong>spread</strong>; the rest
+of the world calls it the standard deviation. (Dividing by the count rather
+than one less than it is also common and changes the answer very little;
+nothing in this chapter turns on which you use, but be consistent.)</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>deviations:   +4    -2    +1    -5     0    +2
+squares:      16     4     1    25     0     4      sum = 50
+divide by 5:  50 / 5 = 10
+spread:       square root of 10 = 3.16 reading units per night
+</code></pre></div></td></tr></table></div>
+<p>Divide by 12 hours to put it in the same units as <code>k</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>spread of k = 3.16 / 12 = 0.26 reading units per hour
+</code></pre></div></td></tr></table></div>
+<p><strong>Report both.</strong> <code>k</code> = 3.67 plus or minus 0.26 reading units per hour. The
+0.26 is not a decoration: Sec. 7.5.2 spends it, and a parameter delivered
+without one cannot be spent at all.</p>
+<p><strong>One more number, free from Chapter 6.</strong> The spread of 0.26 describes how
+much <em>one night</em> differs from the average. The uncertainty in the <em>average
+itself</em> is smaller, and shrinks with the number of nights by Chapter 6
+Sec. 6.7.3's law: divide by the square root of the count.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>uncertainty in the average = 0.26 / square root of 6 = 0.26 / 2.45 = 0.11
+</code></pre></div></td></tr></table></div>
+<p>So six nights pin the average nightly rate to about plus or minus 0.11. To
+halve that you would need twenty-four nights, which is Chapter 6's cost law
+arriving in a place you did not expect it. <strong>Note that these are two
+different quantities and confusing them is a real error:</strong> 0.26 is how much
+a night varies, 0.11 is how well you know the average. Predicting one
+night's drying uses 0.26. Arguing about whether <code>k</code> has changed since last
+month uses 0.11.</p>
+<h3 id="742-fitting-g-and-why-the-two-campaigns-look-different">7.4.2 Fitting <code>g</code>, and why the two campaigns look different</h3>
+<p><code>g</code> is the step in the reading produced by 100 millilitres. It needs a
+different experiment: a dose, and readings tight around it. Five doses of
+100 ml, each measured as the reading ten minutes after minus the reading
+just before:</p>
+<table>
+<thead>
+<tr>
+<th>Dose</th>
+<th>Step observed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>47</td>
+</tr>
+<tr>
+<td>2</td>
+<td>50</td>
+</tr>
+<tr>
+<td>3</td>
+<td>44</td>
+</tr>
+<tr>
+<td>4</td>
+<td>49</td>
+</tr>
+<tr>
+<td>5</td>
+<td>45</td>
+</tr>
+</tbody>
+</table>
+<p>Average: 235 / 5 = <strong>47.0 reading units per 100 ml</strong>.</p>
+<p>Deviations 0, +3, -3, +2, -2; squares 0, 9, 9, 4, 4, sum 26; divide by 4
+gives 6.5; square root gives a spread of <strong>2.55</strong>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>g = 47.0 plus or minus 2.55 reading units per 100 ml
+</code></pre></div></td></tr></table></div>
+<p>Chapter 4's by-eye figure was 48. The fitted figure is 47.0. That gap of 1.0
+is smaller than the spread, so nothing dramatic has happened -- but
+Sec. 7.5.2 will show that 1.0 is not free either.</p>
+<p><strong>Why the two campaigns differ, and this is the transferable part.</strong> Fitting
+<code>k</code> needed <em>long</em> windows with <em>no</em> doses. Fitting <code>g</code> needed <em>short</em>
+windows <em>around</em> doses. Neither experiment can fit the other parameter.
+That is not a coincidence, and Sec. 7.4.4 is about what happens when you
+ignore it.</p>
+<h3 id="743-the-cost-function-is-a-choice-and-it-is-your-business">7.4.3 The cost function is a choice, and it is your business</h3>
+<p>Somewhere inside every fitting procedure is a rule for what "matches the
+data" means. Above, it was: make the average residual zero. The standard
+choice is to minimise the sum of the <em>squared</em> residuals, which is what
+least squares means and what most tooling does by default
+[4]. For models where that will not work -- nonlinear
+ones -- the machinery escalates to iterative search, and in
+digital-twin practice to design-space exploration techniques including
+genetic algorithms and particle swarm optimisation, all of them defining an
+objective function that measures how well the model aligns with the
+calibration data [4].</p>
+<p>You will not choose the algorithm. You should know that the objective is a
+choice, because it encodes what you care about, and three consequences reach
+your code:</p>
+<ul>
+<li><strong>Squared residuals punish large misses hard.</strong> One badly wrong day pulls
+  the fit further than five slightly wrong days. If your data contains a
+  sensor dropout that reads 0, the fit will contort itself around it. <strong>Ask
+  what happened to the outliers.</strong></li>
+<li><strong>The objective may not be the thing the twin is for.</strong> The demonstrator's
+  value comes from detecting a <em>missing dose</em> -- a large, rare, sudden
+  event. A fit that minimises average error across all hours is optimising
+  for the ordinary hours. It is usually still the right choice, but somebody
+  should have said so out loud.</li>
+<li><strong>Weighting is available and rarely used.</strong> If evening readings matter
+  more than morning ones because the evening dose is the risky one, the fit
+  can be told. It will not guess.</li>
+</ul>
+<h3 id="744-identifiability-when-the-data-cannot-tell-two-answers-apart">7.4.4 Identifiability: when the data cannot tell two answers apart</h3>
+<p>Chapter 2 Sec. 2.3.3 said that answering "is the model faithful enough?"
+takes Chapter 7 <em>and a measurement campaign</em>. This is why the campaign is
+not optional, and it is the most expensive mistake in this chapter.</p>
+<p>Suppose that instead of the two campaigns above, you had only what the
+shipped logger already records: one reading at 09:00 and one at 21:00 each
+day, with a single 100 ml dose at 17:05 in between. Over those twelve hours
+the model says the reading falls by <code>k</code> times 12 and rises by <code>g</code> times 1.0.
+The net change is:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>net change over the day = g - 12k
+</code></pre></div></td></tr></table></div>
+<p>Suppose the observed net change averages +3.0 reading units. Now look at
+what fits:</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th><code>k</code></th>
+<th><code>g</code></th>
+<th>Predicted net change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>3.67</td>
+<td>47.0</td>
+<td>47.0 - 44.0 = 3.0</td>
+</tr>
+<tr>
+<td>B</td>
+<td>3.00</td>
+<td>39.0</td>
+<td>39.0 - 36.0 = 3.0</td>
+</tr>
+<tr>
+<td>C</td>
+<td>4.50</td>
+<td>57.0</td>
+<td>57.0 - 54.0 = 3.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>All three fit the data exactly equally well.</strong> There are infinitely many
+more. The daily data cannot distinguish them, and no cleverer fitting
+algorithm will help, because the information is not in the data. The
+parameter pair is <strong>unidentifiable</strong> from this body of observations.</p>
+<blockquote>
+<p><strong>Identifiable.</strong> A parameter set is identifiable from a body of data if
+no <em>other</em> parameter set fits that data about as well.</p>
+</blockquote>
+<p><strong>Why this is not an academic worry.</strong> The three candidates agree on the
+daily total and disagree violently about the thing the twin exists to
+compute. The expected step from the evening's 120 ml dose is <code>g</code> times 1.2:</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Expected step from 120 ml</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>47.0 x 1.2 = 56.4</td>
+</tr>
+<tr>
+<td>B</td>
+<td>39.0 x 1.2 = 46.8</td>
+</tr>
+<tr>
+<td>C</td>
+<td>57.0 x 1.2 = 68.4</td>
+</tr>
+</tbody>
+</table>
+<p>Candidates B and C differ by 21.6 reading units. Section 7.5.2 will set the
+fault-alert threshold at 9 units. A twin calibrated on daily data has a
+one-in-however-many chance of landing on a parameter pair that either alarms
+on every healthy dose or never alarms at all -- <strong>and the fit will look
+perfect either way.</strong></p>
+<p><strong>The fix is experimental design, not statistics.</strong> You separate the
+parameters by taking observations in which only one of them acts: a dry
+night with no dose isolates <code>k</code>; a reading pair tight around a dose isolates
+<code>g</code>. That is precisely what Sec. 7.4.1 and Sec. 7.4.2 did, and now you know
+why they were two campaigns instead of one.</p>
+<p><strong>Three symptoms you can spot without doing any maths.</strong></p>
+<ol>
+<li>The fitted parameters change a lot when you refit on a different week,
+   while the fit quality stays the same.</li>
+<li>Two parameters move together whenever either is changed -- raise one and
+   the fit recovers by raising the other.</li>
+<li>The modelling expert says the fit is "flat" or "the optimiser wanders".
+   That is the same fact in their vocabulary.</li>
+</ol>
+<p><strong>What to do about it.</strong> Ask for an experiment that moves one parameter's
+effect without the other's, and be prepared for the answer that it requires
+access to the physical twin you were not planning to interrupt. This is
+where model-updating practice in the field lives: structural work fits
+finite-element parameters against dedicated experimental measurement
+campaigns rather than against operational logs, precisely because
+operational data does not excite the modes that separate the parameters
+[10].</p>
+<h3 id="745-hold-out-the-test-that-finds-what-the-fit-hid">7.4.5 Hold-out: the test that finds what the fit hid</h3>
+<p>The parameters are fitted. Nothing yet suggests they predict anything. To
+find out, use data the fit never saw.</p>
+<blockquote>
+<p><strong>Hold-out.</strong> Data withheld from calibration and used only to test the
+calibrated model. The train/test split, under its modelling name.</p>
+</blockquote>
+<p><strong>Set it up honestly.</strong> Week 1 was the calibration week. Week 2 is the
+hold-out. Note something uncomfortable before starting: <code>k</code> was fitted on
+<em>nights</em>, and the prediction we care about spans a <em>day</em> -- the 7.8-hour
+window from the 09:16 dose to the 17:05 dose. Assumption A1b in Chapter 4's
+ledger anticipated exactly this, and warned that a single <code>k</code> would
+over-predict overnight drying and under-predict daytime drying. Let us see
+if it does.</p>
+<p>For each day of week 2, take the reading just after the morning dose,
+predict the reading just before the evening dose using a drop of
+3.67 x 7.8 = <strong>28.6</strong> reading units, and compare with what the sensor
+actually recorded. The residual is Chapter 1's quantity: measured minus
+predicted.</p>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Morning reading</th>
+<th>Predicted evening</th>
+<th>Measured evening</th>
+<th>Residual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>638</td>
+<td>609.4</td>
+<td>605</td>
+<td>-4.4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>642</td>
+<td>613.4</td>
+<td>606</td>
+<td>-7.4</td>
+</tr>
+<tr>
+<td>3</td>
+<td>635</td>
+<td>606.4</td>
+<td>603</td>
+<td>-3.4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>640</td>
+<td>611.4</td>
+<td>606</td>
+<td>-5.4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>644</td>
+<td>615.4</td>
+<td>612</td>
+<td>-3.4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Read the residuals, not the model.</strong> Two numbers matter and they say
+different things.</p>
+<p><em>The average residual is the bias.</em> (-4.4 - 7.4 - 3.4 - 5.4 - 3.4) / 5 =
+-24.0 / 5 = <strong>-4.8</strong>. Every single day the pot is drier than predicted, by
+about five units.</p>
+<p><em>The spread of the residuals is the noise.</em> Deviations from -4.8 are +0.4,
+-2.6, +1.4, -0.6, +1.4; squares 0.16, 6.76, 1.96, 0.36, 1.96, sum 11.2;
+divided by 4 gives 2.8; square root gives <strong>1.67</strong>.</p>
+<blockquote>
+<p><strong>Bias and spread are the two things a residual set tells you, and
+confusing them wastes weeks.</strong> A bias of -4.8 with a spread of 1.67 is a
+model that is wrong in a specific, repeatable direction -- nearly three
+times the noise. That is <em>good news</em>, because a repeatable error is
+fixable. A bias of 0.0 with a spread of 4.8 would be a model that is right
+on average and useless in particular, which is much harder to fix.</p>
+</blockquote>
+<p>Compare with what would have happened had the team shipped Chapter 4's
+by-eye <code>k</code> = 4.00. The predicted drop would be 4.00 x 7.8 = 31.2 instead of
+28.6, so every prediction sits 2.6 lower and every residual moves 2.6 higher:
+the bias becomes -4.8 + 2.6 = <strong>-2.2</strong>. Smaller. <strong>The by-eye parameter
+happens to fit the daytime data better than the carefully fitted one,
+because night 1 was the driest night in the calibration set and its rate
+accidentally sat closer to the daytime rate.</strong> That is not an argument for
+guessing. It is an argument for reading Sec. 7.4.4 again: a parameter fitted
+on the wrong experiment can be beaten by luck.</p>
+<h3 id="746-when-an-extra-parameter-is-earned-and-what-it-costs">7.4.6 When an extra parameter is earned, and what it costs</h3>
+<p>The bias has a named cause sitting in the assumption ledger. A1b: one drying
+rate for day and night. Split it.</p>
+<p>The daytime rate falls out of the hold-out week's own numbers. The measured
+drops over the 7.8-hour windows were 33, 36, 32, 34 and 32, averaging
+167 / 5 = 33.4, so:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>k_day = 33.4 / 7.8 = 4.28 reading units per hour
+</code></pre></div></td></tr></table></div>
+<p>with a spread of 1.67 / 7.8 = 0.21. The model now has three parameters:
+<code>k_night</code> = 3.67, <code>k_day</code> = 4.28, <code>g</code> = 47.0.</p>
+<p><strong>And the hold-out week is now burned.</strong> It was used to <em>fit</em> <code>k_day</code>. It
+can no longer test anything, and any accuracy figure computed on it is a
+calibration figure wearing a validation figure's clothes. This is Sec.
+7.2.2's third ordering trap, and it is a comfortable mistake to make,
+because fixing the model with the data that revealed the flaw feels like
+diligence.</p>
+<p>So: week 3, untouched, tests the three-parameter model. Predicted drop is
+4.28 x 7.8 = <strong>33.4</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Morning reading</th>
+<th>Predicted evening</th>
+<th>Measured evening</th>
+<th>Residual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>639</td>
+<td>605.6</td>
+<td>607</td>
+<td>+1.4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>641</td>
+<td>607.6</td>
+<td>605</td>
+<td>-2.6</td>
+</tr>
+<tr>
+<td>3</td>
+<td>636</td>
+<td>602.6</td>
+<td>604</td>
+<td>+1.4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>643</td>
+<td>609.6</td>
+<td>611</td>
+<td>+1.4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>637</td>
+<td>603.6</td>
+<td>602</td>
+<td>-1.6</td>
+</tr>
+</tbody>
+</table>
+<p>Bias: (1.4 - 2.6 + 1.4 + 1.4 - 1.6) / 5 = 0.0 / 5 = <strong>0.0</strong>. Spread:
+deviations are the residuals themselves; squares 1.96, 6.76, 1.96, 1.96,
+2.56, sum 15.2; divided by 4 gives 3.8; square root gives <strong>1.95</strong>, call it
+<strong>2.0</strong>.</p>
+<p><strong>The bias is gone and the spread is unchanged.</strong> That is what a
+well-earned parameter looks like: it removes a systematic error and does not
+merely absorb noise. Record the result, because the whole rest of the
+chapter spends it:</p>
+<blockquote>
+<p><strong>The model-reality gap for the demonstrator's day-ahead prediction is
+about 2.0 reading units, with no detectable bias, on week 3 data, at step
+size 0.375 hours.</strong></p>
+</blockquote>
+<p><strong>Now the discipline that stops this becoming a habit.</strong> Every parameter you
+add improves the fit. That is arithmetic, not evidence. A parameter is
+earned only if:</p>
+<ol>
+<li>It corresponds to a <em>named</em> row of the assumption ledger, so you can say
+   what physical thing it represents. <code>k_day</code> does; a fourth-order
+   polynomial correction does not.</li>
+<li>Removing the bias survives on data neither the original fit nor the fix
+   has seen. Week 3 did that.</li>
+<li>Somebody will maintain it. Three parameters means three things to refit
+   when the plant is repotted, and Chapter 14 owns that bill.</li>
+</ol>
+<p>Fail any of the three and you are <strong>overfitting</strong>: buying fit with
+generality. The modelling literature names it in the same breath as choosing
+network sizes, and the guard is the same one you already use, which is
+holding data back [11].</p>
+<h3 id="747-calibration-is-not-a-one-off">7.4.7 Calibration is not a one-off</h3>
+<p>Chapter 4's assumption A4 said parameters are constant over weeks, and that
+after repotting or rapid growth every prediction drifts. That makes
+recalibration a scheduled activity, not an incident.</p>
+<p>This is one of the genuine differences between validating a simulation model
+and validating a twin. In classical modelling and simulation practice the
+model is calibrated, validated once, and then generally assumed finished;
+for a twin, validation has to be <strong>continual</strong>, with recalibration triggered
+when the model stops matching the world it is attached to
+[3]. The reference twin architectures build this in: the
+incubator case study wires a calibration service into the twin itself, with
+the monitoring phase watching prediction error and the planning phase
+invoking calibration to estimate new parameters [12].</p>
+<p>Two things belong in your design because of this, and both are cheap now and
+expensive later.</p>
+<p><strong>A recalibration trigger.</strong> Not a calendar entry -- a condition on the
+residuals you are already computing. Sec. 7.7.4 states one.</p>
+<p><strong>A parameter history.</strong> Every set of fitted parameters, with the data
+window it was fitted on, who ran it, and the resulting hold-out figures.
+Chapter 3's model registry is where this lives. Without it, "the twin has
+been getting worse for a month" is unanswerable, and with it the answer is
+often a one-line diff.</p>
+<h3 id="748-what-to-ask">7.4.8 What to ask</h3>
+<ul>
+<li>Which experiment fitted each parameter, and can it fit that parameter on
+  its own?</li>
+<li>What is the spread on each fitted value?</li>
+<li>What did the objective function do with the outliers?</li>
+<li>Which data is held out, and has it stayed held out?</li>
+<li>What triggers a refit, and where is the history?</li>
+</ul>
+<hr />
+<h2 id="75-validation-does-it-match-a-reality-it-has-not-seen">7.5 Validation: does it match a reality it has not seen</h2>
+<p>Calibration made the model agree with data. Validation asks whether it
+agrees with the world. The distinction only becomes real when the data is
+different, which is why Sec. 7.4.5 exists before this section.</p>
+<h3 id="751-the-rule-and-the-three-ways-teams-get-around-it">7.5.1 The rule, and the three ways teams get around it</h3>
+<p><strong>Validation data must be data the model has not been fitted to.</strong> That is
+the whole rule. The ways around it are:</p>
+<p><em>Fitting on everything and validating on a subset of it.</em> Already covered
+(Sec. 7.2.2).</p>
+<p><em>Fitting on everything, then fixing the model using the validation results.</em>
+Covered, and demonstrated on purpose (Sec. 7.4.6).</p>
+<p><em>Validating on data from a different period that is not actually different.</em>
+Two weeks of the same fortnight, same weather, same plant, same pot, does
+not test assumption A4 at all. It tests noise. A hold-out that shares every
+condition with the calibration set validates the fit, not the model. Where
+you can, hold out a period that differs in something the envelope claims not
+to care about.</p>
+<h3 id="752-how-close-is-close-enough-derive-it-from-the-decision">7.5.2 How close is close enough? Derive it from the decision</h3>
+<p>Here is where the chapter cashes Chapter 1's fidelity principle: <em>fidelity
+is a requirement derived from the value metric, not a virtue pursued for
+itself.</em></p>
+<p>The demonstrator's decision is Chapter 1's: raise an alert when a scheduled
+dose did not deliver water. The twin computes an expected step and compares
+it with the observed one.</p>
+<p><strong>Step 1 -- what the model predicts.</strong> Evening dose is 120 ml, so the
+expected step is <code>g</code> x 1.2 = 47.0 x 1.2 = <strong>56.4</strong> reading units.</p>
+<p><strong>Step 2 -- how much a healthy dose varies.</strong> The calibration campaign's
+100 ml doses had a spread of 2.55. Scaled to 120 ml that is
+2.55 x 1.2 = 3.06, call it <strong>3.0</strong> reading units.</p>
+<p><strong>Step 3 -- choose a threshold in units of that spread.</strong> Take three
+spreads: alert when the observed step falls more than 3 x 3.0 = <strong>9.0</strong>
+units below expected, that is, whenever the observed step is below
+56.4 - 9.0 = <strong>47.4</strong>.</p>
+<p>Three spreads is a convention, not a derivation. What it buys is that
+ordinary variation rarely crosses it. What it costs is stated next, and
+stating that cost is the part teams skip.</p>
+<p><strong>Step 4 -- state the smallest fault it can catch.</strong> A shortfall of 9.0
+units out of an expected 56.4 is 9.0 / 56.4 = <strong>16 per cent</strong>. So:</p>
+<table>
+<thead>
+<tr>
+<th>Fault</th>
+<th>Water delivered</th>
+<th>Observed step</th>
+<th>Shortfall</th>
+<th>In spreads</th>
+<th>Caught?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pump did not run</td>
+<td>0 ml</td>
+<td>about 0</td>
+<td>56.4</td>
+<td>18.8</td>
+<td>Yes, unmistakably</td>
+</tr>
+<tr>
+<td>Dripper half blocked</td>
+<td>60 ml</td>
+<td>28.2</td>
+<td>28.2</td>
+<td>9.4</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>20 per cent shortfall</td>
+<td>96 ml</td>
+<td>45.1</td>
+<td>11.3</td>
+<td>3.8</td>
+<td>Yes, just</td>
+</tr>
+<tr>
+<td>10 per cent shortfall</td>
+<td>108 ml</td>
+<td>50.8</td>
+<td>5.6</td>
+<td>1.9</td>
+<td><strong>No</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 5 -- go back to Chapter 1 and ask whether the blind spot matters.</strong>
+The value metric was experiment-weeks lost to undetected watering faults. A
+10 per cent shortfall does not lose an experiment week; the plant does not
+notice and neither does the researcher. <strong>The blind spot is acceptable, and
+you can now say so in a sentence a sponsor can check</strong>: "this twin detects
+watering shortfalls of 16 per cent or worse; smaller shortfalls are not
+detected and are not expected to affect plant health."</p>
+<p>That sentence is worth more than any accuracy percentage, because it is in
+the units of the decision rather than the units of the model.</p>
+<p><strong>Step 6 -- notice what the calibration bias would have cost.</strong> Suppose the
+team had shipped Chapter 4's by-eye <code>g</code> = 48. Expected step 57.6, threshold
+at 57.6 - 9.0 = 48.6. But healthy doses actually centre on 56.4, so the
+alarm now fires whenever a dose falls 56.4 - 48.6 = 7.8 units short, which
+is 2.6 spreads instead of 3.0. <strong>A 1.0-unit calibration error in <code>g</code> -- well
+inside its own spread, and invisible in any fit-quality number -- moved the
+alarm threshold by 13 per cent and will produce false alarms nobody can
+explain.</strong> That is what Sec. 7.4.2 meant by saying the gap of 1.0 was not
+free.</p>
+<h3 id="753-establishing-the-validity-envelope">7.5.3 Establishing the validity envelope</h3>
+<p>Chapter 4 Sec. 4.7 defined the validity envelope and Sec. 4.7.2 said plainly
+that stating one is not establishing one. Establishing it means turning each
+row of the assumption ledger into a <em>tested boundary</em> or an <em>admitted
+limitation</em>. There is no third option, and the value of the exercise is that
+it forces the admission.</p>
+<table>
+<thead>
+<tr>
+<th>Ledger row</th>
+<th>Assumption</th>
+<th>How it becomes an envelope clause</th>
+<th>Established how?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td>Constant outflow rate over the interval</td>
+<td>Valid for prediction horizons up to 12 hours</td>
+<td>Tested: week 3 hold-out used 7.8-hour windows; 24-hour windows not tested</td>
+</tr>
+<tr>
+<td>A1b</td>
+<td>One rate day and night</td>
+<td>Superseded by two rates (Sec. 7.4.6)</td>
+<td>Tested and fixed</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>Reading affine in water content</td>
+<td>Valid for readings between 350 and 900</td>
+<td><strong>Not tested.</strong> Sensor datasheet claim, adopted as a stated limitation and enforced as a runtime check</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>Delivered water reaches sensed soil</td>
+<td>The twin cannot distinguish pump failure from a displaced dripper</td>
+<td><strong>Cannot be tested from data.</strong> Admitted limitation; Chapter 4 already argued the value metric tolerates it</td>
+</tr>
+<tr>
+<td>A4</td>
+<td>Parameters constant over weeks</td>
+<td>Valid for 4 weeks after a calibration; expires then</td>
+<td><strong>Partly tested.</strong> Three consecutive weeks showed no drift; 4 weeks is an extrapolation of one week</td>
+</tr>
+<tr>
+<td>A5</td>
+<td>One number describes the pot's water</td>
+<td>No claim is made about surface pooling or layered drying</td>
+<td>Admitted limitation</td>
+</tr>
+</tbody>
+</table>
+<p>Three things to notice, because they generalise past this pot.</p>
+<p><strong>Most rows end as admitted limitations, and that is a healthy document.</strong>
+An envelope in which everything was tested means either an unusually
+generous measurement budget or an unusually optimistic author. The list of
+limitations is what makes the tested claims believable.</p>
+<p><strong>The envelope must be enforced in code, not just written down.</strong> Chapter 4
+Sec. 4.7 already made this your job: if the model is valid between 350 and
+900, the service that calls it refuses, loudly, outside that band. This is
+the difference between an envelope and a wish. The hazard is silent failure
+-- a model that returns 608.8 when the truth is 400 is far worse than one
+that crashes, because 608.8 is plausible and nothing downstream can tell.
+The literature makes the same point at the level of the whole twin: models
+are limited by their assumptions, by the data available to build and
+validate them, and by what the modellers knew, and those factors bound the
+domain of validity of the twin itself [1].</p>
+<p><strong>The envelope has a clock.</strong> Row A4 gives the credibility argument an
+expiry date, which Sec. 7.7.2 requires it to state.</p>
+<h3 id="754-what-would-count-against-it-the-falsifiability-question">7.5.4 What would count against it? The falsifiability question</h3>
+<p>Chapter 4 Sec. 4.9 gave you five questions to ask a modelling expert and
+flagged one answer as worrying: no answer at all to "what observation would
+tell you this model is wrong?". A model that no observation could count
+against cannot be validated -- there is nothing for validation to do.</p>
+<p>Made concrete for the pot, the answers are good ones:</p>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>An observation that would falsify it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Drying is at a constant rate over 12 hours</td>
+<td>A dry-down curve that visibly bends within a 12-hour window</td>
+</tr>
+<tr>
+<td>The daytime rate exceeds the night rate</td>
+<td>Daytime windows whose fitted rate is not above 3.67 plus its spread</td>
+</tr>
+<tr>
+<td>A 120 ml dose steps the reading by 56.4</td>
+<td>Healthy doses whose steps average materially away from 56.4</td>
+</tr>
+<tr>
+<td>The parameters hold for 4 weeks</td>
+<td>Residual bias growing steadily across weeks 4 to 8</td>
+</tr>
+</tbody>
+</table>
+<p>Each row is a test somebody could run, and rows 3 and 4 are tests the
+running twin can perform on itself forever, which is what Sec. 7.7.4 turns
+into monitors.</p>
+<p><strong>Use this question as a design tool, not a debating tactic.</strong> If a proposed
+model produces a table with empty right-hand cells, the problem is not the
+modelling expert -- it is that the model as specified makes no checkable
+claim, and the time to discover that is before the measurement campaign is
+budgeted.</p>
+<h3 id="755-validating-a-model-whose-parameters-mean-nothing">7.5.5 Validating a model whose parameters mean nothing</h3>
+<p>Chapter 4 Sec. 4.4.3 said a learned model's coefficients afford no
+inspection, and that Chapter 7 would need something to check. Chapter 4
+Sec. 4.6 said the position on the white-to-black-box scale decides <em>what
+kind of argument</em> you can make. Chapter 6 Sec. 6.5.1 reported that
+surrogates can fail unexpectedly on inputs unlike anything in training, and
+said flatly that this limit is why Chapter 7 exists. All three arrive here.</p>
+<p><strong>What changes.</strong> Nothing about the <em>procedure</em> -- calibrate, hold out, read
+the residuals, state an envelope. Everything about the <em>argument</em>, because
+three of the moves used above are unavailable:</p>
+<table>
+<thead>
+<tr>
+<th>Move</th>
+<th>Physics-based pot model</th>
+<th>Learned model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inspect a parameter for plausibility</td>
+<td>"Is 4.28 units per hour reasonable for this plant?" Somebody can answer</td>
+<td>No coefficient means anything on its own</td>
+</tr>
+<tr>
+<td>Attribute a bias to a named assumption</td>
+<td>A1b, immediately</td>
+<td>Nothing to attribute it to; the fix is more data or a different architecture</td>
+</tr>
+<tr>
+<td>State an envelope from the ledger</td>
+<td>Six rows, mostly free</td>
+<td>The envelope must be derived from the <strong>coverage of the training data</strong>, which somebody has to characterise</td>
+</tr>
+<tr>
+<td>Predict the failure mode</td>
+<td>Drifts in a direction the assumptions predict</td>
+<td>Confident output in a region with no training data, with no signal that anything is wrong</td>
+</tr>
+</tbody>
+</table>
+<p><strong>So the argument shifts entirely onto the data.</strong> For a learned model or a
+surrogate, the credibility argument's evidence section is mostly about
+inputs: what range of conditions the training data covered, how the hold-out
+was constructed, and what the model does when it is handed something
+outside that range. The last of those is the part teams skip and the part
+that bites -- the recognised danger is precisely unexpected failure on
+inputs unlike the training set, and the recognised consequence is reduced
+trust and limited real-world adoption [13].</p>
+<p><strong>Two practical mitigations, both of which are your build.</strong></p>
+<p><em>Input-coverage checks at the boundary.</em> Before calling the model, check
+that the inputs resemble the training range on each dimension you can name.
+This is the envelope check of Sec. 7.5.3 applied to a model that cannot
+tell you its own envelope, so you compute it from the training set instead.</p>
+<p><em>Prefer a model that reports its own uncertainty.</em> Some do, and the
+difference in what you can build is large: an output that comes with a range
+lets the service degrade rather than guess. Probabilistic approaches to
+health diagnostics and prognostics are reviewed with exactly this framing
+[14], and the hybrid family of Chapter 4 exists
+partly for this reason -- a physics core that stays inspectable with a
+learned correction on top keeps half the argument available
+[15].</p>
+<p>Regulated domains have gone furthest in codifying what evidence a learned
+model owes, because they had to. In healthcare, credibility assessment is
+identified as the most challenging part of getting an in-silico method
+accepted, and the existing standard's assumption that a one-off assessment
+suffices is noted as workable for knowledge-driven models and unresolved for
+data-driven ones [2]. Whatever your domain, that is
+the honest state of the art, and Chapter 8 takes it further.</p>
+<h3 id="756-what-cannot-be-validated-and-saying-so">7.5.6 What cannot be validated, and saying so</h3>
+<p>Four gaps that no amount of budget closes. Naming them in the credibility
+argument is what distinguishes a document a reviewer trusts from one they
+start probing.</p>
+<p><strong>Rare events.</strong> You cannot validate a prediction about a failure that has
+never happened. The demonstrator has never had a pump seize; the twin's
+behaviour when it does is a claim, not a finding. Validation can only cover
+the regime your data covers, and the honest sentence is "the fault detector
+has been tested against manually induced dose failures, not against a real
+pump failure."</p>
+<p><strong>Extrapolation.</strong> Every clause of Sec. 7.5.3's envelope was derived from
+data inside the envelope. The A4 row admits it: three weeks tested, four
+weeks claimed. One week of extrapolation is a judgement, not a result, and
+it should be labelled as one.</p>
+<p><strong>Counterfactuals.</strong> A what-if service predicts what <em>would</em> have happened
+under a schedule that was never run. There is no measurement to compare it
+with, ever. The only validation available is indirect: show that the model
+predicts well on schedules that <em>were</em> run, and argue that the counterfactual
+is inside the same envelope. That argument is weaker than it looks and
+should be stated as what it is.</p>
+<p><strong>A model that changes faster than you can validate it.</strong> Chapter 2
+Sec. 2.13 raised the weekly-retrained model and noted it does not change
+the twin's classification but changes this chapter's problem substantially:
+a model that changes weekly must be re-validated weekly. If your validation
+procedure takes three weeks and your model updates every week, you do not
+have a validation procedure -- you have a backlog. This is the central
+scaling problem of twins built one at a time, and it is recognised as such:
+moving from artisanal to industrial twin production puts new demands
+specifically on the speed and robustness of validation, verification and
+uncertainty quantification [16]. Chapter 14 owns the
+operational answer; the design-time answer is to size your validation
+procedure to your update cadence, or slow the cadence.</p>
+<h3 id="757-what-to-ask">7.5.7 What to ask</h3>
+<ul>
+<li>What data was this validated on, and had the model seen any of it?</li>
+<li>What accuracy target was it held to, and where did that number come from?</li>
+<li>Which envelope clauses are tested and which are admitted?</li>
+<li>What observation would show this model is wrong?</li>
+<li>If the model is learned: what did the training data cover, and what
+  happens outside it?</li>
+</ul>
+<hr />
+<h2 id="76-uncertainty-how-wrong-might-it-be">7.6 Uncertainty: how wrong might it be</h2>
+<p>Validation produces a verdict. Uncertainty quantification produces a
+<em>number attached to every answer</em>, and it is what turns a prediction into
+something a decision can be made against.</p>
+<h3 id="761-four-sources-in-plain-words">7.6.1 Four sources, in plain words</h3>
+<p>The field splits uncertainty into two families and calls them <strong>aleatory</strong>
+(the world's own randomness -- it will not go away if you learn more) and
+<strong>epistemic</strong> (your ignorance -- it will) [1].
+You will meet the two words; they are worth recognising and not worth
+dwelling on. Four practical sources matter more:</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>In the demonstrator</th>
+<th>Reduced by</th>
+<th>Measured in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Measurement noise</td>
+<td>The moisture reading wobbles a few units</td>
+<td>A better sensor; averaging</td>
+<td>Sec. 7.4.1's spreads</td>
+</tr>
+<tr>
+<td>Parameter uncertainty</td>
+<td><code>k_day</code> is 4.28 plus or minus 0.21</td>
+<td>More calibration data, by Chapter 6's <code>1/sqrt(N)</code> law</td>
+<td>Sec. 7.4.6</td>
+</tr>
+<tr>
+<td>Model-form error</td>
+<td>The pot does not actually dry at a constant rate</td>
+<td>A better model; nothing else</td>
+<td>Sec. 7.4.6's residual spread</td>
+</tr>
+<tr>
+<td>Input and scenario uncertainty</td>
+<td>You do not know next week's weather, or whether somebody will water by hand</td>
+<td>Nothing. It is the world</td>
+<td>Not measurable from past data</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Model-form error is the one to watch</strong>, because it is the only one that
+cannot be reduced by collecting more of the same data, and it is the one
+that hides. Fitting more nights improves your knowledge of <code>k</code> and does
+nothing about the fact that drying is not linear. The literature is candid
+that separating parameter uncertainty from model-form uncertainty is
+difficult in general [13], which is a good reason
+not to promise a clean decomposition to a sponsor.</p>
+<h3 id="762-what-monte-carlo-can-and-cannot-do">7.6.2 What Monte Carlo can and cannot do</h3>
+<p>Chapter 6 Sec. 6.7 gave you the mechanism: sample the uncertain inputs many
+times, run the model on each sample, treat the spread of outcomes as the
+answer. Chapter 6 Sec. 6.7.4 then said, honestly, that Monte Carlo
+propagates <em>stated</em> uncertainty and cannot discover unstated uncertainty,
+and handed the question of where the stated ranges come from to this
+chapter.</p>
+<p><strong>They come from Sec. 7.4 and Sec. 7.5.</strong> That is the whole answer, and it
+is worth stating as a chain, because it is the chain a reviewer will walk:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>calibration campaign  -&gt;  parameter value + spread   (Sec. 7.4.1)
+hold-out test         -&gt;  model-reality gap          (Sec. 7.4.6)
+envelope work         -&gt;  the conditions all of the above applies in (Sec. 7.5.3)
+                          |
+                          v
+              Monte Carlo propagates these
+                          |
+                          v
+              a prediction with a range on it
+</code></pre></div></td></tr></table></div>
+<p><strong>And so the failure mode is now obvious.</strong> A team that runs ten thousand
+Monte Carlo samples over parameter ranges that somebody guessed has
+produced a beautifully converged answer to a question nobody asked. The
+compute is real, the convergence is real, and the range is fiction. Chapter
+6 gave you the cost law for those ten thousand runs; this chapter gives you
+the reason to check the inputs before paying it.</p>
+<h3 id="763-reporting-a-prediction-and-the-double-counting-trap">7.6.3 Reporting a prediction, and the double-counting trap</h3>
+<p>The twin predicts the evening reading. Starting from a morning reading of
+640, the three-parameter model says 640 - 33.4 = <strong>606.6</strong>.</p>
+<p>Now attach a range. The tempting move is to list every source from
+Sec. 7.6.1 and add them up:</p>
+<ul>
+<li>parameter uncertainty in <code>k_day</code>: the uncertainty in the average rate is
+  0.21 / square root of 5 = 0.09 per hour, so 0.09 x 7.8 = <strong>0.7</strong> units
+  over the window;</li>
+<li>numerical error at <code>h</code> = 0.375: <strong>0.3</strong> units;</li>
+<li>measurement noise on the morning reading: <strong>1.5</strong> units;</li>
+<li>model-reality gap from week 3: <strong>2.0</strong> units.</li>
+</ul>
+<p>Total, adding in the usual way for independent contributions -- square each,
+add, take the square root -- gives the square root of
+(0.49 + 0.09 + 2.25 + 4.0) = square root of 6.83 = <strong>2.6</strong> units.</p>
+<p><strong>That number is wrong, and the reason is the most useful thing in this
+section.</strong> The week 3 residual spread of 2.0 was measured <em>end to end</em>: it
+was computed from real predictions made with those parameters, at that step
+size, against readings from that sensor. It <strong>already contains</strong> the
+measurement noise, the numerical error and the parameter uncertainty. Adding
+them again counts them twice.</p>
+<blockquote>
+<p><strong>The rule.</strong> An end-to-end measurement of the gap supersedes a
+component-by-component budget of the same gap. Build the budget only for
+the sources the end-to-end measurement could not have seen.</p>
+</blockquote>
+<p>So the honest report is:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Predicted evening reading: 606.6, plus or minus 2.0 (one spread),
+about plus or minus 4 for a range that will hold on most days.
+</code></pre></div></td></tr></table></div>
+<p><strong>What the component budget is still for.</strong> Two things. First,
+apportionment: knowing that parameter uncertainty contributes only 0.7 of
+the 2.0 tells you that another six nights of calibration would barely move
+the total, and that the money should go on a better model instead. That is a
+budgeting decision the end-to-end number alone cannot support. Second, and
+more importantly, the budget lists what is <strong>not</strong> inside the 2.0: anything
+week 3 did not contain. A repotted plant, a heatwave, a reading near
+saturation, a hand-watering nobody logged. Those are envelope questions, not
+range questions, and no arithmetic converts one into the other.</p>
+<p>That distinction -- a range for what you have measured, an envelope for what
+you have not -- is the honest core of uncertainty quantification, and it is
+why the national-academies review of digital twins treats VVUQ as a
+foundational research need rather than a solved procedure, recommending it
+be made an integral part of new twin programmes rather than a stage at the
+end
+[17].</p>
+<hr />
+<h2 id="77-the-credibility-argument-what-you-actually-deliver">7.7 The credibility argument: what you actually deliver</h2>
+<p>Everything so far produces evidence. This section produces the artifact, and
+the artifact is the deliverable -- Chapter 2 said credibility evidence is
+optional for a shadow and mandatory for a twin, and this is the shape the
+mandatory thing takes.</p>
+<p>The word for the bundle is <strong>credibility assessment</strong>: verification and
+validation establish that the twin meets its intended purpose, and
+uncertainty quantification supplies a measure of performance that users
+apply as part of that assessment, applied across the twin's whole life cycle
+rather than once at the end [5].</p>
+<h3 id="771-five-parts-and-a-document-that-fits-on-two-pages">7.7.1 Five parts, and a document that fits on two pages</h3>
+<blockquote>
+<p><strong>Credibility argument.</strong> A written statement of what the twin claims, for
+what use, on what evidence, with what limits, and when the claim expires.</p>
+</blockquote>
+<ol>
+<li><strong>The claim.</strong> One sentence per output, in the units of the decision.
+   Not "the model is accurate to 2 units" but "the fault detector catches
+   watering shortfalls of 16 per cent or worse."</li>
+<li><strong>The intended use.</strong> Which decision, made by whom, with what authority.
+   Advisory or closed-loop. This is the row of Sec. 7.1.2's table you are
+   claiming, and it sets how much of the rest is required.</li>
+<li><strong>The evidence.</strong> Verification performed, calibration campaigns with
+   their data windows, hold-out results with bias and spread, the
+   convergence table and the step size used. Each with a pointer to the run
+   that produced it, which is why Sec. 7.3.4 was a precondition.</li>
+<li><strong>The limits.</strong> The validity envelope, clause by clause, marked tested or
+   admitted. The known blind spots -- the 10 per cent shortfall, the
+   displaced dripper. What has never been observed at all.</li>
+<li><strong>The expiry.</strong> The condition under which this argument stops holding:
+   a date, a parameter refit, a change to the physical twin, a model
+   version bump, or a monitor firing.</li>
+</ol>
+<p>Two pages. If it runs to twenty, the twin is doing too many things and
+should have one argument per output.</p>
+<h3 id="772-expiry-is-the-part-that-makes-it-a-twin-document">7.7.2 Expiry is the part that makes it a twin document</h3>
+<p>A validation report for a simulation study is finished when it is written,
+because the study is over. A twin keeps running against a system that
+changes, so an argument with no expiry condition is a claim about a moment
+that has passed. This is the difference Sec. 7.4.7 drew from
+[3], stated as a document requirement.</p>
+<p>Make the expiry a <em>condition</em>, not only a date, and give each one an owner:</p>
+<table>
+<thead>
+<tr>
+<th>Expiry trigger</th>
+<th>Detected by</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4 weeks since last calibration (A4)</td>
+<td>Calendar</td>
+<td>Whoever owns the model registry</td>
+</tr>
+<tr>
+<td>Physical twin changed: repotted, plant replaced, dripper moved</td>
+<td>A human telling you, which means a process</td>
+<td>Lab operations</td>
+</tr>
+<tr>
+<td>Model version changed</td>
+<td>Release pipeline; golden trajectories diff</td>
+<td>You</td>
+</tr>
+<tr>
+<td>Residual bias monitor fires (Sec. 7.7.4)</td>
+<td>The twin itself</td>
+<td>On-call</td>
+</tr>
+<tr>
+<td>Sensor replaced or recalibrated</td>
+<td>Asset records</td>
+<td>Whoever owns the hardware</td>
+</tr>
+</tbody>
+</table>
+<p>The second row is the one that fails in practice. There is no signal in the
+data that says "somebody repotted the plant" -- there is only a step change
+in the residuals a fortnight later, by which time the twin has been quietly
+wrong. Chapter 3's identity and binding concern is where the mechanism
+belongs; here it is enough to notice that a credibility argument with no
+process behind row 2 is resting on somebody remembering.</p>
+<h3 id="773-the-record-the-argument-depends-on">7.7.3 The record the argument depends on</h3>
+<p>Chapter 3 Sec. 3.2.2 posed two questions that look similar and are not:
+"what was measured at time t?" and "what did the twin <em>believe</em> at time t?"
+Chapter 3 Sec. 3.2.7 said every command must be audited with the state that
+justified it -- the twin state, its age, the model version, and the service
+that asked -- and warned that the record is unrecoverable if you did not
+write it at the time.</p>
+<p>Here is why the credibility argument needs it. Six months in, an alert is
+disputed. The questions asked, in order, are:</p>
+<ol>
+<li>What did the twin predict, and what did it measure? (Both, separately.
+   Chapter 5 Sec. 5.2.4 already insisted that predicted and measured live in
+   different columns.)</li>
+<li>Which model version and which parameter set produced that prediction?</li>
+<li>When were those parameters last fitted, on what data window?</li>
+<li>Was the input inside the validity envelope at the time?</li>
+<li>Was the credibility argument current, or had it expired?</li>
+</ol>
+<p>Every one is answerable from a store designed for it and none is
+reconstructable later. <strong>The credibility argument is a claim about a
+system's behaviour; the audit record is what makes the claim checkable; and
+Chapter 3 is where you had to build it.</strong> Chapter 10 does the data
+engineering properly.</p>
+<h3 id="774-monitors-that-keep-the-argument-alive">7.7.4 Monitors that keep the argument alive</h3>
+<p>The argument is written once and then has to survive contact with
+production. Three monitors are cheap, and each maps to something this
+chapter established.</p>
+<p><strong>Residual bias.</strong> You are already computing residuals for the fault
+detector. Track their rolling average. Week 3 established that the bias
+should be 0.0 with a spread of 2.0. A rolling 14-day average residual
+outside plus or minus 1.0 is a refit trigger -- the average of fourteen
+values with spread 2.0 should sit within about 2.0 / square root of 14 =
+0.53 of zero, so 1.0 is comfortably outside ordinary variation and
+comfortably inside the point where the fault detector suffers.</p>
+<p><strong>Residual spread.</strong> A growing spread with no bias is a different disease --
+usually a sensor degrading or the plumbing dropping samples. Same data, one
+more line of code, and it distinguishes two causes that look identical on a
+dashboard showing "error going up".</p>
+<p><strong>The estimator gain.</strong> Chapter 6 Sec. 6.6.2 defined the gain as how far the
+state estimator pulls toward the measurement, said that Chapter 3's
+monitoring should carry it, and said in as many words that Chapter 7 would
+ask about it. Asking:</p>
+<blockquote>
+<p><strong>What has the gain been doing?</strong> A gain drifting toward 1 means the
+estimator is trusting the sensor and abandoning the model, which is the
+model-reality gap widening under a different name. A gain drifting toward
+0 means the twin has stopped listening to reality, which is either a
+correct response to a broken sensor or a twin that has quietly become a
+simulation. <strong>Either drift invalidates the credibility argument, because
+the argument was written about a system with a different balance between
+model and measurement.</strong> Put it on the same dashboard as the residuals and
+treat a sustained move as an expiry trigger.</p>
+</blockquote>
+<h3 id="775-the-contract-clause">7.7.5 The contract clause</h3>
+<p>Chapter 2 Sec. 2.11 asked you to write a contract clause that could be
+checked from a deployment diagram, and its solution conceded the cost of
+that choice: the test says nothing about whether the twin is any good, which
+is why the contract also needs this chapter's clauses. Here they are, in the
+form of what to require rather than legal wording:</p>
+<ul>
+<li><strong>A credibility argument in the five-part form, delivered with the
+  software</strong>, naming the specific outputs it covers. A vendor who supplies
+  accuracy figures without an intended-use statement has supplied a
+  marketing number.</li>
+<li><strong>The validation data, or the right to run your own validation.</strong> If
+  neither is available, the twin's claims are unverifiable by you, and that
+  should be priced.</li>
+<li><strong>The envelope, machine-readable.</strong> Ranges per input, so your service can
+  enforce them (Sec. 7.5.3). A prose envelope is not enforceable in code.</li>
+<li><strong>A stated expiry condition and a re-validation obligation</strong>, including
+  what happens to the argument when the vendor ships a model update.</li>
+<li><strong>Notification of model changes</strong>, with golden-trajectory diffs. A silent
+  model update is a silent change to every claim in the argument.</li>
+</ul>
+<p>The industry conversation is moving toward making this machine-readable at
+the ecosystem level, since twins increasingly need to trust each other
+rather than only their owners: one proposal is a "trust vector" in which
+each side publishes, per trustworthiness characteristic, a link to a
+human- and machine-readable justification -- an assurance case, for example
+-- so that a composed system can reason about whether its parts are
+trustworthy enough for the job [18]. Chapter 15 is
+where twins start composing; the clause above is the single-twin version of
+the same idea.</p>
+<h3 id="776-what-this-document-is-not-the-safety-case">7.7.6 What this document is not: the safety case</h3>
+<p>If the twin is closed-loop -- Chapter 2 Sec. 2.8's world, and Chapter 1's
+observation that the top rung needs "everything in Chapter 7 and a safety
+argument" -- then a second document exists, with a different owner, a
+different standard and a different question.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Credibility argument</th>
+<th>Safety case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Question</td>
+<td>Is the twin's answer good enough for this decision?</td>
+<td>Is the system acceptably safe, including when the twin is wrong?</td>
+</tr>
+<tr>
+<td>Assumes the twin is right</td>
+<td>Yes, within stated limits</td>
+<td><strong>No.</strong> It assumes the twin fails and asks what happens</td>
+</tr>
+<tr>
+<td>Owner</td>
+<td>The twin's engineering team</td>
+<td>The system safety function</td>
+</tr>
+<tr>
+<td>Chapter 3 component it leans on</td>
+<td>The store and the model registry</td>
+<td>The actuation guard and fail-safe behaviour</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The credibility argument is an input to the safety case, not a substitute
+for it</strong>, and the most important thing it contributes is Sec. 7.5.6's list
+of what cannot be validated -- because that list is exactly the set of
+conditions the safety case has to handle without the twin's help. A safety
+engineer handed a credibility argument with no limitations section will
+either reject it or, worse, believe it.</p>
+<p>Do not write the safety case as a side effect of writing this one. Say which
+document you are producing.</p>
+<hr />
+<h2 id="78-worked-example-the-credibility-argument-for-the-greenhouse-twin">7.8 Worked example: the credibility argument for the greenhouse twin</h2>
+<p>Everything above, assembled, for the demonstrator at Chapter 2's Stage 2 --
+the fault detector, advisory, human in the loop.</p>
+<h3 id="781-fix-the-intended-use-first">7.8.1 Fix the intended use first</h3>
+<p>From Sec. 7.1.2's table this is <strong>Diagnose</strong>, advisory. Evidence owed:
+verification, calibration, a hold-out test, a stated threshold with its miss
+rate. Not owed: fail-safe analysis, runtime envelope enforcement on a
+command path, a safety case. Those arrive at Stage 3 and it is worth
+noticing how much cheaper Stage 2 is -- one of Chapter 1's reasons for
+climbing the ladder one rung at a time.</p>
+<h3 id="782-verification-in-an-afternoon">7.8.2 Verification, in an afternoon</h3>
+<ul>
+<li>Read the nine lines. Units confirmed: <code>g</code> per 100 ml, and the code divides
+  the dose by 100. Signs confirmed. Dose applied at the start of the
+  containing step, documented as a known 45-minute placement error at
+  <code>h</code> = 1, which disappears at the step size chosen below.</li>
+<li>Convergence run on the 24-hour dry-down (Sec. 7.3.2's table). Chose
+  <code>h</code> = 0.375 hours, numerical error 0.3 units.</li>
+<li>Plumbing: fed a constant 600 through the connector, store and runner;
+  confirmed 600 arrives at the model input with the right timestamp and no
+  forward-fill across an induced 90-minute gap. <strong>This test failed the first
+  time</strong>, which is the ordinary outcome and the reason the test exists.</li>
+<li>Recorded four golden trajectories: a dry-down, a normal day, a missed
+  evening dose, a saturation excursion.</li>
+</ul>
+<h3 id="783-calibration">7.8.3 Calibration</h3>
+<p>Two campaigns, deliberately separate (Sec. 7.4.4):</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Experiment</th>
+<th>Value</th>
+<th>Spread</th>
+<th>Fitted on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>k_night</code></td>
+<td>6 dry overnight windows, 12 h each</td>
+<td>3.67 units/h</td>
+<td>0.26</td>
+<td>Week 1</td>
+</tr>
+<tr>
+<td><code>k_day</code></td>
+<td>5 daytime windows, 7.8 h each</td>
+<td>4.28 units/h</td>
+<td>0.21</td>
+<td>Week 2</td>
+</tr>
+<tr>
+<td><code>g</code></td>
+<td>5 doses of 100 ml, readings 10 min either side</td>
+<td>47.0 units/100 ml</td>
+<td>2.55</td>
+<td>Week 1</td>
+</tr>
+</tbody>
+</table>
+<p>Identifiability check: each parameter has an experiment in which the others
+do not act. A single fit on daily net change was attempted and abandoned --
+see Sec. 7.4.4 for the three parameter pairs it could not separate.</p>
+<h3 id="784-validation">7.8.4 Validation</h3>
+<p>Week 3, untouched by either fit. Day-ahead prediction over the 7.8-hour
+window:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>bias   = 0.0 reading units
+spread = 2.0 reading units
+</code></pre></div></td></tr></table></div>
+<p>Threshold derivation (Sec. 7.5.2): expected step for a 120 ml dose is 56.4;
+spread of a healthy step is 3.0; threshold at three spreads is 9.0; alert
+when the observed step is below 47.4. <strong>Smallest detectable shortfall: 16
+per cent.</strong></p>
+<h3 id="785-the-two-page-argument">7.8.5 The two-page argument</h3>
+<blockquote>
+<p><strong>Claim.</strong> For the plant-pot rig in bay 3, the twin's watering-fault
+detector raises an alert when a scheduled dose delivers 16 per cent less
+water than commanded, or less. Its day-ahead moisture prediction is
+accurate to plus or minus 2.0 reading units, with no detectable bias.</p>
+<p><strong>Intended use.</strong> Advisory. The alert notifies the duty researcher, who
+inspects the rig. The twin issues no commands. Chapter 1's value metric:
+experiment-weeks lost to undetected watering faults.</p>
+<p><strong>Evidence.</strong> Verification: code review, convergence table
+(<code>h</code> = 0.375 h, numerical error 0.3 units), end-to-end plumbing test with
+induced gap, four golden trajectories under version control.
+Calibration: two campaigns, week 1 and week 2, parameters and spreads as
+tabulated, held in the model registry as parameter set <code>pot-3/v2</code>.
+Validation: week 3 hold-out, bias 0.0, spread 2.0, five day-ahead
+predictions. Threshold derived from the value metric, not chosen.</p>
+<p><strong>Limits.</strong> Valid for readings between 350 and 900 (sensor datasheet,
+untested by us, enforced at the service boundary). Valid for prediction
+horizons up to 12 hours; 24-hour horizons untested. Cannot distinguish a
+failed pump from a displaced dripper (assumption A3); both are treated as
+"water did not arrive", which the value metric tolerates. Does not detect
+shortfalls below 16 per cent; these are not expected to affect plant
+health. Makes no claim about surface pooling or layered drying
+(assumption A5). Never observed: a real pump failure, a heatwave, a
+reading above 900.</p>
+<p><strong>Expiry.</strong> Whichever comes first: 4 weeks from 2026-08-09; any change to
+the rig, plant or sensor; a model or parameter-set version change; the
+14-day rolling residual bias leaving plus or minus 1.0 reading units; the
+estimator gain moving outside 0.4 to 0.85 for more than 48 hours.</p>
+</blockquote>
+<h3 id="786-what-this-cost-and-the-point-of-the-section">7.8.6 What this cost, and the point of the section</h3>
+<p>Two weeks of logging that was happening anyway, one week held back, an
+afternoon of verification, a morning of arithmetic, and two pages. <strong>No
+Bayesian machinery, no sensitivity analysis, no Monte Carlo.</strong> Chapter 6
+Sec. 6.9 closed by noting that it chose the cheaper option in five of six
+subsections, and said that was the chapter's thesis in miniature. The same
+applies here: a credibility argument for an advisory twin is a fortnight of
+discipline, not a research programme. Sec. 7.1.2's table is what keeps it
+that way, and the twin that needs more is the twin that has been allowed to
+do more.</p>
+<hr />
+<h2 id="79-faded-example-the-offshore-turbine-trusted">7.9 Faded example: the offshore turbine, trusted</h2>
+<p>Chapters 4, 5 and 6 each took the offshore turbine further. Chapter 4 chose
+its model families, Chapter 5 sized its runs, Chapter 6 chose its
+simulators. Now decide whether anyone should believe it. Two parts are
+worked; four are yours.</p>
+<p><strong>The system, recapped.</strong> A monitoring twin for a floating offshore wind
+turbine. A reduced-order structural model with a small number of degrees of
+freedom, a Kalman filter estimating loads from a handful of sensors, and a
+fatigue-accumulation service that reports remaining life. Decisions: when to
+send a maintenance vessel, and whether to extend the certified life. Real
+systems of this shape exist and are validated against full-scale prototype
+measurements [19].</p>
+<p><strong>(a) Which row of Sec. 7.1.2 -- worked.</strong> Two outputs, two rows, and this
+is the answer that matters most.</p>
+<p>The maintenance-scheduling output is <strong>Decide (advisory)</strong>: a human dispatches
+the vessel, a wrong answer costs a wasted sailing or a missed inspection
+window. The life-extension output is different in kind. It feeds a
+certification decision with a regulator on the other side, which is Chapter
+1's <strong>Certify</strong> pattern, and the evidence owed steps up sharply -- traceable
+provenance for every input, an argument a third party can audit, and
+justified uncertainty on the fatigue number rather than a point estimate.
+<strong>Two outputs of one twin, two credibility arguments.</strong> Writing one document
+covering both would have to satisfy the harder row throughout, which is the
+expensive mistake Sec. 7.1.2 warned about, in the other direction.</p>
+<p><strong>(b) Where the validation data comes from -- worked, because it is the
+hard part.</strong> You cannot hold out a week of turbine failures; there are none.
+Three sources, in decreasing strength:</p>
+<ol>
+<li><strong>A full-scale instrumented prototype.</strong> Compare twin outputs against
+   measurements from the real structure. This is the strongest evidence
+   available and it is what the published TetraSpar work does, comparing
+   digital-twin outputs against tower-bottom moment and wind measurements
+   from the prototype [19]. Note the honesty in that
+   comparison: the measured wind speed comes from a nacelle anemometer and
+   is <em>expected</em> to differ from the rotor-averaged value the twin estimates,
+   so the two quantities are not the same quantity and the report says so.
+   <strong>A validation comparison between two things that are not the same
+   quantity is a trap, and naming the mismatch is the fix.</strong></li>
+<li><strong>A higher-fidelity model as a stand-in.</strong> The reduced-order model can be
+   validated against the full finite-element model it was reduced from. This
+   validates the <em>reduction</em>, not the physics -- Chapter 6 Sec. 6.5.1 made
+   the same point about surrogates -- and the credibility argument must not
+   let the two blur.</li>
+<li><strong>Sister assets.</strong> Other turbines in the same farm, which is a real
+   technique and a real complication, since the population is not
+   homogeneous.</li>
+</ol>
+<p>Now yours.</p>
+<p><strong>(c)</strong> The fatigue service integrates load estimates over years. Sec. 7.6.3
+warned about double counting; this output has the opposite problem. Explain
+why an end-to-end hold-out is unavailable here in a way it was available for
+the pot, and what evidence has to replace it. <em>Hint: how long is the
+hold-out period for a claim about a 25-year life, and what does that force
+you to validate instead of the final number?</em></p>
+<p><strong>(d)</strong> Chapter 6 gave this turbine a Kalman filter. Write the gain monitor
+for it, following Sec. 7.7.4: what would a gain drifting toward 1 mean for a
+structural load estimate specifically, and why is it more alarming here than
+in the pot?</p>
+<p><strong>(e)</strong> The reduced-order model is a surrogate. Using Sec. 7.5.5's table,
+say what its envelope has to be derived from, and name one input dimension
+along which "outside the training range" is likely and detectable at the
+service boundary.</p>
+<p><strong>(f)</strong> Write the expiry conditions. At least four, and at least one that no
+data stream can detect. <em>Hint: what happens to a floating structure's
+dynamics after a mooring line is replaced?</em></p>
+<hr />
+<h2 id="710-posed-problem-the-vv-plan-for-a-pumping-station">7.10 Posed problem: the V&amp;V plan for a pumping station</h2>
+<p>No solution is given. This is the deliverable this chapter exists to make
+you capable of producing, and it is deliberately posed at the point in a
+project where the information is incomplete.</p>
+<p><strong>The situation.</strong> A municipal water utility operates a pumping station: four
+pumps, a wet well with a level sensor, inflow that varies with rainfall, and
+a control system that starts and stops pumps on level thresholds. A vendor
+proposes a twin that will (i) detect a failing pump from its power draw and
+flow, (ii) predict wet-well level six hours ahead from a rainfall forecast,
+and (iii) in a later phase, set the pump start/stop thresholds
+automatically to reduce energy cost.</p>
+<p>The vendor's proposal says the model "has been validated against six months
+of historical SCADA data and achieves 94 per cent accuracy".</p>
+<p><strong>Produce a V&amp;V plan of no more than four pages containing:</strong></p>
+<ol>
+<li><strong>A row of Sec. 7.1.2's table for each of the three outputs</strong>, with the
+   evidence each owes. Note explicitly where output (iii) changes the
+   answer for outputs (i) and (ii), and why.</li>
+<li><strong>Three questions about the vendor's sentence</strong> that must be answered
+   before it means anything. At least one about the data, one about the
+   metric, and one about the ordering trap of Sec. 7.2.2.</li>
+<li><strong>A calibration and validation data plan</strong>: what data, over what period,
+   held out how, and what conditions the hold-out must contain that the
+   calibration set does not. Rainfall is your friend here.</li>
+<li><strong>An identifiability analysis</strong> for at least one parameter pair you
+   suspect the historical data cannot separate. <em>Prompt: the twin must infer
+   both pump efficiency and pipe friction from power and flow. When do those
+   two effects move together?</em></li>
+<li><strong>An acceptance threshold for output (i)</strong>, derived in Sec. 7.5.2's five
+   steps from a value metric you state yourself, including the smallest
+   fault it will miss and an argument that missing it is acceptable.</li>
+<li><strong>The validity envelope</strong>, with each clause marked tested or admitted,
+   and the runtime check each tested clause implies.</li>
+<li><strong>The expiry conditions</strong>, with owners.</li>
+<li><strong>One paragraph on what you will not be able to validate</strong>, and what the
+   later closed-loop phase must therefore handle without the twin's help.</li>
+</ol>
+<p><strong>What a good answer looks like.</strong> It is specific about data rather than
+about process. It notices that "94 per cent accuracy" has no units, no
+decision attached, and no statement of what was held out -- and it asks
+rather than assumes. It notices that a six-hour level prediction and a
+pump-fault detector are validated against different things on different
+time scales. It states at least two things it cannot validate. And it costs
+the plan: the honest answer to output (iii) is that closing the loop on a
+municipal asset requires a safety argument this plan does not contain, and
+saying so early is worth more than any amount of the plan.</p>
+<hr />
+<h2 id="711-summary">7.11 Summary</h2>
+<p>Seven things, tied to the five objectives.</p>
+<ol>
+<li><strong>Trust is not a property of a model</strong> (Sec. 7.1). The answerable
+   question names an output, a decision, a set of conditions and a body of
+   evidence. How much evidence you owe is set by what the twin is allowed to
+   do -- Sec. 7.1.2's table -- and the inference runs in that direction, not
+   the other. <em>(Objective 1, 5.)</em></li>
+<li><strong>Four words, one order</strong> (Sec. 7.2). Verify, calibrate, validate,
+   quantify. Calibrating before verifying lets the parameters absorb your
+   bugs; validating on the calibration data measures the fitting procedure;
+   fixing the model with the hold-out data burns the hold-out data.
+   <em>(Objective 1.)</em></li>
+<li><strong>Verification is your job and needs no statistics</strong> (Sec. 7.3). Three
+   layers -- model, solver settings, plumbing -- and the plumbing produces
+   the most defects and gets the least attention. The convergence table is
+   the tool that separates numerical error from the model-reality gap, and
+   until the first is a small fraction of the second, a validation run
+   measures your step size. <em>(Objective 4.)</em></li>
+<li><strong>A parameter without a spread is not a calibration result</strong>
+   (Sec. 7.4). Fitting <code>k</code> from six nights gave 3.67 plus or minus 0.26.
+   Two parameters need two experiments, because data in which both act
+   together may not be able to tell them apart -- and three candidate pairs
+   that fit daily data identically predicted watering steps from 46.8 to
+   68.4. <em>(Objective 2.)</em></li>
+<li><strong>Residuals have two numbers and they mean different things</strong>
+   (Sec. 7.4.5). Bias is a model wrong in a repeatable direction and is good
+   news. Spread is noise. A bias of -4.8 against a spread of 1.67 named its
+   own cause in the assumption ledger; the extra parameter that fixed it was
+   earned because it removed the bias on data neither fit had seen.
+   <em>(Objective 3.)</em></li>
+<li><strong>The accuracy target comes from the decision</strong> (Sec. 7.5.2). Five steps
+   from a value metric to a threshold to the smallest fault that threshold
+   can catch -- 16 per cent here -- and then the question of whether missing
+   the rest is acceptable. A 1.0-unit calibration error, invisible in any
+   fit-quality number, moved that threshold by 13 per cent. <em>(Objective 4.)</em></li>
+<li><strong>The deliverable is a two-page argument with an expiry condition</strong>
+   (Sec. 7.7). Claim, intended use, evidence, limits, expiry. It depends on
+   an audit record you had to build in Chapter 3, it is kept alive by three
+   monitors that cost a few lines each, and it is an input to the safety
+   case rather than a substitute for it. <em>(Objective 5.)</em></li>
+</ol>
+<p><strong>And the honest one, which Chapter 8 will hear again in a harder form.</strong>
+Everything in this
+chapter establishes what a model does in conditions somebody has observed.
+Nothing in it establishes what it will do in conditions nobody has. The
+range comes from measurement; the envelope comes from admission; and telling
+a sponsor which is which is the most valuable thing you will do with this
+material.</p>
+<hr />
+<h2 id="712-exercises">7.12 Exercises</h2>
+<p>Solutions or hints follow. Each exercise names the objective it exercises.</p>
+<p><strong>7.12.1</strong> <em>(Objective 1.)</em> Classify each of the following as verification,
+calibration, validation or uncertainty quantification: (a) "the model
+predicts a 4 per cent step for a dose that should give 40 per cent -- check
+whether we are dividing by 100 twice"; (b) "run it against last month's data
+that we did not fit on"; (c) "the answer is 606.6 but I want a range on it";
+(d) "find the value of <code>k</code> that best matches these six nights"; (e) "the
+solver gives a different answer at half the step size".</p>
+<p><strong>7.12.2</strong> <em>(Objective 1.)</em> A colleague says: "we fitted the model on all
+twelve weeks of data and it matches beautifully -- 98 per cent of predictions
+are within 3 units." Name three things wrong with that sentence as a
+credibility claim, and write the one question that exposes the most
+important one.</p>
+<p><strong>7.12.3</strong> <em>(Objective 2.)</em> Fit <code>k</code> from these four dry overnight windows,
+each 10 hours: drops of 34, 41, 37 and 40 reading units. Report the value
+and the spread, both per hour. Then state how many nights you would need to
+halve the uncertainty in the average.</p>
+<p><strong>7.12.4</strong> <em>(Objective 2.)</em> A twin of a heated tank has two parameters: the
+heater's power delivered to the water, <code>p</code>, and the tank's heat loss rate to
+the room, <code>c</code>. The only data available is the steady temperature the tank
+settles at with the heater on continuously. Explain why this data cannot
+identify <code>p</code> and <code>c</code> separately, and design the smallest additional
+experiment that can.</p>
+<p><strong>7.12.5</strong> <em>(Objective 3.)</em> A hold-out test on ten days gives residuals:
++2, -1, +3, 0, +2, +1, +3, -1, +2, +4. Compute the bias and the spread.
+Decide whether this model needs a new parameter or better data, and say what
+you would look at next.</p>
+<p><strong>7.12.6</strong> <em>(Objective 3.)</em> You add a parameter to fix a bias, refit, and the
+bias on the same data drops to zero. Your colleague proposes shipping.
+Write the two-sentence objection, and say what evidence would change your
+mind.</p>
+<p><strong>7.12.7</strong> <em>(Objective 4.)</em> A dose of 150 ml is expected to step the reading
+by <code>g</code> x 1.5 = 70.5, and healthy steps for that dose have a spread of 3.8.
+Set a three-spread threshold, compute the smallest percentage shortfall it
+detects, and state one condition under which you would use two spreads
+instead.</p>
+<p><strong>7.12.8</strong> <em>(Objective 4.)</em> Your convergence table shows numerical errors of
+8.0, 4.1, 2.0 and 1.0 units at successively halved step sizes. Your hold-out
+spread is 1.5 units. Which step size may you validate at, and what does that
+do to the run time relative to the coarsest setting? Then explain what you
+would suspect if the errors had been 8.0, 7.9, 7.9 and 7.8.</p>
+<p><strong>7.12.9</strong> <em>(Objective 5.)</em> Write the five-part credibility argument, at
+one paragraph per part, for a twin that predicts a building's next-hour
+electricity demand to inform a human operator's decision to pre-cool. Invent
+the numbers, but make them internally consistent, and make at least two of
+your envelope clauses admitted rather than tested.</p>
+<p><strong>7.12.10</strong> <em>(Objectives 1-5, and the one that leaves the book.)</em> Take the
+real plant-controller rig. Log two weeks. Fit <code>k</code> and <code>g</code> using Sec. 7.4.1's
+and Sec. 7.4.2's two campaigns on your own data. Hold out a third week.
+Report bias and spread, and compare them with this chapter's constructed
+figures. Then write down the three things about the real data that this
+chapter's tables did not prepare you for.</p>
+<h3 id="solutions-and-hints">Solutions and hints</h3>
+<p><strong>7.12.1.</strong> (a) Verification -- comparing code against intent, no
+measurement of the world involved. (b) Validation. (c) Uncertainty
+quantification. (d) Calibration. (e) Verification -- specifically the
+convergence check of Sec. 7.3.2, and note that this one is often
+<em>misreported</em> as the model being inaccurate, which is the confusion the
+section exists to prevent.</p>
+<p><strong>7.12.2.</strong> Three faults: (i) no hold-out -- the model was fitted on all
+twelve weeks, so 98 per cent measures the fit, not the model; (ii) "within 3
+units" is in the model's units, not the decision's, so nobody can tell
+whether it is good enough for anything; (iii) no envelope and no expiry --
+twelve weeks of what conditions, and for how long does the claim hold? The
+question that exposes the most: <strong>"which data did you hold back?"</strong> If the
+answer is none, the number means nothing at all and the other two faults are
+academic.</p>
+<p><strong>7.12.3.</strong> Average drop = (34 + 41 + 37 + 40) / 4 = 152 / 4 = 38.0, so
+<code>k</code> = 38.0 / 10 = <strong>3.80 units per hour</strong>. Deviations from 38: -4, +3, -1,
++2; squares 16, 9, 1, 4, sum 30; divide by 3 gives 10; square root gives
+3.16 per night, so the spread of <code>k</code> is 3.16 / 10 = <strong>0.32 units per hour</strong>.
+Uncertainty in the average = 0.32 / square root of 4 = 0.16. To halve it to
+0.08 you need four times as many nights: <strong>16 nights</strong>, by Chapter 6's
+<code>1/sqrt(N)</code> law. Note how expensive that is -- more than two weeks of
+suitable nights -- which is usually the moment a team decides 0.16 is fine.</p>
+<p><strong>7.12.4.</strong> At the steady temperature nothing is changing, so the heater's
+input exactly balances the loss to the room: the data constrains only the
+<em>ratio</em> of <code>p</code> to <code>c</code>. Doubling both gives the identical steady temperature,
+so infinitely many pairs fit -- Sec. 7.4.4's situation exactly. The smallest
+additional experiment: <strong>turn the heater off and record how fast the tank
+cools.</strong> Cooling with no heater involves <code>c</code> alone, which pins it; the steady
+temperature then pins <code>p</code>. The general principle is the one that separated
+<code>k</code> from <code>g</code>: find a condition in which one parameter acts and the other does
+not.</p>
+<p><strong>7.12.5.</strong> Sum = 2 - 1 + 3 + 0 + 2 + 1 + 3 - 1 + 2 + 4 = 15, so bias =
+<strong>+1.5</strong>. Deviations from 1.5: 0.5, -2.5, 1.5, -1.5, 0.5, -0.5, 1.5, -2.5,
+0.5, 2.5; squares 0.25, 6.25, 2.25, 2.25, 0.25, 0.25, 2.25, 6.25, 0.25,
+6.25, sum 26.5; divide by 9 gives 2.94; square root gives spread <strong>1.72</strong>.
+The bias is about 0.9 spreads -- present but not dominant, unlike
+Sec. 7.4.5's -4.8 against 1.67, which was nearly three. <strong>Neither answer is
+forced by the arithmetic</strong>, and that is the point of the exercise: with a
+bias smaller than the spread, look first for a <em>named</em> cause in the
+assumption ledger. If one exists (a systematic effect you can point at), the
+parameter may be earned. If none does, adding a parameter is fitting noise,
+and the honest next step is more hold-out days to see whether the bias
+persists.</p>
+<p><strong>7.12.6.</strong> Objection: "the bias dropped on the data you used to fit the new
+parameter, which is guaranteed by arithmetic and is not evidence; and the
+data that revealed the bias is now calibration data, so we currently have no
+hold-out at all." What would change my mind: the same bias staying at zero
+on a fresh period neither the original fit nor the fix has seen, plus a named
+row of the assumption ledger that the new parameter corresponds to.</p>
+<p><strong>7.12.7.</strong> Three spreads = 3 x 3.8 = <strong>11.4</strong> reading units; alert when the
+observed step is below 70.5 - 11.4 = <strong>59.1</strong>. Smallest detectable shortfall
+= 11.4 / 70.5 = <strong>16 per cent</strong> -- the same figure as Sec. 7.5.2, which is
+not a coincidence, since both the expected step and its spread scale with
+dose size. Use two spreads when a missed fault costs far more than a false
+alarm: a plant you cannot replace, or an unattended rig over a holiday. The
+price is more false alarms, and the thing to state is the new miss floor
+(2 x 3.8 / 70.5 = 11 per cent) so the trade is visible.</p>
+<p><strong>7.12.8.</strong> Errors halve as the step halves, so the rule is first order and
+behaving. To get the numerical error to a fifth of the 1.5-unit hold-out
+spread you need it below 0.3, so the 1.0 row is not enough: <strong>one more
+halving to about 0.5, and another to about 0.25</strong>, i.e. two steps beyond the
+finest row shown. Relative to the coarsest setting that is 32 times the
+steps, and Chapter 5 Sec. 5.3.4's arithmetic tells you whether that still
+fits the request budget. If instead the errors had barely moved -- 8.0, 7.9,
+7.9, 7.8 -- the run is <strong>not converging</strong>, and step size is not the cause of
+the 8.0. Suspect an event landing on a step boundary, a discontinuity the
+solver is stepping over, or a defect in the model code; Sec. 7.3.2 says stop
+and get help rather than halving again.</p>
+<p><strong>7.12.9.</strong> <em>Hint, not a solution.</em> Check yours against four tests. (i) Is
+the claim in the units of the decision -- kilowatts, or "enough warning to
+pre-cool by 2 degrees" -- rather than in a percentage? (ii) Does the
+evidence paragraph name a hold-out period and the bias and spread on it?
+(iii) Do your admitted limitations include at least one condition you have
+never observed -- an unusually hot day, a bank holiday occupancy pattern?
+(iv) Does the expiry paragraph contain a condition that no data stream can
+detect, such as a change of tenant or a new chiller? If all four hold, the
+document would survive a reviewer.</p>
+<p><strong>7.12.10.</strong> No solution -- that is the point. Two predictions about what you
+will find. First, your data will have gaps, and the gaps will be where
+something interesting happened, because the same event that disturbed the
+plant disturbed the logger. Second, at least one of your six "dry nights"
+will turn out not to have been dry, and finding that is worth more than the
+parameter it changes.</p>
+<hr />
+<h2 id="713-where-to-go-next">7.13 Where to go next</h2>
+<p><strong>In this book.</strong> Chapter 8 closes Part II by taking the data-driven family
+and its specific risks seriously, including what Sec. 7.5.5 could only
+sketch about validating a model whose parameters mean nothing. Then Part III
+begins the build. Chapter 9 is the connector that supplies the
+measurements every test here needed. Chapter 10 is the store and the
+provenance that Sec. 7.7.3 depends on and does not build. Chapter 11 turns
+Sec. 7.5.2's threshold and Sec. 7.7.4's monitors into services. Chapter 12
+asks what a platform gives you of all this, and Chapter 13 covers the
+standards -- ASME VV-40 and ISO 23247 among them -- that this chapter named
+once each and did not explain. <strong>Chapter 14 is the one this chapter leans on
+hardest</strong>: expiry conditions are only worth writing if something acts on
+them, and the operational loop that refits, re-validates and re-issues the
+credibility argument is Chapter 14's subject. Chapter 15 asks what happens
+to a credibility argument when twins start composing, which is where
+[18]'s trust vectors point.</p>
+<p><strong>In the literature, if you want more.</strong> These are the sources drawn on
+above, grouped by what you would read them for.</p>
+<ul>
+<li><em>Calibration, properly:</em> [4] is the closest thing to
+  a textbook treatment aimed at twin builders, and goes from least squares
+  through nonlinear methods to design-space exploration. [20]
+  shows the same procedure carried out end to end on a physical incubator,
+  including the comparison of a two-parameter against a four-parameter model
+  -- which is Sec. 7.4.6's question with real data. [12] is
+  the matching tutorial, and shows calibration wired in as a <em>service</em>
+  inside a running twin.</li>
+<li><em>V&amp;V for twins specifically, and how it differs from classical practice:</em>
+  [3] is the one to read first; it is the source of this
+  chapter's continual-validation framing and surveys the level-by-level
+  approaches. [5] is a short standards gap analysis that
+  names credibility assessment as the hole in ISO 23247.
+  [21] places V&amp;V within the engineering-design
+  lifecycle.</li>
+<li><em>Uncertainty:</em> [13] is the survey, and is candid
+  about what cannot be cleanly separated;
+  [17]
+  is the national-academies review that treats VVUQ as an open research
+  agenda rather than a procedure. [1] is the
+  clearest short statement of what bounds a twin's domain of validity.</li>
+<li><em>Testing, from a software engineer's angle:</em> [6] on
+  automated and systematic twin testing, [7]
+  on multi-level testing frameworks, [8] on carrying a
+  requirement from simulation to reality, and [9] on
+  why continuous integration for cyber-physical systems is harder than you
+  expect.</li>
+<li><em>Validation against a real asset:</em> [19] is the
+  offshore example of Sec. 7.9 and is worth reading for its honesty about
+  what its comparison does and does not show. [10] is
+  the structural-engineering counterpart, built around dedicated measurement
+  campaigns. [22] surveys the uncertainty sources in
+  that domain.</li>
+<li><em>Consulted, not drawn on above:</em> [23] on a
+  principled probabilistic foundation for calibrating and updating twins at
+  fleet scale, [24] and [25] on Bayesian
+  model updating for structures, [26] on a clinical
+  twin that reports its predictions with uncertainty by construction,
+  [27] on the regulatory framing in healthcare,
+  [28] on stating twin fidelity as an equivalence
+  property rather than an error figure, and [16] on what
+  breaks when twins are produced industrially rather than one at a time.</li>
+</ul>
+<p><strong>In the demonstrator.</strong> Exercise 7.12.10 is the assignment, and it is the
+one that will teach you the most in this book so far, because it is the
+first time the numbers will disagree with you. Run the two campaigns, hold
+out a week, and write the two-page argument of Sec. 7.8.5 with your own
+figures in it. Then do the thing that makes it real: put the expiry
+conditions in a monitor, and wait for one to fire.</p>
+<h2 id="references">References</h2>
+<p>[1] O. J. Pinon Fischer, S. Sabri, and Y. Chen, "Fundamentals of Digital Twins, Modeling Approaches, and Governance," in <em>Digital Twin: Fundamentals and Applications</em>, pp. 13-29, Springer Nature Switzerland, 2024.</p>
+<p>[2] M. Viceconti, M. De Vos, S. Mellone, and L. Geris, "Position Paper From the Digital Twins in Healthcare to the Virtual Human Twin: A Moon-Shot Project for Digital Health Research," <em>IEEE Journal of Biomedical and Health Informatics</em>, vol. 28, no. 1, pp. 491-501, 2024.</p>
+<p>[3] Z. Ali, R. Biglari, J. Denil, J. Mertens, M. Poursoltan, and M. K. Traore, "From modeling and simulation to Digital Twin: evolution or revolution?," <em>SIMULATION</em>, vol. 100, no. 7, pp. 751-769, 2024.</p>
+<p>[4] C. Gomes, H. Feng, Z. Kazemi, and K. Pierce, "Calibration of Models for Digital Twins," in <em>The Engineering of Digital Twins</em>, pp. 129-146, Springer International Publishing, 2024.</p>
+<p>[5] G. Shao, S. Frechette, and V. Srinivasan, <em>An Analysis of the New ISO 23247 Series of Standards on Digital Twin Framework for Manufacturing</em>, American Society of Mechanical Engineers Digital Collection, 2023.</p>
+<p>[6] Y. Ma et al., <em>Automated and Systematic Digital Twins Testing for Industrial Processes</em>, arXiv, 2023.</p>
+<p>[7] I. Aldalur, A. Arrieta, A. Agirre, G. Sagardui, and M. Arratibel, "A microservice-based framework for multi-level testing of cyber-physical systems," <em>Software Quality Journal</em>, vol. 32, no. 1, pp. 193-223, 2024.</p>
+<p>[8] A. Agrawal, P. Zech, and M. Vierhauser, "Coupled Requirements-Driven Testing of CPS: From Simulation to Reality," in <em>2024 IEEE 32nd International Requirements Engineering Conference (RE)</em>, pp. 337-344, 2024.</p>
+<p>[9] F. Zampetti, D. Tamburri, S. Panichella, A. Panichella, G. Canfora, and M. Di Penta, "Continuous Integration and Delivery Practices for Cyber-Physical Systems: An Interview-Based Study," <em>ACM Trans. Softw. Eng. Methodol.</em>, vol. 32, no. 3, pp. 73:1-73:44, 2023.</p>
+<p>[10] N. Wagner and D. Tcherniak, <em>Data-Driven Updating of Digital Twins through Experimental Measurements and Parametric Finite Element Model Optimization</em>, 2025.</p>
+<p>[11] G. Abbiati, C. Gomes, M. Sandberg, Z. Kazemi, S. T. Hansen, and P. G. Larsen, "Modelling for Digital Twins," in <em>The Engineering of Digital Twins</em>, pp. 89-127, Springer International Publishing, 2024.</p>
+<p>[12] C. Gomes et al., "Digital Twin Tutorial: The Incubator Case Study," in <em>Engineering Trustworthy Software Systems: 6th International School, SETSS 2024, Chongqing, China, April 14-21, 2024, Tutorial Lectures</em>, pp. 68-101, Springer Nature, 2025.</p>
+<p>[13] A. Thelen et al., "A comprehensive review of digital twin--part 2: roles of uncertainty quantification and optimization, a battery digital twin, and perspectives," <em>Structural and Multidisciplinary Optimization</em>, vol. 66, no. 1, p. 1, 2022.</p>
+<p>[14] A. Thelen, X. Huan, N. Paulson, S. Onori, Z. Hu, and C. Hu, "Probabilistic machine learning for battery health diagnostics and prognostics--review and perspectives," <em>npj Materials Sustainability</em>, vol. 2, no. 1, pp. 1-33, Nature Publishing Group, 2024.</p>
+<p>[15] A. Thelen, M. Li, C. Hu, E. Bekyarova, S. Kalinin, and M. Sanghadasa, "Augmented model-based framework for battery remaining useful life prediction," <em>Applied Energy</em>, vol. 324, p. 119624, 2022.</p>
+<p>[16] S. A. Niederer, M. S. Sacks, M. Girolami, and K. Willcox, "Scaling digital twins from the artisanal to the industrial," <em>Nature Computational Science</em>, vol. 1, no. 5, pp. 313-320, Nature Publishing Group, 2021.</p>
+<p>[17] <em>Foundational Research Gaps and Future Directions for Digital Twins</em>, National Academies Press, 2024.</p>
+<p>[18] <em>Assuring Trustworthiness in Dynamic Systems Using Digital Twins and Trust Vectors</em>, Digital Twin Consortium, 2024.</p>
+<p>[19] E. Branlard, J. Jonkman, C. Brown, and J. Zhang, "A digital twin solution for floating offshore wind turbines validated using a full-scale prototype," <em>Wind Energy Science</em>, vol. 9, no. 1, pp. 1-24, Copernicus GmbH, 2024.</p>
+<p>[20] B. J. Oakes et al., "Case Studies in Digital Twins," in <em>The Engineering of Digital Twins</em>, pp. 257-310, Springer International Publishing, 2024.</p>
+<p>[21] N. Anwer, R. Stark, F. Tao, and J. Erkoyuncu, "Developing and leveraging digital twins in engineering design," <em>CIRP Annals</em>, vol. 2025, 2025.</p>
+<p>[22] U. T. Tygesen, K. Worden, T. Rogers, G. Manson, and E. J. Cross, "State-of-the-Art and Future Directions for Predictive Modelling of Offshore Structure Dynamics Using Machine Learning," in <em>Dynamics of Civil Structures, Volume 2</em>, pp. 223-233, Springer International Publishing, 2019.</p>
+<p>[23] M. G. Kapteyn, J. V. R. Pretorius, and K. E. Willcox, "A probabilistic graphical model foundation for enabling predictive digital twins at scale," <em>Nature Computational Science</em>, vol. 1, no. 5, pp. 337-347, Nature Publishing Group, 2021.</p>
+<p>[24] M. Torzoni, M. Tezzele, S. Mariani, A. Manzoni, and K. E. Willcox, "A digital twin framework for civil engineering structures," <em>Computer Methods in Applied Mechanics and Engineering</em>, vol. 418, p. 116584, 2024.</p>
+<p>[25] M. Torzoni, A. Manzoni, and S. Mariani, "A Deep Neural Network, Multi-fidelity Surrogate Model Approach for Bayesian Model Updating in SHM," in <em>European Workshop on Structural Health Monitoring</em>, pp. 1076-1086, Springer International Publishing, 2023.</p>
+<p>[26] A. Chaudhuri et al., "Predictive digital twin for optimizing patient-specific radiotherapy regimens under uncertainty in high-grade gliomas," <em>Frontiers in Artificial Intelligence</em>, vol. 6, Frontiers, 2023.</p>
+<p>[27] E. Katsoulakis et al., "Digital twins for health: a scoping review," <em>npj Digital Medicine</em>, vol. 7, no. 1, pp. 1-11, Nature Publishing Group, 2024.</p>
+<p>[28] N. Zhang, R. Bahsoon, N. Tziritas, and G. Theodoropoulos, "Knowledge Equivalence in Digital Twins of Intelligent Systems," <em>ACM Transactions on Modeling and Computer Simulation</em>, vol. 34, no. 1, pp. 1-37, 2024.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Prasad Talasila
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.tabs.sticky", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

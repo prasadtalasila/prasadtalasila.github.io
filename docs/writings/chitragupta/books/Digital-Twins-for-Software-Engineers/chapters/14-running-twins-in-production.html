@@ -1,0 +1,2757 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home page of Prasad Talasila">
+      
+      
+        <meta name="author" content="Prasad Talasila">
+      
+      
+        <link rel="canonical" href="https://prasad.talasila.in/writings/chitragupta/books/Digital-Twins-for-Software-Engineers/chapters/14-running-twins-in-production.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 14 -- Running Twins in Production: Deployment, Evolution, and the Twin's Own Lifecycle - Prasad Talasila</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/course-tables.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-14-running-twins-in-production-deployment-evolution-and-the-twins-own-lifecycle" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../../index.html" title="Prasad Talasila" class="md-header__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prasad Talasila
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 14 -- Running Twins in Production: Deployment, Evolution, and the Twin's Own Lifecycle
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../research.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Research
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../publications.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../projects.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../software.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../courses.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Courses
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../writings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Writings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../contact.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../../index.html" title="Prasad Talasila" class="md-nav__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.png" alt="logo">
+
+    </a>
+    Prasad Talasila
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../research.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../publications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../software.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../courses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../writings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../contact.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#140-before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.0 Before you start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.0 Before you start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning objectives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#141-the-expiry-register" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1 The expiry register
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.1 The expiry register">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1411-twenty-four-conditions-seven-chapters-nobody-watching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1.1 Twenty-four conditions, seven chapters, nobody watching
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1412-what-the-register-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1.2 What the register is
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1413-three-kinds-of-trigger-and-only-one-fires-by-itself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1.3 Three kinds of trigger, and only one fires by itself
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#142-deployment-what-is-different-about-shipping-a-twin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.2 Deployment: what is different about shipping a twin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.2 Deployment: what is different about shipping a twin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1421-you-are-shipping-four-things-not-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.2.1 You are shipping four things, not one
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1422-the-physical-twin-has-no-staging-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.2.2 The physical twin has no staging environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1423-simulate-the-physical-twin-which-is-what-stands-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.2.3 Simulate-the-physical-twin, which is what stands in
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1424-golden-trajectories-as-the-release-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.2.4 Golden trajectories as the release gate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1425-shadow-deployment-rollback-and-the-thing-you-cannot-roll-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.2.5 Shadow deployment, rollback, and the thing you cannot roll back
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#143-the-operating-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3 The operating loop
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.3 The operating loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1431-five-recurring-activities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3.1 Five recurring activities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1432-recalibration-as-a-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3.2 Recalibration as a workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1433-re-validation-and-the-cadence-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3.3 Re-validation, and the cadence problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1434-what-changes-when-the-model-is-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3.4 What changes when the model is learned
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1435-the-announced-change-and-whether-it-has-an-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3.5 The announced change, and whether it has an answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#144-the-operating-bill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.4 The operating bill
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.4 The operating bill">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1441-chapter-1s-estimate-restated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.4.1 Chapter 1's estimate, restated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1442-the-real-list-counted-from-the-books-own-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.4.2 The real list, counted from the book's own design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1443-chapter-1s-payback-recomputed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.4.3 Chapter 1's payback, recomputed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1444-but-chapter-1s-falsifier-was-computed-against-the-wrong-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.4.4 But Chapter 1's falsifier was computed against the wrong number
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1445-what-to-automate-first-decided-by-the-bill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.4.5 What to automate first, decided by the bill
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#145-evolution-when-the-twins-purpose-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.5 Evolution: when the twin's purpose changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.5 Evolution: when the twin&#39;s purpose changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1451-parts-change-and-purposes-change-and-they-fail-differently" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.5.1 Parts change, and purposes change, and they fail differently
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1452-the-credibility-argument-that-is-true-and-irrelevant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.5.2 The credibility argument that is true and irrelevant
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1453-four-purpose-changes-and-what-each-breaks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.5.3 Four purpose changes, and what each breaks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1454-retiring-a-twin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.5.4 Retiring a twin
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#146-practices-worth-naming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6 Practices worth naming
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.6 Practices worth naming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1461-twinops-and-devops-for-twins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6.1 TwinOps, and DevOps for twins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1462-replay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6.2 Replay
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1463-fault-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6.3 Fault injection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1464-what-security-looks-like-in-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6.4 What security looks like in operation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#147-worked-example-a-year-of-operating-the-demonstrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.7 Worked example: a year of operating the demonstrator
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.7 Worked example: a year of operating the demonstrator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1471-the-register-assembled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.7.1 The register, assembled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1472-the-year-month-by-month" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.7.2 The year, month by month
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1473-the-bill-and-what-the-sponsor-is-told" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.7.3 The bill, and what the sponsor is told
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1474-what-the-year-changes-about-the-credibility-argument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.7.4 What the year changes about the credibility argument
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#148-faded-example-the-turbine-fleet-in-year-three" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8 Faded example: the turbine fleet in year three
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#149-posed-problem-the-handover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.9 Posed problem: the handover
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1410-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.10 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1411-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.11 Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.11 Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solutions-and-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solutions and hints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1412-where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.12 Where to go next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-14-running-twins-in-production-deployment-evolution-and-the-twins-own-lifecycle">Chapter 14 -- Running Twins in Production: Deployment, Evolution, and the Twin's Own Lifecycle</h1>
+<h2 id="140-before-you-start">14.0 Before you start</h2>
+<p><strong>Where we are.</strong> Two chapters of this book say, in identical words,
+"Chapter 14 is the one this chapter leans on hardest". Chapter 7 said it
+about its expiry conditions and Chapter 8 said it about its retraining
+triggers, and Chapter 7 put the omission precisely:</p>
+<blockquote>
+<p><strong>Expiry conditions are only worth writing if something acts on them.</strong></p>
+</blockquote>
+<p>Nothing acts on them. Across Chapters 7 to 13 this book has written
+<strong>twenty-four</strong> conditions under which something a twin depends on stops
+being true, distributed across seven chapters and six design documents, and
+<strong>no chapter built the thing that fires them.</strong> Sec. 14.1 collects them, and the
+collection is the chapter's opening artifact.</p>
+<p><strong>The register, unchanged from Chapters 9 to 13.</strong> You have operated
+software in production. You know what a runbook is, what an on-call rotation
+costs, and what a postmortem is for.</p>
+<blockquote>
+<p><strong>This chapter does not teach operations. It teaches what is different
+about operating a system whose correctness decays because the world
+changed, rather than because somebody deployed something.</strong></p>
+</blockquote>
+<p>That sentence is the whole distinction. Ordinary software is wrong when you
+change it. A twin is wrong when the <em>pot is repotted</em>, and nobody
+deployed anything.</p>
+<p><strong>What you are assumed to know.</strong> Everything so far. Especially: Chapter 1's
+cost and payback estimate in Sec. 1.8.7 and its falsifier in Sec. 1.8.8;
+Chapter 3's registry, its binding rule and its lifecycle concern; Chapter
+5's reproducibility requirement and its simulate-the-physical-twin
+arrangement; Chapter 7's credibility argument, its five expiry triggers and
+its three monitors; Chapter 8's three retraining triggers and the
+retroactive one; Chapter 9's sensor drift and quality states; Chapter 10's
+validity intervals, dataset definitions and provenance chain; Chapter 11's
+three outcomes and work queue; Chapter 12's cost model and expiry triggers;
+Chapter 13's counterparty rule.</p>
+<p><strong>The maths budget.</strong> As Chapters 9 to 13. One set piece, and it closes a
+loop the book opened in Chapter 1: <strong>the operating bill</strong> (Sec. 14.4).
+Engineering days are counted separately from lab-operations days throughout,
+because walking to a rig is not the twin's operating cost and mixing the two
+inflates the answer.</p>
+<p><strong>What this chapter deliberately does not cover.</strong> Operations practice --
+runbooks, on-call design, incident-management frameworks. CI/CD mechanics
+and container technology -- TwinOps and the DevOps-for-twins work are named
+as the shape, and Chapter 12's refusal to name technology holds here. MLOps
+as a technology -- Chapter 8 deferred <em>what is different when the model is
+learned</em>, which is Sec. 14.3.4. Security in general -- Chapter 3
+Sec. 3.3.3 owns it and said Chapter 14 "returns to running this in
+production", so Sec. 14.6.4 covers what changes operationally and defers the
+rest. Fleet operations and anything that only appears at many twins --
+Chapter 15; Sec. 14.4's arithmetic is deliberately for one.</p>
+<h3 id="learning-objectives">Learning objectives</h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol>
+<li><strong>Assemble</strong> an expiry register from the conditions a twin's design
+   documents already contain, and <strong>classify</strong> each trigger by what can
+   detect it.</li>
+<li><strong>Design</strong> a release process for a twin, including what stands in for the
+   staging environment a physical twin does not have.</li>
+<li><strong>Compute</strong> a twin's annual operating cost from its own design, and
+   <strong>recompute</strong> the payback and the falsification threshold from Chapter 1.</li>
+<li><strong>Distinguish</strong> a twin whose parts have changed from one whose purpose
+   has changed, and <strong>explain</strong> why the second is harder to detect.</li>
+<li><strong>Decide</strong> what to automate first, and <strong>justify</strong> it from the operating
+   bill rather than from preference.</li>
+</ol>
+<hr />
+<h2 id="141-the-expiry-register">14.1 The expiry register</h2>
+<h3 id="1411-twenty-four-conditions-seven-chapters-nobody-watching">14.1.1 Twenty-four conditions, seven chapters, nobody watching</h3>
+<p>Here is every expiry condition this book has written, collected for the
+first time. Read it as the indictment it is.</p>
+<table>
+<thead>
+<tr>
+<th>From</th>
+<th>The condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ch7 Sec. 7.7.2</td>
+<td>4 weeks since the last calibration</td>
+</tr>
+<tr>
+<td>Ch7 Sec. 7.7.2</td>
+<td>The physical twin changed: repotted, plant replaced, dripper moved</td>
+</tr>
+<tr>
+<td>Ch7 Sec. 7.7.2</td>
+<td>The model version changed</td>
+</tr>
+<tr>
+<td>Ch7 Sec. 7.7.2</td>
+<td>The 14-day rolling residual bias left plus or minus 1.0</td>
+</tr>
+<tr>
+<td>Ch7 Sec. 7.7.2</td>
+<td>A sensor was replaced or recalibrated</td>
+</tr>
+<tr>
+<td>Ch7 Sec. 7.7.4</td>
+<td>The residual spread grew materially</td>
+</tr>
+<tr>
+<td>Ch7 Sec. 7.7.4</td>
+<td>The estimator gain moved outside its stated band</td>
+</tr>
+<tr>
+<td>Ch8 Sec. 8.6.3</td>
+<td>The model was retrained</td>
+</tr>
+<tr>
+<td>Ch8 Sec. 8.6.3</td>
+<td>The input-coverage refusal rate exceeded its threshold</td>
+</tr>
+<tr>
+<td>Ch8 Sec. 8.6.3</td>
+<td>The training data's certification as "normal" was called into question -- <strong>and this one invalidates backwards</strong></td>
+</tr>
+<tr>
+<td>Ch9 Sec. 9.2.2</td>
+<td>A sensor's specified drift has consumed its calibration margin</td>
+</tr>
+<tr>
+<td>Ch9 Sec. 9.3.3</td>
+<td>Something changed near the sensor, so the aliasing check is stale</td>
+</tr>
+<tr>
+<td>Ch10 Sec. 10.3.5</td>
+<td>The retention policy is about to delete something a claim depends on</td>
+</tr>
+<tr>
+<td>Ch11 Sec. 11.9.2</td>
+<td>The alert threshold or the confirmation rule changed</td>
+</tr>
+<tr>
+<td>Ch11 Sec. 11.8.3</td>
+<td>The evaluation work queue is backing up</td>
+</tr>
+<tr>
+<td>Ch12 Sec. 12.8.4</td>
+<td>A second twin is funded</td>
+</tr>
+<tr>
+<td>Ch12 Sec. 12.8.4</td>
+<td>Data volume rose by two orders of magnitude</td>
+</tr>
+<tr>
+<td>Ch12 Sec. 12.8.4</td>
+<td>Somebody wants a service that was declined</td>
+</tr>
+<tr>
+<td>Ch12 Sec. 12.8.4</td>
+<td><strong>The person who owns the shared parts left</strong></td>
+</tr>
+<tr>
+<td>Ch13 Sec. 13.6.5</td>
+<td>A modelling group is contracted; a second bench appears; equipment speaks OPC UA; an external reviewer arrives; a learned model reaches production</td>
+</tr>
+</tbody>
+</table>
+<p>Twenty rows, and <strong>twenty-four conditions</strong> -- Chapter 13's five share a row
+because they were written as one list. Seven chapters, six design documents,
+<strong>each of which ended by saying somebody should watch these.</strong></p>
+<p>That is a normal outcome and not a failure of diligence. Expiry conditions
+are written at the end of a design activity by the person who has just
+finished designing, and they are read by nobody, because there is no
+document whose job it is to hold them.</p>
+<h3 id="1412-what-the-register-is">14.1.2 What the register is</h3>
+<p>One list. One owner. One review cadence.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>expiry_register(
+    id, condition,              -- in words a non-author can check
+    source,                     -- which document asserted it
+    detector,                   -- what will notice: a monitor, a date, a person
+    owner,                      -- a named role
+    last_checked, status,
+    on_fire                     -- what happens: refit, re-validate, re-decide, escalate
+)
+</code></pre></div></td></tr></table></div>
+<p><strong>Four properties make it work, and each is cheap only if done at the
+start.</strong></p>
+<p><em>It is one list, not a section in six documents.</em> The value is entirely in
+the aggregation: a reviewer reading twenty-four conditions in one place asks
+"which of these has no detector?", and that question cannot be asked of six
+documents.</p>
+<p><em>Every row has a detector.</em> Sec. 14.1.3 classifies them, and the
+classification is the point of the exercise.</p>
+<p><em>Every row has an owner who is a role, not a person.</em> Chapter 12
+Sec. 12.8.4's fourth trigger -- the person who owns the shared parts leaves
+-- is the register auditing itself, and it only works if rows name roles.</p>
+<p><em>It is reviewed on a cadence, and the review is short.</em> Monthly, fifteen
+minutes, three questions: has anything fired, has anything become
+undetectable, and has anything been added by a design decision since last
+month.</p>
+<h3 id="1413-three-kinds-of-trigger-and-only-one-fires-by-itself">14.1.3 Three kinds of trigger, and only one fires by itself</h3>
+<p>Classify every row. The classification decides where your effort goes.</p>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>Detected by</th>
+<th>Examples from Sec. 14.1.1</th>
+<th>Failure mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Self-firing</strong></td>
+<td>A monitor, from data the twin already has</td>
+<td>Residual bias, residual spread, estimator gain, coverage refusal rate, queue depth</td>
+<td>Alert fatigue, or a monitor nobody wired to anything</td>
+</tr>
+<tr>
+<td><strong>Scheduled</strong></td>
+<td>A calendar</td>
+<td>4 weeks since calibration; sensor drift margin; the aliasing re-check</td>
+<td>Quiet omission -- nobody notices a job that stopped running</td>
+</tr>
+<tr>
+<td><strong>Announced</strong></td>
+<td>A human telling you</td>
+<td>Repotting, sensor replacement, a contracted modelling group, a second twin, an external reviewer, the departure of the parts owner</td>
+<td><strong>Silence is indistinguishable from nothing having happened</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Count the rows.</strong> Of the twenty-four, seven are self-firing, four are
+scheduled, and <strong>thirteen are announced</strong>. More than half of this book's
+expiry conditions depend on somebody remembering to say something.</p>
+<blockquote>
+<p><strong>That ratio is the chapter's first finding, and it should change what you
+build.</strong> The self-firing triggers are the ones engineers enjoy building
+and they are a minority. The majority need a <em>process</em>, and a process
+without an artifact is a hope. Sec. 14.3.5 is about whether the announced
+category has an answer at all.</p>
+</blockquote>
+<hr />
+<h2 id="142-deployment-what-is-different-about-shipping-a-twin">14.2 Deployment: what is different about shipping a twin</h2>
+<h3 id="1421-you-are-shipping-four-things-not-one">14.2.1 You are shipping four things, not one</h3>
+<p>An ordinary release ships code. A twin release ships up to four
+independently-versioned things, and they have different risks and different
+gates.</p>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>Changes when</th>
+<th>Gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Code</strong></td>
+<td>Ordinary development</td>
+<td>Your existing tests</td>
+</tr>
+<tr>
+<td><strong>Models</strong></td>
+<td>A refit, a structural change, a retrain</td>
+<td>Chapter 7's hold-out; Chapter 7's golden trajectories</td>
+</tr>
+<tr>
+<td><strong>Parameters</strong></td>
+<td>Every recalibration -- Chapter 7's four-week cadence</td>
+<td>The hold-out, and a diff a human reads</td>
+</tr>
+<tr>
+<td><strong>Configuration and bindings</strong></td>
+<td>The physical twin changes</td>
+<td>Chapter 3's rule that binding is data; Chapter 10's validity intervals</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Two consequences that catch people.</strong></p>
+<p><em>Three of the four change without anybody writing code</em>, so a release
+process gated only on code review has no gate on three quarters of what
+ships. Chapter 3 Sec. 3.2.4 said the registry "is where that cost is either
+managed or lost", and this is that sentence in operational form.</p>
+<p><em>A parameter change is a release.</em> Chapter 7's recalibration produces three
+numbers, and those three numbers change what the twin alerts on. Treating
+them as data rather than as a release is how a twin's behaviour changes with
+no record of a change -- which Chapter 10's whole provenance chain exists to
+prevent, and which the deployment process can undo in one step.</p>
+<h3 id="1422-the-physical-twin-has-no-staging-environment">14.2.2 The physical twin has no staging environment</h3>
+<p>Here is the structural difference, and everything in this section follows
+from it.</p>
+<p>You cannot spin up a second greenhouse. You cannot restart the turbine to
+test a release. <strong>The system your software talks to is a single, expensive,
+slow, unrepeatable instance of the world</strong>, and it is the only one.</p>
+<p>Three consequences.</p>
+<p><em>You cannot test the ingest path end to end without the physical twin.</em>
+Whatever you test against is a stand-in, and the difference between the
+stand-in and the world is a risk you carry rather than eliminate.</p>
+<p><em>Failures are not reproducible on demand.</em> You cannot make the pump fail to
+see what happens. Chapter 7 Sec. 7.5.6 already said the corresponding thing
+about validation: you cannot validate a prediction about a failure that has
+never happened.</p>
+<p><em>The blast radius of a bad release includes physical things</em> -- at Stage 3,
+water; on a turbine, a vessel dispatched or not dispatched. Chapter 2
+Sec. 2.8's boundary arrives at deployment time as well as at design time.</p>
+<h3 id="1423-simulate-the-physical-twin-which-is-what-stands-in">14.2.3 Simulate-the-physical-twin, which is what stands in</h3>
+<p>Chapter 5 Sec. 5.5.3 built this and Chapter 5 Sec. 5.12 sent it here as a
+practice. It is the answer to Sec. 14.2.2.</p>
+<p><strong>What it is.</strong> Run the <em>same model</em> forward to produce synthetic
+measurements, and point the twin at those instead of at the physical twin.
+Chapter 5 already noted this is the same machinery -- a model, an initial
+state, inputs, a horizon and a step size -- so it costs almost nothing once
+the runner exists.</p>
+<p><strong>What it buys, and it is more than a test environment.</strong></p>
+<p><em>A pipeline test with known answers.</em> You know what the moisture <em>should</em>
+read because you generated it, so every stage from connector to alert can be
+checked against ground truth. This is the only place in a twin's life where
+ground truth exists.</p>
+<p><em>Failures on demand.</em> Generate a dose that delivers nothing and confirm the
+alert fires. Generate a stuck sensor -- Chapter 9 Sec. 9.7.4's undetectable
+case -- and confirm what happens. <strong>This is where Chapter 11's three
+outcomes get tested</strong>, because <code>cannot_evaluate</code> is otherwise only exercised
+by real infrastructure failures you have to wait for.</p>
+<p><em>A test that runs in seconds.</em> Chapter 5 Sec. 5.3.4 costed a run at 32
+microseconds, so a simulated week is instant.</p>
+<p><strong>And the honest limit, which must be stated wherever this is used.</strong> A
+simulated physical twin generated by the same model the twin uses cannot
+find a modelling error, because it shares the error. It tests the
+<em>plumbing</em>, not the <em>physics</em>. Chapter 7's hold-out is the only thing that
+tests the physics, and no amount of synthetic data substitutes for it.</p>
+<blockquote>
+<p><strong>So the split is clean and worth memorising.</strong> Simulate-the-physical-twin
+tests everything from the connector to the alert, with ground truth, in
+seconds. Chapter 7's hold-out tests whether the model deserves belief. A
+release process needs both and they answer different questions.</p>
+</blockquote>
+<h3 id="1424-golden-trajectories-as-the-release-gate">14.2.4 Golden trajectories as the release gate</h3>
+<p>Chapter 7 Sec. 7.3.3 built golden trajectories as a verification device and
+described three uses. In production they become the gate:</p>
+<blockquote>
+<p><strong>No model, parameter or configuration change reaches the twin until it
+has been run against the recorded scenarios and the diff has been read by
+a human.</strong></p>
+</blockquote>
+<p><strong>Why a human reads the diff rather than a threshold passing it.</strong> A model
+change is <em>supposed</em> to change the outputs. An automatic pass/fail on
+"outputs unchanged" would reject every legitimate change and accept nothing
+useful. What the gate produces is a sentence: "version 3 predicts evening
+readings 4 units lower on average across the twelve regression scenarios,
+and differs by more than 10 units only in the saturation scenario." A human
+decides whether that sentence is the change they intended.</p>
+<p><strong>Four scenarios are the minimum</strong>, and the demonstrator's are already
+specified in Chapter 7 Sec. 7.8.2: a dry-down, a normal day, a missed
+evening dose, and a saturation excursion. Add one per incident, forever --
+<strong>an incident that does not leave a scenario behind will happen again.</strong></p>
+<h3 id="1425-shadow-deployment-rollback-and-the-thing-you-cannot-roll-back">14.2.5 Shadow deployment, rollback, and the thing you cannot roll back</h3>
+<p><strong>Shadow deployment</strong> is the twin-specific pattern worth naming. Run the new
+version alongside the old, against the same inputs, and <strong>do not act on the
+new one</strong>. Compare for a period, then promote. For a twin this is unusually
+cheap -- the models are small, the runner is fast, and Chapter 10's schema
+already stores derived output keyed on <code>(binding, as_of, decision_time)</code>, so
+two versions producing beliefs about the same moment is a supported case
+rather than a conflict.</p>
+<p><strong>Run a shadow for at least one full cycle of the thing you care about.</strong>
+For the demonstrator that is a week, because Chapter 7's residual behaviour
+is weekly and a shadow of two days would miss the day-night structure that
+Chapter 7 Sec. 7.4.6 earned a parameter for.</p>
+<p><strong>Rollback works for three of the four artifacts.</strong> Code, models and
+parameters are versioned and revertible; Chapter 10's registry holds the
+previous ones and Chapter 8 Sec. 8.2.3's content hashes prove which is
+which. Reverting is a normal operation.</p>
+<p><strong>What you cannot roll back is what the twin already did.</strong> An alert that
+was sent, a schedule that was changed, water that was delivered. Chapter 2
+Sec. 2.8's asymmetry -- a shadow that is wrong displays something false, a
+twin that is wrong <em>does</em> something false -- is exactly the asymmetry between
+a revertible and an unrevertible release.</p>
+<blockquote>
+<p><strong>Which gives the deployment rule for a closed-loop twin, and it is
+short.</strong> The gate before the command path is not the same gate as the one
+before a dashboard. Ship the advisory version, shadow the acting version
+against it, and let a human promote -- <strong>and note that Chapter 12
+Sec. 12.13 flagged the version bump that changes a number as the exact
+event this gate exists for.</strong></p>
+</blockquote>
+<hr />
+<h2 id="143-the-operating-loop">14.3 The operating loop</h2>
+<h3 id="1431-five-recurring-activities">14.3.1 Five recurring activities</h3>
+<p>Everything the twin needs done, repeatedly, once it is running:</p>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Cadence</th>
+<th>Triggered by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Watch</strong> -- monitors, digests, queue depth</td>
+<td>Continuous, reviewed weekly</td>
+<td>Ch7's three monitors, Ch11's daily digest, Ch11 Sec. 11.8.3's queue</td>
+</tr>
+<tr>
+<td><strong>Recalibrate</strong> -- refit parameters</td>
+<td>Ch7's four weeks, or a fired trigger</td>
+<td>Scheduled and self-firing</td>
+</tr>
+<tr>
+<td><strong>Re-validate</strong> -- re-run the hold-out, re-issue the argument</td>
+<td>After every recalibration or model change</td>
+<td>Follows recalibration</td>
+</tr>
+<tr>
+<td><strong>Record</strong> -- enter physical changes, resolutions, decisions</td>
+<td>On the day it happens</td>
+<td>Announced (Sec. 14.1.3), and this is the weak one</td>
+</tr>
+<tr>
+<td><strong>Review</strong> -- the expiry register</td>
+<td>Monthly, fifteen minutes</td>
+<td>Calendar</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notice that four of the five are cheap and one is not.</strong> Recalibration and
+its re-validation are where the hours go, and Sec. 14.4 counts them.</p>
+<h3 id="1432-recalibration-as-a-workflow">14.3.2 Recalibration as a workflow</h3>
+<p>Chapter 7 Sec. 7.4 taught the technique. Here it is as something that
+happens thirteen times a year without a person deciding to do it each time.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>1. Materialise the calibration dataset       Ch10 Sec. 10.7.2: a stored query,
+                                             an ingest watermark, an exclusion list
+2. Refuse if the windows are degraded        Ch9 Sec. 9.7.1: completeness below 90%
+3. Fit                                       Ch7 Sec. 7.4.1: value plus spread, per parameter
+4. Compare against the current values        A diff a human reads: three numbers
+5. Run the hold-out on a fresh window        Ch7 Sec. 7.4.5: bias and spread
+6. Run the golden trajectories               Sec. 14.2.4: the release gate
+7. Register the new parameter set            Ch10 Sec. 10.4.3: a new row, valid_from
+8. Re-issue the credibility argument         Ch7 Sec. 7.7.1: five parts, updated
+9. Reset the register row                    Sec. 14.1.2: last_checked, status
+</code></pre></div></td></tr></table></div>
+<p><strong>Nine steps, and eight of them are mechanisable.</strong> Step 4 is the one that
+needs a human, and it should stay that way: <strong>a parameter that moved a lot
+is information, and a pipeline that silently accepts it has discarded the
+signal.</strong> Chapter 7 Sec. 7.4.7 asked for a parameter history precisely so
+that "the twin has been getting worse for a month" becomes a one-line diff.</p>
+<p><strong>Two operational rules that are cheap now and expensive later.</strong></p>
+<p><em>Never recalibrate and change the model in the same release.</em> If both move,
+the diff at step 4 is uninterpretable and you have lost the only cheap check
+you had.</p>
+<p><em>A refusal at step 2 is a finding, not an error.</em> Degraded windows mean the
+connector had a bad month, which is a Chapter 9 problem the recalibration
+job has just discovered for free. Route it, do not retry it.</p>
+<h3 id="1433-re-validation-and-the-cadence-problem">14.3.3 Re-validation, and the cadence problem</h3>
+<p>Chapter 7 Sec. 7.5.6 named the problem and Chapter 8 Sec. 8.5.2 sharpened
+it: <em>if your validation procedure takes three weeks and your model updates
+every week, you do not have a validation procedure -- you have a backlog.</em>
+Chapter 8 said Chapter 14 would solve it operationally.</p>
+<p><strong>The operational solution is not to make validation faster.</strong> It is to
+recognise that there are two different validations and they have different
+cadences.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Full re-validation</th>
+<th>Continuous validation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What it is</td>
+<td>Chapter 7's whole procedure: fresh hold-out, convergence check, envelope review, argument re-issued</td>
+<td>Chapter 11 Sec. 11.5.4's scoring loop: every prediction scored against what happened</td>
+</tr>
+<tr>
+<td>Cadence</td>
+<td>Quarterly, or on a structural change</td>
+<td>Continuous</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Days</td>
+<td>Zero, once built</td>
+</tr>
+<tr>
+<td>Catches</td>
+<td>Everything, including envelope and assumption problems</td>
+<td>Drift, bias, and a widening spread</td>
+</tr>
+<tr>
+<td>Cannot catch</td>
+<td>Nothing, but it is slow</td>
+<td>A model that is wrong in a way the current conditions do not exercise</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>The cadence problem dissolves once you stop treating validation as one
+activity.</strong> The continuous half runs at the speed of the data and is what
+licenses a faster refit cadence; the full half runs quarterly and is what
+the credibility argument is re-issued against. <strong>A refit is covered by
+the continuous half; a structural change is not.</strong></p>
+</blockquote>
+<p>This is what the literature means by continual validation: for a twin,
+validation must be continuous and recalibration triggered when the model
+stops matching the world, rather than a one-off finished at handover
+[1]. Chapter 7 Sec. 7.4.7 introduced the idea; this is the
+schedule.</p>
+<h3 id="1434-what-changes-when-the-model-is-learned">14.3.4 What changes when the model is learned</h3>
+<p>Chapter 8 Sec. 8.12 said every retraining trigger in its Sec. 8.6.3 is a
+Chapter 14 workflow. Four things change and none of them is the pipeline.</p>
+<p><strong>The diff at step 4 stops being readable.</strong> Three physics parameters diff
+to three numbers. New weights diff to nothing a human can read, so <strong>the
+golden trajectories of Sec. 14.2.4 stop being a supplementary check and
+become the only readable diff you have.</strong> Chapter 8 Sec. 8.2.3 said this;
+here it becomes the release gate's justification.</p>
+<p><strong>The release now has three artifacts, not one.</strong> Code, weights and training
+data, each by content hash (Chapter 8 Sec. 8.2.3), and the training dataset
+must be a Chapter 10 Sec. 10.7.2 definition rather than a copy -- otherwise
+the release is not reproducible and Chapter 7 Sec. 7.3.4's precondition
+fails.</p>
+<p><strong>Retraining resets the credibility argument entirely</strong>, where a refit
+amends it. Chapter 8 Sec. 8.5.2 made this point; operationally it means a
+retrain is a <em>quarterly-cadence</em> event in Sec. 14.3.3's table, not a
+continuous one -- which caps how often you may retrain, and that cap is a
+real constraint people discover late.</p>
+<p><strong>One trigger runs backwards.</strong> Chapter 8 Sec. 8.6.3's third condition --
+the training data's certification as "normal" is questioned -- invalidates
+decisions already made. Sec. 14.1.2's register needs an <code>on_fire</code> for it
+that is not "retrain": it is Chapter 10 Sec. 10.6.4's five-step traversal,
+followed by notifying whoever consumed the affected outputs. <strong>Write that
+runbook before you need it</strong>, because you will be writing it under pressure
+otherwise.</p>
+<h3 id="1435-the-announced-change-and-whether-it-has-an-answer">14.3.5 The announced change, and whether it has an answer</h3>
+<p>Chapter 10 Sec. 10.9.5 admitted this in the credibility argument itself:
+<em>changes to the physical twin enter the record only when a human enters
+them; an unrecorded repotting is invisible to every check in this document.</em>
+Chapter 10 called it the one thing infrastructure cannot fix. Sec. 14.1.3
+then found that <strong>about half of the book's twenty-four expiry conditions are
+in this category.</strong></p>
+<p>So: does it have an operational answer? <strong>Partly, and it is worth being
+precise about which part.</strong></p>
+<p><strong>What genuinely works.</strong> Attach the record to the act, not to the person.
+If repotting requires a form because the form is how you get a new pot from
+the store, the record happens. If it requires goodwill after the fact, it
+does not. <strong>This is a process-design observation and it is the only reliable
+one available</strong>: the change is recorded when recording it is on the path of
+least resistance for the person doing the work.</p>
+<p><strong>What partly works.</strong> Reconciliation. Once a quarter, walk the rig with the
+context table and check it. Cheap, finds real errors, and finds them late.</p>
+<p><strong>What does not work, despite being the usual proposal.</strong> Detecting the
+change from the data. Chapter 7 Sec. 7.7.2 already noted the symptom -- a
+step change in the residuals a fortnight later, by which time the twin has
+been quietly wrong. And Chapter 9 Sec. 9.7.4 showed the general shape of
+this failure: the detector needs the model, the model is what the change
+invalidated, and a monitor that fires <em>after</em> the damage is a postmortem
+rather than a trigger.</p>
+<blockquote>
+<p><strong>The honest statement, which belongs in the credibility argument.</strong> Some
+expiry conditions have no detector. Name them, say who is expected to
+announce them, and add a reconciliation check. <strong>A register row whose
+detector is "a human remembers" is not a defect in the register -- it is
+the register doing its job, which is to make that visible.</strong></p>
+</blockquote>
+<hr />
+<h2 id="144-the-operating-bill">14.4 The operating bill</h2>
+<p>Chapter 1 Sec. 1.4 called model maintenance "the cost most business cases
+omit entirely" and Chapter 1 Sec. 1.14 said this chapter is where it comes
+due. Thirteen chapters later, here is the invoice.</p>
+<h3 id="1441-chapter-1s-estimate-restated">14.4.1 Chapter 1's estimate, restated</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>RUN (annual)
+  Small server / hosting                                    EUR   600
+  Model + threshold maintenance, 0.5 day/month x EUR 400     EUR 2,400
+                                                          ---------
+                                                            EUR 3,000
+</code></pre></div></td></tr></table></div>
+<p><strong>Six engineer-days a year.</strong> That was a reasonable guess by somebody who
+had not yet designed the system. Now we have designed it.</p>
+<h3 id="1442-the-real-list-counted-from-the-books-own-design">14.4.2 The real list, counted from the book's own design</h3>
+<p>Engineering days only. Lab-operations days -- walking to the rig, replacing
+a dripper -- are the researcher's time and are counted in Chapter 1's
+benefit line, not here.</p>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Frequency</th>
+<th>Days each</th>
+<th>Days/year</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recalibration and its re-validation</td>
+<td>13/year</td>
+<td>0.5</td>
+<td><strong>6.5</strong></td>
+<td>Ch7 Sec. 7.7.2's four-week expiry; Sec. 14.3.2's nine steps</td>
+</tr>
+<tr>
+<td>Alert handling, engineering share</td>
+<td>13/year</td>
+<td>0.1</td>
+<td><strong>1.3</strong></td>
+<td>Ch11 Sec. 11.9.3's queue; recording the resolution and reviewing the detector</td>
+</tr>
+<tr>
+<td>Cannot-evaluate digest review</td>
+<td>Monthly</td>
+<td>0.25</td>
+<td><strong>3.0</strong></td>
+<td>Ch11 Sec. 11.4.6's 175/year, aggregated</td>
+</tr>
+<tr>
+<td>Sensor recalibration or replacement</td>
+<td>2/year</td>
+<td>0.5</td>
+<td><strong>1.0</strong></td>
+<td>Ch9 Sec. 9.2.2's drift figure; the context row, the binding, the re-validation</td>
+</tr>
+<tr>
+<td>Dependency and platform upgrades</td>
+<td>4/year</td>
+<td>0.5</td>
+<td><strong>2.0</strong></td>
+<td>Ch12 Sec. 12.5.4's operations line; Ch13's framework maintenance</td>
+</tr>
+<tr>
+<td>Incident investigation</td>
+<td>2/year</td>
+<td>1.0</td>
+<td><strong>2.0</strong></td>
+<td>Ch7 Sec. 7.7.3's five questions</td>
+</tr>
+<tr>
+<td>Recording physical changes; quarterly reconciliation</td>
+<td>6/year</td>
+<td>0.25</td>
+<td><strong>1.5</strong></td>
+<td>Sec. 14.3.5</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>17.3</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>17.3 engineer-days x EUR 400 = EUR 6,920
+plus hosting                 = EUR   600
+                             -----------
+true RUN                     = EUR 7,520 per year
+</code></pre></div></td></tr></table></div>
+<p><strong>Against Chapter 1's EUR 3,000. A factor of 2.5 in money and 2.9 in
+days.</strong></p>
+<p><strong>And notice where it comes from.</strong> Recalibration alone is 6.5 days --
+<strong>more than Chapter 1's entire annual allowance</strong> -- and it is not an
+overrun or a surprise. It is the direct consequence of Chapter 7 Sec. 7.7.2
+choosing a four-week expiry, a decision made in a chapter that never costed
+it.</p>
+<h3 id="1443-chapter-1s-payback-recomputed">14.4.3 Chapter 1's payback, recomputed</h3>
+<p>Chapter 1's other figures stand: build EUR 12,000, benefit EUR 19,600 a
+year.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Chapter 1:   (12,000 + 3,000) / 19,600 = 0.77 years = about  9 months
+Corrected:   (12,000 + 7,520) / 19,600 = 1.00 years = about 12 months
+</code></pre></div></td></tr></table></div>
+<p><strong>Nine months becomes twelve, and the project survives.</strong> That is worth
+saying plainly: the omitted cost is real, it is large in proportion, and
+this particular case absorbs it. A sponsor told twelve months at the outset
+would still have approved it.</p>
+<h3 id="1444-but-chapter-1s-falsifier-was-computed-against-the-wrong-number">14.4.4 But Chapter 1's falsifier was computed against the wrong number</h3>
+<p>This is the sharper result, and it is the one Chapter 1's own method
+demands.</p>
+<p>Chapter 1 Sec. 1.8.8 wrote a falsifier, correctly, and it said:</p>
+<blockquote>
+<p>The case depends on the fault rate. At 3 faults per year the payback is 9
+months. At 1 fault per year the benefit falls to roughly EUR 10,000 and
+payback stretches to about 18 months, at which point [...] the honest
+recommendation is a cheaper alarm instead of a twin.</p>
+</blockquote>
+<p>Check the arithmetic: <code>(12,000 + 3,000) / 10,000 = 1.5 years = 18 months</code>.
+Correct -- <strong>against a run cost of EUR 3,000.</strong></p>
+<p>With the true run cost:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>(12,000 + 7,520) / 10,000 = 1.95 years = about 23 months
+</code></pre></div></td></tr></table></div>
+<p>So the one-fault case is not marginal, it is well past the point Chapter 1
+itself identified as the abandon threshold. <strong>Where is the real boundary?</strong>
+Chapter 1's benefit scales with the fault rate <code>f</code> at roughly EUR 4,800 per
+fault above a fixed EUR 5,200 of inspection saving, which reproduces both of
+Chapter 1's figures:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>benefit(f) = 4,800 f + 5,200      benefit(3) = 19,600   benefit(1) = 10,000
+</code></pre></div></td></tr></table></div>
+<p>Setting payback to Chapter 1's own 18-month abandon threshold:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>(12,000 + 7,520) / benefit(f) = 1.5
+                   benefit(f) = 13,013
+                       4,800f = 7,813
+                            f = 1.6 faults per year
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<p><strong>Chapter 1 put the abandon point at one fault a year. It is really about
+1.6.</strong> The project is more fragile than the chapter that proposed it
+believed, and the reason is entirely the run cost -- not the build, not
+the model, not anything Part II or Part III got wrong.</p>
+</blockquote>
+<p><strong>Two things follow, and both are about method rather than about pots.</strong></p>
+<p><em>A falsifier computed against an incomplete cost is itself incomplete.</em>
+Chapter 1 Sec. 1.8.8 was right to demand one and right about its structure.
+This is what it looks like when the demand is honoured thirteen chapters
+later and the answer moves.</p>
+<p><em>This is why the cheapest test in Chapter 1 is still the right one.</em> Chapter
+1 said: before writing any code, count how many doses produced no moisture
+step. At 3 faults a year the case is comfortable; at 1.6 it is not. <strong>That
+afternoon of querying is worth more now than it was when Chapter 1 proposed
+it</strong>, because the margin it is testing is narrower than Chapter 1 thought.</p>
+<h3 id="1445-what-to-automate-first-decided-by-the-bill">14.4.5 What to automate first, decided by the bill</h3>
+<p>Not by preference. Read Sec. 14.4.2's right-hand column and automate the
+largest line.</p>
+<p><strong>Recalibration, at 6.5 days a year, is 38 per cent of the bill</strong>, and
+Sec. 14.3.2 found eight of its nine steps mechanisable. Automate steps 1 to
+3 and 5 to 9, leave step 4 -- the human reading three numbers -- and the
+activity drops to about 0.15 days each:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>13 x 0.15 = about 2 days/year, from 6.5.  Saving: 4.5 days = EUR 1,800/year.
+Build cost: about 5 engineer-days = EUR 2,000.
+Repays in about 13 months, and every year after is EUR 1,800 cheaper.
+</code></pre></div></td></tr></table></div>
+<p>And it moves the number that matters:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>new RUN = (17.3 - 4.5) x 400 + 600 = EUR 5,720
+new abandon threshold: (12,000 + 5,720) / 1.5 = 11,813 = benefit(1.38)
+</code></pre></div></td></tr></table></div>
+<p><strong>The abandon threshold moves from 1.6 faults a year back to about 1.4.</strong>
+Modest, real, and computed rather than asserted -- which is the whole point
+of doing the arithmetic before choosing what to build.</p>
+<p><strong>What not to automate first.</strong> The cannot-evaluate digest, at 3 days a
+year, looks like the second-largest line and is the wrong target: it is
+already aggregated, and what it costs is <em>attention</em>, which automation does
+not return. <strong>Reducing it means fixing the connector so there is less to
+review</strong>, which is a Chapter 9 activity that Sec. 14.4.2 has just given a
+price.</p>
+<hr />
+<h2 id="145-evolution-when-the-twins-purpose-changes">14.5 Evolution: when the twin's purpose changes</h2>
+<h3 id="1451-parts-change-and-purposes-change-and-they-fail-differently">14.5.1 Parts change, and purposes change, and they fail differently</h3>
+<p>Everything so far has been about parts: models refitted, sensors replaced,
+platforms upgraded, standards versioned. There is a second kind of change
+and the book's machinery has not yet been pointed at it.</p>
+<p>The evolution literature makes the distinction explicit. Twin evolution
+spans changes in the actual twin -- both discontinuous, such as component
+replacement after a failure, and continuous, such as wear
+[2] -- and, separately, the twin's own lifecycle as a
+software system with its own evolution, which the same work argues should be
+treated as a core principle rather than an afterthought
+[2]. The purpose dimension is sharper still: twins are
+developed for a specific purpose, and the constant evolution of systems,
+users' needs and environments demands that the twin adapt -- a family home's
+twin whose purpose is "expanded, changed and re-prioritized throughout its
+ongoing lifecycle" is the worked case [3].</p>
+<p><strong>Why the second kind is harder.</strong> A part change has a trigger. The pot was
+repotted; somebody can announce it. <strong>A purpose change frequently has no
+event at all</strong> -- it happens because a user starts asking a different
+question of the same screen.</p>
+<h3 id="1452-the-credibility-argument-that-is-true-and-irrelevant">14.5.2 The credibility argument that is true and irrelevant</h3>
+<p>Here is the failure this section exists for.</p>
+<p>Chapter 7's credibility argument states a claim, an intended use, evidence,
+limits and an expiry. Now suppose the <em>intended use</em> silently changes: the
+researchers, who were using the twin to catch failed doses, start using its
+moisture plot to decide when to harvest.</p>
+<p>Nothing has expired. The parameters are current, the monitors are quiet, the
+hold-out spread is still 2.0, the argument is <strong>entirely true</strong>. And it is
+about a decision nobody is making any more.</p>
+<blockquote>
+<p><strong>A credibility argument that is true and irrelevant is worse than one
+that has expired, because nothing fires.</strong> An expired argument has a
+trigger, an owner and a workflow. A true-and-irrelevant one has a happy
+dashboard.</p>
+</blockquote>
+<p><strong>Why this is not a hypothetical.</strong> Chapter 7 Sec. 7.1.2 established that
+how much evidence you owe depends on what the twin is allowed to do, and
+Chapter 1's whole method derives fidelity from the value metric. <strong>Both of
+those are anchored to a purpose</strong>, so a purpose that moves invalidates the
+evidence requirement without touching the evidence.</p>
+<p><strong>The detector, and it is a question rather than a monitor.</strong> Add one row to
+Sec. 14.1.2's register whose condition is <em>the twin is being used for a
+decision not named in the credibility argument's intended-use statement</em>,
+whose detector is the quarterly review, and whose check is one question to
+one user: <strong>what did you last use this for?</strong> It takes five minutes and it
+is the only instrument available.</p>
+<h3 id="1453-four-purpose-changes-and-what-each-breaks">14.5.3 Four purpose changes, and what each breaks</h3>
+<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>What still works</th>
+<th>What silently breaks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The same output feeds a <strong>new decision</strong></td>
+<td>Everything technical</td>
+<td>Chapter 7's accuracy target was derived from the old decision (Sec. 7.5.2). The 16 per cent detection floor may be unacceptable for the new one</td>
+</tr>
+<tr>
+<td><strong>Advisory becomes acting</strong></td>
+<td>Everything technical</td>
+<td>Chapter 2 Sec. 2.8's obligations, Chapter 3's actuation guard, and Chapter 7's evidence bar all step up. Chapter 11 Sec. 11.6.4's four rules become mandatory</td>
+</tr>
+<tr>
+<td><strong>A second asset</strong> is added</td>
+<td>The code</td>
+<td>Chapter 12 Sec. 12.8.4's expiry fires; the build-versus-buy arithmetic changes; Chapter 13's counterparty count may become non-zero</td>
+</tr>
+<tr>
+<td><strong>A new audience</strong> arrives (an auditor, a regulator, a customer)</td>
+<td>Everything technical</td>
+<td>Chapter 13 Sec. 13.2.2's <em>given</em> case begins, and the evidence you have must be re-presented in somebody else's shape</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notice the column headings.</strong> In every row the technology is fine. That is
+what makes purpose drift the hardest change to notice and the easiest to
+under-react to, and it is why it belongs in an operations chapter rather
+than a design one.</p>
+<h3 id="1454-retiring-a-twin">14.5.4 Retiring a twin</h3>
+<p>Rarely discussed, and it is a real activity with real obligations.</p>
+<p><strong>Three reasons a twin ends.</strong> The physical twin is decommissioned. The
+decision it served stopped being made. Or the value case stopped holding --
+Chapter 1 Sec. 1.7's stop conditions, arriving late instead of early, and
+Sec. 14.4.4's corrected threshold makes that outcome more likely than
+Chapter 1 suggested.</p>
+<p><strong>What retirement obliges you to do</strong>, and only the first is obvious:</p>
+<p><em>Stop it acting.</em> If there is a command path, disable it first and
+separately, before anything else, because a half-retired twin still holding
+an actuation credential is the worst configuration available.</p>
+<p><em>Keep the record.</em> Chapter 10's provenance and Chapter 7's arguments may be
+needed after the twin is gone -- for an incident review, an audit, or the
+next twin. <strong>Retention outlives the system</strong>, and a retirement plan that
+deletes the store has destroyed the evidence for decisions already taken.</p>
+<p><em>Write down what was learned.</em> The calibration values, the assumption ledger
+that survived contact with reality, the incidents. Sec. 14.6.1's practices
+and Chapter 13 Sec. 13.5.3's exemplars are both arguments that this is the
+cheapest thing a twin project produces and the most reusable.</p>
+<hr />
+<h2 id="146-practices-worth-naming">14.6 Practices worth naming</h2>
+<h3 id="1461-twinops-and-devops-for-twins">14.6.1 TwinOps, and DevOps for twins</h3>
+<p>The practice has a name and a small literature, and both are worth
+recognising rather than adopting wholesale.</p>
+<p><strong>TwinOps</strong> couples model-based engineering, DevOps and digital twins:
+generating and deploying a system, its simulation and its twin through one
+pipeline, and collecting runtime execution traces to compare against the
+engineering artifacts -- model simulation and analysis -- so that diagnosis
+is rapid [4], [5]. <strong>The idea worth
+taking is that comparison</strong>, and this book has been building it since
+Chapter 1: the residual is a runtime trace compared against a model, and
+Sec. 14.2.3's simulate-the-physical-twin is the same comparison run the
+other way.</p>
+<p><strong>DevOps for twin development and evolution</strong> is being worked on directly,
+with an emphasis on the iterative development and evolution of twins rather
+than their initial construction [6], [7], and the evolution literature explicitly asks how
+DevOps practice can support twin evolution and calls for evolution to be
+treated as a core principle [2].</p>
+<p><strong>What this chapter takes and what it leaves.</strong> Takes: the framing that a
+twin is a software system with its own lifecycle, and that the interesting
+part is the second year rather than the first. Leaves: pipeline mechanics.
+Chapter 12 refused to name container technology and the same rule applies --
+your existing delivery practice works, and what is different is the four
+artifacts of Sec. 14.2.1 and the absent staging environment of Sec. 14.2.2.</p>
+<p><strong>One empirical note worth carrying into a planning meeting.</strong> An
+interview-based study of continuous integration and delivery for
+cyber-physical systems found the hardware-in-the-loop stages to be the
+awkward part [8]. Chapter 7 Sec. 7.3.3 already
+flagged this as permission to expect the physical stages to be harder than a
+web service's, and it is the single most reliable source of schedule
+surprise in this chapter's subject.</p>
+<h3 id="1462-replay">14.6.2 Replay</h3>
+<p>Chapter 5 Sec. 5.12 sent this here. <strong>Replay is re-running the twin over
+recorded inputs to reproduce a past state or decision.</strong></p>
+<p><strong>It is the operational payoff of three earlier chapters' discipline.</strong>
+Chapter 5 Sec. 5.6's recorded-inputs requirement, Chapter 10's retained
+derived output with its <code>decision_time</code> and <code>inputs_watermark</code>, and Chapter
+11 Sec. 11.8.2's rule that re-evaluation produces a new row rather than an
+edit. With all three, replay is a query and a run. Without any one of them
+it is impossible.</p>
+<p><strong>Three uses, in increasing order of value.</strong></p>
+<p><em>Incident review.</em> Chapter 7 Sec. 7.7.3's five questions, answered by
+re-running rather than by reasoning.</p>
+<p><em>Regression testing after a model change.</em> This is golden trajectories
+(Sec. 14.2.4) with real history instead of recorded scenarios -- more
+realistic, and it grows for free.</p>
+<p><em>Answering "what would the new version have done?"</em> Replay the last quarter
+through the candidate model and count the alerts it would have raised. <strong>For
+the demonstrator that is Chapter 11 Sec. 11.4.5's alert economics computed
+on real data instead of assumptions</strong>, which is the strongest release
+evidence available and costs one afternoon.</p>
+<h3 id="1463-fault-injection">14.6.3 Fault injection</h3>
+<p>Chapter 11 Sec. 11.7.2 named it and sent it here, correctly, because the
+literature frames it as a validation technique for dependability rather than
+as a twin service [9].</p>
+<p><strong>Operationally it is Sec. 14.2.3 with intent.</strong> Generate the failures you
+cannot wait for -- a dose that delivers nothing, a stuck sensor, a gateway
+that stops, a clock that jumps -- and confirm the system does what the
+credibility argument says it does.</p>
+<p><strong>Two rules.</strong></p>
+<p><em>Inject into the simulated physical twin, never the real one</em>, unless the
+physical twin is genuinely expendable and somebody senior has agreed.</p>
+<p><em>Derive the injection list from the credibility argument's limitations
+section.</em> Chapter 7's limits paragraph names the things the twin claims not
+to handle; <strong>fault injection is how you find out whether it handles them the
+way you claimed it would fail.</strong> That is a much better source of test cases
+than imagination.</p>
+<h3 id="1464-what-security-looks-like-in-operation">14.6.4 What security looks like in operation</h3>
+<p>Chapter 3 Sec. 3.3.3 owns security and said Chapter 14 returns to running it
+in production. One subsection, and the rest stays where it was.</p>
+<p><strong>Three things change once the twin is running</strong>, and all three are
+consequences of chapters you have already read.</p>
+<p><em>The credential inventory grows quietly.</em> Every connector, every service,
+every platform integration. Chapter 12's platform decision and Chapter 13's
+open-source dependencies each added some. An expiry register row for
+credential rotation costs nothing and is the kind of thing that is missing
+in a postmortem.</p>
+<p><em>Provenance is a security property, not only an engineering one.</em> Chapter 10
+Sec. 10.6.4 made this point via the layered threat classification, in which
+integrity loss in the acquisition layer propagates into synchronisation and
+simulation quality [10]. Operationally: <strong>the record that
+lets you answer Chapter 7's five questions is the same record that lets you
+answer "what did the attacker change?"</strong></p>
+<p><em>The command path is the asset.</em> Chapter 3's guard, Chapter 11
+Sec. 11.6.4's four rules, and the retirement rule of Sec. 14.5.4 all point
+at one thing. If you review one security control a year, review that one.</p>
+<hr />
+<h2 id="147-worked-example-a-year-of-operating-the-demonstrator">14.7 Worked example: a year of operating the demonstrator</h2>
+<p>Chapter 1 costed a year of running this twin in two lines. Here is what the
+year actually contains.</p>
+<h3 id="1471-the-register-assembled">14.7.1 The register, assembled</h3>
+<p>Twelve rows for this twin, drawn from Sec. 14.1.1 and classified per
+Sec. 14.1.3:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Condition</th>
+<th>Kind</th>
+<th>Detector</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>4 weeks since calibration</td>
+<td>Scheduled</td>
+<td>Calendar job</td>
+<td>Twin owner</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Residual bias outside plus or minus 1.0 over 14 days</td>
+<td>Self-firing</td>
+<td>Ch7 monitor</td>
+<td>Twin owner</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Residual spread growing</td>
+<td>Self-firing</td>
+<td>Ch7 monitor</td>
+<td>Twin owner</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Estimator gain outside 0.4 to 0.85 for 48 h</td>
+<td>Self-firing</td>
+<td>Ch7 monitor</td>
+<td>Twin owner</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Cannot-evaluate rate rising</td>
+<td>Self-firing</td>
+<td>Ch11 digest trend</td>
+<td>Connector owner</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Evaluation queue backing up</td>
+<td>Self-firing</td>
+<td>Ch11 Sec. 11.8.3</td>
+<td>Twin owner</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Pot repotted, plant replaced, dripper moved</td>
+<td><strong>Announced</strong></td>
+<td>The lab's pot-request form</td>
+<td>Lab operations</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Sensor replaced or recalibrated</td>
+<td><strong>Announced</strong></td>
+<td>The lab's parts form</td>
+<td>Lab operations</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Sensor drift margin consumed</td>
+<td>Scheduled</td>
+<td>Calendar, from Ch9 Sec. 9.2.2</td>
+<td>Twin owner</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Model or parameter version changed</td>
+<td>Self-firing</td>
+<td>Release pipeline</td>
+<td>Twin owner</td>
+</tr>
+<tr>
+<td>11</td>
+<td>A second bench is funded</td>
+<td><strong>Announced</strong></td>
+<td>Quarterly review</td>
+<td>Twin owner</td>
+</tr>
+<tr>
+<td>12</td>
+<td>The twin is used for a decision not in the intended-use statement</td>
+<td><strong>Announced</strong></td>
+<td>Quarterly review: one question to one user</td>
+<td>Twin owner</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Four announced rows out of twelve, and rows 7 and 8 are attached to forms
+people already fill in to get the parts</strong> -- which is Sec. 14.3.5's only
+reliable mechanism, applied.</p>
+<h3 id="1472-the-year-month-by-month">14.7.2 The year, month by month</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Activity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Every 4 weeks</td>
+<td>Recalibration and re-validation, Sec. 14.3.2's nine steps (13 times)</td>
+</tr>
+<tr>
+<td>Monthly</td>
+<td>Register review, 15 minutes. Cannot-evaluate digest trend</td>
+</tr>
+<tr>
+<td>Weekly</td>
+<td>Glance at the three monitors</td>
+</tr>
+<tr>
+<td>As they happen</td>
+<td>About 13 alerts; 6 recorded physical changes</td>
+</tr>
+<tr>
+<td>Quarterly</td>
+<td>Full re-validation; context reconciliation walk; the purpose question</td>
+</tr>
+<tr>
+<td>Twice</td>
+<td>A sensor event; an incident</td>
+</tr>
+<tr>
+<td>Four times</td>
+<td>A dependency upgrade</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1473-the-bill-and-what-the-sponsor-is-told">14.7.3 The bill, and what the sponsor is told</h3>
+<p>From Sec. 14.4: <strong>17.3 engineer-days, EUR 7,520 a year</strong>, against the EUR
+3,000 in the original case. Payback 12 months rather than 9.</p>
+<p><strong>What to say, and when.</strong> Say it at the outset, in the value case, not in
+year two. Chapter 1's canvas has a RUN line and it should carry this number
+from the start, because a sponsor told twelve months up front approves the
+project and a sponsor told nine and charged twelve does not fund the next
+one.</p>
+<p><strong>And say the falsifier honestly.</strong> Below about 1.6 faults a year this twin
+is not worth running (Sec. 14.4.4), which is a narrower margin than Chapter
+1 stated. <strong>The afternoon of querying that Chapter 1 recommended is
+therefore still the right first action</strong>, and this is the second time the
+book has arrived at that conclusion from a different direction.</p>
+<h3 id="1474-what-the-year-changes-about-the-credibility-argument">14.7.4 What the year changes about the credibility argument</h3>
+<p>Chapter 7 Sec. 7.8.5's argument gains one line and loses none:</p>
+<blockquote>
+<p><strong>Operations.</strong> Parameters are refitted every four weeks by an automated
+workflow with a human diff review; the hold-out is re-run at each refit
+and the full validation quarterly. Twelve expiry conditions are held in a
+register reviewed monthly, of which <strong>four have no automatic detector and
+depend on a human announcement</strong>; two of those four are attached to forms
+the lab already completes. A quarterly context reconciliation checks the
+register against the rig.</p>
+</blockquote>
+<p><strong>That paragraph is what an auditor would actually want</strong>, and no chapter
+before this one could have written it.</p>
+<hr />
+<h2 id="148-faded-example-the-turbine-fleet-in-year-three">14.8 Faded example: the turbine fleet in year three</h2>
+<p>Chapters 4 through 13 each took the turbine one step further. Now it has
+been running for three years. Two parts are worked; four are yours.</p>
+<p><strong>The system, recapped.</strong> Eighty floating turbines, a platform-based build,
+four services, a certification output facing a regulator, and Chapter 13's
+non-zero counterparty count. Diagnostic twins of this shape run on
+operational assets [11] and are validated against
+full-scale prototypes [12].</p>
+<p><strong>(a) The announced-trigger problem is worse and has a better answer --
+worked.</strong> Sec. 14.1.3 found about half the conditions announced,
+and Sec. 14.3.5's reliable mechanism was to attach the record to the act.
+Offshore, the acts are <em>maintenance work orders</em>, and those already exist in
+a system, with dates, assets and parts. <strong>So the mechanism is available and
+industrial-strength: subscribe to the work-order feed and turn relevant
+orders into Chapter 10 context events.</strong> A mooring line replaced is a work
+order before it is anything else.</p>
+<p><strong>The general lesson, which transfers to the pot.</strong> The announced category
+is not hopeless -- it is a question of whether the organisation already
+records the act somewhere for its own reasons. Look for that record before
+designing a new form.</p>
+<p><strong>(b) The re-validation cadence is the binding constraint -- worked.</strong>
+Sec. 14.3.3 split validation into continuous and full. For eighty assets the
+full half cannot be quarterly per asset without a dedicated team: eighty
+assets at even one day each is eighty days a quarter. So the fleet needs
+something the demonstrator did not: <strong>a validation policy that is
+per-population rather than per-asset</strong>, with full re-validation on a sample
+plus continuous scoring on all -- and an explicit rule for when an
+individual asset is promoted out of the sample into full treatment.
+Industrialising twin production puts new demands specifically on the speed
+of validation [13], and this is where that pressure
+lands.</p>
+<p>Now yours.</p>
+<p><strong>(c)</strong> Run Sec. 14.4.2's bill for one turbine twin and then for the fleet.
+State which lines scale with the number of assets and which do not, and use
+that split to say where a platform's operations offering (Chapter 12
+Sec. 12.5.4) earns its money.</p>
+<p><strong>(d)</strong> Sec. 14.2.2 said the physical twin has no staging environment. For a
+turbine, name what stands in and what it cannot test. <em>Hint: Chapter 7
+Sec. 7.9(b) established that validating a reduced-order model against the
+full finite-element model validates the reduction, not the physics -- the
+same distinction applies here.</em></p>
+<p><strong>(e)</strong> Sec. 14.5.2's true-and-irrelevant failure needs a detector that is a
+question to a user. Who do you ask, on a fleet of eighty, and how often?
+Then say what happens to the certification output if the answer reveals that
+the maintenance schedulers stopped using it eighteen months ago.</p>
+<p><strong>(f)</strong> Sec. 14.5.4's retirement obligations, for one turbine
+decommissioned out of eighty while the fleet twin continues. Say what must
+be kept, for how long, and which of Chapter 10's tables cannot have that
+asset's rows deleted at all.</p>
+<hr />
+<h2 id="149-posed-problem-the-handover">14.9 Posed problem: the handover</h2>
+<p>No solution is given. This is the deliverable, and it is the one you are
+most likely to be asked for at a moment when you have no time to think.</p>
+<p><strong>The situation.</strong> You built the district-heating twin of Chapters 9 to 13
+and you are leaving the project in six weeks. It will be operated by a team
+of two who did not build it: one experienced developer with no twin
+background, and one recent graduate. There is no on-call rotation. The
+economic regulator's next review is in fourteen months.</p>
+<p><strong>Produce a handover package of no more than six pages containing:</strong></p>
+<ol>
+<li><strong>The expiry register</strong> (Sec. 14.1.2), populated. Every condition from
+   the design documents of Chapters 9 to 13, classified by Sec. 14.1.3's
+   three kinds, with a detector and an owning role for each. Say explicitly
+   how many rows have no automatic detector.</li>
+<li><strong>The operating loop</strong> (Sec. 14.3.1): the five activities, with cadences
+   and time estimates, in a form the new team can put in a calendar.</li>
+<li><strong>The operating bill</strong> (Sec. 14.4.2) for this system, with the
+   engineering days separated from operations days, and an honest statement
+   of whether two people can absorb it alongside their other work.</li>
+<li><strong>The release process</strong> (Sec. 14.2): what the four artifacts are here,
+   what stands in for staging given three meter vendors, and what the gate
+   is.</li>
+<li><strong>Three runbooks</strong>, one page each: a recalibration, a
+   retroactive-invalidation traversal (Chapter 10 Sec. 10.6.4, per
+   Sec. 14.3.4's last point), and the regulator's evidence request.</li>
+<li><strong>The purpose-drift question</strong> (Sec. 14.5.2): who to ask, how often, and
+   what the current intended-use statement actually says.</li>
+<li><strong>What you would switch off before leaving</strong>, and why. <em>There is almost
+   certainly something -- a service nobody uses, a monitor nobody reads, a
+   report nobody opens -- and leaving it running transfers a maintenance
+   cost with no benefit.</em></li>
+<li><strong>The one thing that will break first</strong>, named, with what to do about it.</li>
+</ol>
+<p><strong>What a good answer looks like.</strong> It counts the announced triggers and
+says the number out loud, because that number is the handover's biggest
+risk. It sizes the bill against two people and is honest if the answer is
+that they cannot absorb it -- <strong>a handover that pretends the workload fits
+is worse than one that says it does not</strong>, because the second gets a
+conversation and the first gets a failure in month four. It attaches the
+announced triggers to records the utility already keeps, per Sec. 14.8(a),
+rather than inventing forms. It switches something off. And its final
+answer -- the thing that will break first -- is specific and probably
+unglamorous: most likely the recalibration job, silently, because
+Sec. 14.1.3 says scheduled triggers fail by quiet omission and nobody
+notices a job that stopped running.</p>
+<hr />
+<h2 id="1410-summary">14.10 Summary</h2>
+<p>Seven things, tied to the five objectives.</p>
+<ol>
+<li><strong>This book wrote twenty-four expiry conditions across seven chapters and
+   built nothing to watch them</strong> (Sec. 14.1.1). Chapter 7 said expiry
+   conditions are only worth writing if something acts on them, and then did
+   not act. The register is one list, one owner, one monthly review, and its
+   value is entirely in the aggregation. <em>(Objective 1.)</em></li>
+<li><strong>Only one of the three kinds of trigger fires by itself</strong>
+   (Sec. 14.1.3). Roughly nine are self-firing, three scheduled, and
+   <strong>about half are announced</strong> -- they exist only if a human says
+   something, and the boundary is worth arguing about, because <strong>an
+   announced trigger you can promote to self-firing stops depending on
+   memory forever.</strong> The reliable
+   mechanism is to attach the record to the act, so that recording is on the
+   path of least resistance; reconciliation is the partial fallback; and
+   detecting the change from data does not work, because the monitor fires
+   after the damage. <em>(Objective 1.)</em></li>
+<li><strong>You ship four artifacts and the physical twin has no staging
+   environment</strong> (Sec. 14.2). Three of the four change without anybody
+   writing code. Simulate-the-physical-twin tests the plumbing with ground
+   truth in seconds and <strong>cannot test the physics, because it shares the
+   model's errors</strong>; golden trajectories are the gate; shadow deployment is
+   cheap because Chapter 10's schema already supports two beliefs about one
+   moment; and what cannot be rolled back is what the twin already did.
+   <em>(Objective 2.)</em></li>
+<li><strong>The cadence problem dissolves once validation stops being one
+   activity</strong> (Sec. 14.3.3). Continuous scoring runs at the speed of the
+   data and covers a refit; full re-validation runs quarterly and covers a
+   structural change. A retrain is a quarterly-cadence event, which caps how
+   often you may retrain. <em>(Objective 2.)</em></li>
+<li><strong>The operating bill is 17.3 engineer-days, not six</strong> (Sec. 14.4).
+   Chapter 1 guessed EUR 3,000 a year; the design it did not yet have costs
+   EUR 7,520. Recalibration alone -- 6.5 days -- exceeds Chapter 1's entire
+   allowance, and it is the direct consequence of Chapter 7 choosing a
+   four-week expiry in a chapter that never costed it. Payback moves from
+   nine months to twelve, and the project survives. <em>(Objective 3.)</em></li>
+<li><strong>Chapter 1's falsifier was computed against the wrong number</strong>
+   (Sec. 14.4.4). Chapter 1 put the abandon threshold at one fault a year;
+   with the true run cost it is about 1.6. <strong>The project is more fragile
+   than the chapter that proposed it believed</strong>, and the cheapest test in
+   the book -- an afternoon counting failed doses -- is worth more now than
+   when Chapter 1 recommended it. <em>(Objective 3, 5.)</em></li>
+<li><strong>Parts change and purposes change, and only one of them has a trigger</strong>
+   (Sec. 14.5). A credibility argument that is <em>true and irrelevant</em> is
+   worse than an expired one, because nothing fires: the parameters are
+   current, the monitors are quiet, and the claim is about a decision nobody
+   is making. Its only detector is a question to a user, quarterly, and it
+   takes five minutes. <em>(Objective 4.)</em></li>
+</ol>
+<p><strong>And the note this chapter adds to Part III.</strong> Chapters 11, 12 and 13 each
+reduced a technology question to a question about the situation. Chapter 14
+does something narrower and, for a book that has spent thirteen chapters
+recommending things, more uncomfortable: <strong>it prices its own advice.</strong> The
+four-week calibration cadence, the three monitors, the six quality states,
+the reproducible datasets and the expiry conditions were all correct
+recommendations, and together they cost three times what Chapter 1 budgeted
+for running the system. <strong>A method that never audits its own cost is a
+method that has not been used</strong>, and Sec. 14.4 is this book's audit of
+itself.</p>
+<hr />
+<h2 id="1411-exercises">14.11 Exercises</h2>
+<p>Solutions or hints follow. Each exercise names the objective it exercises.</p>
+<p><strong>14.11.1</strong> <em>(Objective 1.)</em> Classify each trigger as self-firing, scheduled
+or announced, and name a detector: (a) the model's residual bias exceeds a
+threshold; (b) a supplier changes the units its sensor reports; (c) six
+months have passed since the last full validation; (d) the twin's only
+modelling expert leaves; (e) the input-coverage refusal rate doubles.</p>
+<p><strong>14.11.2</strong> <em>(Objective 1.)</em> Your register has 18 rows, of which 11 are
+announced. Give three things you would do, in order, and say which of the 11
+you would attack first and why.</p>
+<p><strong>14.11.3</strong> <em>(Objective 2.)</em> You are releasing a refitted parameter set.
+List the gates it must pass, in order, and say which one would catch each of
+these: (a) the fit was run on a month with a two-week outage; (b) the new
+<code>k_day</code> is 6.1 instead of 4.28; (c) the change is fine but the deployment
+script points at the wrong binding.</p>
+<p><strong>14.11.4</strong> <em>(Objective 2.)</em> Explain, in three sentences, why a
+simulate-the-physical-twin test suite that passes completely tells you
+nothing about whether the model is right -- and name the one thing it does
+tell you that Chapter 7's hold-out does not.</p>
+<p><strong>14.11.5</strong> <em>(Objective 3.)</em> Recompute Sec. 14.4.2's bill for a twin whose
+calibration expiry is 12 weeks rather than 4, with everything else
+unchanged. Then compute the new payback and abandon threshold, and say what
+you would need to establish before recommending the longer cadence.</p>
+<p><strong>14.11.6</strong> <em>(Objective 3.)</em> Your operating bill is 40 engineer-days a year,
+of which incident investigation is 12, recalibration is 9, and digest review
+is 8. Your automation budget is 10 engineer-days. Say what you would build
+and justify it from the bill -- then say what additional information would
+change your answer.</p>
+<p><strong>14.11.7</strong> <em>(Objective 4.)</em> For each, say whether it is a part change or a
+purpose change, and which of Sec. 14.5.3's rows applies: (a) the greenhouse
+adds twelve more pots; (b) the twin's moisture plot starts being used to
+schedule harvesting; (c) the moisture sensor is replaced with a different
+model; (d) the lab is bought by a company that wants the twin to control
+watering automatically.</p>
+<p><strong>14.11.8</strong> <em>(Objective 4.)</em> Write the intended-use statement check as a
+question you would actually ask a user, plus the two follow-ups you would
+ask if the answer is not what the credibility argument says. Then say what
+you would do if a user answers with a decision the twin's accuracy cannot
+support.</p>
+<p><strong>14.11.9</strong> <em>(Objective 5.)</em> Sec. 14.4.5 automated recalibration because it
+was the largest line. Give the case <em>against</em> automating it first, using
+Sec. 14.3.2's step 4 and Sec. 14.1.3's failure mode for scheduled triggers.</p>
+<p><strong>14.11.10</strong> <em>(Objectives 1-5, and the one that leaves the book.)</em> Take
+whatever you built in Chapters 9 to 13's exercises. Write its expiry
+register: every condition, classified, with a detector and an owner. Count
+the announced rows. Then estimate its operating bill in engineer-days and
+compare that with what you would have guessed before doing the exercise.</p>
+<h3 id="solutions-and-hints">Solutions and hints</h3>
+<p><strong>14.11.1.</strong> (a) Self-firing; Chapter 7 Sec. 7.7.4's rolling bias monitor.
+(b) <strong>Announced, and this is the trap</strong> -- Chapter 9 Sec. 9.8 put <code>unit</code> in
+the tuple, so a <em>daily job comparing each series' unit against the previous
+day</em> turns it into a self-firing trigger for about an hour of work. <strong>Some
+announced triggers can be promoted, and finding those is the highest-value
+thing you do with the register.</strong> (c) Scheduled; a calendar job, and note
+Sec. 14.1.3's failure mode -- something must check that the job ran.
+(d) Announced, and there is no detector; the mitigation is Sec. 14.1.2's
+rule that owners are roles. (e) Self-firing; Chapter 8 Sec. 8.6.2's
+coverage check.</p>
+<p><strong>14.11.2.</strong> In order: (i) <strong>try to promote some</strong> -- ask of each whether
+any data the twin already holds would reveal it, as in 14.11.1(b); (ii)
+<strong>attach the rest to acts</strong> rather than to memory, per Sec. 14.3.5, looking
+for records the organisation already keeps for its own reasons; (iii) add a
+reconciliation check for whatever remains and <strong>state the residue in the
+credibility argument</strong>. Which first: the one whose consequence is worst and
+whose silence lasts longest -- usually a physical change that invalidates
+the model, because Chapter 7 Sec. 7.7.2's expiry fires on it and the twin is
+confidently wrong until somebody notices.</p>
+<p><strong>14.11.3.</strong> Gates in order: dataset materialisation and the degraded-window
+refusal (Sec. 14.3.2 step 2); the human diff at step 4; the hold-out at step
+5; golden trajectories at step 6; then deployment. (a) Caught by the
+degraded-window refusal -- <strong>and it is a Chapter 9 finding, not an error</strong>.
+(b) Caught by the human diff: 6.1 against 4.28 is a 43 per cent move in a
+parameter that should be stable, and no automated threshold would have known
+that; this is why step 4 stays human. (c) Caught by <strong>none of them</strong> --
+which is the point of the exercise. A binding error is Chapter 3
+Sec. 3.3.1's highest-consequence, lowest-visibility failure, no test fails,
+and the only defences are the daily orphan-check of Chapter 10 Sec. 10.2.4
+and reading the deployment diff.</p>
+<p><strong>14.11.4.</strong> The synthetic measurements were generated by the same model the
+twin uses, so any error in that model is present identically on both sides
+of the comparison and cancels; a passing suite therefore establishes that
+the pipeline transports and processes numbers correctly, not that the
+numbers describe the world. What it tells you that the hold-out does not:
+<strong>how the system behaves under failures that have not happened yet</strong> -- a
+stuck sensor, a missing dose, a clock jump -- because those can be generated
+on demand and cannot be waited for.</p>
+<p><strong>14.11.5.</strong> At 12 weeks the recalibration count drops from 13 to about 4.3
+a year, so 6.5 days becomes about 2.2 -- a saving of 4.3 days. New total
+about 13 days, <code>13 x 400 + 600 = EUR 5,800</code>. Payback
+<code>(12,000 + 5,800) / 19,600 = 0.91 years</code>, about 11 months. New abandon
+threshold: <code>(12,000 + 5,800) / 1.5 = 11,867 = benefit(1.39)</code>, so about 1.4
+faults a year. <strong>What you must establish first:</strong> that the parameters
+actually hold for 12 weeks. Chapter 4's assumption A4 claimed weeks and
+Chapter 7 Sec. 7.5.3 admitted only three weeks were tested with four
+claimed. Extending to twelve is an extrapolation of a factor of four --
+<strong>so the prerequisite is evidence, and the cheapest form of it is to keep
+refitting every four weeks for a year and look at how much the parameters
+actually moved.</strong> That costs nothing extra, because you were doing it
+anyway.</p>
+<p><strong>14.11.6.</strong> Incident investigation is the largest line at 12 days but is
+the least automatable, because each incident is different -- what reduces it
+is <em>fewer incidents</em> or <em>better provenance</em>, and Chapter 10 already built
+the second. Recalibration at 9 days is the same case as Sec. 14.4.5 and is
+the obvious build. Digest review at 8 days is attention, not work, and
+automation does not return attention. <strong>So: automate recalibration (about 5
+days of the budget), and spend the remaining 5 on whatever Chapter 10
+provenance is missing, because that reduces the 12-day line.</strong> What would
+change the answer: <strong>the distribution of the 12 days.</strong> If two incidents
+took six days each, that is a systemic problem worth fixing directly; if
+twelve took one day each, the provenance investment is right.</p>
+<p><strong>14.11.7.</strong> (a) Part change, though at some point it becomes
+Sec. 14.5.3's third row and fires Chapter 12 Sec. 12.8.4's expiry. (b)
+<strong>Purpose change</strong>, first row -- and the accuracy target derived in Chapter
+7 Sec. 7.5.2 was for fault detection, so it may be wholly unsuitable for
+harvest scheduling while remaining entirely accurate. (c) Part change,
+Chapter 9 Sec. 9.2's territory, unless the response curve differs, in which
+case it is also a model change. (d) <strong>Purpose change</strong>, second row, and the
+most expensive one in the book: advisory becomes acting, so Chapter 2
+Sec. 2.8, Chapter 3's guard, Chapter 7's evidence bar and Chapter 11
+Sec. 11.6.4 all step up at once.</p>
+<p><strong>14.11.8.</strong> The question: <em>"What was the last decision you made using
+this?"</em> -- open, past-tense and specific, rather than "what do you use it
+for", which invites a description of the intended use they were told about.
+The two follow-ups: <em>"What would you have done without it?"</em> and <em>"How
+accurate do you need it to be for that?"</em> If the answer names a decision the
+accuracy cannot support: <strong>do not remove access, and do not settle for a
+warning.</strong>
+Take it back to Chapter 1's method -- name the decision, derive the fidelity
+requirement, and either meet it or state plainly, in the credibility
+argument and to that user, that the twin does not support it. A warning
+nobody reads is the outcome to avoid.</p>
+<p><strong>14.11.9.</strong> The case against: step 4 is the human diff, and an automated
+pipeline that runs every four weeks makes it very tempting to automate step
+4 too -- at which point a parameter drifting steadily is accepted thirteen
+times a year and nobody sees the trend that Chapter 7 Sec. 7.4.7 wanted the
+parameter history for. And Sec. 14.1.3 says <strong>scheduled triggers fail by
+quiet omission</strong>: a manual recalibration that stops happening is noticed
+within a month, whereas an automated job that stops is noticed when
+something else breaks. <strong>The mitigation, if you automate anyway:</strong> make the
+job's <em>last successful run</em> an expiry register row of its own, and put the
+step-4 diff in front of a human as a required approval rather than a
+notification.</p>
+<p><strong>14.11.10.</strong> No solution. One prediction: your bill will be larger than
+your guess, and the largest single line will be something you decided in an
+earlier chapter without costing it -- which is exactly what happened to
+Chapter 7's four-week cadence, and the reason this chapter exists.</p>
+<hr />
+<h2 id="1412-where-to-go-next">14.12 Where to go next</h2>
+<p><strong>In this book.</strong> One chapter remains. <strong>Chapter 15 takes every number in
+this chapter and multiplies it by <code>N</code></strong> -- and the interesting part is that
+they do not all scale the same way. Sec. 14.4.2's bill has lines that are
+per-asset (recalibration, alert handling) and lines that are per-system
+(dependency upgrades, register review), and Chapter 15 is where that split
+decides an architecture. Sec. 14.1.3's announced triggers scale worst of
+all, because each asset has its own physical changes and no amount of
+tooling makes somebody remember. Sec. 14.5's purpose drift scales worst in a
+different way: with one twin you can ask the user, and with four hundred you
+cannot. Chapter 12 Sec. 12.5.2's <code>N</code> and Chapter 13 Sec. 13.1.3's <code>C</code> both
+become the subject there.</p>
+<p><strong>In the literature, if you want more.</strong></p>
+<ul>
+<li><em>Evolution as a first-class concern:</em> [2] is the one
+  to read -- it classifies the dimensions along which a twin evolves,
+  separates the actual twin's changes from the twin's own software
+  lifecycle, and explicitly asks how DevOps practice supports it. This book
+  has cited it since Chapter 1 for the continuous/discontinuous distinction;
+  its wider argument is this chapter's subject.
+  [3] is the sharper complement, because it is about
+  <strong>purpose</strong> evolution rather than part evolution, worked on a home twin
+  whose purpose is expanded and re-prioritised over its life.</li>
+<li><em>TwinOps and DevOps for twins:</em> [4] and
+  [5] on coupling model-based engineering, DevOps and
+  twins in one pipeline with runtime traces compared against engineering
+  artifacts; [6] and [7] on a
+  DevOps approach aimed specifically at the iterative development and
+  evolution of twins rather than their construction.</li>
+<li><em>Why the hardware stages are the hard ones:</em> [8],
+  an interview study of CI/CD practice for cyber-physical systems. Read it
+  before promising a schedule.</li>
+<li><em>Continual validation:</em> [1], which supplies
+  Sec. 14.3.3's framing and which Chapter 7 Sec. 7.4.7 already leaned on.</li>
+<li><em>Fault injection and advanced services:</em> [9], framed
+  as a dependability technique, which is why it lands in this chapter rather
+  than Chapter 11.</li>
+<li><em>Consulted, not drawn on above:</em> [14] on automated twin
+  testing and detecting performance shift online, [13]
+  on industrialising twin production, [15] and
+  [16] on evolving twins by transfer learning,
+  [17] on model-based DevOps for cyber-physical
+  systems, and [10] for the layered view behind
+  Sec. 14.6.4.</li>
+</ul>
+<p><strong>In the demonstrator.</strong> Exercise 14.11.10 is the assignment and it is the
+one that will change how you plan the next project: write the expiry
+register for whatever you have built, count the announced rows, and estimate
+the bill. <strong>Then compare the estimate with what you would have said before
+Chapter 14.</strong> The gap between those two numbers is what this chapter is
+for, and it is the same gap Chapter 1 identified in its fourth section and
+could not yet fill.</p>
+<h2 id="references">References</h2>
+<p>[1] Z. Ali, R. Biglari, J. Denil, J. Mertens, M. Poursoltan, and M. K. Traore, "From modeling and simulation to Digital Twin: evolution or revolution?," <em>SIMULATION</em>, vol. 100, no. 7, pp. 751-769, 2024.</p>
+<p>[2] T. Alskaif et al., <em>Evolution at the Core of Digital Twin Engineering</em>, IEEE, 2025.</p>
+<p>[3] J. Mertens, S. Klikovits, F. Bordeleau, J. Denil, and . Haugen, <em>Continuous Evolution of Digital Twins using the DarTwin Notation</em>, arXiv, 2024.</p>
+<p>[4] J. Hugues, J. Yankel, J. Hudak, and A. Hristozov, "Twinops: Digital twins meets devops," <em>CARNEGIE-MELLON UNIV PITTSBURGH PA, Tech. Rep.</em>, 2022.</p>
+<p>[5] J. Hugues, A. Hristosov, J. J. Hudak, and J. Yankel, "TwinOps - DevOps meets model-based engineering and digital twins for the engineering of CPS," in <em>Proceedings of the 23rd ACM/IEEE International Conference on Model Driven Engineering Languages and Systems: Companion Proceedings</em>, pp. 1-5, Association for Computing Machinery, 2020.</p>
+<p>[6] F. Bordeleau, A. Motamedi, and E. Poirier, <em>A DevOps Approach for the Systematic Development and Evolution of Built Assets Digital Twins</em>, n.d.</p>
+<p>[7] S. Aissat, J. Beaulieu, E. Poirier, A. Motamedi, J. Gascon-Samson, and F. Bordeleau, "A devops framework for the systematic engineering and evolution of digital twins for built assets," <em>Software and Systems Modeling</em>, 2025.</p>
+<p>[8] F. Zampetti, D. Tamburri, S. Panichella, A. Panichella, G. Canfora, and M. Di Penta, "Continuous Integration and Delivery Practices for Cyber-Physical Systems: An Interview-Based Study," <em>ACM Trans. Softw. Eng. Methodol.</em>, vol. 32, no. 3, pp. 73:1-73:44, 2023.</p>
+<p>[9] M. Frasheri, T. Bottjer, P. G. Larsen, L. Esterle, and C. Gomes, "Advanced Digital Twin Services," in <em>The Engineering of Digital Twins</em>, pp. 209-222, Springer International Publishing, 2024.</p>
+<p>[10] C. Alcaraz and J. Lopez, "Digital Twin: A Comprehensive Survey of Security Threats," <em>IEEE Communications Surveys &amp; Tutorials</em>, vol. 24, no. 3, pp. 1475-1503, 2022.</p>
+<p>[11] F. Stadtmann and A. Rasheed, <em>Diagnostic Digital Twin for Anomaly Detection in Floating Offshore Wind Energy</em>, arXiv, 2024.</p>
+<p>[12] E. Branlard, J. Jonkman, C. Brown, and J. Zhang, "A digital twin solution for floating offshore wind turbines validated using a full-scale prototype," <em>Wind Energy Science</em>, vol. 9, no. 1, pp. 1-24, Copernicus GmbH, 2024.</p>
+<p>[13] S. A. Niederer, M. S. Sacks, M. Girolami, and K. Willcox, "Scaling digital twins from the artisanal to the industrial," <em>Nature Computational Science</em>, vol. 1, no. 5, pp. 313-320, Nature Publishing Group, 2021.</p>
+<p>[14] Y. Ma et al., <em>Automated and Systematic Digital Twins Testing for Industrial Processes</em>, arXiv, 2023.</p>
+<p>[15] Q. Xu, T. Yue, S. Ali, and M. Arratibel, <em>Pretrain, Prompt, and Transfer: Evolving Digital Twins for Time-to-Event Analysis in Cyber-physical Systems</em>, arXiv, 2024.</p>
+<p>[16] C. Lu, Q. Xu, T. Yue, S. Ali, T. Schwitalla, and J. F. Nygard, "EvoCLINICAL: Evolving Cyber-Cyber Digital Twin with Active Transfer Learning for Automated Cancer Registry System," in <em>Proceedings of the 31st ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering</em>, pp. 1973-1984, 2023.</p>
+<p>[17] B. Combemale et al., "Model-Based DevOps: Foundations and Challenges," in <em>2023 ACM/IEEE International Conference on Model Driven Engineering Languages and Systems Companion (MODELS-C)</em>, pp. 429-433, 2023.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Prasad Talasila
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.tabs.sticky", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
