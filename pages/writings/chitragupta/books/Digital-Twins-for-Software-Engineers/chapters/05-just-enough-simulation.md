@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Chapter 5 -- Just Enough Simulation: State, Time, Solvers, and Co-Simulation
 
 ## 5.0 Before you start

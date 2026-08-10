@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Chapter 6 -- Simulators: How Each Kind of Model Gets Solved
 
 ## 6.0 Before you start

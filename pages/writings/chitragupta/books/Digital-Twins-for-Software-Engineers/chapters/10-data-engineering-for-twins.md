@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Chapter 10 -- Data Engineering for Twins: Time Series, Context, and Provenance
 
 ## 10.0 Before you start

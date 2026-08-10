@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Chapter 3 -- The Anatomy of a Twin: A Reference Architecture in Software Terms
 
 ## 3.0 Before you start

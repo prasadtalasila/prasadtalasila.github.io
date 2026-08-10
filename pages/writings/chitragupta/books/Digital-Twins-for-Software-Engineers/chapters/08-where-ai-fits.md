@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Chapter 8 -- Where AI Fits: Machine Learning as a Model, a Service, and a Risk
 
 ## 8.0 Before you start

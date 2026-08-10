@@ -830,7 +830,8 @@ models, functions, and tools) as the primary design principle <a href="#referenc
 of DT intelligence: they support what-if analysis, model validation, and predictive
 control. However, the integration of heterogeneous simulation environments into live DT
 architectures is poorly supported by current tooling — most DT frameworks treat simulation
-as an offline activity, disconnected from the run-time data loop. Enabling bidirectional,
+as an offline activity (e.g. the <a href="https://azure.github.io/opendigitaltwins-dtdl/DTDL/v3/DTDL.v3.html">Azure DT Definition Language</a>
+and <a href="https://eclipse.dev/ditto/">Eclipse Ditto</a>), disconnected from the run-time data loop. Enabling bidirectional,
 low-latency simulation integration across diverse modelling paradigms requires a dedicated
 simulation infrastructure. The <em>DT Simulation Bridge (DT-SB)</em> integrates distributed
 simulations — from MATLAB dynamics models to AnyLogic agent-based simulations — into live
@@ -860,7 +861,8 @@ and securely shareable DTs are accessible to a wide range of users and organisat
    organisational boundaries while respecting data sovereignty?</li>
 <li>How do these platform capabilities translate into measurable engineering value in
    real-world applications such as manufacturing supply chains, digital product passports
-   (DPP), and autonomous systems?</li>
+   (DPP) — a key enabling framework of the <a href="https://environment.ec.europa.eu/strategy/circular-economy_en">EU circular economy initiative</a> —
+   and autonomous systems?</li>
 </ol>
 <h2 id="methodology">Methodology</h2>
 <p>The research combines platform engineering, formal modelling, and empirical evaluation in a <em>design science</em> tradition <a href="#references">[11]</a>: problems are extracted from real projects, artefacts are built to address them, and the artefacts are evaluated in context.</p>
@@ -881,7 +883,8 @@ or asset is trusted by default; every interaction is authenticated and authorise
 The secure collaboration architecture builds on OIDC and verifiable credentials to
 control asset access across organisational boundaries. Threat modelling follows
 established industry standards and is validated against case studies on emergency
-management in crowd environments, for instance as part of the Aarhus Festival.</p>
+management in crowd environments, for instance as part of the
+<a href="https://www.aarhusfestuge.dk/en">Aarhus Festival</a>.</p>
 <p><strong>Case Studies.</strong>
 Claims about platform capabilities are validated through a portfolio of case studies
 with business partners. Current studies include: structural health monitoring of

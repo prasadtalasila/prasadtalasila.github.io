@@ -16,6 +16,18 @@ Also see [Google Scholar](https://scholar.google.com/citations?user=53B5RKoAAAAJ
 ## 2026
 
 1. **`[C]`**
+   Mikkel Schmidt Andersen, Oliver Thomas, Prasad Talasila, Cláudio Gomes, Peter Gorm Larsen,
+   International Conference on Engineering Digital Twins, part of MODELS,
+   5-6 October 2026, Málaga, Spain. (accepted)
+
+1. **`[W]`**
+   Prasad Talasila, Riccardo Sieve, Roberto Casadei, Samuele Burattini, Lukas Esterle,
+   A Vision of System-level Adaptation in Digital Twin Networks, 13th International Workshop
+   on Self-Improving System Integration (SISSY), part of International Conference
+   on Autonomic Computing and Self-Organizing Systems (ACSOS), 7-11 September 2026,
+   Cesena, Italy. (accepted)
+
+1. **`[C]`**
    Riccardo Sieve, Prasad Talasila, Peter Gorm Larsen, and Einar Broch Johnsen.
    *A Self-Adaptive Digital Twin Architecture to Automate Greenhouse Management.*
    In Proc. 9th International Conference on Cyber Physical Systems (ICPS 2026),

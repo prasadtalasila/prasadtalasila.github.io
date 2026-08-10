@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Chapter 4 -- Just Enough Modeling: Physics-Based, Data-Driven, and Hybrid Models
 
 ## 4.0 Before you start

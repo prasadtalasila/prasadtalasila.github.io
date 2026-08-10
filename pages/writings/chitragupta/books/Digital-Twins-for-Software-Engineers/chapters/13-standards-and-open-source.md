@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Chapter 13 -- Standards and Open Source: What Exists So You Don't Build It Twice
 
 ## 13.0 Before you start

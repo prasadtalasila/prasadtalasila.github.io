@@ -50,7 +50,8 @@ A second class of challenges arises once a DT is operational. Simulations are th
 of DT intelligence: they support what-if analysis, model validation, and predictive
 control. However, the integration of heterogeneous simulation environments into live DT
 architectures is poorly supported by current tooling — most DT frameworks treat simulation
-as an offline activity, disconnected from the run-time data loop. Enabling bidirectional,
+as an offline activity (e.g. the [Azure DT Definition Language](https://azure.github.io/opendigitaltwins-dtdl/DTDL/v3/DTDL.v3.html)
+and [Eclipse Ditto](https://eclipse.dev/ditto/)), disconnected from the run-time data loop. Enabling bidirectional,
 low-latency simulation integration across diverse modelling paradigms requires a dedicated
 simulation infrastructure. The *DT Simulation Bridge (DT-SB)* integrates distributed
 simulations — from MATLAB dynamics models to AnyLogic agent-based simulations — into live
@@ -82,7 +83,8 @@ services, and dataspaces [[10]](#references).
    organisational boundaries while respecting data sovereignty?
 4. How do these platform capabilities translate into measurable engineering value in
    real-world applications such as manufacturing supply chains, digital product passports
-   (DPP), and autonomous systems?
+   (DPP) — a key enabling framework of the [EU circular economy initiative](https://environment.ec.europa.eu/strategy/circular-economy_en) —
+   and autonomous systems?
 
 ## Methodology
 
@@ -107,7 +109,8 @@ or asset is trusted by default; every interaction is authenticated and authorise
 The secure collaboration architecture builds on OIDC and verifiable credentials to
 control asset access across organisational boundaries. Threat modelling follows
 established industry standards and is validated against case studies on emergency
-management in crowd environments, for instance as part of the Aarhus Festival.
+management in crowd environments, for instance as part of the
+[Aarhus Festival](https://www.aarhusfestuge.dk/en).
 
 **Case Studies.**
 Claims about platform capabilities are validated through a portfolio of case studies

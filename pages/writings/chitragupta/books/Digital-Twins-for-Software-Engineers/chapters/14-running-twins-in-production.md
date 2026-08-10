@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Chapter 14 -- Running Twins in Production: Deployment, Evolution, and the Twin's Own Lifecycle
 
 ## 14.0 Before you start

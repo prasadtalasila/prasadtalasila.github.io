@@ -751,7 +751,7 @@ drives a decision, that is often the more useful object.
 ### 9.1 Where uncertainty comes from
 
 Separating the sources matters, because they are addressed differently
-[@thelen_comprehensive_2022-1]:article.md
+[@thelen_comprehensive_2022-1].
 
 - **Measurement noise.** The Seesaw probe reports 0.21 when the truth is
   0.205.

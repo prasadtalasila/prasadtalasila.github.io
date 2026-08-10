@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Chapter 7 -- Should You Trust the Twin? Calibration, Credibility, and V&V
 
 ## 7.0 Before you start

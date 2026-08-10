@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Chapter 9 -- Connecting the Physical: Sensors, Protocols, and Streaming Data
 
 ## 9.0 Before you start

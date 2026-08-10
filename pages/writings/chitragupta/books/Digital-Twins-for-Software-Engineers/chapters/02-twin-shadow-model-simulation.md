@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Chapter 2 -- Twin, Shadow, Model, Simulation: What a Digital Twin Actually Is -- and Isn't
 
 ## 2.0 Before you start

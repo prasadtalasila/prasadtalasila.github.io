@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Chapter 11 -- Twin Services: Visualization, Monitoring, Prediction, and Decision Support
 
 ## 11.0 Before you start

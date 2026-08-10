@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Chapter 15 -- Twins at Scale: Ecosystems
 
 ## 15.0 Before you start

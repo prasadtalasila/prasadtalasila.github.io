@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Chapter 1 -- Why Anyone Pays for a Digital Twin: Value, Markets, and Real Deployments
 
 ## 1.0 Before you start

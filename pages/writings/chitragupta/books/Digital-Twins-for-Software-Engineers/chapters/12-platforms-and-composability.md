@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Chapter 12 -- Platforms and Composability: Buying, Building, and Assembling from Parts
 
 ## 12.0 Before you start
