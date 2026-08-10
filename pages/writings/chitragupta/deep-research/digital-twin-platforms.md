@@ -13,10 +13,10 @@ hide:
 > Business-Model Analyst, and the Lifecycle/DevOps Engineer, plus a
 > basic fact writer - Citekeys: see References - Date: 2026-08-02
 
-**Disclaimer:** This article has been generated using
+**Disclaimer:** This deep research perspective has been generated using
 [chitragupta](https://prasad.talasila.in/chitragupta).
 Despite some potential for hallucination, the ideas communicated in this
-tutorial are accurate. Please send your corrections and suggestions to
+article are accurate. Please send your corrections and suggestions to
 <prasad.talasila@gmail.com>
 
 ## Summary

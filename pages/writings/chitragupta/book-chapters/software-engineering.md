@@ -6,10 +6,10 @@ hide:
 
 # Building, Deploying and Operating a Digital Twin: A Software Engineering Approach
 
-**Disclaimer:** This article has been generated using
+**Disclaimer:** This book chapter has been generated using
 [chitragupta](https://prasad.talasila.in/chitragupta).
 Despite some potential for hallucination, the ideas communicated in this
-tutorial are accurate. Please send your corrections and suggestions to
+book chapter are accurate. Please send your corrections and suggestions to
 <prasad.talasila@gmail.com>
 
 > **Summary.** Most introductions to digital twins tell you what a digital

@@ -6,10 +6,10 @@ hide:
 
 # Digital Twins in Application: A Survey by Sector and by Twin Type
 
-**Disclaimer:** This article has been generated using
+**Disclaimer:** This survey article has been generated using
 [chitragupta](https://prasad.talasila.in/chitragupta).
 Despite some potential for hallucination, the ideas communicated in this
-tutorial are accurate. Please send your corrections and suggestions to
+survey article are accurate. Please send your corrections and suggestions to
 <prasad.talasila@gmail.com>
 
 ## 1. Scope, reader, and how to read this survey

@@ -6,7 +6,7 @@ hide:
 
 # Build a Digital Twin for a Potted Plant
 
-**Disclaimer:** This article has been generated using
+**Disclaimer:** This tutorial has been generated using
 [chitragupta](https://prasad.talasila.in/chitragupta).
 Despite some potential for hallucination, the ideas communicated in this
 tutorial are accurate. Please send your corrections and suggestions to

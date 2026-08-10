@@ -8,10 +8,10 @@ hide:
 
 ## Disclaimer
 
->This article has been generated using
+>This book has been generated using
 >[chitragupta](https://prasad.talasila.in/chitragupta).
 >Despite some potential for hallucination, the ideas communicated in this
->tutorial are accurate. Please send your corrections and suggestions to
+>book are accurate. Please send your corrections and suggestions to
 ><prasad.talasila@gmail.com>
 
 ## Audience

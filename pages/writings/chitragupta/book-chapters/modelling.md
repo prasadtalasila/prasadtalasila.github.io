@@ -6,11 +6,12 @@ hide:
 
 # Modelling Techniques for Digital Twins: One Plant Pot, Twelve Ways to Model It
 
-**Disclaimer:** This article has been generated using
+**Disclaimer:** This book chapter has been generated using
 [chitragupta](https://prasad.talasila.in/chitragupta).
 Despite some potential for hallucination, the ideas communicated in this
-tutorial are accurate. Please send your corrections and suggestions to
+book chapter are accurate. Please send your corrections and suggestions to
 <prasad.talasila@gmail.com>
+
 
 > **Summary.** Every digital twin has a model at its heart, but "model" is
 > not one thing -- it is a dozen techniques with genuinely different

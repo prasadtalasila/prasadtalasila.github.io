@@ -6,10 +6,10 @@ hide:
 
 # Digital Twin Architectures: A Software Architecture Survey with Five Domain Case Studies
 
-**Disclaimer:** This article has been generated using
+**Disclaimer:** This survey article has been generated using
 [chitragupta](https://prasad.talasila.in/chitragupta).
 Despite some potential for hallucination, the ideas communicated in this
-tutorial are accurate. Please send your corrections and suggestions to
+survey article are accurate. Please send your corrections and suggestions to
 <prasad.talasila@gmail.com>
 
 ## Abstract

@@ -6,12 +6,12 @@ hide:
 
 # Data for Digital Twins: Protocols, Processing, Storage and Integration
 
-**A tutorial chapter for undergraduate students in software, computer and control engineering.**
+**A book chapter for undergraduate students in software, computer and control engineering.**
 
-**Disclaimer:** This article has been generated using
+**Disclaimer:** This book chapter has been generated using
 [chitragupta](https://prasad.talasila.in/chitragupta).
 Despite some potential for hallucination, the ideas communicated in this
-tutorial are accurate. Please send your corrections and suggestions to
+book chapter are accurate. Please send your corrections and suggestions to
 <prasad.talasila@gmail.com>
 
 ## 1. Learning Objectives

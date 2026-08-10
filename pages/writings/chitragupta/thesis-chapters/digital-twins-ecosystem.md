@@ -6,10 +6,10 @@ hide:
 
 # Digital Twins in an Ecosystem {#ch:dt-ecosystem}
 
-**Disclaimer:** This article has been generated using
+**Disclaimer:** This thesis chapter has been generated using
 [chitragupta](https://prasad.talasila.in/chitragupta).
 Despite some potential for hallucination, the ideas communicated in this
-tutorial are accurate. Please send your corrections and suggestions to
+thesis chapter are accurate. Please send your corrections and suggestions to
 <prasad.talasila@gmail.com>
 
 ## From the isolated twin to the ecosystem {#sec:dte-intro}
