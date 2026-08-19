@@ -1,0 +1,23 @@
+   simulated
+   time t
+      ^
+   9h |                              * end of run
+      |                          /
+      |                      /
+      |                  /          slope = RTF
+      |              /              (here: very steep --
+      |          /                   9h of t in ~0s of T)
+      |      /
+   0  +--*------------------------------------> wall-clock
+      0  microseconds                              time T
+
+   Three slopes worth naming:
+
+      steep   RTF > 1   faster than reality  (what a twin wants)
+      45 deg  RTF = 1   keeping pace         (a live mirror)
+      shallow RTF < 1   slower than reality  (fine for study,
+                                              fatal for forecast)
+
+  Figure 5.1  The two clocks. A run is a line on this plane, and
+              the real-time factor is its slope -- not a property
+              of the model, but of model and machine together.

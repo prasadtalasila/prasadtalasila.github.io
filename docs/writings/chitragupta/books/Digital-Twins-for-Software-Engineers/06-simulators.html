@@ -1,0 +1,2635 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home page of Prasad Talasila">
+      
+      
+        <meta name="author" content="Prasad Talasila">
+      
+      
+        <link rel="canonical" href="https://prasad.talasila.in/writings/chitragupta/books/Digital-Twins-for-Software-Engineers/06-simulators.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 6 -- Simulators: How Each Kind of Model Gets Solved - Prasad Talasila</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/course-tables.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-6-simulators-how-each-kind-of-model-gets-solved" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../index.html" title="Prasad Talasila" class="md-header__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prasad Talasila
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 6 -- Simulators: How Each Kind of Model Gets Solved
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../research.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Research
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../publications.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../projects.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../software.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../courses.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Courses
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../writings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Writings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../contact.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../index.html" title="Prasad Talasila" class="md-nav__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    Prasad Talasila
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../research.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../publications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../software.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../writings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contact.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#60-before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.0 Before you start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.0 Before you start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning objectives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#61-whats-in-a-name-method-algorithm-solver-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 What's in a name? Method, algorithm, solver, simulator
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-the-chooser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 The chooser
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-continuous-physics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Continuous physics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 Continuous physics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-stepping-rules-and-what-order-buys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.1 Stepping rules, and what "order" buys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632-stiffness-and-why-it-changes-the-bill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.2 Stiffness, and why it changes the bill
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-when-rates-are-not-enough-algebraic-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.3 When rates are not enough: algebraic constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#634-space-as-well-as-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.4 Space as well as time
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#635-equation-based-acausal-tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.5 Equation-based, acausal tooling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-discrete-and-computer-based-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Discrete and computer-based models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.4 Discrete and computer-based models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#641-discrete-event-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.1 Discrete-event simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#642-state-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.2 State machines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#643-petri-nets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.3 Petri nets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#644-agent-based-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.4 Agent-based simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#645-hybrid-continuous-plus-discrete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.5 Hybrid: continuous plus discrete
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-data-driven-surrogates-reduced-order-models-and-physics-informed-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 Data-driven: surrogates, reduced-order models, and physics-informed machine learning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.5 Data-driven: surrogates, reduced-order models, and physics-informed machine learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#651-what-a-surrogate-is-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5.1 What a surrogate is for
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#652-physics-informed-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5.2 Physics-informed machine learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-keeping-the-twin-in-sync-state-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 Keeping the twin in sync: state estimation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.6 Keeping the twin in sync: state estimation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#661-the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6.1 The problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#662-the-correction-as-arithmetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6.2 The correction, as arithmetic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#663-when-the-kalman-filter-is-the-wrong-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6.3 When the Kalman filter is the wrong tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#664-what-to-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6.4 What to ask
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-uncertainty-and-what-if-at-scale-monte-carlo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7 Uncertainty and what-if at scale: Monte Carlo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.7 Uncertainty and what-if at scale: Monte Carlo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#671-one-run-is-not-an-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7.1 One run is not an answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#672-why-this-is-the-workhorse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7.2 Why this is the workhorse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#673-how-many-runs-the-cost-law-you-must-know" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7.3 How many runs? The cost law you must know
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#674-the-honest-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7.4 The honest limit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68-making-models-work-together-orchestration-and-fmi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8 Making models work together: orchestration and FMI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.8 Making models work together: orchestration and FMI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#681-what-the-standard-is-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8.1 What the standard is for
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#682-the-one-distinction-to-remember" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8.2 The one distinction to remember
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#683-what-the-orchestrator-does-and-what-it-does-not-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8.3 What the orchestrator does, and what it does not fix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#69-worked-example-choosing-simulators-for-the-greenhouse-twin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9 Worked example: choosing simulators for the greenhouse twin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.9 Worked example: choosing simulators for the greenhouse twin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#691-the-soil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9.1 The soil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#692-the-watering-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9.2 The watering events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#693-the-relay-contention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9.3 The relay contention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#694-the-estimator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9.4 The estimator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#695-the-what-if-service-when-it-arrives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9.5 The what-if service, when it arrives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#696-do-we-need-co-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9.6 Do we need co-simulation?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#610-faded-example-the-offshore-turbine-solved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.10 Faded example: the offshore turbine, solved
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#611-posed-problem-the-simulator-selection-memo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.11 Posed problem: the simulator selection memo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#612-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.12 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#613-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.13 Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.13 Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solutions-and-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solutions and hints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#614-where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.14 Where to go next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#615-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.15 References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="chapter-6-simulators-how-each-kind-of-model-gets-solved">Chapter 6 -- Simulators: How Each Kind of Model Gets Solved</h1>
+<h2 id="60-before-you-start">6.0 Before you start</h2>
+<p><strong>Where we are.</strong> Chapter 4 told you what kinds of model exist. Chapter 5
+told you what happens when one is executed, using deliberately one stepping
+rule and calling it the simplest that exists. Between them, Part II has now
+promised you seven things and delivered none of them:</p>
+<ul>
+<li>the taxonomy of stepping rules (Chapter 5, Sec. 5.4.1);</li>
+<li>what <em>stiff</em> means and why it changes your compute bill (Chapter 5,
+  Sec. 5.4.4);</li>
+<li>where the initial state comes from (Chapter 5, Sec. 5.5.1, and before
+  that Chapter 3, Sec. 3.2.3);</li>
+<li>how many runs turn into one answer (Chapter 5, Sec. 5.6);</li>
+<li>what the Functional Mock-up Interface (FMI) actually is (Chapter 5,
+  Sec. 5.7.1);</li>
+<li>what surrogates are for (Chapter 4, Sec. 4.5.3);</li>
+<li>and the machinery for models that are part continuous and part discrete
+  (Chapter 4, Sec. 4.10).</li>
+</ul>
+<p>This chapter pays all seven.</p>
+<p><strong>The register, stated plainly, because it is the whole design of the
+chapter.</strong> This chapter teaches what each kind of simulator is <em>for</em>, what
+it costs, and what to ask about it. <strong>It teaches no method.</strong> You will
+finish unable to implement a finite-element mesh or a particle filter, and
+that is deliberate: Part II's job is to make you a competent interlocutor,
+not a numerical analyst. What you will be able to do is look at a proposed
+twin, name what will have to solve each part of it, predict where the
+compute goes, and ask three useful questions per family.</p>
+<p><strong>What you are assumed to know.</strong> Everything so far. Especially, from
+Chapter 5: step size <code>h</code>, sampling interval <code>Ts</code>, macro step <code>H</code>, real-time
+factor, and the difference between numerical error and being wrong about
+the world.</p>
+<p><strong>The maths budget.</strong> Chapter 4 spent the book's one derivative. Chapter 5
+spent none. This chapter spends none either: no derivatives, no integrals,
+<strong>no matrices</strong>, no probability notation. There are exactly two pieces of
+real arithmetic -- a state estimate built as a weighted average of two
+numbers (Sec. 6.6.2), and a sample-count calculation with a square root
+(Sec. 6.7.3). Everything else is a table.</p>
+<p><strong>What this chapter deliberately does not cover.</strong> Any method's derivation
+or implementation. Calibration and validation -- Chapter 7, and Sec. 6.7 is
+careful that Monte Carlo propagates <em>stated</em> uncertainty and cannot discover
+unstated uncertainty. Machine-learning specifics and their risks -- Chapter
+8. Tool and platform selection -- Chapter 12. Standards in depth -- Chapter
+13. Optimisation -- Chapter 11.</p>
+<h3 id="learning-objectives">Learning objectives</h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol>
+<li><strong>Distinguish</strong> method, algorithm, solver and simulator, and <strong>identify</strong>
+   which of the four a colleague means.</li>
+<li><strong>Match</strong> a model kind to the family of simulator that solves it, and
+   <strong>predict</strong> which resource -- compute, memory, expertise, or wall-clock
+   latency -- will dominate.</li>
+<li><strong>Explain</strong> what stiffness costs, and <strong>recognise</strong> the three symptoms
+   that suggest a model is stiff before anyone uses the word.</li>
+<li><strong>Compute</strong> a corrected state estimate from a model prediction and a
+   noisy measurement, and <strong>state</strong> when a Kalman filter is the wrong tool.</li>
+<li><strong>Determine</strong> how many Monte Carlo runs a stated precision requires, and
+   <strong>combine</strong> that with Chapter 5's cost arithmetic to size a service.</li>
+</ol>
+<hr />
+<h2 id="61-whats-in-a-name-method-algorithm-solver-simulator">6.1 What's in a name? Method, algorithm, solver, simulator</h2>
+<p>Four words, used interchangeably, meaning four things. The confusion costs
+real money in procurement conversations, because a vendor selling you a
+<em>simulator</em> and a modeller offering you a <em>method</em> are offering
+inventory that differs by two orders of magnitude in effort.</p>
+<blockquote>
+<p><strong>Method</strong> -- the mathematical idea. "Assume the rate of change is
+constant across the step and multiply." Chapter 5's rule was a method.</p>
+<p><strong>Algorithm</strong> -- the method written as a procedure, with its bookkeeping:
+how the step is chosen, how error is estimated, what happens at an event.</p>
+<p><strong>Solver</strong> -- an implementation of one or more algorithms, packaged to be
+called. It has a version, a licence, a performance profile and bugs.</p>
+<p><strong>Simulator</strong> -- a solver plus everything around it: loading the model,
+handling inputs, scheduling events, recording outputs, reporting failure.</p>
+</blockquote>
+<p>Chapter 3 drew the <em>simulation runner</em> as one box. That box contains a
+simulator; the simulator contains a solver; the solver implements
+algorithms; the algorithms realise methods. Four layers, and you will
+inherit decisions at every one.</p>
+<p><strong>Why the distinction is practical, in three uses.</strong></p>
+<p><em>Estimating.</em> "We need a new method" is a research project. "We need a
+different solver" is an afternoon, if the interfaces line up. "We need a
+different simulator" is a migration. When someone says a change is small,
+ask which layer.</p>
+<p><em>Reproducibility.</em> Chapter 5 required the solver's identity and version in
+the recorded inputs of a reproducible run. Now you can see why the <em>method</em>
+name is not enough: two solvers implementing the same method give different
+numbers, because the bookkeeping differs.</p>
+<p><em>Reading the literature and the marketing.</em> Solvers acquire names and
+reputations. You will hear one named in a design meeting as a
+general-purpose workhorse in dynamic simulation, chosen for comparisons
+precisely because it is not specialised to a particular problem
+[1]. You do not need to know how it works. You need to
+know that it is a solver, not a method, and to ask what happens when it is
+swapped.</p>
+<hr />
+<h2 id="62-the-chooser">6.2 The chooser</h2>
+<p>The rest of this chapter is a tour. Here is the map first, so the tour is
+navigable rather than merely sequential.</p>
+<table>
+<thead>
+<tr>
+<th>If the model is...</th>
+<th>It is solved by...</th>
+<th>Section</th>
+<th>The cost that usually dominates</th>
+<th>First question to ask</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quantities changing smoothly over time</td>
+<td>Numerical integration, one step at a time</td>
+<td>6.3.1</td>
+<td>Compute, if steps are small or the model is big</td>
+<td>"Is it stiff?"</td>
+</tr>
+<tr>
+<td>The above, plus relationships that must hold exactly at every instant</td>
+<td>A solver that handles algebraic constraints alongside rates</td>
+<td>6.3.3</td>
+<td>Expertise and tooling</td>
+<td>"Does it need a Differential-Algebraic Equation (DAE) solver, and does our tool have one?"</td>
+</tr>
+<tr>
+<td>Quantities varying across space as well as time</td>
+<td>Finite elements, on a mesh</td>
+<td>6.3.4</td>
+<td>Compute and memory, by a wide margin</td>
+<td>"Can we get away with not resolving space?"</td>
+</tr>
+<tr>
+<td>Physical components connected together</td>
+<td>Equation-based, acausal tooling</td>
+<td>6.3.5</td>
+<td>Licences and specialist skills</td>
+<td>"Who else can maintain this model?"</td>
+</tr>
+<tr>
+<td>Things happening at moments -- arrivals, failures, batches</td>
+<td>Discrete-event simulation</td>
+<td>6.4.1</td>
+<td>Rarely compute; usually modelling effort</td>
+<td>"What is the event list, and what is random?"</td>
+</tr>
+<tr>
+<td>A system in one of a few modes, with transitions</td>
+<td>State machine execution</td>
+<td>6.4.2</td>
+<td>Negligible</td>
+<td>"What happens on an unhandled transition?"</td>
+</tr>
+<tr>
+<td>Concurrent activities contending for resources</td>
+<td>Petri nets</td>
+<td>6.4.3</td>
+<td>Negligible to run, high to get right</td>
+<td>"Can it deadlock, and would we see it?"</td>
+</tr>
+<tr>
+<td>Many autonomous entities with local rules</td>
+<td>Agent-based simulation</td>
+<td>6.4.4</td>
+<td>Compute, and validation difficulty</td>
+<td>"What does one run of this actually tell us?"</td>
+</tr>
+<tr>
+<td>An expensive model you must run many times</td>
+<td>A surrogate or reduced-order model</td>
+<td>6.5</td>
+<td>Offline build cost, then almost nothing</td>
+<td>"What was it fitted to, and where is it valid?"</td>
+</tr>
+<tr>
+<td>Any of the above, plus live measurements</td>
+<td>A state estimator on top</td>
+<td>6.6</td>
+<td>Design effort</td>
+<td>"What is the gain doing, and does it ever ignore the sensor?"</td>
+</tr>
+<tr>
+<td>Any of the above, with uncertain inputs</td>
+<td>Monte Carlo over many runs</td>
+<td>6.7</td>
+<td>Compute, multiplied by the run count</td>
+<td>"How many runs, and what precision does that buy?"</td>
+</tr>
+<tr>
+<td>Several of the above at once</td>
+<td>A co-simulation orchestrator</td>
+<td>6.8</td>
+<td>Integration effort and debugging</td>
+<td>"Who owns each solver, and what is the macro step?"</td>
+</tr>
+</tbody>
+</table>
+<p>Two observations before the tour.</p>
+<p><strong>Most twins need several rows.</strong> Our greenhouse needs continuous physics
+for the soil, discrete events for the pump, a state estimator to fuse the
+sensor, and eventually Monte Carlo to answer a what-if. That is four rows,
+and Sec. 6.8 is about making them run together.</p>
+<p><strong>The right-hand column is the deliverable.</strong> If you retain one thing from
+this chapter, retain that column.</p>
+<hr />
+<h2 id="63-continuous-physics">6.3 Continuous physics</h2>
+<h3 id="631-stepping-rules-and-what-order-buys">6.3.1 Stepping rules, and what "order" buys</h3>
+<p>Chapter 5 used one rule -- assume the rate holds constant across the step,
+multiply, and move on -- and demonstrated that halving the step roughly
+halves the error. That behaviour has a name: the rule is <strong>first order</strong>.</p>
+<p>The families you will hear named differ in what they do inside a step, and
+the payoff is the exponent:</p>
+<table>
+<thead>
+<tr>
+<th>Family</th>
+<th>What it does inside a step</th>
+<th>Halving <code>h</code> divides the error by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simplest (Chapter 5's)</td>
+<td>One rate evaluation, assumed constant</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Mid-range</td>
+<td>Two to four rate evaluations, combined</td>
+<td>4 to 16</td>
+</tr>
+<tr>
+<td>High order</td>
+<td>Many evaluations, combined cleverly</td>
+<td>32 or more</td>
+</tr>
+</tbody>
+</table>
+<p><strong>How to read that table, which is the only thing you need from it.</strong> A
+higher-order rule costs more per step and buys much more accuracy per step,
+so it usually wins -- it reaches a target accuracy in far fewer, larger
+steps. Chapter 5's rule-of-thumb consequence changes accordingly: with a
+first-order rule, ten times less error costs ten times more compute; with a
+fourth-order rule it costs about 1.8 times more. That difference is why
+nobody uses Chapter 5's rule in production, and why Chapter 5 said so.</p>
+<p><strong>The two knobs you actually set</strong> are the ones Chapter 5 introduced: a
+fixed step, or a tolerance for an adaptive solver. Which family is running
+underneath is usually the solver's business.</p>
+<h3 id="632-stiffness-and-why-it-changes-the-bill">6.3.2 Stiffness, and why it changes the bill</h3>
+<p>Chapter 5 named <em>stiff</em> and promised an explanation. Here it is, in the
+greenhouse.</p>
+<p>The soil dries over <strong>days</strong>. The pump fills the delivery tube in
+<strong>seconds</strong>. Both are in the same physical system. If you model both with
+one continuous model and one explicit stepping rule, the step must be small
+enough for the <em>fastest</em> behaviour -- Chapter 5 showed what happens above
+the stability threshold -- even though the answer you want concerns the
+slowest.</p>
+<p>Put numbers on it. Suppose the tube fills with a time constant of 2
+seconds, so stability demands a step of a second or so. Simulate seven days:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>7 days = 604,800 seconds
+at h = 1 s  -&gt;  604,800 steps
+</code></pre></div></td></tr></table></div>
+<p>Compare Chapter 5's Case B, which used <code>h</code> = 15 minutes and needed 672 steps
+for the same horizon. <strong>Nine hundred times more work, to answer a question
+about soil.</strong> Figure 6.1 is why.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code>   two timescales in one system
+
+   tube filling    |||||||||||||||||||||||||||||||||||||||
+   (seconds)       every one of these needs a step
+
+   soil drying     |         |         |         |
+   (days)          this is the behaviour you care about
+
+   |&lt;------------------- 7 days ---------------------&gt;|
+
+   an explicit stepping rule must satisfy the FASTEST:
+
+        h  &lt;=  about 1 s      -&gt;    604,800 steps
+        h  =   15 min         -&gt;        672 steps
+                                   ~900x the work, same answer
+                                   about the soil
+
+   The fix is not a faster machine. It is one of:
+     - an implicit solver (pays per step, needs far fewer)
+     - do not model the tube at all (Sec. 6.9.2&#39;s choice)
+
+  Figure 6.1  Stiffness. The step size is hostage to the fastest
+              behaviour in the model, even when the question is
+              about the slowest.
+</code></pre></div></td></tr></table></div>
+<p>That is stiffness, and it is why the word is a budget warning. Note the
+second escape route in the figure: the cheapest fix for a stiff system is
+often to stop modelling the fast part, which is a modelling decision rather
+than a solver one.</p>
+<p><strong>The distinction that resolves it.</strong> Chapter 5's rule is <strong>explicit</strong>: it
+computes the next state directly from the current one. An <strong>implicit</strong> rule
+computes the next state by solving an equation that involves the next state
+-- more work per step, and stable at vastly larger steps. Implicit solvers
+exist precisely for stiff models, and adaptive-step solvers are described as
+customary for stiff systems that mix continuous and discrete dynamics
+[2].</p>
+<p><strong>Three symptoms that suggest stiffness before anyone says the word:</strong></p>
+<ol>
+<li>The physical system has behaviour on timescales differing by three orders
+   of magnitude or more -- seconds and days, in our case.</li>
+<li>The run is far slower than the model's size suggests it should be.</li>
+<li>An adaptive solver reports taking enormous numbers of tiny steps in a
+   period where, physically, nothing is happening.</li>
+</ol>
+<p><strong>And the cheapest fix, which is not a numerical one.</strong> Do not put the fast
+behaviour in the continuous model. The pump fills in seconds and the
+decision is about days; Chapter 4's assumption A3 already said the water
+mixes fast compared with the sampling interval, so the tube filling can be
+an <em>event</em> rather than a continuous process. Sec. 6.4 is about how events
+get executed, and Sec. 6.4.5 about mixing the two. <strong>Reformulating the model
+beats buying a better solver, when you can do it</strong> -- and noticing that you
+can is a modelling conversation you are now equipped to have.</p>
+<h3 id="633-when-rates-are-not-enough-algebraic-constraints">6.3.3 When rates are not enough: algebraic constraints</h3>
+<p>Some relationships are not about rates of change at all. They must hold
+exactly, at every instant. In the greenhouse: the water leaving the
+reservoir equals the sum of the water entering the pots, at all times.
+Nothing about that is a rate; it is a bookkeeping identity.</p>
+<p>A model with both kinds of relationship -- rates <em>and</em> instantaneous
+constraints -- needs a solver that handles both together. You will hear the
+combination called a <strong>differential-algebraic</strong> system, and it is standard
+in engineering practice; lumped-parameter system models are routinely
+formulated either as pure-rate systems or as this combined kind
+[3], and equation-based tooling explicitly
+transforms the implicit combined system before handing it to a numerical
+solver [4].</p>
+<p><strong>What this means for you, in one sentence.</strong> Constraints are not free: a
+model with them needs a more capable solver, and "our tool cannot handle
+that" is a real answer you may get. Ask early, because discovering it late
+means changing tools.</p>
+<h3 id="634-space-as-well-as-time">6.3.4 Space as well as time</h3>
+<p>Everything so far treats a quantity as one number for the whole object. Our
+pot has "the moisture", as though the soil were uniformly wet. It is not:
+the top dries first, the region under the dripper is wetter, roots draw
+water unevenly.</p>
+<p>Modelling that requires the quantity to vary across <strong>space</strong> as well as
+time, and the standard machinery is <strong>finite elements</strong>: chop the object
+into many small pieces, solve on each, and stitch them together.
+Physics-based simulations of this kind are described as front and centre in
+domains such as aerospace research [5], and
+they are one of the standard families in the mechanical design space
+alongside multibody dynamics and computational fluid dynamics
+[3]. Treatments of modelling for twins present the
+progression explicitly: a simplified model based on rates over time, then a
+more advanced one that also resolves space [6].</p>
+<p><strong>The cost, and it is the biggest jump in this chapter.</strong> Chapter 5's Case C
+made the point with a factor of forty thousand. Resolving space multiplies
+the state from one number to thousands or millions, and the compute and
+memory follow. Structural-health work using this machinery routinely reports
+building fast approximations <em>specifically because</em> the full model is too
+slow to run repeatedly [7] -- which is Sec. 6.5's subject
+and is a strong hint about how often the full model is affordable online.</p>
+<p><strong>The question to ask, and it is the first row of the chooser for a
+reason:</strong> <em>can we get away with not resolving space?</em> Chapter 1's principle
+answers it -- fidelity is derived from the value metric. Our fault detector
+compares an expected step against an observed one at one sensor. One number
+is enough. A model that resolves the pot in three dimensions would be more
+faithful, cost four orders of magnitude more, and change no decision.</p>
+<h3 id="635-equation-based-acausal-tooling">6.3.5 Equation-based, acausal tooling</h3>
+<p>One more thing you will meet by name. Ordinary programs are <strong>causal</strong>: you
+write what is computed from what. A resistor model in ordinary code has to
+decide whether it computes current from voltage or the reverse.</p>
+<p><strong>Acausal</strong> modelling languages let you write the <em>relationship</em> -- the
+equation -- and let the tool work out, per use, which variable to solve for.
+Components then connect like physical components rather than like function
+calls, which is why the approach dominates in engineering domains where
+systems are assembled from parts. The best-known such language is Modelica,
+an equation-based, object-oriented language for modelling physical systems
+[4], and the surrounding ecosystem is large enough
+to matter as an argument in its own right -- an open standard with many
+tools, backends, domain libraries and related standards
+[2].</p>
+<p><strong>What to take from this as a software engineer.</strong> Two things, and one
+warning.</p>
+<p><em>It is a genuinely different programming model,</em> and if you review such a
+model expecting to read execution order, you will not find it. The tool
+derives it.</p>
+<p><em>It composes physically.</em> Connecting a pump model to a pipe model to a pot
+model works the way connecting the real components works, which is a real
+advantage over hand-wiring inputs and outputs.</p>
+<p><em>And the warning:</em> this is specialist tooling with specialist skills and
+often specialist licences. The chooser's question -- <em>who else can maintain
+this model?</em> -- is a staffing question, and it is the one that usually
+decides.</p>
+<hr />
+<h2 id="64-discrete-and-computer-based-models">6.4 Discrete and computer-based models</h2>
+<p>Chapter 4 named these and deferred them. They matter more than their brief
+treatment in this book suggests, because a great deal of what a twin
+represents is not a smoothly varying quantity at all.</p>
+<h3 id="641-discrete-event-simulation">6.4.1 Discrete-event simulation</h3>
+<p>Chapter 5's loop advanced a clock in fixed steps and asked at each one
+whether anything had happened. For a system where things happen rarely, that
+is almost all wasted work.</p>
+<p><strong>Discrete-event simulation</strong> inverts it: keep a time-ordered queue of
+pending events, jump straight to the next one, process it, schedule whatever
+it causes, repeat. Simulated time leaps rather than steps.</p>
+<p>A trace from the greenhouse, showing the queue rather than a clock:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>queue: [09:16 water(plant1,100ml), 09:16 water(plant2,80ml), 17:05 water(plant1,120ml)]
+
+pop 09:16 water(plant1,100ml)
+    -&gt; relay coil 0 closes; schedule 09:16:03.5 stop(plant1)
+pop 09:16 water(plant2,80ml)
+    -&gt; relay coil 1 busy; enqueue behind; schedule retry 09:16:03.5
+pop 09:16:03.5 stop(plant1)
+    -&gt; coil 0 opens; the queued plant2 request proceeds
+...
+</code></pre></div></td></tr></table></div>
+<p>Between 09:16:03.5 and 17:05 the simulation does nothing at all, because
+nothing happens. Seven hours pass in zero steps.</p>
+<p>This is the natural formalism for factory flow, queues, batches and
+resource contention, and it is used that way in twin practice -- reviews of
+smart-manufacturing twins report discrete-event simulation as the tool for
+process flow design and planning, including in non-automated processes
+[8], and roadmaps for twin construction list it among the
+formalisms to be chosen deliberately at design time alongside differential
+equations and Petri nets [9]. There is an established
+formalism behind it, used for queueing networks and performance models and
+described as something close to a simulation assembly language
+[4]; you do not need it, you need to recognise the
+name.</p>
+<p><strong>What to ask:</strong> <em>what is the event list, and what is random?</em> If arrival
+times or durations are drawn from distributions, one run is one sample --
+which is Sec. 6.7's problem, and it arrives here first.</p>
+<h3 id="642-state-machines">6.4.2 State machines</h3>
+<p>The smallest formalism in the chapter, and the one you already use. A
+system in one of a few named modes, with transitions between them: the pump
+is <code>idle</code>, <code>pumping</code>, or <code>faulted</code>; the greenhouse is <code>day</code>, <code>night</code>, or
+<code>maintenance</code>.</p>
+<p>State machines cost nothing to execute and are the right representation
+whenever the interesting behaviour is <em>which mode we are in</em> rather than
+<em>what value a quantity has</em>. Practical modelling stacks list them alongside
+continuous-time and discrete-event models as one of the techniques from
+which a twin's overall model set is assembled [10], and
+there are catalogues of patterns for augmenting twin models with exactly
+this kind of behaviour [11].</p>
+<p><strong>What to ask:</strong> <em>what happens on an unhandled transition?</em> A state machine
+that silently ignores an impossible event is a state machine that will
+diverge from the physical twin and never say so -- which, note, is
+Chapter 4's silent failure wearing different clothes.</p>
+<h3 id="643-petri-nets">6.4.3 Petri nets</h3>
+<p>When several activities run concurrently and contend for shared resources,
+plain state machines multiply out badly. <strong>Petri nets</strong> describe such
+systems with <em>places</em> holding <em>tokens</em>, and <em>transitions</em> that consume
+tokens from some places and produce them in others. Concurrency and
+contention are expressed directly rather than enumerated.</p>
+<p>The greenhouse has a real instance. One relay module has four coils; six
+plants want watering; the twelve-volt supply serves all the pumps. A token
+in the "coil free" place is consumed when watering starts and returned when
+it stops. The interesting questions are then structural: can two plants
+water simultaneously? Can a request wait forever? Petri-net-based
+discrete-event methods are used to build twins of manufacturing systems for
+precisely this class of question [8], and they appear
+alongside differential equations and event formalisms in the list of
+languages a twin project chooses from [9].</p>
+<p><strong>What to ask:</strong> <em>can it deadlock, and would we notice?</em> The payoff of this
+formalism is that the question is answerable by analysis rather than by
+running the system and hoping -- which is the same payoff you get from a
+type system, and will be a familiar trade.</p>
+<h3 id="644-agent-based-simulation">6.4.4 Agent-based simulation</h3>
+<p>Many autonomous entities, each following local rules, with the system's
+behaviour emerging from their interaction. Traffic, crowds, markets,
+ecosystems, robot fleets.</p>
+<p>It is a poor fit for one pot, and worth naming for two reasons. First,
+because you will meet it, and its analytical treatment is an active topic --
+data assimilation techniques for state estimation have been extended to
+discrete-event and agent-based models [12]. Second, because
+its characteristic difficulty is a good lesson in miniature: an agent-based
+model is easy to build, easy to make plausible, and hard to validate,
+because there is rarely a measurement of the emergent quantity it predicts.</p>
+<p><strong>What to ask:</strong> <em>what does one run of this tell us?</em> Usually the honest
+answer is "very little" -- these models are almost always run many times
+(Sec. 6.7), and a proposal that shows you a single agent-based run as
+evidence is showing you an anecdote.</p>
+<h3 id="645-hybrid-continuous-plus-discrete">6.4.5 Hybrid: continuous plus discrete</h3>
+<p>Our pot has been hybrid all along. The soil dries continuously; the doses
+are events. Chapter 5 handled this informally by testing for a dose inside
+each step, and Chapter 5 also showed the price: the run behaved as though a
+17:05 dose happened at 16:20.</p>
+<p>The principled version interleaves the two properly. The execution loop
+alternates advancing continuous behaviour with checking for and processing
+discrete transitions, and terminates on reaching a time limit, a state
+configuration, or another criterion -- with the system's mode and both its
+discrete and its continuous variables all liable to change at each
+iteration [6]. The formal machinery for combining
+discrete and continuous behaviour in one model is a named subject in its own
+right [4], [6].</p>
+<p><strong>The engineering consequence, which is Chapter 5's Sec. 5.7.3 arriving from
+the other side.</strong> Somebody must decide what happens when an event lands in
+the middle of a continuous step. Chapter 5 showed that the naive answer
+silently moves the event by up to a step. A proper hybrid simulator will
+instead <em>stop the continuous step at the event</em>, handle it, and restart --
+which is more correct and, per Chapter 5's Sec. 5.4.3, exactly the pattern
+that degrades an adaptive solver's efficiency. There is no free choice here,
+only a stated one.</p>
+<hr />
+<h2 id="65-data-driven-surrogates-reduced-order-models-and-physics-informed-machine-learning">6.5 Data-driven: surrogates, reduced-order models, and physics-informed machine learning</h2>
+<p>Chapter 4 introduced surrogates and said they belong here, "where speed
+becomes a design constraint". Now it is.</p>
+<h3 id="651-what-a-surrogate-is-for">6.5.1 What a surrogate is for</h3>
+<p>A <strong>surrogate</strong> is a fast approximation fitted to a slower model's outputs.
+Chapter 4's warning stands and is worth repeating because it is the most
+misunderstood point in the family: <strong>a surrogate is fitted to a model, not
+to reality, so it inherits every one of that model's assumptions and adds
+approximation error of its own. It solves a speed problem, not an accuracy
+problem.</strong></p>
+<p>The speed problem is the one Sec. 6.3.4 created. A <strong>reduced-order model</strong>
+is a surrogate built by discarding structure the answer does not depend on;
+such models sit at the intersection of high-fidelity physics simulation and
+data-driven modelling, and trade some accuracy for much greater
+computational speed [13]. The economics are explicitly
+offline-for-online: computational time is invested once, in advance, so that
+models otherwise intractable in a real-time or many-query context can be
+used [3], [14].</p>
+<p><strong>Where they show up in twins.</strong> Wherever the expensive model must run
+repeatedly: model updating driven by sampling procedures that need thousands
+of evaluations [7], evolutionary optimisation whose
+function-evaluation counts are otherwise prohibitive
+[15], and twins built from libraries of
+component-level reduced-order models so that a fleet can be served at scale
+[16].</p>
+<p><strong>Two questions to ask,</strong> and the second is the one people forget:</p>
+<p><em>What was it fitted to, and over what range of conditions?</em> Outside that
+range you are extrapolating, with Chapter 4's silent failure.</p>
+<p><em>What happens when the underlying model changes?</em> The surrogate is now
+stale, and refitting it is an offline job. A base model that is refitted
+weekly and a surrogate refitted quarterly is a twin that is quietly running
+last quarter's physics.</p>
+<h3 id="652-physics-informed-machine-learning">6.5.2 Physics-informed machine learning</h3>
+<p>Chapter 4 named this as the <em>constrained learning</em> form of hybrid modelling
+and deferred the mechanics. The mechanics, at the level this book needs:
+the fitting procedure is given an extra penalty for producing predictions
+that violate known physics, which pushes the fitted model toward physically
+compliant answers -- reported as the commonest route to a hybrid
+physics-and-machine-learning model [14].</p>
+<p><strong>What it buys, and the honest limit.</strong> It buys better behaviour where data
+is thin, because physics fills the gap. It does not buy immunity from
+Chapter 4's extrapolation problem: reviews note that predictions from
+physics-informed models and from models with online updating can still fail
+unexpectedly on inputs unlike anything in training, and that such failures
+reduce trust and limit real-world adoption [15].</p>
+<p>That limit is why Chapter 7 exists, and why Sec. 6.6's estimator -- which
+keeps pulling the model back toward measurements -- matters even when the
+model is good.</p>
+<hr />
+<h2 id="66-keeping-the-twin-in-sync-state-estimation">6.6 Keeping the twin in sync: state estimation</h2>
+<p>This is the third time the book has deferred this component. Chapter 3 drew
+it, Chapter 4 distinguished it from the model, Chapter 5 said a run's answer
+depends on its initial state as much as on its model. Here is the mechanism.</p>
+<h3 id="661-the-problem">6.6.1 The problem</h3>
+<p>You have a model that predicts the pot's moisture. You have a sensor that
+reports it. They disagree. The model is approximate; the sensor is noisy.
+<strong>Which do you believe?</strong></p>
+<p>"The sensor, it is real" is wrong, and seeing why is the point. A single
+reading carries the sensor's noise. A model prediction carries the model's
+error but averages over the noise of every reading that fed it. The right
+answer is neither: it is a <em>combination</em>, weighted by how much you trust
+each.</p>
+<p>That is what a state estimator does, and the twin literature treats it as
+core -- monitoring the physical twin's states is described as the ability
+that delivers advanced visualisation, fault detection and reduced
+maintenance cost, with the estimator providing an estimate that is better
+than the one obtained from a single measurement alone
+[17].</p>
+<p>Every estimator in this chapter runs the same two-step cycle:</p>
+<blockquote>
+<p><strong>Predict.</strong> Advance the model from the last estimate to now.
+<strong>Correct.</strong> Pull the prediction toward the new measurement, by an amount
+reflecting how much each is trusted.</p>
+</blockquote>
+<p>Figure 6.2 traces one turn of that cycle, and the thing to watch is where
+the estimate lands: never on the model's prediction, never on the reading,
+always somewhere between.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code>   moisture
+      ^
+      |                          o  measurement
+      |                          |     (noisy)
+      |                          |
+      |            estimate ---&gt; *     &lt;-- lands BETWEEN,
+      |                          |         nearer whichever
+      |                          |         is trusted more
+      |                          x  model prediction
+      |         x                      (drifts, but smooth)
+      |    *
+      | x
+      +----------------------------------------&gt; t
+        t-2   t-1                t
+
+        x  predict:  advance the model from the last *
+        o  correct:  pull toward the new reading
+
+   Trust the sensor more  -&gt;  * sits nearer o
+   Trust the model more   -&gt;  * sits nearer x
+
+  Figure 6.2  One predict-correct cycle. The estimator&#39;s output is
+              a third quantity, and believing either input on its
+              own is the mistake Sec. 6.6.1 opens with.
+</code></pre></div></td></tr></table></div>
+<p>That third quantity is the answer to "which do you believe?", and it is why
+Chapter 3 drew the state estimator as its own component rather than folding
+it into the store: it produces something neither the connector nor the model
+has.</p>
+<h3 id="662-the-correction-as-arithmetic">6.6.2 The correction, as arithmetic</h3>
+<p>Here is the entire idea, on our pot, with no matrices.</p>
+<p>At 14:00 the last estimate and the model give a prediction. The sensor
+reports a reading. Each comes with a <strong>spread</strong> -- a number saying how far
+off it is typically likely to be:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>model prediction    m_pred = 636    spread 8
+sensor measurement  m_meas = 630    spread 5
+</code></pre></div></td></tr></table></div>
+<p>Weight each by one over its spread squared -- more certain means more
+weight:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>w_pred = 1 / 8^2 = 1/64 = 0.015625
+w_meas = 1 / 5^2 = 1/25 = 0.04
+</code></pre></div></td></tr></table></div>
+<p>Combine them as a weighted average:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>estimate = (0.015625 * 636 + 0.04 * 630) / (0.015625 + 0.04)
+         = (9.9375 + 25.2) / 0.055625
+         = 631.7
+</code></pre></div></td></tr></table></div>
+<p>And the spread of the combination:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>spread = square root of ( 1 / (0.015625 + 0.04) ) = 4.24
+</code></pre></div></td></tr></table></div>
+<p><strong>Read those two results, because both are surprising the first time.</strong></p>
+<p><em>The estimate is 631.7, closer to the measurement than to the prediction.</em>
+That is right: the measurement was the more certain of the two, so it pulled
+harder.</p>
+<p><em>The spread is 4.24 -- smaller than either input's.</em> Combining two
+independent imperfect sources gives you something better than the best of
+them. This is the reason state estimation exists, and it is why a twin can
+report a state more accurate than its own sensor.</p>
+<p><strong>The gain.</strong> The same result, rewritten the way you will see it in a
+design document:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>gain     = w_meas / (w_pred + w_meas) = 0.04 / 0.055625 = 0.72
+estimate = prediction + gain * (measurement - prediction)
+         = 636 + 0.72 * (630 - 636) = 631.7
+</code></pre></div></td></tr></table></div>
+<p>The <strong>gain</strong> is how far toward the measurement the correction pulls: 0 means
+ignore the sensor, 1 means ignore the model. Here it is 0.72, meaning "trust
+the sensor about three quarters of the way".</p>
+<p><strong>That is the Kalman filter.</strong> The real one does this for many state
+variables at once, which is where the matrices come in, and it computes the
+spreads as it goes rather than being handed them. The idea is the arithmetic
+above. It is presented in twin-specific tutorials in exactly this
+predict-then-combine shape, on a running example of a small physical system
+[17], and it is not confined to teaching examples. One
+reported offshore deployment builds its twin on physical models, checks the
+result against measurements from a real turbine at full size, and uses a
+Kalman filter over a linearised model to recover structural quantities that
+are not directly instrumented [18].</p>
+<p><strong>Why you should care about the gain specifically.</strong> It is inspectable, and
+it is diagnostic. A gain that has drifted near 1 means the twin has stopped
+believing its model -- so why keep it? A gain near 0 means the twin is
+ignoring its sensor, which is either a correct response to a broken sensor
+or a twin that has stopped tracking reality. Chapter 3's monitoring should
+carry it, and Chapter 7 will ask about it.</p>
+<h3 id="663-when-the-kalman-filter-is-the-wrong-tool">6.6.3 When the Kalman filter is the wrong tool</h3>
+<p>It is optimal under conditions, and the conditions are real. The most
+commonly-stated limit is bluntly practical: only linear systems can use a
+Kalman filter, and a non-linear system needs something else
+[19].</p>
+<p>The alternative you will hear named is the <strong>particle filter</strong>: instead of
+one estimate with a spread, carry a cloud of sampled possible states,
+advance them all through the model, and weight them by how well each
+explains the measurement. It is chosen in twin work for two stated reasons:
+it makes fewer assumptions about non-linearity and about the shape of the
+noise than a Kalman filter does, and it composes well with surrogate models
+[14]. Reviews of predictive maintenance report both
+in use, as statistical approaches to noise reduction, with the particle
+filter reached for when the system is non-linear
+[19], and battery health work compares them
+directly [20].</p>
+<p><strong>The cost, and it is the one that lands on you.</strong> A particle filter runs
+the model once per particle per step. A thousand particles means a thousand
+times the simulation cost -- which is Chapter 5's Sec. 5.3.4 arithmetic
+again, and it is why Sec. 6.5's surrogates and this section keep appearing
+in the same sentence in the literature.</p>
+<h3 id="664-what-to-ask">6.6.4 What to ask</h3>
+<p>Three questions, in order of how often the answer is interesting:</p>
+<ol>
+<li><strong>What is the gain doing over time?</strong> A drifting gain is the single most
+   informative number a twin can show you about its own health.</li>
+<li><strong>What happens when a measurement does not arrive?</strong> The estimator should
+   predict without correcting, and its spread should <em>grow</em> -- which is
+   Chapter 2's age-of-twin acquiring a number, and Chapter 3's staleness
+   guard acquiring a threshold it can actually test.</li>
+<li><strong>What happens when a measurement is wildly wrong?</strong> A sensor reporting
+   nonsense should be rejected, not averaged in. Ask whether there is such
+   a check, because the arithmetic of Sec. 6.6.2 has no opinion about it.</li>
+</ol>
+<hr />
+<h2 id="67-uncertainty-and-what-if-at-scale-monte-carlo">6.7 Uncertainty and what-if at scale: Monte Carlo</h2>
+<h3 id="671-one-run-is-not-an-answer">6.7.1 One run is not an answer</h3>
+<p>Chapter 5 said a seed makes a run repeatable, not correct, and handed the
+consequence here. The consequence is this: if anything feeding a simulation
+is uncertain -- and something always is -- then one run tells you what
+happens for <em>one</em> set of guesses.</p>
+<p>Our pot: <code>k</code> was fitted from data and is not exactly 4. Call it somewhere
+between 3.5 and 4.5. The question "will moisture be below 500 in 24 hours if
+I water 100 ml now?" has no single answer, because the answer depends on
+which <code>k</code> is true.</p>
+<p><strong>Monte Carlo</strong> is the blunt, general, entirely reliable response: sample
+the uncertain inputs, run the simulation once per sample, and treat the
+spread of outcomes as the answer.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>for run in 1..N:
+    draw k from its range
+    draw any other uncertain input
+    simulate
+    record the outcome
+report: the fraction of runs below 500, and the spread
+</code></pre></div></td></tr></table></div>
+<p>The output is no longer "moisture will be 512". It is "moisture will be
+below 500 in about 10% of plausible cases". For every decision in this book
+so far, the second statement is the useful one.</p>
+<h3 id="672-why-this-is-the-workhorse">6.7.2 Why this is the workhorse</h3>
+<p>Because it needs nothing from the model. It does not care whether the model
+is continuous, discrete, agent-based, learned or a co-simulation of all
+four. It treats the simulator as a black box and samples around it. That
+generality is why it appears across every twin domain in the corpus:
+propagating uncertainty sources to the uncertainty of outputs
+[15], sampling procedures updating the probability
+distribution of a structural state from noisy observations
+[7], [21], posterior trajectories that let
+a clinical twin quantify risk for risk-aware decision-making
+[22], and probabilistic foundations that keep
+updating principled and able to scale to a fleet
+[16].</p>
+<p>It is also <strong>embarrassingly parallel</strong>: every run is independent, so a
+thousand runs on a hundred cores take ten runs' worth of wall-clock time.
+That is a rare and welcome property, and it is yours to exploit rather than
+the modeller's.</p>
+<h3 id="673-how-many-runs-the-cost-law-you-must-know">6.7.3 How many runs? The cost law you must know</h3>
+<p>This is the section's practical payoff and the chapter's second piece of
+real arithmetic.</p>
+<p>Monte Carlo error shrinks with the <strong>square root</strong> of the number of runs.
+Concretely, if the true answer is around 10% and you do 1,000 runs, the
+uncertainty in your estimate of that 10% is:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>square root of ( 0.1 * 0.9 / 1000 ) = 0.0095
+</code></pre></div></td></tr></table></div>
+<p>-- about <strong>one percentage point</strong>. So 1,000 runs supports "about 10%, give
+or take 1". It does not support "10.3%".</p>
+<p>Now the consequence that decides architectures:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>to halve the error:        4 times the runs
+to divide it by ten:     100 times the runs -&gt; 100,000 runs
+</code></pre></div></td></tr></table></div>
+<p>Combine that with Chapter 5's cost arithmetic and the design falls out. At
+Chapter 5's Case B cost -- 672 steps per run, a microsecond a step -- 100,000
+runs is about 67 seconds. Fine. At Case C's cost of 40 milliseconds a step,
+the same 100,000 runs is 2.7 million seconds, or <strong>31 days</strong>. Not fine, and
+no amount of engineering closes a gap that size.</p>
+<p><strong>Which is why Sec. 6.5 exists.</strong> Surrogates and Monte Carlo are a matched
+pair: the sampling makes the many-run demand, the surrogate makes the runs
+affordable. When you see one in a proposal, look for the other.</p>
+<h3 id="674-the-honest-limit">6.7.4 The honest limit</h3>
+<p>Monte Carlo propagates the uncertainty you <strong>state</strong>. It cannot discover
+uncertainty you did not state.</p>
+<p>If you sample <code>k</code> between 3.5 and 4.5 but the true <code>k</code> is 6 because the
+plant was repotted, every one of your hundred thousand runs is wrong, and
+the tight spread they produce will look like confidence. Reports on the
+foundations of the field make the related point about method limits directly
+-- sampling becomes extremely inefficient for low-probability events, which
+is exactly where a risk question often lives
+[23].</p>
+<p>Deciding what to sample, and whether the ranges are right, is calibration
+and validation. That is Chapter 7, and this is the last time this book will
+defer it.</p>
+<hr />
+<h2 id="68-making-models-work-together-orchestration-and-fmi">6.8 Making models work together: orchestration and FMI</h2>
+<p>Chapter 5 described the co-simulation loop and its three decisions, and said
+you would hear FMI named. Here it is.</p>
+<h3 id="681-what-the-standard-is-for">6.8.1 What the standard is for</h3>
+<p>Once a twin has models from several tools -- an agronomy group's soil model,
+a supplier's pump model, your controller -- something must let them be
+stepped together without each knowing the others' internals. The <strong>Functional
+Mock-up Interface (FMI)</strong> is the widely used standard for that. Models are
+packaged as <strong>Functional Mock-up Unit (FMU)</strong> components, which can then be
+handed between tools and stepped alongside one another
+[24]. The standard's contribution is a fixed set of
+calls: an FMU exposes them, and whatever environment is orchestrating the
+run drives the FMU through them -- usually with several other models being
+driven the same way at the same time [25]. Its practical value is breadth: a broad span of
+modelling and simulation tools support it and can export models as
+FMUs [6], and it is what open twin frameworks build
+their co-simulation on [26], [27].</p>
+<h3 id="682-the-one-distinction-to-remember">6.8.2 The one distinction to remember</h3>
+<p>FMI comes in two flavours, and the difference is entirely about <strong>who owns
+the solver</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>The FMU contains</th>
+<th>The orchestrator must</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FMI for <strong>Co-Simulation</strong></td>
+<td>Its own solver</td>
+<td>Ask it to advance by a macro step <code>H</code></td>
+</tr>
+<tr>
+<td>FMI for <strong>Model Exchange</strong></td>
+<td>Only the equations</td>
+<td>Perform the numerical integration itself</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 6.3 draws the same split as a question about where the solver box
+sits, which is the form you can check against a supplier's deliverable.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>   FMI for CO-SIMULATION          FMI for MODEL EXCHANGE
+
+   +---------------------+        +---------------------+
+   |    ORCHESTRATOR     |        |    ORCHESTRATOR     |
+   |                     |        |   +-------------+   |
+   |  &quot;advance by H&quot;     |        |   |   SOLVER    |   |
+   +----------|----------+        |   +------|------+   |
+              |                   +----------|----------+
+              v                              |
+   +---------------------+                   v
+   |        FMU          |        +---------------------+
+   |  +---------------+  |        |        FMU          |
+   |  |    SOLVER     |  |        |   equations only    |
+   |  +---------------+  |        |   &quot;here is dW/dt&quot;   |
+   |  equations          |        +---------------------+
+   +---------------------+
+
+   solver travels WITH the model   solver stays with the TOOL
+
+   you get: a black box that       you get: equations you can
+   steps itself; vendor keeps      step your way; you own the
+   its numerical choices           numerical choices, and the
+                                   blame
+
+  Figure 6.3  The one distinction in FMI. Ask a supplier which
+              variant they ship and you have learned who owns the
+              solver -- and therefore who owns the step size.
+</code></pre></div></td></tr></table></div>
+<p>That is the split, stated in the standard's own terms: an FMU either
+carries its own solver or leaves the numerical integration to the
+simulation environment [25]. The practical consequence is
+Chapter 5's: whoever owns the solver owns the step size, and the step size
+is what Sec. 5.4.4 showed can turn a wrong answer into a meaningless one.</p>
+<p><strong>Why this is the distinction worth carrying.</strong> It determines who is
+responsible for everything in Sec. 6.3. With co-simulation FMUs, each
+supplier chose their own step size and stability regime and you cannot see
+inside; your job is the macro step and the ordering, and debugging a
+numerical problem means asking a supplier. With model-exchange FMUs, you own
+the integration, which is more work and far more control. When someone says
+"we will just use FMI", ask which one -- the two produce different projects.</p>
+<h3 id="683-what-the-orchestrator-does-and-what-it-does-not-fix">6.8.3 What the orchestrator does, and what it does not fix</h3>
+<p>Chapter 5 gave the loop: load, initialise and exchange initial outputs, set
+time and step, exchange values, advance, repeat [6].
+Concrete implementations follow that shape, with a master algorithm managing
+the inter-operating units and a separate component handling data exchange
+[24]. A co-simulation framework may allow continuous-time
+and discrete-event models to be integrated together, over FMUs
+[26], which is Sec. 6.4.5's hybrid problem being solved at the
+level of whole models rather than inside one.</p>
+<p><strong>What a standard does not fix,</strong> and Chapter 5 already warned you: the
+macro step, the ordering, and the event placement remain your decisions, and
+practitioners report the first as genuinely difficult
+[28]. FMI makes the models <em>pluggable</em>. It does not
+make the coupling <em>correct</em>. There is research on monitoring at runtime
+whether master algorithms are being used correctly [29],
+which tells you something about how easy it is to get wrong.</p>
+<hr />
+<h2 id="69-worked-example-choosing-simulators-for-the-greenhouse-twin">6.9 Worked example: choosing simulators for the greenhouse twin</h2>
+<p>Everything above, applied. The greenhouse: six pots, one controller, one
+reservoir, a shared relay module, and Chapter 1's diagnose value case with
+Chapter 2's Stage 3 twin on the roadmap.</p>
+<p>Go through it component by component, using the chooser of Sec. 6.2 and
+justifying each choice by the <em>decision</em>, never by the physics available.</p>
+<h3 id="691-the-soil">6.9.1 The soil</h3>
+<p><em>What it is:</em> one quantity changing smoothly over time. Chapter 4's
+two-parameter model.</p>
+<p><em>What solves it:</em> numerical integration, Sec. 6.3.1.</p>
+<p><em>Which rule?</em> The model is small and smooth and the horizon is short. Even
+Chapter 5's first-order rule is adequate at <code>h</code> = 15 minutes; a mid-range
+rule costs nothing extra worth measuring and removes a class of question, so
+take one from the library rather than writing the loop.</p>
+<p><em>Is it stiff?</em> No -- one timescale, days. Sec. 6.3.2's three symptoms are all
+absent. <strong>Record that finding</strong>, because it is the answer to a question
+someone will ask in six months.</p>
+<p><em>Do we resolve space?</em> No. Sec. 6.3.4's question, answered from the value
+metric: the decision compares an expected step at one sensor against an
+observed one. A three-dimensional soil model changes no decision and costs
+four orders of magnitude.</p>
+<h3 id="692-the-watering-events">6.9.2 The watering events</h3>
+<p><em>What it is:</em> things happening at moments -- doses, pump runs, coil
+occupancy.</p>
+<p><em>What solves it:</em> discrete-event execution, Sec. 6.4.1.</p>
+<p><em>The design decision this forces,</em> and it is the one from Sec. 6.3.2: do
+<strong>not</strong> put the 3.5-second pump run into the continuous soil model. Doing so
+makes a non-stiff model stiff and multiplies the step count by about nine
+hundred, to answer a question about days. Model the pump run as an event
+that delivers a volume.</p>
+<p><em>Is it random?</em> In the open-loop twin, no: the schedule is fixed and known.
+Note this, because it means Sec. 6.7 is not needed for the first increment.</p>
+<h3 id="693-the-relay-contention">6.9.3 The relay contention</h3>
+<p><em>What it is:</em> four coils, six plants, concurrent requests.</p>
+<p><em>What solves it:</em> a Petri net would express it exactly, Sec. 6.4.3 -- and it
+is worth being honest that with four coils and six plants, a state machine
+or a queue in ordinary code is very likely enough.</p>
+<p><em>The judgement,</em> and it is the general one: <strong>reach for the heavier
+formalism when the question you want to ask is structural.</strong> "Can a watering
+request be starved indefinitely?" is a question a Petri net answers by
+analysis and code answers by testing and hoping. If nobody is asking that
+question, do not build it.</p>
+<h3 id="694-the-estimator">6.9.4 The estimator</h3>
+<p><em>What it is:</em> one sensor, noisy, sampled every ten minutes, plus a model.</p>
+<p><em>What solves it:</em> the predict-correct cycle of Sec. 6.6, scalar, exactly the
+arithmetic of Sec. 6.6.2 -- one state variable, so no matrices are involved
+even in the real implementation.</p>
+<p><em>Kalman or particle?</em> Kalman. The model is linear over the interval
+(Chapter 4's A1), which is the condition Sec. 6.6.3 named. A particle filter
+would cost a thousand times more and answer the same question.</p>
+<p><em>What we monitor:</em> the gain, per Sec. 6.6.4. It is the twin's own health
+indicator, and it is free.</p>
+<h3 id="695-the-what-if-service-when-it-arrives">6.9.5 The what-if service, when it arrives</h3>
+<p><em>What it is:</em> "if I skip tomorrow's morning dose, what is the chance the pot
+drops below 500?"</p>
+<p><em>What solves it:</em> Monte Carlo over the uncertain <code>k</code> and <code>g</code>, Sec. 6.7.</p>
+<p><em>How many runs?</em> Work it, per Sec. 6.7.3. A percentage point of precision on
+a roughly-10% answer needs about 1,000 runs. At 672 steps and a microsecond
+a step, that is under a second. <strong>No surrogate needed</strong> -- which is the
+useful negative result, and it holds only because Sec. 6.9.1 refused to
+resolve space.</p>
+<h3 id="696-do-we-need-co-simulation">6.9.6 Do we need co-simulation?</h3>
+<p><em>The honest answer for the first increment: no.</em> The soil model and the
+event handling are both small enough to live in one service, written by one
+team, in one language. Chapter 5's three decisions do not arise if there is
+nothing to couple.</p>
+<p><em>What would change it:</em> a supplier-provided pump model as an FMU; an
+agronomy group's soil model in Modelica; a controller model that must be the
+<em>actual</em> controller firmware rather than a reimplementation. Any of the three
+brings Sec. 6.8, and with it the macro step, the ordering, and a debugging
+story that spans two organisations.</p>
+<p><strong>The general lesson from Sec. 6.9, and it is the point of the whole
+chapter.</strong> Every choice above was made by asking what the decision needed,
+and five of the six answers were the <em>cheaper</em> option. A chapter that
+catalogues simulators can read as an invitation to use them. It is the
+opposite: knowing what each family is for is mostly how you find out you do
+not need it.</p>
+<hr />
+<h2 id="610-faded-example-the-offshore-turbine-solved">6.10 Faded example: the offshore turbine, solved</h2>
+<p>The turbine service from Chapters 3, 4 and 5: streaming vibration and
+temperature, a hybrid model whose physics half accumulates fatigue and whose
+learned half maps vibration to condition, a work order to a planner.</p>
+<p><strong>Worked, for the first two components.</strong></p>
+<p><em>The fatigue half.</em> Continuous, over years, driven by irregular storm
+loading. Chapter 5 identified this as an adaptive-stepping case. Is it
+stiff? Judge by Sec. 6.3.2's symptoms: the timescales present are storm
+gusts (seconds) and fatigue accumulation (years) -- nine orders of
+magnitude, which is symptom 1 emphatically. The resolution is Sec. 6.9.2's:
+do not put the fast behaviour in the slow model. Summarise each storm into a
+loading contribution and step the fatigue model on the slow timescale.</p>
+<p><em>The structural response.</em> This is where finite elements appear (Sec. 6.3.4)
+and where the cost lands, which is why the literature on this exact
+application is full of surrogates and reduced-order models
+[7], [21], [30].</p>
+<p><strong>Now it is your turn.</strong></p>
+<ul>
+<li><strong>(a)</strong> The condition of interest -- crack length, bearing wear -- is not
+  measured by any sensor, and vibration is. Name the component of Sec. 6.6
+  that bridges that gap, and say why a Kalman filter may not be the right
+  choice here. Use Sec. 6.6.3's stated criterion, not your intuition.</li>
+<li><strong>(b)</strong> The team proposes a particle filter with 2,000 particles, stepping
+  every 10 minutes, where one model evaluation takes 30 milliseconds.
+  Compute the wall-clock cost per estimation step, and say whether it fits.
+  Then name the Sec. 6.5 device that would change the answer.</li>
+<li><strong>(c)</strong> They want to answer "what is the probability the tower exceeds its
+  fatigue limit within five years?" to within two percentage points. Using
+  Sec. 6.7.3, estimate the number of runs, then use your answer to (b) to
+  estimate the compute. State the one thing that would make this feasible.</li>
+<li><strong>(d)</strong> The supplier ships the drivetrain model as an FMU. Ask the
+  Sec. 6.8.2 question and describe how each of the two answers changes the
+  project.</li>
+</ul>
+<p><em>Hint for (b):</em> it is one multiplication, and the answer is decisive rather
+than marginal.</p>
+<hr />
+<h2 id="611-posed-problem-the-simulator-selection-memo">6.11 Posed problem: the simulator selection memo</h2>
+<p>A water utility wants a twin of a pumping station: four pumps, a wet well
+whose level varies continuously, inflow that arrives as storm events, pumps
+that switch between <code>off</code>, <code>starting</code>, <code>running</code> and <code>faulted</code>, a shared
+electrical supply with a limit on simultaneous starts, and a regulator who
+requires the utility to demonstrate the probability of an overflow in a
+design storm.</p>
+<p>Write the simulator selection memo. For each part of the system, state:</p>
+<ol>
+<li>Which row of Sec. 6.2's chooser it falls under, and why.</li>
+<li>What will solve it, and what you expect to dominate the cost.</li>
+<li>Whether the parts should be one program or a co-simulation, with the
+   Sec. 6.8.2 question answered for any external model.</li>
+<li>For the regulator's probability question specifically: the number of runs
+   the stated precision requires, the compute that implies, and what you
+   would do if that number is unaffordable.</li>
+</ol>
+<p>There is no single right memo. There is a wrong one, and it is the memo that
+picks the most capable option in every row.</p>
+<hr />
+<h2 id="612-summary">6.12 Summary</h2>
+<p>Against the objectives.</p>
+<ol>
+<li><strong>Four words, four layers</strong> (Sec. 6.1). Method, algorithm, solver,
+   simulator. Ask which layer a proposed change touches; the estimates
+   differ by orders of magnitude, and the reproducibility record needs the
+   solver, not the method.</li>
+<li><strong>The chooser</strong> (Sec. 6.2) maps model kinds to simulator families and to
+   the question to ask about each. Continuous physics is integrated
+   step by step (Sec. 6.3); events are executed from a queue (Sec. 6.4);
+   expensive models get fast stand-ins (Sec. 6.5); live measurements need an
+   estimator (Sec. 6.6); uncertain inputs need many runs (Sec. 6.7); and
+   several at once need an orchestrator (Sec. 6.8).</li>
+<li><strong>Stiffness is a budget warning</strong> (Sec. 6.3.2). Behaviour on very
+   different timescales forces an explicit rule to step at the fastest --
+   nine hundred times the work, in the greenhouse. Three symptoms give it
+   away, and the cheapest fix is to reformulate the model rather than to buy
+   a better solver.</li>
+<li><strong>State estimation is a weighted average</strong> (Sec. 6.6.2). Weight the model
+   prediction and the measurement by one over their spreads squared and
+   combine: the result is closer to whichever is more certain, and <em>more
+   certain than either</em>. The gain is the twin's own health indicator, and it
+   is free to monitor. Kalman when the model is linear; a particle filter
+   when it is not, at a thousand times the cost.</li>
+<li><strong>Monte Carlo error falls as the square root of the run count</strong>
+   (Sec. 6.7.3). A percentage point on a 10% answer needs about a thousand
+   runs; ten times better needs a hundred thousand. Multiply by Chapter 5's
+   per-run cost and the architecture decides itself -- and Monte Carlo
+   propagates only the uncertainty you <em>stated</em>.</li>
+</ol>
+<p>The sentence to carry forward: <strong>knowing what each simulator family is for
+is mostly how you discover you do not need it</strong> -- and its companion, from
+Sec. 6.3.2, <strong>reformulating the model beats buying a better solver.</strong></p>
+<hr />
+<h2 id="613-exercises">6.13 Exercises</h2>
+<p>Objectives in brackets. Solutions and hints follow.</p>
+<p><strong>6.13.1 (Objective 1, easy).</strong> Classify each as method, algorithm, solver
+or simulator: (a) "assume the rate is constant across the step"; (b) a
+commercial product that loads a model file, runs it and plots results; (c)
+a named library routine with a version number; (d) a procedure that
+estimates its own error each step and halves the step if it is too big.</p>
+<p><strong>6.13.2 (Objective 2, easy).</strong> For each, name the chooser row and the
+family that solves it: (a) the temperature profile through a furnace wall;
+(b) trolleys arriving at a supermarket checkout; (c) a lift that is
+<code>idle</code>, <code>moving</code> or <code>doors-open</code>; (d) the same lift plus three others
+contending for one shaft controller; (e) a wind-farm layout evaluated ten
+thousand times by an optimiser.</p>
+<p><strong>6.13.3 (Objective 3, easy).</strong> A colleague reports that their model takes
+four hours to simulate one day, and that the adaptive solver reports
+millions of steps overnight when the plant is switched off. Name the likely
+diagnosis and the two things you would ask next.</p>
+<p><strong>6.13.4 (Objective 4, medium).</strong> Redo Sec. 6.6.2's arithmetic with the
+sensor's spread changed from 5 to 12, the model's unchanged at 8. Compute
+the estimate, the combined spread and the gain. Then say in one sentence
+what changed about the twin's behaviour, and which of Sec. 6.6.4's three
+questions this makes concrete.</p>
+<p><strong>6.13.5 (Objective 5, medium).</strong> A what-if service must report the
+probability of a threshold breach to within half a percentage point, where
+the probability is around 5%. Compute the number of runs. At 2,000 steps per
+run and 50 microseconds per step, compute the wall-clock time on one core
+and on 64 cores.</p>
+<p><strong>6.13.6 (Objective 2, medium).</strong> Sec. 6.9.3 declined to build a Petri net
+for four coils and six plants. Construct a version of the greenhouse where
+that decision flips, and state the question that forces it.</p>
+<p><strong>6.13.7 (Objective 3, medium).</strong> Sec. 6.3.2 says reformulating beats buying
+a better solver "when you can do it". Give one example from any system where
+you <em>cannot</em> -- where the fast behaviour genuinely must stay in the
+continuous model -- and say what you would do instead.</p>
+<p><strong>6.13.8 (Objectives 4 and 5, hard).</strong> Complete Sec. 6.10, parts (a) through
+(d).</p>
+<p><strong>6.13.9 (Objective 4, hard).</strong> Sec. 6.6.4's second question asks what
+happens when a measurement does not arrive. Design that behaviour for the
+demonstrator: what the estimator does, what happens to the spread, what
+Chapter 3's actuation guard should do as the spread grows, and what an
+operator sees. Then say how you would test it.</p>
+<p><strong>6.13.10 (Objectives 1 through 5, hard, open-ended).</strong> Do Sec. 6.11, the
+simulator selection memo, in full.</p>
+<h3 id="solutions-and-hints">Solutions and hints</h3>
+<p><strong>6.13.1.</strong> (a) method; (b) simulator; (c) solver; (d) algorithm -- note it
+is the <em>bookkeeping around</em> a method, which is exactly Sec. 6.1's
+distinction, and note also that two solvers implementing this same algorithm
+will still differ in the last bits, which is why Chapter 5's reproducibility
+record names the solver.</p>
+<p><strong>6.13.2.</strong> (a) Space as well as time -- finite elements, Sec. 6.3.4; though
+a good answer asks first whether one number per wall layer would do. (b)
+Discrete-event, Sec. 6.4.1, and it is random, so Sec. 6.7 applies. (c) State
+machine, Sec. 6.4.2. (d) Petri net, Sec. 6.4.3 -- the shared controller is
+the contended resource, and "can a lift wait forever?" is the structural
+question that justifies it. (e) Surrogate, Sec. 6.5: ten thousand
+evaluations is the many-query case those exist for.</p>
+<p><strong>6.13.3.</strong> Stiffness. Symptoms 2 and 3 of Sec. 6.3.2 are both present, and
+symptom 3 is decisive -- tiny steps while nothing physically happens is the
+signature. The two questions: <em>what is the fastest behaviour in the model,
+and does the decision depend on it?</em> and <em>is the solver explicit or
+implicit?</em> The first often produces a reformulation and the second a
+one-line configuration change.</p>
+<p><strong>6.13.4.</strong> Weights: <code>1/64 = 0.015625</code> for the model, <code>1/144 = 0.006944</code> for
+the sensor. Estimate <code>= (0.015625*636 + 0.006944*630) / 0.022569 = 634.2</code>.
+Combined spread <code>= square root of (1/0.022569) = 6.66</code>. Gain
+<code>= 0.006944/0.022569 = 0.31</code>. What changed: the sensor is now the <em>less</em>
+trusted source, so the estimate sits close to the model prediction and the
+twin has become model-dominated. This makes Sec. 6.6.4's first question
+concrete -- a gain that has fallen to 0.31 is telling you something about
+the sensor, and if it got there gradually, that is a sensor degrading in
+plain sight.</p>
+<p><strong>6.13.5.</strong> Runs: <code>0.05 * 0.95 / (0.005)^2 = 0.0475 / 0.000025 = 1,900</code>.
+Steps: <code>1,900 * 2,000 = 3.8</code> million. At 50 microseconds: 190 seconds on one
+core; about 3 seconds on 64 cores, since Monte Carlo is embarrassingly
+parallel (Sec. 6.7.2). The interesting part is the ratio: this is a case
+where parallelism alone moves a service from "batch job" to "inside a
+request", with no modelling change at all.</p>
+<p><strong>6.13.6.</strong> <em>Hint:</em> scale it, or tighten the resource. Sixty plants and four
+coils, or a rule that no two pumps may draw from the twelve-volt supply
+simultaneously, plus a requirement that no plant may go more than 24 hours
+without water. The question that forces it is a <em>guarantee</em> -- "prove no
+plant can be starved" -- rather than a measurement. Sec. 6.4.3's payoff is
+answering by analysis rather than by running and hoping.</p>
+<p><strong>6.13.7.</strong> Open. Strong answers involve control loops where the fast
+dynamics are the thing being controlled (a switching power converter, an
+engine control loop) so summarising them away discards the phenomenon of
+interest. The fallback is then the numerical one: an implicit solver, and
+budgeting for the cost -- plus the honest recognition that this is where
+Sec. 6.5's surrogates start to look attractive.</p>
+<p><strong>6.13.8.</strong> <em>Partial.</em> (a) The state estimator, Sec. 6.6 -- the condition is
+inferred, not measured, which is the estimator's whole purpose. A Kalman
+filter may be wrong here by Sec. 6.6.3's stated criterion: crack growth and
+the vibration-to-condition map are not linear, and the criterion is
+linearity, not difficulty. (b) <code>2,000 particles * 30 ms = 60 seconds</code> per
+estimation step, against a step every 10 minutes. It fits, with a factor of
+ten to spare -- decisive rather than marginal, as the hint said, and worth
+noticing that "it fits" was not obvious before the multiplication. The
+Sec. 6.5 device is a surrogate, which would move the factor from ten to
+thousands. (c) <code>0.5*0.5/(0.02)^2 = 625</code> runs, using the worst case p = 0.5
+since the answer is unknown; five simulated years per run at whatever the
+fatigue model costs. The one thing that makes it feasible is a surrogate --
+the same answer as (b), which is the point. (d) is yours.</p>
+<p><strong>6.13.9.</strong> <em>Hint:</em> the estimator predicts without correcting, so its spread
+grows every step -- which is the mechanism Chapter 2's age-of-twin needed and
+never had. Chapter 3's guard should refuse to command once the spread
+exceeds a stated bound, and the bound should be derived from the decision
+(Chapter 5's Sec. 5.7.4 reasoning). The operator sees the growing spread
+before the refusal, not at it. Testing: replay (Chapter 5, Sec. 5.5.2) with
+a gap cut out of the input stream, asserting that the spread grows
+monotonically and that the guard refuses at the right point.</p>
+<p><strong>6.13.10.</strong> <em>Hint:</em> no solution, but a test. Count how many rows of your
+memo chose the cheaper option. If it is none, re-read Sec. 6.9's closing
+paragraph. And check that your answer to item 4 states what you would do if
+the number is unaffordable -- "run fewer" is a legitimate answer only if you
+also say what precision it buys.</p>
+<hr />
+<h2 id="614-where-to-go-next">6.14 Where to go next</h2>
+<p><strong>In this book.</strong> Chapter 7 is the chapter this one has been deferring to
+throughout: whether any of this deserves to be believed --
+calibration, verification, validation, and the credibility argument Chapter
+2 said arrives with the command path. Chapter 8 closes Part II by taking the
+data-driven family seriously as a risk. Then Part III builds: Chapter 9 the
+connector, Chapter 10 the store, Chapter 11 the services whose real-time
+factors Chapter 5 derived and whose optimisation runs Sec. 6.7 sized,
+Chapter 12 the platforms
+and tools this chapter named without recommending, Chapter 13 the standards
+including FMI.</p>
+<p><strong>In the literature.</strong></p>
+<ul>
+<li><em>The closest single reference to this chapter:</em> [6]
+  covers physics-based models from rates to space, discrete formalisms,
+  hybrid execution and FMI-based co-simulation, worked on an incubator;
+  [5] is the containing book.
+  [4] is the deeper treatment, including a Modelica
+  chapter and a discrete-event-formalism chapter.</li>
+<li><em>State estimation:</em> [17] is a tutorial derivation of
+  the Kalman filter aimed specifically at twins;
+  [18] is a validated production deployment on a
+  full-scale floating wind turbine; [14] compares
+  Kalman and particle filters and explains why particle filters pair with
+  surrogates; [19] surveys both in predictive
+  maintenance and states the linearity criterion; [20]
+  compares them on battery life; [31] treats estimation
+  and online calibration together.</li>
+<li><em>Uncertainty and Monte Carlo:</em> [15] is the
+  dedicated treatment for twins; [16] on scaling
+  principled updating to a fleet; [22] for a
+  clinical twin using posterior trajectories for risk-aware decisions;
+  [21] and [7] for structural
+  applications; [23]
+  for what remains unsolved.</li>
+<li><em>Surrogates and reduced-order models:</em> [13],
+  [3], and [32] for the
+  probabilistic-machine-learning side.</li>
+<li><em>Discrete formalisms in twins:</em> [8] for discrete-event
+  and Petri-net methods in manufacturing twins; [9] for
+  formalism selection as an explicit design stage; [10]
+  for the white-to-black scale of modelling techniques;
+  [11] for behaviour patterns; [12] for
+  data assimilation extended to discrete-event and agent-based models.</li>
+<li><em>Co-simulation and FMI:</em> [25] for the model-exchange
+  versus co-simulation split in the clearest terms;
+  [24] for a concrete master implementation;
+  [28] for what practitioners find hard;
+  [26] and [27] for open frameworks
+  built on FMI; [33] for a worked multi-domain case;
+  [2] for coupling an equation-based tool to a
+  legacy one; [29] for runtime monitoring of master
+  algorithms.</li>
+<li><em>Consulted, not drawn on above:</em> [1] on solver choice
+  and control representation, [34] as a tutorial companion,
+  [35] for time discrepancy (Chapter 5),
+  [36] on models that learn their own structure,
+  [37] on updating a finite-element twin from
+  measurements, [38] on combining information sources
+  across a wind farm, [39] on uncertainty in evolving twins,
+  and [40] on testing twins systematically.</li>
+</ul>
+<p><strong>In the demonstrator.</strong> Take the loop you wrote after Chapter 5 and add the
+six lines of Sec. 6.6.2 to it: predict with the model, then combine with the
+next reading using the weighted average. Plot the raw readings, the model
+prediction and the combined estimate on the same axes. The estimate should
+sit between the other two and be visibly smoother than the readings. That
+picture is what every state estimator in this chapter is doing, and you will
+have built one without any matrices.</p>
+<h2 id="615-references">6.15 References</h2>
+<p>[1] C. Cimino, F. Terraneo, G. Ferretti, and A. Leva, "Efficient Control Representation in Digital Twins: An Imperative Challenge for Declarative Languages," <em>IEEE Transactions on Industrial Informatics</em>, vol. 19, no. 11, pp. 11080–11090, 2023.</p>
+<p>[2] M. Wetter, K. Benne, H. Tummescheit, and C. Winther, "Spawn: coupling Modelica Buildings Library and EnergyPlus to enable new energy system and control applications," <em>Journal of Building Performance Simulation</em>, vol. 17, no. 2, pp. 274–292, Taylor &amp; Francis, 2024.</p>
+<p>[3] D. Hartmann and H. Van der Auweraer, <em>The Executable Digital Twin: merging the digital and the physics worlds</em>, 2022.</p>
+<p>[4] P. Carreira, V. Amaral, and H. Vangheluwe, Eds., <em>Foundations of Multi-Paradigm Modelling for Cyber-Physical Systems</em>, Springer Nature, 2020.</p>
+<p>[5] J. Fitzgerald, C. Gomes, and P. G. Larsen, Eds., <em>The Engineering of Digital Twins</em>, Springer International Publishing, 2024.</p>
+<p>[6] G. Abbiati, C. Gomes, M. Sandberg, Z. Kazemi, S. T. Hansen, and P. G. Larsen, "Modelling for Digital Twins," in <em>The Engineering of Digital Twins</em>, pp. 89–127, Springer International Publishing, 2024.</p>
+<p>[7] M. Torzoni, A. Manzoni, and S. Mariani, "A Deep Neural Network, Multi-fidelity Surrogate Model Approach for Bayesian Model Updating in SHM," in <em>European Workshop on Structural Health Monitoring</em>, pp. 1076–1086, Springer International Publishing, 2023.</p>
+<p>[8] J. Leng, D. Wang, W. Shen, X. Li, Q. Liu, and X. Chen, "Digital twins-based smart manufacturing system design in Industry 4.0: A review," <em>Journal of Manufacturing Systems</em>, vol. 60, pp. 119–137, 2021.</p>
+<p>[9] G. Lugaresi and H. Vangheluwe, <em>From Digital Twins to Twinning Systems</em>, 2025.</p>
+<p>[10] N. Anwer, R. Stark, F. Tao, and J. Erkoyuncu, "Developing and leveraging digital twins in engineering design," <em>CIRP Annals</em>, vol. 2025, 2025.</p>
+<p>[11] D. Lehner, S. Sint, M. Eisenberg, and M. Wimmer, "A pattern catalog for augmenting Digital Twin models with behavior," <em>at - Automatisierungstechnik</em>, vol. 71, no. 6, pp. 423–443, De Gruyter (O), 2023.</p>
+<p>[12] Z. Ali, R. Biglari, J. Denil, J. Mertens, M. Poursoltan, and M. K. Traoré, "From modeling and simulation to Digital Twin: evolution or revolution?," <em>SIMULATION</em>, vol. 100, no. 7, pp. 751–769, 2024.</p>
+<p>[13] A. Rasheed, O. San, and T. Kvamsdal, "Digital Twin: Values, Challenges and Enablers From a Modeling Perspective," <em>IEEE Access</em>, vol. 8, pp. 21980–22012, 2020.</p>
+<p>[14] A. Thelen et al., "A comprehensive review of digital twin — part 1: modeling and twinning enabling technologies," <em>Structural and Multidisciplinary Optimization</em>, vol. 65, no. 12, p. 354, 2022.</p>
+<p>[15] A. Thelen et al., "A comprehensive review of digital twin—part 2: roles of uncertainty quantification and optimization, a battery digital twin, and perspectives," <em>Structural and Multidisciplinary Optimization</em>, vol. 66, no. 1, p. 1, 2022.</p>
+<p>[16] M. G. Kapteyn, J. V. R. Pretorius, and K. E. Willcox, "A probabilistic graphical model foundation for enabling predictive digital twins at scale," <em>Nature Computational Science</em>, vol. 1, no. 5, pp. 337–347, Nature Publishing Group, 2021.</p>
+<p>[17] H. Feng, C. Gomes, and P. G. Larsen, <em>Model-Based Monitoring and State Estimation for Digital Twins: The Kalman Filter</em>, arXiv, 2023.</p>
+<p>[18] E. Branlard, J. Jonkman, C. Brown, and J. Zhang, "A digital twin solution for floating offshore wind turbines validated using a full-scale prototype," <em>Wind Energy Science</em>, vol. 9, no. 1, pp. 1–24, Copernicus GmbH, 2024.</p>
+<p>[19] R. van Dinter, B. Tekinerdogan, and C. Catal, "Predictive maintenance using digital twins: A systematic literature review," <em>Information and Software Technology</em>, vol. 151, p. 107008, 2022.</p>
+<p>[20] A. Thelen, M. Li, C. Hu, E. Bekyarova, S. Kalinin, and M. Sanghadasa, "Augmented model-based framework for battery remaining useful life prediction," <em>Applied Energy</em>, vol. 324, p. 119624, 2022.</p>
+<p>[21] M. Torzoni, M. Tezzele, S. Mariani, A. Manzoni, and K. E. Willcox, "A digital twin framework for civil engineering structures," <em>Computer Methods in Applied Mechanics and Engineering</em>, vol. 418, p. 116584, 2024.</p>
+<p>[22] A. Chaudhuri et al., "Predictive digital twin for optimizing patient-specific radiotherapy regimens under uncertainty in high-grade gliomas," <em>Frontiers in Artificial Intelligence</em>, vol. 6, Frontiers, 2023.</p>
+<p>[23] <em>Foundational Research Gaps and Future Directions for Digital Twins</em>, National Academies Press, 2024.</p>
+<p>[24] C. Friedrich, A. Lombana, J. Fasquel, C. Schlick, N. Bennani, and M. Mendil, "CoFMPy: A Python Framework for Rapid Prototyping of FMI-based Digital Twins," in <em>The 2nd International Conference on Engineering Digital Twins</em>, 2025.</p>
+<p>[25] J. Hugues, J. Yankel, J. Hudak, and A. Hristozov, "Twinops: Digital twins meets devops," <em>CARNEGIE-MELLON UNIV PITTSBURGH PA, Tech. Rep.</em>, 2022.</p>
+<p>[26] S. Gil, P. H. Mikkelsen, C. Gomes, and P. G. Larsen, "Survey on open‐source digital twin frameworks–A case study approach," <em>Software: Practice and Experience</em>, vol. 54, no. 6, pp. 929–960, 2024.</p>
+<p>[27] S. Infante et al., "Integrating FMI and ML/AI models on the open-source digital twin framework OpenTwins," <em>Software Practice and Experience</em>, 2024.</p>
+<p>[28] G. Schweiger et al., "An empirical survey on co-simulation: Promising standards, challenges and research needs," <em>Simulation Modelling Practice and Theory</em>, vol. 95, pp. 148–163, 2019.</p>
+<p>[29] E. Kamburjan, A. Pferscher, R. Schlatte, R. Sieve, S. L. T. Tarifa, and E. B. Johnsen, "Semantic Reflection and Digital Twins: A Comprehensive Overview," in <em>The Combined Power of Research, Education, and Dissemination</em>, vol. 15240, pp. 129–145, Springer Nature Switzerland, 2025.</p>
+<p>[30] U. T. Tygesen, K. Worden, T. Rogers, G. Manson, and E. J. Cross, "State-of-the-Art and Future Directions for Predictive Modelling of Offshore Structure Dynamics Using Machine Learning," in <em>Dynamics of Civil Structures, Volume 2</em>, pp. 223–233, Springer International Publishing, 2019.</p>
+<p>[31] N. Zhang, R. Bahsoon, N. Tziritas, and G. Theodoropoulos, "Knowledge Equivalence in Digital Twins of Intelligent Systems," <em>ACM Transactions on Modeling and Computer Simulation</em>, vol. 34, no. 1, pp. 1–37, 2024.</p>
+<p>[32] A. Thelen, X. Huan, N. Paulson, S. Onori, Z. Hu, and C. Hu, "Probabilistic machine learning for battery health diagnostics and prognostics—review and perspectives," <em>npj Materials Sustainability</em>, vol. 2, no. 1, pp. 1–33, Nature Publishing Group, 2024.</p>
+<p>[33] Z. Liu, Y. Chu, G. Li, H. P. Hildre, and H. Zhang, "Shipboard crane digital twin: An empirical study on R/V Gunnerus," <em>Ocean Engineering</em>, vol. 302, p. 117675, 2024.</p>
+<p>[34] C. Gomes et al., "Digital Twin Tutorial: The Incubator Case Study," in <em>Engineering Trustworthy Software Systems: 6th International School, SETSS 2024, Chongqing, China, April 14–21, 2024, Tutorial Lectures</em>, pp. 68–101, Springer Nature, 2025.</p>
+<p>[35] M. Frasheri et al., "Addressing time discrepancy between digital and physical twins," <em>Robotics and Autonomous Systems</em>, vol. 161, p. 104347, 2023.</p>
+<p>[36] F. Emmert-Streib, H. Cherifi, K. Kaski, S. Kauffman, and O. Yli-Harja, "Complexity data science: A spin-off from digital twins," <em>PNAS Nexus</em>, vol. 3, no. 11, p. pgae456, 2024.</p>
+<p>[37] N. Wagner and D. Tcherniak, <em>Data-Driven Updating of Digital Twins through Experimental Measurements and Parametric Finite Element Model Optimization</em>, 2025.</p>
+<p>[38] L. A. Bull et al., "Data-Centric Monitoring of Wind Farms: Combining Sources of Information," in <em>Data Driven Methods for Civil Structural Health Monitoring and Resilience</em>, CRC Press, 2023.</p>
+<p>[39] Q. Xu, T. Yue, S. Ali, and M. Arratibel, <em>Pretrain, Prompt, and Transfer: Evolving Digital Twins for Time-to-Event Analysis in Cyber-physical Systems</em>, arXiv, 2024.</p>
+<p>[40] Y. Ma et al., <em>Automated and Systematic Digital Twins Testing for Industrial Processes</em>, arXiv, 2023.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Prasad Talasila
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.tabs.sticky", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

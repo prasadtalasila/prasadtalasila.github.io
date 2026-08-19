@@ -1,0 +1,25 @@
+  cost, and how much the model has to get right
+     ^
+     |  +---------------------------------------------+
+     |  | 5  CERTIFY & TRAIN   "can I be confident     |
+     |  |                       before I touch it?"    |
+     |  +---------------------------------------------+
+     |  | 4  DECIDE            "of the things I could  |
+     |  |                       do, which is best?"    |
+     |  +---------------------------------------------+
+     |  | 3  PREDICT           "what will happen, and  |
+     |  |                       when should I act?"    |
+     |  +---------------------------------------------+
+     |  | 2  DIAGNOSE          "something is wrong.    |
+     |  |                       what, and where?"      |
+     |  +---------------------------------------------+
+     |  | 1  MONITOR           "what is happening      |
+     |  |                       right now?"            |
+     |  +---------------------------------------------+
+     |
+     +------------------------------------------------------>
+        each rung typically needs everything below it
+
+  Figure 1.2  The five value patterns as a ladder. It is a
+              vocabulary, not a maturity model: stop at the rung
+              that pays for itself.

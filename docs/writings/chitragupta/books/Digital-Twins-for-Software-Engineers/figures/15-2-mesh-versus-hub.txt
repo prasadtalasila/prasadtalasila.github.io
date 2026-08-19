@@ -1,0 +1,25 @@
+   MESH: everyone agrees with everyone       HUB + STANDARD
+
+   N = 3        N = 6                        N = 6
+                                             
+     A            A---B                         A   B
+    / \          /|\ /|\                         \ /
+   B---C        F-+-X-+-C                     F---S---C
+                 \|/ \|/                         / \
+   3 links       E---D                          E   D
+                 15 links
+                                              6 adoptions
+   N(N-1)/2 links, each negotiated,           N adoptions of
+   documented, versioned                      one agreement
+
+        N |  mesh x 4 days | standard x 10 days
+     -----+----------------+-------------------
+        3 |             12 |                30
+        6 |             60 |                60   <-- break-even
+       10 |            180 |               100
+      400 |        319,200 |             4,000
+
+  Figure 15.2  Chapter 13's counterparty rule at fleet scale. The
+              same rule that said "adopt nothing" for one twin
+              says "adopt" past six, and the variable that changed
+              is only how many parties must agree.

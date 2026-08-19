@@ -1,0 +1,27 @@
+   payback
+   (months)
+      ^
+   24 |                                   o  1 fault/yr,
+      |                                      true run cost
+      |                                      (23 months)
+   18 |- - - - - - - - - - - - - - - x - - - Ch.1's stated
+      |                              |       abandon threshold
+      |                              |
+   12 |- - - - - - - - - - - o - - - -       3 faults/yr,
+      |                                      true run cost
+      |                     x                3 faults/yr,
+    9 |                                      Ch.1's run cost
+      |
+      +-----------------------------------------> fault rate
+              1 fault/yr          3 faults/yr
+
+      x  = computed with run cost EUR 3,000  (Chapter 1)
+      o  = computed with run cost EUR 7,520  (the real bill)
+
+   the healthy case absorbs the correction (9 -> 12).
+   the marginal case does NOT: 18 -> 23, well past the
+   threshold Chapter 1 set for itself.
+
+  Figure 14.3  A run-cost error is not uniform. It barely moves a
+              strong case and it moves a marginal one across the
+              line the value case drew.

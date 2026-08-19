@@ -1,0 +1,17 @@
+                                                        action
+       state entered            somebody notices         taken
+            |                          |                   |
+  ----------+--------------------------+-------------------+------>
+            |                          |                   |   time
+            |<---- detection gap ----->|<-- response gap -->|
+            |                                              |
+            |<-------------- decision latency ------------->|
+
+  Plant demonstrator today  :   ~4 days      +   ~1 day
+  With a DT that diagnoses  :   ~8 hours     +   ~1 day
+                                ^^^^^^^^
+                    the gap a DT actually closes; the response
+                    gap belongs to the organisation, not to you
+
+  Figure 1.1  Decision latency, split into the gap a twin closes
+              and the gap it does not.

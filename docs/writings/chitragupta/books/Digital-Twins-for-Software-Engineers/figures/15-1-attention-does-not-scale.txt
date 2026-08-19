@@ -1,0 +1,25 @@
+   engineer-days
+   per year
+      ^
+  208 |                                  * demand
+      |                              /     (0.1 day x
+      |                          /          alerts, and
+      |                      /              alerts scale
+      |                  /                  with the fleet)
+      |              /
+      |          /
+      |      /
+   22 |=====================================  supply
+      |  (four people, a tenth of their time -- FIXED)
+      +--------------------------------------> fleet size
+      1                                   400
+
+           at 400 assets: 208 vs 22, about 9 to 1
+
+   this is not a cost growing linearly.
+   it is demand growing against a CONSTANT, which is
+   the same thing as unbounded.
+
+  Figure 15.1  Attention does not scale. The gap is not a
+              staffing shortfall to be closed; it is the reason
+              Chapter 11's operators "mostly ignore" the alerts.

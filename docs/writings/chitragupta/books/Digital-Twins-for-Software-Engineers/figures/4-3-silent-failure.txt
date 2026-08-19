@@ -1,0 +1,26 @@
+   reading
+      ^
+      |         VALID ENVELOPE          |  OUTSIDE
+  900 +- - - - - - - - - - - - - - - - -+- - - - - - - -
+      |                                 |
+      |    model  ...........           |  .........
+      |    truth  ----------            |           ----____
+      |           (they agree)          |  (they do not, and
+      |                                 |   the model does not
+  300 +- - - - - - - - - - - - - - - - -+   say so)
+      |                                 |
+      +---------------------------------+--------------> t
+                                        ^
+                            nothing happens here.
+                            No exception. No warning.
+                            Just a plausible number.
+
+      The fix is not a better model. It is a runtime check
+      the CALLER owns:
+
+          if not (300 <= reading <= 900):
+              refuse, loudly
+
+  Figure 4.3  Silent failure. A model that crashes outside its
+              envelope is a good model with a bad interface; one
+              that keeps answering is the actual hazard.

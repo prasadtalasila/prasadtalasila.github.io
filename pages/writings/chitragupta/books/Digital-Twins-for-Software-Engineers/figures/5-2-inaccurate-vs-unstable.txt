@@ -1,0 +1,26 @@
+   INACCURATE (h below the threshold)
+
+   m ^     ....  truth
+     |    x   x  computed: wrong, but tracking the truth
+     |  x  ....
+     |x......  x
+     +----------------------> t
+       error is bounded and has a direction
+
+
+   UNSTABLE (h above the threshold)
+
+   m ^              x
+     |         x    |
+     |    x    |    |          computed: diverging
+     | .x.......... | ........ truth (unchanged)
+     |  |      |    |
+     |  x      |    |
+     |         x    |
+     |              x
+     +----------------------> t
+       error doubles every step, sign alternating
+
+  Figure 5.2  Instability is not severe inaccuracy. The left case
+              gives a wrong number; the right gives a meaningless
+              one, and a larger meaningless one every step.

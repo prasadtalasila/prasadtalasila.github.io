@@ -1,0 +1,28 @@
+   what you must have already        service        writes?
+
+   connector + store                 MONITOR          no
+   (Chapters 9, 10)                     |
+                                        |  + a model
+                                        |  + a state estimator
+                                        |  <-- THE BIG STEP
+                                        v
+                                     DIAGNOSE         no
+                                        |
+                                        |  + simulation runner
+                                        v
+                                     PREDICT          no
+                                        |
+                                        |  + the runner AT SCALE
+                                        v
+                                     DECIDE      only in its
+                                        |        acting form <--
+                                        |         the only cell
+                                        |  + synthetic inputs
+                                        v
+                                  CERTIFY-AND-TRAIN   no
+                                  (may need no physical twin)
+
+  Figure 11.3  The build order. Four of the five services are
+              deliverable with no command path at all, which is
+              why "we need a twin" and "we need to write to the
+              plant" are separate conversations.

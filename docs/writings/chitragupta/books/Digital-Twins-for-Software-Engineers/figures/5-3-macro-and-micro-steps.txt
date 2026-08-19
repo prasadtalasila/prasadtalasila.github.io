@@ -1,0 +1,19 @@
+   macro steps (the orchestrator, length H)
+
+   |<------ H ------>|<------ H ------>|<------ H ------>|
+   +-----------------+-----------------+-----------------+
+   ^                 ^                 ^                 ^
+   |                 |                 |                 |
+  exchange          exchange          exchange          exchange
+   |                 |                 |                 |
+   v                 v                 v                 v
+
+   unit A (h small):  |||||||||||||||||  |||||||||||||||||
+   unit B (h large):  |    |    |    |   |    |    |    |
+
+   Between two exchanges, every unit is running BLIND on inputs
+   that were correct only at the start of the macro step.
+
+  Figure 5.3  Two step sizes, not one. `h` is each unit's own
+              business; `H` is how stale every unit is allowed to
+              let its inputs get.

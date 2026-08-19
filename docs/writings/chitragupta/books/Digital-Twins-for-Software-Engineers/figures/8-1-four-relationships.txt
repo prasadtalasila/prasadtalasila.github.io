@@ -1,0 +1,28 @@
+   1. ML as a MODEL           2. ML as a SERVICE
+      (inside the twin)          (on top of the twin)
+
+      +---------------+          +---------------+
+      |     TWIN      |          |     TWIN      |
+      |  +---------+  |          +-------|-------+
+      |  |learned  |  |                  v
+      |  | model   |  |          +---------------+
+      |  +---------+  |          | anomaly detect|
+      +---------------+          | prognostics   |
+      Sec. 8.2                   +---------------+
+                                 Sec. 8.3
+
+   3. TWIN as TRAINING DATA    4. NEITHER implies the other
+      (arrow reversed)
+
+      +---------------+          a twin with no ML at all:
+      |     TWIN      |            Chapters 1-7. Three fitted
+      +-------|-------+            parameters. Works.
+              v
+      +---------------+          an ML model that is not a twin:
+      |    agent      |            no binding to one physical
+      |   learns here |            object, no automated flow.
+      +---------------+            Chapter 2 Sec. 2.6.5 ruled.
+      Sec. 8.4
+
+  Figure 8.1  Four relationships, not one. Most confused meetings
+              are two people holding different boxes.

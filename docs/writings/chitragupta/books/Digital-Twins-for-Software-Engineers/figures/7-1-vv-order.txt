@@ -1,0 +1,30 @@
+   the order that works
+   --------------------
+
+   VERIFY ------> CALIBRATE ------> VALIDATE ------> QUANTIFY
+   is the code    what are the      does it match    how wrong
+   right?         numbers?          unseen reality?  might it be?
+
+
+   break 1: calibrate before verify
+   --------------------------------
+        CALIBRATE ---> VERIFY
+             ^            |
+             |            v
+        the parameters absorb the bug; the fit looks GOOD,
+        and degrades when someone fixes the code
+        symptom: a fitted value that moves when unrelated
+                 code changes
+
+
+   break 2: validate on the calibration data
+   -----------------------------------------
+        CALIBRATE ---> VALIDATE
+          (data D)      (data D)   <-- same D
+        measures the fitting procedure, not the model
+        symptom: validation accuracy suspiciously close to
+                 calibration accuracy
+
+  Figure 7.1  The order, and the two ways it gets broken. Each
+              break is diagnosable from a symptom, which is why
+              they are worth naming rather than merely avoiding.

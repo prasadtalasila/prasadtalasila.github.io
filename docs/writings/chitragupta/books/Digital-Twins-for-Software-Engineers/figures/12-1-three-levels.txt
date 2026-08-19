@@ -1,0 +1,22 @@
+   HOSTS                IMPLEMENTS           OPINIONATES
+
+   +-----------+        +-----------+        +-----------+
+   | your code |        | platform  |        | platform  |
+   |    for    |        |    IS     |        |    IS     |
+   |   STORE   |        |   STORE   |        |   STORE   |
+   +-----------+        +-----------+        +-----------+
+        ^                                     /    |    \
+        |                                    v     v     v
+   platform gives      you configure    +--------+ +--------+
+   it somewhere        rather than      |connect.| |services|
+   to live             write            |must    | |must    |
+                                        |emit ITS| |consume |
+                                        |shape   | |ITS     |
+                                        +--------+ +--------+
+
+   you can leave       you can leave    leaving means rewriting
+   cheaply             with your data   the NEIGHBOURS too
+
+  Figure 12.1  Three levels, and only the third one reaches
+              sideways. "Does it support X" cannot distinguish
+              them, which is why the question is unanswerable.

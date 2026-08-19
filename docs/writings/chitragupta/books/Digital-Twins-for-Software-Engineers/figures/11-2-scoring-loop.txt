@@ -1,0 +1,25 @@
+   yesterday                        today
+   ---------                        -----
+
+   forecast made at 06:00           measurement at 18:00
+   for 18:00, +/- 2.0                 (already in the store,
+        |                              Chapter 9 put it there)
+        |  stored with as_of and              |
+        |  decision_time (Ch.10)              |
+        v                                     v
+   +-------------------------------------------------+
+   |   join on as_of  ->  residual per horizon        |
+   +-------------------------------------------------+
+                          |
+        +-----------------+------------------+
+        v                 v                  v
+   spread of         is the stated      which horizons
+   residuals =       +/- honest?        are still good?
+   the model-        (spread 5 vs
+   reality gap        claimed 2.0
+   AS IT IS NOW       = overclaiming)
+
+  Figure 11.2  The scoring loop. No new storage, no new
+              instrumentation: Chapter 10 kept the forecasts and
+              Chapter 9 kept the measurements, and the join is
+              what nobody builds.

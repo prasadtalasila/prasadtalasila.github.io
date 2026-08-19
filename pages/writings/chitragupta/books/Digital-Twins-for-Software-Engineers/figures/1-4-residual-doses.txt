@@ -1,0 +1,27 @@
+   moisture
+   reading
+      ^
+      |          /\             /\             /\
+      |         /  \           /  \           /  \
+      |        /    \         /    \         /    \
+      |       /      \       /      \       /      \
+      | ...../        \...../        \...../        \.....
+      | -------------------------------------------------
+      |
+      +----------------------------------------------> time
+           ^               ^               ^
+         dose 1          dose 2          dose 3
+         09:16           17:05           09:16
+
+     .....  what the model says a 100 ml dose should do
+     -----  what the sensor actually reported
+
+   Both traces share one axis, and after each dose they do not
+   coincide. Each gap between them is a residual. Three doses,
+   three missing steps: the water is not reaching the soil --
+   blocked tube, empty reservoir, or a relay that stopped
+   switching.
+
+  Figure 1.4  Why *diagnose* pays here. The fault is visible one
+              watering cycle after it starts (~8 h), not when a
+              human notices wilting (~4 days).

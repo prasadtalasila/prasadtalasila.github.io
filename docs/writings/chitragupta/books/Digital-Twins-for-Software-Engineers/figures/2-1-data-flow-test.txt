@@ -1,0 +1,21 @@
+  DIGITAL MODEL          DIGITAL SHADOW          DIGITAL TWIN
+
+  +----+     +----+      +----+     +----+      +----+     +----+
+  | PT |     | DO |      | PT |     | DO |      | PT |     | DO |
+  |    |     |    |      |    |====>|    |      |    |====>|    |
+  |    | - - |    |      |    |     |    |      |    |<====|    |
+  +----+     +----+      +----+     +----+      +----+     +----+
+
+  no automated flow      automated flow         automated flow
+  either way; a          inward only; the       both ways; the
+  person carries         twin knows, but        twin knows AND
+  anything that          cannot act             acts
+  moves
+
+     ====>  automated data flow      - - -  a person carries it
+     PT = physical twin              DO = digital object
+
+  Figure 2.1  The data-flow test. The three classes differ in
+              nothing except which arrows are automated -- not in
+              fidelity, not in cost, not in how impressive the
+              visualisation is.

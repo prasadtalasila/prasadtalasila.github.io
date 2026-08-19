@@ -1,0 +1,28 @@
+   ORDINARY SERVICE              A TWIN
+
+   +----------+                  +----------+
+   |   dev    |                  |   dev    |
+   +----------+                  +----------+
+        |                             |
+        v                             v
+   +----------+                  +----------+
+   | staging  |                  |  simulate|  a STAND-IN
+   | (a real  |                  |  -the-PT |  (Sec. 14.2.3)
+   |  copy)   |                  |          |  the gap here
+   +----------+                  +----------+  is risk you
+        |                             |        CARRY, not
+        v                             v        risk you
+   +----------+                  +----------+  removed
+   |   prod   |                  |   prod   |
+   +----------+                  +----------+
+                                      |
+   you can rebuild                    v
+   prod from                    +--------------+
+   scratch                      | PHYSICAL TWIN|  one instance.
+                                | water pumped |  no second copy.
+                                | vessel sent  |  some effects do
+                                +--------------+  not roll back.
+
+  Figure 14.2  The missing box. Every deployment practice in this
+              section is a way of paying for a staging environment
+              that cannot exist.

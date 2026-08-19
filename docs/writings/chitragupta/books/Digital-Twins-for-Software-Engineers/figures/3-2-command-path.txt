@@ -1,0 +1,29 @@
+   decision from the digital object
+              |
+              v
+   +---------------------------------------+
+   |            ACTUATION GUARD            |
+   |                                       |
+   |  is the caller who it claims to be?   |--no--> refuse
+   |              |yes                     |
+   |  is our state fresh enough?           |--no--> refuse
+   |              |yes                     |
+   |  does the version still match?        |--no--> refuse
+   |              |yes                     |
+   |  is this inside the rate limit?       |--no--> refuse
+   |              |yes                     |
+   |  is this inside the absolute cap?     |--no--> refuse
+   |              |yes                     |
+   +--------------|------------------------+
+                  v
+        +--------------------+
+        |  DEVICE INTERLOCK  |  <-- enforced by the hardware,
+        +--------------------+      not by your software
+                  |
+                  v
+            physical twin
+
+  Figure 3.2  The command path. Every arrow marked "refuse" is one
+              of Chapter 2's five obligations. The bottom box is
+              the one you do not own, and the one that has to hold
+              when everything above it is wrong.

@@ -1,0 +1,28 @@
+                  is this standard required of me?
+                              |
+              +---------------+---------------+
+              |                               |
+             NO                              YES
+          (CHOSEN)                         (GIVEN)
+              |                               |
+              v                               v
+   +--------------------+          +----------------------+
+   | run the arithmetic |          | do NOT run the       |
+   |    C x I > F       |          | arithmetic -- it is  |
+   |                    |          | already decided      |
+   | adopt / decline    |          |                      |
+   +--------------------+          | ask instead:         |
+                                   |  what must I produce,|
+                                   |  and what is the     |
+                                   |  cheapest honest way?|
+                                   +----------------------+
+
+   the two common errors, and they are mirror images:
+
+     evaluating a GIVEN standard   -> weeks spent deciding
+                                      something already decided
+     skipping evaluation on a      -> adopting a standard with
+     CHOSEN one                       C = 0
+
+  Figure 13.2  One question, asked first, routes the whole
+              chapter. An hour here saves the weeks named below.

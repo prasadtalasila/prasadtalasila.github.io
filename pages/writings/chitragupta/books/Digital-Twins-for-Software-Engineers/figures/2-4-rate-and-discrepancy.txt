@@ -1,0 +1,26 @@
+  physical twin's
+  actual state     x-------x-------x-------x-------x-------x--->
+                   |       |       |       |       |       |
+                   |<----->|                                   t
+                   |  1/twinning rate: the spacing
+                   |
+  digital object   |    o-------o-------o-------o-------o----->
+                   |    |
+                   |<-->|
+                   | time discrepancy: how far behind
+                   | each update lands
+
+  Two independent knobs:
+
+    fast rate, small lag   x x x x x x     good
+                           o o o o o o
+
+    fast rate, large lag   x x x x x x     frequent, and
+                              o o o o o o  consistently wrong
+
+    slow rate, small lag   x     x     x   accurate when it
+                           o     o     o   speaks, but rarely
+
+  Figure 2.4  Twinning rate and time discrepancy are different
+              failures. Raising the update rate does nothing for
+              a pipeline that adds a fixed delay.

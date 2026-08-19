@@ -1,0 +1,25 @@
+   24 expiry conditions, by how they fire
+
+   SELF-FIRING   |#######|                          7
+                  a monitor tells you
+                  (the kind engineers enjoy building)
+
+   SCHEDULED     |####|                             4
+                  a calendar tells you
+                  (fails quietly when the job stops)
+
+   ANNOUNCED     |#############|                   13
+                  a HUMAN has to tell you
+                  ------------------------------
+                  and silence is indistinguishable
+                  from nothing having happened
+
+   |-------------------------------------|
+   0                                     24
+
+   more than half depend on somebody remembering
+   to say something
+
+  Figure 14.1  Where the expiry conditions actually live. Effort
+              tends to go to the left bar; the risk is in the
+              right one.

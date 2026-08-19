@@ -1,0 +1,22 @@
+                inputs u(t)
+              (dose, daylight)
+                     |
+                     v
+   state    +-------------------+    outputs y(t)
+   W(t) --->|     STRUCTURE     |---> (sensor reading m)
+      ^     |  dW/dt = -k + g*u |
+      |     +-------------------+
+      |               ^
+      +---------------|  parameters
+                      |  k, g  (numbers, fitted;
+                      |         NOT part of structure)
+                      |
+              +-------------------+
+              | ASSUMPTION LEDGER |  A1..An: the conditions
+              | (what must hold)  |  under which the rest is
+              +-------------------+  true at all
+
+  Figure 4.1  The five parts of any model. Structure and
+              parameters are separated deliberately: changing a
+              number is calibration, changing the equation is a
+              new model.

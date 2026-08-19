@@ -1,0 +1,28 @@
+   decision_time / ingest_time
+   (when WE knew)
+        ^
+        |
+   Aug  |                    o  belief formed 20 Aug
+   20   |                   /   about 14 Aug
+        |                  /    (a correction)
+        |                 /
+   Aug  |          o     /      belief formed 14 Aug
+   14   |         /     /       about 14 Aug
+        |        /     /
+        |       /     /
+        +------+-----+---------------> as_of / event_time
+              Aug   Aug              (when the WORLD was)
+              14    14
+
+   the diagonal  = beliefs formed about the present
+   above it      = beliefs formed about the past
+                   (corrections, backfill, retroactive
+                    invalidation -- Sec. 10.6.4)
+   below it      = a forecast
+
+   "what did we believe on 14 Aug?"  -> read a HORIZONTAL line
+   "what is true of 14 Aug now?"     -> read a VERTICAL line
+
+  Figure 10.1  Two times, two questions. One timestamp collapses
+              the plane to the diagonal and makes the horizontal
+              question unanswerable.

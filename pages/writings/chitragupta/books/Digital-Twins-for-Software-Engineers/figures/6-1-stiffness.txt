@@ -1,0 +1,24 @@
+   two timescales in one system
+
+   tube filling    |||||||||||||||||||||||||||||||||||||||
+   (seconds)       every one of these needs a step
+
+   soil drying     |         |         |         |
+   (days)          this is the behaviour you care about
+
+   |<------------------- 7 days --------------------->|
+
+   an explicit stepping rule must satisfy the FASTEST:
+
+        h  <=  about 1 s      ->    604,800 steps
+        h  =   15 min         ->        672 steps
+                                   ~900x the work, same answer
+                                   about the soil
+
+   The fix is not a faster machine. It is one of:
+     - an implicit solver (pays per step, needs far fewer)
+     - do not model the tube at all (Sec. 6.9.2's choice)
+
+  Figure 6.1  Stiffness. The step size is hostage to the fastest
+              behaviour in the model, even when the question is
+              about the slowest.

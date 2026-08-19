@@ -1,0 +1,3313 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home page of Prasad Talasila">
+      
+      
+        <meta name="author" content="Prasad Talasila">
+      
+      
+        <link rel="canonical" href="https://prasad.talasila.in/writings/chitragupta/books/Digital-Twins-for-Software-Engineers/09-connecting-the-physical.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 9 -- Connecting the Physical: Sensors, Protocols, and Streaming Data - Prasad Talasila</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/course-tables.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-9-connecting-the-physical-sensors-protocols-and-streaming-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../index.html" title="Prasad Talasila" class="md-header__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prasad Talasila
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 9 -- Connecting the Physical: Sensors, Protocols, and Streaming Data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../research.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Research
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../publications.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../projects.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../software.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../courses.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Courses
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../writings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Writings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../contact.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../index.html" title="Prasad Talasila" class="md-nav__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    Prasad Talasila
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../research.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../publications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../software.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../writings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contact.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#90-before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.0 Before you start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.0 Before you start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning objectives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#91-the-connector-and-why-its-cost-is-always-underestimated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 The connector, and why its cost is always underestimated
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#92-sensors-what-you-are-actually-given" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Sensors: what you are actually given
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2 Sensors: what you are actually given">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#921-a-sensor-is-a-model-with-a-datasheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2.1 A sensor is a model with a datasheet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#922-six-numbers-that-change-your-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2.2 Six numbers that change your design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#923-the-demonstrators-sensors-read-that-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2.3 The demonstrator's sensors, read that way
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#924-instrumentation-is-a-cost-with-a-decision-attached" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2.4 Instrumentation is a cost with a decision attached
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#925-what-to-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2.5 What to ask
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#93-sampling-how-often-and-what-you-lose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Sampling: how often, and what you lose
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.3 Sampling: how often, and what you lose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#931-ts-comes-from-the-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3.1 Ts comes from the decision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#932-what-a-correctly-derived-interval-can-still-miss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3.2 What a correctly derived interval can still miss
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#933-the-empirical-check-which-costs-an-afternoon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3.3 The empirical check, which costs an afternoon
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#934-sampled-event-driven-and-the-arrangement-you-usually-want" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3.4 Sampled, event-driven, and the arrangement you usually want
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#94-protocols-what-a-twin-needs-from-a-transport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 Protocols: what a twin needs from a transport
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4 Protocols: what a twin needs from a transport">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#941-two-layers-and-only-one-of-them-is-your-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4.1 Two layers, and only one of them is your problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#942-poll-versus-subscribe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4.2 Poll versus subscribe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#943-five-properties-a-twin-needs-from-a-transport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4.3 Five properties a twin needs from a transport
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#944-the-names-for-recognition-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4.4 The names, for recognition only
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#945-one-handler-per-protocol-one-normalised-form-upstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4.5 One handler per protocol, one normalised form upstream
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#95-time-four-timestamps-and-a-clock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5 Time: four timestamps and a clock
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.5 Time: four timestamps and a clock">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#951-there-are-four-timestamps-and-they-are-all-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5.1 There are four timestamps, and they are all different
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#952-the-timestamp-questions-that-catch-people" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5.2 The timestamp questions that catch people
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#953-clock-error-sized-against-ts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5.3 Clock error, sized against Ts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#954-computing-twinning-rate-age-of-twin-and-time-discrepancy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5.4 Computing twinning rate, age of twin, and time discrepancy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#96-quality-building-the-field-chapter-3-defended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.6 Quality: building the field Chapter 3 defended
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.6 Quality: building the field Chapter 3 defended">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#961-the-states-enumerated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.6.1 The states, enumerated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#962-what-each-state-does-downstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.6.2 What each state does downstream
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#963-where-quality-is-decided-and-where-it-cannot-be" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.6.3 Where quality is decided, and where it cannot be
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#97-the-four-ways-a-stream-goes-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7 The four ways a stream goes wrong
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.7 The four ways a stream goes wrong">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#971-gaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7.1 Gaps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#972-duplicates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7.2 Duplicates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#973-out-of-order-arrival" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7.3 Out-of-order arrival
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#974-the-stuck-sensor-which-defeats-everything-above" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7.4 The stuck sensor, which defeats everything above
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#975-the-four-as-a-table-you-can-build-against" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7.5 The four, as a table you can build against
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#98-volume-buffering-and-the-link-you-do-not-own" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.8 Volume, buffering, and the link you do not own
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.8 Volume, buffering, and the link you do not own">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#981-data-volume-computed-before-it-is-a-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.8.1 Data volume, computed before it is a problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#982-buffering-and-store-and-forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.8.2 Buffering and store-and-forward
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#983-backpressure-and-the-burst-you-did-not-test-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.8.3 Backpressure, and the burst you did not test for
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#984-the-link-is-an-attack-surface-and-it-is-not-this-chapters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.8.4 The link is an attack surface, and it is not this chapter's
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#99-worked-example-the-demonstrators-connector-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.9 Worked example: the demonstrator's connector, built
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.9 Worked example: the demonstrator&#39;s connector, built">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#991-what-the-source-offers-read-as-a-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.9.1 What the source offers, read as a specification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#992-bindings-and-the-tuple-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.9.2 Bindings and the tuple mapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#993-the-poll-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.9.3 The poll loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#994-the-numbers-all-of-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.9.4 The numbers, all of them
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#995-what-this-connector-still-cannot-do-stated-for-chapter-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.9.5 What this connector still cannot do, stated for Chapter 7
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#910-faded-example-the-offshore-turbines-ingest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.10 Faded example: the offshore turbine's ingest
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#911-posed-problem-ingest-for-a-source-you-do-not-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.11 Posed problem: ingest for a source you do not control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#912-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.12 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#913-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.13 Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.13 Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solutions-and-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solutions and hints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#914-where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.14 Where to go next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#915-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.15 References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="chapter-9-connecting-the-physical-sensors-protocols-and-streaming-data">Chapter 9 -- Connecting the Physical: Sensors, Protocols, and Streaming Data</h1>
+<h2 id="90-before-you-start">9.0 Before you start</h2>
+<p><strong>Where we are.</strong> Part II is over. You spent five chapters learning enough
+about models, simulation and credibility to hold up your end of a
+conversation with people who build them. Part III builds the system those
+models live in, and it is the part of the book where the work is yours.</p>
+<p>Chapter 3 drew seven components and this chapter builds the first one. Four
+separate chapters have now written the sentence "Part III builds: Chapter 9
+the connector", and Chapter 3 Sec. 3.2.1 said in as many words that Chapter
+9 is where the protocols themselves live.</p>
+<p><strong>The register changes here, and it is worth naming the change.</strong> Part II
+was written against a reader who could not evaluate a modelling claim, so
+everything was explained. That is the wrong posture now. You have written
+HTTP clients. You have consumed message queues. You have lost an evening to
+a duplicate delivery and an afternoon to a timezone. Explaining what a
+broker is would be the insult that Part II's explanations were guarding
+against in the other direction.</p>
+<p>So:</p>
+<blockquote>
+<p><strong>This chapter does not teach protocols and does not compare them. It
+teaches what a <em>twin</em> needs from a connection, which is a different and
+much shorter list than what any protocol offers.</strong></p>
+</blockquote>
+<p>You can read a specification without help. What no specification tells you
+is which of its features your twin's credibility argument depends on, and
+that is the whole subject here.</p>
+<p><strong>What you are assumed to know.</strong> Everything so far, plus ordinary
+distributed-systems experience. Specifically from this book: Chapter 1's
+value metric and its Sec. 1.8.1 description of the demonstrator hardware;
+Chapter 2's twinning rate, age of twin and time discrepancy; Chapter 3's
+seven components, the connector's tuple, the binding, and the derivation of
+<code>Ts</code> = 10 minutes; Chapter 4's assumption ledger, especially A2 and A3;
+Chapter 5's distinction between <code>h</code> and <code>Ts</code>; Chapter 7's calibration
+windows, hold-out and credibility argument; Chapter 8's input-coverage
+check.</p>
+<p><strong>The maths budget, loosened in exactly one direction.</strong> More arithmetic is
+now welcome; no new mathematics is. Still no derivatives, integrals,
+matrices or probability. There are four arithmetic set pieces -- a
+data-volume calculation, a clock-drift calculation, a completeness count,
+and a stuck-sensor threshold -- and all four are multiplication and
+division. <strong>The Nyquist-Shannon sampling theorem is deliberately not stated
+here</strong>; Sec. 9.3.2 teaches aliasing as a named phenomenon with one concrete
+instance and points at where to learn it properly.</p>
+<p><strong>One warning about numbers, carried forward from Chapters 4, 7 and 8.</strong>
+Where this chapter puts figures on the demonstrator's sensors, those figures
+are illustrative. The hardware is real and documented; no measurement
+campaign has been run on it for this book, and none is invented here. The
+<em>method</em> transfers; check the datasheet you actually have.</p>
+<p><strong>What this chapter deliberately does not cover.</strong> Protocol specifications
+and protocol comparison -- named for recognition, then Chapter 12 for tool
+selection and Chapter 13 for standards. Storage -- Chapter 10, and this
+chapter is careful to say what the connector must <em>record</em> without saying
+where it lives. Signal processing, compression and sensor fusion -- named
+with pointers, not taught. Networking below the transport. The command
+path -- Chapter 3 Sec. 3.2.7 owns it, and Chapter 3's rule that the two
+directions do not share a box holds here. Security in general -- Chapter 3
+Sec. 3.3.3 and Chapter 13. Deployment topology -- Chapter 12.</p>
+<h3 id="learning-objectives">Learning objectives</h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol>
+<li><strong>Read</strong> a sensor datasheet for the six numbers that change a twin's
+   design, and <strong>decide</strong> whether a proposed measurement can support a
+   stated decision.</li>
+<li><strong>Derive</strong> a sampling interval from a decision, <strong>recognise</strong> aliasing as
+   a failure a correctly derived interval can still have, and <strong>design</strong> the
+   empirical check for it.</li>
+<li><strong>Choose</strong> between polling and subscription, and <strong>evaluate</strong> any
+   transport against the five properties a twin needs from one.</li>
+<li><strong>Distinguish</strong> the four timestamps in an ingest path, <strong>compute</strong>
+   Chapter 2's twinning rate and time discrepancy from them, and <strong>size</strong> an
+   acceptable clock error against the sampling interval.</li>
+<li><strong>Detect</strong> the four ways a measurement stream goes wrong and <strong>specify</strong>
+   the quality states the rest of the twin consumes.</li>
+</ol>
+<hr />
+<h2 id="91-the-connector-and-why-its-cost-is-always-underestimated">9.1 The connector, and why its cost is always underestimated</h2>
+<p>Chapter 3 gave the connector one job and one output contract. Both are worth
+restating, because everything in this chapter is an elaboration of them.</p>
+<p><strong>The job.</strong> Speak the physical twin's protocol and present it to the rest
+of the system as something ordinary.</p>
+<p><strong>The output.</strong> A stream of tuples:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>(binding, quantity, value, unit, timestamp, quality)
+</code></pre></div></td></tr></table></div>
+<p>plus an honest answer to "are you currently connected?"</p>
+<p>That is a small contract, and the smallness is the design. Everything
+upstream -- store, estimator, runner, services -- sees one normalised form,
+and the diversity of the physical world stops at one component. The
+recurring shape in the literature is the same: isolate the protocol behind
+per-protocol handlers, or put a broker in the middle so that twins and
+devices need not know each other's transport [1].
+Industrial architecture guidance treats connectivity as a framework in its
+own right with a named middleware set [2].</p>
+<p><strong>Now the part nobody budgets for.</strong> In project after project, the
+connector is estimated as "read the API" and delivered as a quarter of the
+engineering. Three reasons, and none of them are protocol difficulty.</p>
+<p><em>The physical twin was not designed for you.</em> Its interface exists for
+whatever the people who built it needed. It may have no way to ask for
+history, no way to say when it last succeeded, and no notion of your
+binding. You architect against the interface that exists, which Chapter 3
+Sec. 3.7.1 already flagged and which is worth internalising as a rule
+rather than a complaint.</p>
+<p><em>Every failure in the physical world arrives through this component.</em> A
+loose connector, a flat battery, a technician unplugging something, a
+firmware update that changes a unit -- all of it becomes, at your boundary,
+some tuple or some absence of one. Sec. 9.7 is entirely about that.</p>
+<p><em>The connector is where the twin's credibility begins.</em> Chapter 7 built a
+credibility argument on a hold-out week. That week is a set of tuples this
+component produced. If it silently forward-filled a gap, Chapter 7's spread
+of 2.0 is a fiction and nothing downstream can tell. <strong>The most consequential
+code in a twin is often the least interesting-looking code in the twin.</strong></p>
+<hr />
+<h2 id="92-sensors-what-you-are-actually-given">9.2 Sensors: what you are actually given</h2>
+<h3 id="921-a-sensor-is-a-model-with-a-datasheet">9.2.1 A sensor is a model with a datasheet</h3>
+<p>The instinct is to treat a sensor as a source of truth with some noise on
+it. It is more useful to treat it as <strong>a model of the world that somebody
+else built and documented</strong>, with all of Chapter 4's apparatus applying.</p>
+<p>A capacitive soil-moisture sensor does not measure water. It measures a
+capacitance, converts it to a number, and somebody has claimed a
+relationship between that number and water content. Chapter 4's assumption
+A2 is exactly that claim -- the reading is affine in water content -- and
+Chapter 4 already recorded what happens when it breaks: near saturation the
+sensor flattens, a real change produces no reading change, and the twin sees
+a fault that is not there.</p>
+<p><strong>So the sensor has an assumption ledger too</strong>, and its rows are in the
+datasheet. The reference treatment for twins makes the same point and takes
+a thermistor as its running example: the relationship between the physical
+quantity maps to the reported value can be established by experiment, and
+the datasheet usually states it [3].</p>
+<h3 id="922-six-numbers-that-change-your-design">9.2.2 Six numbers that change your design</h3>
+<p>Datasheets are long. Six numbers do the work.</p>
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th>What it means</th>
+<th>What it changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Range</strong></td>
+<td>The span the sensor is specified over</td>
+<td>Chapter 7's validity envelope, and Chapter 8's input-coverage check. Outside it, the reading is not wrong -- it is undefined</td>
+</tr>
+<tr>
+<td><strong>Resolution</strong></td>
+<td>The smallest change reportable</td>
+<td>Whether a change your model predicts is even visible. Sec. 9.7.4 derives a threshold from this</td>
+</tr>
+<tr>
+<td><strong>Accuracy</strong></td>
+<td>How far a reading may be from the truth</td>
+<td>Chapter 7's residual spread has a floor here. No model beats its instrument</td>
+</tr>
+<tr>
+<td><strong>Drift</strong></td>
+<td>How fast accuracy degrades</td>
+<td>Chapter 7's expiry conditions. A sensor specified at 1 per cent per year is a recalibration schedule</td>
+</tr>
+<tr>
+<td><strong>Response time</strong></td>
+<td>How long the reading takes to reflect a change</td>
+<td>An upper bound on useful sampling rate, and the reason a fast poll can return stale physics</td>
+</tr>
+<tr>
+<td><strong>Maximum sample rate</strong></td>
+<td>How often it can be read</td>
+<td>The ceiling on <code>Ts</code>, and sometimes a power budget</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resolution and accuracy are not the same number and confusing them is the
+commonest datasheet error.</strong> A sensor reporting to 0.01 units with an
+accuracy of 2 units gives you four decimal digits of which two are
+decoration. You will see the extra digits in the store, in the dashboard,
+and eventually in a residual plot where somebody reads meaning into them.</p>
+<p><strong>Two of the six reach into Part II directly.</strong> Accuracy sets a floor under
+Chapter 7's residual spread: a model validated to plus or minus 2.0 reading
+units against a sensor accurate to plus or minus 3 has been validated
+against noise. And resolution decides whether an effect exists for you at
+all -- if the model predicts a 0.7-unit change and the sensor reports whole
+numbers, that change is invisible in a single sample no matter how good the
+model is.</p>
+<h3 id="923-the-demonstrators-sensors-read-that-way">9.2.3 The demonstrator's sensors, read that way</h3>
+<p>Chapter 1 Sec. 1.8.1 listed the hardware from the demonstrator's own
+documentation. Read as a connector designer rather than as a shopping list:</p>
+<table>
+<thead>
+<tr>
+<th>Sensor</th>
+<th>Quantity</th>
+<th>Bus</th>
+<th>What the connector must know</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adafruit STEMMA soil moisture, one per plant</td>
+<td>Soil moisture, as a raw reading</td>
+<td>I2C via a TCA9548A multiplexer</td>
+<td>Several sensors share an address, so the multiplexer channel is part of the binding. Get that wrong and you attribute pot 3's water to pot 7</td>
+</tr>
+<tr>
+<td>SHT45</td>
+<td>Air temperature and relative humidity</td>
+<td>I2C</td>
+<td>One sensor for the whole greenhouse, so its binding is the greenhouse, not a pot. Chapter 8's learned correction consumes both</td>
+</tr>
+<tr>
+<td>AS7341</td>
+<td>Ambient light, several spectral channels</td>
+<td>I2C</td>
+<td>One reading is several quantities. The tuple is per quantity, so one poll produces many tuples</td>
+</tr>
+<tr>
+<td>MODBUS soil probe (<strong>optional</strong>)</td>
+<td>Soil temperature, electrical conductivity, moisture</td>
+<td>MODBUS</td>
+<td>Different bus, different failure modes, and a second moisture measurement that will disagree with the first</td>
+</tr>
+<tr>
+<td>CS-IO404 relay / AD20P pump</td>
+<td>Watering events</td>
+<td>MODBUS</td>
+<td>Not a sensor, but the source of a stream the twin needs: what was actually commanded, and when</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Four things in that table are the chapter in miniature.</strong></p>
+<p><em>The multiplexer channel is part of the binding.</em> Chapter 3 Sec. 3.3.1 made
+identity and binding a cross-cutting concern; here is where it becomes a
+wiring diagram. An identity defect in a connector does not look like a bug.
+It looks like pot 3 drying strangely.</p>
+<p><em>One device can produce many quantities.</em> The AS7341's channels, and the
+SHT45's two. A connector modelled as one-reading-per-poll will fight this
+forever.</p>
+<p><em>A second measurement of the same quantity is a design decision, not a
+bonus.</em> The optional MODBUS probe also reports moisture. Two moisture
+numbers for one pot that disagree is not redundancy unless somebody decides
+in advance which is authoritative, or how they combine.</p>
+<p><em>Watering events are ingest, not actuation.</em> The twin needs to know what
+the pump actually did. That stream arrives through the connector's ingest
+path even though it concerns the actuation side, and Chapter 3's insistence
+that the two directions are different boxes survives intact: reading the
+watering history is not commanding a pump.</p>
+<h3 id="924-instrumentation-is-a-cost-with-a-decision-attached">9.2.4 Instrumentation is a cost with a decision attached</h3>
+<p>Chapter 1 Sec. 1.7 listed four situations in which a twin is the wrong
+answer, and the fourth was: the measurement does not exist and cannot be
+added -- no sensor, no twin -- and <strong>the instrumentation cost belongs in the
+estimate, not in a later phase</strong>. This is the later phase, and here is what
+it looks like when the bill arrives.</p>
+<p>The MODBUS soil probe is <em>optional</em> in the demonstrator's hardware list.
+Should the twin use it? Chapter 1's method answers this, and it is worth
+running because the shape of the answer generalises to every "should we add
+a sensor" question you will be asked.</p>
+<p><strong>Step 1 -- what would it let you decide that you cannot decide now?</strong> It
+adds soil temperature and electrical conductivity, and a second moisture
+reading. Chapter 1's value metric is experiment-weeks lost to undetected
+watering faults. Soil temperature does not bear on that. Conductivity does
+not either.</p>
+<p><strong>Step 2 -- what would it let you decide better?</strong> The second moisture
+reading is a genuine candidate. Chapter 4's assumption A3 said a dose that
+misses the sensed soil is indistinguishable from a pump failure; a second
+probe elsewhere in the pot would sometimes separate them. And Chapter 7's
+credibility argument admits that limitation in writing.</p>
+<p><strong>Step 3 -- what does it cost, in full?</strong> The probe, a MODBUS interface, a
+second decoder in the connector, a second binding, a second calibration
+campaign (Chapter 7 needed two experiments for two parameters, and this adds
+a third quantity), a second set of failure modes, and a rule for what to do
+when the two moisture readings disagree. <strong>That last one is the expensive
+part and it is always omitted from the estimate.</strong></p>
+<p><strong>Step 4 -- compare with the alternative.</strong> Chapter 8 Sec. 8.7.3 already
+looked at a camera for the same limitation, and a camera separates the two
+faults cleanly rather than sometimes.</p>
+<p><strong>The decision, and the reasoning that transfers.</strong> Not for the fault
+detector. A second sensor that <em>sometimes</em> separates two faults, both of
+which send the same technician to the same rig, does not change what anybody
+does -- and Chapter 1's rule is that fidelity not demanded by the value
+metric is unpaid work. It might well be worth it for a different twin of the
+same pot, one scheduling doses to a target moisture, where soil temperature
+genuinely bears on the decision.</p>
+<blockquote>
+<p><strong>The general form.</strong> A sensor is worth adding when it changes a decision,
+not when it adds a quantity. And the cost of a sensor is not the sensor:
+it is the decoder, the binding, the calibration, the failure modes and the
+disagreement policy.</p>
+</blockquote>
+<h3 id="925-what-to-ask">9.2.5 What to ask</h3>
+<ul>
+<li>What are the range, resolution, accuracy, drift, response time and maximum
+  sample rate, and which of them is closest to biting?</li>
+<li>What does this sensor actually measure, and what is the claimed
+  relationship to the quantity we care about?</li>
+<li>What does it report when it is unhappy, and is that value distinguishable
+  from a real reading?</li>
+<li>Who calibrates it, how often, and how will we know it has drifted?</li>
+</ul>
+<hr />
+<h2 id="93-sampling-how-often-and-what-you-lose">9.3 Sampling: how often, and what you lose</h2>
+<h3 id="931-ts-comes-from-the-decision">9.3.1 <code>Ts</code> comes from the decision</h3>
+<p>This is settled and only needs assembling. Chapter 2 Sec. 2.7.1 said "real
+time" is not a requirement but an abdication, and gave the useful question:
+how stale can the digital state be before the decision it feeds becomes
+wrong? Chapter 3 Sec. 3.7.1 answered it for the demonstrator -- doses are
+twice daily, the moisture step resolves over tens of minutes, so <code>Ts</code> = 10
+minutes -- and Chapter 5 Sec. 5.4.5 insisted that <code>Ts</code> is not the solver's
+step size <code>h</code>, and that <code>Ts</code> belongs to the connector.</p>
+<p>It belongs to you. Here is the derivation as a procedure, since Chapter 3
+gave it as a conclusion:</p>
+<ol>
+<li><strong>Name the decision and its latency requirement.</strong> "Tell a technician a
+   dose did not land, within an hour."</li>
+<li><strong>Name the physical event the decision depends on</strong> and how long it takes
+   to become visible. The moisture step from a dose resolves over tens of
+   minutes.</li>
+<li><strong>Sample fast enough to see the event, several times.</strong> Three to five
+   samples across the event is a working convention -- enough to see a step
+   as a step rather than as a single jump.</li>
+<li><strong>Check the ceiling.</strong> Sensor maximum rate, bus contention, power, data
+   volume (Sec. 9.8.1).</li>
+<li><strong>Check the floor.</strong> The latency requirement from step 1. A ten-minute
+   interval cannot support a one-minute alerting requirement, whatever else
+   is true.</li>
+</ol>
+<p>Ten minutes satisfies all five for the demonstrator, and the derivation took
+no theory.</p>
+<h3 id="932-what-a-correctly-derived-interval-can-still-miss">9.3.2 What a correctly derived interval can still miss</h3>
+<p>Here is the failure that step 3 above does not prevent, and it is the one
+worth knowing by name.</p>
+<p><strong>Aliasing</strong> is fast behaviour appearing as slow behaviour because the
+sampling was too slow to see it. Not "you missed some detail" -- something
+qualitatively different: the samples describe a pattern that <em>does not
+exist</em>.</p>
+<p><strong>A concrete instance in the demonstrator.</strong> Suppose the greenhouse's
+ventilation fan runs on a <strong>10-minute</strong> cycle -- five on, five off -- and
+dries the pots slightly while running. You sample moisture every 10 minutes.</p>
+<p><em>Case 1: the periods match exactly.</em> Every sample lands at the same point in
+the fan's cycle -- always mid-blow, or always mid-rest, depending only on
+when you started. What you record is a <strong>flat, clean level</strong>, and it is not
+the pot's average moisture. It is one phase of an oscillation, mistaken for
+a steady state. Nothing in the data hints that the fan exists.</p>
+<p><em>Case 2: the periods nearly match, which is the realistic one.</em> Suppose the
+fan's cycle is 10 minutes and 6 seconds. Now the sampling point walks slowly
+through the fan's cycle, and the recorded moisture rises and falls smoothly
+with a period of</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>(600 x 606) / (606 - 600) = 363,600 / 6 = 60,600 seconds = about 17 hours
+</code></pre></div></td></tr></table></div>
+<p><strong>A 10-minute fan has produced an apparent 17-hour cycle in your data.</strong> It
+is smooth, it is strong, it looks exactly like a daily environmental rhythm,
+and it does not exist. Worse: Chapter 4's assumption A1b is <em>about</em> a
+day-night difference in drying rate, so Chapter 7's residuals will develop a
+bias, Chapter 7 Sec. 7.4.6 will attribute it to that row, an extra parameter
+will be earned on data that appeared to justify it, and it will fix nothing
+-- because the effect is in the connector.</p>
+<p><strong>That is what makes aliasing different from ordinary measurement error.</strong> A
+noisy reading is visibly noisy. An aliased one is clean, plausible,
+consistent, and wrong, and every diagnostic technique in Part II is designed
+to find structure in data rather than to doubt that the structure is real.</p>
+<p><strong>Why the chapter stops there.</strong> There is a theorem about how fast you must
+sample to avoid this, and it is properly presented -- with the conditions it
+needs, and what quantisation does to them -- in the twin sensing literature
+[3]. Read that when you need it. What you need in a design
+review is the name, the recognition that a decision-derived interval does
+not rule it out, and the check below.</p>
+<h3 id="933-the-empirical-check-which-costs-an-afternoon">9.3.3 The empirical check, which costs an afternoon</h3>
+<p><strong>Sample much faster than <code>Ts</code>, once, for a short window, and compare.</strong></p>
+<p>Run the sensor at its maximum rate for an hour. Then take every Nth sample
+to reconstruct what your chosen <code>Ts</code> would have recorded, and put the two
+side by side. You are looking for one thing: <strong>behaviour in the fast trace
+that has no counterpart in the slow one.</strong> Periodic structure faster than
+<code>2 x Ts</code> is the specific thing to look for, because that is what aliases.</p>
+<p>Three practical notes.</p>
+<p><em>Do it once per deployment site, not once per project.</em> The 20-minute fan is
+a property of that greenhouse.</p>
+<p><em>Do it again after anything changes near the sensor.</em> New equipment, new
+ventilation, new neighbour.</p>
+<p><em>Record the result in the credibility argument.</em> "Sampled at 1 Hz for one
+hour on 2026-08-14; no periodic structure above 0.5 per minute observed" is
+a sentence Chapter 7's evidence section can use, and its absence is a gap a
+reviewer should find.</p>
+<h3 id="934-sampled-event-driven-and-the-arrangement-you-usually-want">9.3.4 Sampled, event-driven, and the arrangement you usually want</h3>
+<p>Two ways to get data off a physical twin.</p>
+<p><strong>Sampled.</strong> Read every <code>Ts</code>, whether anything changed or not. Predictable
+volume, predictable load, trivially detectable gaps -- a missing sample is
+visible because you know exactly when it should have arrived. Wasteful when
+nothing is happening, and blind between samples.</p>
+<p><strong>Event-driven.</strong> The device reports when something happens or when a value
+crosses a threshold. No waste, no blindness to the events it is configured
+for. But: <strong>silence is ambiguous.</strong> Nothing happened, or the link is down,
+or the device is dead. That ambiguity is fatal on its own, and the standard
+fix is a heartbeat -- a periodic "I am here and nothing happened" -- which
+is a sampled channel wearing a different hat.</p>
+<p><strong>The arrangement you usually want is both</strong>, and the demonstrator shows why
+without anybody having designed it that way:</p>
+<ul>
+<li>Moisture is <em>sampled</em>, because it changes continuously and slowly, and
+  because Chapter 7's calibration needs regular observations at known times.</li>
+<li>Watering events are <em>events</em>. A dose is a discrete thing that happens at
+  09:16, and sampling for it would be absurd.</li>
+</ul>
+<p><strong>And the pairing is where the twin's value comes from.</strong> Chapter 1's whole
+fault detector compares an event (a dose was commanded) against a sampled
+consequence (the moisture step). Neither stream alone detects anything. This
+is a general shape worth carrying: <strong>sample the state, capture the events,
+and align them on time</strong> -- which makes Sec. 9.5 the section everything
+depends on.</p>
+<hr />
+<h2 id="94-protocols-what-a-twin-needs-from-a-transport">9.4 Protocols: what a twin needs from a transport</h2>
+<h3 id="941-two-layers-and-only-one-of-them-is-your-problem">9.4.1 Two layers, and only one of them is your problem</h3>
+<p><strong>The device layer.</strong> I2C, the Serial Peripheral Interface (SPI), MODBUS,
+4-20 mA, and the Controller Area Network (CAN) bus. How a sensor talks to
+the thing next to it. In the demonstrator, the STEMMA sensors sit on I2C
+behind a multiplexer and the relay module speaks MODBUS. Characteristics:
+short range, no security, no notion of identity beyond an address, and
+usually somebody else's firmware between you and it.</p>
+<p><strong>The system layer.</strong> HTTP, the Message Queuing Telemetry Transport (MQTT),
+the Open Platform Communications Unified Architecture (written OPC UA), the
+Advanced Message Queuing Protocol (AMQP), the Data Distribution Service
+(DDS), Kafka. How the physical
+twin's software talks to yours. This is your layer.</p>
+<p><strong>The boundary between them is a component somebody owns</strong>, and it is worth
+finding out who. In the demonstrator it is the Raspberry Pi: it drives I2C
+and MODBUS, writes a local time-series database, and exposes HTTP on port
+8099. <strong>That Pi is a gateway</strong>, and recognising it as one immediately raises
+the right questions -- what happens when it reboots, whose clock is
+authoritative, how much does it buffer -- none of which are visible if you
+think of it as "the sensor endpoint".</p>
+<h3 id="942-poll-versus-subscribe">9.4.2 Poll versus subscribe</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Poll</th>
+<th>Subscribe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Who initiates</td>
+<td>You</td>
+<td>The device or broker</td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>Up to one interval</td>
+<td>As fast as the path</td>
+</tr>
+<tr>
+<td>Load</td>
+<td>Predictable</td>
+<td>Bursty</td>
+</tr>
+<tr>
+<td>Connection state</td>
+<td>Known every interval, for free</td>
+<td>Needs a heartbeat or a broker feature</td>
+</tr>
+<tr>
+<td>Missed data</td>
+<td>Recoverable if the source keeps history</td>
+<td>Gone, unless the broker persists</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+<td>Moderate, and mostly in failure handling</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The demonstrator polls, and the reason is not a preference.</strong> The physical
+twin offers HTTP GET and nothing else. Chapter 3 Sec. 3.7.1 made the point
+and it bears repeating as a rule: <em>you architect against the interface that
+exists.</em></p>
+<p><strong>What makes polling work here is one feature of that API</strong>, and it is worth
+naming because you should look for its equivalent everywhere:
+<code>GET /sensing/{unit}/{parameter}</code> takes a <code>since_timestamp</code>. That single
+parameter turns polling from lossy into resumable. Store the last
+successfully ingested timestamp per binding, ask for everything after it,
+and a two-hour outage becomes a two-hour delay instead of a two-hour hole.</p>
+<blockquote>
+<p><strong>The question to ask of any source, before anything about protocol:</strong>
+<em>can I ask you for what I missed?</em> A source that can only tell you its
+current value forces you to make every poll count, and a source with
+history lets you fail and recover. This distinction matters more than the
+choice of protocol, and it is the one most often left out of an interface
+specification.</p>
+</blockquote>
+<p>Figure 9.3 is why that question outranks the protocol choice. The same
+two-hour outage produces two completely different outcomes.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code>   source WITHOUT history (&quot;what is the value now?&quot;)
+
+   readings   x x x x                     x x x x
+   connector  |       |&lt;-- outage 2h --&gt;| |
+                      +-- these are GONE, permanently
+
+   source WITH history (`since_timestamp`)
+
+   readings   x x x x x x x x x x x x x x x x x x
+   connector  |       |&lt;-- outage 2h --&gt;| |
+                      |                   |
+                      |    &quot;give me everything
+                      |     after 09:14&quot;
+                      +------------------&gt;+
+                          a two-hour DELAY,
+                          not a two-hour HOLE
+
+  Figure 9.3  Resumability beats protocol choice. Poll or
+              subscribe changes latency; history changes whether
+              an outage costs you data at all.
+</code></pre></div></td></tr></table></div>
+<p>The demonstrator's <code>since_timestamp</code> parameter is the whole difference
+between the two halves of that figure, which is why Sec. 9.7.1's treatment
+of gaps can be as short as it is.</p>
+<h3 id="943-five-properties-a-twin-needs-from-a-transport">9.4.3 Five properties a twin needs from a transport</h3>
+<p>Rather than compare protocols by feature, evaluate any transport against the
+five things a twin's downstream components actually depend on. Each row
+names which earlier chapter breaks if the property is absent.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>The question</th>
+<th>Who breaks without it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Event time preserved</strong></td>
+<td>Does the reading carry when the physical thing was in that state, or only when the message arrived?</td>
+<td>Chapter 5's replay, Chapter 6's estimator, Chapter 7's every comparison. This is the one to check first</td>
+</tr>
+<tr>
+<td><strong>Connection state observable</strong></td>
+<td>Can I tell "nothing happened" from "I am not receiving"?</td>
+<td>Chapter 3's <code>quality</code>; Chapter 7's completeness; every alert that should have fired</td>
+</tr>
+<tr>
+<td><strong>Gap survivable</strong></td>
+<td>After an outage, can I get what I missed?</td>
+<td>Chapter 7's calibration windows; Chapter 5's reproducible replay</td>
+</tr>
+<tr>
+<td><strong>Ordering knowable</strong></td>
+<td>If messages arrive out of order, can I tell?</td>
+<td>Chapter 6's estimator, which is a sequential algorithm and does not tolerate a shuffled history</td>
+</tr>
+<tr>
+<td><strong>Delivery idempotent-friendly</strong></td>
+<td>Is there a stable key I can deduplicate on?</td>
+<td>Chapter 7's counts, Chapter 8's training sets, and anything that averages</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Read that table as a procurement checklist</strong>, because that is what it is
+for. Any transport can be made to satisfy all five with enough work at your
+end; the table tells you how much work, and where it lands. A source that
+publishes bare values with no event time and no sequence number is not
+cheap. It is expensive, and the expense is yours.</p>
+<p><strong>Note what is absent from the table:</strong> throughput, latency, security
+features, tooling, ecosystem. Those matter and they are real selection
+criteria -- they are just not <em>twin</em> criteria, and Chapter 12 selects tools.</p>
+<h3 id="944-the-names-for-recognition-only">9.4.4 The names, for recognition only</h3>
+<p>You will meet these in a first meeting and should be able to place them.
+One line each, deliberately.</p>
+<ul>
+<li><strong>HTTP/REST</strong> -- request/response. Poll, and hope for a history parameter.
+  Universal, and the demonstrator's.</li>
+<li><strong>MQTT</strong> -- lightweight publish/subscribe through a broker, built for
+  constrained devices and unreliable links. The default in IoT-shaped
+  systems.</li>
+<li><strong>OPC UA</strong> -- the industrial-automation standard, carrying an information
+  model as well as data. The one that answers "what is this value?" as well
+  as "what is it now?"</li>
+<li><strong>DDS</strong> -- publish/subscribe with no broker, aimed at low-latency
+  distributed control.</li>
+<li><strong>AMQP</strong> -- brokered messaging with queueing semantics, from the
+  enterprise side.</li>
+<li><strong>Kafka</strong> -- a durable, replayable log. Not a device protocol; frequently
+  the thing behind the gateway.</li>
+</ul>
+<p>Surveys of the publish/subscribe landscape exist and are candid that there
+is no common ground on which to compare these systems, because they differ
+in brokers, delivery policies, protocols and APIs
+[4]. Twin middleware studies find the same
+heterogeneity and treat it as the problem middleware exists to absorb
+[1]. Digital-twin platform guidance names DDS, MQTT
+and OPC UA together as the connectivity middleware set
+[2].</p>
+<p><strong>Chapter 12 selects. Chapter 13 covers the standards.</strong> This chapter's
+position is that the five properties of Sec. 9.4.3 decide more than the name
+does.</p>
+<h3 id="945-one-handler-per-protocol-one-normalised-form-upstream">9.4.5 One handler per protocol, one normalised form upstream</h3>
+<p>The architectural conclusion is Chapter 3's and needs only a sentence of
+reinforcement: <strong>put each protocol behind its own handler, and let the rest
+of the system see tuples.</strong></p>
+<p>Two consequences you can act on immediately.</p>
+<p><em>The handler is where the physical world's vocabulary dies.</em> Register
+numbers, multiplexer channels, endianness, scaling factors, the fact that
+this device reports tenths of a degree as an integer -- all of it stops
+here. A scaling factor that escapes the handler will eventually be applied
+twice.</p>
+<p><em>The handler is the only place a unit is attached, and it must be.</em> Chapter
+3 put <code>unit</code> in the tuple. A connector that emits bare numbers has exported
+a convention, and conventions are not checkable.</p>
+<hr />
+<h2 id="95-time-four-timestamps-and-a-clock">9.5 Time: four timestamps and a clock</h2>
+<p>This is the section that Chapter 2 has been owed since Sec. 2.7, and the
+one where the most expensive quiet defects live.</p>
+<h3 id="951-there-are-four-timestamps-and-they-are-all-different">9.5.1 There are four timestamps, and they are all different</h3>
+<p>Follow one moisture reading from soil to store:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Timestamp</th>
+<th>Set by</th>
+<th>Why it differs from the one before</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Sensor read time</strong></td>
+<td>The gateway, when it reads the bus</td>
+<td>The physical state was what it was; this is when somebody looked</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Gateway record time</strong></td>
+<td>The Pi's local database</td>
+<td>Decoding, bus contention, batching</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Transport time</strong></td>
+<td>The broker or the HTTP response</td>
+<td>Network, queueing, the poll interval itself</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Ingest time</strong></td>
+<td>Your connector, on acceptance</td>
+<td>Your processing, your retries, your backlog</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 9.1 puts them on one timeline, which is where the point becomes
+visible: the four are not alternatives, they are <em>stations on a path</em>, and
+the distance between the ends is a quantity you need.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code>   the world        soil is at 612
+        |
+        |  (nobody knows yet)
+        v
+   [1] sensor read      t0        ---+
+        |  decode, bus, batching      |
+        v                             |
+   [2] gateway record   t0 + 40ms     |  each gap has a
+        |  network, queue, poll       |  different cause
+        v                             |  and a different
+   [3] transport        t0 + 900ms    |  owner
+        |  your retries, your backlog |
+        v                             |
+   [4] ingest           t0 + 1.2s  ---+
+
+   |&lt;---------------------------------&gt;|
+        this distance IS Chapter 2&#39;s
+        time discrepancy
+
+   the tuple carries [1] (event time)
+   the connector records [4] (ingest time)
+   both, always -- their difference is a measurement
+
+  Figure 9.1  Four timestamps on one path. Picking one and
+              discarding the rest throws away the only number that
+              tells you how far behind the twin is running.
+</code></pre></div></td></tr></table></div>
+<p>Chapter 3's tuple has <strong>one</strong> timestamp field. Which of the four goes in it?</p>
+<blockquote>
+<p><strong>Rule: the tuple carries event time -- the earliest one that describes
+the world rather than the plumbing -- and the connector separately records
+ingest time.</strong></p>
+</blockquote>
+<p>Event time is what every model comparison in this book needs. Chapter 7
+compares a prediction for 17:05 against a measurement at 17:05, and if the
+"17:05" is when your service happened to accept the message, the comparison
+is against a number from a different moment. Ingest time is what every
+operational question needs: how far behind are we, is the backlog growing,
+did this arrive late.</p>
+<p><strong>Carry both. They are not redundant, and their difference is a
+measurement</strong> -- specifically, Chapter 2 Sec. 2.7.2's <strong>time discrepancy</strong>,
+which has been studied in its own right for twins of cyber-physical systems
+precisely because there are cases where the delay is the whole problem
+[5].</p>
+<p><strong>In the demonstrator</strong>, event time is the timestamp the Pi's API returns,
+which is timestamp 1 or 2 depending on how the Pi records it -- and <em>finding
+out which</em> is a real task with a real answer, not a detail. Ingest time is
+your connector's own clock when the poll succeeded.</p>
+<h3 id="952-the-timestamp-questions-that-catch-people">9.5.2 The timestamp questions that catch people</h3>
+<p>Four, all cheap to answer at design time and expensive later.</p>
+<p><strong>Whose clock?</strong> The Pi's and yours are different clocks. If event time
+comes from the Pi and you compare it against your own "now", you are
+subtracting two clocks (Sec. 9.5.3).</p>
+<p><strong>What is the offset from UTC, and is it stored?</strong> Local time without an
+offset is not a timestamp. The failure is famous and it still happens, and
+in a twin it produces a one-hour residual bias twice a year that Chapter 7's
+machinery will faithfully attribute to a modelling assumption.</p>
+<p><strong>What resolution?</strong> A timestamp to the second is fine at <code>Ts</code> = 10 minutes
+and useless at 2 kHz. Match it to the sampling interval, not to a habit.</p>
+<p><strong>Is it the start or the end of the interval?</strong> For an instantaneous reading
+this is meaningless. For anything aggregated -- a mean over a minute, a
+count over an hour -- it decides whether your data is shifted by the window
+length. <strong>Aggregates need both edges, or a stated convention that is
+actually stated.</strong></p>
+<h3 id="953-clock-error-sized-against-ts">9.5.3 Clock error, sized against <code>Ts</code></h3>
+<p>Two clocks drift apart. The question is never "is the clock accurate" but
+<strong>"is the clock error small compared with <code>Ts</code>?"</strong> Here is that comparison
+done twice, with different answers.</p>
+<p><strong>The arithmetic.</strong> An uncompensated crystal oscillator is commonly
+specified around 20 parts per million. That is 20 microseconds per second:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>20 ppm x 86,400 seconds per day = 1.73 seconds per day
+                    over a month = about 52 seconds
+                     over a year = about 631 seconds, or 10.5 minutes
+</code></pre></div></td></tr></table></div>
+<p><strong>Case 1: the demonstrator.</strong> <code>Ts</code> = 10 minutes. A year of unsynchronised
+drift equals <strong>one entire sampling interval</strong> -- so an unsynchronised
+gateway will, after a year, place readings a whole sample away from where
+they belong. Over a week, though, drift is about 12 seconds, which is 2 per
+cent of <code>Ts</code> and harmless. <strong>Ordinary network time synchronisation, which
+typically holds tens of milliseconds, is four orders of magnitude better
+than needed here.</strong> Turn it on, verify it is running, and stop thinking
+about it.</p>
+<p><strong>Case 2: the turbine.</strong> Vibration sampled at 2 kHz means a sample every
+0.5 milliseconds. Now tens of milliseconds of clock error is <em>tens of
+samples</em>, and two accelerometers on different gateways cannot be compared at
+all. Ordinary network time is not enough; this is where precision time
+protocols and clocks disciplined by the Global Positioning System (GPS)
+earn their cost.</p>
+<blockquote>
+<p><strong>The rule, and it is the whole section:</strong> express clock error as a
+fraction of <code>Ts</code>. Below a per cent or so, ignore it. Approaching <code>Ts</code>,
+your timestamps are fiction. The demonstrator and the turbine differ by
+six orders of magnitude in <code>Ts</code> and therefore need completely different
+answers to a question that sounds identical.</p>
+</blockquote>
+<p><strong>One more, because it bites in exactly one place.</strong> A gateway that reboots
+without a battery-backed clock may come up at the epoch, or at its last
+known time, and then jump when it synchronises. Both produce readings with
+absurd or duplicated timestamps. <strong>Your connector must reject an event time
+that is impossible</strong> -- before the physical twin was commissioned, or in the
+future -- rather than storing it. Chapter 8 Sec. 8.6.2's input-coverage
+check is the same instinct applied one layer down.</p>
+<h3 id="954-computing-twinning-rate-age-of-twin-and-time-discrepancy">9.5.4 Computing twinning rate, age of twin, and time discrepancy</h3>
+<p>Chapter 2 Sec. 2.7 introduced three metrics and said the taxonomy does not
+carry them. The connector produces all three, cheaply, and they should be
+on a dashboard from day one.</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Computed as</th>
+<th>For the demonstrator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Twinning rate</strong></td>
+<td>Tuples accepted per binding per unit time</td>
+<td>Expect 6 per hour per moisture binding at <code>Ts</code> = 10 min</td>
+</tr>
+<tr>
+<td><strong>Age of twin</strong></td>
+<td><code>now</code> minus the newest event time held, per binding</td>
+<td>Should hover just above <code>Ts</code>; a rising value is the first symptom of almost everything</td>
+</tr>
+<tr>
+<td><strong>Time discrepancy</strong></td>
+<td>Ingest time minus event time, per tuple</td>
+<td>Expect roughly half a poll interval on average; a growing distribution means a backlog or a slowing source</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Three notes that make these useful rather than decorative.</strong></p>
+<p><em>Per binding, always.</em> An aggregate age-of-twin across twelve pots hides
+one dead sensor completely. Chapter 3's binding is what makes the
+disaggregation possible, and this is the payoff.</p>
+<p><em>Age of twin is the single best one-number health indicator a twin has.</em>
+It responds to a dead sensor, a dead gateway, a dead network, a crashed
+connector and a full disk, and it needs no configuration beyond <code>Ts</code>.
+Twin-platform work treats the twinning rate and the age of twin as
+measurable properties for exactly this reason [6].</p>
+<p><em>Alert on age of twin, not on the absence of data.</em> "No data received" is
+not an event; nothing arrives to trigger it. Something must be watching the
+clock, and it must be outside the component that stopped working.</p>
+<hr />
+<h2 id="96-quality-building-the-field-chapter-3-defended">9.6 Quality: building the field Chapter 3 defended</h2>
+<p>Chapter 3 Sec. 3.2.1 put <code>quality</code> in the tuple and defended it in one
+sentence: a reading you are unsure of and a reading you did not get are
+different, and a connector mapping both to <code>null</code> has destroyed information
+the state estimator needed. Here it is built.</p>
+<h3 id="961-the-states-enumerated">9.6.1 The states, enumerated</h3>
+<p>Six is enough for most twins, and fewer than four is always too few.</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Meaning</th>
+<th>Value present?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>good</code></td>
+<td>Read successfully, inside range, source healthy</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>uncertain</code></td>
+<td>Read, but something is off -- near a range limit, sensor overdue for calibration, unusually noisy neighbourhood</td>
+<td>Yes, and it must not be silently used as <code>good</code></td>
+</tr>
+<tr>
+<td><code>substituted</code></td>
+<td>Not measured; produced by the twin -- interpolated, forward-filled, or estimated</td>
+<td>Yes, <strong>and this is the state that must never be lost</strong></td>
+</tr>
+<tr>
+<td><code>out_of_range</code></td>
+<td>Read, but outside the sensor's specified range</td>
+<td>Yes, but as evidence about the sensor, not about the world</td>
+</tr>
+<tr>
+<td><code>no_reading</code></td>
+<td>The attempt was made and failed</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td><code>not_attempted</code></td>
+<td>No attempt was made -- connector down, scheduled outage</td>
+<td><strong>No</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why <code>substituted</code> is the important one.</strong> Every twin eventually fills a
+gap, and filling gaps is legitimate. What is not legitimate is a filled gap
+that looks like a measurement. Chapter 7's hold-out spread of 2.0 would be
+meaningless if a third of the readings were forward-filled, and Chapter 8's
+learned correction would be trained partly on its own outputs. <strong>A
+substituted value must be as straightforward to exclude as it was to
+create</strong>, and that
+is a schema decision made here, in the connector, before anybody has a
+reason to want it.</p>
+<p><strong>Why <code>no_reading</code> and <code>not_attempted</code> are separate.</strong> One says the physical
+twin failed to answer; the other says you did not ask. They point at
+different teams and different fixes, and a completeness calculation
+(Sec. 9.7.1) that cannot tell them apart will blame the wrong one.</p>
+<h3 id="962-what-each-state-does-downstream">9.6.2 What each state does downstream</h3>
+<p>A quality state that nothing consumes is decoration. Each of these has a
+defined consumer, and specifying that is part of building the connector.</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Estimator (Ch6)</th>
+<th>Calibration / hold-out (Ch7)</th>
+<th>Alerting (Ch11)</th>
+<th>Learned model (Ch8)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>good</code></td>
+<td>Use normally</td>
+<td>Include</td>
+<td>Normal</td>
+<td>Include</td>
+</tr>
+<tr>
+<td><code>uncertain</code></td>
+<td>Use with reduced gain</td>
+<td><strong>Exclude</strong></td>
+<td>Normal, with a flag</td>
+<td>Exclude</td>
+</tr>
+<tr>
+<td><code>substituted</code></td>
+<td>Do not correct toward it</td>
+<td><strong>Exclude</strong></td>
+<td>Suppress</td>
+<td><strong>Exclude, always</strong></td>
+</tr>
+<tr>
+<td><code>out_of_range</code></td>
+<td>Ignore the value; count the event</td>
+<td>Exclude</td>
+<td>Alert on the sensor</td>
+<td>Exclude</td>
+</tr>
+<tr>
+<td><code>no_reading</code></td>
+<td>Predict without correcting</td>
+<td>Mark the window incomplete</td>
+<td>Feeds the gap detector</td>
+<td>Gap</td>
+</tr>
+<tr>
+<td><code>not_attempted</code></td>
+<td>Predict without correcting</td>
+<td>Mark the window incomplete</td>
+<td>Suppress</td>
+<td>Gap</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Two rows are worth pausing on.</strong></p>
+<p><em><code>uncertain</code> reduces the estimator's gain.</em> Chapter 6 Sec. 6.6.2 defined the
+gain as how far the correction pulls toward the measurement, and Chapter 7
+Sec. 7.7.4 made a drifting gain an expiry trigger. This is the mechanism by
+which a doubtful reading has a proportionate effect instead of a binary one,
+and it is available only because the connector said "unsure" instead of
+"here is a number".</p>
+<p><em>Three states exclude from calibration.</em> Chapter 7's campaigns assumed
+complete, trustworthy windows and never said so. This table is where that
+assumption becomes enforceable.</p>
+<h3 id="963-where-quality-is-decided-and-where-it-cannot-be">9.6.3 Where quality is decided, and where it cannot be</h3>
+<p>Most of it is decided in the connector, because most of it is knowable
+there: the read failed, the value is outside the datasheet range, the sensor
+is overdue for calibration, the value was substituted.</p>
+<p><strong>One thing is not, and it is worth being clear about the boundary.</strong>
+Whether a reading is <em>implausible given what the twin knows</em> cannot be
+decided by the connector, because the connector has no model. A moisture
+reading of 640 is inside range and perfectly good; a moisture reading of 640
+ten minutes after a reading of 380 is nearly impossible, and only something
+holding Chapter 4's model can say so. Sec. 9.7.4 finds the same boundary
+from the other direction.</p>
+<p>So the architecture is: <strong>the connector decides quality it can determine
+from the sensor and the transport; a downstream check decides quality that
+requires the model.</strong> Keep them separate, and do not let the connector grow
+a model -- that is a different component with a different lifecycle, and
+Chapter 3 drew it as one.</p>
+<p>Broader treatments of data quality for IoT-shaped systems make the same
+distinction between quality of data and quality of information, and treat
+the evaluation of autonomic applications as a problem in its own right
+[7].</p>
+<hr />
+<h2 id="97-the-four-ways-a-stream-goes-wrong">9.7 The four ways a stream goes wrong</h2>
+<p>Every measurement stream fails in four ways. Three are handled by mechanisms
+you already have; the fourth defeats all of them.</p>
+<h3 id="971-gaps">9.7.1 Gaps</h3>
+<p><strong>What it is.</strong> Expected readings did not arrive.</p>
+<p><strong>Detection, and it is not "no data received".</strong> Nothing arrives to trigger
+an event, so a gap must be detected by something watching the clock. Two
+checks, and both are needed:</p>
+<p><em>Live check -- age of twin.</em> Alert when <code>now</code> minus the newest event time
+exceeds <code>k x Ts</code>. For the demonstrator, <code>k</code> = 3 gives 30 minutes. Why not
+<code>k</code> = 1: a single missed poll is ordinary and alerting on it trains people
+to ignore alerts. Why not <code>k</code> = 10: 100 minutes is longer than a moisture
+step takes to resolve, so a fault could be missed entirely within one
+alerting window.</p>
+<p><em>Retrospective check -- completeness.</em> Count what arrived against what was
+expected:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>expected per day at Ts = 10 min:  24 x 6 = 144 samples per binding
+completeness = received / expected
+</code></pre></div></td></tr></table></div>
+<p>A day with 130 of 144 is 90 per cent complete. Pick a threshold and act on
+it:</p>
+<blockquote>
+<p><strong>Mark a window degraded when completeness falls below 90 per cent, and
+exclude degraded windows from calibration and validation.</strong></p>
+</blockquote>
+<p>That single rule closes a hole in Chapter 7. Its calibration campaign used
+six nights and its hold-out used week 3, and neither said anything about
+whether those windows were complete. A night with a two-hour hole in it
+produces a drying rate computed across a gap, and the arithmetic will not
+notice.</p>
+<p><strong>Handling.</strong> Backfill where the source supports it -- <code>since_timestamp</code> in
+the demonstrator's case. Where it does not, emit <code>no_reading</code> and leave the
+hole. <strong>Do not forward-fill into the measurement stream.</strong> If something
+downstream needs a value at every tick, it may substitute one, and it marks
+it <code>substituted</code>.</p>
+<h3 id="972-duplicates">9.7.2 Duplicates</h3>
+<p><strong>What it is.</strong> The same reading ingested more than once. Caused by retries,
+at-least-once delivery, an overlapping backfill, or two connector instances.</p>
+<p><strong>Why it matters more here than in most systems.</strong> Duplicates do not look
+like errors. They look like extra data, and extra data quietly reweights
+every average, every count and every fit. Chapter 7's six-night average and
+Chapter 8's training set are both silently wrong if one night was ingested
+twice.</p>
+<p><strong>Handling, and this is the tractable one.</strong> Make the write idempotent on a
+natural
+key -- <code>(binding, quantity, event_time)</code>. An upsert on that key absorbs
+retries, restarts and overlapping backfills without any coordination.
+Chapter 3 Sec. 3.7.1 already specified this for the demonstrator; the point
+here is that <strong>it is a property of the key, not of the protocol</strong>, and it is
+therefore available to you no matter what the source offers.</p>
+<p><em>The complication worth knowing.</em> If two genuinely different readings share
+a key -- two sensors on the same binding, or an event-time resolution
+coarser than the sample interval -- the upsert silently discards one.
+<strong>Verify that your key is actually unique in your data before relying on
+it</strong>, which is a five-minute query and a real source of quiet loss.</p>
+<h3 id="973-out-of-order-arrival">9.7.3 Out-of-order arrival</h3>
+<p><strong>What it is.</strong> A reading for 10:00 arriving after one for 10:10. Normal
+with retries, backfills, multiple gateways, or any queue with parallel
+consumers.</p>
+<p><strong>Who cares, and it is not everyone.</strong> A store keyed on event time does not
+care at all -- rows land where they belong. The consumers that care are
+<strong>sequential</strong> ones: Chapter 6's estimator runs a predict-correct cycle in
+order and cannot accept a correction from the past after it has already
+moved on.</p>
+<p><strong>Handling: pick one, and write down which.</strong></p>
+<ul>
+<li><em>A watermark.</em> Process up to <code>now - w</code> and treat anything older as late.
+  Simple, and costs <code>w</code> of latency.</li>
+<li><em>Recompute.</em> Accept late data, and re-run the affected estimator steps.
+  Correct, and requires the runner to be re-runnable -- which Chapter 5
+  Sec. 5.6's reproducibility requirement already gives you, if you built it.</li>
+<li><em>Drop and count.</em> Legitimate when late data cannot change a decision.
+  <strong>Only legitimate if the count is monitored</strong>, because a rising drop rate
+  is a real problem wearing a working system's clothes.</li>
+</ul>
+<p>For the demonstrator, a watermark of one poll interval is right, and the
+reason is that nothing acts within 10 minutes anyway.</p>
+<h3 id="974-the-stuck-sensor-which-defeats-everything-above">9.7.4 The stuck sensor, which defeats everything above</h3>
+<p><strong>What it is.</strong> The sensor reports an unchanging, entirely plausible value.
+No gap. No duplicate. No ordering problem. Perfect completeness. Every
+mechanism in this chapter reports a healthy stream.</p>
+<p>Figure 9.2 is why: the three failures earlier in this section all leave a
+mark on the stream, and this one leaves none.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code>   gap            x x x . . . x x x      a hole you can see
+   duplicate      x x x x x x x x        two identical arrivals
+                      ^^                  with the same event time
+   out-of-order   x x   x x x            arrival order != event
+                      ^                   order
+
+   ALL THREE are visible in the stream&#39;s SHAPE.
+
+
+   stuck          x x x x x x x x x x    perfectly regular
+                  6 6 6 6 6 6 6 6 6 6    perfectly plausible
+                  1 1 1 1 1 1 1 1 1 1    complete
+                  2 2 2 2 2 2 2 2 2 2
+
+   the stream is healthy by every check in Sec. 9.7.1-9.7.3.
+   The only thing that knows is the MODEL:
+
+       expected change per sample = 0.71 units
+       sensor resolution          = 1 unit
+       -&gt; two identical readings prove nothing
+       -&gt; but over an hour, the model expects 4.28
+
+  Figure 9.2  Why the stuck sensor is the one to fear. The other
+              three failures are detectable from the stream; this
+              one is detectable only against a model of what the
+              value should have done.
+</code></pre></div></td></tr></table></div>
+<p>This is the failure mode to be afraid of, and it is common: a frozen
+firmware register, a cached value in a driver, a sensor whose element has
+detached, an analogue input that has settled.</p>
+<p><strong>Detection starts as arithmetic.</strong> A stuck sensor is one whose value does
+not change when the model says it should. Chapter 7 fitted <code>k_day</code> = 4.28
+reading units per hour, so over one 10-minute sample:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>expected change per sample = 4.28 / 6 = 0.71 reading units
+</code></pre></div></td></tr></table></div>
+<p>The sensor reports whole numbers, so its resolution is 1 unit. <strong>The
+expected change per sample is smaller than the resolution</strong> -- which means
+two identical consecutive readings are entirely ordinary and cannot be
+evidence of anything. Over an hour, though:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>expected change per hour = 4.28 reading units
+</code></pre></div></td></tr></table></div>
+<p>which is four resolution steps and comfortably visible. So:</p>
+<blockquote>
+<p><strong>Flag a moisture sensor as suspect when its value is unchanged across six
+consecutive samples (one hour) during a period in which the model expects
+a change of at least a few resolution steps.</strong></p>
+</blockquote>
+<p><strong>And now the trap, which is the reason this subsection exists.</strong> Chapter 4's
+assumption A2 says the sensor flattens near saturation: a pot watered to the
+top of the range shows no change <em>because the physics is real and the sensor
+is at its limit</em>. A naive unchanging-value detector fires precisely then --
+on a healthy sensor, in a condition Chapter 4 predicted in writing, four
+chapters before anybody wrote this code.</p>
+<p>So the rule has that clause in it: <em>during a period in which the model
+expects a change.</em> Which means:</p>
+<blockquote>
+<p><strong>The stuck-sensor detector needs the model, so the connector cannot
+implement it alone.</strong></p>
+</blockquote>
+<p>That is a genuine qualification to Chapter 3's clean layering, and it is
+worth stating rather than smoothing over. The connector can flag the raw
+symptom -- "unchanged for N samples" -- as <code>uncertain</code>. Deciding whether
+that symptom means a broken sensor requires the model, so it belongs to a
+downstream check that has one. Chapter 8 Sec. 8.3.1 already described the
+right home for it: an anomaly detector running on model residuals rather
+than on raw signals.</p>
+<h3 id="975-the-four-as-a-table-you-can-build-against">9.7.5 The four, as a table you can build against</h3>
+<table>
+<thead>
+<tr>
+<th>Failure</th>
+<th>Symptom</th>
+<th>Detected by</th>
+<th>Handled by</th>
+<th>Cost of missing it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gap</td>
+<td>Nothing arrives</td>
+<td>Age of twin; completeness count</td>
+<td>Backfill, or <code>no_reading</code></td>
+<td>Silent holes in calibration windows</td>
+</tr>
+<tr>
+<td>Duplicate</td>
+<td>Extra data</td>
+<td>Uniqueness of the natural key</td>
+<td>Idempotent upsert</td>
+<td>Quietly reweighted averages and fits</td>
+</tr>
+<tr>
+<td>Out of order</td>
+<td>Event time before the last processed</td>
+<td>Watermark comparison</td>
+<td>Watermark, recompute, or counted drop</td>
+<td>A corrupted sequential estimator</td>
+</tr>
+<tr>
+<td>Stuck</td>
+<td>Nothing wrong at all</td>
+<td><strong>Model residual</strong>, not the connector</td>
+<td><code>uncertain</code>, then a downstream check</td>
+<td>Confident wrong decisions, indefinitely</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Read the last column.</strong> The three a connector can detect have costs
+measured in bad data. The one it cannot has a cost measured in bad
+decisions, and that ordering is not a coincidence -- the failures a system
+can see are the ones it was built to see.</p>
+<hr />
+<h2 id="98-volume-buffering-and-the-link-you-do-not-own">9.8 Volume, buffering, and the link you do not own</h2>
+<p>Three decisions that follow from the ones above, and one warning.</p>
+<h3 id="981-data-volume-computed-before-it-is-a-problem">9.8.1 Data volume, computed before it is a problem</h3>
+<p>Do this arithmetic at design time. It takes five minutes and it changes
+architectures.</p>
+<p><strong>The demonstrator.</strong> Say twelve plants -- the rig's plant count is a
+deployment choice, and the conclusion below survives any of them -- with one
+moisture quantity each, plus
+temperature and humidity from the SHT45 and eight spectral channels from the
+AS7341:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>quantities        = 12 + 2 + 8 = 22
+samples per day   = 22 x 144 = 3,168 tuples
+at ~120 bytes each = about 380 KB per day
+                   = about 139 MB per year
+</code></pre></div></td></tr></table></div>
+<p><strong>That number is the point.</strong> A hundred and thirty-nine megabytes a year
+means no architecture decision is forced by volume. Do not build a streaming
+pipeline for this. Chapter 12 will offer you platforms sized for a thousand
+times more, and the arithmetic above is your defence.</p>
+<p><strong>Now change one thing.</strong> Raise the rate to 1 Hz because somebody said "real
+time":</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>22 x 86,400 = 1.9 million tuples per day
+             = about 228 MB per day
+             = about 83 GB per year
+</code></pre></div></td></tr></table></div>
+<p>Six hundred times the data, for a decision that happens twice a day.
+Chapter 2 called "real time" an abdication; this is the invoice.</p>
+<p><strong>And the other extreme -- the turbine.</strong> Three triaxial accelerometers at
+2 kHz, four bytes per sample:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>9 channels x 2,000 samples/s x 4 bytes = 72,000 bytes per second
+                                       = about 6.2 GB per day per turbine
+                                       = about 2.3 TB per year per turbine
+an 80-turbine farm                     = about 180 TB per year
+</code></pre></div></td></tr></table></div>
+<p><strong>Now the architecture is forced</strong>, and this is where edge preprocessing
+stops being an optimisation and becomes the design: extract features at the
+turbine, ship the features, keep raw windows only around events. Structural
+monitoring architectures are built this way for exactly this reason
+[8], [9], and the twin sensing
+literature treats compression as a first-class concern for the same
+constraint [3].</p>
+<blockquote>
+<p><strong>The general lesson.</strong> The sampling interval is a capital expenditure
+decision. Sec. 9.3.1 derived <code>Ts</code> from the decision the twin serves; this
+subsection prices the answer. Do both before anybody buys anything.</p>
+</blockquote>
+<h3 id="982-buffering-and-store-and-forward">9.8.2 Buffering and store-and-forward</h3>
+<p><strong>The question.</strong> When the link between the physical twin and your connector
+breaks, does the physical twin hold on to its data?</p>
+<p><strong>If yes</strong>, an outage is a delay. When the link returns, backfill.
+Everything in Sec. 9.7.1 works, and the demonstrator is in this happy state
+because the Pi keeps a local time-series database and the API takes
+<code>since_timestamp</code>.</p>
+<p><strong>If no</strong>, an outage is a hole, permanently. And then the honest engineering
+response is either to add buffering at the physical-twin end, or to accept
+the holes and put them in the credibility argument -- because Chapter 7's
+limitations section is where an un-fixable gap belongs.</p>
+<p><strong>Three practical notes.</strong></p>
+<p><em>How much buffer?</em> Enough for your worst realistic outage. If the site loses
+connectivity for a day twice a year, a two-day buffer converts an annual
+data-loss incident into an annual non-event.</p>
+<p><em>Buffering is not free at the far end either.</em> A device that has buffered
+six hours will deliver six hours at once, and your ingest must survive the
+burst -- which is Sec. 9.8.3.</p>
+<p><em>Where the buffer sits is a topology decision</em>, and Chapter 12 owns it. Work
+on constrained devices paired with twins that offload computation and
+validate inferences is one shape this takes [10]; a
+gateway with a disk is another and is usually enough.</p>
+<h3 id="983-backpressure-and-the-burst-you-did-not-test-for">9.8.3 Backpressure, and the burst you did not test for</h3>
+<p>A connector that keeps up in the steady state is not a connector that keeps
+up. The load that breaks it is the backfill: six hours of buffered data
+arriving in one response, or twelve bindings all recovering at once after a
+network event.</p>
+<p><strong>Two rules that cost nothing at design time.</strong></p>
+<p><em>Bound every queue, and decide what happens when it is full.</em> An unbounded
+queue does not prevent loss; it converts fast, visible loss into slow,
+invisible loss ending in an out-of-memory kill. A bounded queue with a
+counted drop is worse-looking and better.</p>
+<p><em>Make backpressure reach the poller.</em> A polling connector controls its own
+input rate, which is a real advantage over a subscription, and it is thrown
+away by accident more often than not: if the poll loop runs on a timer
+regardless of whether the previous batch has been written, a slow store turns into an unbounded backlog. Poll,
+write, then schedule the next poll.</p>
+<p><strong>Test it deliberately.</strong> Stop the connector for two hours, restart it, and
+watch. This is a fifteen-minute test that finds a class of defect nothing
+else finds, and it is the same test that verifies Sec. 9.7.1's backfill and
+Sec. 9.7.2's idempotency at the same time.</p>
+<h3 id="984-the-link-is-an-attack-surface-and-it-is-not-this-chapters">9.8.4 The link is an attack surface, and it is not this chapter's</h3>
+<p>Two things belong here and the rest is Chapter 13's.</p>
+<p><strong>What is different about this layer.</strong> The acquisition and dissemination
+path is where the twin's contact with the physical world is thinnest and
+most exposed. A comprehensive threat survey classifies twin threats by
+functional layer and notes that a loss of integrity or availability in the
+data-dissemination layer propagates -- affecting synchronisation services and
+the quality of the twin's simulations, not merely the data
+[11]. That propagation is the reason a connector-level
+compromise is not a connector-level problem.</p>
+<p><strong>What you can do here, cheaply.</strong> Everything in this chapter that rejects
+implausible input does double duty: rejecting impossible event times
+(Sec. 9.5.3), rejecting out-of-range values (Sec. 9.6.1), and Chapter 8
+Sec. 8.6.2's input-coverage check all constrain what an unexpected input can
+do. None of that is a security control, and none of it substitutes for
+Chapter 3 Sec. 3.3.3's. It is the part you get for free by building the
+connector well.</p>
+<hr />
+<h2 id="99-worked-example-the-demonstrators-connector-built">9.9 Worked example: the demonstrator's connector, built</h2>
+<p>Chapter 3 Sec. 3.7.1 gave this component eight lines and a decision. Here it
+is in full, with every choice traced to a section above.</p>
+<h3 id="991-what-the-source-offers-read-as-a-specification">9.9.1 What the source offers, read as a specification</h3>
+<p>From Chapter 1 Sec. 1.8.1:</p>
+<ul>
+<li><code>GET /sensing/{unit}/{parameter}</code>, with <code>limit</code> and <code>since_timestamp</code></li>
+<li><code>GET /actuation/{unit}/watering_events</code></li>
+<li>HTTP on port 8099; no subscription, no push, no notification</li>
+</ul>
+<p>Against Sec. 9.4.3's five properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Available?</th>
+<th>What that costs us</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Event time preserved</td>
+<td>Yes, the API returns timestamps</td>
+<td>Nothing -- but we must confirm whether it is sensor-read or database-write time</td>
+</tr>
+<tr>
+<td>Connection state observable</td>
+<td>Yes, for free -- a poll either succeeds or does not</td>
+<td>Nothing</td>
+</tr>
+<tr>
+<td>Gap survivable</td>
+<td><strong>Yes</strong>, via <code>since_timestamp</code></td>
+<td>Nothing. This is the single most valuable feature of this API</td>
+</tr>
+<tr>
+<td>Ordering knowable</td>
+<td>Yes, event time is present and the source is one gateway</td>
+<td>Nothing</td>
+</tr>
+<tr>
+<td>Idempotent-friendly</td>
+<td>Yes -- <code>(binding, quantity, event_time)</code> is a stable key</td>
+<td>Nothing</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Five out of five, from a plain REST API with a history parameter.</strong> Worth
+noticing before reaching for anything more sophisticated: the properties
+that matter are not the properties that sound advanced.</p>
+<h3 id="992-bindings-and-the-tuple-mapping">9.9.2 Bindings and the tuple mapping</h3>
+<p>One binding per measured thing, not per device:</p>
+<table>
+<thead>
+<tr>
+<th>Binding</th>
+<th>Quantity</th>
+<th>Unit</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pot-3/moisture</code></td>
+<td>soil moisture</td>
+<td>reading units</td>
+<td><code>/sensing/pot-3/moisture</code></td>
+</tr>
+<tr>
+<td><code>greenhouse/air_temperature</code></td>
+<td>air temperature</td>
+<td>degrees C</td>
+<td><code>/sensing/greenhouse/air_temperature</code></td>
+</tr>
+<tr>
+<td><code>greenhouse/humidity</code></td>
+<td>relative humidity</td>
+<td>per cent</td>
+<td><code>/sensing/greenhouse/humidity</code></td>
+</tr>
+<tr>
+<td><code>greenhouse/light_{n}</code></td>
+<td>irradiance, channel n</td>
+<td>sensor units</td>
+<td><code>/sensing/greenhouse/light</code> (one poll, many tuples)</td>
+</tr>
+<tr>
+<td><code>pot-3/watering</code></td>
+<td>dose delivered</td>
+<td>millilitres</td>
+<td><code>/actuation/pot-3/watering_events</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Three decisions embedded there.</strong> The light sensor's one response becomes
+several tuples, per Sec. 9.2.3. The greenhouse bindings are shared across
+pots, so the store must join them by time rather than by pot -- Chapter 10's
+problem, created here. And the watering stream is ingest, not actuation:
+this connector never commands a pump.</p>
+<h3 id="993-the-poll-loop">9.9.3 The poll loop</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code>for each binding:
+    last = watermark[binding]              # last event time successfully written
+    try:
+        rows = GET /sensing/{unit}/{param}?since_timestamp=last
+    except any transport failure:
+        emit (binding, quantity, -, -, now, no_reading)
+        mark connector disconnected for this binding
+        continue                            # do NOT advance the watermark
+
+    for row in rows:
+        t = parse_event_time(row)           # with offset; reject if impossible
+        v = decode(row)                     # units applied here and nowhere else
+        q = classify_quality(v, t, binding) # Sec. 9.6.1
+        upsert (binding, quantity, v, unit, t, q)   # key: binding+quantity+t
+        record ingest_time = now
+
+    watermark[binding] = max event time written
+    schedule next poll                      # AFTER the write, per Sec. 9.8.3
+</code></pre></div></td></tr></table></div>
+<p>Eleven executable lines, and every one of them is a section of this chapter:</p>
+<ul>
+<li>The watermark is Sec. 9.4.2's resumability, and it advances <strong>only on
+  successful write</strong>, which is what makes a crash mid-batch safe.</li>
+<li>The failure branch emits <code>no_reading</code> rather than a zero -- Chapter 3
+  Sec. 3.7.1's rule, and Sec. 9.6.1's state.</li>
+<li><code>parse_event_time</code> rejects the impossible, per Sec. 9.5.3's rebooted-clock
+  case.</li>
+<li>Units are applied inside the handler and nowhere else, per Sec. 9.4.5.</li>
+<li>The upsert key makes retries and overlapping backfills harmless, per
+  Sec. 9.7.2.</li>
+<li>Scheduling after the write, not on a timer, is Sec. 9.8.3's backpressure
+  rule and the difference between a delay and an unbounded backlog.</li>
+</ul>
+<h3 id="994-the-numbers-all-of-them">9.9.4 The numbers, all of them</h3>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Value</th>
+<th>Where it came from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ts</code></td>
+<td>10 minutes</td>
+<td>Chapter 3 Sec. 3.7.1, re-derived by Sec. 9.3.1's five steps</td>
+</tr>
+<tr>
+<td>Expected samples per binding per day</td>
+<td>144</td>
+<td><code>24 x 6</code></td>
+</tr>
+<tr>
+<td>Gap alert</td>
+<td>age of twin above 30 minutes</td>
+<td>Sec. 9.7.1, <code>k</code> = 3</td>
+</tr>
+<tr>
+<td>Completeness threshold</td>
+<td>90 per cent, or 130 of 144</td>
+<td>Sec. 9.7.1</td>
+</tr>
+<tr>
+<td>Watermark lateness allowance</td>
+<td>one poll interval</td>
+<td>Sec. 9.7.3</td>
+</tr>
+<tr>
+<td>Stuck-sensor symptom</td>
+<td>unchanged across 6 samples</td>
+<td>Sec. 9.7.4, from <code>k_day</code> = 4.28 and 1-unit resolution</td>
+</tr>
+<tr>
+<td>Clock requirement</td>
+<td>network time sync, verified running</td>
+<td>Sec. 9.5.3, error under 1 per cent of <code>Ts</code></td>
+</tr>
+<tr>
+<td>Data volume</td>
+<td>about 139 MB per year</td>
+<td>Sec. 9.8.1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="995-what-this-connector-still-cannot-do-stated-for-chapter-7">9.9.5 What this connector still cannot do, stated for Chapter 7</h3>
+<p>The credibility argument gets a paragraph out of this section, and it is an
+honest one:</p>
+<blockquote>
+<p>Measurements are polled every 10 minutes from the physical twin's HTTP
+API, with resumable backfill. Event time originates on the gateway;
+gateway and twin clocks are network-synchronised, with expected error
+below 1 per cent of the sampling interval. Windows below 90 per cent
+completeness are excluded from calibration and validation. Substituted
+values are marked and never used for fitting. <strong>The connector cannot
+detect a sensor reporting a plausible unchanging value; that check
+requires the model and runs downstream. No check for aliasing has been
+performed at this site.</strong> Watering events are ingested from the actuation
+history; the twin issues no commands.</p>
+</blockquote>
+<p>The two bolded sentences are the ones a reviewer should find, and they are
+there because Sec. 9.7.4 and Sec. 9.3.3 said so. <strong>A connector chapter that
+produced no new limitations for Chapter 7 would not have been honest about
+what a connector is.</strong></p>
+<hr />
+<h2 id="910-faded-example-the-offshore-turbines-ingest">9.10 Faded example: the offshore turbine's ingest</h2>
+<p>Chapters 4 through 8 each took the turbine one step further. Now connect
+it. Two parts are worked; four are yours.</p>
+<p><strong>The system, recapped.</strong> A floating offshore wind turbine with a
+reduced-order structural model, a Kalman filter estimating loads from a
+handful of sensors, a fatigue service, and Chapter 8's anomaly detector on
+the estimator's residuals. Real twins of this shape are validated against
+full-scale prototype measurements [12], and diagnostic
+implementations on operational floating turbines exist
+[13].</p>
+<p><strong>(a) <code>Ts</code> is not one number here -- worked, because it is the finding.</strong>
+The demonstrator has one sampling interval. This asset has at least three,
+and trying to pick one is the mistake:</p>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Rate</th>
+<th>Derived from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vibration and strain</td>
+<td>2 kHz</td>
+<td>The structural dynamics being observed -- the fastest thing that must be seen</td>
+</tr>
+<tr>
+<td>Operational state: power, pitch, yaw, wind</td>
+<td>1 Hz</td>
+<td>Control-system update rate; enough for the estimator</td>
+</tr>
+<tr>
+<td>Environment: sea state, met data</td>
+<td>10 minutes</td>
+<td>Industry convention and the rate at which it changes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>And a fourth number that is not a sampling interval at all:</strong> the fatigue
+service integrates over years and consumes daily aggregates. Chapter 5's
+distinction between <code>h</code> and <code>Ts</code> was one collision of timescales; this is
+four, and the connector is where they meet. The design consequence is that
+<strong>the high-rate streams almost certainly do not leave the turbine intact</strong> --
+Sec. 9.8.1's arithmetic gives 2.3 TB per turbine per year for vibration
+alone -- so the connector's boundary sits at the edge, and what crosses it is
+features plus event-triggered raw windows.</p>
+<p><strong>(b) Clocks -- worked, because the demonstrator's answer is wrong here.</strong>
+Sec. 9.5.3 concluded that ordinary network time sync is four orders of
+magnitude better than the pot needs. At 2 kHz the sample period is 0.5
+milliseconds, and tens of milliseconds of network-time error is <em>tens of
+samples</em>. Two accelerometers on different acquisition units cannot then be
+compared, which destroys any analysis depending on the phase relationship
+between them -- which is most structural analysis. This asset needs a
+precision time protocol or GPS-disciplined clocks, and that cost belongs in
+Chapter 1's estimate rather than in a surprise.</p>
+<p>Now yours.</p>
+<p><strong>(c)</strong> Build the quality-state table (Sec. 9.6.1) for the vibration stream.
+Which of the six states apply, which do not, and what does <code>substituted</code>
+mean for a 2 kHz signal? <em>Hint: consider what a downstream feature
+calculation does with a gap, and whether interpolating 200 samples is ever
+the right answer.</em></p>
+<p><strong>(d)</strong> Sec. 9.7.4's stuck-sensor detector used the model's expected change.
+Design the equivalent for an accelerometer. <em>Hint: a working accelerometer
+on a moving structure is never still, so the symptom is not "unchanging" --
+what is it, and what does it look like when the structure genuinely is
+becalmed?</em></p>
+<p><strong>(e)</strong> Apply Sec. 9.4.3's five properties to a satellite or cellular link
+with intermittent connectivity and a hard bandwidth cap. Which property is
+hardest to satisfy, and what does buffering at the turbine (Sec. 9.8.2) cost
+in disk and in latency for the maintenance decision?</p>
+<p><strong>(f)</strong> The anomaly detector of Chapter 8 runs on residuals, which requires
+measurement and model output to be aligned in time. Given (a)'s three rates
+and (b)'s clock requirement, specify what the connector must guarantee for
+that alignment to be sound, and one thing that could go wrong in a way
+nothing downstream would notice.</p>
+<hr />
+<h2 id="911-posed-problem-ingest-for-a-source-you-do-not-control">9.11 Posed problem: ingest for a source you do not control</h2>
+<p>No solution is given.</p>
+<p><strong>The situation.</strong> You are building a twin of a district heating network:
+about 400 substations, each with a flow meter, supply and return temperature
+sensors, and a valve position. The meters are from three vendors installed
+over fifteen years.</p>
+<ul>
+<li>Vendor A's units (about 250) push readings over MQTT to a broker the
+  utility runs, every 15 minutes, with a device-local timestamp. Roughly 2
+  per cent of devices are known to have wrong clocks.</li>
+<li>Vendor B's units (about 120) are polled over MODBUS Transmission Control
+  Protocol (TCP) by a Supervisory Control and Data Acquisition (SCADA)
+  system,
+  which exposes an hourly CSV export. No history endpoint; the CSV is the
+  interface.</li>
+<li>Vendor C's units (about 30, the oldest) are read manually by a technician
+  every three months.</li>
+</ul>
+<p>The twin must detect a failed heat exchanger, which shows as a persistent
+change in the difference between supply and return temperature.</p>
+<p><strong>Produce an ingest design of no more than four pages containing:</strong></p>
+<ol>
+<li><strong><code>Ts</code> per source</strong>, derived by Sec. 9.3.1's five steps from the detection
+   decision -- and a statement of whether Vendor C's substations can be
+   twinned at all. <em>If your answer is that they cannot, say so; Chapter 1
+   Sec. 1.7 permits that answer and this problem is partly a test of whether
+   you will give it.</em></li>
+<li><strong>The five properties of Sec. 9.4.3 assessed per vendor</strong>, with the cost
+   of each missing property assigned to a component you will have to build.</li>
+<li><strong>A timestamp policy</strong>, per Sec. 9.5, covering the 2 per cent of Vendor A
+   devices with wrong clocks. State how you detect them and what you do with
+   their data -- and note that "discard" and "trust" are both defensible and
+   have different consequences for the fault detector.</li>
+<li><strong>The quality states</strong> you will emit, per Sec. 9.6, including what
+   Vendor B's hourly CSV means for <code>not_attempted</code> versus <code>no_reading</code>.</li>
+<li><strong>The four failure modes</strong> of Sec. 9.7, with detection for each per
+   vendor. Pay particular attention to the stuck detector: what does the
+   model expect the supply-return difference to do, and when does it
+   legitimately not change?</li>
+<li><strong>Volume arithmetic</strong> per Sec. 9.8.1, and a statement of whether it forces
+   any architectural decision.</li>
+<li><strong>A completeness policy</strong> and its consequence for Chapter 7: how much data
+   must a substation have before you will calibrate a model for it?</li>
+<li><strong>One paragraph for the credibility argument</strong> naming what this ingest
+   design cannot deliver.</li>
+</ol>
+<p><strong>What a good answer looks like.</strong> It treats the three vendors as three
+connectors behind one normalised form, not as one connector with branches.
+It notices that a fault detector on a <em>difference</em> between two sensors has a
+failure mode neither sensor has alone -- both drifting together hides it,
+and one drifting alone fakes it. It says plainly that Vendor C's three-month
+cadence cannot support the decision, and either proposes instrumenting those
+30 substations with the cost stated, per Sec. 9.2.4, or scopes them out. And
+it does the volume arithmetic and concludes it is small, rather than
+assuming 400 substations is a big-data problem.</p>
+<hr />
+<h2 id="912-summary">9.12 Summary</h2>
+<p>Seven things, tied to the five objectives.</p>
+<ol>
+<li><strong>The connector is a small contract and a large amount of work</strong>
+   (Sec. 9.1). One tuple type, one honest connection state -- and every
+   failure in the physical world arrives through it, which is why its cost
+   is underestimated and why the twin's credibility begins here.</li>
+<li><strong>A sensor is a model with a datasheet</strong> (Sec. 9.2). Six numbers change
+   your design, resolution and accuracy are not the same number, and a
+   model's residual spread cannot beat its instrument's accuracy. A sensor
+   is worth adding when it changes a decision, not when it adds a quantity --
+   and its cost is the decoder, the binding, the calibration, the failure
+   modes and the disagreement policy, not the sensor. <em>(Objective 1.)</em></li>
+<li><strong><code>Ts</code> is derived from the decision in five steps, and the derivation can
+   still alias</strong> (Sec. 9.3). A ventilation fan on a 20-minute cycle sampled
+   every 10 minutes produces a clean trend that is not happening. The check
+   is empirical, costs an afternoon, and belongs in the credibility
+   argument. <em>(Objective 2.)</em></li>
+<li><strong>Evaluate a transport on five properties, not on features</strong>
+   (Sec. 9.4): event time preserved, connection state observable, gap
+   survivable, ordering knowable, deduplication possible. The
+   demonstrator's plain REST API scores five out of five because it has a
+   history parameter, which is worth more than any protocol feature.
+   <em>(Objective 3.)</em></li>
+<li><strong>There are four timestamps and two clocks</strong> (Sec. 9.5). The tuple
+   carries event time, the connector records ingest time, and their
+   difference is Chapter 2's time discrepancy. Size clock error as a
+   fraction of <code>Ts</code>: an unsynchronised 20 ppm clock drifts 10.5 minutes in a
+   year, which is one whole sampling interval for the pot -- while for the
+   turbine, sampling at 2 kHz, even well-behaved network time synchronisation
+   leaves tens of samples of error, which is why that asset needs a different
+   answer to the same question.
+   Age of twin, per binding, is the best single health metric a twin has.
+   <em>(Objective 4.)</em></li>
+<li><strong>Quality is six states with defined downstream consumers</strong> (Sec. 9.6).
+   <code>substituted</code> is the one that must never be lost, <code>uncertain</code> is the one
+   that reduces the estimator's gain, and three of the six exclude a window
+   from calibration -- which is where Chapter 7's unstated assumption of
+   complete data becomes enforceable. <em>(Objective 5.)</em></li>
+<li><strong>Four failures, and the fourth is the dangerous one</strong> (Sec. 9.7). Gaps,
+   duplicates and out-of-order arrival are detectable in the connector and
+   cost you bad data. A stuck sensor is invisible to every one of those
+   mechanisms and costs you bad decisions -- and detecting it requires the
+   model, so it cannot live in the connector. That is a real qualification
+   to Chapter 3's layering and this chapter states it rather than smoothing
+   it. <em>(Objective 5.)</em></li>
+</ol>
+<p><strong>And the note this chapter adds to the rest of Part III.</strong> Every number
+Part II reasoned about -- the residual, the spread, the hold-out, the gain,
+the training set -- is a number this component produced. Part II asked
+whether the twin deserves to be believed. Chapter 9's answer is that a large
+part of that question is settled before any model runs, by a piece of
+software nobody puts on a slide.</p>
+<hr />
+<h2 id="913-exercises">9.13 Exercises</h2>
+<p>Solutions or hints follow. Each exercise names the objective it exercises.</p>
+<p><strong>9.13.1</strong> <em>(Objective 1.)</em> A datasheet gives: range 0-100 per cent,
+resolution 0.1 per cent, accuracy plus or minus 3 per cent, drift 1 per cent
+per year, response time 30 seconds, maximum sample rate 1 Hz. Your model
+predicts changes of about 0.5 per cent per hour and your decision needs to
+detect a change of 2 per cent. State (a) the shortest interval over which a
+real change is distinguishable from instrument accuracy, (b) whether the
+resolution figure is useful, and (c) what the drift figure implies for
+Chapter 7's expiry conditions.</p>
+<p><strong>9.13.2</strong> <em>(Objective 1.)</em> Your colleague proposes adding a second
+temperature sensor to a tank "for redundancy". Using Sec. 9.2.4's four
+steps, list the five costs beyond the sensor, and name the one question that
+must be answered before the second sensor is worth anything at all.</p>
+<p><strong>9.13.3</strong> <em>(Objective 2.)</em> A pump runs on a duty cycle of 4 minutes on, 4
+minutes off. You sample its outlet pressure every 8 minutes. Describe what
+your data will show, why it is worse than showing nothing, and give two
+sampling intervals that would not have this problem -- one obvious and one
+that works for a different reason.</p>
+<p><strong>9.13.4</strong> <em>(Objective 2.)</em> Derive <code>Ts</code> by Sec. 9.3.1's five steps for a
+twin that must warn a technician within 15 minutes that a cold-store door
+has been left open, given that the internal temperature rises about 2
+degrees per hour with the door open and the sensor is accurate to plus or
+minus 0.5 degrees.</p>
+<p><strong>9.13.5</strong> <em>(Objective 3.)</em> Assess these three sources against Sec. 9.4.3's
+five properties: (a) an MQTT topic publishing a bare number with no
+timestamp; (b) a REST endpoint returning the current value only, with no
+history; (c) a Kafka topic with event-time keys and seven days of retention.
+For each missing property, name the component you must build.</p>
+<p><strong>9.13.6</strong> <em>(Objective 4.)</em> A gateway's clock is specified at 50 ppm and is
+never synchronised. Compute the drift after one week, one month and one
+year. Then state whether it is acceptable for (a) <code>Ts</code> = 1 hour,
+(b) <code>Ts</code> = 1 second, (c) a system correlating two such gateways at
+<code>Ts</code> = 1 second.</p>
+<p><strong>9.13.7</strong> <em>(Objective 4.)</em> Your twin's age of twin for one binding is
+normally 11 minutes and has risen to 46 minutes over two days, with
+completeness still at 100 per cent. Give three possible causes consistent
+with both facts, and the one measurement that distinguishes them.</p>
+<p><strong>9.13.8</strong> <em>(Objective 5.)</em> For each of the six quality states in
+Sec. 9.6.1, give one concrete cause in the demonstrator, and say what the
+Kalman filter of Chapter 6 should do with it.</p>
+<p><strong>9.13.9</strong> <em>(Objective 5.)</em> A colleague says: "we forward-fill gaps at
+ingest so downstream code never has to handle missing values -- it's
+simpler." Write the two-sentence objection, and name the specific number in
+Chapter 7 that this practice would invalidate.</p>
+<p><strong>9.13.10</strong> <em>(Objectives 1-5, and the one that leaves the book.)</em> Point a
+poller at the real plant-controller API. Run it for a week. Then report:
+observed completeness per binding, the distribution of ingest time minus
+event time, whether the API's timestamp is sensor-read or database-write
+time and how you found out, and one thing about the real stream that this
+chapter did not prepare you for.</p>
+<h3 id="solutions-and-hints">Solutions and hints</h3>
+<p><strong>9.13.1.</strong> (a) A real change of 2 per cent at 0.5 per cent per hour takes
+<strong>4 hours</strong>, and instrument accuracy is plus or minus 3 per cent -- so a
+<em>single pair</em> of readings can never establish it, because the change you
+care about is smaller than the accuracy. You must either average many
+readings within each window (accuracy that is random averages down; bias
+does not) or accept a longer detection time. <strong>This is the most important
+row in the exercise</strong> and it is the reason Sec. 9.2.2 says accuracy puts a
+floor under Chapter 7's spread. (b) The resolution of 0.1 per cent is
+useful <em>for detecting change</em> -- small changes are visible -- but the two
+extra digits it offers relative to accuracy are decoration in any absolute
+statement. (c) 1 per cent per year against a 2 per cent decision threshold
+means the sensor consumes half your detection margin in a year. That is a
+recalibration schedule, and it is an expiry condition for Chapter 7's
+argument.</p>
+<p><strong>9.13.2.</strong> The five costs: a second decoder or channel; a second binding
+and its identity management; a second calibration and its ongoing
+recalibration; a second set of failure modes to detect and handle; and a
+<strong>disagreement policy</strong>. The question that must be answered first: <em>what
+will you do when they disagree?</em> If the answer is "look at both and decide",
+there is no redundancy -- there is a second number and a human. Redundancy
+requires a rule decided in advance, and with two sensors you cannot vote,
+which is why redundancy schemes usually come in threes.</p>
+<p><strong>9.13.3.</strong> Sampling every 8 minutes against a 4-on/4-off cycle means every
+sample lands at the same phase: you will record a <strong>constant pressure</strong>, and
+which constant depends on when you started. It is worse than showing nothing
+because it looks like a healthy steady signal, and both a human and a model
+will believe it. Two intervals that avoid it: <strong>much faster</strong> -- 30 seconds
+gives about 8 samples per half-cycle, the Sec. 9.3.1 convention -- and, for
+a different reason, <strong>deliberately non-uniform or prime-ish sampling</strong>, for
+example every 70 seconds, which walks through the phase instead of locking
+to it. The second answer is worth knowing because it is sometimes the only
+one available when the fast rate is unaffordable; note that it complicates
+every gap and completeness check in Sec. 9.7.</p>
+<p><strong>9.13.4.</strong> (1) Decision and latency: warn within 15 minutes. (2) Physical
+event: temperature rising at 2 degrees per hour, i.e. 0.5 degrees per 15
+minutes. (3) See it several times: a detectable change must clear the
+accuracy of plus or minus 0.5 degrees, so a single sample pair 15 minutes
+apart is marginal -- 0.5 degrees of signal against 0.5 degrees of accuracy.
+Sample every <strong>2 to 3 minutes</strong> so that a rising trend across 5 to 7 samples
+is visible well inside the budget; a trend across several samples is
+detectable when a single difference is not. (4) Ceiling: trivial for any
+temperature sensor. (5) Floor: satisfied with margin. <strong>The lesson is step
+3</strong>: the naive answer, "sample every 15 minutes because the requirement is
+15 minutes", produces a detection that arrives at the deadline with no
+evidence.</p>
+<p><strong>9.13.5.</strong> (a) Fails <em>event time preserved</em> and <em>idempotent-friendly</em>;
+ordering only as good as the broker. You must build: a timestamping layer at
+the subscriber (which records ingest time and calls it event time -- state
+that as a limitation, do not hide it) and a dedupe scheme with no natural
+key, which usually means content hashing plus a window. (b) Fails <em>gap
+survivable</em> entirely and, in practice, <em>event time preserved</em>. You must
+build a poller whose every miss is permanent, and put the resulting holes in
+the credibility argument. This is the demonstrator's API <em>without</em>
+<code>since_timestamp</code>, and comparing the two is the point of the exercise.
+(c) All five, with a seven-day bound on gap survival -- so you must build
+nothing, but you must state the recovery window, because an eight-day outage
+is a permanent hole and a seven-day one is not.</p>
+<p><strong>9.13.6.</strong> 50 ppm = 50 microseconds per second = <strong>4.32 seconds per day</strong>.
+One week: about 30 seconds. One month: about 130 seconds. One year: about
+1,580 seconds, or <strong>26 minutes</strong>. (a) At <code>Ts</code> = 1 hour, a year of drift is
+26 minutes, which is about 44 per cent of the interval -- <strong>not acceptable</strong>, and
+this is the surprise in the exercise, because an hour sounds forgiving.
+(b) At <code>Ts</code> = 1 second, one <em>day</em> of drift is 4.3 seconds, which is four
+samples -- unacceptable within a day. (c) Two gateways can drift in opposite
+directions, so the relative error is up to double, and correlation between
+them is meaningless within hours. All three cases say the same thing:
+synchronise, and verify that the synchronisation is actually running.</p>
+<p><strong>9.13.7.</strong> Age of twin has risen while completeness stayed at 100 per cent,
+so <strong>the data is all arriving -- it is arriving late.</strong> Three causes:
+(i) the source has slowed, so event times themselves lag; (ii) your ingest
+has a growing backlog, so tuples are written long after their event time;
+(iii) a clock has drifted, so event times are being written into the past.
+<strong>The measurement that distinguishes them: ingest time minus event time.</strong>
+If it is growing, the delay is downstream of the source (ii) or the clock is
+drifting (iii); if it is unchanged while age of twin grows, the source is
+producing older readings (i). Distinguishing (ii) from (iii) is then one
+query: is the backlog visible as a queue depth?</p>
+<p><strong>9.13.8.</strong> <em>Hint plus the two that matter.</em> <code>good</code> -- normal poll; use with
+normal gain. <code>uncertain</code> -- reading within a few units of the sensor's range
+limit, or the sensor is past its recalibration date; <strong>use with reduced
+gain</strong>, per Sec. 9.6.2. <code>substituted</code> -- somebody filled a gap; <strong>do not
+correct toward it at all</strong>, because correcting toward your own prior output
+makes the filter confident for no reason, which is the most damaging single
+answer in this exercise. <code>out_of_range</code> -- a reading of 1023 or 0; ignore
+the value, count the event, and alert on the sensor. <code>no_reading</code> -- the
+HTTP call failed; predict forward without a correction. <code>not_attempted</code> --
+the connector was stopped for a deployment; identical estimator behaviour to
+<code>no_reading</code>, different operational meaning.</p>
+<p><strong>9.13.9.</strong> Objection: "forward-filling does not remove missing data, it
+makes missing data indistinguishable from measured data -- and the code that
+'never has to handle' it is now silently averaging, fitting and validating
+against numbers the sensor never produced. Handling <code>no_reading</code> explicitly
+is a few lines in each consumer; recovering from a store full of unmarked
+substitutions is not possible at all." <strong>The specific number: Chapter 7's
+hold-out spread of 2.0 reading units</strong>, and everything derived from it --
+the 9-unit alert threshold, the 16 per cent detection floor, and the
+prediction range in Sec. 7.6.3. A forward-filled reading is closer to the
+model's prediction than a real one would be, so the spread is biased <em>low</em>,
+and the credibility argument overstates the twin.</p>
+<p><strong>9.13.10.</strong> No solution. Two predictions. The API's timestamp will turn out
+to be database-write time, and the way you will find out is by comparing two
+quantities polled in the same request and noticing they share a timestamp
+they cannot both have been read at. And your completeness will not be 100
+per cent, because something will restart during the week -- which is the
+right result, since a connector that has never seen a gap has never been
+tested.</p>
+<hr />
+<h2 id="914-where-to-go-next">9.14 Where to go next</h2>
+<p><strong>In this book.</strong> Part III continues with the components this chapter
+hands off to. <strong>Chapter 10 is the immediate sequel</strong> and takes everything
+this chapter said to record -- the tuple, the two timestamps, the quality
+state, the completeness counts, the watermark -- and designs where it lives,
+how context joins to it, and how provenance is kept; the "Chapter 10's
+problem, created here" notes in Sec. 9.9.2 are literal. Chapter 11 builds
+the services that consume the streams, including the alerting that
+Sec. 9.7's detectors feed. Chapter 12 selects the platforms and tools this
+chapter deliberately named without recommending, and owns the edge-versus-
+cloud placement of Sec. 9.8.2. Chapter 13 covers the standards, which for
+this chapter means OPC UA's information model and the interoperability work
+around it [14], [15]. Chapter 14
+owns the operational life of a connector: the recalibration schedules
+Sec. 9.2.2's drift figure implies, and the day a vendor changes a unit.
+Chapter 15 asks what happens when 400 substations become 400 twins.</p>
+<p><strong>In the literature, if you want more.</strong></p>
+<ul>
+<li><em>The one to read first:</em> [3] is a book chapter on
+  sensing and communication for twins specifically, and covers properly what
+  Sec. 9.3.2 declined to derive -- sampling and aliasing, quantisation,
+  medium access, compression -- as well as time-series storage and
+  soft-sensing.</li>
+<li><em>Middleware and transports:</em> [1] is a systematic
+  mapping of middleware for twins and is the source of this chapter's
+  isolate-the-protocol framing; [4] is a
+  survey and taxonomy of publish/subscribe systems, and is usefully honest
+  that they cannot be compared on common ground;
+  [2] treats connectivity as a platform framework.</li>
+<li><em>Time:</em> [5] studies time discrepancy between
+  digital and physical twins as a problem in its own right, which is what
+  Sec. 9.5 is measuring.</li>
+<li><em>Metrics:</em> [6] treats twinning rate and age of twin as
+  measurable platform properties.</li>
+<li><em>Data quality:</em> [7] on evaluating quality for applications
+  with no human in the loop, which is the demonstrator's situation exactly.</li>
+<li><em>When volume forces the architecture:</em> [8] and
+  [9] on edge-cloud structural monitoring, which is
+  Sec. 9.8.1's turbine arithmetic turned into a deployed system.</li>
+<li><em>Consulted, not drawn on above:</em> [11] for the
+  layer-by-layer threat classification behind Sec. 9.8.4,
+  [10] on twins paired with constrained devices,
+  [16] on communication interfaces as a named
+  twin component, and [17] on what open-source twin frameworks
+  provide at this layer.</li>
+</ul>
+<p><strong>In the demonstrator.</strong> Exercise 9.13.10 is the assignment and it is the
+first one in this book you can complete without writing a model: point a
+poller at the real API and run it for a week. Then do the thing that turns
+it into a connector rather than a script -- add the six quality states, the
+completeness count, and the age-of-twin metric -- and watch which of them
+fires first. It will not be the one you expect.</p>
+<h2 id="915-references">9.15 References</h2>
+<p>[1] A. Almeida, T. Batista, E. Cavalcante, F. Delicato, R. Motta, and M. Vieira, "Middleware for Digital Twins: A Systematic Mapping Study," in <em>Proceedings of the 1st International Workshop on Middleware for Digital Twin</em>, pp. 19–24, Association for Computing Machinery, 2023.</p>
+<p>[2] L. Heaton, <em>Platform Stack Architectural Framework:  An Introductory Guide</em>, n.d.</p>
+<p>[3] C. Gomes, D. E. L. Rötter, A. Iosifidis, H. Feng, H. Ejersbo, and M. Frasheri, "Sensing and Communication of Data from the Physical Twin," in <em>The Engineering of Digital Twins</em>, pp. 147–171, Springer International Publishing, 2024.</p>
+<p>[4] A. Lazidis, K. Tsakos, and E. Petrakis, "Publish-Subscribe approaches for the IoT and the cloud: Functional and performance evaluation of open-source systems," <em>Internet of Things</em>, vol. 19, p. 100538, 2022.</p>
+<p>[5] M. Frasheri et al., "Addressing time discrepancy between digital and physical twins," <em>Robotics and Autonomous Systems</em>, vol. 161, p. 104347, 2023.</p>
+<p>[6] K. Duran et al., "Toward Digital Twin-as-a-Service (DTaaS) Platforms: A Survey on Architecture, Design Requirements, and Performance Metrics," <em>IEEE Communications Surveys &amp; Tutorials</em>, vol. 28, pp. 1845–1878, 2026.</p>
+<p>[7] K. Fizza et al., "QoE in IoT: a vision, survey and future directions," <em>Discover Internet of Things</em>, vol. 1, no. 1, p. 4, 2021.</p>
+<p>[8] L. Gigli et al., "Next Generation Edge-Cloud Continuum Architecture for Structural Health Monitoring," <em>IEEE Transactions on Industrial Informatics</em>, vol. 20, no. 4, pp. 5874–5887, 2024.</p>
+<p>[9] F. Zonzini et al., "Structural Health Monitoring and Prognostic of Industrial Plants and Civil Structures: A Sensor to Cloud Architecture," <em>IEEE Instrumentation &amp; Measurement Magazine</em>, vol. 23, no. 9, pp. 21–27, 2020.</p>
+<p>[10] A. Barbone, N. Bicocchi, M. Martinelli, R. Morandi, and M. Picone, "On-device AI and digital twins: A synergistic approach to intelligent cyber-physical systems," <em>Future Generation Computer Systems</em>, vol. 175, p. 108068, 2026.</p>
+<p>[11] C. Alcaraz and J. Lopez, "Digital Twin: A Comprehensive Survey of Security Threats," <em>IEEE Communications Surveys &amp; Tutorials</em>, vol. 24, no. 3, pp. 1475–1503, 2022.</p>
+<p>[12] E. Branlard, J. Jonkman, C. Brown, and J. Zhang, "A digital twin solution for floating offshore wind turbines validated using a full-scale prototype," <em>Wind Energy Science</em>, vol. 9, no. 1, pp. 1–24, Copernicus GmbH, 2024.</p>
+<p>[13] F. Stadtmann and A. Rasheed, <em>Diagnostic Digital Twin for Anomaly Detection in Floating Offshore Wind Energy</em>, arXiv, 2024.</p>
+<p>[14] A. C. Marosi et al., "Interoperable Data Analytics Reference Architectures Empowering Digital-Twin-Aided Manufacturing," <em>Future Internet</em>, vol. 14, no. 4, p. 114, Multidisciplinary Digital Publishing Institute, 2022.</p>
+<p>[15] M. Picone et al., "Harmonizing Physical and Digital Twins Lifecycles," in <em>2025 IEEE 22nd International Conference on Software Architecture Companion (ICSA-C)</em>, pp. 197–204, 2025.</p>
+<p>[16] C. Steinmetz, G. N. Schroeder, R. N. Rodrigues, A. Rettberg, and C. E. Pereira, "Key-Components for Digital Twin Modeling With Granularity: Use Case Car-as-a-Service," <em>IEEE Transactions on Emerging Topics in Computing</em>, vol. 10, no. 1, pp. 23–33, 2022.</p>
+<p>[17] S. Gil, P. H. Mikkelsen, C. Gomes, and P. G. Larsen, "Survey on open‐source digital twin frameworks–A case study approach," <em>Software: Practice and Experience</em>, vol. 54, no. 6, pp. 929–960, 2024.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Prasad Talasila
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.tabs.sticky", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

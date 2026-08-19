@@ -1,0 +1,28 @@
+              did the post-dose reading arrive, usable?
+                          |
+              +-----------+-----------+
+              |                       |
+             NO                      YES
+              |                       |
+              v                       |
+      +----------------+              v
+      | cannot_evaluate|      did moisture step up?
+      |                |        |               |
+      | -> connector   |       YES             NO
+      |    owner       |        |               |
+      | -> fix the     |        v               v
+      |    pipeline    |   +---------+    +----------+
+      +----------------+   | healthy |    |  fault   |
+                           |         |    | -> duty  |
+      a TWO-outcome        | -> none |    |  walk to |
+      service has no       +---------+    |  the rig |
+      left branch, so                     +----------+
+      it sends missing
+      data down the
+      right one --------------------------------> WRONG
+                                                  PERSON
+
+  Figure 11.1  Three outcomes. The left branch is the one Chapter
+              9's six quality states were built to make possible;
+              a service without it converts every infrastructure
+              failure into a physical-fault alert.

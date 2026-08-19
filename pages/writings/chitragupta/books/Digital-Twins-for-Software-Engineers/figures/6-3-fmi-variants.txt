@@ -1,0 +1,27 @@
+   FMI for CO-SIMULATION          FMI for MODEL EXCHANGE
+
+   +---------------------+        +---------------------+
+   |    ORCHESTRATOR     |        |    ORCHESTRATOR     |
+   |                     |        |   +-------------+   |
+   |  "advance by H"     |        |   |   SOLVER    |   |
+   +----------|----------+        |   +------|------+   |
+              |                   +----------|----------+
+              v                              |
+   +---------------------+                   v
+   |        FMU          |        +---------------------+
+   |  +---------------+  |        |        FMU          |
+   |  |    SOLVER     |  |        |   equations only    |
+   |  +---------------+  |        |   "here is dW/dt"   |
+   |  equations          |        +---------------------+
+   +---------------------+
+
+   solver travels WITH the model   solver stays with the TOOL
+
+   you get: a black box that       you get: equations you can
+   steps itself; vendor keeps      step your way; you own the
+   its numerical choices           numerical choices, and the
+                                   blame
+
+  Figure 6.3  The one distinction in FMI. Ask a supplier which
+              variant they ship and you have learned who owns the
+              solver -- and therefore who owns the step size.

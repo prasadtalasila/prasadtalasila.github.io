@@ -1,0 +1,21 @@
+   MODEL                  SIMULATOR              SIMULATION
+   (a description)        (software that         (one execution,
+                           runs models)           with a start and
+                                                  an end)
+
+   +-----------------+                          state
+   | dm/dt = -k      |    +--------------+        ^
+   | step = +g per   |--->|  steps the   |        |  \
+   |        100 ml   |    |  model       |------->|   \___
+   +-----------------+    |  forward     |        |       \___
+        static,           +--------------+        +------------> t
+        does not run            ^                  one trajectory,
+                                |                  from one start
+                          you give it a            state
+                          start state
+
+   You HAVE a model. You HAVE a simulator. You RAN a simulation.
+
+  Figure 2.2  The three words that share the word "model" in
+              ordinary speech. The verb in the last line is the
+              whole distinction.

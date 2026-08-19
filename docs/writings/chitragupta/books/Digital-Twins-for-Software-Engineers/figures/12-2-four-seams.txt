@@ -1,0 +1,29 @@
+   physical twin
+        |
+        |  protocol-specific: one handler per protocol
+        v
+   [ CONNECTOR ]
+   ===== 1. THE TUPLE ====================== highest value:
+        |    (binding, quantity, value,      where the physical
+        |     unit, event_time, quality)     world's diversity
+        v                                    stops
+   [ STORE ]
+        |
+        v
+   [ ESTIMATOR ] <---- [ REGISTRY ] --- 2. MODEL INTERFACE
+        |                    |               swap physics for
+   ===== 3. STATE INTERFACE  |               surrogate for
+        |  (binding, estimate,|              learned correction
+        |   uncertainty,      v
+        |   as_of,       [ RUNNER ]
+        |   decision_time)
+        v
+   [ SERVICES ]
+   ===== 4. SERVICE CONTRACT ===============
+        |
+        v
+   consumers
+
+  Figure 12.2  Four seams, drawn as cuts across the anatomy. Each
+              one is a place a part can be replaced; together they
+              are what makes "assemble" a bet rather than a hope.

@@ -1,0 +1,31 @@
+   total
+   effort
+     ^
+     |                                 assemble
+     |                              /   slope a x B
+     |                          /
+     |                      /
+     |                  /  . . . . . . . platform
+     |              /  .              slope p x B
+     |          / .
+     |      /  .
+     |   / .
+     | X.        <-- crossover, IF the lines converge
+     |.
+     +--+---+---+---+---+---+---+---+----> number of twins N
+        1   2   3   4   5   6   7   8
+
+   two numbers, two jobs:
+
+     rB - F   the platform's HEAD START at N = 1
+              (where the dotted line begins)
+
+     a - p    how fast its lead GROWS per twin
+              (the difference in slopes)
+
+   if a - p <= 0 the dotted line is never steeper-down,
+   so it NEVER crosses -- no fleet size rescues it
+
+  Figure 12.3  Build/buy as two straight lines. The sensitivity
+              table's two "never" rows are not extreme cases; they
+              are the lines diverging.

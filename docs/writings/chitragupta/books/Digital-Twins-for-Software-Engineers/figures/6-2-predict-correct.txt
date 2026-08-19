@@ -1,0 +1,24 @@
+   moisture
+      ^
+      |                          o  measurement
+      |                          |     (noisy)
+      |                          |
+      |            estimate ---> *     <-- lands BETWEEN,
+      |                          |         nearer whichever
+      |                          |         is trusted more
+      |                          x  model prediction
+      |         x                      (drifts, but smooth)
+      |    *
+      | x
+      +----------------------------------------> t
+        t-2   t-1                t
+
+        x  predict:  advance the model from the last *
+        o  correct:  pull toward the new reading
+
+   Trust the sensor more  ->  * sits nearer o
+   Trust the model more   ->  * sits nearer x
+
+  Figure 6.2  One predict-correct cycle. The estimator's output is
+              a third quantity, and believing either input on its
+              own is the mistake Sec. 6.6.1 opens with.

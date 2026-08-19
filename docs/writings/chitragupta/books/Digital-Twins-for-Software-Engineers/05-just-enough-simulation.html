@@ -1,0 +1,2308 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home page of Prasad Talasila">
+      
+      
+        <meta name="author" content="Prasad Talasila">
+      
+      
+        <link rel="canonical" href="https://prasad.talasila.in/writings/chitragupta/books/Digital-Twins-for-Software-Engineers/05-just-enough-simulation.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 5 -- Just Enough Simulation: State, Time, Solvers, and Co-Simulation - Prasad Talasila</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/course-tables.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-5-just-enough-simulation-state-time-solvers-and-co-simulation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../index.html" title="Prasad Talasila" class="md-header__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prasad Talasila
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 5 -- Just Enough Simulation: State, Time, Solvers, and Co-Simulation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../research.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Research
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../publications.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../projects.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../software.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../courses.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Courses
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../writings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Writings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../contact.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../index.html" title="Prasad Talasila" class="md-nav__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    Prasad Talasila
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../research.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../publications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../software.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../writings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contact.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#50-before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.0 Before you start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.0 Before you start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning objectives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51-why-execution-is-its-own-subject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Why execution is its own subject
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-a-simulation-traced-by-hand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 A simulation, traced by hand
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 A simulation, traced by hand">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521-the-model-restated-for-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.1 The model, restated for execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522-three-things-a-run-needs-before-it-can-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.2 Three things a run needs before it can start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#523-the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.3 The loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#524-what-a-trajectory-is-and-three-things-it-is-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.4 What a trajectory is, and three things it is not
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-two-clocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Two clocks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Two clocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531-real-time-factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.1 Real-time factor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532-why-a-twin-wants-rtf-greater-than-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.2 Why a twin wants RTF greater than one
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#533-when-the-twin-falls-behind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.3 When the twin falls behind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#534-does-it-fit-in-a-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.4 Does it fit in a request?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-step-size-and-what-the-solver-is-doing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Step size, and what the solver is doing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4 Step size, and what the solver is doing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#541-why-a-step-size-exists-at-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.1 Why a step size exists at all
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#542-a-concrete-demonstration-of-step-size-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.2 A concrete demonstration of step-size error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#543-fixed-and-adaptive-stepping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.3 Fixed and adaptive stepping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#544-instability-the-failure-that-is-not-a-bit-inaccurate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.4 Instability: the failure that is not "a bit inaccurate"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#545-step-size-is-not-the-sampling-interval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.5 Step size is not the sampling interval
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55-starting-stopping-resuming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Starting, stopping, resuming
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5 Starting, stopping, resuming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#551-the-initial-state-is-an-input-not-a-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.1 The initial state is an input, not a detail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#552-warm-start-snapshot-replay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.2 Warm start, snapshot, replay
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#553-simulating-the-physical-twin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.3 Simulating the physical twin
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56-determinism-and-reproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 Determinism and reproducibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57-co-simulation-running-two-models-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 Co-simulation: running two models together
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.7 Co-simulation: running two models together">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#571-why-you-would" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7.1 Why you would
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#572-the-orchestration-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7.2 The orchestration loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#573-the-three-decisions-coupling-forces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7.3 The three decisions coupling forces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#574-worked-the-pot-and-its-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7.4 Worked: the pot and its controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58-faded-example-the-offshore-turbine-executed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.8 Faded example: the offshore turbine, executed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#59-posed-problem-the-simulation-service-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.9 Posed problem: the simulation service specification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#510-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.10 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#511-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.11 Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.11 Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solutions-and-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solutions and hints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#512-where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.12 Where to go next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#513-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.13 References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="chapter-5-just-enough-simulation-state-time-solvers-and-co-simulation">Chapter 5 -- Just Enough Simulation: State, Time, Solvers, and Co-Simulation</h1>
+<h2 id="50-before-you-start">5.0 Before you start</h2>
+<p><strong>Where we are.</strong> Chapter 2 defined three words and taught one of them. A
+<strong>model</strong> is a description of behaviour that does not run. A <strong>simulation</strong>
+is one execution of a model over time, from a starting state, producing a
+trajectory. A <strong>simulator</strong> is the software that performs it. Chapter 4 took
+the model apart. This chapter takes the other two.</p>
+<p>The gap this fills is specific. Chapter 4 left you able to say what a model
+assumes and where it is valid. It left you unable to say anything at all
+about what happens when someone presses run -- and a startling amount of
+what goes wrong in a twin happens there, in a component whose input was
+correct.</p>
+<p><strong>What you are assumed to know.</strong> Everything Parts I and II so far.
+Specifically, from Chapter 4: the pot's water-balance model, its parameters
+<code>k</code> and <code>g</code>, and the fact that the linear form is the short-interval
+approximation of an exponential one. From Chapter 3: the simulation runner
+as a component, and the store's obligation to answer "what did the twin
+believe at time t?".</p>
+<p><strong>The maths budget.</strong> Chapter 4 spent the book's one derivative. This
+chapter spends none. Everything below is a difference equation, a table of
+numbers, or a ratio. Where a statement is really a theorem, the chapter
+demonstrates it with arithmetic and says it is not proving it.</p>
+<p><strong>The advantage you are bringing.</strong> Unlike Chapter 4, this chapter is about
+territory you already occupy. A step size is a loop increment. A real-time
+factor is a throughput ratio. Co-simulation is two services with a
+synchronisation interval and a stale-read problem. Your instincts about
+clocks, ordering, staleness and non-determinism are not analogies here.
+They are the subject.</p>
+<p><strong>What this chapter covers.</strong> A simulation traced by hand; two clocks and
+the real-time factor; step size, the error-versus-cost trade, and
+instability as a failure distinct from inaccuracy; initial state, warm
+start, snapshot and replay; determinism and reproducibility; and
+co-simulation with its three forced decisions.</p>
+<p><strong>What this chapter deliberately does not cover.</strong> The taxonomy of solver
+kinds -- Chapter 6, which is why exactly one stepping rule appears here and
+is labelled as the simplest one. The Functional Mock-up Interface (FMI)
+and its interface detail -- Chapter 6.
+State estimation -- Chapter 6. Monte Carlo -- Chapters 6 and 7. Calibration
+and validation -- Chapter 7, and Sec. 5.4 is careful that the error it
+discusses is a <em>different quantity</em> from the gap between model and reality.
+Discrete-event simulation as a formalism -- Chapters 6 and 11.</p>
+<h3 id="learning-objectives">Learning objectives</h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol>
+<li><strong>Trace</strong> a simulation run by hand from an initial state, and
+   <strong>distinguish</strong> the trajectory it produces from a record of measurements.</li>
+<li><strong>Distinguish</strong> simulated time from wall-clock time, and <strong>compute</strong> a
+   real-time factor from a stated workload to decide whether a run fits
+   inside a request.</li>
+<li><strong>Predict</strong> the effect of halving a step size on both numerical error and
+   cost, and <strong>recognise</strong> numerical instability as a different failure from
+   inaccuracy.</li>
+<li><strong>Specify</strong> what must be recorded for a simulation run to be
+   reproducible, and <strong>diagnose</strong> why a given run is not.</li>
+<li><strong>Explain</strong> why coupling two models is harder than running either alone,
+   and <strong>identify</strong> the three decisions a co-simulation forces on you.</li>
+</ol>
+<hr />
+<h2 id="51-why-execution-is-its-own-subject">5.1 Why execution is its own subject</h2>
+<p>The short version: <strong>a correct model can produce a wrong run.</strong></p>
+<p>That sentence is worth sitting with, because it does not fit the mental
+model most engineers arrive with. We are used to a chain where a correct
+specification plus a correct implementation gives a correct result.
+Simulation adds a step in the middle that has its own error, its own failure
+modes, and its own budget. The model can be perfectly derived, its
+assumptions all satisfied, its parameters freshly fitted -- and the number
+that comes out can still be wrong, because of how it was computed.</p>
+<p>Three concrete forms this takes, all of which appear later in the chapter:</p>
+<ul>
+<li><strong>The step was too big.</strong> The solver advanced simulated time in chunks too
+  coarse for the behaviour it was tracking, and accumulated error. Sec. 5.4.2
+  puts numbers on this.</li>
+<li><strong>The step was so big the answer diverged.</strong> Not "a bit inaccurate" -- the
+  output grows without bound and reports a moisture reading of minus three
+  hundred. Sec. 5.4.4.</li>
+<li><strong>The run cannot be reproduced.</strong> Six weeks later nobody can recreate what
+  the twin computed, which means Chapter 3's audit trail is decorative.
+  Sec. 5.6.</li>
+</ul>
+<p><strong>Why this lands on you rather than on the modeller.</strong> The modeller chooses
+the equations. You choose, or inherit, the step size, the horizon, the
+scheduling, the machine it runs on, and whether the result is cached. Every
+item on that list changes the answer or its cost. In a twin the pressure is
+sharper than in offline analysis, because the run has a deadline: the state
+it is computing is wanted before the next decision. Work on twins for
+cyber-physical systems makes the deadline explicit: whatever a service
+spends handling one message has to fit inside the interval its inputs
+arrive on, or the service falls progressively further behind the thing it
+is tracking. The same work notes that buying that speed usually costs
+accuracy, and that the exchange rate is a decision to settle when the
+system is designed rather than after [1].</p>
+<p>That last clause is the chapter in one line: <strong>speed and accuracy are traded
+against each other at run time, by you, using knobs the modeller handed
+over.</strong> Knowing which knobs exist is the deliverable.</p>
+<hr />
+<h2 id="52-a-simulation-traced-by-hand">5.2 A simulation, traced by hand</h2>
+<p>Nothing here is abstract if you run one. We will run the pot.</p>
+<h3 id="521-the-model-restated-for-execution">5.2.1 The model, restated for execution</h3>
+<p>Chapter 4 derived two forms. The linear one, valid over short intervals:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>between waterings:   m falls by k units per hour
+at a watering:       m rises by g * (d / 100)
+</code></pre></div></td></tr></table></div>
+<p>Chapter 4 also derived the form the linear one approximates: drying slows as
+the soil dries, approaching a floor. Written as a rule you could code:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>the reading falls toward m_floor, and the further above m_floor it is,
+the faster it falls
+</code></pre></div></td></tr></table></div>
+<p>We will need that second form from Sec. 5.4 onward, because a model whose
+answer a solver gets exactly right is useless for demonstrating what solvers
+get wrong. For now, the linear form is enough.</p>
+<h3 id="522-three-things-a-run-needs-before-it-can-start">5.2.2 Three things a run needs before it can start</h3>
+<p>A run is not "the model". A run is the model <strong>plus three more things</strong>, and
+a request that omits any of them is under-specified:</p>
+<ol>
+<li><strong>An initial state.</strong> <code>m</code> at the start. Sec. 5.5.1 argues this deserves
+   more respect than it usually gets.</li>
+<li><strong>The inputs over the horizon.</strong> When the doses happen and how large they
+   are.</li>
+<li><strong>A horizon and a step size.</strong> How far to go, and in what increments.</li>
+</ol>
+<p>Take: <code>m = 640</code> at 09:20, <code>k = 4</code> units per hour, <code>g = 48</code> units per 100 ml,
+a 120 ml dose at 17:05, horizon to 20:00, step size <code>h = 1</code> hour.</p>
+<h3 id="523-the-loop">5.2.3 The loop</h3>
+<p>The solver's loop, for the linear form, is three lines:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>t = start
+m = m0
+while t &lt; end:
+    if a dose lands in [t, t+h):  m = m + g * (dose / 100)
+    m = m - k * h
+    t = t + h
+    record (t, m)
+</code></pre></div></td></tr></table></div>
+<p>Run it. Simulated time is on the left; nothing about the wall clock appears
+anywhere:</p>
+<table>
+<thead>
+<tr>
+<th>t (simulated)</th>
+<th>event</th>
+<th>m at end of step</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>09:20</td>
+<td>start</td>
+<td>640.0</td>
+</tr>
+<tr>
+<td>10:20</td>
+<td></td>
+<td>636.0</td>
+</tr>
+<tr>
+<td>11:20</td>
+<td></td>
+<td>632.0</td>
+</tr>
+<tr>
+<td>...</td>
+<td></td>
+<td>...</td>
+</tr>
+<tr>
+<td>16:20</td>
+<td></td>
+<td>612.0</td>
+</tr>
+<tr>
+<td>17:20</td>
+<td>120 ml dose</td>
+<td>612.0 + 57.6 - 4.0 = 665.6</td>
+</tr>
+<tr>
+<td>18:20</td>
+<td></td>
+<td>661.6</td>
+</tr>
+<tr>
+<td>19:20</td>
+<td></td>
+<td>657.6</td>
+</tr>
+<tr>
+<td>20:20</td>
+<td></td>
+<td>653.6</td>
+</tr>
+</tbody>
+</table>
+<p>That table is a <strong>trajectory</strong>: the sequence of states the run produced.</p>
+<h3 id="524-what-a-trajectory-is-and-three-things-it-is-not">5.2.4 What a trajectory is, and three things it is not</h3>
+<p><strong>It is not a measurement.</strong> Every number in that column is computed. If a
+sensor also reported values over the same hours, comparing the two columns
+is the residual of Chapter 1 -- and keeping them in separate columns, with
+different names, is a discipline worth enforcing in code. A twin that stores
+predicted and measured values in one table with a flag is a twin that will
+eventually plot one as the other.</p>
+<p><strong>It is not continuous.</strong> We have <code>m</code> at nine instants. What happened at
+17:50 is not in the table. You can interpolate, and interpolating is an
+assumption. Notice also what the loop did with the dose. The 17:05 dose fell
+inside the step covering 16:20 to 17:20, and the loop adds it at the <em>start</em>
+of that step -- so the run behaved as though the pot were watered at 16:20,
+forty-five minutes early. Nothing warned us. Adding it at the end of the
+step instead would have put it fifteen minutes late, and neither choice is
+more correct than the other at this step size. That is the step size showing
+through, and Sec. 5.7.3 returns to it when the controller becomes its own
+model.</p>
+<p><strong>It is not the only trajectory.</strong> Change the initial state, the inputs, the
+horizon or the step size and you get a different one, from the same model.
+Chapter 2 insisted you do not "have a simulation", you <em>ran</em> one; this is
+what that distinction protects. In a twin you will run thousands, and being
+able to say which run produced a number is the same problem as any other
+provenance problem you have solved.</p>
+<hr />
+<h2 id="53-two-clocks">5.3 Two clocks</h2>
+<p>Every simulation has two clocks, and confusing them causes more design
+errors than any other single thing in this chapter.</p>
+<blockquote>
+<p><strong>Simulated time</strong> (<code>t</code>) is the clock inside the model. In Sec. 5.2.3 it
+ran from 09:20 to 20:20.</p>
+<p><strong>Wall-clock time</strong> (<code>T</code>) is the clock on the wall. That loop took
+microseconds.</p>
+</blockquote>
+<p>The nine hours never happened. They were <em>represented</em>. Figure 5.1 draws the
+two clocks against each other, which is the picture to hold when someone
+says "the simulation takes nine hours".</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code>   simulated
+   time t
+      ^
+   9h |                              * end of run
+      |                          /
+      |                      /
+      |                  /          slope = RTF
+      |              /              (here: very steep --
+      |          /                   9h of t in ~0s of T)
+      |      /
+   0  +--*------------------------------------&gt; wall-clock
+      0  microseconds                              time T
+
+   Three slopes worth naming:
+
+      steep   RTF &gt; 1   faster than reality  (what a twin wants)
+      45 deg  RTF = 1   keeping pace         (a live mirror)
+      shallow RTF &lt; 1   slower than reality  (fine for study,
+                                              fatal for forecast)
+
+  Figure 5.1  The two clocks. A run is a line on this plane, and
+              the real-time factor is its slope -- not a property
+              of the model, but of model and machine together.
+</code></pre></div></td></tr></table></div>
+<p>Say the two clock names out loud in design discussions -- "eight hours of
+simulated time in two seconds of wall clock" -- and a whole category of
+misunderstanding disappears. The slope is also the number that answers
+Sec. 5.3.4's question about fitting in a request.</p>
+<h3 id="531-real-time-factor">5.3.1 Real-time factor</h3>
+<p>The ratio has a name, the <strong>Real-Time Factor (RTF)</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>RTF = simulated time advanced / wall-clock time taken
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>RTF = 1</strong> -- keeping pace. One second of model per second of reality.</li>
+<li><strong>RTF &gt; 1</strong> -- faster than real time. Nine simulated hours in one wall-clock
+  second is RTF = 32,400.</li>
+<li><strong>RTF &lt; 1</strong> -- slower than real time. Detailed models of complicated
+  physics are routinely here, and it is not a defect; it is a fact you must
+  design around.</li>
+</ul>
+<p>Standards for distributed simulation take the diversity of time notions
+seriously enough to build time management around it, precisely because some
+participants have no notion of time at all, some must outrun real time, and
+some are discrete-event simulations with their own scheme
+[2]. If a standards committee needed to make this
+explicit, it is not a distinction you can safely leave implicit in your
+service.</p>
+<h3 id="532-why-a-twin-wants-rtf-greater-than-one">5.3.2 Why a twin wants RTF greater than one</h3>
+<p>Three of Chapter 1's five value patterns need it, and the reason differs
+each time.</p>
+<ul>
+<li><strong><em>Predict</em></strong> needs to know what happens over the next twelve hours before
+  those twelve hours elapse. RTF must exceed 1 or the forecast arrives after
+  the event.</li>
+<li><strong><em>Decide</em></strong> needs many alternative futures compared before a decision is
+  taken. Chapter 1 cited a documented requirement of hundreds of simulations
+  within a few seconds [3]. That is RTF multiplied by the
+  number of scenarios.</li>
+<li><strong><em>Certify-and-train</em></strong> wants a year of operation compressed into an
+  afternoon.</li>
+</ul>
+<p><em>Monitor</em> and <em>diagnose</em> are the exceptions, and this is a useful check on
+Chapter 3's component table: diagnosis compares a prediction over one
+interval that has already happened, so it needs the run to finish before the
+<em>next</em> decision, not before the interval it covers.</p>
+<h3 id="533-when-the-twin-falls-behind">5.3.3 When the twin falls behind</h3>
+<p>A twin's simulation is chasing a physical twin that never pauses. If the
+model cannot keep up, simulated time falls behind wall-clock time and the
+gap grows. Work on time discrepancy between digital and physical twins
+addresses exactly this, including using variable step sizes aimed at
+reducing the difference between the twin's time and wall-clock time -- and
+reports the honest limit, that during a persistently degraded scenario the
+delay keeps accumulating, and that the ability to run faster than real time
+is of no help when there is no new data to consume
+[4].</p>
+<p>Read that limit carefully, because it is the useful part. Running faster
+than real time lets you catch up <strong>only if the backlog is data you already
+have</strong>. If the twin is behind because the <em>network</em> is slow, extra compute
+buys nothing. Chapter 2's <em>age of twin</em> is the quantity being managed, and
+Chapter 3's actuation guard is what refuses to act when it grows too large.
+This section is where those two chapters' abstractions acquire a mechanism.</p>
+<h3 id="534-does-it-fit-in-a-request">5.3.4 Does it fit in a request?</h3>
+<p>Chapter 3 said the simulation runner forces one design question early --
+whether a run fits inside a request or needs a queue -- and that the answer
+comes from timing a single run. Here is that arithmetic, on the pot.</p>
+<p><em>Case A, the diagnose service.</em> Simulate eight hours at <code>h</code> = 15 minutes:
+32 steps. At a microsecond a step, 32 microseconds. It fits in a request
+several thousand times over. No queue. No caching. Do not build one.</p>
+<p><em>Case B, a decide service.</em> Compare 500 candidate watering schedules over 7
+days at <code>h</code> = 15 minutes:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>steps per scenario = 7 * 24 * 4 = 672
+total steps        = 500 * 672 = 336,000
+at 1 microsecond   = 0.34 seconds
+</code></pre></div></td></tr></table></div>
+<p>Still fits, comfortably.</p>
+<p><em>Case C, the same decide service with a serious soil model.</em> Suppose the
+modelling team replaces the two-parameter model with a spatial one at 40
+milliseconds a step:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>336,000 steps * 0.04 s = 13,440 s = 3.7 hours
+</code></pre></div></td></tr></table></div>
+<p>That does not fit in a request, or in a coffee break. The service now needs
+a queue, or fewer scenarios, or a coarser step, or the surrogate model of
+Chapter 4 Sec. 4.5.3 -- and notice that only the last of those is a
+modelling decision. The other three are yours.</p>
+<p><strong>The transferable point.</strong> The gap between Case B and Case C is a factor of
+forty thousand, and it comes entirely from a modelling choice made in a
+different meeting. This is why Chapter 3 said to time one run early: the
+architecture on either side of that number is not the same architecture.</p>
+<hr />
+<h2 id="54-step-size-and-what-the-solver-is-doing">5.4 Step size, and what the solver is doing</h2>
+<h3 id="541-why-a-step-size-exists-at-all">5.4.1 Why a step size exists at all</h3>
+<p>The pot's real behaviour is continuous: water leaves it at every instant. A
+computer cannot do "every instant". So the <strong>solver</strong> advances the state in
+finite jumps of size <code>h</code>, deciding at each jump how much changed.</p>
+<p>That is the whole idea. The solver is a loop, <code>h</code> is the increment, and
+everything in this section follows from the fact that the loop is an
+approximation of something continuous.</p>
+<p>The rule we will use is the simplest one that exists: <em>assume the rate of
+change stays constant across the step, and multiply</em>. It has a name and
+Chapter 6 will give it; here it matters only that it is the simplest, that
+it is not the one you should use in production, and that everything it
+demonstrates is true in kind for the better ones.</p>
+<h3 id="542-a-concrete-demonstration-of-step-size-error">5.4.2 A concrete demonstration of step-size error</h3>
+<p>The linear model cannot demonstrate this, because a straight line has a
+constant rate of change and the solver gets it exactly right at any <code>h</code>.
+That is why Chapter 4 derived the exponential form: the reading falls toward
+a floor, faster when it is further above it. As a rule:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>change over a step of h hours  =  -h * (m - m_floor) / tau
+</code></pre></div></td></tr></table></div>
+<p>Take <code>m_floor</code> = 400, <code>tau</code> = 48 hours, and start at <code>m</code> = 640. Simulate 24
+hours of drying with no watering, at four different step sizes. The exact
+answer, from the mathematics rather than the solver, is 545.6.</p>
+<table>
+<thead>
+<tr>
+<th><code>h</code> (hours)</th>
+<th>steps</th>
+<th>result at t = 24 h</th>
+<th>error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24</td>
+<td>1</td>
+<td>520.0</td>
+<td>25.6</td>
+</tr>
+<tr>
+<td>12</td>
+<td>2</td>
+<td>535.0</td>
+<td>10.6</td>
+</tr>
+<tr>
+<td>6</td>
+<td>4</td>
+<td>540.7</td>
+<td>4.9</td>
+</tr>
+<tr>
+<td>3</td>
+<td>8</td>
+<td>543.2</td>
+<td>2.4</td>
+</tr>
+</tbody>
+</table>
+<p>Work the first row by hand to see there is no magic in it. One step of 24
+hours: the reading is 240 above the floor, so the change is
+<code>-24 * 240 / 48 = -120</code>, giving 520. The solver assumed the reading kept
+falling at its initial rate for a full day. It did not; it slowed down. So
+the solver overshot.</p>
+<p><strong>Read the two right-hand columns together and the trade appears.</strong> Each
+halving of <code>h</code> doubles the work and roughly halves the error. That
+relationship has a name -- this rule is <strong>first order</strong> -- and it is the
+thing to ask about, because better rules do better: some cut the error by
+four or sixteen for the same halving. Chapter 6 is a tour of those.</p>
+<p><strong>The engineering consequence, stated as a rule of thumb you can use in a
+review.</strong> With a first-order rule, ten times less error costs ten times more
+compute. If someone proposes tightening accuracy by an order of magnitude,
+that is an order of magnitude on the bill of Sec. 5.3.4, and it may be
+cheaper to change the rule than to shrink the step.</p>
+<h3 id="543-fixed-and-adaptive-stepping">5.4.3 Fixed and adaptive stepping</h3>
+<p>The runs above used a <strong>fixed</strong> step. The alternative is <strong>adaptive</strong>: the
+solver estimates its own error each step and shrinks <code>h</code> where the behaviour
+is changing fast, growing it where nothing is happening.</p>
+<p>You do not set <code>h</code> for an adaptive solver. You set a <strong>tolerance</strong> -- how
+much error you will accept -- and it chooses. That is usually the better
+deal, and it has two consequences a software engineer must plan for:</p>
+<ul>
+<li><strong>The run time is no longer predictable.</strong> A scenario with rapid changes
+  takes more steps. A service with a timeout and an adaptive solver behind it
+  has a tail-latency problem that will not show up in testing on quiet data.</li>
+<li><strong>Tolerance is a real knob, with limits.</strong> Work sweeping a solver's
+  relative tolerance across ten orders of magnitude reports it as an
+  accuracy-versus-speed knob, and also reports that structuring the run
+  badly -- stopping the solver at every sampling instant -- both increases
+  the required steps and <em>reduces the effectiveness of tolerance as a knob</em>
+  [5].</li>
+</ul>
+<p>That second finding is directly actionable and easy to cause by accident:
+if you force the solver to stop and restart at every ten-minute sample
+boundary, you have taken away the freedom that made it adaptive. Which
+brings us to the confusion that causes it.</p>
+<h3 id="544-instability-the-failure-that-is-not-a-bit-inaccurate">5.4.4 Instability: the failure that is not "a bit inaccurate"</h3>
+<p>Everything so far suggests a big step means a poor answer. Past a threshold,
+something categorically worse happens.</p>
+<p>Keep <code>tau</code> = 48 hours and take <code>h</code> = 120 hours. The step rule multiplies the
+gap above the floor by <code>(1 - h/tau)</code> each step, and <code>1 - 120/48 = -1.5</code>.
+Start 240 above the floor:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>step 1:  240 * -1.5   = -360      m = 40
+step 2:  -360 * -1.5  = 540       m = 940
+step 3:  540 * -1.5   = -810      m = -410
+step 4:  -810 * -1.5  = 1215      m = 1615
+</code></pre></div></td></tr></table></div>
+<p>The pot is oscillating between soaking and impossibly dry, with the swing
+growing every step. Figure 5.2 puts that beside the merely-inaccurate case,
+because the difference is the whole point of the section.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code>   INACCURATE (h below the threshold)
+
+   m ^     ....  truth
+     |    x   x  computed: wrong, but tracking the truth
+     |  x  ....
+     |x......  x
+     +----------------------&gt; t
+       error is bounded and has a direction
+
+
+   UNSTABLE (h above the threshold)
+
+   m ^              x
+     |         x    |
+     |    x    |    |          computed: diverging
+     | .x.......... | ........ truth (unchanged)
+     |  |      |    |
+     |  x      |    |
+     |         x    |
+     |              x
+     +----------------------&gt; t
+       error doubles every step, sign alternating
+
+  Figure 5.2  Instability is not severe inaccuracy. The left case
+              gives a wrong number; the right gives a meaningless
+              one, and a larger meaningless one every step.
+</code></pre></div></td></tr></table></div>
+<p>This is <strong>numerical instability</strong>, and the point is that it is not an
+extreme case of inaccuracy. Inaccuracy gives a wrong number. Instability
+gives a <em>meaningless</em> number, and gives a bigger one every step.</p>
+<p>The threshold here is <code>h = 2 * tau = 96</code> hours: below it the answers are
+merely poor, above it they diverge. Every solver has such a threshold and
+its position depends on the model.</p>
+<p><strong>Three things to take from this.</strong></p>
+<p><em>A model has an opinion about your step size, and you cannot discover it by
+reading the model.</em> This is the strongest argument in the chapter for
+Chapter 4's Q3 -- ask the modelling expert what step size the model is safe
+at, and treat "whatever you like" as a non-answer.</p>
+<p><em>It is detectable, cheaply.</em> A moisture reading of -410 fails a range check.
+Chapter 4's runtime envelope check (Sec. 4.7.1) catches divergence for free,
+which is a second reason to build it.</p>
+<p><em>Some models are much worse than others in this respect.</em> The word for a
+model that forces tiny steps for stability reasons rather than accuracy ones
+is <strong>stiff</strong>. That is all you need to know here; if a modeller says a model
+is stiff, they are telling you your compute bill is about to change, and
+Chapter 6 explains why.</p>
+<h3 id="545-step-size-is-not-the-sampling-interval">5.4.5 Step size is not the sampling interval</h3>
+<p>These are two different numbers and people conflate them constantly,
+including in requirements documents.</p>
+<blockquote>
+<p><strong><code>h</code>, the step size</strong>, is how far the solver advances per iteration. It
+is chosen for accuracy and stability, and it belongs to the model.</p>
+<p><strong><code>Ts</code>, the sampling interval</strong>, is how often measurements arrive from the
+physical twin. It is chosen from the decision the twin supports, and it
+belongs to the connector.</p>
+</blockquote>
+<p>Chapter 3 derived <code>Ts</code> = 10 minutes for the demonstrator, from the watering
+interval. Nothing about that derivation says anything about <code>h</code>. The model
+might want <code>h</code> = 15 minutes for accuracy, or <code>h</code> = 1 minute if it were
+stiffer, or be perfectly happy at <code>h</code> = 1 hour.</p>
+<p><strong>Why the conflation is expensive.</strong> Setting <code>h = Ts</code> because both are
+"ten minutes" forces the solver to stop and restart on every sample, which
+is precisely the structure reported above as both slower and less
+responsive to its tolerance setting [5]. Chapter 4's
+glossary used <code>h</code> for the sampling interval; from here on <code>h</code> is the step
+size and <code>Ts</code> is the sampling interval, and the two are set by different
+people for different reasons.</p>
+<hr />
+<h2 id="55-starting-stopping-resuming">5.5 Starting, stopping, resuming</h2>
+<h3 id="551-the-initial-state-is-an-input-not-a-detail">5.5.1 The initial state is an input, not a detail</h3>
+<p>Sec. 5.2.2 listed the initial state first, and it is the item most often
+treated as an implementation detail. It is not: <strong>a run's answer depends on
+its initial state at least as much as on its model.</strong></p>
+<p>For the pot, the initial state is one number, and getting it is not trivial.
+The sensor reports a reading, the reading is noisy, and the last one arrived
+some minutes ago. So what is <code>m</code> right now? Answering that is the <em>state
+estimator</em> of Chapter 3, and its mechanism is Chapter 6's. What Chapter 5
+contributes is the reason it matters: a run started from a bad state
+produces a wrong trajectory from a right model, and nothing in the run will
+say so.</p>
+<p>Tutorial treatments of twin simulation put initial state on the same footing
+as parameters, requiring values for both before an equation can be simulated
+at all [6]. Treat a missing initial state as a missing
+argument, not a default.</p>
+<p><strong>A design rule that follows.</strong> A simulation request should carry its
+initial state explicitly, not read it from a global. A runner that fetches
+"the current state" internally cannot be asked to reproduce yesterday's run,
+which is Sec. 5.6's problem arriving early.</p>
+<h3 id="552-warm-start-snapshot-replay">5.5.2 Warm start, snapshot, replay</h3>
+<p>Three related operations, worth distinguishing because they solve different
+problems.</p>
+<p><strong>Warm start</strong> -- begin from a saved state instead of a default. Twin
+platform surveys track <em>warm startup time</em> as a measurable property: the
+time for a twin to resume from a partially initialised or suspended state,
+where lower is better for fault tolerance and downtime
+[7]. For a twin this is not an optimisation; a twin that
+cold-starts has no idea what the pot's state is until it has watched for a
+while.</p>
+<p><strong>Snapshot</strong> -- save enough state to resume exactly. For the pot, one
+number. For a large model, it is the whole state vector plus the solver's
+own internal state, and <em>the solver's internal state is the part people
+forget</em>. An adaptive solver carries a current step size and error history;
+resume without them and you get a different trajectory from the same
+snapshot.</p>
+<p><strong>Replay</strong> -- re-run from recorded inputs rather than live ones. This is the
+single most useful capability in the chapter for a software engineer,
+because it turns a twin into something testable. The demonstrator's closest
+published relative supports exactly this: the physical twin can be
+virtualised by replaying recorded data streams, specifically so results can
+be shared and reproduced [8].</p>
+<h3 id="553-simulating-the-physical-twin">5.5.3 Simulating the physical twin</h3>
+<p>Replay generalises into something worth naming. Nothing stops you
+<em>simulating the physical twin itself</em> and pointing the digital twin at the
+simulation. Chapter 1 met this as the <em>certify-and-train</em> value pattern, and
+Chapter 3's architecture supports it directly: the connector's ingest path
+does not care whether the readings come from a Raspberry Pi or from a model
+of one.</p>
+<p>This is how you test a twin without a greenhouse, and how you test the
+Chapter 2 Stage 3 command path without risking a plant. The industrial form
+of it is hardware-in-the-loop, in which some of the system under test is
+real hardware and the rest is simulated [9], and manufacturing
+practice treats semi-physical commissioning as a necessary step when the
+system's behaviour logic must change with the equipment [10].
+Interview studies of continuous integration for cyber-physical systems find
+teams doing precisely this because hardware in the loop could not be put in
+the pipeline for safety reasons [11].</p>
+<p>Chapter 14 owns this as a practice. It is named here because it is the same
+machinery: a model, an initial state, inputs, a horizon and a step size.</p>
+<hr />
+<h2 id="56-determinism-and-reproducibility">5.6 Determinism and reproducibility</h2>
+<p>Chapter 3 required two things of the store that this section makes possible
+or impossible. It required an answer to "what did the twin believe at time
+t?", and it required every command to be audited with the state that
+justified it. Both are worthless if the run cannot be recreated.</p>
+<blockquote>
+<p><strong>A simulation run is reproducible if re-executing it with the same
+recorded inputs yields the same trajectory.</strong></p>
+</blockquote>
+<p>That is a stronger requirement than most research simulation lives up to,
+and a twin needs it more, for three reasons Chapters 1 to 3 have already
+established: an incident review will ask why the twin acted; Chapter 7 will
+want to compare model versions against the same scenario; and a regression
+test that is not reproducible is a flaky test attached to a pump.</p>
+<p><strong>What has to be recorded.</strong> All of it, or you do not have it:</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Why it is not optional</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model version</td>
+<td>Chapter 3's registry holds it; the run must name it</td>
+</tr>
+<tr>
+<td>Parameter set (<code>k</code>, <code>g</code>, ...)</td>
+<td>Refitted parameters give a different trajectory</td>
+</tr>
+<tr>
+<td>Initial state, with its own timestamp</td>
+<td>Sec. 5.5.1</td>
+</tr>
+<tr>
+<td>The full input sequence over the horizon</td>
+<td>Doses, and any measured inputs</td>
+</tr>
+<tr>
+<td>Horizon and step size, or tolerance</td>
+<td>The knobs of Sec. 5.4</td>
+</tr>
+<tr>
+<td>Solver identity and its version</td>
+<td>Two solvers, same model, different numbers</td>
+</tr>
+<tr>
+<td>Random seed, if anything is random</td>
+<td>Chapters 6 and 7 make things random</td>
+</tr>
+<tr>
+<td>The software environment</td>
+<td>Library versions change floating-point results</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Where non-determinism comes from, in decreasing order of how often it
+surprises people.</strong></p>
+<p><em>Unrecorded inputs.</em> Overwhelmingly the most common cause, and not exotic:
+the run read "now" from a clock, or fetched the latest parameters rather
+than the ones it was given. Sec. 5.5.1's design rule prevents it.</p>
+<p><em>Floating-point and ordering.</em> Summing the same numbers in a different order
+gives a different answer in the last bits, and iterating a loop amplifies
+small differences. Parallel execution reorders summations by default. This
+is why a run that is "the same except it used four threads" is not the same
+run.</p>
+<p><em>Library and environment drift.</em> A different version of a numerical library
+changes results. This is the general reproducibility problem of
+computational work, and the general answer is to pin the environment
+rather than hope -- containers exist for this and are used for it in
+scientific practice [12].</p>
+<p><em>Genuine randomness.</em> Only when the model has it, and then a recorded seed
+is sufficient. Note that a seed makes a run repeatable, not <em>correct</em>:
+Chapter 7 deals with the fact that one sample of a random process is not an
+answer.</p>
+<p><strong>A caution about the word.</strong> "Deterministic" here means <em>the computation
+repeats</em>, not <em>the world is predictable</em>. A twin can be perfectly
+reproducible and completely wrong.</p>
+<hr />
+<h2 id="57-co-simulation-running-two-models-together">5.7 Co-simulation: running two models together</h2>
+<h3 id="571-why-you-would">5.7.1 Why you would</h3>
+<p>So far, one model, one solver. Real twins usually have several, for reasons
+that are organisational as much as technical.</p>
+<ul>
+<li><strong>Different parts need different formalisms.</strong> The pot's drying is
+  continuous; the controller's behaviour is a schedule of discrete events.
+  Chapter 4 named that as a hybrid situation and deferred the machinery.</li>
+<li><strong>Different parts come from different tools and teams.</strong> The soil model
+  from an agronomy group, the pump model from a supplier, the controller
+  from you. Rewriting all three into one program is usually not on offer.</li>
+<li><strong>Some parts are supplied as black boxes.</strong> A vendor ships something that
+  can be stepped and inspected, but not read.</li>
+</ul>
+<p><strong>Co-simulation</strong> is executing them together: each keeps its own solver and
+internal step size, and they exchange values at agreed points.</p>
+<p>The interface convention that makes this possible across tools is a
+standard; you will hear FMI named, and Chapter 6 covers it. What matters
+here is the shape.</p>
+<h3 id="572-the-orchestration-loop">5.7.2 The orchestration loop</h3>
+<p>Described generically, the loop an <strong>orchestrator</strong> runs has five phases:
+load the participating units; initialise them, set their parameters, and
+exchange initial outputs so every unit has values for its inputs; set the
+start time and the step size; exchange values on the coupled ports; then
+advance each unit's state by one step -- and repeat the last two until the
+end [13].</p>
+<p>If that reads like a distributed system with a synchronisation barrier, that
+is because it is one. The interval between exchanges is the <strong>macro step</strong>,
+written <code>H</code>, and it is a different number from any unit's internal <code>h</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>for each macro step of length H:
+      read outputs from every unit
+      write inputs to every unit
+      tell every unit to advance by H
+</code></pre></div></td></tr></table></div>
+<p>Figure 5.3 draws the two step sizes together, because the relationship
+between <code>H</code> and each unit's internal <code>h</code> is where co-simulation's
+characteristic bugs live.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code>   macro steps (the orchestrator, length H)
+
+   |&lt;------ H ------&gt;|&lt;------ H ------&gt;|&lt;------ H ------&gt;|
+   +-----------------+-----------------+-----------------+
+   ^                 ^                 ^                 ^
+   |                 |                 |                 |
+  exchange          exchange          exchange          exchange
+   |                 |                 |                 |
+   v                 v                 v                 v
+
+   unit A (h small):  |||||||||||||||||  |||||||||||||||||
+   unit B (h large):  |    |    |    |   |    |    |    |
+
+   Between two exchanges, every unit is running BLIND on inputs
+   that were correct only at the start of the macro step.
+
+  Figure 5.3  Two step sizes, not one. `h` is each unit&#39;s own
+              business; `H` is how stale every unit is allowed to
+              let its inputs get.
+</code></pre></div></td></tr></table></div>
+<p>The blindness between exchanges is the thing to carry forward. Each unit can
+be individually correct and the coupled system still wrong, because the
+error lives in the interval, not in either model -- which is why Sec. 5.7.3
+treats <code>H</code> as a coupling decision rather than a tuning knob.</p>
+<h3 id="573-the-three-decisions-coupling-forces">5.7.3 The three decisions coupling forces</h3>
+<p>Every co-simulation makes these three choices. Making them by accident is
+the normal case.</p>
+<p><strong>Decision 1: the macro step <code>H</code>.</strong> Too large and the units act on badly
+stale inputs; too small and you pay a synchronisation cost every step, on
+top of each unit's own work. This is not a solved problem, and the honest
+evidence is that practitioners find it hard: an empirical survey of
+co-simulation reports that many experts had trouble picking a macro step
+size, setting tolerances, and dealing with numerical
+stability, and concludes there is a need for frameworks that ease those
+choices [14]. When a survey of specialists says the
+knob is hard to set, a non-specialist setting it silently is a risk worth
+naming out loud.</p>
+<p><strong>Decision 2: the order of execution.</strong> Do units read each other's <em>old</em>
+outputs and all advance together, or does one advance first so the next sees
+its <em>new</em> output? Both are legitimate, they give different answers, and the
+difference does not shrink to nothing as <code>H</code> shrinks in every case. In your
+own terms: this is a read-write ordering question between two services
+sharing state across a barrier.</p>
+<p><strong>Decision 3: what happens to events inside a macro step.</strong> Our pump runs
+for 3.5 seconds. With <code>H</code> = 10 minutes, that event is 0.6% of one step. Does
+the dose land at the step boundary, at its true instant, or smeared across
+the interval? Sec. 5.2.4 already showed a single-model version of this,
+where a 17:05 dose was applied at 17:20 without complaint.</p>
+<p><strong>The general lesson, and it is one you can carry from your own field.</strong>
+Coupling is harder than the sum of the parts because <em>the coupling itself
+has numerical properties</em>. The survey above notes that these challenges,
+already present in ordinary simulation, are made worse when co-simulation
+hides each unit behind an opaque boundary [14] -- which is exactly the
+complaint you would make about debugging across a service boundary you
+cannot see into. Each unit can be individually correct and the coupled
+system still wrong.</p>
+<h3 id="574-worked-the-pot-and-its-controller">5.7.4 Worked: the pot and its controller</h3>
+<p>Make it concrete with the demonstrator.</p>
+<p><strong>Unit A, the pot.</strong> Continuous. Input: water arriving, in millilitres.
+Output: moisture reading <code>m</code>. Internal step <code>h</code> = 15 minutes.</p>
+<p><strong>Unit B, the controller.</strong> Discrete. Input: <code>m</code>. Output: doses. Behaviour:
+Chapter 1's fixed daily schedule, or -- in the Stage 3 twin of Chapter 2 --
+a rule that waters when <code>m</code> falls below a threshold.</p>
+<p><strong>Now make the three decisions, with reasons.</strong></p>
+<p><em>Macro step <code>H</code>.</em> Start from the decision, as always. In the open-loop case
+the controller ignores <code>m</code> entirely, so <code>H</code> can be as large as the interval
+between scheduled doses. In the closed-loop case the controller reacts to
+<code>m</code>, and <code>H</code> must be short enough that it does not act on badly stale
+moisture. One hour is defensible; ten minutes is safer and costs six times
+as much synchronisation.</p>
+<p><em>Order.</em> If the pot advances first and the controller then sees the new <code>m</code>,
+the controller reacts within the same macro step. If they advance together
+from old values, the controller is always one macro step behind. With
+<code>H</code> = 1 hour and a threshold rule, that is an hour of extra delay before
+watering, which is a real difference in behaviour arising from a decision
+nobody wrote down.</p>
+<p><em>Events.</em> The 3.5-second pump run inside a 15-minute step. Since the pot
+model only cares about the total volume delivered -- assumption A3 of
+Chapter 4 said the water mixes fast compared with sampling -- delivering the
+whole dose at the step boundary is defensible, <strong>and it is defensible only
+because of an assumption in Chapter 4's ledger</strong>. Change the model so that
+delivery rate matters, and this choice stops being free.</p>
+<p><strong>The check that makes the closed-loop case honest.</strong> In the open-loop case
+the coupling is one-way: the controller affects the pot and the pot does not
+affect the controller. One-way coupling is much better behaved, and if you
+can arrange for it, do. The threshold controller creates a genuine loop --
+the pot's moisture changes what the controller does, which changes the pot's
+moisture -- and loops are where <code>H</code> and the ordering start to matter. Notice
+that the <em>physical</em> system has the same loop and does not care; it is the
+<em>discretisation</em> of the loop that introduces the problem. That is a
+co-simulation artefact, not physics, and recognising the difference is the
+skill this section is teaching.</p>
+<hr />
+<h2 id="58-faded-example-the-offshore-turbine-executed">5.8 Faded example: the offshore turbine, executed</h2>
+<p>Chapters 3 and 4 built up the turbine service: streaming vibration and
+temperature, a hybrid model with a physics half accumulating fatigue and a
+learned half mapping vibration to condition, a work order to a planner.</p>
+<p><strong>Worked, for the first two decisions.</strong></p>
+<p><em>Which clock dominates?</em> Fatigue accumulates over years; the decision --
+send a vessel this week or next month -- is made monthly. So the required
+RTF is modest for the diagnostic, and large for any "what if we run it at
+reduced power for six months?" question, which needs six simulated months
+before the meeting ends. The same twin therefore has two very different
+execution requirements, which is an argument for Chapter 3's simulation
+runner being a queue rather than a function call.</p>
+<p><em>Step size?</em> Fatigue accumulation is slow and smooth, so a large <code>h</code> is
+tempting. But the loads driving it arrive as storms -- short, intense,
+irregular. A step long enough to be cheap will step over a storm and miss
+the damage it caused. This is the adaptive-stepping case of Sec. 5.4.3
+almost exactly: shrink where things change fast, grow where nothing happens.</p>
+<p><strong>Now it is your turn.</strong></p>
+<ul>
+<li><strong>(a)</strong> The vendor says the model "runs in real time". Write the two
+  questions from Sec. 5.3 that turn that phrase into numbers, and say what
+  answers would make you comfortable.</li>
+<li><strong>(b)</strong> The service is asked to compare 200 operating strategies over 5
+  simulated years, at an average of 30 milliseconds per step with <code>h</code> = 1
+  hour. Compute the wall-clock time. Then state two changes that would bring
+  it under an hour, one of which is not a modelling change.</li>
+<li><strong>(c)</strong> List what must be recorded for one of those 200 runs to be
+  reproducible six months later, using Sec. 5.6's table. Which row is
+  hardest for the <em>learned</em> half of the model, and why?</li>
+<li><strong>(d)</strong> The physics half and the learned half are separate units in a
+  co-simulation. Make Sec. 5.7.3's three decisions, and say which one you
+  would escalate to the modelling team rather than deciding yourself.</li>
+</ul>
+<p><em>Hint for (b):</em> one of the two changes is in Sec. 5.4, and one is in
+Chapter 4 Sec. 4.5.3.</p>
+<hr />
+<h2 id="59-posed-problem-the-simulation-service-specification">5.9 Posed problem: the simulation service specification</h2>
+<p>You are asked to specify the simulation runner for a twin of a district
+heating network: 400 buildings, a physics model of the pipe network, a
+learned demand model per building, and a control service that sets pump
+speeds every fifteen minutes.</p>
+<p>Write the specification. It must state:</p>
+<ol>
+<li>The two clocks, and the required real-time factor for each of the twin's
+   services -- derived from decisions, not asserted.</li>
+<li>Whether the runner is a function call or a queue, with the arithmetic
+   that decides it and the one measurement you would take first.</li>
+<li>The reproducibility contract: exactly what a run records, and what your
+   API must therefore accept as arguments rather than fetch for itself.</li>
+<li>The co-simulation choices of Sec. 5.7.3, including which you are
+   deciding and which you are escalating.</li>
+<li>One failure mode from Sec. 5.4.4 that your service will detect at
+   runtime, and how.</li>
+</ol>
+<p>There is no single right specification. There is a wrong one, and it is the
+one whose real-time requirement is the phrase "real time".</p>
+<hr />
+<h2 id="510-summary">5.10 Summary</h2>
+<p>Against the objectives.</p>
+<ol>
+<li><strong>A run is a model plus three things:</strong> an initial state, the inputs over
+   a horizon, and a horizon with a step size (Sec. 5.2.2). It produces a
+   trajectory, which is computed rather than measured, sampled rather than
+   continuous, and one of many (Sec. 5.2.4).</li>
+<li><strong>Two clocks.</strong> Simulated time and wall-clock time, related by the
+   real-time factor (Sec. 5.3.1). Three of Chapter 1's five value patterns
+   need RTF above 1, and running faster than real time only helps a lagging
+   twin if the backlog is data you already have (Sec. 5.3.3). Whether a run
+   fits in a request is arithmetic, and the answer moved by a factor of
+   forty thousand on one modelling decision (Sec. 5.3.4).</li>
+<li><strong>Step size trades error against cost.</strong> With the simplest rule, halving
+   <code>h</code> halves the error and doubles the work (Sec. 5.4.2). Past a threshold
+   the failure changes kind: <strong>numerical instability</strong> diverges rather than
+   degrades, and it is cheap to detect with the envelope check Chapter 4
+   already asked for (Sec. 5.4.4). Step size <code>h</code> and sampling interval <code>Ts</code>
+   are different numbers set by different people (Sec. 5.4.5).</li>
+<li><strong>Reproducibility is a recorded-inputs problem</strong> (Sec. 5.6), and its
+   commonest cause of failure is a runner that fetches something instead of
+   being handed it. Chapter 3's audit trail and Chapter 7's comparisons both
+   depend on it.</li>
+<li><strong>Coupling is harder than the parts.</strong> Co-simulation forces three
+   decisions -- macro step, execution order, and event placement inside a
+   step (Sec. 5.7.3) -- and specialists report the first of them as
+   genuinely difficult. One-way coupling is much better behaved than a loop,
+   and the loop's problems are an artefact of discretising it, not physics
+   (Sec. 5.7.4).</li>
+</ol>
+<p>The sentence to carry forward: <strong>a correct model can produce a wrong run</strong>
+-- and its practical companion, <strong>"real time" is not a requirement; a
+real-time factor is.</strong></p>
+<hr />
+<h2 id="511-exercises">5.11 Exercises</h2>
+<p>Objectives in brackets. Solutions and hints follow.</p>
+<p><strong>5.11.1 (Objective 1, easy).</strong> Using the linear model with <code>k</code> = 4 and
+<code>g</code> = 48, trace a run from <code>m</code> = 600 at 08:00 to 14:00 with <code>h</code> = 2 hours
+and a 100 ml dose at 09:30. Produce the trajectory table. Then say at what
+simulated time your run applied the dose, and whether that is a problem.</p>
+<p><strong>5.11.2 (Objective 2, easy).</strong> A model simulates 30 days of behaviour in 45
+seconds. Compute the real-time factor. Then say whether it is fast enough
+for (a) a daily forecast of the next week, (b) comparing 2,000 scenarios
+each covering a year, inside a five-minute interactive session.</p>
+<p><strong>5.11.3 (Objective 3, easy).</strong> Using the exponential rule with
+<code>m_floor</code> = 400 and <code>tau</code> = 48 hours, starting at <code>m</code> = 640, compute the
+result at t = 24 hours with <code>h</code> = 8 hours. Where does it sit relative to the
+table in Sec. 5.4.2, and is that what you expected?</p>
+<p><strong>5.11.4 (Objective 3, medium).</strong> Sec. 5.4.4 found the instability threshold
+at <code>h</code> = 2 * <code>tau</code>. Suppose a modeller tells you a different model has
+<code>tau</code> = 20 minutes. What step size must you stay below, and what does that
+do to the arithmetic of Sec. 5.3.4 Case B if the horizon is still 7 days?</p>
+<p><strong>5.11.5 (Objective 4, medium).</strong> A colleague reports that re-running
+yesterday's forecast gives a slightly different answer. List the checks you
+would make, in the order you would make them, and say why that order.</p>
+<p><strong>5.11.6 (Objective 5, medium).</strong> In Sec. 5.7.4, the open-loop controller
+gives one-way coupling and the threshold controller gives a loop. Explain,
+without mathematics, why the loop makes the macro step size matter more.
+Then propose a change to the <em>controller</em> -- not the pot model, and not <code>H</code>
+-- that would reduce the sensitivity.</p>
+<p><strong>5.11.7 (Objective 2, medium).</strong> Chapter 3 deployed the demonstrator's
+connector on the Raspberry Pi and the rest off-box. Where should the
+simulation runner go, and what would change your answer? Use Sec. 5.3.4's
+arithmetic and Chapter 3 Sec. 3.6's three forces.</p>
+<p><strong>5.11.8 (Objectives 3 and 4, hard).</strong> Complete Sec. 5.8, parts (a) through
+(d).</p>
+<p><strong>5.11.9 (Objective 4, hard).</strong> Design the API for Chapter 3's simulation
+runner such that every run is reproducible by construction. State the
+request fields, state what the service is forbidden to read from anywhere
+else, and say how you would test the property -- not the endpoint, the
+property.</p>
+<p><strong>5.11.10 (Objectives 1 through 5, hard, open-ended).</strong> Do Sec. 5.9, the
+district heating specification, in full.</p>
+<h3 id="solutions-and-hints">Solutions and hints</h3>
+<p><strong>5.11.1.</strong> Steps at 10:00, 12:00, 14:00. The dose lands in the step
+beginning 08:00 if you test the interval <code>[08:00, 10:00)</code>, so at 10:00
+<code>m = 600 + 48 - 8 = 640</code>; then 632 at 12:00 and 624 at 14:00. The run
+applied a 09:30 dose as though it happened at 08:00 -- 90 minutes early,
+and up to a full step in the general case. Whether it matters is the right
+question and the answer is Chapter 1's: the decision is "did a dose land",
+compared over a whole watering interval, so 90 minutes of placement error
+does not change the verdict. At <code>h</code> = 2 hours it is acceptable; if the
+decision were "when exactly did watering start", it would not be.</p>
+<p><strong>5.11.2.</strong> RTF = (30 * 24 * 3600) / 45 = 57,600. (a) Yes, easily: seven
+simulated days need about 10.5 seconds. (b) 2,000 years of simulated time is
+about 63 billion seconds; at RTF 57,600 that is about 1.1 million seconds,
+or thirteen days. No. The gap is three orders of magnitude, so no amount of
+tuning closes it -- this is the surrogate case of Chapter 4 Sec. 4.5.3, or a
+much smaller scenario set.</p>
+<p><strong>5.11.3.</strong> Three steps of 8 hours. Each multiplies the gap above the floor
+by <code>1 - 8/48 = 0.8333</code>. So <code>240 * 0.8333^3 = 240 * 0.5787 = 138.9</code>, giving
+<code>m = 538.9</code>, error 6.7. It sits between the <code>h</code> = 12 row (10.6) and the
+<code>h</code> = 6 row (4.9), as the first-order relationship predicts -- roughly
+proportional to <code>h</code>.</p>
+<p><strong>5.11.4.</strong> Stay below <code>2 * 20</code> minutes = 40 minutes, and in practice well
+below, since the threshold is where divergence begins rather than where
+accuracy becomes acceptable. Redo Case B: 7 days at <code>h</code> = 10 minutes is
+1,008 steps per scenario, 500 scenarios is 504,000 steps -- about 1.5 times
+the original, so still fine at a microsecond a step. The interesting part is
+what happens if the same model also costs 40 milliseconds a step: then the
+stability constraint and the cost per step multiply together, and this is
+exactly the situation the word <em>stiff</em> names.</p>
+<p><strong>5.11.5.</strong> <em>Hint:</em> order by cheapness and likelihood, which happen to
+coincide. First: did the run read anything it was not given -- a clock,
+"latest" parameters, the current time (Sec. 5.5.1)? Second: are the model
+version and parameter set identical (Chapter 3's registry)? Third: is the
+solver configured identically, including tolerance -- and if it is adaptive,
+did it take the same steps? Fourth: same library versions and same
+environment [12]? Fifth: threading or parallelism
+changing summation order? A seed, if any, is worth checking early because it
+is trivial to check, but it is rarely the cause when nothing in the model is
+random.</p>
+<p><strong>5.11.6.</strong> <em>Hint:</em> with one-way coupling, a stale input only delays an
+effect. With a loop, a stale input changes an action, which changes the
+input, so the error feeds itself. On the second half: a controller with
+hysteresis -- water when below a low threshold, stop when above a higher one
+-- reacts far less to small errors in <code>m</code> than a single-threshold rule,
+because a single threshold is maximally sensitive exactly at the point where
+decisions are made. Damping the controller is often cheaper than shrinking
+<code>H</code>, and it is a change you can make.</p>
+<p><strong>5.11.7.</strong> <em>Hint:</em> Sec. 5.3.4 Case A says the run is 32 microseconds, so
+compute is not the constraint and either placement works. Chapter 3
+Sec. 3.6's three forces then decide: latency to the decision is hours, so no
+pull to the edge; link availability matters for ingest but the runner needs
+no live link if it is handed its inputs (Sec. 5.5.1); and there is no scale
+argument at Case A. Off-box, with the rest. What would change the answer: a
+Case C model, or a closed-loop controller needing a decision faster than a
+round trip.</p>
+<p><strong>5.11.8.</strong> <em>Partial.</em> (b) <code>5 * 365 * 24 = 43,800</code> steps per run;
+<code>200 * 43,800 = 8.76</code> million steps; at 30 ms that is 262,800 seconds, about
+73 hours. Two changes that bring it under an hour: adaptive stepping, since
+the loading is quiet most of the time and only storms need small steps
+(Sec. 5.4.3); and a surrogate for the expensive half (Chapter 4
+Sec. 4.5.3) -- the second is the non-modelling change only if the surrogate
+already exists, so the strictly non-modelling answer is <em>parallelism across
+the 200 independent runs</em>, which is embarrassingly parallel and needs no
+model change at all. Credit either, and prefer the answer that notices the
+200 runs are independent. (c) The hardest row for the learned half is the
+model version, because a model retrained on a rolling window has a new
+version every retraining, and if the training data is not itself versioned
+the model version does not pin the model. (a) and (d) are yours.</p>
+<p><strong>5.11.9.</strong> <em>Hint:</em> the request carries model version, parameter set id,
+initial state with its timestamp, the full input sequence, horizon, step
+size or tolerance, solver id, and seed. The service is forbidden to read the
+wall clock, the "current" state, or the "latest" parameters. Testing the
+property rather than the endpoint means running the same request twice and
+asserting trajectory equality, and -- better -- running it twice in
+environments that differ in a way that should not matter, such as thread
+count.</p>
+<p><strong>5.11.10.</strong> <em>Hint:</em> no solution, but a test. Read your real-time
+requirement back. If it contains the phrase "real time" without a number
+next to it, you have written a wish. And check item 3 against item 2: a
+runner that is a queue and a reproducibility contract that assumes
+synchronous execution will contradict each other.</p>
+<hr />
+<h2 id="512-where-to-go-next">5.12 Where to go next</h2>
+<p><strong>In this book.</strong> Chapter 6 is the direct sequel and answers the questions
+this chapter deliberately left open: which stepping rules exist and when to
+use them, what makes a model stiff, how discrete and continuous behaviour
+are combined properly, what FMI actually specifies, how state estimation
+produces the initial state of Sec. 5.5.1, and how Monte Carlo turns one run
+into an answer about many. Chapter 7 addresses the error this chapter did
+<em>not</em> discuss -- the gap between the model and reality -- and the fact that
+a reproducible run can still be wrong. Chapter 11 builds the services whose
+real-time factors Sec. 5.3.2 derived. Chapter 14 owns replay and
+simulate-the-physical-twin as a testing practice.</p>
+<p><strong>In the literature.</strong></p>
+<ul>
+<li><em>Execution and time in twins specifically:</em> [4] is
+  the best single source on a twin's simulated time falling behind
+  wall-clock time and what variable step sizes can and cannot do about it;
+  [1] (in [15]) on twin
+  service processing time against the gap between messages;
+  [7] for warm startup time and related metrics;
+  [16] for a twin whose simulation is assumed to proceed
+  at the pace of the wall clock, and what is then compared against reality.</li>
+<li><em>Solvers, tolerance and cost:</em> [5] sweeps solver
+  tolerance as an accuracy-versus-speed knob and reports how run structure
+  degrades it; [6] is a tutorial-level primer on
+  simulating the pot-like case, including the requirement for parameter and
+  initial-state values.</li>
+<li><em>Co-simulation:</em> [14] is an empirical survey of
+  practitioners and the source for macro step size and stability being hard
+  in practice; [13] gives the orchestration loop step
+  by step; [17] is a concrete master-algorithm
+  implementation; [18] places co-simulation inside
+  multi-paradigm modelling; [19] couples an architecture
+  description to a simulation engine as a master algorithm.</li>
+<li><em>Reproducibility:</em> [12] on containers for
+  computational reproducibility, which is the practical answer to
+  environment drift; [8] for virtualising a
+  physical twin by replaying recorded streams, in a system closely related
+  to our demonstrator.</li>
+<li><em>Simulating the physical twin:</em> [9] on
+  hardware-in-the-loop with executable twins; [10] on
+  semi-physical commissioning; [11] for teams
+  substituting simulation when hardware could not be put in the pipeline;
+  [20] on testing twins systematically.</li>
+<li><em>Consulted, not drawn on above:</em> [2] for how a
+  distributed-simulation standard handles participants with different
+  notions of time, [21] on consistency checks including step
+  sizes inside a verification process, [22] on simulators as
+  training environments, [23] for hardware-in-the-loop
+  in the twin vocabulary, [24] on augmenting twin models
+  with behaviour, and [25] on checking at runtime that
+  co-simulation master algorithms are being used correctly.</li>
+</ul>
+<p><strong>In the demonstrator.</strong> Implement Sec. 5.2.3's loop -- it is under twenty
+lines -- and run it against two weeks of real watering events pulled from
+<code>GET /actuation/{unit}/watering_events</code>. Then plot the trajectory against
+the measured readings. You are not calibrating and not validating; you are
+looking at the two columns of Sec. 5.2.4 side by side, which is the first
+time in this book that a prediction and a measurement have been in the same
+picture.</p>
+<h2 id="513-references">5.13 References</h2>
+<p>[1] C. Gomes, D. E. L. Rötter, A. Iosifidis, H. Feng, H. Ejersbo, and M. Frasheri, "Sensing and Communication of Data from the Physical Twin," in <em>The Engineering of Digital Twins</em>, pp. 147–171, Springer International Publishing, 2024.</p>
+<p>[2] "IEEE Standard for Modeling and Simulation (M&amp;S) High Level Architecture (HLA)–Framework and Rules," <em>IEEE Std 1516-2025 (Revision of IEEE Std 1516-2010)</em>, pp. 1–40, 2025.</p>
+<p>[3] B. J. Oakes et al., "Case Studies in Digital Twins," in <em>The Engineering of Digital Twins</em>, pp. 257–310, Springer International Publishing, 2024.</p>
+<p>[4] M. Frasheri et al., "Addressing time discrepancy between digital and physical twins," <em>Robotics and Autonomous Systems</em>, vol. 161, p. 104347, 2023.</p>
+<p>[5] C. Cimino, F. Terraneo, G. Ferretti, and A. Leva, "Efficient Control Representation in Digital Twins: An Imperative Challenge for Declarative Languages," <em>IEEE Transactions on Industrial Informatics</em>, vol. 19, no. 11, pp. 11080–11090, 2023.</p>
+<p>[6] C. Gomes et al., "Digital Twin Tutorial: The Incubator Case Study," in <em>Engineering Trustworthy Software Systems: 6th International School, SETSS 2024, Chongqing, China, April 14–21, 2024, Tutorial Lectures</em>, pp. 68–101, Springer Nature, 2025.</p>
+<p>[7] K. Duran et al., "Toward Digital Twin-as-a-Service (DTaaS) Platforms: A Survey on Architecture, Design Requirements, and Performance Metrics," <em>IEEE Communications Surveys &amp; Tutorials</em>, vol. 28, pp. 1845–1878, 2026.</p>
+<p>[8] E. Kamburjan et al., "GreenhouseDT: An Exemplar for Digital Twins," in <em>Proceedings of the 19th International Symposium on Software Engineering for Adaptive and Self-Managing Systems</em>, pp. 175–181, Association for Computing Machinery, 2024.</p>
+<p>[9] D. Hartmann and H. Van der Auweraer, <em>The Executable Digital Twin: merging the digital and the physics worlds</em>, 2022.</p>
+<p>[10] J. Leng, D. Wang, W. Shen, X. Li, Q. Liu, and X. Chen, "Digital twins-based smart manufacturing system design in Industry 4.0: A review," <em>Journal of Manufacturing Systems</em>, vol. 60, pp. 119–137, 2021.</p>
+<p>[11] F. Zampetti, D. Tamburri, S. Panichella, A. Panichella, G. Canfora, and M. Di Penta, "Continuous Integration and Delivery Practices for Cyber-Physical Systems: An Interview-Based Study," <em>ACM Trans. Softw. Eng. Methodol.</em>, vol. 32, no. 3, pp. 73:1–73:44, 2023.</p>
+<p>[12] D. Moreau, K. Wiebels, and C. Boettiger, "Containers for computational reproducibility," <em>Nature Reviews Methods Primers</em>, vol. 3, no. 1, p. 50, Nature Publishing Group UK London, 2023.</p>
+<p>[13] G. Abbiati, C. Gomes, M. Sandberg, Z. Kazemi, S. T. Hansen, and P. G. Larsen, "Modelling for Digital Twins," in <em>The Engineering of Digital Twins</em>, pp. 89–127, Springer International Publishing, 2024.</p>
+<p>[14] G. Schweiger et al., "An empirical survey on co-simulation: Promising standards, challenges and research needs," <em>Simulation Modelling Practice and Theory</em>, vol. 95, pp. 148–163, 2019.</p>
+<p>[15] J. Fitzgerald, C. Gomes, and P. G. Larsen, Eds., <em>The Engineering of Digital Twins</em>, Springer International Publishing, 2024.</p>
+<p>[16] N. Zhang, R. Bahsoon, N. Tziritas, and G. Theodoropoulos, "Knowledge Equivalence in Digital Twins of Intelligent Systems," <em>ACM Transactions on Modeling and Computer Simulation</em>, vol. 34, no. 1, pp. 1–37, 2024.</p>
+<p>[17] C. Friedrich, A. Lombana, J. Fasquel, C. Schlick, N. Bennani, and M. Mendil, "CoFMPy: A Python Framework for Rapid Prototyping of FMI-based Digital Twins," in <em>The 2nd International Conference on Engineering Digital Twins</em>, 2025.</p>
+<p>[18] P. Carreira, V. Amaral, and H. Vangheluwe, Eds., <em>Foundations of Multi-Paradigm Modelling for Cyber-Physical Systems</em>, Springer Nature, 2020.</p>
+<p>[19] J. Hugues, J. Yankel, J. Hudak, and A. Hristozov, "Twinops: Digital twins meets devops," <em>CARNEGIE-MELLON UNIV PITTSBURGH PA, Tech. Rep.</em>, 2022.</p>
+<p>[20] Y. Ma et al., <em>Automated and Systematic Digital Twins Testing for Industrial Processes</em>, arXiv, 2023.</p>
+<p>[21] R. Honcak and A. Wooley, "An MBSE approach for Virtual Verification &amp; Validation of Systems with Digital Twins," in <em>Proceedings of the ACM/IEEE 27th International Conference on Model Driven Engineering Languages and Systems</em>, pp. 390–400, ACM, 2024.</p>
+<p>[22] X. Liu and I. David, "AI simulation by digital twins: systematic survey, reference framework, and mapping to a standardized architecture," <em>Software and Systems Modeling</em>, 2025.</p>
+<p>[23] T. Böttjer et al., "A review of unit level digital twin applications in the manufacturing industry," <em>CIRP Journal of Manufacturing Science and Technology</em>, vol. 45, pp. 162–189, 2023.</p>
+<p>[24] D. Lehner, S. Sint, M. Eisenberg, and M. Wimmer, "A pattern catalog for augmenting Digital Twin models with behavior," <em>at - Automatisierungstechnik</em>, vol. 71, no. 6, pp. 423–443, De Gruyter (O), 2023.</p>
+<p>[25] E. Kamburjan, A. Pferscher, R. Schlatte, R. Sieve, S. L. T. Tarifa, and E. B. Johnsen, "Semantic Reflection and Digital Twins: A Comprehensive Overview," in <em>The Combined Power of Research, Education, and Dissemination</em>, vol. 15240, pp. 129–145, Springer Nature Switzerland, 2025.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Prasad Talasila
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.tabs.sticky", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

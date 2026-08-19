@@ -1,0 +1,30 @@
+   Stage 2 (shadow), unchanged        Stage 3 adds
+   ---------------------------        ------------
+
+   +-----------+                      +-----------+
+   | CONNECTOR |                      | CONNECTOR |
+   +-----------+                      +-----------+
+   +-----------+                      +-----------+
+   |   STORE   |                      |   STORE   | * + command audit
+   +-----------+                      +-----------+
+   +-----------+                      +-----------+
+   |   STATE   |                      |   STATE   |
+   | ESTIMATOR |                      | ESTIMATOR |
+   +-----------+                      +-----------+
+   +-----------+                      +-----------+
+   |  MODELS   |                      |  MODELS   |
+   +-----------+                      +-----------+
+   +-----------+                      +-----------+
+   | SERVICES  |                      | SERVICES  | * one writing cell
+   +-----------+                      +-----------+
+                                      +-----------+
+        (none)                        | COMMAND   | NEW, with five
+                                      | PATH+GUARD|      guards
+                                      +-----------+
+
+                                      * = changed, not rebuilt
+
+  Figure 3.4  The Stage 3 delta. Five components carry over
+              untouched, two gain a line each, one is new. This is
+              what Chapter 2's "different project" costs once the
+              decomposition exists to price it against.

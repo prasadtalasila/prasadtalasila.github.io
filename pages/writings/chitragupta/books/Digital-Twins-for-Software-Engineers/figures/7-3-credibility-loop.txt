@@ -1,0 +1,29 @@
+   A VALIDATION REPORT              A CREDIBILITY ARGUMENT
+   for a study                      for a twin
+
+   evidence                         evidence
+      |                                |
+      v                                v
+   +--------+                       +--------+
+   | REPORT |  done.                | ARGUMENT|
+   +--------+  The study is over.   +--------+
+                                        |
+                                        |  and then the world
+                                        |  keeps moving:
+                                        v
+                          +---------------------------+
+                          |  plant repotted           |
+                          |  parameters refitted      |
+                          |  model version bumped     |
+                          |  4 weeks elapsed          |
+                          |  residual monitor fires   |
+                          +-------------|-------------+
+                                        v
+                                    EXPIRED
+                                        |
+                                        v
+                              gather evidence again
+
+  Figure 7.3  Why a twin's trust document has a loop in it. The
+              claim is about a system that is still changing, so
+              the argument has to name the conditions that end it.

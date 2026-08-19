@@ -1,0 +1,26 @@
+  Stage 0        Stage 1        Stage 2         Stage 3
+  as shipped     notebook       detector        closed loop
+
+  +----+         +----+         +----+          +----+
+  | PT |         | PT |         | PT |          | PT |
+  +----+         +----+         +----+          +----+
+                   :              |               | ^
+                   :              | poll          | |  PUT
+                   : person       v               v |
+                 +----+         +----+          +----+
+                 | DO |         | DO |          | DO |
+                 +----+         +----+          +----+
+                                  |
+                                  v  alert
+                               (a human)
+
+  none           DIGITAL        DIGITAL         DIGITAL
+                 MODEL          SHADOW          TWIN
+
+  Stage 2h sits between 2 and 3: the alert reaches a technician
+  who edits the schedule by hand. The arrow outward exists, but a
+  person is carrying it, so the class is still shadow.
+
+  Figure 2.3  The demonstrator's climb. One arrow per stage. The
+              jump that matters is 2 to 3, and it is a jump in
+              obligation, not in modelling effort.

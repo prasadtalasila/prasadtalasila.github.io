@@ -1,0 +1,22 @@
+   honest
+   ------
+   |<--- week 1: CALIBRATION --->|<--- week 2: HOLD-OUT --->|
+        fit k and g here               test here, once
+
+   the decay, and it is gradual
+   ----------------------------
+   test on week 2      -> residuals look wrong
+   adjust the model    -> test on week 2 again
+   still not right     -> adjust again, test again
+                          ...
+
+   |<--- week 1 --->|<--- week 2 --->|
+        fitting          ALSO fitting, one decision at a time
+
+   Week 2 is now calibration data. Nothing announced the change.
+   You owe a week 3.
+
+  Figure 7.2  Hold-out decays by use. Every look that changes the
+              model spends some of it, and the spending is silent
+              -- which is why the honest move is to write down in
+              advance what the hold-out is allowed to decide.

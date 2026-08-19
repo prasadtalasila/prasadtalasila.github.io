@@ -1,0 +1,25 @@
+        +---------------------------------------+
+        |                                       |
+        v                                       |
+   controller holds moisture near target        |
+        |                                       |
+        v                                       |
+   variation in the data disappears             |
+        |                                       |
+        v                                       |
+   retrained model learns less                  |
+        |                                       |
+        v                                       |
+   control degrades slightly ------------------>+
+        |
+        |  and the data gets slightly more
+        |  informative again, so the system
+        v  settles rather than fails
+
+   EQUILIBRIUM OF MEDIOCRITY
+   no error, no alert, no crash -- just a twin
+   that is quietly worse than it was
+
+  Figure 8.2  The data loop. Not Chapter 2's control loop: this
+              one runs through the training set. It has no failure
+              signal, which is why it is found late.

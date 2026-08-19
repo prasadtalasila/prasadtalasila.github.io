@@ -1,0 +1,23 @@
+        WHITE                    GREY                   BLACK
+   internals visible        some of each          only I/O visible
+   and derived                                    internals fitted
+
+   Sec. 4.3                Sec. 4.5               Sec. 4.4
+   water balance           corrected physics      fitted curve
+   dW/dt = -k + g*u        constrained learning
+                           surrogates
+   |------------------------------------------------------------|
+
+   and INDEPENDENTLY of where a model sits on that line:
+
+        accurate  ^
+                  |   a black box fitted      a white box built
+                  |   to excellent data       on right assumptions
+                  |
+                  |   a black box asked       a white box built
+                  |   outside its data        on wrong assumptions
+       inaccurate +--------------------------------------------->
+                    black                                  white
+
+  Figure 4.2  Colour is one axis; being right is another. All four
+              corners of the lower box are occupied by real models.

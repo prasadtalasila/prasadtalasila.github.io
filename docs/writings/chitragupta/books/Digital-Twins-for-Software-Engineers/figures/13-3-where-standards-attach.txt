@@ -1,0 +1,31 @@
+   physical twin
+        |
+        |<--- OPC UA        (if your PT already speaks it)
+        v
+   [ CONNECTOR ]
+        |
+        v
+   [ STORE ] <----- Asset Administration Shell
+        |            (asset descriptions across orgs)
+        v
+   [ ESTIMATOR ]
+        |
+   [ REGISTRY ] <--- FMI    (a model crossing an org boundary)
+        |
+   [ RUNNER ]
+        |
+        v
+   [ SERVICES ]
+        |
+        v
+   consumers
+
+   spanning everything, attached to no component:
+
+     ISO 23247    the WORDS you and a counterparty use
+     ASME VV-40   the SHAPE your Chapter 7 evidence takes
+     AI / data    given, not chosen
+
+  Figure 13.3  Where each of the six attaches. Four bind to a
+              component and answer "do we exchange this, with
+              whom?"; two bind to the conversation instead.

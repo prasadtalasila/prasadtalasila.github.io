@@ -1,0 +1,26 @@
+   the world        soil is at 612
+        |
+        |  (nobody knows yet)
+        v
+   [1] sensor read      t0        ---+
+        |  decode, bus, batching      |
+        v                             |
+   [2] gateway record   t0 + 40ms     |  each gap has a
+        |  network, queue, poll       |  different cause
+        v                             |  and a different
+   [3] transport        t0 + 900ms    |  owner
+        |  your retries, your backlog |
+        v                             |
+   [4] ingest           t0 + 1.2s  ---+
+
+   |<--------------------------------->|
+        this distance IS Chapter 2's
+        time discrepancy
+
+   the tuple carries [1] (event time)
+   the connector records [4] (ingest time)
+   both, always -- their difference is a measurement
+
+  Figure 9.1  Four timestamps on one path. Picking one and
+              discarding the rest throws away the only number that
+              tells you how far behind the twin is running.

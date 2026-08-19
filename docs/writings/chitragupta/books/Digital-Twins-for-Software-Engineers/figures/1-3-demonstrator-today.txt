@@ -1,0 +1,32 @@
+  +------------------ PHYSICAL TWIN (PT) -------------------+
+  |                                                         |
+  |      plant / soil / pot                                 |
+  |          |                            ^                 |
+  |          | moisture                   | water           |
+  |          v                            |                 |
+  |    STEMMA sensor                  AD20P pump            |
+  |    -> TCA9548A mux                <- CS-IO404 relay     |
+  |          |                            ^                 |
+  |          v                            |                 |
+  |  +-------+----------------------------+-------------+   |
+  |  |        |   Raspberry Pi 5 (controller)           |   |
+  |  |        v                            |            |   |
+  |  |  reading stored in                  | dose       |   |
+  |  |  time-series db                     |            |   |
+  |  |        |                    fixed daily schedule |   |
+  |  |        |                    (09:16 100 ml, ...)  |   |
+  |  |        +---->  X  no link  ---->    ^            |   |
+  |  |                                     |            |   |
+  |  |            the decision never reads the reading  |   |
+  |  +---------------------+----------------------------+   |
+  |                        | REST API, port 8099            |
+  +------------------------|--------------------------------+
+                           v
+                "Remote Connecter": a person, or a
+                computer running a DT  <-- the socket
+                Part III plugs into
+
+  Figure 1.3  The demonstrator as it exists today. Sensing works and
+              actuation works; the watering decision simply never
+              reads the measurement. That missing link, marked X, is
+              what this section's value case is about.

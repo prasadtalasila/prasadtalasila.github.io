@@ -1,0 +1,20 @@
+   source WITHOUT history ("what is the value now?")
+
+   readings   x x x x                     x x x x
+   connector  |       |<-- outage 2h -->| |
+                      +-- these are GONE, permanently
+
+   source WITH history (`since_timestamp`)
+
+   readings   x x x x x x x x x x x x x x x x x x
+   connector  |       |<-- outage 2h -->| |
+                      |                   |
+                      |    "give me everything
+                      |     after 09:14"
+                      +------------------>+
+                          a two-hour DELAY,
+                          not a two-hour HOLE
+
+  Figure 9.3  Resumability beats protocol choice. Poll or
+              subscribe changes latency; history changes whether
+              an outage costs you data at all.

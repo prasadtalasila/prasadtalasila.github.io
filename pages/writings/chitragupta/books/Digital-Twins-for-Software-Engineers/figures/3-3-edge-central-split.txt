@@ -1,0 +1,30 @@
+        EDGE                    |            CENTRAL
+   (near the physical twin)     |      (wherever compute is elastic)
+                                |
+   +--------------+             |     +------------------+
+   |  CONNECTOR   |             |     |      STORE       |
+   |  + buffer    |=============|====>|   (long history) |
+   +--------------+             |     +------------------+
+          |                     |              ^
+          v                     |              |
+   +--------------+             |     +------------------+
+   |    STATE     |             |     |  SIMULATION      |
+   |  ESTIMATOR   |             |     |  RUNNER          |
+   +--------------+             |     +------------------+
+          |                     |              ^
+          v                     |              |
+   +--------------+             |     +------------------+
+   | COMMAND PATH |             |     | MODELS + REGISTRY|
+   |   + GUARD    |             |     +------------------+
+   +--------------+             |
+                                |     +------------------+
+                                |     |     SERVICES     |--> users,
+                                |     +------------------+    wherever
+                                |                             they are
+   pushed left by:              |     pushed right by:
+     latency to the decision    |       cost and scale of
+     an intermittent link       |       simulation
+
+  Figure 3.3  The recurring split. The line is a design variable,
+              not a given: each component is placed by the force
+              acting on it, and they do not all point the same way.

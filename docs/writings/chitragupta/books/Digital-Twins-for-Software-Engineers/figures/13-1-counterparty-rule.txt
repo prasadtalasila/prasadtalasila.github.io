@@ -1,0 +1,30 @@
+   C = 1                    C = 4
+   bilateral is fine        bilateral does not scale
+
+     you                        you
+      |                       / | | \
+      |  one agreement       /  | |  \    four agreements,
+      v                     v   v v   v   each negotiated,
+    party A            A    B   C     D   documented,
+                                          versioned
+                       ...and if they must also talk to
+                       each other, 6 more.
+
+
+   with a STANDARD, whoever already implements it:
+
+              you
+               |
+        +------+------+
+        |   STANDARD  |     one implementation, and every
+        +------+------+     party that already speaks it
+        /    |    |   \     costs you nothing extra
+       A     B    C    D
+
+   C x I  >  F     adopt
+   C = 0           the standard has NO value here, however
+                   good it is
+
+  Figure 13.1  The counterparty rule. The quantity that decides is
+              a head count of parties who already implement it --
+              not the standard's quality, scope or maturity.

@@ -1,0 +1,2897 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home page of Prasad Talasila">
+      
+      
+        <meta name="author" content="Prasad Talasila">
+      
+      
+        <link rel="canonical" href="https://prasad.talasila.in/writings/chitragupta/books/Digital-Twins-for-Software-Engineers/08-where-ai-fits.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 8 -- Where AI Fits: Machine Learning as a Model, a Service, and a Risk - Prasad Talasila</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/course-tables.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-8-where-ai-fits-machine-learning-as-a-model-a-service-and-a-risk" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../index.html" title="Prasad Talasila" class="md-header__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prasad Talasila
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 8 -- Where AI Fits: Machine Learning as a Model, a Service, and a Risk
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../research.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Research
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../publications.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../projects.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../software.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../courses.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Courses
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../writings.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Writings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../contact.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../index.html" title="Prasad Talasila" class="md-nav__button md-logo" aria-label="Prasad Talasila" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    Prasad Talasila
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../research.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../publications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../software.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../writings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contact.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#80-before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.0 Before you start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.0 Before you start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning objectives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#81-two-words-that-keep-arriving-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Two words that keep arriving together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-machine-learning-as-a-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Machine learning as a model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2 Machine learning as a model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#821-what-part-ii-already-decided" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.1 What Part II already decided
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#822-the-one-question-that-decides-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.2 The one question that decides it
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#823-what-a-learned-model-does-to-the-model-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.3 What a learned model does to the model registry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#824-what-it-does-to-reproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.4 What it does to reproducibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#825-what-to-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.5 What to ask
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-machine-learning-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Machine learning as a service
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3 Machine learning as a service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#831-anomaly-detection-learning-what-normal-looks-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.1 Anomaly detection: learning what normal looks like
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#832-prognostics-how-long-until-it-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.2 Prognostics: how long until it fails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#833-forecasting-the-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.3 Forecasting the inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#834-perception-turning-pixels-and-sound-into-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.4 Perception: turning pixels and sound into state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#835-optimisation-and-control-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.5 Optimisation and control policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#836-natural-language-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.6 Natural-language interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#837-three-placement-notes-then-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.7 Three placement notes, then on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#838-what-to-ask-about-any-service-side-proposal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.8 What to ask about any service-side proposal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-the-arrow-the-other-way-the-twin-as-a-training-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 The arrow the other way: the twin as a training environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 The arrow the other way: the twin as a training environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841-two-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.1 Two jobs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#842-the-sim-to-real-gap-which-is-the-whole-difficulty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.2 The sim-to-real gap, which is the whole difficulty
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85-machine-learning-as-a-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 Machine learning as a risk
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.5 Machine learning as a risk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#851-the-label-problem-worked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5.1 The label problem, worked
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#852-drift-and-why-it-is-worse-for-a-learned-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5.2 Drift, and why it is worse for a learned model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#853-the-feedback-loop-the-twin-creates-in-its-own-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5.3 The feedback loop the twin creates in its own data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#854-opacity-and-the-conversation-you-will-actually-have" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5.4 Opacity, and the conversation you will actually have
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#855-the-attack-surface-a-learned-model-adds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5.5 The attack surface a learned model adds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#856-what-to-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5.6 What to ask
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#86-what-changes-in-the-credibility-argument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6 What changes in the credibility argument
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.6 What changes in the credibility argument">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#861-chapter-7s-table-extended-into-a-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6.1 Chapter 7's table, extended into a checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#862-building-the-input-coverage-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6.2 Building the input-coverage check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#863-the-expiry-clause-a-learned-model-needs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6.3 The expiry clause a learned model needs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#87-worked-example-where-ai-goes-in-the-demonstrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7 Worked example: where AI goes in the demonstrator
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.7 Worked example: where AI goes in the demonstrator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#871-proposal-1-replace-the-fault-detectors-model-with-a-learned-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7.1 Proposal 1: replace the fault detector's model with a learned one
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#872-proposal-2-a-learned-correction-on-the-drying-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7.2 Proposal 2: a learned correction on the drying rate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#873-proposal-3-a-camera-on-the-pot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7.3 Proposal 3: a camera on the pot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#874-proposal-4-a-learned-watering-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7.4 Proposal 4: a learned watering policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#875-the-scorecard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7.5 The scorecard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#88-faded-example-the-offshore-turbine-with-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.8 Faded example: the offshore turbine, with AI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#89-posed-problem-reviewing-the-ai-twin-proposal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.9 Posed problem: reviewing the AI twin proposal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#810-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.10 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#811-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.11 Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.11 Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solutions-and-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solutions and hints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#812-where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.12 Where to go next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#813-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.13 References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="chapter-8-where-ai-fits-machine-learning-as-a-model-a-service-and-a-risk">Chapter 8 -- Where AI Fits: Machine Learning as a Model, a Service, and a Risk</h1>
+<h2 id="80-before-you-start">8.0 Before you start</h2>
+<p><strong>Where we are.</strong> This chapter closes Part II. Chapter 4 named the
+data-driven family and deferred its risks here. Chapter 6 said the same
+about surrogates. Chapter 7 said the same about validating a model whose
+parameters mean nothing. Chapter 2 said, back in Sec. 2.6.5, that a trained
+network is not a twin -- it is a <em>model</em>, one candidate for the model slot
+inside a twin -- and that Chapter 8 would cover what changes when you put a
+learned model there.</p>
+<p>All of that comes due now.</p>
+<p><strong>Something is different about this chapter, and it is worth saying out
+loud.</strong> This is the only Part II topic you may already know more about than
+the book does. Plenty of working software engineers have shipped a model,
+tuned a classifier, or at least argued about one at length. So this chapter
+does not explain what a neural network is, does not teach the train/test
+split (Chapter 7 already used it, under the name <em>hold-out</em>), and does not
+tell you that data quality matters.</p>
+<p>What it does is the thing you probably have not done: <strong>put a learned model
+inside a system that acts on a physical object, and account for what that
+changes.</strong> Almost everything specific to twins in this chapter comes from
+that sentence -- from the fact that the model's outputs move water, or a
+turbine blade, or a maintenance vessel, and that the physical thing then
+produces the data the next model is trained on.</p>
+<p><strong>The register, stated plainly.</strong> This chapter teaches where machine
+learning belongs in a twin, what it costs there, and how each of its failure
+modes shows up as an engineering consequence you can design against. <strong>It
+teaches no machine learning.</strong> No architectures, no training procedure, no
+loss functions, no framework names.</p>
+<p><strong>What you are assumed to know.</strong> Everything so far. Especially: Chapter 1's
+value metric; Chapter 2's Sec. 2.6.5 and what closing the loop changes;
+Chapter 3's model registry, store and actuation guard; Chapter 4's three
+model families, the white-to-black-box scale, and above all Sec. 4.4.3's
+argument about training a fault detector on data containing faults; Chapter
+6's surrogates; and all of Chapter 7 -- residual, bias, spread, hold-out,
+validity envelope, credibility argument, expiry.</p>
+<p><strong>The maths budget.</strong> Unchanged from Chapters 6 and 7: no derivatives, no
+integrals, no matrices, no probability notation, no named distributions, and
+no loss function written down. The chapter has one quantitative set piece --
+a <strong>confusion matrix built from counts</strong> (Sec. 8.5.1) -- which is integers
+and two ratios. Chapter 7's <em>spread</em> and Chapter 6's <code>1/sqrt(N)</code> are reused,
+not reintroduced.</p>
+<p><strong>What this chapter deliberately does not cover.</strong> Any machine-learning
+method. How to build and run a Machine Learning (ML) pipeline -- Chapter 14 owns the
+operational loop, and this chapter owes only what is <em>different</em> about it
+when the model is learned. Data engineering, labelling infrastructure and
+feature stores -- Chapter 10. Service design and deployment topology --
+Chapters 11 and 12; edge inference and federated learning are named once
+each and handed on. Security in general -- Chapter 3 Sec. 3.3.3 owns it, and
+Sec. 8.5.5 covers only the attack surface that exists <em>because</em> a model is
+learned. Regulation and AI standards -- Chapter 13. Generative AI as a
+product category -- named for the two jobs it actually does in twins, not
+surveyed.</p>
+<h3 id="learning-objectives">Learning objectives</h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol>
+<li><strong>Decide</strong> whether a proposed use of machine learning belongs in a twin's
+   model slot, beside the model as a service, or nowhere at all, and
+   <strong>justify</strong> the decision from the twin's value metric rather than from
+   the technology.</li>
+<li><strong>Name</strong> the six jobs service-side AI does in deployed twins, and
+   <strong>state</strong> for each what it needs and how it fails.</li>
+<li><strong>Compute</strong> a detector's miss rate and false-alarm rate from a table of
+   counts, and <strong>explain</strong> why accuracy is the wrong number to report for a
+   rare event.</li>
+<li><strong>Identify</strong> the four risks a twin adds on top of ordinary machine-learning
+   practice, including the feedback loop a twin creates in its own training
+   data.</li>
+<li><strong>Extend</strong> Chapter 7's credibility argument to cover a learned model,
+   including a runtime input-coverage check and an expiry clause that a
+   physics-based model does not need.</li>
+</ol>
+<hr />
+<h2 id="81-two-words-that-keep-arriving-together">8.1 Two words that keep arriving together</h2>
+<p>"Digital twin" and "AI" are spoken in one breath so routinely that a
+newcomer could be forgiven for thinking one implies the other. It does not,
+in either direction, and Figure 8.1 is the untangling -- four distinct
+relationships where meetings usually assume one.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code>   1. ML as a MODEL           2. ML as a SERVICE
+      (inside the twin)          (on top of the twin)
+
+      +---------------+          +---------------+
+      |     TWIN      |          |     TWIN      |
+      |  +---------+  |          +-------|-------+
+      |  |learned  |  |                  v
+      |  | model   |  |          +---------------+
+      |  +---------+  |          | anomaly detect|
+      +---------------+          | prognostics   |
+      Sec. 8.2                   +---------------+
+                                 Sec. 8.3
+
+   3. TWIN as TRAINING DATA    4. NEITHER implies the other
+      (arrow reversed)
+
+      +---------------+          a twin with no ML at all:
+      |     TWIN      |            Chapters 1-7. Three fitted
+      +-------|-------+            parameters. Works.
+              v
+      +---------------+          an ML model that is not a twin:
+      |    agent      |            no binding to one physical
+      |   learns here |            object, no automated flow.
+      +---------------+            Chapter 2 Sec. 2.6.5 ruled.
+      Sec. 8.4
+
+  Figure 8.1  Four relationships, not one. Most confused meetings
+              are two people holding different boxes.
+</code></pre></div></td></tr></table></div>
+<p>Untangling them takes one paragraph and saves whole meetings.</p>
+<p><strong>A twin need not contain any machine learning.</strong> Chapters 1 to 7 built a
+complete, useful, decision-serving twin of a plant pot with three fitted
+parameters and no learning of any kind. It detects the fault Chapter 1
+costed, it carries a credibility argument, and nothing in it would be
+improved by a neural network.</p>
+<p><strong>A machine-learning model is not a twin.</strong> Chapter 2 Sec. 2.6.5 already
+ruled on this: a trained network has no persistent binding to a specific
+physical object, no automated data flow in either direction, and no
+services. It is a <em>model</em> -- a candidate for one slot in Chapter 3's
+architecture.</p>
+<p><strong>But they genuinely do reinforce each other</strong>, and pretending otherwise is
+as unhelpful as conflating them. The survey literature treats AI and machine
+learning as core enabling technologies for twins rather than optional extras
+[1], and the reason is structural: a twin is a standing
+supply of contextualised, timestamped, physically-grounded data about one
+object, which is exactly the input a learned model needs and exactly the
+thing most machine-learning projects lack.</p>
+<p><strong>So there are three separable claims</strong>, and it is worth knowing which one
+somebody is making:</p>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>What it means</th>
+<th>Where this chapter treats it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"The twin uses AI"</td>
+<td>A learned model sits in the model slot</td>
+<td>Sec. 8.2</td>
+</tr>
+<tr>
+<td>"The twin has AI features"</td>
+<td>Learned models sit beside the model, doing jobs the model does not</td>
+<td>Sec. 8.3</td>
+</tr>
+<tr>
+<td>"We're using the twin for AI"</td>
+<td>The twin generates training data or acts as a training environment for something else</td>
+<td>Sec. 8.4</td>
+</tr>
+</tbody>
+</table>
+<p>The three cost different amounts, fail differently, and need different
+evidence. A vendor saying "AI-powered digital twin" has made none of them
+yet, and the useful reply is "in the model, or beside it?"</p>
+<p><strong>The chapter's shape follows the title.</strong> Model (Sec. 8.2), service
+(Sec. 8.3 and Sec. 8.4), risk (Sec. 8.5 and Sec. 8.6). The three parts are
+deliberately unequal. The model part is mostly consolidation, because
+Chapters 4, 6 and 7 already did that work. The service part is the one that
+will surprise you, because <strong>most of the machine learning in deployed twins
+is not in the model slot at all</strong>. The risk part is where the chapter earns
+its place.</p>
+<hr />
+<h2 id="82-machine-learning-as-a-model">8.2 Machine learning as a model</h2>
+<h3 id="821-what-part-ii-already-decided">8.2.1 What Part II already decided</h3>
+<p>Four chapters have circled this. Consolidated into one table, here is
+everything Part II established about putting a learned model in the model
+slot:</p>
+<table>
+<thead>
+<tr>
+<th>Established in</th>
+<th>The finding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ch4 Sec. 4.4.2</td>
+<td>It captures effects nobody derived -- a new column instead of a new derivation</td>
+</tr>
+<tr>
+<td>Ch4 Sec. 4.4.2</td>
+<td>It needs a different expert, often an easier one to hire</td>
+</tr>
+<tr>
+<td>Ch4 Sec. 4.4.3</td>
+<td>It needs data covering the conditions you care about, and will not tell you when it does not have them</td>
+</tr>
+<tr>
+<td>Ch4 Sec. 4.4.3</td>
+<td>Its parameters mean nothing, so no human can sanity-check them</td>
+</tr>
+<tr>
+<td>Ch4 Sec. 4.4.3</td>
+<td>It has no assumption ledger; the assumptions are in the choice of inputs and in what the data happened to contain</td>
+</tr>
+<tr>
+<td>Ch4 Sec. 4.5</td>
+<td>The hybrid families exist precisely to keep some of the physics-based advantages</td>
+</tr>
+<tr>
+<td>Ch4 Sec. 4.6</td>
+<td>Where a model sits on the white-to-black-box scale decides what kind of argument you can make about it</td>
+</tr>
+<tr>
+<td>Ch6 Sec. 6.5.1</td>
+<td>A surrogate is a <em>speed</em> device, fitted to a model rather than to reality, and can fail unexpectedly off-distribution</td>
+</tr>
+<tr>
+<td>Ch7 Sec. 7.5.5</td>
+<td>The validation <em>procedure</em> is unchanged; the <em>argument</em> loses three of its moves and must be rebuilt on data coverage</td>
+</tr>
+</tbody>
+</table>
+<p>That is a lot of cost. It is also, in the right circumstances, worth paying,
+and the literature's framing is fair: data-driven models are reached for
+exactly when the underlying physics or principles are not fully available
+[2], and reviews of specific domains report that
+relying on data-driven models alone for precise prediction is difficult, so
+physics-based modelling is often needed to aid them [3].</p>
+<h3 id="822-the-one-question-that-decides-it">8.2.2 The one question that decides it</h3>
+<p>Everything above collapses into a single question, and it is not a technical
+one:</p>
+<blockquote>
+<p><strong>Can you write down the mechanism?</strong></p>
+</blockquote>
+<p>If somebody can derive the behaviour from a conservation statement, a
+material property or a datasheet, derive it. You get inspectable parameters,
+an assumption ledger, a validity envelope you can reason about, and a
+failure mode that drifts in a predictable direction. Chapter 4 got the pot's
+whole model out of "water is conserved" in about a page.</p>
+<p>If nobody can -- because the physics is unknown, or known but intractable,
+or spread across effects nobody has separated -- then fitting is not a
+shortcut, it is the only route. Structural health monitoring reached this
+conclusion decades ago and it is the origin of the field's use of machine
+learning: represent normal conditions from measured data, then test for
+abnormality, because deriving the damage mechanism was not available
+[4].</p>
+<p><strong>Two corollaries that save arguments.</strong></p>
+<p><em>"We should use ML because we have a lot of data" is not a reason.</em> Having
+data is a precondition, not a motivation. Chapter 1's question -- what
+decision does this serve, and what does being wrong cost -- is still the
+one that decides.</p>
+<p><em>The answer is usually "some of both".</em> Chapter 4 chose corrected physics
+for the pot: derived structure where the mechanism is known, a learned term
+for the part nobody derived. That is not a compromise, it is the design, and
+it is where a great deal of current practice sits [5].
+Published work does exactly this shape -- an analytical white-box friction
+model combined with a data-driven black-box term, because friction depends
+on load, temperature and time in ways that are hard to model analytically
+[6]. <strong>Prefer the arrangement that keeps the largest
+inspectable part inspectable</strong>, because Chapter 7 showed that the
+inspectable part is where the credibility argument comes from.</p>
+<h3 id="823-what-a-learned-model-does-to-the-model-registry">8.2.3 What a learned model does to the model registry</h3>
+<p>Chapter 3 Sec. 3.2.4 gave the twin a model registry: models with versions,
+resolvable by the runner, recorded against every prediction. A learned model
+strains it in three specific ways, and all three are yours to design.</p>
+<p><strong>A version is no longer just code.</strong> A physics model's version is its
+source plus its parameter set -- Chapter 7 put <code>pot-3/v2</code> in the registry
+and that was sufficient. A learned model's behaviour is determined by the
+code, the trained weights, <em>and the data it was trained on</em>. Two of those
+three are large binary artifacts, and the third is a dataset that may no
+longer exist in the form it had. <strong>Register all three, by content hash, or
+you cannot answer Chapter 7's question about which model produced a
+prediction.</strong></p>
+<p><strong>Retraining is a release.</strong> A refitted physics parameter set is a
+three-number diff a human can read. A retrained learned model is an opaque
+replacement whose behaviour differs everywhere by a little and somewhere by
+a lot. Chapter 7's golden trajectories (Sec. 7.3.3) become more important
+here, not less, because they are the only readable diff available: run
+version 3 and version 4 against the same recorded scenarios and report where
+they disagree.</p>
+<p><strong>The registry must carry the training range.</strong> Sec. 8.6.2 builds a runtime
+check out of it. The place for it to live is beside the model, versioned
+with it, because a model and the range it was trained on go stale together.</p>
+<h3 id="824-what-it-does-to-reproducibility">8.2.4 What it does to reproducibility</h3>
+<p>Chapter 5 Sec. 5.6 required that a run be reproducible from recorded inputs,
+and Chapter 7 Sec. 7.3.4 made reproducibility a precondition for having the
+credibility conversation at all. A learned model adds two threats.</p>
+<p><strong>Inference is usually deterministic; training almost never is.</strong> Given the
+same weights and the same input, most models produce the same output every
+time, and Chapter 5's requirement is met. But <em>retraining</em> on the same data
+generally does not reproduce the same weights, because of initialisation,
+data ordering, and hardware-level nondeterminism. So "we can rebuild the
+model from the data" is a weaker promise than it sounds. <strong>Archive the
+weights, not just the recipe.</strong></p>
+<p><strong>Hardware and library versions change numeric results.</strong> A model that
+produces 0.61 on one accelerator may produce 0.62 on another. Usually
+harmless; occasionally the difference between alerting and not, if the
+threshold sits between them. This is a golden-trajectory test, and it is
+exactly the "change nobody declared" case Chapter 7 Sec. 7.3.3 warned about.</p>
+<h3 id="825-what-to-ask">8.2.5 What to ask</h3>
+<ul>
+<li>Can somebody write down the mechanism? If yes, why are we fitting it?</li>
+<li>What part of this model is derived and what part is learned, and can the
+  derived part run alone if the learned part refuses?</li>
+<li>What are the three artifacts of this version -- code, weights, training
+  data -- and where is each?</li>
+<li>What happens to the credibility argument when this model is retrained?</li>
+</ul>
+<hr />
+<h2 id="83-machine-learning-as-a-service">8.3 Machine learning as a service</h2>
+<p>Here is the part that surprises people. <strong>In most deployed twins, the
+machine learning is not in the model slot.</strong> It sits beside the model, in
+Chapter 3's services layer, doing jobs the model does not do. Six jobs cover
+almost all of it.</p>
+<h3 id="831-anomaly-detection-learning-what-normal-looks-like">8.3.1 Anomaly detection: learning what normal looks like</h3>
+<p><strong>The job.</strong> Watch a stream of measurements, or a stream of residuals, and
+raise something when the pattern stops resembling ordinary operation.</p>
+<p><strong>Why it is the most common.</strong> It is the one job where a learned model has a
+decisive structural advantage: it needs no labelled faults. You train it on
+periods of normal operation and it flags departures. Diagnostic twins for
+offshore wind do exactly this -- unsupervised learning fits a model of
+normal operation, flags departures from it and diagnoses them, on an operational
+floating turbine monitored through measurements [7].
+The same pattern is the origin of machine learning in structural health
+monitoring: features representing normal conditions, then a test for novelty
+[4]. And twin reference implementations wire it in as
+a service in its own right, with a monitoring phase that watches the
+prediction error of the state estimator to detect anomalies
+[8].</p>
+<p><strong>Note carefully what that last one does.</strong> It runs the anomaly detector on
+the <strong>residuals of a physics model</strong>, not on the raw signal. That
+arrangement is much stronger than either half alone, and it is available to
+you the moment you have a model:</p>
+<blockquote>
+<p>The physics model says what should have happened. The residual is what
+did not. A learned detector on the residual stream is learning the shape
+of <em>model error</em>, which is a far smaller and better-behaved thing to learn
+than the shape of the world.</p>
+</blockquote>
+<p><strong>How it fails.</strong> It tells you <em>something changed</em>, not <em>what</em> or <em>whether it
+matters</em>. It will flag the day the greenhouse blinds were replaced with the
+same confidence as the day the pump failed. And it inherits Sec. 8.5.1's
+problem in full: if the "normal" training period contained faults, it has
+learned them as normal.</p>
+<p><strong>What it needs.</strong> A period of operation somebody is willing to certify as
+normal. That certification is a human act and it is the expensive part.</p>
+<h3 id="832-prognostics-how-long-until-it-fails">8.3.2 Prognostics: how long until it fails</h3>
+<p><strong>The job.</strong> Estimate remaining useful life, or the probability of failure
+within a horizon, so maintenance can be scheduled rather than suffered.</p>
+<p>This is the largest commercial application of twins that involves learning,
+and it has its own systematic literature [9].
+Battery health is the most developed case, with hybrid approaches coupling a
+degradation model to a learned component [10], [11], and a review literature that is unusually candid about
+uncertainty [12].</p>
+<p><strong>How it fails, and it is the hardest failure in this section.</strong> Labels for
+"time until failure" require failures. You get one label per asset per
+lifetime, the label arrives years late, and the assets you most want to
+predict are the ones that have not failed. Techniques exist to stretch what
+data there is -- transfer learning from a pretrained model adapted to a
+specific system is being applied to exactly this time-to-event problem in
+cyber-physical systems [13], and population-based approaches
+share information across a fleet of nominally similar structures
+[14]. Both are real, and neither manufactures a label
+that does not exist.</p>
+<p><strong>What to ask.</strong> How many failures are in the training data? If the answer
+is a small number, the honest claim is much narrower than the proposal will
+say.</p>
+<h3 id="833-forecasting-the-inputs">8.3.3 Forecasting the inputs</h3>
+<p><strong>The job.</strong> Predict what the twin's <em>inputs</em> will do, so the model can be
+run forward. Weather, demand, occupancy, price, inflow.</p>
+<p><strong>Why this one gets overlooked, and why it is the simplest to justify.</strong>
+It is often the highest
+value per unit of effort in the whole twin, because the physics model is
+already good and the thing limiting a day-ahead prediction is not the model
+-- it is not knowing tomorrow's conditions. Chapter 7 Sec. 7.6.1 listed input
+and scenario uncertainty as the one source that <em>cannot</em> be reduced by
+better modelling. This is the service that reduces it.</p>
+<p><strong>How it fails.</strong> Gracefully, which is unusual and welcome. A forecast comes
+with a horizon over which it degrades, and everybody in the domain already
+knows this. The engineering requirement is to carry the forecast's own
+uncertainty into the twin's run rather than treating a forecast as a
+measurement -- which is Chapter 6's Monte Carlo, fed by Chapter 7's ranges.</p>
+<h3 id="834-perception-turning-pixels-and-sound-into-state">8.3.4 Perception: turning pixels and sound into state</h3>
+<p><strong>The job.</strong> Get a state variable from a sensor that does not produce
+numbers directly. A camera that reads a gauge, counts items, or spots a
+misaligned part. A microphone that hears a bearing.</p>
+<p><strong>Why it belongs in a twin chapter.</strong> This is the service that can <em>remove
+an admitted limitation from the credibility argument</em>. Chapter 7's
+demonstrator argument conceded, under assumption A3, that the twin cannot
+distinguish a failed pump from a displaced dripper. No amount of moisture
+modelling fixes that -- the two are identical in the data available. A
+camera makes them different. Sec. 8.7.3 does exactly this.</p>
+<p><strong>How it fails.</strong> Lighting, viewpoint, dirt on the lens, and the class of
+object it never saw. Perception models are also the ones most exposed to the
+input-manipulation attacks of Sec. 8.5.5.</p>
+<h3 id="835-optimisation-and-control-policy">8.3.5 Optimisation and control policy</h3>
+<p><strong>The job.</strong> Choose an action. Which setpoint, which schedule, which
+maintenance window.</p>
+<p><strong>The important distinction, because the two get called the same thing.</strong>
+<em>Optimisation</em> searches over candidate actions by running the model on each
+one -- that is Chapter 6's Monte Carlo and Chapter 11's subject, and it
+involves no learning. <em>A learned control policy</em> replaces the search with a
+model that outputs the action directly, having been trained to.</p>
+<p>The second is where reinforcement learning enters twin practice, and the
+attraction is speed: a policy answers in microseconds where a search answers
+in minutes. The cost is that you have replaced a procedure whose reasoning
+you can inspect -- here are the candidates, here is the one that scored best,
+here is the score -- with one you cannot.</p>
+<blockquote>
+<p><strong>The rule that follows, and it is the strongest recommendation in this
+chapter.</strong> A learned control policy on a closed loop puts a model you
+cannot interrogate on the far side of Chapter 3's actuation guard.
+Chapter 2 Sec. 2.8 already made closing the loop the point where the
+obligations change. Do not make a learned policy the <em>first</em> thing you
+close the loop with. Ship the searching version, learn what actions it
+chooses and why, and replace it with a policy only when latency is
+genuinely the binding constraint -- and then keep the search running as an
+oracle you can compare against.</p>
+</blockquote>
+<h3 id="836-natural-language-interfaces">8.3.6 Natural-language interfaces</h3>
+<p><strong>The job.</strong> Let a human ask the twin a question in words, or have the twin
+summarise a situation in words.</p>
+<p>This is the newest of the six and the one moving fastest. The framing in the
+literature is that generative models bring an ability to work with both
+natural language and physics-based simulation, and proposals exist to merge
+classical model-driven twins with generative AI into a more adaptable system
+[15].</p>
+<p><strong>Where it is genuinely good.</strong> Explaining the twin to a person who is not
+going to read a residual plot. Drafting the incident narrative. Turning
+"which pots were dry last week" into a query. These are interface problems,
+and the failure mode is a wrong sentence a human reads and evaluates.</p>
+<p><strong>Where it is dangerous.</strong> The moment its output reaches the command path
+without a human in between. A language model that can <em>call</em> the twin's
+actuation endpoint has been placed on the wrong side of the actuation guard,
+and Chapter 3 Sec. 3.2.7's rules apply with no exceptions: every command
+audited with the state that justified it, and a fail-safe defined per
+command.</p>
+<blockquote>
+<p><strong>A test worth applying to any proposal in this category.</strong> Draw where the
+generated text goes. If it goes to a screen a human reads, it is an
+interface. If it goes to an endpoint that does something, it is a control
+system with an unusually poor specification.</p>
+</blockquote>
+<h3 id="837-three-placement-notes-then-on">8.3.7 Three placement notes, then on</h3>
+<p>Each of these is a real topic that this chapter names and hands on.</p>
+<p><strong>Where the inference runs.</strong> On the device, at the edge, or in the cloud.
+Work exists on giving constrained microcontrollers adaptive decision-making
+by pairing them with a twin that offloads heavy computation, validates
+inferences, and retrains models without disrupting real-time operation
+[16]. That is a deployment-topology decision -- Chapters
+9 and 12.</p>
+<p><strong>Training across sites without moving data.</strong> Federated approaches let
+multiple parties contribute to a model without pooling their raw data, and
+communication-efficient variants exist for twin settings
+[17]. Relevant when the data is commercially
+sensitive or too large to move. Chapter 12.</p>
+<p><strong>What it costs to run.</strong> A learned service has an inference bill per call
+and a training bill per version, and Chapter 5 Sec. 5.3.4's arithmetic --
+does it fit in the request? -- applies to it unchanged.</p>
+<h3 id="838-what-to-ask-about-any-service-side-proposal">8.3.8 What to ask about any service-side proposal</h3>
+<ul>
+<li>Which of the six jobs is this, and what would we do instead without it?</li>
+<li>What labels does it need, and where do they come from?</li>
+<li>Does its output reach a human or an actuator?</li>
+<li>What happens when it is unavailable? (A service that has no defined
+  behaviour when down is a dependency nobody costed.)</li>
+</ul>
+<hr />
+<h2 id="84-the-arrow-the-other-way-the-twin-as-a-training-environment">8.4 The arrow the other way: the twin as a training environment</h2>
+<p>So far the twin has been the thing and AI has been an ingredient. It runs
+the other way too, and often enough to have a name.</p>
+<h3 id="841-two-jobs">8.4.1 Two jobs</h3>
+<p>A systematic survey of what it calls <em>AI simulation</em> -- using virtual
+training environments to develop AI agents on simulated, synthetic data --
+finds the practice splits into two, with digital twins as the high-fidelity
+environments that make it credible [18]:</p>
+<p><strong>A safe place to train.</strong> Roughly two thirds of the studied work uses the
+twin as a virtual training environment in which an agent can act, fail, and
+learn without breaking anything [18]. The examples are the obvious
+ones -- a drone learning to fly, a robot learning motion responses to
+situations it has not met. The attraction is stark: the agent needs
+thousands of failures, and the physical asset can afford none.</p>
+<p><strong>A source of labelled data.</strong> The remaining third generates or labels
+datasets [18]. A simulation knows the ground truth by
+construction, which is precisely what the physical world will not tell you.
+Rendering a part under lighting conditions that have never occurred, with
+the correct label attached for free, solves the labelling problem of
+Sec. 8.3.4 in a way nothing else does. Generative approaches are being
+proposed for the same purpose -- synthesising data that resembles the real
+thing to overcome data limitations [15].</p>
+<h3 id="842-the-sim-to-real-gap-which-is-the-whole-difficulty">8.4.2 The sim-to-real gap, which is the whole difficulty</h3>
+<p>An agent trained in the twin has learned to succeed <strong>in the twin</strong>. It has
+learned the twin's assumptions, including the ones nobody wrote down, and
+including the numerical artifacts of Chapter 5's step size. The gap between
+that and working on the physical object is the <strong>sim-to-real gap</strong>, and it
+is not a detail.</p>
+<p>Figure 8.3 shows why Chapter 7's limitations change character in this use.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code>   Chapter 7&#39;s use              Sec. 8.4&#39;s use
+   ---------------              --------------
+
+   twin output                  twin output
+       |                            |
+       v                            v
+   a human reads it             an agent TRAINS on it
+       |                            |
+       v                            v
+   a limitation is              a limitation is a
+   a caveat they                LESSON, learned
+   can weigh                    confidently and
+                                repeated at scale
+
+   the twin&#39;s validity envelope, in each use:
+
+     Ch.7 : &quot;do not believe outputs outside 350-900&quot;
+     Ch.8 : &quot;an agent trained across the full range has
+             been trained partly on FICTION&quot;
+
+  Figure 8.3  The sim-to-real gap restated as a Chapter 7
+              problem. The admitted limitations do not merely
+              carry over -- they become the agent&#39;s confident
+              mistakes.
+</code></pre></div></td></tr></table></div>
+<p><strong>Everything in Chapter 7 applies here with a twist.</strong> The credibility
+argument was about believing the twin's <em>outputs</em>. This is a use in which
+the twin's outputs become somebody's <em>training data</em>, so every limitation
+becomes a lesson the agent learns. Chapter 7's admitted limitations are the
+list of things your agent will be confidently wrong about.</p>
+<p><strong>Three consequences that are yours.</strong></p>
+<ol>
+<li><strong>The validity envelope is now a training-coverage specification.</strong> If
+   the twin is only valid between 350 and 900 reading units, an agent
+   trained across its full range has been trained partly on fiction.</li>
+<li><strong>Randomise what you are unsure of.</strong> The standard mitigation is to vary
+   the uncertain parameters across training runs so the agent cannot learn
+   to depend on any single value. This is Chapter 6's Monte Carlo used for
+   a different purpose, and Chapter 7's calibration spreads are where the
+   ranges come from.</li>
+<li><strong>Budget for the transfer, not just the training.</strong> An agent that works
+   in the twin is a milestone, not a deliverable.</li>
+</ol>
+<blockquote>
+<p><strong>A sanity check before agreeing to this.</strong> Ask what the credibility
+argument for the twin says, and read its limitations section as a list of
+things the agent will get wrong. If nobody has written one, the twin is
+not ready to be a training environment, whatever its graphics look like.</p>
+</blockquote>
+<hr />
+<h2 id="85-machine-learning-as-a-risk">8.5 Machine learning as a risk</h2>
+<p>Ordinary machine-learning risks -- overfitting, leakage, imbalanced data,
+poor evaluation -- apply here exactly as they do everywhere, and you know
+them. This section is about the four that a <strong>twin</strong> adds or sharpens,
+plus the attack surface.</p>
+<h3 id="851-the-label-problem-worked">8.5.1 The label problem, worked</h3>
+<p>Chapter 4 Sec. 4.4.3 made an argument and called it the strongest single
+argument in that chapter:</p>
+<blockquote>
+<p><strong>A model used to detect abnormality should not be taught what is normal
+by data that contains the abnormality.</strong></p>
+</blockquote>
+<p>Chapter 4 asserted that this generalises. Here is the arithmetic that shows
+it, and it is the chapter's one set piece.</p>
+<p><strong>The setting.</strong> Chapter 1's baseline: watering faults occur and go
+undetected for about four days each. Suppose three months of ten-minute
+logging is available and nobody has labelled it. Somebody proposes training
+a detector on that history. Somebody else proposes Chapter 7's physics
+threshold. Both are evaluated on a test period containing <strong>200 evening
+dose events, of which 6 were genuine watering faults</strong> -- 3 per cent, which
+is what a rare event looks like.</p>
+<p><strong>Detector A: the physics threshold</strong> from Chapter 7 Sec. 7.5.2. Expected
+step 56.4 reading units, alert when the observed step falls more than 9.0
+units below it.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>The dose failed (6)</th>
+<th>The dose was fine (194)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Alerted</strong></td>
+<td>6</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Stayed silent</strong></td>
+<td>0</td>
+<td>192</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Detector B: the learned detector</strong>, trained on the unlabelled history --
+which, by Chapter 1's own baseline, contained watering faults nobody marked.
+It has therefore been taught that a dose producing no moisture step is a
+thing that sometimes happens.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>The dose failed (6)</th>
+<th>The dose was fine (194)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Alerted</strong></td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td><strong>Stayed silent</strong></td>
+<td>4</td>
+<td>191</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Now compute accuracy, the number everyone reaches for first.</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Detector A:  (6 + 192) / 200 = 198 / 200 = 99.0 per cent
+Detector B:  (2 + 191) / 200 = 193 / 200 = 96.5 per cent
+</code></pre></div></td></tr></table></div>
+<p>Both excellent. Ship either. Except:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Detector C, which is a function that returns &quot;no alert&quot; and nothing else:
+             (0 + 194) / 200 = 194 / 200 = 97.0 per cent
+</code></pre></div></td></tr></table></div>
+<p><strong>The empty function beats the learned detector.</strong> That is not a rhetorical
+trick, it is what accuracy measures when one class is 3 per cent of the
+data, and it is why the number must not be reported for a rare event.</p>
+<p><strong>Report these two instead, each against its own denominator.</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>miss rate       = faults not alerted / faults          (the false negatives)
+false-alarm rate = healthy doses alerted / healthy doses (the false positives)
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>Detector</th>
+<th>Miss rate</th>
+<th>False-alarm rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A -- physics threshold</td>
+<td>0 / 6 = <strong>0 per cent</strong></td>
+<td>2 / 194 = <strong>1.0 per cent</strong></td>
+</tr>
+<tr>
+<td>B -- learned on unlabelled history</td>
+<td>4 / 6 = <strong>67 per cent</strong></td>
+<td>3 / 194 = <strong>1.5 per cent</strong></td>
+</tr>
+<tr>
+<td>C -- the empty function</td>
+<td>6 / 6 = <strong>100 per cent</strong></td>
+<td>0 / 194 = <strong>0 per cent</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Now the detectors are distinguishable, and B is revealed as much closer to C
+than to A.</p>
+<p><strong>Convert to Chapter 1's units, which is the step that ends the argument.</strong>
+Each undetected fault costs about four days. Over this test period, A loses
+0 days and B loses 4 x 4 = <strong>16 experiment-days</strong>. That is the sentence for
+the sponsor: not "96.5 per cent accurate" but "loses sixteen experiment-days
+per two hundred doses".</p>
+<p><strong>Three general lessons, and they outlive this example.</strong></p>
+<ol>
+<li><strong>Accuracy is meaningless for a rare event.</strong> Ask for the miss rate and
+   the false-alarm rate separately, each with its denominator. If a report
+   gives you one number, it is hiding which of the two it traded away.</li>
+<li><strong>The failure is in the labels, not the algorithm.</strong> No better
+   architecture rescues Detector B, because the training data says the fault
+   is normal. This is the general form of Chapter 4's argument and it is why
+   it generalises: <strong>a learned detector's ceiling is set by what its
+   training data called normal.</strong></li>
+<li><strong>The fix is available and is not more machine learning.</strong> Train on a
+   period somebody has certified as fault-free, which turns the problem into
+   the novelty detection of Sec. 8.3.1 -- or, better here, put the learned
+   detector on the <em>residuals of a physics model</em>, so that "expected" comes
+   from a conservation law rather than from history.</li>
+</ol>
+<h3 id="852-drift-and-why-it-is-worse-for-a-learned-model">8.5.2 Drift, and why it is worse for a learned model</h3>
+<p>Chapter 7 Sec. 7.4.7 established that a twin's model must be continually
+re-checked because the world changes under it, and Sec. 7.7.4 built the
+monitors: rolling residual bias, rolling residual spread, estimator gain.
+All of them work unchanged for a learned model. <strong>Use them; nothing here
+replaces them.</strong></p>
+<p>Three things are worse.</p>
+<p><strong>You cannot attribute the drift.</strong> When the pot's residuals developed a
+-4.8 bias in Chapter 7, the cause was in the assumption ledger: A1b, one
+drying rate for day and night. A named cause meant a targeted fix and an
+earned parameter. A learned model has no ledger. You can detect the drift
+and you can retrain, but you cannot say <em>what changed</em>, which means you also
+cannot say whether retraining will hold.</p>
+<p><strong>Retraining resets the credibility argument.</strong> Chapter 7 Sec. 7.7.2 listed
+"model version changed" as an expiry trigger. For a physics model a refit is
+three numbers and a re-run of the hold-out. For a learned model, retraining
+produces a different model, and every claim in the argument is about the old
+one. If the drift monitor fires monthly and the validation procedure takes
+three weeks, you have the backlog Chapter 7 Sec. 7.5.6 warned about --
+recognised in the literature as a scaling problem in its own right, since
+industrialising twins puts new demands specifically on the speed of
+validation and verification [19].</p>
+<p><strong>The drift may be in the inputs rather than the outputs.</strong> A learned model
+can go wrong without its residuals moving at all, if the inputs have shifted
+into a region where the residual happens to stay small by luck. Sec. 8.6.2's
+input-coverage check is the monitor for this, and it is a different monitor
+from the residual ones.</p>
+<h3 id="853-the-feedback-loop-the-twin-creates-in-its-own-data">8.5.3 The feedback loop the twin creates in its own data</h3>
+<p>This one is specific to twins, it is not obvious, and it is the risk in this
+chapter most likely to be discovered late.</p>
+<p><strong>Be careful with the word.</strong> Chapter 2 Sec. 2.8's <em>control</em> loop is the
+twin acting on the physical twin. This is a <strong>data</strong> loop: the twin's
+actions change the data that trains its next model. Same word, different
+thing, and they arrive together.</p>
+<p><strong>The demonstrator, at Chapter 2's Stage 3.</strong> The twin now sets the doses,
+holding moisture near a target. It works. Six months later somebody retrains
+the drying model on the operational data and it is worse.</p>
+<p>Here is why, and it is inevitable rather than unlucky:</p>
+<ol>
+<li>A model of drying learns from variation in moisture. Dry spells and wet
+   spells are the informative events.</li>
+<li>The controller's entire job is to <em>remove</em> that variation. It succeeds.</li>
+<li>So the operational data has almost no variation left to learn from.</li>
+<li>The retrained model is worse, the control degrades, and the data gets
+   slightly more informative again -- which is the system limping toward an
+   equilibrium of mediocrity rather than failing loudly.</li>
+</ol>
+<p>Figure 8.2 draws the loop, because written as four numbered steps it reads
+like a sequence, and the damaging property is that it is a cycle with no
+alarm on it.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code>        +---------------------------------------+
+        |                                       |
+        v                                       |
+   controller holds moisture near target        |
+        |                                       |
+        v                                       |
+   variation in the data disappears             |
+        |                                       |
+        v                                       |
+   retrained model learns less                  |
+        |                                       |
+        v                                       |
+   control degrades slightly ------------------&gt;+
+        |
+        |  and the data gets slightly more
+        |  informative again, so the system
+        v  settles rather than fails
+
+   EQUILIBRIUM OF MEDIOCRITY
+   no error, no alert, no crash -- just a twin
+   that is quietly worse than it was
+
+  Figure 8.2  The data loop. Not Chapter 2&#39;s control loop: this
+              one runs through the training set. It has no failure
+              signal, which is why it is found late.
+</code></pre></div></td></tr></table></div>
+<p>The absence of a failure signal is the actionable part. Nothing in the
+system reports this, so the only defence is to measure the <em>variation</em> in
+the training data over time and alert when it collapses -- a monitor on the
+inputs rather than on the outputs.</p>
+<p><strong>This is Chapter 7's identifiability problem arriving by a different
+road.</strong> Sec. 7.4.4 showed that daily net-change data could not separate <code>k</code>
+from <code>g</code> because both effects acted together. Here the data cannot separate
+anything because the controller suppressed the effects. In both cases the
+information is not in the data, and no algorithm recovers it.</p>
+<p><strong>Three defences, in increasing order of cost.</strong></p>
+<p><em>Keep the calibration campaigns.</em> Chapter 7's two campaigns were deliberate
+experiments, not operational logs, and this is a second reason to keep
+running them after deployment.</p>
+<p><em>Log the controller's actions as first-class inputs.</em> A model trained on
+moisture alone sees a flat line; a model that also sees the doses can at
+least learn the response. Chapter 3's audit record already requires this.</p>
+<p><em>Deliberately perturb, occasionally.</em> Let the moisture drift a little, on
+purpose, on a schedule, and treat the result as calibration data. This costs
+something real -- and it is exactly the trade the identifiability discussion
+of Chapter 7 Sec. 7.4.4 said you would eventually face: an experiment that
+moves one effect without the other, on a physical twin you did not want to
+interrupt.</p>
+<blockquote>
+<p><strong>Ask this at design time, not after six months.</strong> <em>What does this twin's
+own operation do to the data it will be retrained on?</em> If the answer is
+"removes the variation the model needs", you have found the problem in a
+meeting rather than in production.</p>
+</blockquote>
+<h3 id="854-opacity-and-the-conversation-you-will-actually-have">8.5.4 Opacity, and the conversation you will actually have</h3>
+<p>Chapter 7 Sec. 7.7.3 listed the five questions an incident review asks, in
+order. Question 1 is what the twin predicted and measured; question 2 is
+which model version produced it. For a physics model there is a question 6
+that gets asked informally and answered in one sentence: <em>why?</em> Because
+<code>k_day</code> is
+4.28 and the window was 7.8 hours.</p>
+<p>A learned model has no answer beyond "these inputs produced this output".
+That is a real cost, and it lands in three places: the incident review, the
+operator who has to decide whether to trust an alert at 3 a.m., and the
+regulator, if you have one.</p>
+<p><strong>The field's answer is explainability, and it is worth knowing the
+vocabulary without overestimating it.</strong> Explainable-AI surveys aimed at
+industrial settings frame model transparency as the key concept -- a model
+revealing its internal operation on the inputs it processed -- and are
+explicit that it matters most where a human is integrated into the process
+[20]. The same surveys are candid about the trade-off
+between accuracy and interpretability, and about the need for domain
+expertise in the explanation process itself [20].</p>
+<p><strong>What to do about it as an engineer, since you will not be building
+explainers.</strong></p>
+<ul>
+<li><strong>Log the inputs, not just the output.</strong> For a physics model the inputs
+  can often be reconstructed. For a learned model they cannot, and without
+  them question 1 has no answer. This is a storage cost you should agree to.</li>
+<li><strong>Prefer the arrangement that keeps something inspectable.</strong> Corrected
+  physics leaves a derived core that can be reasoned about even when the
+  correction cannot. This is Chapter 4 Sec. 4.6's white-to-black-box scale
+  cashing out as an operational property.</li>
+<li><strong>Prefer a model that reports its own uncertainty</strong>, as Chapter 7
+  Sec. 7.5.5 recommended [12]. An output with a
+  range on it lets a service degrade instead of guessing, which is worth
+  more operationally than an explanation nobody reads.</li>
+</ul>
+<h3 id="855-the-attack-surface-a-learned-model-adds">8.5.5 The attack surface a learned model adds</h3>
+<p>Chapter 3 Sec. 3.3.3 owns security. This subsection covers only what is
+different <strong>because</strong> a model is learned, and hands the rest on.</p>
+<p>Two things are different.</p>
+<p><strong>The training data becomes an attack surface.</strong> An adversary who can
+influence what the model learns can shape what it does, and the influence
+need not be an intrusion: in a twin that retrains on its own operational
+data, anyone who can affect the physical process can affect the next model.
+Note that this is Sec. 8.5.3's feedback loop with an adversary in it.</p>
+<p><strong>The inputs become an attack surface.</strong> Learned models can be induced to
+misclassify by inputs crafted for the purpose, and the twin security
+literature lists classifier manipulation among the attack classes to be
+studied [21]. Perception services (Sec. 8.3.4) are
+the most exposed, because their inputs are the least constrained.</p>
+<p><strong>The defences that belong in this chapter</strong> are the ones already built for
+other reasons: the input-coverage check of Sec. 8.6.2 rejects inputs unlike
+anything in training, whatever their provenance; Chapter 3's actuation guard
+stands between any model and any action; and Chapter 7's monitors notice a
+model whose behaviour has changed. The broader treatment -- and the twin's
+own use as a security testbed, which is a genuine and separate topic -- is
+Chapter 13's and the survey literature's [21].</p>
+<h3 id="856-what-to-ask">8.5.6 What to ask</h3>
+<ul>
+<li>What called the training data normal, and who certified it?</li>
+<li>Give me the miss rate and the false-alarm rate, with denominators.</li>
+<li>What does this twin's operation do to the data it will be retrained on?</li>
+<li>When this alerts at 3 a.m., what can the operator see besides the alert?</li>
+<li>What happens to the credibility argument the next time this is retrained?</li>
+</ul>
+<hr />
+<h2 id="86-what-changes-in-the-credibility-argument">8.6 What changes in the credibility argument</h2>
+<p>Chapter 7 Sec. 7.5.5 gave a four-row table of what a learned model takes
+away, and said that Chapter 8 would take it further. This is that, in three
+parts: the extended table, the check Chapter 7 named without building, and
+the expiry clause.</p>
+<h3 id="861-chapter-7s-table-extended-into-a-checklist">8.6.1 Chapter 7's table, extended into a checklist</h3>
+<p>Chapter 7's finding was that the validation <em>procedure</em> is unchanged and
+three of its <em>moves</em> are unavailable. Adding what to do instead:</p>
+<table>
+<thead>
+<tr>
+<th>Move</th>
+<th>Physics-based</th>
+<th>Learned</th>
+<th>What replaces it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inspect a parameter for plausibility</td>
+<td>"Is 4.28 units/hour reasonable?"</td>
+<td>Nothing means anything alone</td>
+<td>Nothing replaces it. <strong>Record the loss in the limitations section.</strong></td>
+</tr>
+<tr>
+<td>Attribute a bias to a named assumption</td>
+<td>A1b, immediately</td>
+<td>Nothing to attribute to</td>
+<td>A record of training-data composition, so drift can at least be correlated with what the data contained</td>
+</tr>
+<tr>
+<td>State an envelope from the assumption ledger</td>
+<td>Six rows, mostly free</td>
+<td>No ledger exists</td>
+<td>The <strong>training-coverage table</strong> of Sec. 8.6.2, derived from the data, and enforced at runtime</td>
+</tr>
+<tr>
+<td>Predict the failure mode</td>
+<td>Drifts as the assumptions predict</td>
+<td>Confident output off-distribution, with no signal</td>
+<td>The input-coverage check, plus a model that reports its own uncertainty where one is available</td>
+</tr>
+<tr>
+<td><em>(new)</em> Identify the model version</td>
+<td>Source plus three numbers</td>
+<td>Code, weights and data</td>
+<td>Content hashes for all three in the registry (Sec. 8.2.3)</td>
+</tr>
+<tr>
+<td><em>(new)</em> Re-issue after a refit</td>
+<td>Re-run the hold-out; hours</td>
+<td>A different model; the whole argument is about the old one</td>
+<td>A validation procedure sized to the retraining cadence, or a slower cadence (Sec. 8.6.3)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>And the harder question underneath, which Chapter 7 raised and could not
+settle.</strong> The standards practice that regulated domains rely on assumes a
+credibility assessment can be done once for a knowledge-driven model; for
+data-driven models that assumption is explicitly noted as unresolved
+[22]. That is not a gap in your project. It is the
+honest state of the field, and the correct engineering response is to make
+the <em>cadence</em> explicit rather than to pretend the one-off assessment
+transfers. Ongoing programme-level reviews say the same thing from the
+research side: verification, validation and uncertainty quantification for
+twins is an open agenda, and online approaches may be required
+[23].</p>
+<h3 id="862-building-the-input-coverage-check">8.6.2 Building the input-coverage check</h3>
+<p>Chapter 7 Sec. 7.5.5 recommended checking that inputs resemble the training
+range and did not build one. It is about twenty lines, and here it is for
+the demonstrator's corrected-physics model, whose learned term takes air
+temperature, humidity and light.</p>
+<p><strong>Step 1 -- record the range, per input, at training time.</strong> Not at review
+time, when nobody can reconstruct it.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Training minimum</th>
+<th>Training maximum</th>
+<th>Outside the range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Air temperature</td>
+<td>14 C</td>
+<td>27 C</td>
+<td>Refuse; fall back to physics-only</td>
+</tr>
+<tr>
+<td>Relative humidity</td>
+<td>35 per cent</td>
+<td>78 per cent</td>
+<td>Refuse; fall back to physics-only</td>
+</tr>
+<tr>
+<td>Light level</td>
+<td>0</td>
+<td>820</td>
+<td>Refuse; fall back to physics-only</td>
+</tr>
+<tr>
+<td>Moisture reading</td>
+<td>372</td>
+<td>902</td>
+<td>Already refused by Chapter 7's envelope (350 to 900)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 2 -- store it with the model</strong>, versioned together, in Chapter 3's
+registry. A model and the range it was trained on go stale at the same
+moment.</p>
+<p><strong>Step 3 -- check before every call</strong>, in the service, not in the model. The
+model cannot refuse; the code that calls it can.</p>
+<p><strong>Step 4 -- decide what "refuse" means, per input, in advance.</strong> This is the
+part that gets skipped and the part that matters. Here the answer is
+available and cheap: <strong>fall back to the physics-only model.</strong> The prediction
+gets worse in a known direction and the twin keeps working.</p>
+<blockquote>
+<p><strong>Notice where that fallback came from.</strong> It exists because Chapter 4
+chose corrected physics over a pure learned model for this pot. A twin
+whose model slot is entirely learned has no fallback -- refusing means
+having no prediction at all. <strong>The graceful-degradation path is bought at
+model-selection time, four chapters earlier, and cannot be added later.</strong></p>
+</blockquote>
+<p><strong>Step 5 -- log every refusal, and alert on the rate.</strong> A rising refusal
+rate is the earliest warning of distribution shift you will get, and it
+arrives before the residuals move.</p>
+<p><strong>Now the honest limitation, which must go in the credibility argument.</strong>
+Checking each input against its own range is <strong>necessary and not
+sufficient</strong>. Suppose training contained hot dry days and mild humid days,
+but never a hot humid day. An input of 26 C at 76 per cent humidity passes
+every individual check -- both values are inside their ranges -- and is a
+combination the model has never seen. Per-dimension coverage cannot detect
+that, and a proper treatment of joint coverage is beyond this chapter and
+beyond most projects.</p>
+<p><strong>So state it as a limitation rather than solving it:</strong> "input coverage is
+checked per dimension; unusual <em>combinations</em> of individually ordinary
+inputs are not detected." A reviewer who reads that sentence trusts the rest
+of the document more, not less.</p>
+<h3 id="863-the-expiry-clause-a-learned-model-needs">8.6.3 The expiry clause a learned model needs</h3>
+<p>Chapter 7 Sec. 7.7.2 required every credibility argument to state its expiry
+conditions. A learned model adds three rows to that table:</p>
+<table>
+<thead>
+<tr>
+<th>Expiry trigger</th>
+<th>Detected by</th>
+<th>Why it is new</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model retrained</td>
+<td>Release pipeline</td>
+<td>Retraining produces a different model; nothing in the old argument transfers</td>
+</tr>
+<tr>
+<td>Input-coverage refusal rate exceeds its threshold</td>
+<td>The check of Sec. 8.6.2</td>
+<td>Distribution shift, detectable before the residuals move</td>
+</tr>
+<tr>
+<td>Training data's certification as "normal" is called into question</td>
+<td>A human, after an incident</td>
+<td>Sec. 8.5.1: if the training period contained the fault, every claim about detection is wrong retroactively</td>
+</tr>
+</tbody>
+</table>
+<p>The third is the uncomfortable one, because it invalidates the argument
+<em>backwards</em>. When somebody discovers that the pump was intermittently
+failing during the month you trained on, every alert and every silence since
+deployment is in question. Physics models have no equivalent.</p>
+<hr />
+<h2 id="87-worked-example-where-ai-goes-in-the-demonstrator">8.7 Worked example: where AI goes in the demonstrator</h2>
+<p>Four proposals arrive. Following Chapter 6 Sec. 6.9 and Chapter 7
+Sec. 7.8's pattern, each is decided on the value metric, and the answer is
+sometimes no.</p>
+<h3 id="871-proposal-1-replace-the-fault-detectors-model-with-a-learned-one">8.7.1 Proposal 1: replace the fault detector's model with a learned one</h3>
+<p><em>The pitch.</em> "We have three months of data. Train a model to predict the
+next reading; alert on the gap. No modelling expert needed."</p>
+<p><strong>Declined</strong>, and Sec. 8.5.1 has the arithmetic. The training history
+contains unlabelled watering faults, so the model learns a failed dose as
+ordinary. Miss rate 67 per cent against the physics threshold's 0 per cent;
+16 experiment-days lost per 200 doses. The accuracy figure of 96.5 per cent
+that would have appeared in the proposal is beaten by a function that
+returns "no alert".</p>
+<p><strong>And the cheaper objection, which comes first.</strong> Chapter 8 Sec. 8.2.2's
+question: can somebody write down the mechanism? Yes -- Chapter 4 did it in
+a page from "water is conserved". There is nothing to learn here.</p>
+<h3 id="872-proposal-2-a-learned-correction-on-the-drying-rate">8.7.2 Proposal 2: a learned correction on the drying rate</h3>
+<p><em>The pitch.</em> "The model ignores temperature, humidity and light, and Chapter
+7's week 3 residuals still have a spread of 2.0. Add a learned term."</p>
+<p><strong>Accepted, with three conditions.</strong> This is Chapter 4 Sec. 4.5.1's
+corrected physics -- the arrangement Chapter 4 already chose for this pot --
+and it is the right shape because <code>g</code>, the expected step per 100 ml, stays
+derived from conservation. Sec. 8.5.1's objection does not apply, because
+the fault detector's expectation is not being learned.</p>
+<p>The conditions:</p>
+<ol>
+<li><strong>The input-coverage check of Sec. 8.6.2</strong>, with the physics-only
+   fallback and refusal logging.</li>
+<li><strong>The physics-only model stays deployable.</strong> It is the fallback, so it
+   is not decommissioned and its golden trajectories keep running.</li>
+<li><strong>A hold-out that shows the correction earns its place.</strong> Chapter 7
+   Sec. 7.4.6's rule, unchanged: it must reduce the residual spread on a
+   week neither the fit nor the fix has seen. If it does not beat 2.0 on
+   fresh data, it is three artifacts of maintenance for nothing.</li>
+</ol>
+<p><em>Note what this is worth if condition 3 fails, which is a real
+possibility.</em> Then the answer is no, and finding that out costs one week of
+held-out data.</p>
+<h3 id="873-proposal-3-a-camera-on-the-pot">8.7.3 Proposal 3: a camera on the pot</h3>
+<p><em>The pitch.</em> "A cheap camera and a small vision model can tell whether the
+dripper is over the soil."</p>
+<p><strong>Accepted, and it is the best of the four</strong>, because of what it does to the
+credibility argument rather than what it does to the model.</p>
+<p>Chapter 4's assumption A3 said that all delivered water reaches the sensed
+soil, and Chapter 4 was blunt that this was design-limiting: a dose that
+arrives but misses the sensor is <em>indistinguishable</em> from a pump failure.
+Chapter 7's credibility argument had to carry that as an admitted
+limitation: "cannot distinguish a failed pump from a displaced dripper."</p>
+<p>No amount of moisture modelling removes that limitation, because the two
+cases are identical in the available data. A camera makes them different.
+This is Sec. 8.3.4's point in its strongest form: <strong>a perception service can
+delete a row from the limitations section, which is something no improvement
+to the model can do.</strong></p>
+<p>What it costs, stated honestly: a camera, a labelled dataset of displaced
+and correctly-placed drippers (small, and you can create the positive
+examples deliberately, which is a rare luxury), a service, and its own
+credibility claim with its own miss rate and false-alarm rate. It also
+inherits Sec. 8.3.4's failure modes -- lighting, a dirty lens -- so its
+envelope needs stating and its unavailability needs a defined behaviour.</p>
+<p><strong>Whether to build it is Chapter 1's question, not this chapter's.</strong> Does
+distinguishing the two faults change what anybody does? If both faults send
+the same researcher to the same rig, the distinction is worth little and the
+camera is a nice-to-have. If a displaced dripper can be fixed remotely and a
+failed pump cannot, it is worth a great deal. Ask before building.</p>
+<h3 id="874-proposal-4-a-learned-watering-policy">8.7.4 Proposal 4: a learned watering policy</h3>
+<p><em>The pitch.</em> "Rather than the fixed schedule, learn a policy that decides
+doses from the current state."</p>
+<p><strong>Declined for now, with a route to yes</strong>, following Sec. 8.3.5's rule. This
+would put a model nobody can interrogate directly behind the actuation
+guard, on the first closed loop this system has ever had. The latency
+argument does not apply -- Chapter 4 Sec. 4.5.3 recorded that the pot's
+physics model evaluates in nanoseconds, and Chapter 5 Sec. 5.3.4 costed a
+whole run at 32 microseconds -- so a search over candidate schedules is
+affordable, and Chapter 6 Sec. 6.7 already sized it.</p>
+<p>The route to yes: ship the searching version, run it for a season, and see
+what it chooses. If a learned policy is still wanted afterwards, it can be
+trained against the search's decisions and evaluated against the search as
+an oracle, which is a far better position than training it against nothing.</p>
+<p><strong>And Sec. 8.5.3's warning applies to whichever version ships.</strong> A
+controller holding moisture at target removes the variation the drying model
+learns from. Whatever closes this loop, the calibration campaigns of Chapter
+7 keep running, the doses are logged as inputs, and somebody schedules the
+occasional deliberate drift.</p>
+<h3 id="875-the-scorecard">8.7.5 The scorecard</h3>
+<table>
+<thead>
+<tr>
+<th>Proposal</th>
+<th>Decision</th>
+<th>Deciding reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Learned fault-detection model</td>
+<td><strong>No</strong></td>
+<td>Mechanism is derivable; training data contains the faults (Sec. 8.5.1)</td>
+</tr>
+<tr>
+<td>Learned drying correction</td>
+<td><strong>Yes</strong>, with coverage check, fallback and a hold-out</td>
+<td>Absorbs effects nobody derived, without learning the fault expectation</td>
+</tr>
+<tr>
+<td>Camera for dripper placement</td>
+<td><strong>Yes</strong>, if the distinction changes a decision</td>
+<td>Removes an admitted limitation, which modelling cannot</td>
+</tr>
+<tr>
+<td>Learned watering policy</td>
+<td><strong>Not yet</strong></td>
+<td>Learned policy behind the actuation guard on a first closed loop</td>
+</tr>
+</tbody>
+</table>
+<p>Two of four accepted, one conditionally, one deferred -- and the accepted
+ones are accepted for reasons that have nothing to do with the technology
+being good. That is the chapter's thesis in miniature, and it is the same
+shape as Chapter 6 Sec. 6.9's and Chapter 7 Sec. 7.8's: <strong>the question is
+never whether the method works, it is whether this decision needs it.</strong></p>
+<hr />
+<h2 id="88-faded-example-the-offshore-turbine-with-ai">8.8 Faded example: the offshore turbine, with AI</h2>
+<p>Chapters 4 through 7 each took the offshore turbine one step further:
+model families, run sizing, simulator choice, and a credibility argument
+with two outputs at two levels of rigour. Now place the machine learning.
+Two parts are worked; four are yours.</p>
+<p><strong>The system, recapped.</strong> A monitoring twin for a floating offshore wind
+turbine: a reduced-order structural model, a Kalman filter estimating loads
+from a handful of sensors, and a fatigue service reporting remaining life.
+Two outputs -- maintenance scheduling (advisory) and life extension
+(certification, and a much harder evidence bar).</p>
+<p><strong>(a) The anomaly detector -- worked.</strong> This is Sec. 8.3.1's job and the
+strongest candidate in the system. Diagnostic twins for floating offshore
+wind do exactly this: unsupervised learning builds a model of normal
+operation, detects anomalies and supports diagnosis on an operational
+turbine [7]. Three things make it a good fit here,
+and each is a general lesson.</p>
+<p><em>It needs no failure labels</em>, which is decisive, because Sec. 8.3.2's label
+problem is acute for a fleet of assets that mostly have not failed.</p>
+<p><em>It runs on residuals, not raw signals.</em> The Kalman filter already produces
+a prediction and a measurement every step; their difference is the natural
+input, and it is a far smaller thing to learn than the sea state.</p>
+<p><em>Its output goes to a human</em>, so Sec. 8.3.6's actuation test is passed
+trivially and Chapter 3's guard is not involved.</p>
+<p><strong>(b) Where the reduced-order model sits -- worked, because it is the
+classification people get wrong.</strong> The reduced-order model is Chapter 6's
+surrogate: fitted to a higher-fidelity model, solving a speed problem. It is
+tempting to file it under "the twin uses AI". Resist. Whether it was built
+by projection or by fitting a network, it is <em>in the model slot</em> and it is
+validated against the model it was reduced from -- which validates the
+reduction, not the physics. Chapter 7 Sec. 7.9(b) already made this point
+and it is worth repeating because the classification decides what evidence
+is owed.</p>
+<p>Now yours.</p>
+<p><strong>(c)</strong> The life-extension output feeds a certification decision. Using
+Sec. 8.6.1's extended table, say which rows make a <em>learned</em> component
+hardest to defend in that setting, and whether you would allow one in the
+fatigue path at all. <em>Hint: which row invalidates an argument backwards?</em></p>
+<p><strong>(d)</strong> Sec. 8.5.3's feedback loop was posed for a controller. Does it apply
+here? The twin is advisory, so it does not act -- but it does schedule
+maintenance. Work out whether maintenance driven by the twin changes the
+data the twin's next model is trained on, and in which direction. <em>Hint:
+what happens to the population of observed near-failures when you get good
+at preventing failures?</em></p>
+<p><strong>(e)</strong> Build the input-coverage table for the anomaly detector, following
+Sec. 8.6.2. Name three input dimensions, and say what "refuse" should mean
+for an offshore asset where the fallback cannot be "fall back to the physics
+model" in the same cheap way it was for the pot. <em>Hint: what is the safe
+behaviour of a monitoring service that does not know whether to trust
+itself?</em></p>
+<p><strong>(f)</strong> A vendor proposes using the twin as a training environment for a
+control agent, per Sec. 8.4. Write the three questions from Sec. 8.4.2's
+sanity check as they apply here, and say what in Chapter 7's turbine
+credibility argument would have to exist first.</p>
+<hr />
+<h2 id="89-posed-problem-reviewing-the-ai-twin-proposal">8.9 Posed problem: reviewing the AI twin proposal</h2>
+<p>No solution is given. This is the deliverable, and it is deliberately the
+document you are most likely to be handed in real life.</p>
+<p><strong>The situation.</strong> You are the engineering reviewer for a proposed twin of a
+hospital's chilled-water plant: four chillers, cooling towers, pumps, and a
+building load that varies with weather and occupancy. The vendor's proposal
+promises an "AI-native digital twin" that will:</p>
+<ol>
+<li>predict plant energy use an hour ahead;</li>
+<li>detect chiller faults early from an "AI anomaly engine trained on two
+   years of building management system data";</li>
+<li>recommend chiller sequencing to minimise energy cost, with an option to
+   apply the recommendations automatically in a later phase;</li>
+<li>answer operator questions in natural language.</li>
+</ol>
+<p>The proposal says the anomaly engine "achieves 98.7 per cent accuracy" and
+that "the AI model continuously learns from live data".</p>
+<p><strong>Produce a review of no more than four pages containing:</strong></p>
+<ol>
+<li><strong>A classification of each of the four features</strong> against Sec. 8.1's
+   three claims and, where relevant, Sec. 8.3's six jobs. Say for each
+   whether the learning is in the model slot or beside it.</li>
+<li><strong>Your objection to "98.7 per cent accuracy"</strong>, in the form of the two
+   numbers you require instead and the denominators you require with them.
+   Estimate, from a stated assumption about how often a chiller fault
+   occurs, what accuracy an empty function would achieve.</li>
+<li><strong>The question that decides feature 2</strong>, from Sec. 8.5.1: what certified
+   the two years of data as normal? Say what you will do if the answer is
+   "nothing did", and note that a hospital plant with two years of
+   unlabelled history has almost certainly had faults in it.</li>
+<li><strong>An analysis of "continuously learns from live data"</strong> using Sec. 8.5.2
+   and Sec. 8.5.3. Two things to establish: what happens to the credibility
+   argument on each retrain, and what feature 3 does to the data feature 2
+   trains on once sequencing is automated.</li>
+<li><strong>A position on feature 3's automatic phase</strong>, using Sec. 8.3.5's rule
+   and Chapter 2 Sec. 2.8. State what must exist before you would agree, and
+   who owns the safety argument for a hospital's cooling.</li>
+<li><strong>A boundary drawing for feature 4</strong>, following Sec. 8.3.6's test: where
+   does the generated text go, and what is your requirement if the answer is
+   ever "to an endpoint"?</li>
+<li><strong>The input-coverage table you will require</strong>, per Sec. 8.6.2, with at
+   least four input dimensions, the fallback behaviour for each, and the
+   per-dimension limitation stated honestly.</li>
+<li><strong>The three expiry conditions</strong> from Sec. 8.6.3, with owners, plus one
+   sentence on which of them can invalidate the argument retroactively.</li>
+</ol>
+<p><strong>What a good review looks like.</strong> It does not object to AI. It classifies
+each feature, prices each one separately, and accepts the ones that are
+sound -- feature 1 is very likely the best value in the proposal and the
+review should say so. It notices that features 2 and 3 interact through the
+data even though the proposal presents them as independent. It asks who
+certified the training data before it asks anything about the model. And it
+says plainly that the automatic phase of feature 3 needs a safety argument
+that this review is not, and that no amount of accuracy substitutes for.</p>
+<hr />
+<h2 id="810-summary">8.10 Summary</h2>
+<p>Seven things, tied to the five objectives.</p>
+<ol>
+<li><strong>"AI" and "digital twin" are three separable claims</strong> (Sec. 8.1): the
+   learning is in the model slot, beside it as a service, or the twin is
+   being used to train something else. They cost differently, fail
+   differently and owe different evidence. "In the model, or beside it?" is
+   the question that starts the real conversation. <em>(Objective 1.)</em></li>
+<li><strong>One question decides the model slot</strong> (Sec. 8.2.2): can somebody write
+   down the mechanism? If yes, derive it -- you get inspectable parameters,
+   an assumption ledger and a predictable failure mode. If no, fitting is
+   the only route. The answer is usually "some of both", and the right
+   arrangement keeps the largest inspectable part inspectable.
+   <em>(Objective 1.)</em></li>
+<li><strong>Most machine learning in deployed twins is not in the model slot</strong>
+   (Sec. 8.3). Six jobs: anomaly detection, prognostics, forecasting the
+   inputs, perception, optimisation and control policy, and language
+   interfaces. Forecasting is often the best value per unit of effort;
+   perception is the only one that can delete a row from the limitations
+   section; a learned control policy behind the actuation guard is the one
+   to be slowest about. <em>(Objective 2.)</em></li>
+<li><strong>The arrow runs the other way too</strong> (Sec. 8.4). A twin is a safe place
+   to train an agent and a source of labelled data it is otherwise
+   impossible to get. The sim-to-real gap is the whole difficulty, and
+   Chapter 7's limitations section is the list of things the agent will be
+   confidently wrong about. <em>(Objective 2.)</em></li>
+<li><strong>Accuracy is the wrong number for a rare event</strong> (Sec. 8.5.1). Of 200
+   doses with 6 faults, the physics threshold missed 0 and the learned
+   detector missed 4 -- yet scored 99.0 and 96.5 per cent, and an empty
+   function scored 97.0. Report the miss rate and the false-alarm rate with
+   their denominators, then convert to the value metric: 16 experiment-days
+   lost. <strong>A learned detector's ceiling is set by what its training data
+   called normal</strong>, which is Chapter 4's argument, generalised.
+   <em>(Objective 3.)</em></li>
+<li><strong>Four risks a twin adds</strong> (Sec. 8.5): drift you cannot attribute because
+   there is no assumption ledger; a data feedback loop in which the twin's
+   own control removes the variation its next model needs; opacity that
+   lands in the incident review and the 3 a.m. alert; and an attack surface
+   that now includes the training data. <em>(Objective 4.)</em></li>
+<li><strong>The credibility argument gains three expiry rows and a runtime check</strong>
+   (Sec. 8.6). The input-coverage check is twenty lines, is stored with the
+   model, refuses per dimension, falls back, and logs -- and its
+   graceful-degradation path was bought back in Chapter 4 by choosing
+   corrected physics over a pure learned model. Per-dimension coverage is
+   necessary and not sufficient, and saying so in the document is what makes
+   the rest of it credible. <em>(Objective 5.)</em></li>
+</ol>
+<p><strong>And Part II's closing note, since this is where it ends.</strong> Five chapters
+ago you could not have said what a model was. You still cannot build one,
+and that was never the goal. What you can do now is sit in a room with the
+people who can, follow what they are arguing about, ask the question that
+changes the answer, and know which of their promises will need evidence
+later and what that evidence looks like. Part II's whole claim was that this
+is a learnable skill distinct from becoming a modeller, and that a software
+engineer who has it is worth far more to a twin project than one who has
+neither. Part III now builds the system all of this runs in.</p>
+<hr />
+<h2 id="811-exercises">8.11 Exercises</h2>
+<p>Solutions or hints follow. Each exercise names the objective it exercises.</p>
+<p><strong>8.11.1</strong> <em>(Objectives 1 and 2.)</em> Classify each proposal as model-slot AI,
+service-side AI, twin-as-training-environment, or none of the three -- and,
+where it is service-side, say which of Sec. 8.3's six jobs it is: (a) a
+network that predicts a pump's outlet pressure from its inlet pressure and
+speed, called by the simulation runner; (b) a model that reads a dial from a
+webcam; (c) generating ten thousand rendered images of a valve in different
+lighting to train a defect classifier; (d) a dashboard that highlights the
+five sensors with the largest residuals; (e) a language model that drafts
+the weekly plant report.</p>
+<p><strong>8.11.2</strong> <em>(Objective 1.)</em> For each of these, decide whether to derive or
+to fit, and say why in one sentence: (a) the volume of water in a tank of
+known dimensions at a known level; (b) how long a specific brand of filter
+lasts before clogging in this particular water; (c) the current drawn by a
+motor at a given load, where the datasheet exists; (d) how long an operator
+will delay responding to an alert at night.</p>
+<p><strong>8.11.3</strong> <em>(Objective 3.)</em> A vibration-based bearing-fault detector is
+tested on 500 machine-hours containing 8 hours of genuine fault. It alerts
+during 5 of the fault hours and during 20 of the healthy hours. Build the
+confusion matrix, compute accuracy, the miss rate and the false-alarm rate,
+and compute what accuracy a detector that never alerts would achieve. Then
+say which single number you would put in the credibility argument's claim
+sentence.</p>
+<p><strong>8.11.4</strong> <em>(Objective 3.)</em> Continuing 8.11.3: the team proposes lowering
+the threshold, which raises the alerts to 7 of 8 fault hours and 60 of 492
+healthy hours. Recompute both rates. State the condition under which this is
+an improvement, in terms of the relative cost of a missed fault and a false
+alarm, and give one operational reason a high false-alarm rate can make a
+detector worse than useless even when its miss rate improves.</p>
+<p><strong>8.11.5</strong> <em>(Objective 4.)</em> A traffic-management twin learns to predict
+junction queue lengths and uses the predictions to retime the lights. It is
+retrained monthly on operational data. Describe the feedback loop in four
+steps, following Sec. 8.5.3, and propose one defence that does not require
+degrading the traffic control.</p>
+<p><strong>8.11.6</strong> <em>(Objective 4.)</em> Your anomaly detector was trained on "January
+through March, a normal quarter". In August somebody discovers that a
+sensor was reading 4 per cent low for all of February. State three things
+that are now in question, and say which of them can be resolved without
+retraining.</p>
+<p><strong>8.11.7</strong> <em>(Objective 5.)</em> Write the input-coverage table for a learned
+model that predicts a building's next-hour electricity demand from outdoor
+temperature, hour of day, day of week, and yesterday's peak demand. Give a
+range for each, a refusal behaviour for each, and identify which dimension
+makes the per-dimension limitation of Sec. 8.6.2 most dangerous here.</p>
+<p><strong>8.11.8</strong> <em>(Objective 5.)</em> Chapter 7's credibility argument for the
+demonstrator had five parts. Rewrite its <strong>limits</strong> paragraph on the
+assumption that Proposal 2 of Sec. 8.7.2 has shipped -- the drying
+correction is learned. Add what must be added and remove nothing that
+Chapter 7 admitted.</p>
+<p><strong>8.11.9</strong> <em>(Objectives 1 and 4.)</em> A colleague argues: "the physics model is
+just a model with hand-fitted parameters, so it is machine learning with
+fewer steps -- the distinction in this chapter is a false one." Write the
+strongest version of their argument in two sentences, then the reply. <em>This
+is a genuinely good objection and the reply is not that they are wrong about
+everything.</em></p>
+<p><strong>8.11.10</strong> <em>(Objectives 1-5, and the one that leaves the book.)</em> Take the
+real plant-controller rig and the credibility argument you wrote for
+exercise 7.12.10. Pick exactly one of Sec. 8.3's six jobs, justify the
+choice from your own value metric, and write a one-page proposal for it
+containing: the job, what it needs, its failure mode, the two rates you will
+hold it to, its input-coverage table, and the row it adds to your expiry
+conditions. Then decide, honestly, whether you would fund it.</p>
+<h3 id="solutions-and-hints">Solutions and hints</h3>
+<p><strong>8.11.1.</strong> (a) Model slot -- it is called by the runner and produces state.
+(b) Service-side, Sec. 8.3.4's perception job. (c) Twin as training
+environment, specifically Sec. 8.4.1's dataset-generation half. (d)
+<strong>None of the three.</strong> Sorting residuals by size is arithmetic; a dashboard
+that does it is not AI, and the exercise is here because such a feature is
+routinely sold as one. (e) Service-side, Sec. 8.3.6, with the boundary
+question: the report goes to a human, so it is an interface.</p>
+<p><strong>8.11.2.</strong> (a) Derive -- geometry, and the mechanism is a formula. (b) Fit
+-- clogging depends on this water's particulates in ways no datasheet
+covers; this is Sec. 8.2.2's "nobody can write it down". (c) Derive from the
+datasheet, then check the residual; if the residual has structure, that is
+the case for a learned correction, not for replacing the datasheet. (d)
+Neither, and this is the trap: it is a human-behaviour question that a twin
+should not be quietly answering with a model. Measure it, report it as a
+distribution of observed delays, and let it inform the <em>decision latency</em>
+Chapter 1 Sec. 1.2 defined -- but do not build a predictor of operator
+behaviour without saying out loud that you are doing so.</p>
+<p><strong>8.11.3.</strong> Fault hours 8, healthy hours 492.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Fault (8)</th>
+<th>Healthy (492)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alerted</td>
+<td>5</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Silent</td>
+<td>3</td>
+<td>472</td>
+</tr>
+</tbody>
+</table>
+<p>Accuracy = (5 + 472) / 500 = 477 / 500 = <strong>95.4 per cent</strong>. Miss rate =
+3 / 8 = <strong>37.5 per cent</strong>. False-alarm rate = 20 / 492 = <strong>4.1 per cent</strong>. A
+detector that never alerts scores 492 / 500 = <strong>98.4 per cent</strong> accuracy --
+better than the real one, again. For the claim sentence, neither rate alone
+is right: put both, with denominators, and if forced to one, the miss rate,
+because it is the one the value metric is about.</p>
+<p><strong>8.11.4.</strong> New matrix: alerted 7 of 8 faults, 60 of 492 healthy. Miss rate
+= 1 / 8 = <strong>12.5 per cent</strong>. False-alarm rate = 60 / 492 = <strong>12.2 per
+cent</strong>. It is an improvement when the cost of one missed fault exceeds
+roughly the cost of the 40 extra false alarms it buys -- 2 extra faults
+caught for 40 extra alarms, so about 20 false alarms per fault caught. For a
+bearing whose failure destroys a machine, worth it many times over; for one
+that
+merely needs replacing sooner, not. <strong>The operational reason:</strong> alarm
+fatigue. A detector firing 60 times over 500 hours will be muted, and a
+muted detector has a miss rate of 100 per cent regardless of what the test
+said. That effect is invisible in every number above.</p>
+<p><strong>8.11.5.</strong> (i) The model learns to predict queues from the variation in
+observed queues. (ii) The retimed lights exist to reduce that variation and
+do. (iii) The next month's training data contains less of the queue-building
+behaviour the model needs. (iv) Predictions degrade, timing degrades, queues
+return, and the system oscillates around mediocre. <strong>A defence that costs no
+control quality:</strong> log the signal timings as first-class model inputs, so
+the model learns the <em>response</em> to timing rather than the bare queue
+history. (Deliberate perturbation also works and is the other standard
+answer, but it degrades control, which the question excluded.)</p>
+<p><strong>8.11.6.</strong> In question: (i) every anomaly-detection result since
+deployment, because February's readings were part of what defined normal;
+(ii) the detector's stated miss and false-alarm rates, which were measured
+against a baseline that was itself wrong; (iii) any downstream decision
+taken on a February-influenced alert or silence. <strong>Resolvable without
+retraining:</strong> (iii), by re-reviewing the affected decisions from the audit
+record -- if Chapter 3's record was built. (i) and (ii) require retraining
+on corrected data and re-running the evaluation. Note that this is
+Sec. 8.6.3's third expiry trigger, the one that invalidates backwards.</p>
+<p><strong>8.11.7.</strong> <em>Hint, not a solution.</em> Ranges should come from the data, not
+from what seems sensible. Outdoor temperature and yesterday's peak get
+numeric min and max; hour of day and day of week are categorical, and
+"outside the range" for them means a value never seen, which is rare and
+worth thinking about anyway. <strong>The dangerous dimension is temperature in
+combination with day of week:</strong> the training data almost certainly contains
+hot weekdays and cool weekends, and a hot public holiday passes every
+per-dimension check while being a combination the model has never seen. That
+is Sec. 8.6.2's limitation with a specific victim.</p>
+<p><strong>8.11.8.</strong> <em>Hint.</em> Chapter 7's limits paragraph admitted the sensor range,
+the 12-hour horizon, assumption A3, the 16 per cent detection floor, and
+assumption A5. All of those stand. Add: the learned correction's training
+ranges for temperature, humidity and light, with the statement that outside
+them the twin falls back to physics-only and the prediction degrades in a
+known direction; the per-dimension limitation on coverage checking; and the
+fact that the correction's contribution has been validated only against the
+weather that occurred during the training and hold-out periods. A good
+answer also notes that the <em>claim</em> sentence may now need two versions --
+one with the correction active and one for the fallback.</p>
+<p><strong>8.11.9.</strong> Their argument, stated strongly: "Both models have parameters
+whose values come from data. Chapter 7 fitted <code>k</code> and <code>g</code> by minimising
+residuals, which is what training is; the only difference is the number of
+parameters, and treating three as a different kind of thing from three
+million is arbitrary." <strong>The reply, and it concedes the first half.</strong> They
+are right that calibration and training are the same operation, and this
+book has said so -- Chapter 7 Sec. 7.4.3 called the objective a choice and
+pointed at the same optimisation literature that trains networks. The
+difference is not the fitting, it is <strong>what the structure came from</strong>. The
+pot model's structure came from a conservation statement, which is why it
+has an assumption ledger, an inspectable <code>k</code>, a failure mode that drifts in
+a predictable direction, and a validity envelope derivable without any data.
+A learned model's structure came from a family chosen for flexibility, so
+none of those four exist and Sec. 8.6.1's table has to replace them. The
+distinction that survives is not fitted-versus-not; it is <strong>derived
+structure versus assumed structure</strong>, and everything this chapter says about
+risk follows from that, not from the parameter count.</p>
+<p><strong>8.11.10.</strong> No solution. One prediction: the honest answer to the last
+question will more often be no than you expect, and writing down what a
+service needs is what makes that answer visible before the money is spent
+rather than after.</p>
+<hr />
+<h2 id="812-where-to-go-next">8.12 Where to go next</h2>
+<p><strong>In this book.</strong> Part II ends here and Part III builds the system. Chapter
+9 is the connector that supplies every measurement this chapter's services
+consume. Chapter 10 is the store and the data engineering -- and it is where
+the training-data provenance that Sec. 8.2.3 and Sec. 8.6.3 depend on is
+actually built; a reader who found this chapter's registry requirements
+demanding should read Chapter 10 as the answer to them. Chapter 11 builds
+the services of Sec. 8.3 properly, including the optimisation that
+Sec. 8.3.5 distinguished from a learned policy. Chapter 12 is where the
+deployment questions of Sec. 8.3.7 -- edge, cloud, federated -- get decided,
+and where platforms that bundle ML tooling with twin tooling are assessed;
+open-source frameworks that integrate simulation models and learned models
+side by side already exist and are surveyed [24], [25]. Chapter 13 covers standards and regulation,
+including the AI-specific compliance landscape this chapter named once
+[26]. <strong>Chapter 14 is the one this chapter leans on
+hardest</strong>: every retraining trigger in Sec. 8.6.3 is a Chapter 14 workflow,
+and the validation-cadence problem of Sec. 8.5.2 is Chapter 14's to solve
+operationally. Chapter 15 asks what happens when twins compose, which is
+where the fleet-scale learning of Sec. 8.3.2 becomes an architecture
+question.</p>
+<p><strong>In the literature, if you want more.</strong> Grouped by what you would read
+them for.</p>
+<ul>
+<li><em>AI and twins, the overall picture:</em> [1] for enabling
+  technologies, [5] for the modelling-perspective view
+  of why hybrid arrangements dominate, and [27] for
+  AI-in-cyber-physical-systems including the safety and data-quality
+  standards work now under development.</li>
+<li><em>The twin as a training environment:</em> [18] is the systematic
+  survey and the source of Sec. 8.4's two-way split;
+  [15] for the generative angle on synthetic data.</li>
+<li><em>Learning as a service, by job:</em> [7] for anomaly
+  detection on a real offshore asset, [4] for the
+  novelty-detection tradition it comes from, [9]
+  for the prognostics literature, [12] and
+  [10] for the battery case done with uncertainty taken
+  seriously, and [13] and [14] for the
+  two standard responses to label scarcity.</li>
+<li><em>Risk and trust:</em> [20] for explainability in
+  industrial settings, [21] for the twin security
+  landscape including attacks on learned models, and
+  [22] for the clearest statement that one-off
+  credibility assessment does not transfer to data-driven models.</li>
+<li><em>Consulted, not drawn on above:</em> [16] on twins
+  supporting on-device learning for constrained hardware,
+  [17] on federated training in twin settings,
+  [28] on stating twin fidelity as knowledge equivalence,
+  [29] on dependability across the data spectrum, and
+  [19] on why validation speed is the bottleneck when
+  twins are produced industrially rather than one at a time.</li>
+</ul>
+<p><strong>In the demonstrator.</strong> Exercise 8.11.10 is the assignment, and it is
+deliberately a proposal rather than an implementation, because the skill
+this chapter exists to teach is deciding. If you want to build something
+anyway, build the input-coverage check of Sec. 8.6.2 against the model you
+already have -- it is twenty lines, it needs no machine learning at all, and
+the first time it refuses a reading you will understand why this chapter put
+it in the credibility argument rather than in the model.</p>
+<h2 id="813-references">8.13 References</h2>
+<p>[1] S. Mihai et al., "Digital Twins: A Survey on Enabling Technologies, Challenges, Trends and Future Prospects," <em>IEEE Communications Surveys &amp; Tutorials</em>, vol. 24, no. 4, pp. 2255–2291, 2022.</p>
+<p>[2] Y. Jiang, S. Yin, K. Li, H. Luo, and O. Kaynak, "Industrial applications of digital twins," <em>Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences</em>, vol. 379, no. 2207, p. 20200360, Royal Society, 2021.</p>
+<p>[3] Z. Chen et al., "Service oriented digital twin for additive manufacturing process," <em>Journal of Manufacturing Systems</em>, vol. 74, pp. 762–776, 2024.</p>
+<p>[4] K. Worden, G. Tsialiamanis, E. J. Cross, and T. J. Rogers, "Artificial Neural Networks," in <em>Machine Learning in Modeling and Simulation: Methods and Applications</em>, pp. 85–119, Springer International Publishing, 2023.</p>
+<p>[5] A. Rasheed, O. San, and T. Kvamsdal, "Digital Twin: Values, Challenges and Enablers From a Modeling Perspective," <em>IEEE Access</em>, vol. 8, pp. 21980–22012, 2020.</p>
+<p>[6] M. Heithoff, M. Trinh, J. Michael, B. Rumpe, and C. Brecher, <em>A Digital Shadow for Accurate Robot Motion Control: Integrating Data with Friction Models</em>, 2025.</p>
+<p>[7] F. Stadtmann and A. Rasheed, <em>Diagnostic Digital Twin for Anomaly Detection in Floating Offshore Wind Energy</em>, arXiv, 2024.</p>
+<p>[8] C. Gomes et al., "Digital Twin Tutorial: The Incubator Case Study," in <em>Engineering Trustworthy Software Systems: 6th International School, SETSS 2024, Chongqing, China, April 14–21, 2024, Tutorial Lectures</em>, pp. 68–101, Springer Nature, 2025.</p>
+<p>[9] R. van Dinter, B. Tekinerdogan, and C. Catal, "Predictive maintenance using digital twins: A systematic literature review," <em>Information and Software Technology</em>, vol. 151, p. 107008, 2022.</p>
+<p>[10] A. Thelen, M. Li, C. Hu, E. Bekyarova, S. Kalinin, and M. Sanghadasa, "Augmented model-based framework for battery remaining useful life prediction," <em>Applied Energy</em>, vol. 324, p. 119624, 2022.</p>
+<p>[11] T. Li et al., "Coupling a capacity fade model with machine learning for early prediction of the battery capacity trajectory," <em>Applied Energy</em>, vol. 389, p. 125703, 2025.</p>
+<p>[12] A. Thelen, X. Huan, N. Paulson, S. Onori, Z. Hu, and C. Hu, "Probabilistic machine learning for battery health diagnostics and prognostics—review and perspectives," <em>npj Materials Sustainability</em>, vol. 2, no. 1, pp. 1–33, Nature Publishing Group, 2024.</p>
+<p>[13] Q. Xu, T. Yue, S. Ali, and M. Arratibel, <em>Pretrain, Prompt, and Transfer: Evolving Digital Twins for Time-to-Event Analysis in Cyber-physical Systems</em>, arXiv, 2024.</p>
+<p>[14] P. Gardner, L. A. Bull, J. Gosliga, N. Dervilis, and K. Worden, "Foundations of population-based SHM, Part III: Heterogeneous populations – Mapping and transfer," <em>Mechanical Systems and Signal Processing</em>, vol. 149, p. 107142, 2021.</p>
+<p>[15] C. Savaglio, V. Barbuto, F. Mangione, and G. Fortino, "Generative Digital Twins: A Novel Approach in the IoT Edge-Cloud Continuum," <em>IEEE Internet of Things Magazine</em>, vol. 8, no. 1, pp. 42–48, 2025.</p>
+<p>[16] A. Barbone, N. Bicocchi, M. Martinelli, R. Morandi, and M. Picone, "On-device AI and digital twins: A synergistic approach to intelligent cyber-physical systems," <em>Future Generation Computer Systems</em>, vol. 175, p. 108068, 2026.</p>
+<p>[17] Y. Lu, X. Huang, K. Zhang, S. Maharjan, and Y. Zhang, "Communication-Efficient Federated Learning and Permissioned Blockchain for Digital Twin Edge Networks," <em>IEEE Internet of Things Journal</em>, vol. 8, no. 4, pp. 2276–2288, 2021.</p>
+<p>[18] X. Liu and I. David, "AI simulation by digital twins: systematic survey, reference framework, and mapping to a standardized architecture," <em>Software and Systems Modeling</em>, 2025.</p>
+<p>[19] S. A. Niederer, M. S. Sacks, M. Girolami, and K. Willcox, "Scaling digital twins from the artisanal to the industrial," <em>Nature Computational Science</em>, vol. 1, no. 5, pp. 313–320, Nature Publishing Group, 2021.</p>
+<p>[20] C. Trivedi et al., "Explainable AI for Industry 5.0: Vision, Architecture, and Potential Directions," <em>IEEE Open Journal of Industry Applications</em>, vol. 5, pp. 177–208, 2024.</p>
+<p>[21] A. Jaber, I. Koufos, and M. Christopoulou, "A Comprehensive State-of-the-Art Review for Digital Twin: Cybersecurity Perspectives and Open Challenges," in <em>Advances on P2P, Parallel, Grid, Cloud and Internet Computing</em>, pp. 78–98, Springer Nature Switzerland, 2025.</p>
+<p>[22] M. Viceconti, M. De Vos, S. Mellone, and L. Geris, "Position Paper From the Digital Twins in Healthcare to the Virtual Human Twin: A Moon-Shot Project for Digital Health Research," <em>IEEE Journal of Biomedical and Health Informatics</em>, vol. 28, no. 1, pp. 491–501, 2024.</p>
+<p>[23] <em>Foundational Research Gaps and Future Directions for Digital Twins</em>, National Academies Press, 2024.</p>
+<p>[24] S. Gil, P. H. Mikkelsen, C. Gomes, and P. G. Larsen, "Survey on open‐source digital twin frameworks–A case study approach," <em>Software: Practice and Experience</em>, vol. 54, no. 6, pp. 929–960, 2024.</p>
+<p>[25] S. Infante et al., "Integrating FMI and ML/AI models on the open-source digital twin framework OpenTwins," <em>Software Practice and Experience</em>, 2024.</p>
+<p>[26] P. Singh, N. Meratnia, M. Beliatis, and M. Presser, <em>Navigating the International Data Space To Build Edge-Driven Cross-Domain Dataspace Ecosystem: English</em>, 2024.</p>
+<p>[27] J. Chae, S. Lee, J. Jang, S. Hong, and K.-J. Park, "A Survey and Perspective on Industrial Cyber-Physical Systems (ICPS): From ICPS to AI-Augmented ICPS," <em>IEEE Transactions on Industrial Cyber-Physical Systems</em>, vol. 1, pp. 257–272, 2023.</p>
+<p>[28] N. Zhang, R. Bahsoon, N. Tziritas, and G. Theodoropoulos, "Knowledge Equivalence in Digital Twins of Intelligent Systems," <em>ACM Transactions on Modeling and Computer Simulation</em>, vol. 34, no. 1, pp. 1–37, 2024.</p>
+<p>[29] Q. Xu, <em>Traversing the Data Spectrum: Path to Dependable Cyber-Physical Systems through Digital Twins</em>, 2023.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Prasad Talasila
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.tabs.sticky", "navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
